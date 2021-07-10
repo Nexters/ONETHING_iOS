@@ -10,16 +10,26 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: BaseViewController {
+    private let mainScrollView = UIScrollView()
     private let homeUpperView = HomeUpperView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureMainScrollView()
         configureHomeUpperView()
     }
     
+    private func configureMainScrollView() {
+        self.view.addSubview(self.mainScrollView)
+        
+        mainScrollView.snp.makeConstraints {
+            $0.leading.trailing.top.bottom.equalTo(self.view)
+        }
+    }
+    
     private func configureHomeUpperView() {
-        self.view.addSubview(homeUpperView)
+        self.mainScrollView.addSubview(self.homeUpperView)
         let safeArea = self.view.safeAreaLayoutGuide
         
         homeUpperView.snp.makeConstraints {
@@ -28,5 +38,7 @@ final class HomeViewController: BaseViewController {
             $0.height.equalTo(homeUpperView.snp.width).dividedBy(2.3)
         }
     }
+    
+    
 }
 
