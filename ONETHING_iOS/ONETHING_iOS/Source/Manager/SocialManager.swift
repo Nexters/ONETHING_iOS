@@ -13,7 +13,7 @@ import KakaoSDKAuth
 
 import AuthenticationServices
 
-class SocialManager {
+class SocialManager: NSObject {
     
     static let sharedInstance = SocialManager()
     
@@ -51,9 +51,48 @@ class SocialManager {
     }
     
     private func loginThroughApple() {
+        let appleIDProvider          = ASAuthorizationAppleIDProvider()
+        let appleRequest             = appleIDProvider.createRequest()
+        appleRequest.requestedScopes = [.email, .fullName]
         
+        let controller = ASAuthorizationController(authorizationRequests: [appleRequest])
+        controller.delegate                    = self
+        controller.presentationContextProvider = self
+        controller.performRequests()
     }
     
-    private init() { }
+    private override init() {
+        super.init()
+    }
+    
+}
+
+extension SocialManager: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return UIApplication.shared.windows.first(where: { $0.isKeyWindow })!
+    }
+    
+}
+
+extension SocialManager: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        guard let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+        
+        let userIdentifier = appleIDCredential.user
+        let userName       = appleIDCredential.fullName
+        let userEmail      = appleIDCredential.email
+        
+        #warning("Apple 토큰으로 서버로 던지는 거 필요")
+        print(appleIDCredential.identityToken)
+        print(userIdentifier)
+        print(userName)
+        print(userEmail)
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
     
 }
