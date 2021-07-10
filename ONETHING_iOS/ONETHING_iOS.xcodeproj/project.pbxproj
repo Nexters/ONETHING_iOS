@@ -68,6 +68,9 @@
 		F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
 		F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
 		F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
+		F267F9AF269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AE269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		F267F9B0269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AE269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		F267F9B1269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AE269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +149,7 @@
 		F267F9A2269A30E300219B05 /* HomeUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUpperView.swift; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		F267F9AE269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +330,7 @@
 				F267F9A2269A30E300219B05 /* HomeUpperView.swift */,
 				F267F9A6269A387000219B05 /* PercentView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
+				F267F9AE269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -795,6 +800,7 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				F267F9AF269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEB9B3A2269A314000A01590 /* TestTableViewCell.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
@@ -852,6 +858,7 @@
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
+				F267F9B1269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 				F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */,
@@ -877,6 +884,7 @@
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
+				F267F9B0269A544F00219B05 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 				F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */,

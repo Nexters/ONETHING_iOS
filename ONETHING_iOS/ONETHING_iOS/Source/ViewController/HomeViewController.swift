@@ -12,12 +12,22 @@ import SnapKit
 final class HomeViewController: BaseViewController {
     private let mainScrollView = UIScrollView()
     private let homeUpperView = HomeUpperView()
+    private var layout: LeftAlignedCollectionViewFlowLayout = {
+        var layout = LeftAlignedCollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.estimatedItemSize = CGSize(width: 60, height: 20)
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        return layout
+    }()
+    private var habitCalendarView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureMainScrollView()
         configureHomeUpperView()
+        configureHabitCalendarView()
     }
     
     private func configureMainScrollView() {
@@ -39,6 +49,18 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    
+    private func configureHabitCalendarView() {
+        habitCalendarView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        guard let habitCalendarView = self.habitCalendarView else { return }
+        
+        self.mainScrollView.addSubview(habitCalendarView)
+        let safeArea = self.view.safeAreaLayoutGuide
+        habitCalendarView.backgroundColor = .red
+        
+        habitCalendarView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(safeArea).inset(34)
+            $0.top.equalTo(homeUpperView.snp.bottom).offset(20)
+            $0.height.equalTo(self.view).multipliedBy(2)
+        }
+    }
 }
-
