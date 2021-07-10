@@ -19,17 +19,17 @@
 		CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
-		CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
+		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
 		CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72476E26998F3000BB2C19 /* ONETHING_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */; };
 		CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */; };
-		CE724788269992C700BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
+		CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
-		CE724796269992CC00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
+		CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
@@ -109,7 +109,7 @@
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE72475A26998F2D00BB2C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE72475A26998F2D00BB2C19 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE72475F26998F3000BB2C19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE72476226998F3000BB2C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE72476426998F3000BB2C19 /* AppStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStore-Info.plist"; sourceTree = "<group>"; };
@@ -323,9 +323,9 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE72475A26998F2D00BB2C19 /* ViewController.swift */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
+				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -786,7 +786,7 @@
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEB9B3A2269A314000A01590 /* TestTableViewCell.swift in Sources */,
-				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
+				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
@@ -822,7 +822,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE724788269992C700BB2C19 /* ViewController.swift in Sources */,
+				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -841,7 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE724796269992CC00BB2C19 /* ViewController.swift in Sources */,
+				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
