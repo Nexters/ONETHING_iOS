@@ -12,15 +12,8 @@ import SnapKit
 final class HomeViewController: BaseViewController {
     private let mainScrollView = UIScrollView()
     private let homeUpperView = HomeUpperView()
-    private var layout: LeftAlignedCollectionViewFlowLayout = {
-        var layout = LeftAlignedCollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        layout.estimatedItemSize = CGSize(width: 60, height: 20)
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        return layout
-    }()
-    private var habitCalendarView: UICollectionView?
+    private var habitCalendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +22,7 @@ final class HomeViewController: BaseViewController {
         configureHomeUpperView()
         configureHabitCalendarView()
     }
-    
+
     private func configureMainScrollView() {
         self.view.addSubview(self.mainScrollView)
         
@@ -50,17 +43,37 @@ final class HomeViewController: BaseViewController {
     }
     
     private func configureHabitCalendarView() {
-        habitCalendarView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        guard let habitCalendarView = self.habitCalendarView else { return }
+        
+        self.habitCalendarView.backgroundColor = .clear
+        self.habitCalendarView.dataSource = viewModel
+        self.habitCalendarView.register(HabitCalendarCell.self, forCellWithReuseIdentifier: HabitCalendarCell.reuseIdentifier)
+        self.habitCalendarView.delegate = self
         
         self.mainScrollView.addSubview(habitCalendarView)
         let safeArea = self.view.safeAreaLayoutGuide
-        habitCalendarView.backgroundColor = .red
         
-        habitCalendarView.snp.makeConstraints {
+        self.habitCalendarView.snp.makeConstraints {
             $0.leading.trailing.equalTo(safeArea).inset(34)
             $0.top.equalTo(homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(self.view).multipliedBy(2)
+            $0.height.equalTo(800)
         }
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        
+        let constant = (self.view.bounds.width - collectionView.frame.width) / 2
+        let diameter = (collectionView.frame.width - 2 * constant) / 4
+        
+        return CGSize(width: diameter.rounded(.down), height: diameter)
     }
 }
