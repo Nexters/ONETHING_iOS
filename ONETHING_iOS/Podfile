@@ -1,4 +1,5 @@
 # Uncomment the next line to define a global platform for your project
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '14.0'
 inhibit_all_warnings!
@@ -11,6 +12,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'Moya', '~> 14.0'
+  pod 'Kingfisher', '~> 6.0'
 
   target 'ONETHING_iOS Beta' do
   end
