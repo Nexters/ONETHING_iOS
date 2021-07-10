@@ -41,6 +41,9 @@
 		CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
 		CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		CE7247D02699D65C00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
+		CE7247D12699D65F00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
+		CE7247D22699D65F00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +100,7 @@
 		CE7247C22699C14800BB2C19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		CE7247C42699C3FF00BB2C19 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +233,7 @@
 			children = (
 				CE7247BD2699BE6500BB2C19 /* Extension */,
 				CE7247B4269995AA00BB2C19 /* Model */,
+				CE7247CE2699D65200BB2C19 /* ViewModel */,
 				CE7247B32699955900BB2C19 /* ViewController */,
 				CE7247B22699955600BB2C19 /* View */,
 				CE7247AD269994E400BB2C19 /* Network */,
@@ -289,6 +294,14 @@
 				CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE7247CE2699D65200BB2C19 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,6 +642,7 @@
 				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247D02699D65C00BB2C19 /* TestViewModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
@@ -662,6 +676,7 @@
 				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
+				CE7247D12699D65F00BB2C19 /* TestViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +690,7 @@
 				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
+				CE7247D22699D65F00BB2C19 /* TestViewModel.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
