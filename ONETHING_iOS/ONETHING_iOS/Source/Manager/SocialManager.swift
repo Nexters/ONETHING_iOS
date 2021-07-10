@@ -14,10 +14,12 @@ class SocialManager {
     
     static let sharedInstance = SocialManager()
     
-    private init() { }
-    
     func setup() {
         KakaoSDKCommon.initSDK(appKey: SocialAccessType.kakao.appKey)
+    }
+    
+    func handleSocialURLScheme(_ url: URL) {
+        if AuthApi.isKakaoTalkLoginUrl(url) { _ = AuthController.handleOpenUrl(url: url) }
     }
     
     func login(type: SocialAccessType) {
@@ -28,22 +30,23 @@ class SocialManager {
     }
     
     private func loginThroughKakao() {
-        UserApi.shared.loginWithKakaoAccount { authToken, error in
-            
-        }
-        
-        UserApi.shared.loginWithKakaoAccount { authToken, error in
-            authToken.
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                guard error != nil else { return }
+                #warning("oauth Token 이용 우리 서버에 request")
+                print(oauthToken?.accessToken)
+                print(oauthToken?.refreshToken)
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                guard error != nil else { return }
+                #warning("oauth Token 이용 우리 서버에 request")
+                print(oauthToken?.accessToken)
+                print(oauthToken?.refreshToken)
+            }
         }
     }
     
-}
-
-extension SocialManager {
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if AuthApi.isKakaoTalkLoginUrl(url) { return AuthController.handleOpenUrl(url: url, options: options) }
-        return false
-    }
+    private init() { }
     
 }
