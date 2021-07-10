@@ -6,9 +6,12 @@
 //
 
 import Foundation
+
 import KakaoSDKCommon
 import KakaoSDKUser
 import KakaoSDKAuth
+
+import AuthenticationServices
 
 class SocialManager {
     
@@ -22,7 +25,7 @@ class SocialManager {
         if AuthApi.isKakaoTalkLoginUrl(url) { _ = AuthController.handleOpenUrl(url: url) }
     }
     
-    func login(type: SocialAccessType) {
+    func login(with type: SocialAccessType) {
         switch type {
         case .kakao: self.loginThroughKakao()
         case .apple: break
