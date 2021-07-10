@@ -8,13 +8,16 @@
 import UIKit
 
 final class PercentView: UIView {
+    private let completedPercentView = UIView()
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let dayLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         configureLayer()
+        configureCompletedPercentLabel()
         configureDescriptionLabel()
         configureTitleLabel()
         configureDayLabel()
@@ -22,7 +25,9 @@ final class PercentView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
         configureLayer()
+        configureCompletedPercentLabel()
         configureDescriptionLabel()
         configureTitleLabel()
         configureDayLabel()
@@ -30,6 +35,17 @@ final class PercentView: UIView {
     
     private func configureLayer() {
         layer.cornerRadius = 7
+    }
+    
+    private func configureCompletedPercentLabel() {
+        completedPercentView.layer.cornerRadius = self.layer.cornerRadius
+        completedPercentView.backgroundColor = .systemTeal
+        
+        self.addSubview(completedPercentView)
+        completedPercentView.snp.makeConstraints {
+            $0.leading.top.bottom.equalTo(self)
+            $0.width.equalTo(self.snp.width).multipliedBy(0.66)
+        }
     }
     
     private func configureDescriptionLabel() {
