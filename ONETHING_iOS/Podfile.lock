@@ -1,0 +1,58 @@
+PODS:
+  - Alamofire (5.4.3)
+  - KakaoSDKAuth (2.5.4):
+    - KakaoSDKCommon (= 2.5.4)
+  - KakaoSDKCommon (2.5.4):
+    - KakaoSDKCommon/Common (= 2.5.4)
+    - KakaoSDKCommon/Network (= 2.5.4)
+  - KakaoSDKCommon/Common (2.5.4)
+  - KakaoSDKCommon/Network (2.5.4):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.5.4)
+  - KakaoSDKUser (2.5.4):
+    - KakaoSDKAuth (= 2.5.4)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - KakaoSDKUser
+  - Moya (~> 14.0)
+  - RxCocoa (= 6.2.0)
+  - RxSwift (= 6.2.0)
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
+    - Moya
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  KakaoSDKAuth: 6fbd3579e80efffa05a24f17f696c59ca5ab331f
+  KakaoSDKCommon: caa186f5cf6f7426ab5135b43001ad997e018daa
+  KakaoSDKUser: 285abc213101bd07a9b44735defd36994ea9ada8
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: a0fa6da8ca9ffe673ddf14ecd638724f7cabc63c
+
+COCOAPODS: 1.10.1
