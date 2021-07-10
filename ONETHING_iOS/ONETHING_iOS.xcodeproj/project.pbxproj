@@ -14,6 +14,25 @@
 		CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72476E26998F3000BB2C19 /* ONETHING_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */; };
 		CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */; };
+		CE724788269992C700BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
+		CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
+		CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
+		CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
+		CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
+		CE724796269992CC00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
+		CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
+		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
+		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
+		CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
+		CE7247AF269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
+		CE7247B0269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
+		CE7247B1269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
+		CE7247B6269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
+		CE7247B7269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
+		CE7247B8269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
+		CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
+		CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
+		CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +59,20 @@
 		CE72475A26998F2D00BB2C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE72475F26998F3000BB2C19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE72476226998F3000BB2C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		CE72476426998F3000BB2C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE72476426998F3000BB2C19 /* AppStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStore-Info.plist"; sourceTree = "<group>"; };
 		CE72476926998F3000BB2C19 /* ONETHING_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONETHING_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ONETHING_iOSTests.swift; sourceTree = "<group>"; };
 		CE72476F26998F3000BB2C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONETHING_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ONETHING_iOSUITests.swift; sourceTree = "<group>"; };
 		CE72477A26998F3000BB2C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING_iOS Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING_iOS Ent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE7247A22699938500BB2C19 /* Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beta-Info.plist"; sourceTree = "<group>"; };
+		CE7247A42699939100BB2C19 /* Ent-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ent-Info.plist"; sourceTree = "<group>"; };
+		CE7247AE269994F700BB2C19 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		CE7247B5269995C200BB2C19 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		CE7247B9269995C900BB2C19 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +91,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CE72477126998F3000BB2C19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE72478B269992C700BB2C19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE724799269992CC00BB2C19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -90,6 +130,8 @@
 				CE72475326998F2D00BB2C19 /* ONETHING_iOS.app */,
 				CE72476926998F3000BB2C19 /* ONETHING_iOSTests.xctest */,
 				CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */,
+				CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */,
+				CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,12 +139,11 @@
 		CE72475526998F2D00BB2C19 /* ONETHING_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CE7247A72699947A00BB2C19 /* Resource */,
+				CE7247A62699947500BB2C19 /* Source */,
 				CE72475626998F2D00BB2C19 /* AppDelegate.swift */,
 				CE72475826998F2D00BB2C19 /* SceneDelegate.swift */,
-				CE72475A26998F2D00BB2C19 /* ViewController.swift */,
-				CE72475F26998F3000BB2C19 /* Assets.xcassets */,
 				CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */,
-				CE72476426998F3000BB2C19 /* Info.plist */,
 			);
 			path = ONETHING_iOS;
 			sourceTree = "<group>";
@@ -123,6 +164,60 @@
 				CE72477A26998F3000BB2C19 /* Info.plist */,
 			);
 			path = ONETHING_iOSUITests;
+			sourceTree = "<group>";
+		};
+		CE7247A62699947500BB2C19 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247B4269995AA00BB2C19 /* Model */,
+				CE7247B32699955900BB2C19 /* ViewController */,
+				CE7247B22699955600BB2C19 /* View */,
+				CE7247AD269994E400BB2C19 /* Network */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CE7247A72699947A00BB2C19 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CE72475F26998F3000BB2C19 /* Assets.xcassets */,
+				CE72476426998F3000BB2C19 /* AppStore-Info.plist */,
+				CE7247A22699938500BB2C19 /* Beta-Info.plist */,
+				CE7247A42699939100BB2C19 /* Ent-Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CE7247AD269994E400BB2C19 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247AE269994F700BB2C19 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CE7247B22699955600BB2C19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247B5269995C200BB2C19 /* TestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE7247B32699955900BB2C19 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE72475A26998F2D00BB2C19 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE7247B4269995AA00BB2C19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247B9269995C900BB2C19 /* TestModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +276,40 @@
 			productReference = CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		CE724786269992C700BB2C19 /* ONETHING_iOS Beta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Beta" */;
+			buildPhases = (
+				CE724787269992C700BB2C19 /* Sources */,
+				CE72478B269992C700BB2C19 /* Frameworks */,
+				CE72478C269992C700BB2C19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ONETHING_iOS Beta";
+			productName = ONETHING_iOS;
+			productReference = CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CE724794269992CC00BB2C19 /* ONETHING_iOS Ent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Ent" */;
+			buildPhases = (
+				CE724795269992CC00BB2C19 /* Sources */,
+				CE724799269992CC00BB2C19 /* Frameworks */,
+				CE72479A269992CC00BB2C19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ONETHING_iOS Ent";
+			productName = ONETHING_iOS;
+			productReference = CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -217,6 +346,8 @@
 			projectRoot = "";
 			targets = (
 				CE72475226998F2D00BB2C19 /* ONETHING_iOS */,
+				CE724786269992C700BB2C19 /* ONETHING_iOS Beta */,
+				CE724794269992CC00BB2C19 /* ONETHING_iOS Ent */,
 				CE72476826998F3000BB2C19 /* ONETHING_iOSTests */,
 				CE72477326998F3000BB2C19 /* ONETHING_iOSUITests */,
 			);
@@ -247,6 +378,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE72478C269992C700BB2C19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE72479A269992CC00BB2C19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -255,7 +404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
+				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +425,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE724787269992C700BB2C19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE724788269992C700BB2C19 /* ViewController.swift in Sources */,
+				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
+				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
+				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE724795269992CC00BB2C19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE724796269992CC00BB2C19 /* ViewController.swift in Sources */,
+				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
+				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
+				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -409,7 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -426,7 +604,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4P5NU5GJ2;
-				INFOPLIST_FILE = ONETHING_iOS/Info.plist;
+				INFOPLIST_FILE = "ONETHING_iOS/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +623,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4P5NU5GJ2;
-				INFOPLIST_FILE = ONETHING_iOS/Info.plist;
+				INFOPLIST_FILE = "ONETHING_iOS/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -541,6 +719,82 @@
 			};
 			name = Release;
 		};
+		CE724790269992C700BB2C19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				INFOPLIST_FILE = "ONETHING_iOS/Beta-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.ONETHING-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE724791269992C700BB2C19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				INFOPLIST_FILE = "ONETHING_iOS/Beta-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.ONETHING-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CE72479E269992CC00BB2C19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				INFOPLIST_FILE = "ONETHING_iOS/Ent-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.ONETHING-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE72479F269992CC00BB2C19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				INFOPLIST_FILE = "ONETHING_iOS/Ent-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.nexters.ONETHING-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -576,6 +830,24 @@
 			buildConfigurations = (
 				CE72478426998F3000BB2C19 /* Debug */,
 				CE72478526998F3000BB2C19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Beta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE724790269992C700BB2C19 /* Debug */,
+				CE724791269992C700BB2C19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Ent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE72479E269992CC00BB2C19 /* Debug */,
+				CE72479F269992CC00BB2C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
