@@ -84,6 +84,9 @@
 		7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B3B40265F08052B9242782 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOSTests/Pods-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE00AA442699F3AA002C674B /* ONETHING_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ONETHING_iOS.entitlements; sourceTree = "<group>"; };
+		CE00AA452699F3C1002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
+		CE00AA462699F3CA002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
 		CE72475326998F2D00BB2C19 /* ONETHING_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 		CE72474A26998F2D00BB2C19 = {
 			isa = PBXGroup;
 			children = (
+				CE00AA462699F3CA002C674B /* ONETHING_iOS Ent.entitlements */,
+				CE00AA452699F3C1002C674B /* ONETHING_iOS Beta.entitlements */,
 				CE72475526998F2D00BB2C19 /* ONETHING_iOS */,
 				CE72476C26998F3000BB2C19 /* ONETHING_iOSTests */,
 				CE72477726998F3000BB2C19 /* ONETHING_iOSUITests */,
@@ -213,6 +218,7 @@
 		CE72475526998F2D00BB2C19 /* ONETHING_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				CE00AA442699F3AA002C674B /* ONETHING_iOS.entitlements */,
 				CE7247A72699947A00BB2C19 /* Resource */,
 				CE7247A62699947500BB2C19 /* Source */,
 				CE72475626998F2D00BB2C19 /* AppDelegate.swift */,
@@ -883,6 +889,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -903,6 +910,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -1012,6 +1020,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
@@ -1032,6 +1041,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
@@ -1052,6 +1062,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
@@ -1073,6 +1084,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
