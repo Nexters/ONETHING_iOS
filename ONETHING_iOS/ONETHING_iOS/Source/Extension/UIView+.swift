@@ -9,6 +9,11 @@ import UIKit
 
 extension UIView {
     
+    static var isExistNibFile: Bool {
+        let nibName = String(describing: self)
+        return Bundle.main.path(forResource: nibName, ofType: "nib") != nil
+    }
+    
     /// 부분적으로 Corner Radius 줄 떄, [.bottomLeft, .bottomRight, .topLeft, .topRight, .allCorners] 선택 가능
     func makeCornerRadius(directions: UIRectCorner = .allCorners, radius: CGFloat) {
         UIRectCorner.

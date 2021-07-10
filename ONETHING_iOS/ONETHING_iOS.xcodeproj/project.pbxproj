@@ -39,6 +39,8 @@
 		CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
 		CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE7247C02699BFE300BB2C19 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		CE7247C22699C14800BB2C19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		CE7247C42699C3FF00BB2C19 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
+		CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +285,8 @@
 				CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */,
 				CE7247C02699BFE300BB2C19 /* UIColor+.swift */,
 				CE7247C22699C14800BB2C19 /* UIView+.swift */,
+				CE7247C42699C3FF00BB2C19 /* UITableView+.swift */,
+				CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -619,7 +625,9 @@
 			files = (
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
+				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
