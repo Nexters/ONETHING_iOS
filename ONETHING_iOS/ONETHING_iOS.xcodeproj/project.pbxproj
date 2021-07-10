@@ -47,6 +47,12 @@
 		CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
 		CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
 		CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
+		CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
+		CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
+		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +111,8 @@
 		CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
+		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
 		D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +243,8 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE7247E42699DCAD00BB2C19 /* Enum */,
+				CE7247E12699D81500BB2C19 /* Manager */,
 				CE7247BD2699BE6500BB2C19 /* Extension */,
 				CE7247B4269995AA00BB2C19 /* Model */,
 				CE7247CE2699D65200BB2C19 /* ViewModel */,
@@ -307,6 +317,22 @@
 				CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE7247E12699D81500BB2C19 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247E22699D82300BB2C19 /* SocialManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		CE7247E42699DCAD00BB2C19 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -651,7 +677,9 @@
 				CE7247D02699D65C00BB2C19 /* TestViewModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
+				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
@@ -679,7 +707,9 @@
 			files = (
 				CE724788269992C700BB2C19 /* ViewController.swift in Sources */,
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
+				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
@@ -694,7 +724,9 @@
 			files = (
 				CE724796269992CC00BB2C19 /* ViewController.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
+				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
@@ -981,7 +1013,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1001,7 +1033,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W4P5NU5GJ2;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
