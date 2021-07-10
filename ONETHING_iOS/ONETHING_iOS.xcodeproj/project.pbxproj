@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78F3680AD2D97BF4AE60CF52 /* Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BEB319C254CF3548540EC65 /* Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework */; };
-		A1B9D6782B20FF4CBC7A65E1 /* Pods_ONETHING_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */; };
-		A2C9969D9C5071EA8C8E175B /* Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CDC5A81F8B1DB3811CF0272 /* Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework */; };
+		09FB29CCCA608B96AC2D180C /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */; };
+		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
+		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
+		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
+		CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
+		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
+		CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
+		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
@@ -41,9 +48,6 @@
 		CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
 		CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
-		CE7247D02699D65C00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
-		CE7247D12699D65F00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
-		CE7247D22699D65F00BB2C19 /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */; };
 		CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
 		CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
 		CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
@@ -74,20 +78,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E9A753FE7F7FA536497D55F /* Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig"; sourceTree = "<group>"; };
+		123E3AD140989968399A8265 /* Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig"; sourceTree = "<group>"; };
+		19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.release.xcconfig"; sourceTree = "<group>"; };
 		24BAD810593D774A2EC9B51D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig"; sourceTree = "<group>"; };
-		4BEB319C254CF3548540EC65 /* Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C234A3CB913A9937D737993 /* Pods-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOSTests/Pods-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
+		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
 		675D960521D064907C4BA041 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig"; sourceTree = "<group>"; };
 		678D446F663444FA618CD19E /* Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
-		6CDC5A81F8B1DB3811CF0272 /* Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; sourceTree = "<group>"; };
+		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95B3B40265F08052B9242782 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; sourceTree = "<group>"; };
+		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOSTests/Pods-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE00AA442699F3AA002C674B /* ONETHING_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ONETHING_iOS.entitlements; sourceTree = "<group>"; };
-		CE00AA452699F3C1002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
-		CE00AA462699F3CA002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
-		CE72475326998F2D00BB2C19 /* ONETHING_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE00AA472699FF4C002C674B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
+		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
+		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE72475A26998F2D00BB2C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,8 +115,8 @@
 		CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONETHING_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ONETHING_iOSUITests.swift; sourceTree = "<group>"; };
 		CE72477A26998F3000BB2C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING_iOS Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING_iOS Ent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE724792269992C700BB2C19 /* ONETHING Beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING Beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE7247A0269992CC00BB2C19 /* ONETHING Ent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING Ent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7247A22699938500BB2C19 /* Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beta-Info.plist"; sourceTree = "<group>"; };
 		CE7247A42699939100BB2C19 /* Ent-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ent-Info.plist"; sourceTree = "<group>"; };
 		CE7247AE269994F700BB2C19 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -112,11 +127,10 @@
 		CE7247C22699C14800BB2C19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		CE7247C42699C3FF00BB2C19 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
-		CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
-		D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B9D6782B20FF4CBC7A65E1 /* Pods_ONETHING_iOSTests.framework in Frameworks */,
+				09FB29CCCA608B96AC2D180C /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2C9969D9C5071EA8C8E175B /* Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework in Frameworks */,
+				A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78F3680AD2D97BF4AE60CF52 /* Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework in Frameworks */,
+				BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +189,14 @@
 				678D446F663444FA618CD19E /* Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig */,
 				B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */,
 				4C234A3CB913A9937D737993 /* Pods-ONETHING_iOSTests.release.xcconfig */,
+				5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */,
+				19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */,
+				7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */,
+				0E9A753FE7F7FA536497D55F /* Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig */,
+				65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */,
+				123E3AD140989968399A8265 /* Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig */,
+				CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */,
+				AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -181,10 +204,11 @@
 		A846A92C809349534BFDCA3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6CDC5A81F8B1DB3811CF0272 /* Pods_ONETHING_iOS_ONETHING_iOS_Beta.framework */,
-				4BEB319C254CF3548540EC65 /* Pods_ONETHING_iOS_ONETHING_iOS_Ent.framework */,
 				7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */,
-				D83BFBD8662CD736A8B91B07 /* Pods_ONETHING_iOSTests.framework */,
+				8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */,
+				61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */,
+				307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */,
+				E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,8 +216,6 @@
 		CE72474A26998F2D00BB2C19 = {
 			isa = PBXGroup;
 			children = (
-				CE00AA462699F3CA002C674B /* ONETHING_iOS Ent.entitlements */,
-				CE00AA452699F3C1002C674B /* ONETHING_iOS Beta.entitlements */,
 				CE72475526998F2D00BB2C19 /* ONETHING_iOS */,
 				CE72476C26998F3000BB2C19 /* ONETHING_iOSTests */,
 				CE72477726998F3000BB2C19 /* ONETHING_iOSUITests */,
@@ -206,11 +228,11 @@
 		CE72475426998F2D00BB2C19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE72475326998F2D00BB2C19 /* ONETHING_iOS.app */,
+				CE72475326998F2D00BB2C19 /* ONETHING.app */,
 				CE72476926998F3000BB2C19 /* ONETHING_iOSTests.xctest */,
 				CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */,
-				CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */,
-				CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */,
+				CE724792269992C700BB2C19 /* ONETHING Beta.app */,
+				CE7247A0269992CC00BB2C19 /* ONETHING Ent.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				CE00AA442699F3AA002C674B /* ONETHING_iOS.entitlements */,
+				CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */,
+				CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */,
 				CE7247A72699947A00BB2C19 /* Resource */,
 				CE7247A62699947500BB2C19 /* Source */,
 				CE72475626998F2D00BB2C19 /* AppDelegate.swift */,
@@ -293,6 +317,7 @@
 			children = (
 				CE72475A26998F2D00BB2C19 /* ViewController.swift */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
+				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -320,7 +345,7 @@
 		CE7247CE2699D65200BB2C19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CE7247CF2699D65C00BB2C19 /* TestViewModel.swift */,
+				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,21 +369,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE72475226998F2D00BB2C19 /* ONETHING_iOS */ = {
+		CE72475226998F2D00BB2C19 /* ONETHING */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE72477D26998F3000BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS" */;
+			buildConfigurationList = CE72477D26998F3000BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING" */;
 			buildPhases = (
+				C2594D979D799DDE51183B03 /* [CP] Check Pods Manifest.lock */,
 				CE72474F26998F2D00BB2C19 /* Sources */,
 				CE72475026998F2D00BB2C19 /* Frameworks */,
 				CE72475126998F2D00BB2C19 /* Resources */,
+				EC78450A28B14C1A2CBEC1F5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ONETHING_iOS;
+			name = ONETHING;
 			productName = ONETHING_iOS;
-			productReference = CE72475326998F2D00BB2C19 /* ONETHING_iOS.app */;
+			productReference = CE72475326998F2D00BB2C19 /* ONETHING.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CE72476826998F3000BB2C19 /* ONETHING_iOSTests */ = {
@@ -369,6 +396,7 @@
 				CE72476526998F3000BB2C19 /* Sources */,
 				CE72476626998F3000BB2C19 /* Frameworks */,
 				CE72476726998F3000BB2C19 /* Resources */,
+				CDCEAEC69654E4952C07DAA4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -400,9 +428,9 @@
 			productReference = CE72477426998F3000BB2C19 /* ONETHING_iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		CE724786269992C700BB2C19 /* ONETHING_iOS Beta */ = {
+		CE724786269992C700BB2C19 /* ONETHING Beta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Beta" */;
+			buildConfigurationList = CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING Beta" */;
 			buildPhases = (
 				7044D4FEC608A1398DDA9A43 /* [CP] Check Pods Manifest.lock */,
 				CE724787269992C700BB2C19 /* Sources */,
@@ -414,14 +442,14 @@
 			);
 			dependencies = (
 			);
-			name = "ONETHING_iOS Beta";
+			name = "ONETHING Beta";
 			productName = ONETHING_iOS;
-			productReference = CE724792269992C700BB2C19 /* ONETHING_iOS Beta.app */;
+			productReference = CE724792269992C700BB2C19 /* ONETHING Beta.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE724794269992CC00BB2C19 /* ONETHING_iOS Ent */ = {
+		CE724794269992CC00BB2C19 /* ONETHING Ent */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Ent" */;
+			buildConfigurationList = CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING Ent" */;
 			buildPhases = (
 				2C3E75CBE6DB733CF9FAFA8F /* [CP] Check Pods Manifest.lock */,
 				CE724795269992CC00BB2C19 /* Sources */,
@@ -433,9 +461,9 @@
 			);
 			dependencies = (
 			);
-			name = "ONETHING_iOS Ent";
+			name = "ONETHING Ent";
 			productName = ONETHING_iOS;
-			productReference = CE7247A0269992CC00BB2C19 /* ONETHING_iOS Ent.app */;
+			productReference = CE7247A0269992CC00BB2C19 /* ONETHING Ent.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -473,9 +501,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE72475226998F2D00BB2C19 /* ONETHING_iOS */,
-				CE724786269992C700BB2C19 /* ONETHING_iOS Beta */,
-				CE724794269992CC00BB2C19 /* ONETHING_iOS Ent */,
+				CE72475226998F2D00BB2C19 /* ONETHING */,
+				CE724794269992CC00BB2C19 /* ONETHING Ent */,
+				CE724786269992C700BB2C19 /* ONETHING Beta */,
 				CE72476826998F3000BB2C19 /* ONETHING_iOSTests */,
 				CE72477326998F3000BB2C19 /* ONETHING_iOSUITests */,
 			);
@@ -542,7 +570,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING_iOS Ent-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING Ent-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -564,7 +592,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING_iOS Beta-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING Beta-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,15 +622,37 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2594D979D799DDE51183B03 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C6F962583928308CACCF788F /* [CP] Check Pods Manifest.lock */ = {
@@ -627,21 +677,55 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CDCEAEC69654E4952C07DAA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D61CBFCF22CF2645BEDB50C1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC78450A28B14C1A2CBEC1F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F9695125EA5328FEA57E2A29 /* [CP] Check Pods Manifest.lock */ = {
@@ -659,7 +743,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ONETHING_iOS-ONETHING_iOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -680,11 +764,12 @@
 				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
-				CE7247D02699D65C00BB2C19 /* TestViewModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
+				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
+				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
@@ -713,13 +798,14 @@
 			files = (
 				CE724788269992C700BB2C19 /* ViewController.swift in Sources */,
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
-				CE7247D12699D65F00BB2C19 /* TestViewModel.swift in Sources */,
+				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -730,13 +816,14 @@
 			files = (
 				CE724796269992CC00BB2C19 /* ViewController.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
-				CE7247D22699D65F00BB2C19 /* TestViewModel.swift in Sources */,
+				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -746,12 +833,12 @@
 /* Begin PBXTargetDependency section */
 		CE72476B26998F3000BB2C19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE72475226998F2D00BB2C19 /* ONETHING_iOS */;
+			target = CE72475226998F2D00BB2C19 /* ONETHING */;
 			targetProxy = CE72476A26998F3000BB2C19 /* PBXContainerItemProxy */;
 		};
 		CE72477626998F3000BB2C19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE72475226998F2D00BB2C19 /* ONETHING_iOS */;
+			target = CE72475226998F2D00BB2C19 /* ONETHING */;
 			targetProxy = CE72477526998F3000BB2C19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -886,6 +973,7 @@
 		};
 		CE72477E26998F3000BB2C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -908,6 +996,7 @@
 		};
 		CE72477F26998F3000BB2C19 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -930,7 +1019,7 @@
 		};
 		CE72478126998F3000BB2C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */;
+			baseConfigurationReference = CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -953,7 +1042,7 @@
 		};
 		CE72478226998F3000BB2C19 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C234A3CB913A9937D737993 /* Pods-ONETHING_iOSTests.release.xcconfig */;
+			baseConfigurationReference = AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1018,11 +1107,11 @@
 		};
 		CE724790269992C700BB2C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 95B3B40265F08052B9242782 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig */;
+			baseConfigurationReference = 7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Beta.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
@@ -1039,11 +1128,11 @@
 		};
 		CE724791269992C700BB2C19 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 675D960521D064907C4BA041 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig */;
+			baseConfigurationReference = 0E9A753FE7F7FA536497D55F /* Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Beta.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
@@ -1060,11 +1149,11 @@
 		};
 		CE72479E269992CC00BB2C19 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */;
+			baseConfigurationReference = 65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Ent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
@@ -1082,11 +1171,11 @@
 		};
 		CE72479F269992CC00BB2C19 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24BAD810593D774A2EC9B51D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig */;
+			baseConfigurationReference = 123E3AD140989968399A8265 /* Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS Ent.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
@@ -1114,7 +1203,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE72477D26998F3000BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS" */ = {
+		CE72477D26998F3000BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE72477E26998F3000BB2C19 /* Debug */,
@@ -1141,7 +1230,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Beta" */ = {
+		CE72478F269992C700BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING Beta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE724790269992C700BB2C19 /* Debug */,
@@ -1150,7 +1239,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING_iOS Ent" */ = {
+		CE72479D269992CC00BB2C19 /* Build configuration list for PBXNativeTarget "ONETHING Ent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE72479E269992CC00BB2C19 /* Debug */,

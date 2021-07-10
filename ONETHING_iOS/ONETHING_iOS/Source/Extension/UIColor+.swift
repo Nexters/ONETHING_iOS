@@ -15,7 +15,7 @@ extension UIColor {
         
         let scanner = Scanner(string: hexString)
         var color: UInt64 = 0
-        scanner.scanInt64(&color)
+        scanner.scanHexInt64(&color)
         
         let mask = 0xFF
         let r = Int(color >> 16) & mask

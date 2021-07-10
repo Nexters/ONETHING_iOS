@@ -13,15 +13,17 @@ abstract_target 'ONETHING_iOS' do
   pod 'RxCocoa', '6.2.0'
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 6.0'
-
-  target 'ONETHING_iOS Beta' do
+  
+  target 'ONETHING' do
   end
 
-  target 'ONETHING_iOS Ent' do
+  target 'ONETHING Beta' do
+  end
+
+  target 'ONETHING Ent' do
   end
 
   target 'ONETHING_iOSTests' do
-    inherit! :search_paths
   end
 
   target 'ONETHING_iOSUITests' do

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE724794269992CC00BB2C19"
-               BuildableName = "ONETHING_iOS Ent.app"
-               BlueprintName = "ONETHING_iOS Ent"
+               BuildableName = "ONETHING Ent.app"
+               BlueprintName = "ONETHING Ent"
                ReferencedContainer = "container:ONETHING_iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE724794269992CC00BB2C19"
-            BuildableName = "ONETHING_iOS Ent.app"
-            BlueprintName = "ONETHING_iOS Ent"
+            BuildableName = "ONETHING Ent.app"
+            BlueprintName = "ONETHING Ent"
             ReferencedContainer = "container:ONETHING_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE724794269992CC00BB2C19"
-            BuildableName = "ONETHING_iOS Ent.app"
-            BlueprintName = "ONETHING_iOS Ent"
+            BuildableName = "ONETHING Ent.app"
+            BlueprintName = "ONETHING Ent"
             ReferencedContainer = "container:ONETHING_iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

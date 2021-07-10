@@ -13,7 +13,7 @@ extension UIViewController {
         return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController
     }
     
-    static func getVisibleController(_ viewController: UIViewController? = UIViewController.rootViewController) -> UIViewController {
+    static func getVisibleController(_ viewController: UIViewController? = UIViewController.rootViewController) -> UIViewController? {
         if let navigationController = viewController as? UINavigationController {
             return self.getVisibleController(navigationController.visibleViewController)
         } else if let tabbarController = viewController as? UITabBarController {

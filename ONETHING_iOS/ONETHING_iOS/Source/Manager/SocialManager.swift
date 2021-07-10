@@ -28,7 +28,7 @@ class SocialManager {
     func login(with type: SocialAccessType) {
         switch type {
         case .kakao: self.loginThroughKakao()
-        case .apple: break
+        case .apple: self.loginThroughApple()
         }
     }
     
@@ -48,6 +48,10 @@ class SocialManager {
                 print(oauthToken?.refreshToken)
             }
         }
+    }
+    
+    private func loginThroughApple() {
+        
     }
     
     private init() { }
