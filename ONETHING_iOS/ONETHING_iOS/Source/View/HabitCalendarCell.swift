@@ -29,7 +29,7 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
     }
     
     private func configure() {
-        self.layer.cornerRadius = 25
+        self.layer.cornerRadius = 31
         self.backgroundColor = .systemGray4
     }
     
