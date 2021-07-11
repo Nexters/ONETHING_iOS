@@ -11,34 +11,52 @@ import SnapKit
 
 final class HomeViewController: BaseViewController {
     private let mainScrollView = UIScrollView()
+    private let scrollInnerView = UIView()
     private let homeUpperView = HomeUpperView()
-    private var habitCalendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var habitCalendarView = UICollectionView(
+        frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()
+    )
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureMainScrollView()
+        configureScrollInnerView()
         configureHomeUpperView()
         configureHabitCalendarView()
     }
 
     private func configureMainScrollView() {
         self.view.addSubview(self.mainScrollView)
+        let safeArea = self.view.safeAreaLayoutGuide
         
-        mainScrollView.snp.makeConstraints {
-            $0.leading.trailing.top.bottom.equalTo(self.view)
+        self.mainScrollView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(safeArea)
+            $0.height.width.equalToSuperview()
+        }
+    }
+    
+    private func configureScrollInnerView() {
+        self.mainScrollView.addSubview(self.scrollInnerView)
+        
+        self.scrollInnerView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
+        self.mainScrollView.contentLayoutGuide.snp.makeConstraints {
+            $0.height.equalTo(self.scrollInnerView)
         }
     }
     
     private func configureHomeUpperView() {
-        self.mainScrollView.addSubview(self.homeUpperView)
-        let safeArea = self.view.safeAreaLayoutGuide
+        self.scrollInnerView.addSubview(self.homeUpperView)
         
-        homeUpperView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(safeArea).inset(34)
-            $0.top.equalTo(safeArea).inset(52)
-            $0.height.equalTo(homeUpperView.snp.width).dividedBy(2.3)
+        self.homeUpperView.snp.makeConstraints {
+            $0.leading.trailing.equalTo(self.scrollInnerView).inset(34)
+            $0.top.equalTo(self.scrollInnerView).inset(52)
+            $0.height.equalTo(self.homeUpperView.snp.width).dividedBy(2.3)
         }
     }
     
@@ -47,14 +65,14 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.dataSource = viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
         self.habitCalendarView.delegate = self
+        self.habitCalendarView.isScrollEnabled = false
         
-        self.mainScrollView.addSubview(habitCalendarView)
-        let safeArea = self.view.safeAreaLayoutGuide
-        
+        self.scrollInnerView.addSubview(habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(safeArea).inset(34)
-            $0.top.equalTo(homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(800)
+            $0.leading.trailing.equalTo(homeUpperView)
+            $0.top.equalTo(self.homeUpperView.snp.bottom).offset(20)
+            $0.height.equalTo(1500)
+            $0.bottom.equalTo(scrollInnerView)
         }
     }
 }
