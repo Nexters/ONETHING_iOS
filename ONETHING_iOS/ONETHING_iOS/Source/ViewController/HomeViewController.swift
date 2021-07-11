@@ -71,7 +71,7 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.snp.makeConstraints {
             $0.leading.trailing.equalTo(homeUpperView)
             $0.top.equalTo(self.homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(640)
+            $0.height.equalTo(habitCalendarView.snp.width).multipliedBy(2)
             $0.bottom.equalTo(scrollInnerView)
         }
     }
