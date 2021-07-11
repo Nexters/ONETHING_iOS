@@ -24,12 +24,16 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
         configureNumberLabel()
     }
     
+    override func layoutSubviews() {
+        self.layer.cornerRadius = self.frame.width / 2
+    }
+    
     func configure(numberText: String) {
         numberLabel.text = numberText
     }
     
     private func configure() {
-        self.layer.cornerRadius = 20
+        
         self.backgroundColor = .systemGray4
     }
     
