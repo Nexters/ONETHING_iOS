@@ -71,7 +71,7 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.snp.makeConstraints {
             $0.leading.trailing.equalTo(homeUpperView)
             $0.top.equalTo(self.homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(1500)
+            $0.height.equalTo(640)
             $0.bottom.equalTo(scrollInnerView)
         }
     }
@@ -85,7 +85,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         
         let constant = (self.view.bounds.width - collectionView.frame.width) / 2
-        let diameter = (collectionView.frame.width - 2 * constant) / 4
+        let diameter = (collectionView.frame.width - 2 * constant) / 6
         
         return CGSize(width: diameter.rounded(.down), height: diameter)
     }

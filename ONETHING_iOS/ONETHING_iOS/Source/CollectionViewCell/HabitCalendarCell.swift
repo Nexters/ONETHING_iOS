@@ -29,12 +29,12 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
     }
     
     private func configure() {
-        self.layer.cornerRadius = 31
+        self.layer.cornerRadius = 20
         self.backgroundColor = .systemGray4
     }
     
     private func configureNumberLabel() {
-        numberLabel.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        numberLabel.font = UIFont.systemFont(ofSize: 13, weight: .light)
         
         self.addSubview(numberLabel)
         numberLabel.snp.makeConstraints {
