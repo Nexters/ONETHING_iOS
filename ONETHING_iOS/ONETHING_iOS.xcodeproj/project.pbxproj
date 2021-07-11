@@ -62,6 +62,16 @@
 		CEB9B3A5269A314500A01590 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */; };
 		CEB9B3A7269A315100A01590 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
+		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
+		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
+		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		F29B842E269A8662009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		F29B842F269A8665009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		F29B8430269A8666009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		F29B8431269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		F29B8432269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -831,9 +841,14 @@
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
+				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
+				F29B8430269A8666009D293F /* UIView+.swift in Sources */,
+				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,9 +865,14 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
+				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
+				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
+				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
+				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
+				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
