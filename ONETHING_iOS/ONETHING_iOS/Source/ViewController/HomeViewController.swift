@@ -43,10 +43,9 @@ final class HomeViewController: BaseViewController {
     }
     
     private func configureHabitCalendarView() {
-        
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = viewModel
-        self.habitCalendarView.register(HabitCalendarCell.self, forCellWithReuseIdentifier: HabitCalendarCell.reuseIdentifier)
+        self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
         self.habitCalendarView.delegate = self
         
         self.mainScrollView.addSubview(habitCalendarView)
@@ -58,10 +57,6 @@ final class HomeViewController: BaseViewController {
             $0.height.equalTo(800)
         }
     }
-}
-
-extension HomeViewController: UICollectionViewDelegate {
-    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

@@ -82,6 +82,8 @@
 		F29B8432269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -873,6 +875,7 @@
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -900,6 +903,7 @@
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
