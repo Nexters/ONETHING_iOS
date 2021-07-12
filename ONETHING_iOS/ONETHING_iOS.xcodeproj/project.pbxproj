@@ -81,6 +81,9 @@
 		F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
 		F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
 		F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
+		F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
+		F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
@@ -176,6 +179,7 @@
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F293C3C1269D0AED0096757C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,6 +373,7 @@
 				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
+				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -843,6 +848,7 @@
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
@@ -887,6 +893,7 @@
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
 				F29B8430269A8666009D293F /* UIView+.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
@@ -918,6 +925,7 @@
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
+				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
 				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,

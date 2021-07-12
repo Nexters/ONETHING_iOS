@@ -17,6 +17,7 @@ final class MainTabBarController: UITabBarController {
     private func configureViewControllers() {
         self.viewControllers = [
             createNavigationController(for: HomeViewController(), image: UIImage(systemName: "house")!),
+            createNavigationController(for: HistoryViewController(), image: UIImage(systemName: "folder")!),
             createNavigationController(for: ProfileViewController(), image: UIImage(systemName: "person.circle")!)
         ]
     }
