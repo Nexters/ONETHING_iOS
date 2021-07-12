@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: BaseViewController {
+    
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
     private let homeUpperView = HomeUpperView()
@@ -75,9 +76,11 @@ final class HomeViewController: BaseViewController {
             $0.bottom.equalTo(self.scrollInnerView)
         }
     }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -89,4 +92,5 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: diameter.rounded(.down), height: diameter)
     }
+    
 }

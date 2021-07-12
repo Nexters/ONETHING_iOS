@@ -75,6 +75,12 @@
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
@@ -168,6 +174,8 @@
 		F267F9BA269A5ADC00219B05 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		F267F9C3269A78E600219B05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
+		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +367,8 @@
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
 				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
+				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
+				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -818,6 +828,7 @@
 			files = (
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
+				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
@@ -837,6 +848,7 @@
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
 				F267F9A3269A30E300219B05 /* HomeUpperView.swift in Sources */,
 				F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */,
+				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
@@ -868,6 +880,8 @@
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
@@ -897,6 +911,8 @@
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
