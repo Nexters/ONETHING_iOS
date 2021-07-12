@@ -54,13 +54,40 @@
 		CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
-		CEB9B3A7269A315100A01590 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */; };
+		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
+		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
+		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
+		CEFC3A1A269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
+		CEFC3A1B269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
+		CEFC3A1C269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
+		CEFC3A1D269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
+		CEFC3A1E269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
+		CEFC3A1F269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
+		CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
+		CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
+		CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
+		CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */; };
+		CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */; };
+		CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */; };
+		CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
 		CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
 		CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
 		CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
 		CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
 		CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
 		CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
+		CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
+		CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
+		CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
+		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
+		CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,9 +160,14 @@
 		CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
-		CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewModel.swift; sourceTree = "<group>"; };
+		CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalSettingCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
 		CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalSetting.storyboard; sourceTree = "<group>"; };
 		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
+		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +311,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEFF0A46269C8E7E00DB8D2D /* Constants */,
 				CE7247E42699DCAD00BB2C19 /* Enum */,
 				CE7247E12699D81500BB2C19 /* Manager */,
 				CE7247BD2699BE6500BB2C19 /* Extension */,
@@ -347,6 +380,8 @@
 				CE7247C22699C14800BB2C19 /* UIView+.swift */,
 				CE7247C42699C3FF00BB2C19 /* UITableView+.swift */,
 				CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */,
+				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
+				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -355,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
+				CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -385,7 +421,8 @@
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */,
+				CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */,
+				CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -396,6 +433,14 @@
 				CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CEFF0A46269C8E7E00DB8D2D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +594,7 @@
 			files = (
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEFC3A1D269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -573,6 +619,7 @@
 			files = (
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEFC3A1F269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +630,7 @@
 			files = (
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEFC3A1E269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,19 +842,23 @@
 			files = (
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
+				CEFC3A1A269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
+				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
-				CEB9B3A7269A315100A01590 /* TestCollectionViewCell.swift in Sources */,
+				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
+				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
@@ -836,13 +888,23 @@
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
+				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
+				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
+				CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */,
+				CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
+				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
+				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
+				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
+				CEFC3A1C269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
+				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,13 +916,23 @@
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
+				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
+				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
+				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
+				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
+				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
+				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
+				CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
+				CEFC3A1B269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
+				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
+				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,8 +1086,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1024,7 +1096,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1037,8 +1109,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1047,7 +1119,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
