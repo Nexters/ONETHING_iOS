@@ -29,11 +29,11 @@ final class HomeUpperView: UIView {
     }
     
     private func configureTitleLabel() {
-        titleLabel.font = .boldSystemFont(ofSize: 25)
-        titleLabel.text = "Habit"
+        self.titleLabel.font = .boldSystemFont(ofSize: 25)
+        self.titleLabel.text = "Habit"
         
         self.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
+        self.titleLabel.snp.makeConstraints {
             $0.leading.top.equalTo(self)
             
         }
@@ -41,21 +41,21 @@ final class HomeUpperView: UIView {
     
     private func configureSettingButton() {
         self.addSubview(settingButton)
-        settingButton.snp.makeConstraints {
+        self.settingButton.snp.makeConstraints {
             $0.trailing.equalTo(self)
-            $0.centerY.equalTo(titleLabel)
-            $0.height.equalTo(titleLabel)
-            $0.width.equalTo(settingButton.snp.height)
+            $0.centerY.equalTo(self.titleLabel)
+            $0.height.equalTo(self.titleLabel)
+            $0.width.equalTo(self.settingButton.snp.height)
         }
     }
     
     private func configurePercentView() {
         self.addSubview(percentView)
-        percentView.backgroundColor = .systemGray5
+        self.percentView.backgroundColor = .systemGray5
         
-        percentView.snp.makeConstraints {
+        self.percentView.snp.makeConstraints {
             $0.leading.trailing.equalTo(self)
-            $0.top.equalTo(titleLabel.snp.top).offset(42)
+            $0.top.equalTo(self.titleLabel.snp.top).offset(42)
             $0.bottom.equalTo(self)
         }
     }

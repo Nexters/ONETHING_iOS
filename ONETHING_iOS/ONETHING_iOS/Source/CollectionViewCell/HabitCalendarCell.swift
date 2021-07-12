@@ -13,14 +13,14 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
+        self.backgroundColor = .systemGray4
         configureNumberLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        configure()
+        self.backgroundColor = .systemGray4
         configureNumberLabel()
     }
     
@@ -28,21 +28,16 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
         self.layer.cornerRadius = self.frame.width / 2
     }
     
-    func configure(numberText: String) {
-        numberLabel.text = numberText
-    }
-    
-    private func configure() {
-        
-        self.backgroundColor = .systemGray4
-    }
-    
     private func configureNumberLabel() {
-        numberLabel.font = UIFont.systemFont(ofSize: 13, weight: .light)
+        self.numberLabel.font = UIFont.systemFont(ofSize: 13, weight: .light)
         
-        self.addSubview(numberLabel)
-        numberLabel.snp.makeConstraints {
+        self.addSubview(self.numberLabel)
+        self.numberLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
+    }
+    
+    func configure(numberText: String) {
+        self.numberLabel.text = numberText
     }
 }

@@ -25,10 +25,10 @@ final class HabitCalendarView: UICollectionView {
     }
     
     var numberOfRows: Int {
-        return Int(Double(totalCellNumbers / numberOfColumns).rounded(.up))
+        return Int(Double(self.totalCellNumbers / self.numberOfColumns).rounded(.up))
     }
     
     var ratioHeightPerWidth: Double {
-        return Double(numberOfRows / numberOfColumns).rounded(.up) * 2
+        return Double(self.numberOfRows / self.numberOfColumns).rounded(.up) * 2
     }
 }
