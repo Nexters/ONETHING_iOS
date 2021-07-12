@@ -13,12 +13,9 @@ final class HomeViewController: BaseViewController {
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
     private let homeUpperView = HomeUpperView()
-    private var habitCalendarView = UICollectionView(
-        frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()
+    private var habitCalendarView = HabitCalendarView(
+        frame: .zero, totalCellNumbers: 66, columnNumbers: 6
     )
-    private let numberOfColumn = 8
-    private let totalNumberOfCell = 66
-    
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -70,14 +67,11 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.delegate = self
         self.habitCalendarView.isScrollEnabled = false
         
-        let numberOfRows = Double(totalNumberOfCell / numberOfColumn).rounded(.up)
-        let ratioHeightPerWidth = (numberOfRows / Double(numberOfColumn)) * 1.15
-        
         self.scrollInnerView.addSubview(habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
             $0.leading.trailing.equalTo(homeUpperView)
             $0.top.equalTo(self.homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(habitCalendarView.snp.width).multipliedBy(ratioHeightPerWidth)
+            $0.height.equalTo(habitCalendarView.snp.width).multipliedBy(habitCalendarView.ratioHeightPerWidth)
             $0.bottom.equalTo(scrollInnerView)
         }
     }
@@ -91,7 +85,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         
         let constant = (self.view.bounds.width - collectionView.frame.width) / 2
-        let diameter = (collectionView.frame.width - 2 * constant) / CGFloat(numberOfColumn)
+        let diameter = (collectionView.frame.width - 2 * constant) / CGFloat(habitCalendarView.numberOfColumns)
         
         return CGSize(width: diameter.rounded(.down), height: diameter)
     }

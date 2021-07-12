@@ -72,6 +72,9 @@
 		F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
 		F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
 		F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9C3269A78E600219B05 /* TestTableViewCell.swift */; };
+		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
@@ -164,6 +167,7 @@
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
 		F267F9BA269A5ADC00219B05 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		F267F9C3269A78E600219B05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +348,7 @@
 				F267F9A2269A30E300219B05 /* HomeUpperView.swift */,
 				F267F9A6269A387000219B05 /* PercentView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
+				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
@@ -861,6 +867,7 @@
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
@@ -889,6 +896,7 @@
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
