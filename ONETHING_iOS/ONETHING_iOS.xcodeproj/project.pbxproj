@@ -57,9 +57,6 @@
 		CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
-		CEB9B3A2269A314000A01590 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */; };
-		CEB9B3A3269A314300A01590 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */; };
-		CEB9B3A5269A314500A01590 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */; };
 		CEB9B3A7269A315100A01590 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
@@ -134,7 +131,6 @@
 		CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
-		CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -377,7 +373,6 @@
 		CEB9B39F269A311F00A01590 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CEB9B3A1269A314000A01590 /* TestTableViewCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -785,7 +780,6 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
-				CEB9B3A2269A314000A01590 /* TestTableViewCell.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
@@ -827,7 +821,6 @@
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
-				CEB9B3A5269A314500A01590 /* TestTableViewCell.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
@@ -846,7 +839,6 @@
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
-				CEB9B3A3269A314300A01590 /* TestTableViewCell.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
