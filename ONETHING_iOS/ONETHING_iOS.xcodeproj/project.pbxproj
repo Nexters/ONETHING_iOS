@@ -19,17 +19,14 @@
 		CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
-		CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
 		CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
 		CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72476E26998F3000BB2C19 /* ONETHING_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */; };
 		CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */; };
-		CE724788269992C700BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
 		CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
-		CE724796269992CC00BB2C19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* ViewController.swift */; };
 		CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
@@ -58,6 +55,12 @@
 		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CEB9B3A7269A315100A01590 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */; };
+		CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
+		CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
+		CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
+		CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
+		CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
+		CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +109,6 @@
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE72475A26998F2D00BB2C19 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE72475F26998F3000BB2C19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE72476226998F3000BB2C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE72476426998F3000BB2C19 /* AppStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStore-Info.plist"; sourceTree = "<group>"; };
@@ -132,6 +134,8 @@
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
 		CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalSetting.storyboard; sourceTree = "<group>"; };
+		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -278,6 +282,7 @@
 				CE7247E42699DCAD00BB2C19 /* Enum */,
 				CE7247E12699D81500BB2C19 /* Manager */,
 				CE7247BD2699BE6500BB2C19 /* Extension */,
+				CEFF0A3D269C87B200DB8D2D /* Storyboard */,
 				CE7247B4269995AA00BB2C19 /* Model */,
 				CE7247CE2699D65200BB2C19 /* ViewModel */,
 				CE7247B32699955900BB2C19 /* ViewController */,
@@ -319,9 +324,9 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CE72475A26998F2D00BB2C19 /* ViewController.swift */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
+				CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -383,6 +388,14 @@
 				CEB9B3A6269A315100A01590 /* TestCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		CEFF0A3D269C87B200DB8D2D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -535,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
 				CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
 				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
 				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -780,7 +796,7 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
-				CE72475B26998F2D00BB2C19 /* ViewController.swift in Sources */,
+				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
@@ -816,7 +832,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE724788269992C700BB2C19 /* ViewController.swift in Sources */,
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -827,6 +842,7 @@
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -834,7 +850,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE724796269992CC00BB2C19 /* ViewController.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -845,6 +860,7 @@
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
+				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
