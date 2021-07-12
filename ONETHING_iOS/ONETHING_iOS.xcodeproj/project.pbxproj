@@ -77,6 +77,9 @@
 		CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
 		CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
 		CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A38269CC1180007AFF2 /* UILabel+.swift */; };
+		CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A38269CC1180007AFF2 /* UILabel+.swift */; };
+		CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A38269CC1180007AFF2 /* UILabel+.swift */; };
 		CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
 		CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
 		CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */; };
@@ -165,6 +168,7 @@
 		CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalSettingCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
+		CEFC3A38269CC1180007AFF2 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GoalSetting.storyboard; sourceTree = "<group>"; };
 		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 				CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */,
 				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
+				CEFC3A38269CC1180007AFF2 /* UILabel+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -848,6 +853,7 @@
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
+				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
@@ -892,6 +898,7 @@
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
+				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
@@ -920,6 +927,7 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
+				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,

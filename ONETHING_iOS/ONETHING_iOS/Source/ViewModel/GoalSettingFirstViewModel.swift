@@ -10,8 +10,9 @@ import RxSwift
 
 final class GoalSettingFirstViewModel {
     
-    let displayListSubjects = [BehaviorSubject<[String]>(value: []), BehaviorSubject<[String]>(value: []),
-                               BehaviorSubject<[String]>(value: []), BehaviorSubject<[String]>(value: [])]
+    typealias GoalListSection = [[String]]
+    
+    let reloadFlagSubejct = BehaviorSubject<Void>(value: ())
     
     init() {
         self.goalListSubject.subscribe(onNext: { goalList in
@@ -21,19 +22,22 @@ final class GoalSettingFirstViewModel {
             var currentIndex: Int   = 0
             let offset: Int         = 4
             
-            self.displayListSubjects.forEach { subject in
+            while currentIndex < 16 {
                 let list = Array(goalList[currentIndex..<currentIndex+offset])
-                subject.onNext(list)
+                self.goalSection.append(list)
                 currentIndex += offset
             }
+            self.reloadFlagSubejct.onNext(())
         }).disposed(by: self.disposeBag)
     }
     
-    private let goalListSubject = BehaviorSubject<[String]>(value: ["안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요",
-                                                                    "안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요",
-                                                                    "안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요",
-                                                                    "안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요"])
+    private(set) var goalSection: GoalListSection = []
     
+    #warning("Mock 데이터")
+    private let goalListSubject = BehaviorSubject<[String]>(value: ["안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요",
+                                                                    "저기요", "저기요", "저기요", "저기요",
+                                                                    "거기는", "안녕하신가요", "안녕하지요", "당신도 안녕?",
+                                                                    "너는 괜찮?", "그럼", "그렇게 괜찮지", "너도?"])
     private let disposeBag = DisposeBag()
     
 }

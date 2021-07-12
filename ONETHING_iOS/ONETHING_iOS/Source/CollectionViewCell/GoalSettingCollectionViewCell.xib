@@ -3,36 +3,29 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GoalSettingCollectionViewCell" customModule="ONETHING" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="GoalSettingCollectionViewCell" customModule="ONETHING" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="267" height="74"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="267" height="74"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-kn-Qn3">
-                        <rect key="frame" x="41" y="26" width="185" height="22"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="22" id="TDs-Rj-3zb"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFc-kn-Qn3">
+                        <rect key="frame" x="109.5" y="25" width="48" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="vFc-kn-Qn3" secondAttribute="trailing" constant="41" id="Cmh-gk-6Yh"/>
-                <constraint firstItem="vFc-kn-Qn3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="41" id="QPg-Xq-33T"/>
-                <constraint firstItem="vFc-kn-Qn3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="26" id="b58-iW-b3H"/>
-                <constraint firstAttribute="bottom" secondItem="vFc-kn-Qn3" secondAttribute="bottom" constant="26" id="on5-c8-awG"/>
+                <constraint firstItem="vFc-kn-Qn3" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1yB-ZN-tC1"/>
+                <constraint firstItem="vFc-kn-Qn3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="nuv-8F-Iro"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
