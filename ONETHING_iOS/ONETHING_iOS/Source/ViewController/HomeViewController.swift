@@ -117,4 +117,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: diameter.rounded(.down), height: diameter)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let habitWritingViewController = HabitWritingViewController()
+        navigationController?.pushViewController(habitWritingViewController, animated: true)
+    }
+    
 }

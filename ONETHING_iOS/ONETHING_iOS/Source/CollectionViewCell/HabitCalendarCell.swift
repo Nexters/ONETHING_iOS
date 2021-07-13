@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HabitCalendarCell: UICollectionViewCell, ReusableView {
+final class HabitCalendarCell: UICollectionViewCell, CircleView {
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
     
