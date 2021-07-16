@@ -23,7 +23,7 @@ extension HomeViewModel: UICollectionViewDataSource {
                 forIndexPath: indexPath
         ) else { return HabitCalendarCell() }
         
-        habitCalendarCell.configure(numberText: "\(indexPath.row + 1)일")
+        habitCalendarCell.configure(numberText: "\(indexPath.row + 1)")
         return habitCalendarCell
     }
 }

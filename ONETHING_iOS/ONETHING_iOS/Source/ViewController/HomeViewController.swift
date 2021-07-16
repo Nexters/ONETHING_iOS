@@ -21,11 +21,35 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         configureMainScrollView()
         configureScrollInnerView()
         configureHabitInfoView()
         configureHabitCalendarView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        changeStatusBarColor()
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        undoStatusBarColor()
+        
+        super.viewWillDisappear(animated)
+    }
+    
+    private func changeStatusBarColor() {
+        guard let statusBar = self.navigationController?.statusBar else { return }
+        
+        statusBar.previousBackgroundColor = statusBar.backgroundColor
+        statusBar.backgroundColor = habitInfoView.backgroundColor
+    }
+    
+    private func undoStatusBarColor() {
+        guard let statusBar = self.navigationController?.statusBar else { return }
+        
+        statusBar.backgroundColor = statusBar.backgroundColor
     }
 
     private func configureMainScrollView() {
@@ -70,8 +94,8 @@ final class HomeViewController: BaseViewController {
         
         self.scrollInnerView.addSubview(habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.scrollInnerView).inset(34)
-            $0.top.equalTo(self.habitInfoView.snp.bottom).offset(20)
+            $0.leading.trailing.equalTo(self.scrollInnerView).inset(32.4)
+            $0.top.equalTo(self.habitInfoView.snp.bottom).offset(29)
             $0.height.equalTo(self.habitCalendarView.snp.width).multipliedBy(self.habitCalendarView.ratioHeightPerWidth)
             $0.bottom.equalTo(self.scrollInnerView)
         }

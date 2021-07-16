@@ -47,7 +47,7 @@ final class HabitInfoView: UIView {
         self.addSubview(self.settingButton)
         self.settingButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-33)
-            $0.top.equalToSuperview().offset(40)
+            $0.top.equalToSuperview().offset(50)
             $0.height.equalTo(21)
             $0.width.equalTo(self.settingButton.snp.height)
         }

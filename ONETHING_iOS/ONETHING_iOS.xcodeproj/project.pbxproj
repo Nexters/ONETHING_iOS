@@ -143,6 +143,9 @@
 		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
+		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F267F9A3269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
 		F267F9A4269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
 		F267F9A5269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
@@ -283,6 +286,7 @@
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
+		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F267F9A2269A30E300219B05 /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
 				CEFC3A38269CC1180007AFF2 /* UILabel+.swift */,
 				F267F9BA269A5ADC00219B05 /* ReusableView.swift */,
+				F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1106,6 +1111,7 @@
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
+				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
@@ -1154,6 +1160,7 @@
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -1207,6 +1214,7 @@
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,

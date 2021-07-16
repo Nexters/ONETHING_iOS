@@ -24,9 +24,13 @@ final class PercentView: UIView {
         configureCompletedPercentLabel()
     }
     
+    override func layoutSubviews() {
+        self.layer.cornerRadius = self.frame.height / 2
+        self.completedPercentView.layer.cornerRadius = self.frame.height / 2
+    }
+    
     private func configure() {
-        self.layer.cornerRadius = 5
-        self.backgroundColor = .oneThingLightGray
+        self.backgroundColor = .black_40
     }
     
     private func configureCompletedPercentLabel() {
