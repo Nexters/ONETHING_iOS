@@ -19,8 +19,9 @@ final class SettingButton: UIButton {
     }
     
     private func configure() {
-        let settingImage = UIImage(named: "setting_btn")
-        setImage(settingImage, for: .normal)
-        imageView?.contentMode = .scaleAspectFill
+        let settingImage = UIImage(systemName: "ellipsis")
+        self.setImage(settingImage, for: .normal)
+        self.tintColor = .black_40
+        imageView?.contentMode = .scaleAspectFit
     }
 }

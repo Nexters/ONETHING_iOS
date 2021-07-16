@@ -29,6 +29,6 @@ final class HabitCalendarView: UICollectionView {
     }
     
     var ratioHeightPerWidth: Double {
-        return Double(self.numberOfRows / self.numberOfColumns).rounded(.up) * 2
+        return Double(self.numberOfRows / self.numberOfColumns).rounded(.up) * 1.4
     }
 }

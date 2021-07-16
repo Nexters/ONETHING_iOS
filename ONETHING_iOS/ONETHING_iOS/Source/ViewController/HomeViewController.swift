@@ -24,7 +24,7 @@ final class HomeViewController: BaseViewController {
         
         configureMainScrollView()
         configureScrollInnerView()
-        configureHomeUpperView()
+        configureHabitInfoView()
         configureHabitCalendarView()
     }
 
@@ -51,12 +51,12 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureHomeUpperView() {
+    private func configureHabitInfoView() {
         self.scrollInnerView.addSubview(self.habitInfoView)
         
         self.habitInfoView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.scrollInnerView).inset(34)
-            $0.top.equalTo(self.scrollInnerView).inset(52)
+            $0.leading.trailing.equalTo(self.scrollInnerView)
+            $0.top.equalTo(self.scrollInnerView)
             $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2.3)
         }
     }
@@ -70,7 +70,7 @@ final class HomeViewController: BaseViewController {
         
         self.scrollInnerView.addSubview(habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.habitInfoView)
+            $0.leading.trailing.equalTo(self.scrollInnerView).inset(34)
             $0.top.equalTo(self.habitInfoView.snp.bottom).offset(20)
             $0.height.equalTo(self.habitCalendarView.snp.width).multipliedBy(self.habitCalendarView.ratioHeightPerWidth)
             $0.bottom.equalTo(self.scrollInnerView)
