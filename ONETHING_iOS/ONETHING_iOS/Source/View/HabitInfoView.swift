@@ -12,7 +12,8 @@ final class HabitInfoView: UIView {
     private let percentView = PercentView()
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
-    private let dayLabel = UILabel()
+    private let dayNumberLabel = UILabel()
+    private let dayTextLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,7 +22,8 @@ final class HabitInfoView: UIView {
         configureSettingButton()
         configureDescriptionLabel()
         configureTitleLabel()
-        configureDayLabel()
+        configureDayNumberLabel()
+        configureDayTextLabel()
         configurePercentView()
     }
     
@@ -32,7 +34,8 @@ final class HabitInfoView: UIView {
         configureSettingButton()
         configureDescriptionLabel()
         configureTitleLabel()
-        configureDayLabel()
+        configureDayNumberLabel()
+        configureDayTextLabel()
         configurePercentView()
     }
     
@@ -74,18 +77,30 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureDayLabel() {
-        self.dayLabel.text = "19"
-        self.dayLabel.font = UIFont.systemFont(ofSize: 40, weight: .light)
-        self.dayLabel.textColor = .white
+    private func configureDayNumberLabel() {
+        self.dayNumberLabel.text = "19"
+        self.dayNumberLabel.font = UIFont.systemFont(ofSize: 40, weight: .light)
+        self.dayNumberLabel.textColor = .white
         
-        self.addSubview(self.dayLabel)
-        self.dayLabel.snp.makeConstraints {
-            $0.bottom.equalTo(self.titleLabel)
+        self.addSubview(self.dayNumberLabel)
+        self.dayNumberLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-51)
+            $0.bottom.equalTo(self.titleLabel).offset(2)
         }
     }
     
+    private func configureDayTextLabel() {
+        self.dayTextLabel.text = "일 째"
+        self.dayTextLabel.font = UIFont.systemFont(ofSize: 9)
+        self.dayTextLabel.textColor = .white
+        
+        self.addSubview(self.dayTextLabel)
+        self.dayTextLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-30)
+            $0.lastBaseline.equalTo(self.dayNumberLabel)
+        }
+    }
+
     private func configurePercentView() {
         self.addSubview(self.percentView)
         
