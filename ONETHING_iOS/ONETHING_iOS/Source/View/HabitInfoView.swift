@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeUpperView: UIView {
+final class HabitInfoView: UIView {
     private let titleLabel = UILabel()
     private let settingButton = SettingButton()
     private let percentView = PercentView()
@@ -32,7 +32,7 @@ final class HomeUpperView: UIView {
         self.titleLabel.font = .boldSystemFont(ofSize: 25)
         self.titleLabel.text = "Habit"
         
-        self.addSubview(titleLabel)
+        self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints {
             $0.leading.top.equalTo(self)
             
@@ -40,7 +40,7 @@ final class HomeUpperView: UIView {
     }
     
     private func configureSettingButton() {
-        self.addSubview(settingButton)
+        self.addSubview(self.settingButton)
         self.settingButton.snp.makeConstraints {
             $0.trailing.equalTo(self)
             $0.centerY.equalTo(self.titleLabel)
@@ -50,7 +50,7 @@ final class HomeUpperView: UIView {
     }
     
     private func configurePercentView() {
-        self.addSubview(percentView)
+        self.addSubview(self.percentView)
         self.percentView.backgroundColor = .systemGray5
         
         self.percentView.snp.makeConstraints {
