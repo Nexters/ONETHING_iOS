@@ -13,7 +13,7 @@ enum SocialAccessType {
     
     var appKey: String {
         switch self {
-        case .kakao: return "1c31db7f755819769d9685b72f2506df"
+        case .kakao: return "1ede4162de99647c1cef1dc55b5383c3"
         case .apple: return ""
         }
     }
