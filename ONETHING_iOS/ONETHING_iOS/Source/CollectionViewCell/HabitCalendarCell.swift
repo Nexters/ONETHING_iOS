@@ -27,7 +27,7 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
 
     private func configureImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
-        self.mainImageView.image = UIImage(named: "habit_stamp_placeholder")
+        self.mainImageView.image = UIImage(named: "rabbit_none")
         
         self.contentView.addSubview(self.mainImageView)
         self.mainImageView.snp.makeConstraints {
