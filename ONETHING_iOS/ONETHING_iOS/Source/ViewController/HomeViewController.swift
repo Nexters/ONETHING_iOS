@@ -13,7 +13,7 @@ final class HomeViewController: BaseViewController {
     
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
-    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 84)
+    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )

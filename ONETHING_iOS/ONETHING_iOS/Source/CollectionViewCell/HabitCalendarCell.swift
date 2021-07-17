@@ -36,7 +36,7 @@ final class HabitCalendarCell: UICollectionViewCell, CircleView {
     }
     
     private func configureNumberLabel() {
-        self.numberLabel.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+        self.numberLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
         
         self.contentView.addSubview(self.numberLabel)
         self.numberLabel.snp.makeConstraints {

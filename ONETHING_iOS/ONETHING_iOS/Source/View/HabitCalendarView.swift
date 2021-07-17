@@ -30,7 +30,7 @@ final class HabitCalendarView: UICollectionView {
     
     func fixedHeight(superViewWidth: CGFloat) -> CGFloat {
         let cellDiameter = self.cellDiameter(superViewWidth: superViewWidth)
-        return (CGFloat(numberOfRows) * cellDiameter) + (CGFloat(numberOfRows - 1) * innerContant) + (topConstant * 2) + 50
+        return (CGFloat(numberOfRows) * cellDiameter) + (CGFloat(numberOfRows - 1) * innerContant) + (topConstant * 2) + 70
     }
     
     var topConstant: CGFloat {
