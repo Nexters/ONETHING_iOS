@@ -14,13 +14,15 @@ final class HabitInfoView: UIView {
     private let titleLabel = UILabel()
     private let dayNumberLabel = UILabel()
     private let dayTextLabel = UILabel()
+    private let descriptionLabelTopConstant: CGFloat
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, descriptionLabelTopConstant: CGFloat) {
+        self.descriptionLabelTopConstant = descriptionLabelTopConstant
         super.init(frame: frame)
-     
+        
         configure()
-        configureSettingButton()
         configureDescriptionLabel()
+        configureSettingButton()
         configureTitleLabel()
         configureDayNumberLabel()
         configureDayTextLabel()
@@ -28,29 +30,12 @@ final class HabitInfoView: UIView {
     }
     
     required init?(coder: NSCoder) {
+        self.descriptionLabelTopConstant = 0
         super.init(coder: coder)
-        
-        configure()
-        configureSettingButton()
-        configureDescriptionLabel()
-        configureTitleLabel()
-        configureDayNumberLabel()
-        configureDayTextLabel()
-        configurePercentView()
     }
     
     private func configure() {
         self.backgroundColor = .black_100
-    }
-    
-    private func configureSettingButton() {
-        self.addSubview(self.settingButton)
-        self.settingButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-33)
-            $0.top.equalToSuperview().offset(50)
-            $0.height.equalTo(21)
-            $0.width.equalTo(self.settingButton.snp.height)
-        }
     }
     
     private func configureDescriptionLabel() {
@@ -60,8 +45,18 @@ final class HabitInfoView: UIView {
         
         self.addSubview(self.descriptionLabel)
         self.descriptionLabel.snp.makeConstraints {
-            $0.top.equalTo(self.settingButton).offset(25)
+            $0.top.equalTo(self).offset(self.descriptionLabelTopConstant)
             $0.leading.equalTo(self).offset(29)
+        }
+    }
+    
+    private func configureSettingButton() {
+        self.addSubview(self.settingButton)
+        self.settingButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().offset(-33)
+            $0.top.equalTo(self.descriptionLabel.snp.top).offset(-30)
+            $0.height.equalTo(21)
+            $0.width.equalTo(self.settingButton.snp.height)
         }
     }
     

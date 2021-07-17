@@ -13,7 +13,7 @@ final class HomeViewController: BaseViewController {
     
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
-    private let habitInfoView = HabitInfoView()
+    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 84)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
@@ -58,7 +58,8 @@ final class HomeViewController: BaseViewController {
         self.habitInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(safeArea)
-            $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2.3)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
         }
     }
 
