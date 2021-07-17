@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:TestTableViewCell.swift">
-   </FileRef>
-   <FileRef
       location = "group:ONETHING_iOS.xcodeproj">
    </FileRef>
    <FileRef
