@@ -14,7 +14,6 @@ final class GoalSettingFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCollectionView()
-//        self.layoutCollectionView()
         self.observeGoalList()
     }
     
@@ -28,16 +27,6 @@ final class GoalSettingFirstViewController: UIViewController {
             collectionView.delegate   = self
         }
     }
-    
-//    private func layoutCollectionView() {
-//        self.collectionViews.forEach { collectionView in
-//            guard let collectionViewLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-//            collectionViewLayout.estimatedItemSize       = UICollectionViewFlowLayout.automaticSize
-//            collectionViewLayout.sectionInset            = .zero
-//            collectionViewLayout.minimumLineSpacing      = 20
-//            collectionViewLayout.minimumInteritemSpacing = 20
-//        }
-//    }
     
     private func observeGoalList() {
         self.viewModel.reloadFlagSubejct.observeOnMain(onNext: { [weak self] in
