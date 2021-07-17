@@ -19,14 +19,17 @@
 		CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
+		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
 		CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72476E26998F3000BB2C19 /* ONETHING_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */; };
 		CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */; };
+		CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
+		CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
 		CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
@@ -34,9 +37,6 @@
 		CE7247AF269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
 		CE7247B0269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
 		CE7247B1269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
-		CE7247B6269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
-		CE7247B7269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
-		CE7247B8269995C200BB2C19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B5269995C200BB2C19 /* TestView.swift */; };
 		CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 		CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 		CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
@@ -92,6 +92,47 @@
 		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
+		F267F9A3269A30E300219B05 /* HomeUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HomeUpperView.swift */; };
+		F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HomeUpperView.swift */; };
+		F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HomeUpperView.swift */; };
+		F267F9A7269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
+		F267F9A8269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
+		F267F9A9269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
+		F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
+		F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
+		F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
+		F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
+		F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
+		F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
+		F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
+		F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
+		F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
+		F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9C3269A78E600219B05 /* TestTableViewCell.swift */; };
+		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
+		F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
+		F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
+		F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
+		F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
+		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
+		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
+		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		F29B842E269A8662009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
+		F29B842F269A8665009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		F29B8430269A8666009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
+		F29B8431269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		F29B8432269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
+		F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
+		F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +180,7 @@
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE72475A26998F2D00BB2C19 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CE72475F26998F3000BB2C19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE72476226998F3000BB2C19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE72476426998F3000BB2C19 /* AppStore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppStore-Info.plist"; sourceTree = "<group>"; };
@@ -153,7 +195,6 @@
 		CE7247A22699938500BB2C19 /* Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beta-Info.plist"; sourceTree = "<group>"; };
 		CE7247A42699939100BB2C19 /* Ent-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ent-Info.plist"; sourceTree = "<group>"; };
 		CE7247AE269994F700BB2C19 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		CE7247B5269995C200BB2C19 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		CE7247B9269995C900BB2C19 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE7247C02699BFE300BB2C19 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -174,6 +215,17 @@
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
+		F267F9A2269A30E300219B05 /* HomeUpperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUpperView.swift; sourceTree = "<group>"; };
+		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
+		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
+		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
+		F267F9BA269A5ADC00219B05 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		F267F9C3269A78E600219B05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
+		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F293C3C1269D0AED0096757C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,8 +376,8 @@
 				CE7247CE2699D65200BB2C19 /* ViewModel */,
 				CE7247B32699955900BB2C19 /* ViewController */,
 				CE7247B22699955600BB2C19 /* View */,
+				F267F9C2269A78C400219B05 /* TableViewCell */,
 				CEB9B3A0269A312400A01590 /* CollectionViewCell */,
-				CEB9B39F269A311F00A01590 /* TableViewCell */,
 				CE7247AD269994E400BB2C19 /* Network */,
 			);
 			path = Source;
@@ -353,7 +405,10 @@
 		CE7247B22699955600BB2C19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE7247B5269995C200BB2C19 /* TestView.swift */,
+				F267F9A2269A30E300219B05 /* HomeUpperView.swift */,
+				F267F9A6269A387000219B05 /* PercentView.swift */,
+				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
+				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -364,6 +419,10 @@
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
 				CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */,
+				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
+				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
+				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
+				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -387,6 +446,7 @@
 				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
 				CEFC3A38269CC1180007AFF2 /* UILabel+.swift */,
+				F267F9BA269A5ADC00219B05 /* ReusableView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -396,6 +456,7 @@
 			children = (
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
 				CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */,
+				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -416,18 +477,10 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
-		CEB9B39F269A311F00A01590 /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */,
-				CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */,
+				F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -446,6 +499,16 @@
 				CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F267F9C2269A78C400219B05 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */,
+				CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */,
+				F267F9C3269A78E600219B05 /* TestTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -852,20 +915,33 @@
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
+				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
+				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
+				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
+				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
+				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
-				CE7247B6269995C200BB2C19 /* TestView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
+				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
+				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
+				F267F9A3269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */,
+				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -893,13 +969,30 @@
 				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
 				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
-				CE7247B7269995C200BB2C19 /* TestView.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
+				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
+				F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
+				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
+				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
+				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
+				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
+				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
+				F29B8430269A8666009D293F /* UIView+.swift in Sources */,
+				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */,
@@ -912,6 +1005,10 @@
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
+				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
+				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -922,13 +1019,30 @@
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
-				CE7247B8269995C200BB2C19 /* TestView.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
+				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
+				F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
+				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
+				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
+				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
+				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
+				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
+				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
+				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
+				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
+				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
@@ -941,6 +1055,10 @@
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,
+				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
+				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
