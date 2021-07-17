@@ -25,10 +25,29 @@ final class HabitCalendarView: UICollectionView {
     }
     
     var numberOfRows: Int {
-        return Int(Double(self.totalCellNumbers / self.numberOfColumns).rounded(.up))
+        return Int((Double(self.totalCellNumbers) / Double(self.numberOfColumns)).rounded(.up))
     }
     
-    var ratioHeightPerWidth: Double {
-        return Double(self.numberOfRows / self.numberOfColumns).rounded(.up) * 1.4
+    func fixedHeight(superViewWidth: CGFloat) -> CGFloat {
+        let cellDiameter = self.cellDiameter(superViewWidth: superViewWidth)
+        return (CGFloat(numberOfRows) * cellDiameter) + (CGFloat(numberOfRows - 1) * innerContant) + (topConstant * 2) + 50
+    }
+    
+    var topConstant: CGFloat {
+        return 30
+    }
+    
+    var outerConstant: CGFloat {
+        return 32
+    }
+    
+    var innerContant: CGFloat {
+        return 20
+    }
+    
+    func cellDiameter(superViewWidth: CGFloat) -> CGFloat {
+        let fullLengthForRow: CGFloat = superViewWidth - outerConstant * 2 - CGFloat(self.numberOfColumns - 1) * self.innerContant
+        let cellNumsForRow = CGFloat(self.numberOfColumns)
+        return fullLengthForRow / cellNumsForRow
     }
 }
