@@ -14,7 +14,13 @@ final class GoalSettingFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCollectionView()
+        self.bindButtons()
         self.observeGoalList()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.directSetButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
     private func setupCollectionView() {
@@ -34,12 +40,25 @@ final class GoalSettingFirstViewController: UIViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    private func bindButtons() {
+        self.directSetButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.pushSecondGoalController()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func pushSecondGoalController() {
+        guard let viewController = GoalSettingSecondViewController
+                .instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     private let disposeBag = DisposeBag()
     private let viewModel  = GoalSettingFirstViewModel()
 
     @IBOutlet private var collectionViews: [UICollectionView]!
     @IBOutlet private weak var directSetButton: UIButton!
-
+    @IBOutlet private weak var directSetButtonBottomConstraint: NSLayoutConstraint!
+    
 }
 
 extension GoalSettingFirstViewController: UICollectionViewDataSource {
