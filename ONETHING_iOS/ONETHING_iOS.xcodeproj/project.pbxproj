@@ -54,15 +54,15 @@
 		CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
+		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
+		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
+		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
+		CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
+		CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
+		CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
 		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
-		CEFC3A1A269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
-		CEFC3A1B269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
-		CEFC3A1C269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */; };
-		CEFC3A1D269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
-		CEFC3A1E269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
-		CEFC3A1F269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */; };
 		CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
@@ -204,9 +204,9 @@
 		CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
+		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewModel.swift; sourceTree = "<group>"; };
-		CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingCollectionViewCell.swift; sourceTree = "<group>"; };
-		CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalSettingCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
 		CEFC3A38269CC1180007AFF2 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
@@ -481,6 +481,8 @@
 			isa = PBXGroup;
 			children = (
 				F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */,
+				CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */,
+				CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -504,8 +506,6 @@
 		F267F9C2269A78C400219B05 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				CEFC3A18269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift */,
-				CEFC3A19269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib */,
 				F267F9C3269A78E600219B05 /* TestTableViewCell.swift */,
 			);
 			path = TableViewCell;
@@ -662,7 +662,7 @@
 			files = (
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
-				CEFC3A1D269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -687,7 +687,7 @@
 			files = (
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
-				CEFC3A1F269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,7 +698,7 @@
 			files = (
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
-				CEFC3A1E269C91AE0007AFF2 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -910,12 +910,12 @@
 			files = (
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
-				CEFC3A1A269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
+				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
@@ -1000,7 +1000,6 @@
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
-				CEFC3A1C269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
@@ -1009,6 +1008,7 @@
 				F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
+				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1050,7 +1050,6 @@
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
-				CEFC3A1B269C91AE0007AFF2 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
@@ -1059,6 +1058,7 @@
 				F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
+				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
