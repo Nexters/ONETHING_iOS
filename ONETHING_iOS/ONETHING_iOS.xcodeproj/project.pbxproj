@@ -60,6 +60,57 @@
 		CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
 		CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
 		CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */; };
+		CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */; };
+		CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */; };
+		CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */; };
+		CEC4D79226A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSetttingSecondViewModel.swift */; };
+		CEC4D79326A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSetttingSecondViewModel.swift */; };
+		CEC4D79426A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSetttingSecondViewModel.swift */; };
+		CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
+		CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
+		CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
+		CEC4D7C126A2D63200633222 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BA26A2D63100633222 /* Pretendard-Regular.otf */; };
+		CEC4D7C226A2D63200633222 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BA26A2D63100633222 /* Pretendard-Regular.otf */; };
+		CEC4D7C326A2D63200633222 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BA26A2D63100633222 /* Pretendard-Regular.otf */; };
+		CEC4D7C426A2D63200633222 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BB26A2D63100633222 /* Pretendard-Medium.otf */; };
+		CEC4D7C526A2D63200633222 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BB26A2D63100633222 /* Pretendard-Medium.otf */; };
+		CEC4D7C626A2D63200633222 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BB26A2D63100633222 /* Pretendard-Medium.otf */; };
+		CEC4D7C726A2D63200633222 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BC26A2D63100633222 /* Pretendard-Light.otf */; };
+		CEC4D7C826A2D63200633222 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BC26A2D63100633222 /* Pretendard-Light.otf */; };
+		CEC4D7C926A2D63200633222 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BC26A2D63100633222 /* Pretendard-Light.otf */; };
+		CEC4D7CA26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BD26A2D63100633222 /* Pretendard-ExtraLight.otf */; };
+		CEC4D7CB26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BD26A2D63100633222 /* Pretendard-ExtraLight.otf */; };
+		CEC4D7CC26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BD26A2D63100633222 /* Pretendard-ExtraLight.otf */; };
+		CEC4D7CD26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BE26A2D63100633222 /* Pretendard-SemiBold.otf */; };
+		CEC4D7CE26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BE26A2D63100633222 /* Pretendard-SemiBold.otf */; };
+		CEC4D7CF26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BE26A2D63100633222 /* Pretendard-SemiBold.otf */; };
+		CEC4D7D026A2D63200633222 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BF26A2D63100633222 /* Pretendard-Bold.otf */; };
+		CEC4D7D126A2D63200633222 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BF26A2D63100633222 /* Pretendard-Bold.otf */; };
+		CEC4D7D226A2D63200633222 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7BF26A2D63100633222 /* Pretendard-Bold.otf */; };
+		CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7C026A2D63100633222 /* Pretendard-ExtraBold.otf */; };
+		CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7C026A2D63100633222 /* Pretendard-ExtraBold.otf */; };
+		CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7C026A2D63100633222 /* Pretendard-ExtraBold.otf */; };
+		CEC4D7FB26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F426A2D88400633222 /* Montserrat-ExtraLight.ttf */; };
+		CEC4D7FC26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F426A2D88400633222 /* Montserrat-ExtraLight.ttf */; };
+		CEC4D7FD26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F426A2D88400633222 /* Montserrat-ExtraLight.ttf */; };
+		CEC4D7FE26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F526A2D88400633222 /* Montserrat-SemiBold.ttf */; };
+		CEC4D7FF26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F526A2D88400633222 /* Montserrat-SemiBold.ttf */; };
+		CEC4D80026A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F526A2D88400633222 /* Montserrat-SemiBold.ttf */; };
+		CEC4D80126A2D88500633222 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F626A2D88400633222 /* Montserrat-Regular.ttf */; };
+		CEC4D80226A2D88500633222 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F626A2D88400633222 /* Montserrat-Regular.ttf */; };
+		CEC4D80326A2D88500633222 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F626A2D88400633222 /* Montserrat-Regular.ttf */; };
+		CEC4D80426A2D88500633222 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F726A2D88400633222 /* Montserrat-Bold.ttf */; };
+		CEC4D80526A2D88500633222 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F726A2D88400633222 /* Montserrat-Bold.ttf */; };
+		CEC4D80626A2D88500633222 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F726A2D88400633222 /* Montserrat-Bold.ttf */; };
+		CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F826A2D88500633222 /* Montserrat-Light.ttf */; };
+		CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F826A2D88500633222 /* Montserrat-Light.ttf */; };
+		CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F826A2D88500633222 /* Montserrat-Light.ttf */; };
+		CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F926A2D88500633222 /* Montserrat-ExtraBold.ttf */; };
+		CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F926A2D88500633222 /* Montserrat-ExtraBold.ttf */; };
+		CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7F926A2D88500633222 /* Montserrat-ExtraBold.ttf */; };
+		CEC4D80D26A2D88500633222 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7FA26A2D88500633222 /* Montserrat-Medium.ttf */; };
+		CEC4D80E26A2D88500633222 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7FA26A2D88500633222 /* Montserrat-Medium.ttf */; };
+		CEC4D80F26A2D88500633222 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D7FA26A2D88500633222 /* Montserrat-Medium.ttf */; };
 		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
@@ -206,6 +257,23 @@
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
+		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
+		CEC4D79126A2B14200633222 /* GoalSetttingSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSetttingSecondViewModel.swift; sourceTree = "<group>"; };
+		CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		CEC4D7BA26A2D63100633222 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		CEC4D7BB26A2D63100633222 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		CEC4D7BC26A2D63100633222 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		CEC4D7BD26A2D63100633222 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		CEC4D7BE26A2D63100633222 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		CEC4D7BF26A2D63100633222 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		CEC4D7C026A2D63100633222 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		CEC4D7F426A2D88400633222 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
+		CEC4D7F526A2D88400633222 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		CEC4D7F626A2D88400633222 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		CEC4D7F726A2D88400633222 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		CEC4D7F826A2D88500633222 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		CEC4D7F926A2D88500633222 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		CEC4D7FA26A2D88500633222 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewModel.swift; sourceTree = "<group>"; };
 		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
@@ -367,6 +435,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4D79726A2B1E000633222 /* Util */,
 				CEFF0A46269C8E7E00DB8D2D /* Constants */,
 				CE7247E42699DCAD00BB2C19 /* Enum */,
 				CE7247E12699D81500BB2C19 /* Manager */,
@@ -386,6 +455,7 @@
 		CE7247A72699947A00BB2C19 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4D79D26A2D1F800633222 /* Font */,
 				CE72475F26998F3000BB2C19 /* Assets.xcassets */,
 				CE72476426998F3000BB2C19 /* AppStore-Info.plist */,
 				CE7247A22699938500BB2C19 /* Beta-Info.plist */,
@@ -416,9 +486,9 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
-				CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */,
 				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
@@ -454,8 +524,8 @@
 		CE7247CE2699D65200BB2C19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CEC4D79626A2B16300633222 /* GoalSetting */,
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
-				CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */,
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -485,6 +555,69 @@
 				CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		CEC4D79526A2B15800633222 /* GoalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */,
+				CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */,
+			);
+			path = GoalSetting;
+			sourceTree = "<group>";
+		};
+		CEC4D79626A2B16300633222 /* GoalSetting */ = {
+			isa = PBXGroup;
+			children = (
+				CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */,
+				CEC4D79126A2B14200633222 /* GoalSetttingSecondViewModel.swift */,
+			);
+			path = GoalSetting;
+			sourceTree = "<group>";
+		};
+		CEC4D79726A2B1E000633222 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		CEC4D79D26A2D1F800633222 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4D7D726A2D67A00633222 /* Montserrat */,
+				CEC4D7D626A2D66800633222 /* Pretendard */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		CEC4D7D626A2D66800633222 /* Pretendard */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4D7BF26A2D63100633222 /* Pretendard-Bold.otf */,
+				CEC4D7C026A2D63100633222 /* Pretendard-ExtraBold.otf */,
+				CEC4D7BD26A2D63100633222 /* Pretendard-ExtraLight.otf */,
+				CEC4D7BC26A2D63100633222 /* Pretendard-Light.otf */,
+				CEC4D7BB26A2D63100633222 /* Pretendard-Medium.otf */,
+				CEC4D7BA26A2D63100633222 /* Pretendard-Regular.otf */,
+				CEC4D7BE26A2D63100633222 /* Pretendard-SemiBold.otf */,
+			);
+			path = Pretendard;
+			sourceTree = "<group>";
+		};
+		CEC4D7D726A2D67A00633222 /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				CEC4D7F726A2D88400633222 /* Montserrat-Bold.ttf */,
+				CEC4D7F926A2D88500633222 /* Montserrat-ExtraBold.ttf */,
+				CEC4D7F426A2D88400633222 /* Montserrat-ExtraLight.ttf */,
+				CEC4D7F826A2D88500633222 /* Montserrat-Light.ttf */,
+				CEC4D7FA26A2D88500633222 /* Montserrat-Medium.ttf */,
+				CEC4D7F626A2D88400633222 /* Montserrat-Regular.ttf */,
+				CEC4D7F526A2D88400633222 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Montserrat;
 			sourceTree = "<group>";
 		};
 		CEFF0A3D269C87B200DB8D2D /* Storyboard */ = {
@@ -660,10 +793,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D7FB26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
+				CEC4D80D26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEC4D7D026A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				CEFF0A3F269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEC4D7CA26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */,
+				CEC4D7C126A2D63200633222 /* Pretendard-Regular.otf in Resources */,
+				CEC4D80126A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
+				CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CEC4D7C726A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CEC4D7FE26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
+				CEC4D7CD26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
 				CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */,
+				CEC4D80426A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
+				CEC4D7C426A2D63200633222 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,10 +832,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D7FD26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
+				CEC4D80F26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEC4D7D226A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				CEFF0A41269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEC4D7CC26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */,
+				CEC4D7C326A2D63200633222 /* Pretendard-Regular.otf in Resources */,
+				CEC4D80326A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
+				CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CEC4D7C926A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CEC4D80026A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
+				CEC4D7CF26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
 				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
+				CEC4D80626A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
+				CEC4D7C626A2D63200633222 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,10 +857,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D7FC26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
+				CEC4D80E26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
+				CEC4D7D126A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				CEFF0A40269C87C900DB8D2D /* GoalSetting.storyboard in Resources */,
+				CEC4D7CB26A2D63200633222 /* Pretendard-ExtraLight.otf in Resources */,
+				CEC4D7C226A2D63200633222 /* Pretendard-Regular.otf in Resources */,
+				CEC4D80226A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
+				CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CEC4D7C826A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CEC4D7FF26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
+				CEC4D7CE26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
 				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
+				CEC4D80526A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
+				CEC4D7C526A2D63200633222 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -912,6 +1087,7 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -934,7 +1110,9 @@
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
+				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
+				CEC4D79226A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
@@ -983,6 +1161,7 @@
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
@@ -992,6 +1171,7 @@
 				F29B8430269A8666009D293F /* UIView+.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				CEC4D79426A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
@@ -1006,6 +1186,7 @@
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F267F9A5269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
@@ -1033,6 +1214,7 @@
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
@@ -1042,6 +1224,7 @@
 				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				CEC4D79326A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
@@ -1056,6 +1239,7 @@
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F267F9A4269A30E300219B05 /* HomeUpperView.swift in Sources */,
+				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
@@ -1212,8 +1396,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1222,7 +1406,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1235,8 +1419,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1245,7 +1429,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
