@@ -50,8 +50,8 @@ extension GoalSettingFirstViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var currentLine: Int = 0
-        self.collectionViews.enumerated().forEach { index, lineCollectionView in
-            if lineCollectionView == collectionView { currentLine = index }
+        for index in self.collectionViews.indices {
+            if self.collectionViews[safe: index] == collectionView { currentLine = index; break }
         }
         
         guard let goal = self.viewModel.goalSection[safe: currentLine]?[safe: indexPath.row % 4]                                          else { return UICollectionViewCell() }
@@ -75,9 +75,10 @@ extension GoalSettingFirstViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var currentLine: Int = 0
-        self.collectionViews.enumerated().forEach { index, lineCollectionView in
-            if lineCollectionView == collectionView { currentLine = index }
+        for index in self.collectionViews.indices {
+            if self.collectionViews[safe: index] == collectionView { currentLine = index; break }
         }
+        
         guard let goal = self.viewModel.goalSection[safe: currentLine]?[safe: indexPath.row % 4]                                          else { return .zero }
         let dummyLabel  = UILabel(frame: .zero)
         dummyLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
