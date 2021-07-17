@@ -13,7 +13,8 @@ abstract_target 'ONETHING_iOS' do
   pod 'RxCocoa', '6.2.0'
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 6.0'
-  
+  pod 'lottie-ios'
+
   target 'ONETHING' do
   end
 
