@@ -9,11 +9,11 @@ import UIKit
 
 extension UILabel {
     
-    func getSize(_ inset: UIEdgeInsets) -> CGSize {
-        let fitsSize = self.sizeThatFits(self.frame.size)
+    func sizeThatFits(_ inset: UIEdgeInsets) -> CGSize {
+        let intrinsicSize = self.intrinsicContentSize
         
-        let fitsWidth  = fitsSize.width + inset.left + inset.right
-        let fitsHeight = fitsSize.height + inset.top + inset.bottom
+        let fitsWidth  = intrinsicSize.width + inset.left + inset.right
+        let fitsHeight = intrinsicSize.height + inset.top + inset.bottom
         return CGSize(width: fitsWidth, height: fitsHeight)
     }
     

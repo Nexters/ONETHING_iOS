@@ -84,7 +84,7 @@ extension GoalSettingFirstViewController: UICollectionViewDelegateFlowLayout {
         dummyLabel.text = goal
         
         let edgeInset = UIEdgeInsets(top: 26, left: 41, bottom: 26, right: 41)
-        let size      = dummyLabel.getSize(edgeInset)
+        let size      = dummyLabel.sizeThatFits(edgeInset)
         return CGSize(width: size.width, height: 74)
     }
     
