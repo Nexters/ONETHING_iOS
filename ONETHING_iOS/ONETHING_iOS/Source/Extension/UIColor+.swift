@@ -42,7 +42,6 @@ extension UIColor {
     
 }
 
-
 extension UIColor {
         
     // Color Asset 모음
@@ -61,5 +60,7 @@ extension UIColor {
     @nonobjc static var blue_2: UIColor     { return UIColor(hexString: "#6E97FF") }
     @nonobjc static var green_1: UIColor    { return UIColor(hexString: "#CAE089") }
     @nonobjc static var green_2: UIColor    { return UIColor(hexString: "#97D1A9") }
-    
+    @nonobjc static var black_100: UIColor  { return UIColor(hexString: "#393939") }
+    @nonobjc static var black_40: UIColor   { return UIColor(hexString: "#B0B0B0") }
+
 }
