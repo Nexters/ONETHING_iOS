@@ -23,7 +23,7 @@ final class GoalSettingSecondViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.directSetButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
+        self.nextButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
     private func setupProgressView() {
@@ -54,6 +54,10 @@ final class GoalSettingSecondViewController: BaseViewController {
     private func bindButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in self?.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
+        
+        self.nextButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.pushThirdGoalSettingController()
+        }).disposed(by: self.disposeBag)
     }
     
     private func bindTextField() {
@@ -71,10 +75,15 @@ final class GoalSettingSecondViewController: BaseViewController {
     
     private func observeEnableNext() {
         self.viewModel.enableNextSubject.observeOnMain(onNext: { [weak self] enable in
-            self?.directSetButton.backgroundColor = enable ? .black_100 : .black_40
-            self?.directSetButton.isUserInteractionEnabled = enable
-            self?.directSetLabel.textColor = enable ? .black_5 : .black_80
+            self?.nextButton.backgroundColor = enable ? .black_100 : .black_40
+            self?.nextButton.isUserInteractionEnabled = enable
+            self?.nextLabel.textColor = enable ? .black_5 : .black_80
         }).disposed(by: self.disposeBag)
+    }
+    
+    private func pushThirdGoalSettingController() {
+        guard let viewController = GoalSettingThirdViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     private let disposeBag = DisposeBag()
@@ -86,8 +95,8 @@ final class GoalSettingSecondViewController: BaseViewController {
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var habbitTextField: UITextField!
     @IBOutlet private weak var habbitInputCountLabel: UILabel!
-    @IBOutlet private weak var directSetButtonBottomConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var directSetButton: UIButton!
-    @IBOutlet private weak var directSetLabel: UILabel!
+    @IBOutlet private weak var nextButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var nextButton: UIButton!
+    @IBOutlet private weak var nextLabel: UILabel!
     
 }
