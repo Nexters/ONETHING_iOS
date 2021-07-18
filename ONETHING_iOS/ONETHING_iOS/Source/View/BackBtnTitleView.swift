@@ -12,7 +12,7 @@ final class BackBtnTitleView: UIView {
     private let backButton = UIButton()
     private let titleLabel = UILabel()
     
-    init(frame: CGRect, parentViewController: UIViewController) {
+    init(frame: CGRect = .zero, parentViewController: UIViewController) {
         self.parentViewController = parentViewController
         super.init(frame: frame)
         
@@ -44,7 +44,7 @@ final class BackBtnTitleView: UIView {
     }
     
     private func configureTitleLabel() {
-        self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 15)
+        self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 18)
         
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints {

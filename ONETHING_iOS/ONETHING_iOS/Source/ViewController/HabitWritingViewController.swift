@@ -9,13 +9,13 @@ import UIKit
 
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
-    private let stampButton = StampButton()
+    private var completeButton: CompleteButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureBackBtnTitleView()
-        configureStampButton()
+        configureCompleteButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +29,7 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func configureBackBtnTitleView() {
-        self.backBtnTitleView = BackBtnTitleView(frame: .zero, parentViewController: self)
+        self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
         self.backBtnTitleView.update(title: "1일차")
         
         self.view.addSubview(self.backBtnTitleView)
@@ -40,17 +40,14 @@ final class HabitWritingViewController: BaseViewController {
         }
     }
     
-    private func configureStampButton() {
-        self.stampButton.layer.borderWidth = 1
-        self.stampButton.layer.borderColor = UIColor.red.cgColor
+    private func configureCompleteButton() {
+        self.completeButton = CompleteButton(parentViewController: self)
         
-        self.view.addSubview(self.stampButton)
+        self.view.addSubview(self.completeButton)
         let safeArea = self.view.safeAreaLayoutGuide
-        self.stampButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.width.equalToSuperview().dividedBy(3)
-            $0.height.equalTo(self.stampButton.snp.width)
-            $0.bottom.equalTo(safeArea).inset(79)
+        self.completeButton.snp.makeConstraints {
+            $0.leading.trailing.bottom.width.equalTo(safeArea)
+            $0.height.equalTo(83)
         }
     }
 }
