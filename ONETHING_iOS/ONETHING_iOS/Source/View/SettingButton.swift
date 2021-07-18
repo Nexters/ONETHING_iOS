@@ -10,17 +10,18 @@ import UIKit
 final class SettingButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        self.configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
+        self.configure()
     }
     
     private func configure() {
-        let settingImage = UIImage(named: "setting_btn")
-        setImage(settingImage, for: .normal)
-        imageView?.contentMode = .scaleAspectFill
+        let settingImage = UIImage(systemName: "ellipsis")
+        self.setImage(settingImage, for: .normal)
+        self.tintColor = .black_40
+        imageView?.contentMode = .scaleAspectFit
     }
 }

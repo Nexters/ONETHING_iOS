@@ -11,7 +11,7 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewControllers()
+        self.configureViewControllers()
     }
     
     private func configureViewControllers() {

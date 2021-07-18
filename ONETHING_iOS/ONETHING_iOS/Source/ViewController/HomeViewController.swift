@@ -13,28 +13,62 @@ final class HomeViewController: BaseViewController {
     
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
-    private let homeUpperView = HomeUpperView()
+    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
-        frame: .zero, totalCellNumbers: 66, columnNumbers: 6
+        frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.configureHabitInfoView()
+        self.configureMainScrollView()
+        self.configureScrollInnerView()
+        self.configureHabitCalendarView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.changeStatusBarColor()
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.undoStatusBarColor()
+        super.viewWillDisappear(animated)
+    }
+    
+    private func changeStatusBarColor() {
+        guard let statusBar = self.navigationController?.statusBar else { return }
         
-        configureMainScrollView()
-        configureScrollInnerView()
-        configureHomeUpperView()
-        configureHabitCalendarView()
+        statusBar.previousBackgroundColor = statusBar.backgroundColor
+        statusBar.backgroundColor = habitInfoView.backgroundColor
+    }
+    
+    private func undoStatusBarColor() {
+        guard let statusBar = self.navigationController?.statusBar else { return }
+        
+        statusBar.backgroundColor = statusBar.previousBackgroundColor
+    }
+    
+    private func configureHabitInfoView() {
+        self.view.addSubview(self.habitInfoView)
+        let safeArea = self.view.safeAreaLayoutGuide
+        
+        self.habitInfoView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(safeArea)
+            $0.width.equalToSuperview()
+            $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
+        }
     }
 
     private func configureMainScrollView() {
         self.view.addSubview(self.mainScrollView)
-        let safeArea = self.view.safeAreaLayoutGuide
-        
         self.mainScrollView.snp.makeConstraints {
-            $0.top.leading.trailing.equalTo(safeArea)
-            $0.height.width.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.habitInfoView.snp.bottom)
+            $0.height.equalTo(self.view.frame.height - self.habitInfoView.frame.height)
         }
     }
     
@@ -51,16 +85,6 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureHomeUpperView() {
-        self.scrollInnerView.addSubview(self.homeUpperView)
-        
-        self.homeUpperView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.scrollInnerView).inset(34)
-            $0.top.equalTo(self.scrollInnerView).inset(52)
-            $0.height.equalTo(self.homeUpperView.snp.width).dividedBy(2.3)
-        }
-    }
-    
     private func configureHabitCalendarView() {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
@@ -70,9 +94,9 @@ final class HomeViewController: BaseViewController {
         
         self.scrollInnerView.addSubview(habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.homeUpperView)
-            $0.top.equalTo(self.homeUpperView.snp.bottom).offset(20)
-            $0.height.equalTo(self.habitCalendarView.snp.width).multipliedBy(self.habitCalendarView.ratioHeightPerWidth)
+            $0.leading.trailing.equalTo(self.scrollInnerView).inset(self.habitCalendarView.outerConstant)
+            $0.top.equalTo(self.scrollInnerView).offset(self.habitCalendarView.topConstant)
+            $0.height.equalTo(self.habitCalendarView.fixedHeight(superViewWidth: self.view.frame.width))
             $0.bottom.equalTo(self.scrollInnerView)
         }
     }
@@ -86,11 +110,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        
-        let constant = (self.view.bounds.width - collectionView.frame.width) / 2
-        let diameter = (collectionView.frame.width - 2 * constant) / CGFloat(self.habitCalendarView.numberOfColumns)
-        
-        return CGSize(width: diameter.rounded(.down), height: diameter)
+        let cellDiameter = self.habitCalendarView.cellDiameter(superViewWidth: self.view.frame.width)
+        return CGSize(width: cellDiameter, height: cellDiameter)
     }
     
 }
