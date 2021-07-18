@@ -147,6 +147,9 @@
 		CED5AECE26A4870E003F087C /* PostponeTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AECD26A4870E003F087C /* PostponeTodoView.swift */; };
 		CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AECD26A4870E003F087C /* PostponeTodoView.swift */; };
 		CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AECD26A4870E003F087C /* PostponeTodoView.swift */; };
+		CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */; };
+		CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */; };
+		CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */; };
 		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
@@ -328,6 +331,7 @@
 		CEC4D84026A479CD00633222 /* AlarmSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
+		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
 		CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewModel.swift; sourceTree = "<group>"; };
 		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
@@ -628,6 +632,7 @@
 				CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */,
 				CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */,
 				CEC4D83426A4735100633222 /* GoalSettingThirdViewController.swift */,
+				CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */,
 			);
 			path = GoalSetting;
 			sourceTree = "<group>";
@@ -1195,6 +1200,7 @@
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
+				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
@@ -1279,6 +1285,7 @@
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
@@ -1343,6 +1350,7 @@
 				CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,

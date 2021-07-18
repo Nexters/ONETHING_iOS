@@ -17,7 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let viewController = GoalSettingFirstViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.isNavigationBarHidden = true
+        navigationController.navigationBar.isHidden = true
         self.window?.rootViewController = navigationController
         self.window?.makeKeyAndVisible()
     }

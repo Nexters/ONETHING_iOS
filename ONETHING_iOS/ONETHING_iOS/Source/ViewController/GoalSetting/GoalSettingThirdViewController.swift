@@ -65,6 +65,15 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
+        
+        self.startButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.pushGoalFinishController()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func pushGoalFinishController() {
+        guard let viewController = GoalSettingFinishViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private let disposeBag = DisposeBag()
