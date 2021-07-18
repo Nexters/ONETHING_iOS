@@ -14,6 +14,7 @@ final class GoalSettingSecondViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addKeyboardDismissTapGesture()
+        self.setupLabels()
         self.setupProgressView()
         self.setupTextField()
         self.bindButtons()
@@ -26,6 +27,27 @@ final class GoalSettingSecondViewController: BaseViewController {
         self.nextButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
+    private func setupLabels() {
+        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
+        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        
+        guard let firstSubRange = "66일 동안".range(of: "66일") else { return }
+        guard let secondSubRange = "어떤 습관을".range(of: "어떤 습관") else { return }
+        
+        let mainAttribute: [NSAttributedString.Key: Any] = [.font: pretendard_medium,
+                                                            .foregroundColor: UIColor.black_100]
+        let subAttributes: [NSAttributedString.Key: Any] = [.font: pretendard_bold,
+                                                            .foregroundColor: UIColor.black_100]
+        
+        let firstLineAttributeText = NSMutableAttributedString(string: "66일 동안", attributes: mainAttribute)
+        firstLineAttributeText.addAttributes(subAttributes, range: firstSubRange)
+        self.titleFirstLineLabel.attributedText = firstLineAttributeText
+        
+        let secondLineAttributeText = NSMutableAttributedString(string: "어떤 습관을", attributes: mainAttribute)
+        secondLineAttributeText.addAttributes(subAttributes, range: secondSubRange)
+        self.titleSecondLineLabel.attributedText = secondLineAttributeText
+    }
+    
     private func setupProgressView() {
         guard let progressView = self.progressView else { return }
         progressView.totalProgress = 3
@@ -35,7 +57,8 @@ final class GoalSettingSecondViewController: BaseViewController {
         self.view.addSubview(progressView)
         
         progressView.snp.makeConstraints { make in
-            make.leading.equalTo(self.titleStackView.snp.trailing).offset(10)
+            let screenRatio = DeviceInfo.screenWidth / 375
+            make.width.equalTo(143 * screenRatio)
             make.trailing.equalToSuperview().offset(-40)
             make.bottom.equalTo(self.titleStackView.snp.bottom)
             make.height.equalTo(14)
@@ -91,8 +114,12 @@ final class GoalSettingSecondViewController: BaseViewController {
     
     private let progressView: GoalProgressView? = UIView.createFromNib()
     
-    @IBOutlet private weak var titleStackView: UIStackView!
     @IBOutlet private weak var backButton: UIButton!
+    
+    @IBOutlet private weak var titleStackView: UIStackView!
+    @IBOutlet private weak var titleFirstLineLabel: UILabel!
+    @IBOutlet private weak var titleSecondLineLabel: UILabel!
+    
     @IBOutlet private weak var habbitTextField: UITextField!
     @IBOutlet private weak var habbitInputCountLabel: UILabel!
     @IBOutlet private weak var nextButtonBottomConstraint: NSLayoutConstraint!

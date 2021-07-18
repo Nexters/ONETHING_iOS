@@ -37,11 +37,13 @@ final class GoalProgressView: UIView {
     
     private func updateProgress() {
         let progressRatio = CGFloat(self.currentProgress) / CGFloat(self.totalProgress)
-        self.currentProgressWidthConstraint.constant = progressRatio * self.bounds.width
+        self.currentProgressWidthConstraint.constant = progressRatio * (136 * type(of: self).screenRatio)
         self.layoutIfNeeded()
         
         self.currentProgressLabel.text = "\(self.currentProgress)"
     }
+    
+    private static var screenRatio: CGFloat { return DeviceInfo.screenWidth / 375 }
     
     @IBOutlet private weak var totalProgressView: UIView!
     @IBOutlet private weak var currentProgressView: UIView!

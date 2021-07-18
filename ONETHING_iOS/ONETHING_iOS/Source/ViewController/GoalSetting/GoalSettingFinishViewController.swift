@@ -13,8 +13,25 @@ final class GoalSettingFinishViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLabels()
         self.setupProgressView()
         self.bindButtons()
+    }
+    
+    private func setupLabels() {
+        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
+        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        
+        guard let subRange = "66일 동안".range(of: "66일") else { return }
+        
+        let mainAttribute: [NSAttributedString.Key: Any] = [.font: pretendard_medium,
+                                                            .foregroundColor: UIColor.black_100]
+        let subAttributes: [NSAttributedString.Key: Any] = [.font: pretendard_bold,
+                                                            .foregroundColor: UIColor.black_100]
+        
+        let attributeText = NSMutableAttributedString(string: "66일 동안", attributes: mainAttribute)
+        attributeText.addAttributes(subAttributes, range: subRange)
+        self.titleSecondLineLabel.attributedText = attributeText
     }
     
     private func setupProgressView() {
@@ -26,7 +43,8 @@ final class GoalSettingFinishViewController: BaseViewController {
         self.view.addSubview(progressView)
         
         progressView.snp.makeConstraints { make in
-            make.leading.equalTo(self.titleStackView.snp.trailing).offset(10)
+            let screenRatio = DeviceInfo.screenWidth / 375
+            make.width.equalTo(143 * screenRatio)
             make.trailing.equalToSuperview().offset(-40)
             make.bottom.equalTo(self.titleStackView.snp.bottom)
             make.height.equalTo(14)
@@ -53,6 +71,7 @@ final class GoalSettingFinishViewController: BaseViewController {
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleStackView: UIStackView!
+    @IBOutlet private weak var titleSecondLineLabel: UILabel!
     
     @IBOutlet private weak var reserveLabel: UILabel!
     @IBOutlet private weak var reserveButton: UIButton!

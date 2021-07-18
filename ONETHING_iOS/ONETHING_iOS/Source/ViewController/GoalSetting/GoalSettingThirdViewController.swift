@@ -14,6 +14,7 @@ final class GoalSettingThirdViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addKeyboardDismissTapGesture()
+        self.setupLabels()
         self.setupAlarmSettingView()
         self.setupPostponeSettingView()
         self.setupProgressView()
@@ -25,6 +26,26 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.nextLabelBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
+    private func setupLabels() {
+        let secondLineTitle = "알림과 미룸 벌칙을"
+        
+        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
+        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        
+        guard let firstSubRange = secondLineTitle.range(of: "알림") else { return }
+        guard let secondSubRange = secondLineTitle.range(of: "미룸 벌칙") else { return }
+        
+        let mainAttribute: [NSAttributedString.Key: Any] = [.font: pretendard_medium,
+                                                            .foregroundColor: UIColor.black_100]
+        let subAttributes: [NSAttributedString.Key: Any] = [.font: pretendard_bold,
+                                                            .foregroundColor: UIColor.black_100]
+        
+        let attributeText = NSMutableAttributedString(string: secondLineTitle, attributes: mainAttribute)
+        attributeText.addAttributes(subAttributes, range: firstSubRange)
+        attributeText.addAttributes(subAttributes, range: secondSubRange)
+        self.titleSecondLineLabel.attributedText = attributeText
+    }
+    
     private func setupProgressView() {
         guard let progressView = self.progressView else { return }
         progressView.totalProgress = 3
@@ -34,7 +55,8 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.view.addSubview(progressView)
         
         progressView.snp.makeConstraints { make in
-            make.leading.equalTo(self.titleLastLineLabel.snp.trailing).offset(10)
+            let screenRatio = DeviceInfo.screenWidth / 375
+            make.width.equalTo(143 * screenRatio)
             make.trailing.equalToSuperview().offset(-40)
             make.bottom.equalTo(self.titleStackView.snp.bottom)
             make.height.equalTo(14)
@@ -84,7 +106,9 @@ final class GoalSettingThirdViewController: BaseViewController {
     private let postponeTodoView: PostponeTodoView? = UIView.createFromNib()
     
     @IBOutlet private weak var backButton: UIButton!
+    
     @IBOutlet private weak var titleStackView: UIStackView!
+    @IBOutlet private weak var titleSecondLineLabel: UILabel!
     @IBOutlet private weak var titleLastLineLabel: UILabel!
     
     @IBOutlet private weak var alarmSettingContainerView: UIView!
