@@ -48,7 +48,7 @@ final class HomeViewController: BaseViewController {
     private func undoStatusBarColor() {
         guard let statusBar = self.navigationController?.statusBar else { return }
         
-        statusBar.backgroundColor = statusBar.backgroundColor
+        statusBar.backgroundColor = statusBar.previousBackgroundColor
     }
     
     private func configureHabitInfoView() {
