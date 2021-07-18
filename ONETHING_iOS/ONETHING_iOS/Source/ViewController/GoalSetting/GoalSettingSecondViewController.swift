@@ -14,6 +14,7 @@ final class GoalSettingSecondViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addKeyboardDismissTapGesture()
+        self.setupProgressView()
         self.setupTextField()
         self.bindButtons()
         self.bindTextField()
@@ -23,6 +24,22 @@ final class GoalSettingSecondViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.directSetButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
+    }
+    
+    private func setupProgressView() {
+        guard let progressView = self.progressView else { return }
+        progressView.totalProgress = 3
+        progressView.currentProgress = 1
+        progressView.currentProgressColor = .black_100
+        progressView.totalProgressColor = .black_20
+        self.view.addSubview(progressView)
+        
+        progressView.snp.makeConstraints { make in
+            make.leading.equalTo(self.titleStackView.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-40)
+            make.bottom.equalTo(self.titleStackView.snp.bottom)
+            make.height.equalTo(14)
+        }
     }
     
     private func setupTextField() {
@@ -63,6 +80,9 @@ final class GoalSettingSecondViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = GoalSettingSecondViewModel()
     
+    private let progressView: GoalProgressView? = UIView.createFromNib()
+    
+    @IBOutlet private weak var titleStackView: UIStackView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var habbitTextField: UITextField!
     @IBOutlet private weak var habbitInputCountLabel: UILabel!

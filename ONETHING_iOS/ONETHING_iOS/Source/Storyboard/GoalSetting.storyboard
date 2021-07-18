@@ -315,6 +315,7 @@
                         <outlet property="directSetLabel" destination="9k5-XX-GgZ" id="Qtx-1R-owR"/>
                         <outlet property="habbitInputCountLabel" destination="cZm-Ag-soe" id="KYD-8E-m2X"/>
                         <outlet property="habbitTextField" destination="oXS-mv-JhY" id="H1T-ff-9Z6"/>
+                        <outlet property="titleStackView" destination="l1r-Qk-j2d" id="Pxw-pK-vQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4UE-iH-H9z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

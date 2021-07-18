@@ -123,6 +123,12 @@
 		CEC4D82926A42D1A00633222 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */; };
 		CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */; };
 		CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */; };
+		CEC4D82D26A4692D00633222 /* GoalProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D82C26A4692D00633222 /* GoalProgressView.xib */; };
+		CEC4D82E26A4692D00633222 /* GoalProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D82C26A4692D00633222 /* GoalProgressView.xib */; };
+		CEC4D82F26A4692D00633222 /* GoalProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC4D82C26A4692D00633222 /* GoalProgressView.xib */; };
+		CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D83026A4693A00633222 /* GoalProgressView.swift */; };
+		CEC4D83226A4693A00633222 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D83026A4693A00633222 /* GoalProgressView.swift */; };
+		CEC4D83326A4693A00633222 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D83026A4693A00633222 /* GoalProgressView.swift */; };
 		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
@@ -296,6 +302,8 @@
 		CEC4D81C26A4168800633222 /* FontName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontName.swift; sourceTree = "<group>"; };
 		CEC4D82426A42CF200633222 /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKey.swift; sourceTree = "<group>"; };
+		CEC4D82C26A4692D00633222 /* GoalProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoalProgressView.xib; sourceTree = "<group>"; };
+		CEC4D83026A4693A00633222 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
 		CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewModel.swift; sourceTree = "<group>"; };
 		CEFC3A24269CA2E20007AFF2 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+.swift"; sourceTree = "<group>"; };
@@ -503,6 +511,8 @@
 				F267F9A6269A387000219B05 /* PercentView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
 				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
+				CEC4D82C26A4692D00633222 /* GoalProgressView.xib */,
+				CEC4D83026A4693A00633222 /* GoalProgressView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -823,6 +833,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D82D26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FB26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80D26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
@@ -862,6 +873,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D82F26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FD26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80F26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
@@ -887,6 +899,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC4D82E26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FC26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80E26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
@@ -1125,6 +1138,7 @@
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -1226,6 +1240,7 @@
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				CEC4D83326A4693A00633222 /* GoalProgressView.swift in Sources */,
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F267F9A5269A30E300219B05 /* HabitInfoView.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
@@ -1285,6 +1300,7 @@
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				CEC4D83226A4693A00633222 /* GoalProgressView.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F267F9A4269A30E300219B05 /* HabitInfoView.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
@@ -1579,7 +1595,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1600,7 +1616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
