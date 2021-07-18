@@ -8,20 +8,14 @@
 import UIKit
 
 final class HabitWritingViewController: BaseViewController {
+    private var backBtnTitleView: BackBtnTitleView!
     private let stampButton = StampButton()
-    private let titleLabel = UILabel()
-    private let backButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureBackButton()
-        configureTitleLabel()
+        configureBackBtnTitleView()
         configureStampButton()
-    }
-    
-    @objc private func backButtonDidTouch(button: UIButton?) {
-        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,29 +28,15 @@ final class HabitWritingViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    private func configureBackButton() {
-        self.backButton.setImage(UIImage(named: "arrow_btn"), for: .normal)
-        self.backButton.contentMode = .scaleAspectFit
-        self.backButton.addTarget(self, action: #selector(backButtonDidTouch(button:)), for: .touchUpInside)
+    private func configureBackBtnTitleView() {
+        self.backBtnTitleView = BackBtnTitleView(frame: .zero, parentViewController: self)
+        self.backBtnTitleView.update(title: "1일차")
         
-        self.view.addSubview(backButton)
-        self.backButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(62)
-            $0.leading.equalToSuperview().inset(34)
-            $0.width.equalTo(12)
-            $0.height.equalTo(24)
-        }
-    }
-
-    private func configureTitleLabel() {
-        self.titleLabel.numberOfLines = 0
-        self.titleLabel.font = UIFont.systemFont(ofSize: 30, weight: .medium)
-        self.titleLabel.text = "오늘의\n성공도장을\n찍어볼까요?"
-        
-        self.view.addSubview(self.titleLabel)
-        self.titleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(41)
-            $0.top.equalTo(self.backButton.snp.bottom).offset(15)
+        self.view.addSubview(self.backBtnTitleView)
+        self.backBtnTitleView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(54)
+            $0.leading.equalToSuperview().offset(32)
+            $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
         }
     }
     

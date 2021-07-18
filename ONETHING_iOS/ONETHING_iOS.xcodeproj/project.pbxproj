@@ -196,6 +196,9 @@
 		F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
 		F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
+		F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
+		F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +313,7 @@
 		F293C3C5269D12940096757C /* HabitWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewController.swift; sourceTree = "<group>"; };
 		F293C3CD269D195D0096757C /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		F293C3D5269D19BF0096757C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +501,7 @@
 				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
 				F293C3CD269D195D0096757C /* StampButton.swift */,
 				F293C3D5269D19BF0096757C /* CircleView.swift */,
+				F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1114,6 +1119,7 @@
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -1200,6 +1206,7 @@
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
+				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */,
@@ -1257,6 +1264,7 @@
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
+				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
