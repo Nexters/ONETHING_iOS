@@ -385,8 +385,8 @@
                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다음으로" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQF-EM-1yy">
-                                        <rect key="frame" x="153" y="12" width="69.333333333333314" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66일 습관 시작하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQF-EM-1yy">
+                                        <rect key="frame" x="110.00000000000001" y="12" width="155.33333333333337" height="24"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
                                         <color key="textColor" name="black_80"/>
                                         <nil key="highlightedColor"/>
@@ -403,6 +403,13 @@
                                     <constraint firstItem="Jpe-fG-0OH" firstAttribute="top" secondItem="skv-Xl-JCB" secondAttribute="top" id="cy5-SL-SyX"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sae-GI-1aO">
+                                <rect key="frame" x="0.0" y="411" width="375" height="158"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="158" id="Rp3-le-93e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ky2-27-sOe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -410,12 +417,15 @@
                             <constraint firstItem="zjs-zI-7ir" firstAttribute="leading" secondItem="Ky2-27-sOe" secondAttribute="leading" constant="40" id="3O6-1S-ipD"/>
                             <constraint firstItem="WOp-Bt-bQg" firstAttribute="top" secondItem="DCK-wA-B1y" secondAttribute="bottom" constant="20" id="EsK-6j-rD9"/>
                             <constraint firstItem="DCK-wA-B1y" firstAttribute="top" secondItem="zjs-zI-7ir" secondAttribute="bottom" constant="10" id="EsT-ex-GNx"/>
+                            <constraint firstItem="sae-GI-1aO" firstAttribute="leading" secondItem="Ky2-27-sOe" secondAttribute="leading" id="Hf4-UU-lc8"/>
                             <constraint firstItem="zjs-zI-7ir" firstAttribute="top" secondItem="Ky2-27-sOe" secondAttribute="top" constant="54" id="JlD-95-2Bc"/>
                             <constraint firstItem="Ky2-27-sOe" firstAttribute="trailing" secondItem="WOp-Bt-bQg" secondAttribute="trailing" id="Oge-KK-DNa"/>
                             <constraint firstItem="skv-Xl-JCB" firstAttribute="leading" secondItem="Ky2-27-sOe" secondAttribute="leading" id="PML-5t-kAL"/>
                             <constraint firstItem="wag-k9-2Hy" firstAttribute="leading" secondItem="Ky2-27-sOe" secondAttribute="leading" constant="40" id="QIt-6Z-UlK"/>
                             <constraint firstAttribute="bottom" secondItem="skv-Xl-JCB" secondAttribute="bottom" id="U5d-pf-meK"/>
                             <constraint firstItem="Ky2-27-sOe" firstAttribute="trailing" secondItem="wag-k9-2Hy" secondAttribute="trailing" constant="40" id="WN8-M2-xPU"/>
+                            <constraint firstItem="sae-GI-1aO" firstAttribute="top" secondItem="wag-k9-2Hy" secondAttribute="bottom" constant="20" id="dDs-Th-iIP"/>
+                            <constraint firstItem="Ky2-27-sOe" firstAttribute="trailing" secondItem="sae-GI-1aO" secondAttribute="trailing" id="has-DA-h60"/>
                             <constraint firstItem="wag-k9-2Hy" firstAttribute="top" secondItem="WOp-Bt-bQg" secondAttribute="bottom" constant="20" id="lcj-eW-Vvf"/>
                             <constraint firstItem="DCK-wA-B1y" firstAttribute="leading" secondItem="Ky2-27-sOe" secondAttribute="leading" constant="40" id="oHg-NS-jKa"/>
                             <constraint firstItem="skv-Xl-JCB" firstAttribute="trailing" secondItem="Ky2-27-sOe" secondAttribute="trailing" id="vb6-Wu-AGr"/>
@@ -426,6 +436,7 @@
                         <outlet property="alarmSettingContainerView" destination="WOp-Bt-bQg" id="lQV-wg-BqF"/>
                         <outlet property="backButton" destination="zjs-zI-7ir" id="jT8-Ya-Unj"/>
                         <outlet property="nextLabelBottomConstraint" destination="Fiq-77-lNV" id="Yeh-uk-nlu"/>
+                        <outlet property="postponeTodoContainerView" destination="sae-GI-1aO" id="tol-zy-kPM"/>
                         <outlet property="startButton" destination="Jpe-fG-0OH" id="Y6y-TL-WRy"/>
                         <outlet property="startLabel" destination="hQF-EM-1yy" id="x7u-Or-1gc"/>
                         <outlet property="titleLastLineLabel" destination="8Le-9c-924" id="HJa-9t-33n"/>

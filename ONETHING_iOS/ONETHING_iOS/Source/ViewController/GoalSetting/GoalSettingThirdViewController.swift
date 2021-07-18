@@ -13,7 +13,9 @@ final class GoalSettingThirdViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDismissTapGesture()
         self.setupAlarmSettingView()
+        self.setupPostponeSettingView()
         self.setupProgressView()
         self.bindButtons()
     }
@@ -49,6 +51,16 @@ final class GoalSettingThirdViewController: BaseViewController {
         }
     }
     
+    private func setupPostponeSettingView() {
+        guard let postponeTodoView = self.postponeTodoView else { return }
+        postponeTodoView.delegate = self
+        self.postponeTodoContainerView.addSubview(postponeTodoView)
+        
+        postponeTodoView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
+        }
+    }
+    
     private func bindButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
@@ -60,11 +72,14 @@ final class GoalSettingThirdViewController: BaseViewController {
 
     private let progressView: GoalProgressView? = UIView.createFromNib()
     private let alarmSettingView: AlarmSettingView? = UIView.createFromNib()
+    private let postponeTodoView: PostponeTodoView? = UIView.createFromNib()
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleStackView: UIStackView!
     @IBOutlet private weak var titleLastLineLabel: UILabel!
+    
     @IBOutlet private weak var alarmSettingContainerView: UIView!
+    @IBOutlet private weak var postponeTodoContainerView: UIView!
     
     @IBOutlet private weak var startLabel: UILabel!
     @IBOutlet private weak var startButton: UIButton!
@@ -78,4 +93,18 @@ extension GoalSettingThirdViewController: AlarmSettingViewDelegate {
         #warning("Date Picker 추가")
     }
     
+}
+
+extension GoalSettingThirdViewController: PostponeTodoViewDelegate {
+    
+    func postponeTodoView(_ postponeTodoView: PostponeTodoView, didEditedText text: String) {
+        #warning("추가 예정")
+        print("Here")
+    }
+    
+    func postponeTodoViewDidTapCount(_ postponeTodoView: PostponeTodoView) {
+        #warning("UIPicker 추가")
+        print("Here1")
+    }
+
 }
