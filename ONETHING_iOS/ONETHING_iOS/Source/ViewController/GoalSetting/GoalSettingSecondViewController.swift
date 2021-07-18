@@ -13,6 +13,7 @@ final class GoalSettingSecondViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addKeyboardDismissTapGesture()
         self.setupTextField()
         self.bindButtons()
         self.bindTextField()
