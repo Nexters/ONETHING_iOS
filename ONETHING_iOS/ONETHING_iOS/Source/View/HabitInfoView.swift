@@ -22,15 +22,15 @@ final class HabitInfoView: UIView {
         self.descriptionLabelTopConstant = descriptionLabelTopConstant
         super.init(frame: frame)
         
-        configure()
-        configureDescriptionLabel()
-        configureSettingButton()
-        configureTitleLabel()
-        configureDayNumberLabel()
-        configureDayTextLabel()
-        configurePercentView()
-        configureStartDateLabel()
-        configureEndDateLabel()
+        self.configure()
+        self.configureDescriptionLabel()
+        self.configureSettingButton()
+        self.configureTitleLabel()
+        self.configureDayNumberLabel()
+        self.configureDayTextLabel()
+        self.configurePercentView()
+        self.configureStartDateLabel()
+        self.configureEndDateLabel()
     }
     
     required init?(coder: NSCoder) {

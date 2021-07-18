@@ -13,15 +13,15 @@ final class PercentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
-        configureCompletedPercentLabel()
+        self.configure()
+        self.configureCompletedPercentLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        configure()
-        configureCompletedPercentLabel()
+        self.configure()
+        self.configureCompletedPercentLabel()
     }
     
     override func layoutSubviews() {

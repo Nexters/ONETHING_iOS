@@ -10,12 +10,12 @@ import UIKit
 final class SettingButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        self.configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
+        self.configure()
     }
     
     private func configure() {

@@ -14,15 +14,15 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configureImageView()
-        configureNumberLabel()
+        self.configureImageView()
+        self.configureNumberLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        configureImageView()
-        configureNumberLabel()
+        self.configureImageView()
+        self.configureNumberLabel()
     }
 
     private func configureImageView() {

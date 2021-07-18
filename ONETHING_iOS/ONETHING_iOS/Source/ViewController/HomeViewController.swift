@@ -22,19 +22,19 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        configureHabitInfoView()
-        configureMainScrollView()
-        configureScrollInnerView()
-        configureHabitCalendarView()
+        self.configureHabitInfoView()
+        self.configureMainScrollView()
+        self.configureScrollInnerView()
+        self.configureHabitCalendarView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        changeStatusBarColor()
+        self.changeStatusBarColor()
         super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        undoStatusBarColor()
+        self.undoStatusBarColor()
         super.viewWillDisappear(animated)
     }
     
