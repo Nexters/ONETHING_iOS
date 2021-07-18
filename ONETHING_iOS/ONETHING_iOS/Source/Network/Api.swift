@@ -31,6 +31,7 @@ enum Api {
         case test
     }
     
+    // Naming: Method + EndPoint
     case getUser
     case getRecommendedHabit
     case getHabitInProgress
@@ -41,7 +42,7 @@ enum Api {
 
 extension Api: TargetType {
     var baseURL: URL {
-        return URL(string: "NONE!")!
+        return URL(string: "NONE, Not Yet.")!
     }
     
     var path: String {
