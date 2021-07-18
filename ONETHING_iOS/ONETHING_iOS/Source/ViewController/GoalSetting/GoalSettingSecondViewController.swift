@@ -56,7 +56,7 @@ final class GoalSettingSecondViewController: BaseViewController {
         self.viewModel.enableNextSubject.observeOnMain(onNext: { [weak self] enable in
             self?.directSetButton.backgroundColor = enable ? .black_100 : .black_40
             self?.directSetButton.isUserInteractionEnabled = enable
-            self?.directSetLabel.textColor = enable ? .black_80 : .black_5
+            self?.directSetLabel.textColor = enable ? .black_5 : .black_80
         }).disposed(by: self.disposeBag)
     }
 
