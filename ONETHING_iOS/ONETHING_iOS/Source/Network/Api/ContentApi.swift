@@ -9,24 +9,8 @@ import Foundation
 
 import Moya
 
-enum Api {
-    private enum RequestConfig {
-        enum HeaderKeys {
-            static let contentType = "Content-type"
-            static let authorization = "Authorization"
-        }
-        
-        enum HeaderValues {
-            static let json =  "application/json"
-            static let authorizationKey =  "bearer EbTnTgX_t1zEp67w27Yrgf2vsusWsaU5TjoivQo9dVsAAAF6kMJCqQ"
-        }
-        
-        enum ParameterKeys {
-            static let habitId = "habit_id"
-        }
-    }
-
-    public enum ServiceMode: String {
+enum ContentApi {
+    enum ServiceMode: String {
         case live
         case test
     }
@@ -40,7 +24,7 @@ enum Api {
     case getDailyHistories(habitId: Int)
 }
 
-extension Api: TargetType {
+extension ContentApi: TargetType {
     var baseURL: URL {
         return URL(string: "NONE, Not Yet.")!
     }
@@ -83,14 +67,14 @@ extension Api: TargetType {
              .getHabits, .postHabit:
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getDailyHistories(habitId: let habitId):
-            parameters[RequestConfig.ParameterKeys.habitId] = habitId
+            parameters[NetworkInfomation.Request.ParameterKeys.habitId] = habitId
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String: String]? {
-        return [RequestConfig.HeaderKeys.contentType: RequestConfig.HeaderValues.json,
-                RequestConfig.HeaderKeys.authorization: RequestConfig.HeaderValues.authorizationKey]
+        return [NetworkInfomation.Request.HeaderKeys.contentType: NetworkInfomation.Request.HeaderValues.json,
+                NetworkInfomation.Request.HeaderKeys.authorization: NetworkInfomation.Request.HeaderValues.authorizationKey]
     }
 }
 

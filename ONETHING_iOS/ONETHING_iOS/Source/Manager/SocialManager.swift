@@ -33,15 +33,15 @@ class SocialManager: NSObject {
     }
     
     private func loginThroughKakao() {
-        if UserApi.isKakaoTalkLoginAvailable() {
-            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+        if KakaoSDKUser.UserApi.isKakaoTalkLoginAvailable() {
+            KakaoSDKUser.UserApi.shared.loginWithKakaoTalk { oauthToken, error in
                 guard error != nil else { return }
                 #warning("oauth Token 이용 우리 서버에 request")
                 print(oauthToken?.accessToken)
                 print(oauthToken?.refreshToken)
             }
         } else {
-            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+            KakaoSDKUser.UserApi.shared.loginWithKakaoAccount { oauthToken, error in
                 guard error != nil else { return }
                 #warning("oauth Token 이용 우리 서버에 request")
                 print(oauthToken?.accessToken)

@@ -9,15 +9,15 @@ import Foundation
 
 import Moya
 
-final class ApiService {
-    private let provider: MoyaProvider<Api>
+final class ApiService<T: TargetType> {
+    private let provider: MoyaProvider<T>
     private let jsonDecoder = JSONDecoder()
     
-    init(provider: MoyaProvider<Api> = MoyaProvider<Api>(plugins: [NetworkLoggerPlugin(configuration: NetworkLoggerPlugin.Configuration())])) {
+    init(provider: MoyaProvider<T> = MoyaProvider<T>(plugins: [NetworkLoggerPlugin(configuration: NetworkLoggerPlugin.Configuration())])) {
         self.provider = provider
     }
     
-    func requestAndDecode<T: Decodable>(api target: Api, decodableType: T.Type, completion: @escaping (T) -> Void) {
+    func requestAndDecode<D: Decodable>(api target: T, decodableType: D.Type, completion: @escaping (D) -> Void) {
         provider.request(target) { result in
             switch result {
             case .success(let response):
