@@ -13,7 +13,7 @@ import KakaoSDKAuth
 
 import AuthenticationServices
 
-class SocialManager: NSObject {
+final class SocialManager: NSObject {
     
     static let sharedInstance = SocialManager()
     
