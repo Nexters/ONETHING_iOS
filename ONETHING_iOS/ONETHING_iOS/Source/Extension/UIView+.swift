@@ -36,6 +36,12 @@ extension UIView {
         return Bundle.main.path(forResource: nibName, ofType: "nib") != nil
     }
     
+    static func createFromNib<T: UIView>() -> T? {
+        let identifier = String(describing: T.self)
+        guard let nib = Bundle.main.loadNibNamed(identifier, owner: nil, options: nil) else { return nil }
+        return nib.first as? T
+    }
+    
     /// 부분적으로 Corner Radius 줄 떄, [.bottomLeft, .bottomRight, .topLeft, .topRight, .allCorners] 선택 가능
     func makeCornerRadius(directions: UIRectCorner = .allCorners, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds,
