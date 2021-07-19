@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "intro_graphic.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
