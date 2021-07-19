@@ -21,7 +21,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        let service = ApiService<ContentApi>()
         self.configureHabitInfoView()
         self.configureMainScrollView()
         self.configureScrollInnerView()
