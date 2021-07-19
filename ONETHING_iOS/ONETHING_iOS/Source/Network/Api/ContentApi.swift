@@ -16,7 +16,6 @@ enum ContentApi {
     }
     
     // Naming: Method + EndPoint
-    case getUser
     case getRecommendedHabit
     case getHabitInProgress
     case getHabits
@@ -31,8 +30,6 @@ extension ContentApi: TargetType {
     
     var path: String {
         switch self {
-        case .getUser:
-            return "/user"
         case .getRecommendedHabit:
             return "/recommended-habit"
         case .getHabitInProgress:
@@ -48,7 +45,7 @@ extension ContentApi: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getUser, .getRecommendedHabit, .getHabitInProgress,
+        case .getRecommendedHabit, .getHabitInProgress,
              .getHabits, .getDailyHistories:
             return .get
         case .postHabit:
@@ -63,7 +60,7 @@ extension ContentApi: TargetType {
     var task: Task {
         var parameters = [String: Any]()
         switch self {
-        case .getUser, .getRecommendedHabit, .getHabitInProgress,
+        case .getRecommendedHabit, .getHabitInProgress,
              .getHabits, .postHabit:
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getDailyHistories(habitId: let habitId):

@@ -180,6 +180,7 @@
 		F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
 		F20E00D626A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
 		F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
+		F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
@@ -231,7 +232,6 @@
 		F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
 		F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
 		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
-		F2A614BD26A427AF0061A17A /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -1225,7 +1225,6 @@
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
-				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
@@ -1265,13 +1264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
 				F25571A126A432CE005A1AAF /* ApiService.swift in Sources */,
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
-				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
-				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
-				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
@@ -1315,7 +1312,6 @@
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
-				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 			);
@@ -1338,7 +1334,6 @@
 				F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -1674,7 +1669,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1695,7 +1690,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
