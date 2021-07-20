@@ -33,10 +33,11 @@ final class HabitWritingViewController: BaseViewController {
     private func setupBackBtnTitleView() {
         self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
         self.backBtnTitleView.update(title: "1일차")
+        let safeArea = self.view.safeAreaLayoutGuide
         
         self.view.addSubview(self.backBtnTitleView)
         self.backBtnTitleView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(54)
+            $0.top.equalTo(safeArea).offset(54)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
         }

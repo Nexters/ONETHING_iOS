@@ -15,7 +15,7 @@ final class DailyHabitView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        
         self.setupTimeLabel()
         self.setupDateLabel()
         self.setupPhotoView()
@@ -27,7 +27,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupTimeLabel() {
-        self.timeLabel.backgroundColor = .blue
         self.timeLabel.text = "5:05 PM"
         self.addSubview(self.timeLabel)
         
@@ -38,7 +37,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupDateLabel() {
-        self.dateLabel.backgroundColor = .orange
         self.dateLabel.text = "2021.07.21"
         self.addSubview(self.dateLabel)
         
@@ -49,7 +47,10 @@ final class DailyHabitView: UIView {
     }
     
     private func setupPhotoView() {
-        self.photoView.backgroundColor = .gray
+        self.photoView.image = UIImage(named: "photo_default")
+        self.photoView.contentMode = .scaleAspectFill
+        self.photoView.layer.cornerRadius = 16
+        self.photoView.clipsToBounds = true
         self.addSubview(self.photoView)
         
         self.photoView.snp.makeConstraints {
@@ -64,7 +65,7 @@ final class DailyHabitView: UIView {
         self.addSubview(self.habitTextView)
         
         self.habitTextView.snp.makeConstraints {
-            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
+            $0.top.equalTo(self.photoView.snp.bottom).offset(25)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(120)
             $0.bottom.equalToSuperview()
