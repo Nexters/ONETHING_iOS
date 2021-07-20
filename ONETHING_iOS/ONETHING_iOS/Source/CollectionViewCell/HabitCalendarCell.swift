@@ -14,18 +14,15 @@ final class HabitCalendarCell: UICollectionViewCell, CircleView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configureImageView()
-        configureNumberLabel()
+        self.setupImageView()
+        self.setupNumberLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        configureImageView()
-        configureNumberLabel()
     }
 
-    private func configureImageView() {
+    private func setupImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
         self.mainImageView.image = UIImage(named: "rabbit_none")
         
@@ -35,7 +32,7 @@ final class HabitCalendarCell: UICollectionViewCell, CircleView {
         }
     }
     
-    private func configureNumberLabel() {
+    private func setupNumberLabel() {
         self.numberLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
         
         self.contentView.addSubview(self.numberLabel)
@@ -45,7 +42,7 @@ final class HabitCalendarCell: UICollectionViewCell, CircleView {
         }
     }
     
-    func configure(numberText: String) {
+    func setup(numberText: String) {
         self.numberLabel.text = numberText
     }
 }

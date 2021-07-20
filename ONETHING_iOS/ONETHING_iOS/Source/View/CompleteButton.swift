@@ -13,14 +13,14 @@ final class CompleteButton: UIButton {
     init(frame: CGRect = .zero, parentViewController: UIViewController) {
         self.parentViewController = parentViewController
         super.init(frame: frame)
-        configure()
+        self.setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func configure() {
+    private func setup() {
         self.addTarget(self, action: #selector(self.completeButtonDidTouch(button:)), for: .touchUpInside)
         self.setTitle("저장하기", for: .normal)
         self.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 20)
@@ -28,7 +28,7 @@ final class CompleteButton: UIButton {
     }
     
     @objc private func completeButtonDidTouch(button: UIButton?) {
-        dismiss()
+        self.dismiss()
     }
     
     private func dismiss() {

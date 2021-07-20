@@ -8,11 +8,11 @@
 import UIKit
 
 protocol CircleView: UIView {
-    func configureLayerCircle()
+    func setupLayerCircle()
 }
 
 extension CircleView {
-    func configureLayerCircle() {
+    func setupLayerCircle() {
         self.layer.cornerRadius = self.frame.width / 2
     }
 }

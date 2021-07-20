@@ -13,15 +13,13 @@ final class PercentView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
-        configureCompletedPercentLabel()
+        self.setup()
+        self.setupCompletedPercentLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
-        configure()
-        configureCompletedPercentLabel()
     }
     
     override func layoutSubviews() {
@@ -29,11 +27,11 @@ final class PercentView: UIView {
         self.completedPercentView.layer.cornerRadius = self.frame.height / 2
     }
     
-    private func configure() {
+    private func setup() {
         self.backgroundColor = .black_40
     }
     
-    private func configureCompletedPercentLabel() {
+    private func setupCompletedPercentLabel() {
         self.completedPercentView.layer.cornerRadius = self.layer.cornerRadius
         self.completedPercentView.backgroundColor = .red
         

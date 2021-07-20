@@ -22,10 +22,10 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        configureHabitInfoView()
-        configureMainScrollView()
-        configureScrollInnerView()
-        configureHabitCalendarView()
+        self.setupHabitInfoView()
+        self.setupMainScrollView()
+        self.setupScrollInnerView()
+        self.setupHabitCalendarView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ final class HomeViewController: BaseViewController {
         statusBar.backgroundColor = statusBar.previousBackgroundColor
     }
     
-    private func configureHabitInfoView() {
+    private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide
         
@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController {
         }
     }
 
-    private func configureMainScrollView() {
+    private func setupMainScrollView() {
         self.view.addSubview(self.mainScrollView)
         self.mainScrollView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -72,7 +72,7 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureScrollInnerView() {
+    private func setupScrollInnerView() {
         self.mainScrollView.addSubview(self.scrollInnerView)
         
         self.scrollInnerView.snp.makeConstraints {
@@ -85,7 +85,7 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureHabitCalendarView() {
+    private func setupHabitCalendarView() {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)

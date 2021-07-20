@@ -15,9 +15,9 @@ final class HabitWritingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureBackBtnTitleView()
-        setupDailyHabitView()
-        configureCompleteButton()
+        self.setupBackBtnTitleView()
+        self.setupDailyHabitView()
+        self.setupCompleteButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +30,7 @@ final class HabitWritingViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    private func configureBackBtnTitleView() {
+    private func setupBackBtnTitleView() {
         self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
         self.backBtnTitleView.update(title: "1일차")
         
@@ -50,7 +50,7 @@ final class HabitWritingViewController: BaseViewController {
         }
     }
     
-    private func configureCompleteButton() {
+    private func setupCompleteButton() {
         self.completeButton = CompleteButton(parentViewController: self)
         
         self.view.addSubview(self.completeButton)

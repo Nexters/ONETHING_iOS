@@ -16,15 +16,15 @@ final class BackBtnTitleView: UIView {
         self.parentViewController = parentViewController
         super.init(frame: frame)
         
-        configureBackButton()
-        configureTitleLabel()
+        self.setupBackButton()
+        self.setupTitleLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
  
-    private func configureBackButton() {
+    private func setupBackButton() {
         self.backButton.setImage(UIImage(named: "arrow_back"), for: .normal)
         self.backButton.contentMode = .scaleAspectFit
         self.backButton.addTarget(self, action: #selector(backButtonDidTouch(button:)), for: .touchUpInside)
@@ -43,7 +43,7 @@ final class BackBtnTitleView: UIView {
         parentViewController.navigationController?.popViewController(animated: true)
     }
     
-    private func configureTitleLabel() {
+    private func setupTitleLabel() {
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 18)
         
         self.addSubview(self.titleLabel)
