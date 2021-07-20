@@ -21,7 +21,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.configureHabitInfoView()
         self.configureMainScrollView()
         self.configureScrollInnerView()
