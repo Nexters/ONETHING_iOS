@@ -16,6 +16,12 @@
 		CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
 		CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
+		CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
+		CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
+		CE3B8BB626A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
+		CE3B8BB726A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
+		CE3B8BB826A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -277,6 +283,8 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
+		CE3B8BB126A7073D00BD529B /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
+		CE3B8BB526A7078A00BD529B /* UploadSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSession.swift; sourceTree = "<group>"; };
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -538,6 +546,8 @@
 				F20E00D326A5978C009A4AB3 /* Api */,
 				F255719E26A432CE005A1AAF /* ApiService.swift */,
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
+				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
+				CE3B8BB526A7078A00BD529B /* UploadSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1194,6 +1204,7 @@
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
+				CE3B8BB626A7078A00BD529B /* UploadSession.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
@@ -1234,6 +1245,7 @@
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
+				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
@@ -1291,6 +1303,7 @@
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
+				CE3B8BB826A7078A00BD529B /* UploadSession.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */,
@@ -1302,6 +1315,7 @@
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
+				CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
@@ -1338,6 +1352,7 @@
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
+				CE3B8BB726A7078A00BD529B /* UploadSession.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
@@ -1346,6 +1361,7 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				F25571A026A432CE005A1AAF /* ApiService.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */,
+				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
@@ -1669,7 +1685,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1690,7 +1706,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
