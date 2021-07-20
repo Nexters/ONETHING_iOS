@@ -28,8 +28,8 @@ final class GoalSettingSecondViewController: BaseViewController {
     }
     
     private func setupLabels() {
-        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
-        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
+        guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }
         
         guard let firstSubRange = "66일 동안".range(of: "66일") else { return }
         guard let secondSubRange = "어떤 습관을".range(of: "어떤 습관") else { return }
@@ -66,7 +66,7 @@ final class GoalSettingSecondViewController: BaseViewController {
     }
     
     private func setupTextField() {
-        guard let pretendardFont = UIFont(name: FontName.pretendard_semibold, size: 20) else { return }
+        guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) else { return }
         
         let attributePlaceHolderText = NSAttributedString(string: "매일 스쿼트 한 세트하기",
                                                           attributes: [.font: pretendardFont,

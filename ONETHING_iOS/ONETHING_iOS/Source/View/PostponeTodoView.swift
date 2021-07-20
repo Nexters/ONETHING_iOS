@@ -31,7 +31,7 @@ class PostponeTodoView: UIView {
     }
     
     private func setupTextField() {
-        guard let pretendardFont = UIFont(name: FontName.pretendard_semibold, size: 20) else { return }
+        guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) else { return }
         
         let attributePlaceHolderText = NSAttributedString(string: "매일 스쿼트 한 세트하기",
                                                           attributes: [.font: pretendardFont,

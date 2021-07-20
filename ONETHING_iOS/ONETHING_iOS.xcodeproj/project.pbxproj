@@ -19,9 +19,12 @@
 		CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
-		CE3B8BB626A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
-		CE3B8BB726A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
-		CE3B8BB826A7078A00BD529B /* UploadSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB526A7078A00BD529B /* UploadSession.swift */; };
+		CE3B8BBA26A7084800BD529B /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3B8BB926A7084800BD529B /* Intro.storyboard */; };
+		CE3B8BBB26A7084800BD529B /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3B8BB926A7084800BD529B /* Intro.storyboard */; };
+		CE3B8BBC26A7084800BD529B /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE3B8BB926A7084800BD529B /* Intro.storyboard */; };
+		CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
+		CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
+		CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -284,7 +287,8 @@
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
 		CE3B8BB126A7073D00BD529B /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
-		CE3B8BB526A7078A00BD529B /* UploadSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSession.swift; sourceTree = "<group>"; };
+		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -451,6 +455,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE3B8BBD26A726A200BD529B /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		CE3B8BC226A7283800BD529B /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
 		CE72474A26998F2D00BB2C19 = {
 			isa = PBXGroup;
 			children = (
@@ -547,7 +567,6 @@
 				F255719E26A432CE005A1AAF /* ApiService.swift */,
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
-				CE3B8BB526A7078A00BD529B /* UploadSession.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -572,9 +591,9 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE3B8BBD26A726A200BD529B /* Intro */,
 				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
-				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
 				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
@@ -605,6 +624,7 @@
 				F267F9BA269A5ADC00219B05 /* ReusableView.swift */,
 				F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */,
 				CED5AED526A4A0CB003F087C /* String+.swift */,
+				CE3B8BC326A72B6B00BD529B /* UIFont+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -612,8 +632,8 @@
 		CE7247CE2699D65200BB2C19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CE3B8BC226A7283800BD529B /* Intro */,
 				CEC4D79626A2B16300633222 /* GoalSetting */,
-				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -718,6 +738,7 @@
 			isa = PBXGroup;
 			children = (
 				CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */,
+				CE3B8BB926A7084800BD529B /* Intro.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -908,6 +929,7 @@
 				CEC4D83D26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C126A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80126A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CE3B8BBA26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
@@ -950,6 +972,7 @@
 				CEC4D83F26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C326A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80326A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CE3B8BBC26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
@@ -978,6 +1001,7 @@
 				CEC4D83E26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C226A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80226A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				CE3B8BBB26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
@@ -1204,7 +1228,6 @@
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
-				CE3B8BB626A7078A00BD529B /* UploadSession.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
@@ -1222,6 +1245,7 @@
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
+				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
@@ -1276,6 +1300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
 				F25571A126A432CE005A1AAF /* ApiService.swift in Sources */,
@@ -1303,7 +1328,6 @@
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
-				CE3B8BB826A7078A00BD529B /* UploadSession.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */,
@@ -1349,10 +1373,10 @@
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
+				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
-				CE3B8BB726A7078A00BD529B /* UploadSession.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,

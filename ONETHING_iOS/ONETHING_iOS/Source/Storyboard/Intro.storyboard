@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EY-oA-lYC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_illust" translatesAutoresizingMaskIntoConstraints="NO" id="tBA-0J-WMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66일 습관메이트" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3C-gd-R21">
+                                        <rect key="frame" x="40" y="88" width="174.33333333333334" height="31.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="26"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tBA-0J-WMg" secondAttribute="bottom" id="SY4-v3-FgZ"/>
+                                    <constraint firstItem="Q3C-gd-R21" firstAttribute="leading" secondItem="6EY-oA-lYC" secondAttribute="leading" constant="40" id="WMP-zb-BGP"/>
+                                    <constraint firstItem="tBA-0J-WMg" firstAttribute="leading" secondItem="6EY-oA-lYC" secondAttribute="leading" id="fgk-mc-myt"/>
+                                    <constraint firstItem="tBA-0J-WMg" firstAttribute="top" secondItem="6EY-oA-lYC" secondAttribute="top" id="tgI-nJ-eSV"/>
+                                    <constraint firstAttribute="trailing" secondItem="tBA-0J-WMg" secondAttribute="trailing" id="u2Z-CG-Siq"/>
+                                    <constraint firstItem="Q3C-gd-R21" firstAttribute="top" secondItem="6EY-oA-lYC" secondAttribute="top" constant="88" id="w9W-rn-IlD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6EY-oA-lYC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Cm1-EB-Rsd"/>
+                            <constraint firstItem="6EY-oA-lYC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jh1-Zx-fCC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6EY-oA-lYC" secondAttribute="trailing" id="f7Z-nI-h96"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="Q3C-gd-R21" id="h9S-bS-wAV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="102"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="login_illust" width="375" height="440"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

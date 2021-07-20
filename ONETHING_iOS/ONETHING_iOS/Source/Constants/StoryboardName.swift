@@ -9,4 +9,5 @@ import Foundation
 
 struct StoryboardName {
     static let goalSetting = "GoalSetting"
+    static let intro = "Intro"
 }

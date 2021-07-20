@@ -5,32 +5,25 @@
 //  Created by Dongmin on 2021/07/18.
 //
 
-import Foundation
+import UIKit
 
-struct FontName {
+enum FontType {
     
-    static var pretendard_semibold: String { return self.prentendard + "-" + Weight.semiBold.rawValue }
-    static var pretendard_bold: String { return self.prentendard + "-" + Weight.bold.rawValue }
-    static var pretendard_extrabold: String { return self.prentendard + "-" + Weight.extraBold.rawValue }
-    static var pretendard_light: String { return self.prentendard + "-" + Weight.light.rawValue }
-    static var pretendard_medium: String { return self.prentendard + "-" + Weight.medium.rawValue }
-    static var pretendard_regular: String { return self.prentendard + "-" + Weight.regular.rawValue }
+    case pretendard(weight: FontWeight)
+    case montserrat(weight: FontWeight)
     
-    static var montserrat_semibold: String { return self.montserrat + "-" + Weight.semiBold.rawValue }
-    static var montserrat_bold: String { return self.montserrat + "-" + Weight.bold.rawValue }
-    static var montserrat_extrabold: String { return self.montserrat + "-" + Weight.extraBold.rawValue }
-    static var montserrat_light: String { return self.montserrat + "-" + Weight.light.rawValue }
-    static var montserrat_medium: String { return self.montserrat + "-" + Weight.medium.rawValue }
-    static var montserrat_regular: String { return self.montserrat + "-" + Weight.regular.rawValue }
+    var fontName: String {
+        switch self {
+        case .pretendard(let weight): return FontName.prentendard + "-" + weight.rawValue
+        case .montserrat(let weight): return FontName.montserrat + "-" + weight.rawValue
+        }
+    }
     
-    private static let prentendard = "Pretendard"
-    private static let montserrat = "Montserrat"
-
 }
 
-extension FontName {
+extension FontType {
     
-    private enum Weight: String {
+    enum FontWeight: String {
         case bold = "Bold"
         case extraBold = "ExtraBold"
         case extraLight = "ExtraLight"
@@ -39,5 +32,10 @@ extension FontName {
         case regular = "Regular"
         case semiBold = "SemiBold"
     }
-    
+
+}
+
+struct FontName {
+    static let prentendard = "Pretendard"
+    static let montserrat = "Montserrat"
 }

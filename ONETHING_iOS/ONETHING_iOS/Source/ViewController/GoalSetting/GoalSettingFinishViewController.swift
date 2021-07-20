@@ -19,8 +19,8 @@ final class GoalSettingFinishViewController: BaseViewController {
     }
     
     private func setupLabels() {
-        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
-        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
+        guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }
         
         guard let subRange = "66일 동안".range(of: "66일") else { return }
         

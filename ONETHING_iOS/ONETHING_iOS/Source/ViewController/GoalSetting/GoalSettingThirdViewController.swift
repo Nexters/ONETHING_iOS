@@ -29,8 +29,8 @@ final class GoalSettingThirdViewController: BaseViewController {
     private func setupLabels() {
         let secondLineTitle = "알림과 미룸 벌칙을"
         
-        guard let pretendard_medium = UIFont(name: FontName.pretendard_medium, size: 26) else { return }
-        guard let pretendard_bold = UIFont(name: FontName.pretendard_bold, size: 26) else { return }
+        guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
+        guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }
         
         guard let firstSubRange = secondLineTitle.range(of: "알림") else { return }
         guard let secondSubRange = secondLineTitle.range(of: "미룸 벌칙") else { return }
