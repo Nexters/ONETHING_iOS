@@ -149,6 +149,9 @@
 		F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */; };
 		F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */; };
 		F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */; };
+		F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
+		F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
+		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
@@ -309,6 +312,7 @@
 		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
+		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F267F9A2269A30E300219B05 /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
@@ -567,6 +571,7 @@
 				CEC4D79626A2B16300633222 /* GoalSetting */,
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
+				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1151,6 +1156,7 @@
 				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
+				F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				F293C3D6269D19BF0096757C /* CircleView.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
@@ -1235,6 +1241,7 @@
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
@@ -1296,6 +1303,7 @@
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
+				F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,

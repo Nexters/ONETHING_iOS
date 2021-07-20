@@ -11,6 +11,8 @@ final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton: CompleteButton!
     private let dailyHabitInfoView = DailyHabitView()
+    private let viewModel = HabitWritingViewModel()
+    private let habitSelectStampView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupBackBtnTitleView()
         self.setupDailyHabitView()
         self.setupCompleteButton()
+        self.setupHabitSelectStampView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,5 +63,37 @@ final class HabitWritingViewController: BaseViewController {
             $0.leading.trailing.bottom.width.equalTo(safeArea)
             $0.height.equalTo(83)
         }
+    }
+    
+    private func setupHabitSelectStampView() {
+        self.habitSelectStampView.delegate = self
+        self.habitSelectStampView.dataSource = viewModel
+        self.habitSelectStampView.registerCell(cellType: HabitCalendarCell.self)
+        
+        self.view.addSubview(self.habitSelectStampView)
+        self.habitSelectStampView.snp.makeConstraints {
+            $0.top.equalTo(self.dailyHabitInfoView.snp.bottom).offset(40)
+            $0.leading.trailing.equalToSuperview().inset(50)
+            $0.bottom.equalTo(self.completeButton.snp.top)
+        }
+    }
+}
+
+extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 46, height: 46)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.backgroundColor = .blue
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
 }

@@ -11,8 +11,9 @@ final class HabitCalendarView: UICollectionView {
     static let defaultTotalCellNumbers = 66
     let totalCellNumbers: Int
     let numberOfColumns: Int
+    var outerConstantValue: CGFloat = 32
     
-    init(frame: CGRect, totalCellNumbers: Int, columnNumbers: Int) {
+    init(frame: CGRect = .zero, totalCellNumbers: Int, columnNumbers: Int) {
         self.totalCellNumbers = totalCellNumbers
         self.numberOfColumns = columnNumbers
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
@@ -38,7 +39,7 @@ final class HabitCalendarView: UICollectionView {
     }
     
     var outerConstant: CGFloat {
-        return 32
+        return self.outerConstantValue
     }
     
     var innerContant: CGFloat {

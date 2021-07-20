@@ -67,7 +67,7 @@ final class DailyHabitView: UIView {
         self.habitTextView.snp.makeConstraints {
             $0.top.equalTo(self.photoView.snp.bottom).offset(25)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(120)
+            $0.height.equalTo(140)
             $0.bottom.equalToSuperview()
         }
     }
