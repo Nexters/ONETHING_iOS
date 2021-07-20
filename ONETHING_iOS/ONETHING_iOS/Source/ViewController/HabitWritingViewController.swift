@@ -16,7 +16,8 @@ final class HabitWritingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        self.addKeyboardDismissTapGesture()
         self.setupBackBtnTitleView()
         self.setupDailyHabitView()
         self.setupCompleteButton()
@@ -66,6 +67,7 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupHabitSelectStampView() {
+        self.habitSelectStampView.backgroundColor = .white
         self.habitSelectStampView.delegate = self
         self.habitSelectStampView.dataSource = viewModel
         self.habitSelectStampView.registerCell(cellType: HabitCalendarCell.self)
