@@ -9,15 +9,13 @@ import UIKit
 
 
 extension UINavigationController {
-    
     var statusBar: StatusBar {
-        let statusBarViewTag = 3848245
-        if let statusBar = self.view.viewWithTag(statusBarViewTag) as? StatusBar {
+        if let statusBar = self.view.viewWithTag(ViewTag.statusBar) as? StatusBar {
             return statusBar
         } else {
             let statusBarFrame: CGRect = view.window?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero
             let statusBar = StatusBar(frame: statusBarFrame)
-            statusBar.tag = statusBarViewTag
+            statusBar.tag = ViewTag.statusBar
             self.view.addSubview(statusBar)
             return statusBar
         }

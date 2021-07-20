@@ -29,12 +29,12 @@ final class HomeViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        changeStatusBarColor()
+        self.changeStatusBarColor()
         super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        undoStatusBarColor()
+        self.undoStatusBarColor()
         super.viewWillDisappear(animated)
     }
     
@@ -118,5 +118,4 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let habitWritingViewController = HabitWritingViewController()
         navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
-    
 }
