@@ -10,11 +10,13 @@ import UIKit
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton: CompleteButton!
+    private let dailyHabitInfoView = DailyHabitView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureBackBtnTitleView()
+        setupDailyHabitView()
         configureCompleteButton()
     }
     
@@ -37,6 +39,14 @@ final class HabitWritingViewController: BaseViewController {
             $0.top.equalToSuperview().offset(54)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
+        }
+    }
+    
+    private func setupDailyHabitView() {
+        self.view.addSubview(self.dailyHabitInfoView)
+        self.dailyHabitInfoView.snp.makeConstraints {
+            $0.top.equalTo(self.backBtnTitleView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(32)
         }
     }
     
