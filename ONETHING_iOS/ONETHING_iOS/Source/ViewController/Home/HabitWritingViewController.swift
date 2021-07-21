@@ -10,7 +10,7 @@ import UIKit
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton: CompleteButton!
-    private let dailyHabitInfoView = DailyHabitView()
+    private let dailyHabitView = DailyHabitView()
     private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
@@ -63,8 +63,8 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.keyboardDismissableView.addSubview(self.dailyHabitInfoView)
-        self.dailyHabitInfoView.snp.makeConstraints {
+        self.keyboardDismissableView.addSubview(self.dailyHabitView)
+        self.dailyHabitView.snp.makeConstraints {
             $0.top.equalTo(self.backBtnTitleView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(32)
             $0.bottom.equalToSuperview().offset(-40)
@@ -90,7 +90,7 @@ final class HabitWritingViewController: BaseViewController {
         
         self.view.addSubview(self.habitStampView)
         self.habitStampView.snp.makeConstraints {
-            $0.top.equalTo(self.dailyHabitInfoView.snp.bottom).offset(40)
+            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
         }
