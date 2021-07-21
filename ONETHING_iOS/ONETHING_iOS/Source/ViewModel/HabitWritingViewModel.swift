@@ -13,14 +13,14 @@ final class HabitWritingViewModel: NSObject {
 
 extension HabitWritingViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return HabitStampView.defaultTotalCellNumbers
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let habitCell = collectionView.dequeueReusableCell(
-                cell: HabitCalendarCell.self, forIndexPath: indexPath
-        ) else { return HabitCalendarCell() }
+        guard let habitStampCell = collectionView.dequeueReusableCell(
+                cell: HabitStampCell.self, forIndexPath: indexPath
+        ) else { return HabitStampCell() }
         
-        return habitCell
+        return habitStampCell
     }
 }

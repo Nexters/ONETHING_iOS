@@ -13,7 +13,7 @@ final class HabitWritingViewController: BaseViewController {
     private let dailyHabitInfoView = DailyHabitView()
     private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
-    private let habitSelectStampView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private let habitStampView = HabitStampView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +23,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupBackBtnTitleView()
         self.setupDailyHabitView()
         self.setupCompleteButton()
-        self.setupHabitSelectStampView()
-        self.view.bringSubviewToFront(self.dailyHabitInfoView)
+        self.setupHabitStampView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +36,12 @@ final class HabitWritingViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    override func addKeyboardDismissTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
+        self.keyboardDismissableView.addGestureRecognizer(tapGesture)
+    }
+    
     private func setupKeyboardDismissableView() {
-        self.keyboardDismissableView.backgroundColor = .red
         self.view.addSubview(self.keyboardDismissableView)
         
         self.keyboardDismissableView.snp.makeConstraints {
@@ -79,34 +82,33 @@ final class HabitWritingViewController: BaseViewController {
         }
     }
     
-    private func setupHabitSelectStampView() {
-        self.habitSelectStampView.backgroundColor = .clear
-        self.habitSelectStampView.delegate = self
-        self.habitSelectStampView.dataSource = viewModel
-        self.habitSelectStampView.registerCell(cellType: HabitCalendarCell.self)
+    private func setupHabitStampView() {
+        self.habitStampView.backgroundColor = .clear
+        self.habitStampView.delegate = self
+        self.habitStampView.dataSource = viewModel
+        self.habitStampView.registerCell(cellType: HabitStampCell.self)
         
-        self.view.addSubview(self.habitSelectStampView)
-        self.habitSelectStampView.snp.makeConstraints {
+        self.view.addSubview(self.habitStampView)
+        self.habitStampView.snp.makeConstraints {
             $0.top.equalTo(self.dailyHabitInfoView.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
         }
     }
-    
-    override func addKeyboardDismissTapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
-        self.keyboardDismissableView.addGestureRecognizer(tapGesture)
-    }
 }
 
 extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 46, height: 46)
+        return self.habitStampView.cellSize
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = .blue
+        guard let habitStampView = collectionView as? HabitStampView else { return }
+        guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
+        
+        habitStampView.hideCircleCheckViewOfPrevCell()
+        habitStampView.prevCheckedCell = habitStampCell
+        habitStampCell.showCheckView()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

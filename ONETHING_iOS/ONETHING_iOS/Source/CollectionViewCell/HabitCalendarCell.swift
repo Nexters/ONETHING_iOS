@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HabitCalendarCell: UICollectionViewCell, CircleView {
+final class HabitCalendarCell: UICollectionViewCell {
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
     
@@ -16,7 +16,6 @@ final class HabitCalendarCell: UICollectionViewCell, CircleView {
         
         self.setupImageView()
         self.setupNumberLabel()
-
     }
     
     required init?(coder: NSCoder) {

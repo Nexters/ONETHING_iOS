@@ -2,17 +2,13 @@
 //  CircleView.swift
 //  ONETHING_iOS
 //
-//  Created by sdean on 2021/07/13.
+//  Created by sdean on 2021/07/21.
 //
 
 import UIKit
 
-protocol CircleView: UIView {
-    func setupLayerCircle()
-}
-
-extension CircleView {
-    func setupLayerCircle() {
-        self.layer.cornerRadius = self.frame.width / 2
+final class CircleView: UIView, Circleable {
+    override func layoutSubviews() {
+        setupLayerCircle()
     }
 }

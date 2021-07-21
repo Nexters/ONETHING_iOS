@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class StampButton: UIButton, CircleView {
+final class StampButton: UIButton, Circleable {
 
     override func layoutSubviews() {
         self.setupLayerCircle()
