@@ -16,7 +16,6 @@
 		CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
 		CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA472699FF4C002C674B /* LoginViewController.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
-		CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -25,7 +24,6 @@
 		CE72476E26998F3000BB2C19 /* ONETHING_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72476D26998F3000BB2C19 /* ONETHING_iOSTests.swift */; };
 		CE72477926998F3000BB2C19 /* ONETHING_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72477826998F3000BB2C19 /* ONETHING_iOSUITests.swift */; };
 		CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
-		CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
@@ -34,11 +32,7 @@
 		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
-		CE7247AF269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
-		CE7247B0269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
-		CE7247B1269994F700BB2C19 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247AE269994F700BB2C19 /* Network.swift */; };
 		CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
-		CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 		CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 		CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
@@ -50,9 +44,7 @@
 		CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */; };
 		CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 		CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
-		CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 		CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
-		CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -157,9 +149,7 @@
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
-		CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
-		CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
 		CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
 		CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
@@ -183,7 +173,6 @@
 		CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
-		CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 		F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */; };
 		F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */; };
@@ -196,13 +185,26 @@
 		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
+		F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
+		F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
+		F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
+		F20E00D626A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
+		F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
+		F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
+		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
+		F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
+		F255719F26A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
+		F25571A026A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
+		F25571A126A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
 		F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
-		F267F9A3269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
-		F267F9A4269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
-		F267F9A5269A30E300219B05 /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A2269A30E300219B05 /* HabitInfoView.swift */; };
+		F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
+		F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
+		F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
 		F267F9A7269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
 		F267F9A8269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
 		F267F9A9269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
@@ -241,9 +243,7 @@
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
-		F29B842E269A8662009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
 		F29B842F269A8665009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
-		F29B8430269A8666009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
 		F29B8431269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		F29B8432269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
@@ -256,6 +256,9 @@
 		F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
 		F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
 		F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
+		F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
+		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,7 +320,6 @@
 		CE7247A0269992CC00BB2C19 /* ONETHING Ent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING Ent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7247A22699938500BB2C19 /* Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beta-Info.plist"; sourceTree = "<group>"; };
 		CE7247A42699939100BB2C19 /* Ent-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ent-Info.plist"; sourceTree = "<group>"; };
-		CE7247AE269994F700BB2C19 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE7247B9269995C900BB2C19 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE7247C02699BFE300BB2C19 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -372,9 +374,12 @@
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
+		F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfomation.swift; sourceTree = "<group>"; };
+		F20E00D426A59870009A4AB3 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		F255719E26A432CE005A1AAF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
-		F267F9A2269A30E300219B05 /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
+		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -390,6 +395,7 @@
 		F293C3D5269D19BF0096757C /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
+		F2A614B826A4254B0061A17A /* ContentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,7 +569,9 @@
 		CE7247AD269994E400BB2C19 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CE7247AE269994F700BB2C19 /* Network.swift */,
+				F20E00D326A5978C009A4AB3 /* Api */,
+				F255719E26A432CE005A1AAF /* ApiService.swift */,
+				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -571,7 +579,6 @@
 		CE7247B22699955600BB2C19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F267F9A2269A30E300219B05 /* HabitInfoView.swift */,
 				F267F9A6269A387000219B05 /* PercentView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
 				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
@@ -581,6 +588,7 @@
 				F2A614AC26A3FA470061A17A /* CompleteButton.swift */,
 				F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */,
 				F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */,
+				F25571A626A43A55005A1AAF /* HabitInfoView.swift */,
 				CEC4D82C26A4692D00633222 /* GoalProgressView.xib */,
 				CEC4D83026A4693A00633222 /* GoalProgressView.swift */,
 				CEC4D83C26A479BE00633222 /* AlarmSettingView.xib */,
@@ -754,6 +762,15 @@
 				CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F20E00D326A5978C009A4AB3 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				F2A614B826A4254B0061A17A /* ContentApi.swift */,
+				F20E00D426A59870009A4AB3 /* UserApi.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		F267F9C2269A78C400219B05 /* TableViewCell */ = {
@@ -1231,7 +1248,9 @@
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
+				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
@@ -1255,9 +1274,11 @@
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
+				F255719F26A432CE005A1AAF /* ApiService.swift in Sources */,
+				F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */,
+				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
-				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
@@ -1265,13 +1286,12 @@
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
+				F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */,
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
-				CE7247AF269994F700BB2C19 /* Network.swift in Sources */,
-				F267F9A3269A30E300219B05 /* HabitInfoView.swift in Sources */,
 				F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */,
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
@@ -1299,14 +1319,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
-				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
-				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
+				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
+				F25571A126A432CE005A1AAF /* ApiService.swift in Sources */,
+				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
+				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
-				CE7247EB2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
-				CE724789269992C700BB2C19 /* AppDelegate.swift in Sources */,
-				CE7247B0269994F700BB2C19 /* Network.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -1314,9 +1333,6 @@
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
-				CE7247BB269995C900BB2C19 /* TestModel.swift in Sources */,
-				CE00AA52269A02CC002C674B /* LoginViewModel.swift in Sources */,
-				CE7247ED2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -1342,15 +1358,15 @@
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE00AA50269A02C4002C674B /* LoginViewController.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
-				CEFC3A23269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
-				CEFC3A21269C92E00007AFF2 /* UITableView+.swift in Sources */,
-				CEFF0A4C269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
+				F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
+				F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
 				F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
@@ -1363,8 +1379,8 @@
 				F293C3D0269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
+				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
-				F29B842E269A8662009D293F /* UIColor+.swift in Sources */,
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 			);
@@ -1381,14 +1397,12 @@
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
-				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				F24EC60926A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -1399,6 +1413,8 @@
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
+				F25571A026A432CE005A1AAF /* ApiService.swift in Sources */,
+				F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE7247B1269994F700BB2C19 /* Network.swift in Sources */,
 				F293C3D7269D19BF0096757C /* CircleView.swift in Sources */,
@@ -1409,6 +1425,7 @@
 				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,
+				F20E00D626A59870009A4AB3 /* UserApi.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSetttingSecondViewModel.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
@@ -1418,6 +1435,7 @@
 				CE00AA4F269A02C4002C674B /* LoginViewController.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
+				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
@@ -1438,6 +1456,7 @@
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
+				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
