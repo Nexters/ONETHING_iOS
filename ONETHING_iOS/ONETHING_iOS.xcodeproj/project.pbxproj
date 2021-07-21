@@ -25,6 +25,8 @@
 		CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
+		CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -1271,6 +1273,7 @@
 				CE00AA482699FF4C002C674B /* LoginViewController.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
+				CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */,
@@ -1415,6 +1418,7 @@
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
+				CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
