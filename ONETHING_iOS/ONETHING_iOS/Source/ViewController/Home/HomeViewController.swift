@@ -21,7 +21,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.setupHabitInfoView()
         self.setupMainScrollView()
         self.setupScrollInnerView()
@@ -62,7 +62,7 @@ final class HomeViewController: BaseViewController {
             $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
         }
     }
-
+    
     private func setupMainScrollView() {
         self.view.addSubview(self.mainScrollView)
         self.mainScrollView.snp.makeConstraints {
@@ -115,8 +115,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let habitWritingViewController = HabitWritingViewController()
-        navigationController?.pushViewController(habitWritingViewController, animated: true)
+        guard let habitCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
+        
+        if habitCell.isWritten {
+            let habitWrittenViewController = HabitWrittenViewController()
+            habitWrittenViewController.modalPresentationStyle = .custom
+            habitWrittenViewController.transitioningDelegate = self
+            present(habitWrittenViewController, animated: true)
+        } else {
+            let habitWritingViewController = HabitWritingViewController()
+            navigationController?.pushViewController(habitWritingViewController, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -127,4 +136,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return 20
     }
     
+}
+
+extension HomeViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HeightRatioPresentationController(
+            heightRatio: 0.6,
+            presentedViewController: presented,
+            presenting: presenting
+        )
+    }
 }
