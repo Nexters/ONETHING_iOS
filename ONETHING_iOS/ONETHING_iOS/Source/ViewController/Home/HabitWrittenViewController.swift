@@ -24,7 +24,7 @@ final class HabitWrittenViewController: BaseViewController {
     private func setupDailyHabitView() {
         self.view.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(24)
+            $0.top.equalToSuperview().offset(40)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
     }

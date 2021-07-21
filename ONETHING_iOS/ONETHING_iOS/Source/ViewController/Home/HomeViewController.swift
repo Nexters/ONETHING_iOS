@@ -10,22 +10,23 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: BaseViewController {
-    
     private let mainScrollView = UIScrollView()
     private let scrollInnerView = UIView()
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
+    private let backgounndDimView = BackgroundDimView()
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.setupHabitInfoView()
         self.setupMainScrollView()
         self.setupScrollInnerView()
         self.setupHabitCalendarView()
+        self.setupBackgounndDimColorView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +51,7 @@ final class HomeViewController: BaseViewController {
         
         statusBar.backgroundColor = statusBar.previousBackgroundColor
     }
-    
+
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide
@@ -101,6 +102,13 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    private func setupBackgounndDimColorView() {
+        self.view.addSubview(self.backgounndDimView)
+        self.backgounndDimView.snp.makeConstraints {
+            $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+    }
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -121,9 +129,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let habitWrittenViewController = HabitWrittenViewController()
             habitWrittenViewController.modalPresentationStyle = .custom
             habitWrittenViewController.transitioningDelegate = self
+            self.backgounndDimView.isHidden = false
             present(habitWrittenViewController, animated: true)
         } else {
             let habitWritingViewController = HabitWritingViewController()
+            self.backgounndDimView.isHidden = false
             navigationController?.pushViewController(habitWritingViewController, animated: true)
         }
     }

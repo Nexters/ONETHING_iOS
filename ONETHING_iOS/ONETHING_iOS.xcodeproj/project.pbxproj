@@ -192,6 +192,9 @@
 		F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
 		F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
 		F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
+		F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
+		F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
+		F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
 		F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
@@ -388,6 +391,7 @@
 		F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewController.swift; sourceTree = "<group>"; };
 		F20B574426A8246600391D45 /* Stamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
 		F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightRatioPresentationController.swift; sourceTree = "<group>"; };
+		F20B574C26A8298000391D45 /* BackgroundDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDimView.swift; sourceTree = "<group>"; };
 		F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfomation.swift; sourceTree = "<group>"; };
 		F20E00D426A59870009A4AB3 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
@@ -608,6 +612,7 @@
 				CED5AECD26A4870E003F087C /* PostponeTodoView.swift */,
 				F20B572E26A7EAF700391D45 /* HabitStampView.swift */,
 				F20B573626A7F0C900391D45 /* CircleView.swift */,
+				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1327,6 +1332,7 @@
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
+				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,6 +1369,7 @@
 				F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
+				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -1473,6 +1480,7 @@
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
+				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
