@@ -13,7 +13,7 @@ final class ApiService<T: TargetType> {
     private let provider: MoyaProvider<T>
     private let jsonDecoder = JSONDecoder()
     
-    init(provider: MoyaProvider<T> = MoyaProvider<T>(plugins: [])) {
+    init(provider: MoyaProvider<T> = MoyaProvider<T>(session: DefaultSession.sharedInstance)) {
         self.provider = provider
     }
     

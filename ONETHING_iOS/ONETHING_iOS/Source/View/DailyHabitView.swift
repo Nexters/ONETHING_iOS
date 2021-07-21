@@ -31,7 +31,7 @@ final class DailyHabitView: UIView {
     private func setupTimeLabel() {
         self.timeLabel.text = "5:05 PM"
         self.timeLabel.textColor = .black_40
-        self.timeLabel.font = UIFont(name: FontName.montserrat_medium, size: 10)
+        self.timeLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
         self.addSubview(self.timeLabel)
         
         self.timeLabel.snp.makeConstraints {
@@ -43,7 +43,7 @@ final class DailyHabitView: UIView {
     private func setupDateLabel() {
         self.dateLabel.text = "2021.07.21"
         self.dateLabel.textColor = .black_60
-        self.dateLabel.font = UIFont(name: FontName.montserrat_medium, size: 10)
+        self.dateLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
         self.addSubview(self.dateLabel)
         
         self.dateLabel.snp.makeConstraints {
