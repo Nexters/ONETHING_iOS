@@ -129,11 +129,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let habitWrittenViewController = HabitWrittenViewController()
             habitWrittenViewController.modalPresentationStyle = .custom
             habitWrittenViewController.transitioningDelegate = self
+            habitWrittenViewController.delegate = self
             self.backgounndDimView.isHidden = false
             present(habitWrittenViewController, animated: true)
         } else {
             let habitWritingViewController = HabitWritingViewController()
-            self.backgounndDimView.isHidden = false
             navigationController?.pushViewController(habitWritingViewController, animated: true)
         }
     }
@@ -155,5 +155,11 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
             presentedViewController: presented,
             presenting: presenting
         )
+    }
+}
+
+extension HomeViewController: HabitWrittenViewControllerDelegate {
+    func clearDimEffect() {
+        self.backgounndDimView.isHidden = true
     }
 }

@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol HabitWrittenViewControllerDelegate: AnyObject {
+    func clearDimEffect()
+}
+
 final class HabitWrittenViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView()
-    private let upperStampView = UIImageView()
+    private let upperStampView = UIButton()
+    weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +23,16 @@ final class HabitWrittenViewController: BaseViewController {
         setupUpperStampView()
         setupDailyHabitView()
     }
-    
+
     private func setupView() {
         self.view.cornerRadius = 40
     }
     
     private func setupUpperStampView() {
         self.upperStampView.contentMode = .scaleAspectFit
-        self.upperStampView.image = Stamp.beige.defaultImage
+        self.upperStampView.setImage(Stamp.beige.defaultImage, for: .normal)
+        self.upperStampView.setImage(Stamp.beige.defaultImage, for: .highlighted)
+        self.upperStampView.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
         
         self.view.addSubview(self.upperStampView)
         self.upperStampView.snp.makeConstraints {
@@ -41,5 +48,10 @@ final class HabitWrittenViewController: BaseViewController {
             $0.top.equalToSuperview().offset(40)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
+    }
+    
+    @objc private func dismissViewController() {
+        self.delegate?.clearDimEffect()
+        super.dismiss(animated: true, completion: nil)
     }
 }
