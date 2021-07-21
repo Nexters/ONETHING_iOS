@@ -12,7 +12,7 @@ final class HabitCalendarView: UICollectionView {
     let totalCellNumbers: Int
     let numberOfColumns: Int
     
-    init(frame: CGRect, totalCellNumbers: Int, columnNumbers: Int) {
+    init(frame: CGRect = .zero, totalCellNumbers: Int, columnNumbers: Int) {
         self.totalCellNumbers = totalCellNumbers
         self.numberOfColumns = columnNumbers
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())

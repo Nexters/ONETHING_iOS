@@ -7,25 +7,22 @@
 
 import UIKit
 
-class HabitCalendarCell: UICollectionViewCell, ReusableView {
+final class HabitCalendarCell: UICollectionViewCell {
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.configureImageView()
-        self.configureNumberLabel()
+        self.setupImageView()
+        self.setupNumberLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
-        self.configureImageView()
-        self.configureNumberLabel()
     }
 
-    private func configureImageView() {
+    private func setupImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
         self.mainImageView.image = UIImage(named: "rabbit_none")
         
@@ -35,7 +32,7 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
         }
     }
     
-    private func configureNumberLabel() {
+    private func setupNumberLabel() {
         self.numberLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
         
         self.contentView.addSubview(self.numberLabel)
@@ -45,7 +42,7 @@ class HabitCalendarCell: UICollectionViewCell, ReusableView {
         }
     }
     
-    func configure(numberText: String) {
+    func setup(numberText: String) {
         self.numberLabel.text = numberText
     }
 }

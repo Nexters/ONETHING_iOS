@@ -14,11 +14,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        
-        guard let viewController = GoalSettingFirstViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.navigationBar.isHidden = true
-        self.window?.rootViewController = navigationController
+        let rootViewController = MainTabBarController()
+        self.window?.rootViewController = rootViewController
         self.window?.makeKeyAndVisible()
     }
     

@@ -22,15 +22,15 @@ final class HabitInfoView: UIView {
         self.descriptionLabelTopConstant = descriptionLabelTopConstant
         super.init(frame: frame)
         
-        self.configure()
-        self.configureDescriptionLabel()
-        self.configureSettingButton()
-        self.configureTitleLabel()
-        self.configureDayNumberLabel()
-        self.configureDayTextLabel()
-        self.configurePercentView()
-        self.configureStartDateLabel()
-        self.configureEndDateLabel()
+        self.setup()
+        self.setupDescriptionLabel()
+        self.setupSettingButton()
+        self.setupTitleLabel()
+        self.setupDayNumberLabel()
+        self.setupDayTextLabel()
+        self.setupPercentView()
+        self.setupStartDateLabel()
+        self.setupEndDateLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -38,11 +38,11 @@ final class HabitInfoView: UIView {
         super.init(coder: coder)
     }
     
-    private func configure() {
+    private func setup() {
         self.backgroundColor = .black_100
     }
     
-    private func configureDescriptionLabel() {
+    private func setupDescriptionLabel() {
         self.descriptionLabel.text = "예빈님의 2번째 습관"
         self.descriptionLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
         self.descriptionLabel.textColor = .white
@@ -54,7 +54,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureSettingButton() {
+    private func setupSettingButton() {
         self.addSubview(self.settingButton)
         self.settingButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().offset(-33)
@@ -64,7 +64,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureTitleLabel() {
+    private func setupTitleLabel() {
         self.titleLabel.text = "아침에 물 한잔 마시기"
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 26)
         self.titleLabel.textColor = .white
@@ -76,7 +76,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureDayNumberLabel() {
+    private func setupDayNumberLabel() {
         self.dayNumberLabel.text = "19"
         self.dayNumberLabel.font = UIFont(name: "Montserrat-Regular", size: 36)
         self.dayNumberLabel.textColor = .white
@@ -88,7 +88,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureDayTextLabel() {
+    private func setupDayTextLabel() {
         self.dayTextLabel.text = "일 째"
         self.dayTextLabel.font = UIFont(name: "Pretendard-Regular", size: 10)
         self.dayTextLabel.textColor = .white
@@ -100,7 +100,7 @@ final class HabitInfoView: UIView {
         }
     }
 
-    private func configurePercentView() {
+    private func setupPercentView() {
         self.addSubview(self.percentView)
         
         self.percentView.snp.makeConstraints {
@@ -111,7 +111,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureStartDateLabel() {
+    private func setupStartDateLabel() {
         self.startDateLabel.text = "2021.07.17"
         self.startDateLabel.textColor = .white
         self.startDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
@@ -123,7 +123,7 @@ final class HabitInfoView: UIView {
         }
     }
     
-    private func configureEndDateLabel() {
+    private func setupEndDateLabel() {
         self.endDateLabel.text = "2021.07.31"
         self.endDateLabel.textColor = .white
         self.endDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
@@ -134,5 +134,4 @@ final class HabitInfoView: UIView {
             $0.trailing.equalTo(self.percentView)
         }
     }
-    
 }

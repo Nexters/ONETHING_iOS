@@ -21,11 +21,11 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.configureHabitInfoView()
-        self.configureMainScrollView()
-        self.configureScrollInnerView()
-        self.configureHabitCalendarView()
+    
+        self.setupHabitInfoView()
+        self.setupMainScrollView()
+        self.setupScrollInnerView()
+        self.setupHabitCalendarView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +51,7 @@ final class HomeViewController: BaseViewController {
         statusBar.backgroundColor = statusBar.previousBackgroundColor
     }
     
-    private func configureHabitInfoView() {
+    private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide
         
@@ -63,7 +63,7 @@ final class HomeViewController: BaseViewController {
         }
     }
 
-    private func configureMainScrollView() {
+    private func setupMainScrollView() {
         self.view.addSubview(self.mainScrollView)
         self.mainScrollView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
@@ -72,7 +72,7 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureScrollInnerView() {
+    private func setupScrollInnerView() {
         self.mainScrollView.addSubview(self.scrollInnerView)
         
         self.scrollInnerView.snp.makeConstraints {
@@ -85,7 +85,7 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func configureHabitCalendarView() {
+    private func setupHabitCalendarView() {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
@@ -112,6 +112,19 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         let cellDiameter = self.habitCalendarView.cellDiameter(superViewWidth: self.view.frame.width)
         return CGSize(width: cellDiameter, height: cellDiameter)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let habitWritingViewController = HabitWritingViewController()
+        navigationController?.pushViewController(habitWritingViewController, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
     }
     
 }

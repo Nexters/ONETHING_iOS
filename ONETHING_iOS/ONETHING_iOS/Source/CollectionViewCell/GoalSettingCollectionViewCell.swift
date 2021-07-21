@@ -14,7 +14,7 @@ class GoalSettingCollectionViewCell: UICollectionViewCell {
         self.setRandomeColor()
     }
 
-    func configure(_ goalText: String?) {
+    func setup(_ goalText: String?) {
         self.goalLabel.text = goalText
     }
     

@@ -31,7 +31,7 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: identifier) as? Self
     }
     
-    func addKeyboardDismissTapGesture() {
+    @objc func addKeyboardDismissTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)
     }

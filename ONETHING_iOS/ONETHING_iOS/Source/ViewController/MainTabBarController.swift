@@ -11,10 +11,10 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureViewControllers()
+        self.setupViewControllers()
     }
     
-    private func configureViewControllers() {
+    private func setupViewControllers() {
         self.viewControllers = [
             createNavigationController(for: HomeViewController(), image: UIImage(systemName: "house")!),
             createNavigationController(for: HistoryViewController(), image: UIImage(systemName: "folder")!),

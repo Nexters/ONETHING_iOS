@@ -75,7 +75,7 @@ extension GoalSettingFirstViewController: UICollectionViewDataSource {
         
         guard let goal = self.viewModel.goalSection[safe: currentLine]?[safe: indexPath.row % 4]                                          else { return UICollectionViewCell() }
         guard let goalSettingCell = collectionView.dequeueReusableCell(cell: GoalSettingCollectionViewCell.self, forIndexPath: indexPath) else { return UICollectionViewCell() }
-        goalSettingCell.configure(goal)
+        goalSettingCell.setup(goal)
         return goalSettingCell
     }
     
