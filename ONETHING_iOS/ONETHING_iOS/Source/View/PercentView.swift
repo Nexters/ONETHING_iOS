@@ -32,7 +32,7 @@ final class PercentView: UIView {
     
     private func setupCompletedPercentLabel() {
         self.completedPercentView.layer.cornerRadius = self.layer.cornerRadius
-        self.completedPercentView.backgroundColor = .red
+        self.completedPercentView.backgroundColor = .red_default
         
         self.addSubview(self.completedPercentView)
         self.completedPercentView.snp.makeConstraints {

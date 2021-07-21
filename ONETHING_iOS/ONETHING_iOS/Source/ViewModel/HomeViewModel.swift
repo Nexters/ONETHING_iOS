@@ -24,6 +24,13 @@ extension HomeViewModel: UICollectionViewDataSource {
         ) else { return HabitCalendarCell() }
         
         habitCalendarCell.setup(numberText: "\(indexPath.row + 1)")
+        
+        if indexPath.item == 0 {
+            habitCalendarCell.set(isWrtten: true)
+            habitCalendarCell.update(stampImage: Stamp.beige.defaultImage)
+            habitCalendarCell.setup(numberText: "")
+        }
+        
         return habitCalendarCell
     }
 }

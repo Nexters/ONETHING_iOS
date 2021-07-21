@@ -10,6 +10,7 @@ import UIKit
 final class HabitCalendarCell: UICollectionViewCell {
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
+    private(set) var isWritten: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,5 +45,13 @@ final class HabitCalendarCell: UICollectionViewCell {
     
     func setup(numberText: String) {
         self.numberLabel.text = numberText
+    }
+    
+    func set(isWrtten written: Bool) {
+        self.isWritten = written
+    }
+    
+    func update(stampImage: UIImage) {
+        self.mainImageView.image = stampImage
     }
 }

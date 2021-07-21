@@ -22,10 +22,10 @@ extension HabitWritingViewModel: UICollectionViewDataSource {
         ) else { return HabitStampCell() }
         
         if indexPath.item >= 0 && indexPath.item < 4 {
-            guard let stampImage = HabitStampView.Stamp.allCases[safe: indexPath.item]?.image else { return HabitStampCell() }
+            guard let stampImage = Stamp.allCases[safe: indexPath.item]?.defaultImage else { return HabitStampCell() }
             habitStampCell.update(stampImage: stampImage)
         } else  {
-            guard let stampLockImage = HabitStampView.Stamp.allCases[safe: indexPath.item]?.lockImage else { return HabitStampCell() }
+            guard let stampLockImage = Stamp.allCases[safe: indexPath.item]?.lockImage else { return HabitStampCell() }
             habitStampCell.update(stampImage: stampLockImage)
         }
         

@@ -183,6 +183,18 @@
 		F20B573726A7F0C900391D45 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B573626A7F0C900391D45 /* CircleView.swift */; };
 		F20B573826A7F0C900391D45 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B573626A7F0C900391D45 /* CircleView.swift */; };
 		F20B573926A7F0C900391D45 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B573626A7F0C900391D45 /* CircleView.swift */; };
+		F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */; };
+		F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */; };
+		F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */; };
+		F20B574526A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
+		F20B574626A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
+		F20B574726A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
+		F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
+		F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
+		F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
+		F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
+		F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
+		F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
 		F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
@@ -290,21 +302,16 @@
 		0E9A753FE7F7FA536497D55F /* Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.release.xcconfig"; sourceTree = "<group>"; };
 		123E3AD140989968399A8265 /* Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.release.xcconfig"; sourceTree = "<group>"; };
 		19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.release.xcconfig"; sourceTree = "<group>"; };
-		24BAD810593D774A2EC9B51D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig"; sourceTree = "<group>"; };
 		307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C234A3CB913A9937D737993 /* Pods-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOSTests/Pods-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
 		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
-		675D960521D064907C4BA041 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig"; sourceTree = "<group>"; };
 		678D446F663444FA618CD19E /* Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95B3B40265F08052B9242782 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Beta/Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOSTests/Pods-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE00AA442699F3AA002C674B /* ONETHING_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ONETHING_iOS.entitlements; sourceTree = "<group>"; };
 		CE00AA472699FF4C002C674B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -378,10 +385,13 @@
 		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOS Ent/Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig"; sourceTree = "<group>"; };
 		F20B572E26A7EAF700391D45 /* HabitStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampView.swift; sourceTree = "<group>"; };
 		F20B573226A7ED3400391D45 /* HabitStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampCell.swift; sourceTree = "<group>"; };
 		F20B573626A7F0C900391D45 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewController.swift; sourceTree = "<group>"; };
+		F20B574426A8246600391D45 /* Stamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
+		F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightRatioPresentationController.swift; sourceTree = "<group>"; };
+		F20B574C26A8298000391D45 /* BackgroundDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDimView.swift; sourceTree = "<group>"; };
 		F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfomation.swift; sourceTree = "<group>"; };
 		F20E00D426A59870009A4AB3 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
@@ -456,14 +466,8 @@
 		0A27F5315C45D138E2789546 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				95B3B40265F08052B9242782 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.debug.xcconfig */,
-				675D960521D064907C4BA041 /* Pods-ONETHING_iOS-ONETHING_iOS Beta.release.xcconfig */,
-				E89626BCD52390687378832D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.debug.xcconfig */,
-				24BAD810593D774A2EC9B51D /* Pods-ONETHING_iOS-ONETHING_iOS Ent.release.xcconfig */,
 				52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */,
 				678D446F663444FA618CD19E /* Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig */,
-				B68BFC8404167EF1EB6B54B8 /* Pods-ONETHING_iOSTests.debug.xcconfig */,
-				4C234A3CB913A9937D737993 /* Pods-ONETHING_iOSTests.release.xcconfig */,
 				5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */,
 				19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */,
 				7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */,
@@ -608,6 +612,7 @@
 				CED5AECD26A4870E003F087C /* PostponeTodoView.swift */,
 				F20B572E26A7EAF700391D45 /* HabitStampView.swift */,
 				F20B573626A7F0C900391D45 /* CircleView.swift */,
+				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,11 +620,10 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F20B573E26A81A1C00391D45 /* Home */,
 				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				CE00AA472699FF4C002C674B /* LoginViewController.swift */,
-				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
-				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
@@ -719,6 +723,8 @@
 			children = (
 				CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */,
 				CEC4D82426A42CF200633222 /* UserDefaultWrapper.swift */,
+				F20B574426A8246600391D45 /* Stamp.swift */,
+				F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -776,6 +782,16 @@
 				CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		F20B573E26A81A1C00391D45 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
+				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
+				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F20E00D326A5978C009A4AB3 /* Api */ = {
@@ -1244,6 +1260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
+				F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
@@ -1269,6 +1286,7 @@
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
+				F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
@@ -1277,6 +1295,7 @@
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
+				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
@@ -1313,6 +1332,7 @@
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
+				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1347,7 +1367,9 @@
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */,
+				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
+				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -1375,9 +1397,11 @@
 				F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */,
+				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				F20B574726A8246600391D45 /* Stamp.swift in Sources */,
 				F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F20B573926A7F0C900391D45 /* CircleView.swift in Sources */,
@@ -1414,6 +1438,7 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
+				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -1423,6 +1448,7 @@
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -1454,6 +1480,7 @@
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
+				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
@@ -1469,6 +1496,7 @@
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
+				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
