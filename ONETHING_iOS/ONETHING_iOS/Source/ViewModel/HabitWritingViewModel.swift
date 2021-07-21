@@ -20,6 +20,8 @@ extension HabitWritingViewModel: UICollectionViewDataSource {
         guard let habitStampCell = collectionView.dequeueReusableCell(
                 cell: HabitStampCell.self, forIndexPath: indexPath
         ) else { return HabitStampCell() }
+        guard let stampImage = HabitStampView.Stamp.allCases[safe: indexPath.item]?.image else { return HabitStampCell() }
+        habitStampCell.update(stampImage: stampImage)
         
         return habitStampCell
     }

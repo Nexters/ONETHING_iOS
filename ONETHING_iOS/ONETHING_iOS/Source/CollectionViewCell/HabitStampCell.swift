@@ -30,7 +30,6 @@ final class HabitStampCell: UICollectionViewCell {
 
     private func setupImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
-        self.mainImageView.image = UIImage(named: "rabbit_none")
         
         self.contentView.addSubview(self.mainImageView)
         self.mainImageView.snp.makeConstraints {
@@ -46,6 +45,10 @@ final class HabitStampCell: UICollectionViewCell {
         self.circleCheckView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview().inset(-9)
         }
+    }
+    
+    func update(stampImage: UIImage) {
+        self.mainImageView.image = stampImage
     }
     
     func hideCheckView() {
