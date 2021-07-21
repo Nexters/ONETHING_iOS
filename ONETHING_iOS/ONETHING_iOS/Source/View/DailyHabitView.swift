@@ -11,6 +11,7 @@ final class DailyHabitView: UIView {
     private let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
+    private let enrollPhotoButton = UIButton()
     private let habitTextView = HabitTextView()
     
     override init(frame: CGRect) {
@@ -19,6 +20,7 @@ final class DailyHabitView: UIView {
         self.setupTimeLabel()
         self.setupDateLabel()
         self.setupPhotoView()
+        self.setupEnrollPhotoButton()
         self.setupHabitTextView()
     }
     
@@ -64,8 +66,21 @@ final class DailyHabitView: UIView {
         }
     }
     
+    private func setupEnrollPhotoButton() {
+        self.enrollPhotoButton.setImage(UIImage(named: "enroll_photo"), for: .normal)
+        self.enrollPhotoButton.contentMode = .scaleAspectFit
+        self.photoView.addSubview(self.enrollPhotoButton)
+        
+        self.enrollPhotoButton.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(18)
+            $0.height.equalToSuperview().multipliedBy(0.1625)
+            $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
+        }
+    }
+    
     private func setupHabitTextView() {
-        self.habitTextView.backgroundColor = .green
+        self.habitTextView.borderWidth = 0.5
+        self.habitTextView.borderColor = .gray
         self.addSubview(self.habitTextView)
         
         self.habitTextView.snp.makeConstraints {
