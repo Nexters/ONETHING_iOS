@@ -11,14 +11,26 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureViewControllers()
+        self.tabBar.barTintColor = .white
+        self.tabBar.tintColor = .black_100
+        
+        self.setupViewControllers()
     }
     
-    private func configureViewControllers() {
+    private func setupViewControllers() {
         self.viewControllers = [
-            createNavigationController(for: HomeViewController(), image: UIImage(systemName: "house")!),
-            createNavigationController(for: HistoryViewController(), image: UIImage(systemName: "folder")!),
-            createNavigationController(for: ProfileViewController(), image: UIImage(systemName: "person.circle")!)
+            createNavigationController(
+                for: HomeViewController(),
+                image: UIImage(named: "home_inactive")!
+            ),
+            createNavigationController(
+                for: HistoryViewController(),
+                image: UIImage(named: "history_inactive")!
+            ),
+            createNavigationController(
+                for: ProfileViewController(),
+                image: UIImage(named: "mypage_inactive")!
+            )
         ]
     }
     

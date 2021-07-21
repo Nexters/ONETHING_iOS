@@ -23,7 +23,14 @@ extension HomeViewModel: UICollectionViewDataSource {
                 forIndexPath: indexPath
         ) else { return HabitCalendarCell() }
         
-        habitCalendarCell.configure(numberText: "\(indexPath.row + 1)")
+        habitCalendarCell.setup(numberText: "\(indexPath.row + 1)")
+        
+        if indexPath.item == 0 {
+            habitCalendarCell.set(isWrtten: true)
+            habitCalendarCell.update(stampImage: Stamp.beige.defaultImage)
+            habitCalendarCell.setup(numberText: "")
+        }
+        
         return habitCalendarCell
     }
 }

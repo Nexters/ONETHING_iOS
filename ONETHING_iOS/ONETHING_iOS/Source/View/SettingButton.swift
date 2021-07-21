@@ -10,15 +10,15 @@ import UIKit
 final class SettingButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configure()
+        self.setup()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.configure()
+        self.setup()
     }
     
-    private func configure() {
+    private func setup() {
         let settingImage = UIImage(systemName: "ellipsis")
         self.setImage(settingImage, for: .normal)
         self.tintColor = .black_40
