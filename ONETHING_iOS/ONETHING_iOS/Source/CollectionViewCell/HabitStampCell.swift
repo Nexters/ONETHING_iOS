@@ -15,7 +15,7 @@ final class HabitStampCell: UICollectionViewCell {
         super.init(frame: frame)
 
         self.setup()
-        self.setupImageView()
+        self.setupMainImageView()
         self.setupCircleCheckView()
     }
     
@@ -28,7 +28,7 @@ final class HabitStampCell: UICollectionViewCell {
         self.circleCheckView.isHidden = true
     }
 
-    private func setupImageView() {
+    private func setupMainImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
         
         self.contentView.addSubview(self.mainImageView)
