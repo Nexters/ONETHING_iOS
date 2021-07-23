@@ -52,6 +52,7 @@ final class HabitWrittenViewController: BaseViewController {
     
     @objc private func dismissViewController() {
         self.delegate?.clearDimEffect()
+        self.upperStampView.isHidden = true
         super.dismiss(animated: true, completion: nil)
     }
 }
