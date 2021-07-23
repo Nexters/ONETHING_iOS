@@ -61,8 +61,13 @@ final class GoalSettingFinishViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.todayStartButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.임시로_dismiss()
             #warning("오늘부터 시작 뷰")
         }).disposed(by: self.disposeBag)
+    }
+    
+    private func 임시로_dismiss() {
+        self.dismiss(animated: true)
     }
 
     private let disposeBag = DisposeBag()

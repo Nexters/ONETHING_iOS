@@ -9,9 +9,9 @@ import Foundation
 
 import UIKit
 
-protocol ReusableView: AnyObject { }
+protocol Reusable: AnyObject { }
 
-extension ReusableView where Self: UIView {
+extension Reusable {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
