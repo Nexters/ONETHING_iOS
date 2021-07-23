@@ -14,9 +14,40 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let rootViewController = MainTabBarController()
-        self.window?.rootViewController = rootViewController
+        let mainTabBarController = MainTabBarController()
+        
+        self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
+        
+        if self.haveNoToken(from: UserDefaultWrapper<String>(key: UserDefaultsKey.accessToken)) {
+            self.presentLoginViewController(mainTabBarController)
+        }
+    }
+    
+    private func haveNoToken<T>(from userDefaultWrapper: UserDefaultWrapper<T>) -> Bool {
+        return userDefaultWrapper.wrappedValue == nil
+    }
+    
+    private func presentLoginViewController(_ tabBarController: MainTabBarController) {
+        guard let homeViewController = (tabBarController.children.first as? UINavigationController)?
+                .viewControllers.first as? HomeViewController else { return }
+        
+        DispatchQueue.main.async {
+            guard let navigationWithLoginViewController = self.navigationWithLoginViewController else { return }
+            
+            homeViewController.present(navigationWithLoginViewController, animated: false)
+        }
+    }
+    
+    private var navigationWithLoginViewController: UINavigationController? {
+        guard let loginViewController =  UIStoryboard(name: StoryboardName.intro, bundle: nil).instantiateViewController(
+            withIdentifier: LoginViewController.reuseIdentifier
+        ) as? LoginViewController else { return nil }
+        
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.isNavigationBarHidden = true
+        return navigationController
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
