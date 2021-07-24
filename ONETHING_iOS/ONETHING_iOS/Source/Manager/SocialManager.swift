@@ -15,6 +15,8 @@ import AuthenticationServices
 
 final class SocialManager: NSObject {
     
+    typealias Completion = () -> Void
+    
     static let sharedInstance = SocialManager()
     
     func setup() {
@@ -25,7 +27,9 @@ final class SocialManager: NSObject {
         if AuthApi.isKakaoTalkLoginUrl(url) { _ = AuthController.handleOpenUrl(url: url) }
     }
     
-    func login(with type: SocialAccessType) {
+    func login(with type: SocialAccessType, completion: Completion? = nil) {
+        self.completion = completion
+        
         switch type {
         case .kakao: self.loginThroughKakao()
         case .apple: self.loginThroughApple()
@@ -39,6 +43,8 @@ final class SocialManager: NSObject {
                 #warning("oauth Token 이용 우리 서버에 request")
                 print(oauthToken?.accessToken)
                 print(oauthToken?.refreshToken)
+                
+                self.excuteCompletion()
             }
         } else {
             KakaoSDKUser.UserApi.shared.loginWithKakaoAccount { oauthToken, error in
@@ -46,6 +52,8 @@ final class SocialManager: NSObject {
                 #warning("oauth Token 이용 우리 서버에 request")
                 print(oauthToken?.accessToken)
                 print(oauthToken?.refreshToken)
+                
+                self.excuteCompletion()
             }
         }
     }
@@ -61,9 +69,16 @@ final class SocialManager: NSObject {
         controller.performRequests()
     }
     
+    private func excuteCompletion() {
+        self.completion?()
+        self.completion = nil
+    }
+    
     private override init() {
         super.init()
     }
+    
+    private var completion: Completion?
     
 }
 
@@ -85,13 +100,16 @@ extension SocialManager: ASAuthorizationControllerDelegate {
         let userEmail      = appleIDCredential.email
         
         #warning("Apple 토큰으로 서버로 던지는 거 필요")
-        print(appleIDCredential.identityToken)
-        print(userIdentifier)
-        print(userName)
-        print(userEmail)
+        guard let identityToken = appleIDCredential.identityToken         else { return }
+        guard let authorizationCode = appleIDCredential.authorizationCode else { return }
+        print(String(data: identityToken, encoding: .utf8))
+        print(String(data: authorizationCode, encoding: .utf8))
+        
+        self.excuteCompletion()
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        #warning("에러에 대한 처리 필요")
         print(error.localizedDescription)
     }
     

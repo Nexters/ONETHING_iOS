@@ -14,6 +14,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'Moya', '~> 14.0'
   pod 'Kingfisher', '~> 6.0'
   pod 'lottie-ios'
+  pod 'ActiveLabel'
 
   target 'ONETHING' do
   end
