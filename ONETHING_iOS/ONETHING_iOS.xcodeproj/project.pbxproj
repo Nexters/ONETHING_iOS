@@ -16,6 +16,15 @@
 		CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
+		CE1F96BF26AC0A16006B56E4 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1F96BE26AC0A16006B56E4 /* Common.storyboard */; };
+		CE1F96C026AC0A16006B56E4 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1F96BE26AC0A16006B56E4 /* Common.storyboard */; };
+		CE1F96C126AC0A16006B56E4 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE1F96BE26AC0A16006B56E4 /* Common.storyboard */; };
+		CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */; };
+		CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */; };
+		CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */; };
+		CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
+		CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
+		CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
 		CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
@@ -329,6 +338,9 @@
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
 		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/ViewController/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE1F96BE26AC0A16006B56E4 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
+		CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingWebView.swift; sourceTree = "<group>"; };
 		CE3B8BB126A7073D00BD529B /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -514,6 +526,22 @@
 			path = Intro;
 			sourceTree = "<group>";
 		};
+		CE1F96C226AC0A1E006B56E4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE1F96C726AC0AAC006B56E4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		CE3B8BC226A7283800BD529B /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,6 +653,7 @@
 		CE7247B22699955600BB2C19 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE1F96C726AC0AAC006B56E4 /* Common */,
 				F267F9A6269A387000219B05 /* PercentView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
 				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
@@ -651,6 +680,7 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE1F96C226AC0A1E006B56E4 /* Common */,
 				CE16C25A26A8461400D87096 /* Intro */,
 				F20B573E26A81A1C00391D45 /* Home */,
 				CEC4D79526A2B15800633222 /* GoalSetting */,
@@ -803,6 +833,7 @@
 			children = (
 				CEFF0A3E269C87C900DB8D2D /* GoalSetting.storyboard */,
 				CE3B8BB926A7084800BD529B /* Intro.storyboard */,
+				CE1F96BE26AC0A16006B56E4 /* Common.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1009,6 +1040,7 @@
 				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C726A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CE1F96BF26AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CEC4D7FE26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CD26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
@@ -1052,6 +1084,7 @@
 				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C926A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CE1F96C126AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CEC4D80026A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CF26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
@@ -1081,6 +1114,7 @@
 				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C826A2D63200633222 /* Pretendard-Light.otf in Resources */,
+				CE1F96C026AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CEC4D7FF26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CE26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
@@ -1315,6 +1349,7 @@
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
+				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
@@ -1327,6 +1362,7 @@
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
+				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
@@ -1418,6 +1454,7 @@
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
+				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -1427,6 +1464,7 @@
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
@@ -1519,6 +1557,7 @@
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
+				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
@@ -1548,6 +1587,7 @@
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
+				CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1702,8 +1742,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1712,7 +1752,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1725,8 +1765,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1735,7 +1775,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
