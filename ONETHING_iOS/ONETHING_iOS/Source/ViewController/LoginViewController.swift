@@ -10,7 +10,7 @@ import RxSwift
 import UIKit
 import ActiveLabel
 
-final class LoginViewController: BaseViewController, Reusable {
+final class LoginViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

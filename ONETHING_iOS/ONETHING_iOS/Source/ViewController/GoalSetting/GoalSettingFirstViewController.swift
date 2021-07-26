@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-final class GoalSettingFirstViewController: UIViewController, Reusable {
+final class GoalSettingFirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

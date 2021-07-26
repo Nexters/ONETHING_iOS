@@ -21,5 +21,4 @@ final class OnethingUserManager {
     
     @UserDefaultWrapper<String>(key: UserDefaultsKey.accessToken) private(set) var accessToken
     @UserDefaultWrapper<String>(key: UserDefaultsKey.refreshToken) private(set) var refreshToken
-    
 }
