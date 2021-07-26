@@ -106,9 +106,13 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         guard let habitStampView = collectionView as? HabitStampView else { return }
         guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
         
-        habitStampView.hideCircleCheckViewOfPrevCell()
-        habitStampView.prevCheckedCell = habitStampCell
-        habitStampCell.showCheckView()
+        if habitStampCell.isLocked {
+            
+        } else {
+            habitStampView.hideCircleCheckViewOfPrevCell()
+            habitStampView.prevCheckedCell = habitStampCell
+            habitStampCell.showCheckView()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

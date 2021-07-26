@@ -21,12 +21,19 @@ extension HabitWritingViewModel: UICollectionViewDataSource {
                 cell: HabitStampCell.self, forIndexPath: indexPath
         ) else { return HabitStampCell() }
         
+        if indexPath.item == 0 {
+            guard let habitStampView = collectionView as? HabitStampView else { return HabitStampCell() }
+            habitStampView.prevCheckedCell = habitStampCell
+            habitStampCell.showCheckView()
+        }
+        
         if indexPath.item >= 0 && indexPath.item < 4 {
             guard let stampImage = Stamp.allCases[safe: indexPath.item]?.defaultImage else { return HabitStampCell() }
             habitStampCell.update(stampImage: stampImage)
         } else  {
             guard let stampLockImage = Stamp.allCases[safe: indexPath.item]?.lockImage else { return HabitStampCell() }
             habitStampCell.update(stampImage: stampLockImage)
+            habitStampCell.set(isLocked: true)
         }
         
         return habitStampCell

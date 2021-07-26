@@ -25,9 +25,9 @@ extension HomeViewModel: UICollectionViewDataSource {
         
         habitCalendarCell.setup(numberText: "\(indexPath.row + 1)")
         
-        if indexPath.item == 0 {
+        if let stampImage = Stamp.allCases[safe: indexPath.item]?.defaultImage {
             habitCalendarCell.set(isWrtten: true)
-            habitCalendarCell.update(stampImage: Stamp.beige.defaultImage)
+            habitCalendarCell.update(stampImage: stampImage)
             habitCalendarCell.setup(numberText: "")
         }
         
