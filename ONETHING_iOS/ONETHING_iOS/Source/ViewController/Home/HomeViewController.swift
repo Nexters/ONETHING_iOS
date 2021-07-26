@@ -108,7 +108,6 @@ final class HomeViewController: BaseViewController {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
     }
-    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

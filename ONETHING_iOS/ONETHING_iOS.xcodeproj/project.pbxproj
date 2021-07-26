@@ -255,9 +255,6 @@
 		F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
-		F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
-		F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
-		F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9BA269A5ADC00219B05 /* ReusableView.swift */; };
 		F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9C3269A78E600219B05 /* TestTableViewCell.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -431,7 +428,6 @@
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
-		F267F9BA269A5ADC00219B05 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		F267F9C3269A78E600219B05 /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -711,7 +707,6 @@
 				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
 				CEFC3A38269CC1180007AFF2 /* UILabel+.swift */,
-				F267F9BA269A5ADC00219B05 /* ReusableView.swift */,
 				F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */,
 				CED5AED526A4A0CB003F087C /* String+.swift */,
 				CE3B8BC326A72B6B00BD529B /* UIFont+.swift */,
@@ -1392,7 +1387,6 @@
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
-				F267F9BB269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
@@ -1442,7 +1436,6 @@
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
-				F267F9BD269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
@@ -1521,7 +1514,6 @@
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
-				F267F9BC269A5ADC00219B05 /* ReusableView.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
@@ -1877,7 +1869,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1898,7 +1890,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

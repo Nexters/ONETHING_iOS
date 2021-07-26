@@ -68,13 +68,33 @@ final class LoginViewController: BaseViewController {
     
     private func bindButtons() {
         self.appleLoginButton.rx.tap.subscribe(onNext: {
-            SocialManager.sharedInstance.login(with: .apple) { }
+            SocialManager.sharedInstance.login(with: .apple) {
+                self.dismissLoginViewController()
+            }
         }).disposed(by: self.disposeBag)
+    }
+    
+	private func dismissLoginViewController() {
+        #warning("""
+            1. 습관을 한번도 설정하지 않은 회원이면 바로 네비게이션 뷰로 환경 설정 페이지로 갑니다.
+            2. 습관이 있거나 습관을 완료한 이력이 있는 회원이라면 dismiss 하여 HomeViewController로 가게 됩니다.
+            """)
+        if self.습관을_한번도_설정하지_않은_회원이라면 {
+            guard let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
+            
+            self.navigationController?.pushViewController(goalSettingFirstViewController, animated: true)
+        } else {
+            self.dismiss(animated: true)
+        }
+    }
+    
+    private var 습관을_한번도_설정하지_않은_회원이라면: Bool {
+        return true
     }
     
     private let disposeBag = DisposeBag()
     private let viewModel = LoginViewModel()
-
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var termsLabel: ActiveLabel!
     @IBOutlet private weak var appleLoginButton: UIButton!
