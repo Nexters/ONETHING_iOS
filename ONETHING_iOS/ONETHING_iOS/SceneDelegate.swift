@@ -10,7 +10,6 @@ import UIKit
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    private let userManager = OnethingUserManager()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -19,7 +18,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
         
-        if !self.userManager.hasAccessToken {
+        let userManager = OnethingUserManager.sharedInstance
+        if !userManager.hasAccessToken {
             self.presentLoginViewController(mainTabBarController)
         }
     }
