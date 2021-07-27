@@ -25,7 +25,7 @@ enum ContentApi {
 
 extension ContentApi: TargetType {
     var baseURL: URL {
-        return URL(string: "NONE, Not Yet.")!
+        return URL(string: ServerHost.main)!
     }
     
     var path: String {
