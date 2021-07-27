@@ -87,8 +87,9 @@ final class LoginViewController: BaseViewController {
     }
     
     private func observeViewModel() {
-        self.viewModel.completeSubject.observeOnMain(onNext: {
-            
+        self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] doneHabbitSetting in
+            if doneHabbitSetting == true { self?.dismiss(animated: true, completion: nil) }
+            else { self?.pushGoalSettingController() }
         }).disposed(by: self.disposeBag)
         
         self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
@@ -104,6 +105,14 @@ final class LoginViewController: BaseViewController {
     private func stopLoadingIndicator() {
         self.loadingView.isHidden = true
         self.loadingIndicatorView.stopAnimating()
+    }
+    
+    private func pushGoalSettingController() {
+        let storyboardName = StoryboardName.goalSetting
+        let viewController = GoalSettingFirstViewController.instantiateViewController(from: storyboardName)
+        
+        guard let goalSettingController = viewController else { return }
+        self.navigationController?.pushViewController(goalSettingController, animated: true)
     }
     
     private let disposeBag = DisposeBag()

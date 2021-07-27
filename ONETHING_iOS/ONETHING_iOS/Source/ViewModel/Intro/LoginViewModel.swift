@@ -11,7 +11,7 @@ import RxSwift
 final class LoginViewModel {
     
     let loadingSubject = BehaviorSubject<Bool>(value: false)
-    let completeSubject = PublishSubject<Void>()
+    let completeSubject = PublishSubject<Bool>()
     
     init(loginService: APIService<UserAPI> = APIService()) {
         self.loginService = loginService
@@ -36,17 +36,15 @@ final class LoginViewModel {
                                                userName: userName)
         
         self.loginService.requestAndDecode(api: appleLoginAPI, comepleteHandler: { [weak self] (loginResponseModel: LoginResponseModel) in
-            defer {
-                self?.loadingSubject.onNext(false)
-                self?.completeSubject.onNext(())
-            }
-            
-            guard let accessToken = loginResponseModel.token?.accessToken   else { return }
-            guard let refreshToken = loginResponseModel.token?.refreshToken else { return }
+            defer { self?.loadingSubject.onNext(false) }
+        
+            guard let accessToken = loginResponseModel.token?.accessToken     else { return }
+            guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
+            guard let doneHabbitSetting = loginResponseModel.doneHabitSetting else { return }
             OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
+            self?.completeSubject.onNext(doneHabbitSetting)
         }, errorHandler: { [weak self] error in
             self?.loadingSubject.onNext(false)
-            self?.completeSubject.onNext(())
         })
     }
     
