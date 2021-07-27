@@ -7,9 +7,9 @@
 
 import Foundation
 
-final class ErrorHandler {
+final class OnethingErrorHandler {
     
-    static let sharedInstance = ErrorHandler()
+    static let sharedInstance = OnethingErrorHandler()
     
     func handleError(_ error: OnethingError) {
         switch error {

@@ -25,9 +25,9 @@
 		CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
 		CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
 		CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */; };
-		CE26C44926B0310A00BE7DDC /* ErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */; };
-		CE26C44A26B0310A00BE7DDC /* ErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */; };
-		CE26C44B26B0310A00BE7DDC /* ErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */; };
+		CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
+		CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
+		CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
 		CE26C44E26B0313E00BE7DDC /* OnethingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44D26B0313E00BE7DDC /* OnethingError.swift */; };
 		CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44D26B0313E00BE7DDC /* OnethingError.swift */; };
 		CE26C45026B0313E00BE7DDC /* OnethingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44D26B0313E00BE7DDC /* OnethingError.swift */; };
@@ -357,7 +357,7 @@
 		CE1F96BE26AC0A16006B56E4 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingWebView.swift; sourceTree = "<group>"; };
-		CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErorrHandler.swift; sourceTree = "<group>"; };
+		CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErorrHandler.swift; sourceTree = "<group>"; };
 		CE26C44D26B0313E00BE7DDC /* OnethingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingError.swift; sourceTree = "<group>"; };
 		CE26C45126B031A600BE7DDC /* OnethingErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErrorModel.swift; sourceTree = "<group>"; };
 		CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
@@ -677,7 +677,7 @@
 				F255719E26A432CE005A1AAF /* APIService.swift */,
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
-				CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */,
+				CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1408,7 +1408,7 @@
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
-				CE26C44926B0310A00BE7DDC /* ErorrHandler.swift in Sources */,
+				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
@@ -1494,7 +1494,7 @@
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
-				CE26C44B26B0310A00BE7DDC /* ErorrHandler.swift in Sources */,
+				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -1625,7 +1625,7 @@
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
-				CE26C44A26B0310A00BE7DDC /* ErorrHandler.swift in Sources */,
+				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,

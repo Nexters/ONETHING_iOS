@@ -29,7 +29,7 @@ final class APIService<T: TargetType> {
             case .success(let response):
                 if let onethingErrorModel = response.onethingErrorModel,
                    let onethingError = onethingErrorModel.onethingError {
-                    ErrorHandler.sharedInstance.handleError(onethingError)
+                    OnethingErrorHandler.sharedInstance.handleError(onethingError)
                     errorHandler?(onethingError)
                     
                     // ExpiredAccessToken이 만료된 경우, 1초 뒤에 해당 API 재요청
