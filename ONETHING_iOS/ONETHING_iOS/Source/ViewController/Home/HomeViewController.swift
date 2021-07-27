@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: BaseViewController {
-    private let mainScrollView = UIScrollView()
-    private let scrollInnerView = UIView()
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
@@ -23,8 +21,6 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
 
         self.setupHabitInfoView()
-        self.setupMainScrollView()
-        self.setupScrollInnerView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
     }
@@ -64,41 +60,17 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func setupMainScrollView() {
-        self.view.addSubview(self.mainScrollView)
-        self.mainScrollView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(self.habitInfoView.snp.bottom)
-            $0.height.equalTo(self.view.frame.height - self.habitInfoView.frame.height)
-        }
-    }
-    
-    private func setupScrollInnerView() {
-        self.mainScrollView.addSubview(self.scrollInnerView)
-        
-        self.scrollInnerView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.width.equalToSuperview()
-        }
-        
-        self.mainScrollView.contentLayoutGuide.snp.makeConstraints {
-            $0.height.equalTo(self.scrollInnerView)
-        }
-    }
-    
     private func setupHabitCalendarView() {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
         self.habitCalendarView.delegate = self
-        self.habitCalendarView.isScrollEnabled = false
         
-        self.scrollInnerView.addSubview(habitCalendarView)
+        self.view.addSubview(self.habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.scrollInnerView).inset(self.habitCalendarView.outerConstant)
-            $0.top.equalTo(self.scrollInnerView).offset(self.habitCalendarView.topConstant)
-            $0.height.equalTo(self.habitCalendarView.fixedHeight(superViewWidth: self.view.frame.width))
-            $0.bottom.equalTo(self.scrollInnerView)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.habitInfoView.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -111,7 +83,6 @@ final class HomeViewController: BaseViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -135,6 +106,16 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let habitWritingViewController = HabitWritingViewController()
             navigationController?.pushViewController(habitWritingViewController, animated: true)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        guard let habitCalendarView = collectionView as? HabitCalendarView else { return .zero }
+        return UIEdgeInsets(
+            top: habitCalendarView.topConstant,
+            left: habitCalendarView.leadingConstant,
+            bottom: habitCalendarView.bottomConstant,
+            right: habitCalendarView.trailingConstant
+        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

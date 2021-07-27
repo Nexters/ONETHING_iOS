@@ -22,6 +22,11 @@ final class HabitCalendarCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func prepareForReuse() {
+        self.mainImageView.image = UIImage(named: "rabbit_none")
+        self.numberLabel.text = nil
+    }
 
     private func setupImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
