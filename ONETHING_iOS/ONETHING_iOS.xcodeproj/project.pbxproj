@@ -43,6 +43,9 @@
 		CE26C45F26B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
+		CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
+		CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
+		CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
 		CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
 		CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BB126A7073D00BD529B /* DefaultSession.swift */; };
@@ -70,8 +73,6 @@
 		CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */; };
 		CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE72475F26998F3000BB2C19 /* Assets.xcassets */; };
-		CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
-		CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247B9269995C900BB2C19 /* TestModel.swift */; };
 		CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
 		CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
@@ -236,9 +237,9 @@
 		F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
 		F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */; };
-		F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
-		F20E00D626A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
-		F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserApi.swift */; };
+		F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserAPI.swift */; };
+		F20E00D626A59870009A4AB3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserAPI.swift */; };
+		F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00D426A59870009A4AB3 /* UserAPI.swift */; };
 		F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */; };
 		F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */; };
 		F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */; };
@@ -254,9 +255,9 @@
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
 		F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
-		F255719F26A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
-		F25571A026A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
-		F25571A126A432CE005A1AAF /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* ApiService.swift */; };
+		F255719F26A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
+		F25571A026A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
+		F25571A126A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
 		F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
@@ -362,6 +363,7 @@
 		CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
 		CE26C45A26B03A0400BE7DDC /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
+		CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		CE3B8BB126A7073D00BD529B /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -382,7 +384,6 @@
 		CE7247A0269992CC00BB2C19 /* ONETHING Ent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ONETHING Ent.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE7247A22699938500BB2C19 /* Beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Beta-Info.plist"; sourceTree = "<group>"; };
 		CE7247A42699939100BB2C19 /* Ent-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Ent-Info.plist"; sourceTree = "<group>"; };
-		CE7247B9269995C900BB2C19 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE7247C02699BFE300BB2C19 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		CE7247C22699C14800BB2C19 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
@@ -440,12 +441,12 @@
 		F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightRatioPresentationController.swift; sourceTree = "<group>"; };
 		F20B574C26A8298000391D45 /* BackgroundDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDimView.swift; sourceTree = "<group>"; };
 		F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfomation.swift; sourceTree = "<group>"; };
-		F20E00D426A59870009A4AB3 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		F20E00D426A59870009A4AB3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
-		F255719E26A432CE005A1AAF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
@@ -673,7 +674,7 @@
 			children = (
 				CE26C44C26B0313200BE7DDC /* Error */,
 				F20E00D326A5978C009A4AB3 /* Api */,
-				F255719E26A432CE005A1AAF /* ApiService.swift */,
+				F255719E26A432CE005A1AAF /* APIService.swift */,
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
 				CE26C44826B0310A00BE7DDC /* ErorrHandler.swift */,
@@ -726,7 +727,7 @@
 		CE7247B4269995AA00BB2C19 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE7247B9269995C900BB2C19 /* TestModel.swift */,
+				CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -895,7 +896,7 @@
 			isa = PBXGroup;
 			children = (
 				F2A614B826A4254B0061A17A /* ContentApi.swift */,
-				F20E00D426A59870009A4AB3 /* UserApi.swift */,
+				F20E00D426A59870009A4AB3 /* UserAPI.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1398,9 +1399,9 @@
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
+				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
-				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
@@ -1421,7 +1422,7 @@
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
-				F255719F26A432CE005A1AAF /* ApiService.swift in Sources */,
+				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
@@ -1433,7 +1434,7 @@
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
-				F20E00D526A59870009A4AB3 /* UserApi.swift in Sources */,
+				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */,
@@ -1472,7 +1473,7 @@
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
-				F25571A126A432CE005A1AAF /* ApiService.swift in Sources */,
+				F25571A126A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
@@ -1512,7 +1513,7 @@
 				CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
-				F20E00D726A59870009A4AB3 /* UserApi.swift in Sources */,
+				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
@@ -1537,6 +1538,7 @@
 				F293C3D0269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
+				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
 				CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */,
@@ -1553,10 +1555,10 @@
 			files = (
 				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
-				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
+				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
@@ -1567,7 +1569,6 @@
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				CE7247BC269995C900BB2C19 /* TestModel.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -1580,7 +1581,7 @@
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
-				F25571A026A432CE005A1AAF /* ApiService.swift in Sources */,
+				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -1595,7 +1596,7 @@
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE26C45326B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,
-				F20E00D626A59870009A4AB3 /* UserApi.swift in Sources */,
+				F20E00D626A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
@@ -1927,7 +1928,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1948,7 +1949,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

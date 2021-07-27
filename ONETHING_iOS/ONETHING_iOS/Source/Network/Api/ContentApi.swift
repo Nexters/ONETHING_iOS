@@ -71,7 +71,7 @@ extension ContentApi: TargetType {
     
     var headers: [String: String]? {
         return [NetworkInfomation.Request.HeaderKeys.contentType: NetworkInfomation.Request.HeaderValues.json,
-                NetworkInfomation.Request.HeaderKeys.authorization: NetworkInfomation.Request.HeaderValues.authorizationKey]
+                NetworkInfomation.Request.HeaderKeys.authorization: NetworkInfomation.Request.HeaderValues.authorization]
     }
 }
 

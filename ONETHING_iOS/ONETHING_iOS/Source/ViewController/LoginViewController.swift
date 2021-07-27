@@ -16,6 +16,8 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         self.setupTitleLabel()
         self.setupTermsLabel()
+        self.setupLoadingIndicator()
+        self.observeViewModel()
         self.bindButtons()
     }
     
@@ -67,14 +69,48 @@ final class LoginViewController: BaseViewController {
         }
     }
     
+    private func setupLoadingIndicator() {
+        self.view.addSubview(self.loadingView)
+        self.loadingView.snp.makeConstraints { make in make.edges.equalToSuperview() }
+        
+        self.loadingView.addSubview(self.loadingIndicatorView)
+        self.loadingIndicatorView.snp.makeConstraints { make in make.centerX.centerY.equalToSuperview() }
+        
+        self.loadingIndicatorView.stopAnimating()
+        self.loadingView.isHidden = true
+    }
+    
     private func bindButtons() {
-        self.appleLoginButton.rx.tap.subscribe(onNext: {
-            SocialManager.sharedInstance.login(with: .apple)
+        self.appleLoginButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.viewModel.login(type: .apple)
         }).disposed(by: self.disposeBag)
+    }
+    
+    private func observeViewModel() {
+        self.viewModel.completeSubject.observeOnMain(onNext: {
+            
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
+            loading ? self?.startLoadingIndicator() : self?.stopLoadingIndicator()
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func startLoadingIndicator() {
+        self.loadingView.isHidden = false
+        self.loadingIndicatorView.startAnimating()
+    }
+    
+    private func stopLoadingIndicator() {
+        self.loadingView.isHidden = true
+        self.loadingIndicatorView.stopAnimating()
     }
     
     private let disposeBag = DisposeBag()
     private let viewModel = LoginViewModel()
+    
+    private let loadingIndicatorView = UIActivityIndicatorView(style: .medium)
+    private let loadingView: UIView = UIView(frame: .zero)
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var termsLabel: ActiveLabel!
