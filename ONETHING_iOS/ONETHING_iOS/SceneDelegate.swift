@@ -18,10 +18,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
         
-        let userManager = OnethingUserManager.sharedInstance
-        if !userManager.hasAccessToken {
-            self.presentLoginViewController(mainTabBarController)
-        }
+//        let userManager = OnethingUserManager.sharedInstance
+//        if !userManager.hasAccessToken {
+//            self.presentLoginViewController(mainTabBarController)
+//        }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

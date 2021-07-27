@@ -296,6 +296,9 @@
 		F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
 		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
+		F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
+		F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -439,6 +442,7 @@
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApi.swift; sourceTree = "<group>"; };
+		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +673,7 @@
 				F20B572E26A7EAF700391D45 /* HabitStampView.swift */,
 				F20B573626A7F0C900391D45 /* CircleView.swift */,
 				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
+				F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1329,6 +1334,7 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -1471,6 +1477,7 @@
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
+				F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				F20B574726A8246600391D45 /* Stamp.swift in Sources */,
 				F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
@@ -1570,6 +1577,7 @@
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
+				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,

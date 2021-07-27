@@ -14,16 +14,18 @@ final class HabitWritingViewController: BaseViewController {
     private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
+    private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+    
         self.addKeyboardDismissTapGesture()
         self.setupKeyboardDismissableView()
         self.setupBackBtnTitleView()
         self.setupDailyHabitView()
         self.setupCompleteButton()
         self.setupHabitStampView()
+        self.setupRightSwipeGestureRecognizerView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +95,16 @@ final class HabitWritingViewController: BaseViewController {
             $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
+        }
+    }
+    
+    private func setupRightSwipeGestureRecognizerView() {
+        self.view.addSubview(self.rightSwipeGestureRecognizerView)
+        self.rightSwipeGestureRecognizerView.parentViewController = self
+        
+        self.rightSwipeGestureRecognizerView.snp.makeConstraints {
+            $0.leading.top.bottom.equalToSuperview()
+            $0.trailing.equalTo(self.backBtnTitleView.snp.leading).offset(-10)
         }
     }
 }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Then
+
 protocol HabitWrittenViewControllerDelegate: AnyObject {
     func clearDimEffect()
 }
@@ -19,9 +21,10 @@ final class HabitWrittenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        setupUpperStampView()
-        setupDailyHabitView()
+        self.setupView()
+        self.setupUpperStampView()
+        self.setupDailyHabitView()
+        self.addDownGestureRecognizer()
     }
 
     private func setupView() {
@@ -53,6 +56,18 @@ final class HabitWrittenViewController: BaseViewController {
     @objc private func dismissViewController() {
         self.delegate?.clearDimEffect()
         self.upperStampView.isHidden = true
-        super.dismiss(animated: true, completion: nil)
+        super.dismiss(animated: true)
+    }
+    
+    private func addDownGestureRecognizer() {
+        let downSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe)).then {
+            $0.direction = .down
+        }
+        
+        self.view.addGestureRecognizer(downSwipeGestureRecognizer)
+    }
+    
+    @objc private func didSwipe() {
+        self.dismissViewController()
     }
 }
