@@ -15,7 +15,7 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 
 final class HabitWrittenViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView()
-    private let upperStampView = UIButton()
+    private let upperStampButton = UIButton()
     weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -32,13 +32,11 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func setupUpperStampView() {
-        self.upperStampView.contentMode = .scaleAspectFit
-        self.upperStampView.setImage(Stamp.beige.defaultImage, for: .normal)
-        self.upperStampView.setImage(Stamp.beige.defaultImage, for: .highlighted)
-        self.upperStampView.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
+        self.upperStampButton.contentMode = .scaleAspectFit
+        self.upperStampButton.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
         
-        self.view.addSubview(self.upperStampView)
-        self.upperStampView.snp.makeConstraints {
+        self.view.addSubview(self.upperStampButton)
+        self.upperStampButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(-28)
             $0.height.width.equalTo(70)
             $0.leading.equalToSuperview().inset(32)
@@ -55,7 +53,7 @@ final class HabitWrittenViewController: BaseViewController {
     
     @objc private func dismissViewController() {
         self.delegate?.clearDimEffect()
-        self.upperStampView.isHidden = true
+        self.upperStampButton.isHidden = true
         super.dismiss(animated: true)
     }
     
@@ -69,5 +67,10 @@ final class HabitWrittenViewController: BaseViewController {
     
     @objc private func didSwipe() {
         self.dismissViewController()
+    }
+    
+    func update(upperStampImage image: UIImage?) {
+        self.upperStampButton.setImage(image, for: .normal)
+        self.upperStampButton.setImage(image, for: .highlighted)
     }
 }

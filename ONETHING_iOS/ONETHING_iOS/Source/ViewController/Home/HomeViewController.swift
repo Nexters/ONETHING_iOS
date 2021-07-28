@@ -26,28 +26,10 @@ final class HomeViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeStatusBarColor()
+        self.navigationController?.changeStatusBar(backgroundColor: self.habitInfoView.backgroundColor ?? .black_100)
         super.viewWillAppear(animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.undoStatusBarColor()
-        super.viewWillDisappear(animated)
-    }
-    
-    private func changeStatusBarColor() {
-        guard let statusBar = self.navigationController?.statusBar else { return }
-        
-        statusBar.previousBackgroundColor = statusBar.backgroundColor
-        statusBar.backgroundColor = habitInfoView.backgroundColor
-    }
-    
-    private func undoStatusBarColor() {
-        guard let statusBar = self.navigationController?.statusBar else { return }
-        
-        statusBar.backgroundColor = statusBar.previousBackgroundColor
-    }
-
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide
@@ -93,20 +75,30 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
+        guard let habitCalendarCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
         
-        if habitCell.isWritten {
-            let habitWrittenViewController = HabitWrittenViewController().then {
-                $0.modalPresentationStyle = .custom
-                $0.transitioningDelegate = self
-                $0.delegate = self
-            }
-            self.backgounndDimView.isHidden = false
-            present(habitWrittenViewController, animated: true)
-        } else {
-            let habitWritingViewController = HabitWritingViewController()
-            navigationController?.pushViewController(habitWritingViewController, animated: true)
+        if habitCalendarCell.isWritten {
+            self.presentHabitWrittenViewController(with: habitCalendarCell)
+            return
         }
+        self.presentHabitWritingViewController()
+    }
+    
+    private func presentHabitWrittenViewController(with habitCalendarCell: HabitCalendarCell) {
+        self.backgounndDimView.isHidden = false
+        
+        let habitWrittenViewController = HabitWrittenViewController().then {
+            $0.modalPresentationStyle = .custom
+            $0.transitioningDelegate = self
+            $0.update(upperStampImage: habitCalendarCell.stampImage)
+            $0.delegate = self
+        }
+        self.present(habitWrittenViewController, animated: true)
+    }
+    
+    private func presentHabitWritingViewController() {
+        let habitWritingViewController = HabitWritingViewController()
+        self.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

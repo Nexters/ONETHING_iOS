@@ -55,7 +55,7 @@ extension UIColor {
     @nonobjc static var red_3: UIColor          { return UIColor(hexString: "#FF9950") }
     @nonobjc static var red_2: UIColor          { return UIColor(hexString: "#FF8080") }
     @nonobjc static var red_1: UIColor          { return UIColor(hexString: "#FFCBCB") }
-    @nonobjc static var gray: UIColor           { return UIColor(hexString: "#D4D4D4") }
+    @nonobjc static var gray_default: UIColor   { return UIColor(hexString: "#D4D4D4") }
     @nonobjc static var beige: UIColor          { return UIColor(hexString: "#FEEACD") }
     @nonobjc static var yellow_default: UIColor { return UIColor(hexString: "#FFB32E") }
     @nonobjc static var red_default: UIColor    { return UIColor(hexString: "#FF6650") }
