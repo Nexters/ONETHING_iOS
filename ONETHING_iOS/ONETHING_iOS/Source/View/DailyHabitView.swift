@@ -13,6 +13,8 @@ final class DailyHabitView: UIView {
     private let photoView = UIImageView()
     private let enrollPhotoButton = UIButton()
     private let habitTextView = HabitTextView()
+    weak var parentViewController: UIViewController?
+    private let picker = UIImagePickerController()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +24,7 @@ final class DailyHabitView: UIView {
         self.setupPhotoView()
         self.setupEnrollPhotoButton()
         self.setupHabitTextView()
+        picker.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -55,6 +58,7 @@ final class DailyHabitView: UIView {
     private func setupPhotoView() {
         self.photoView.image = UIImage(named: "photo_default")
         self.photoView.contentMode = .scaleAspectFill
+        self.photoView.isUserInteractionEnabled = true
         self.photoView.layer.cornerRadius = 16
         self.photoView.clipsToBounds = true
         self.addSubview(self.photoView)
@@ -68,6 +72,7 @@ final class DailyHabitView: UIView {
     
     private func setupEnrollPhotoButton() {
         self.enrollPhotoButton.setImage(UIImage(named: "enroll_photo"), for: .normal)
+        self.enrollPhotoButton.addTarget(self, action: #selector(enrollPhotoButtonDidTouch), for: .touchUpInside)
         self.enrollPhotoButton.contentMode = .scaleAspectFit
         self.photoView.addSubview(self.enrollPhotoButton)
         
@@ -75,6 +80,36 @@ final class DailyHabitView: UIView {
             $0.top.trailing.equalToSuperview().inset(18)
             $0.height.equalToSuperview().multipliedBy(0.1625)
             $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
+        }
+    }
+    
+    @objc private func enrollPhotoButtonDidTouch() {
+        guard let parentViewController = self.parentViewController else { return }
+        
+        let actionSheet =  UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet).then {
+            let libraryAction =  UIAlertAction(title: "앨범", style: .default) { [weak self] _ in self?.openLibrary() }
+            let cameraAction =  UIAlertAction(title: "카메라", style: .default) { [weak self] _ in self?.openCamera() }
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            $0.addAction(libraryAction)
+            $0.addAction(cameraAction)
+            $0.addAction(cancel)
+        }
+        
+        parentViewController.present(actionSheet, animated: true)
+    }
+    
+    private func openLibrary() {
+        self.picker.sourceType = .photoLibrary
+        parentViewController?.present(self.picker, animated: false, completion: nil)
+        
+    }
+    private func openCamera() {
+        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+            self.picker.sourceType = .camera
+            parentViewController?.present(picker, animated: false, completion: nil)
+        }
+        else{
+            print("Camera not available")
         }
     }
     
@@ -89,5 +124,14 @@ final class DailyHabitView: UIView {
             $0.height.equalTo(90)
             $0.bottom.equalToSuperview()
         }
+    }
+}
+
+extension DailyHabitView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        
+        photoView.image = image
+        self.parentViewController?.dismiss(animated: true)
     }
 }

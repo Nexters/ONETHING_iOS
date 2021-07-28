@@ -68,6 +68,8 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
+        self.dailyHabitView.parentViewController = self
+        
         self.keyboardDismissableView.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalTo(self.backBtnTitleView.snp.bottom)
