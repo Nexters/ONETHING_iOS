@@ -96,10 +96,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         guard let habitCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
         
         if habitCell.isWritten {
-            let habitWrittenViewController = HabitWrittenViewController()
-            habitWrittenViewController.modalPresentationStyle = .custom
-            habitWrittenViewController.transitioningDelegate = self
-            habitWrittenViewController.delegate = self
+            let habitWrittenViewController = HabitWrittenViewController().then {
+                $0.modalPresentationStyle = .custom
+                $0.transitioningDelegate = self
+                $0.delegate = self
+            }
             self.backgounndDimView.isHidden = false
             present(habitWrittenViewController, animated: true)
         } else {

@@ -69,7 +69,7 @@ final class HabitWritingViewController: BaseViewController {
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalTo(self.backBtnTitleView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(32)
-            $0.bottom.equalToSuperview().offset(-40)
+            $0.bottom.equalToSuperview().offset(-30)
         }
     }
     
@@ -80,7 +80,16 @@ final class HabitWritingViewController: BaseViewController {
         let safeArea = self.view.safeAreaLayoutGuide
         self.completeButton.snp.makeConstraints {
             $0.leading.trailing.bottom.width.equalTo(safeArea)
-            $0.height.equalTo(83)
+            $0.height.equalTo(63)
+        }
+        
+        let bottomView = UIView()
+        bottomView.backgroundColor = self.completeButton.backgroundColor
+        self.view.addSubview(bottomView)
+        bottomView.snp.makeConstraints {
+            $0.top.equalTo(self.completeButton.snp.bottom)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -92,7 +101,7 @@ final class HabitWritingViewController: BaseViewController {
         
         self.view.addSubview(self.habitStampView)
         self.habitStampView.snp.makeConstraints {
-            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(40)
+            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
         }
