@@ -299,6 +299,9 @@
 		F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
+		F2F588B026B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
+		F2F588B126B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
+		F2F588B226B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -443,6 +446,7 @@
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApi.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
+		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -674,6 +678,7 @@
 				F20B573626A7F0C900391D45 /* CircleView.swift */,
 				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
 				F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */,
+				F2F588AF26B0F95200F5430D /* LockView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1335,6 +1340,7 @@
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
+				F2F588B026B0F95200F5430D /* LockView.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -1453,6 +1459,7 @@
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
+				F2F588B226B0F95200F5430D /* LockView.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
@@ -1546,6 +1553,7 @@
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
+				F2F588B126B0F95200F5430D /* LockView.swift in Sources */,
 				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 final class HabitStampCell: UICollectionViewCell {
     private let circleCheckView = CircleView()
     private let mainImageView = UIImageView()
+    private var currentStamp: Stamp?
     private(set) var isLocked = false
     
     override init(frame: CGRect) {
@@ -48,12 +49,15 @@ final class HabitStampCell: UICollectionViewCell {
         }
     }
     
-    func update(stampImage: UIImage) {
-        self.mainImageView.image = stampImage
-    }
-    
-    func set(isLocked: Bool) {
+    func update(stamp: Stamp, isLocked: Bool) {
+        self.currentStamp = stamp
         self.isLocked = isLocked
+        if self.isLocked {
+            self.mainImageView.image = self.currentStamp?.lockImage
+            return
+        }
+        
+        self.mainImageView.image = self.currentStamp?.defaultImage
     }
     
     func hideCheckView() {
@@ -62,5 +66,11 @@ final class HabitStampCell: UICollectionViewCell {
     
     func showCheckView() {
         self.circleCheckView.isHidden = false
+    }
+    
+    var stampDefaultImageWhenLocked: UIImage? {
+        guard self.isLocked else { return nil }
+        
+        return self.currentStamp?.defaultImage
     }
 }

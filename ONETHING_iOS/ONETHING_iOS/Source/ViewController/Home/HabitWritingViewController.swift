@@ -15,6 +15,7 @@ final class HabitWritingViewController: BaseViewController {
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
+    private var lockPopupView: LockView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,7 +102,7 @@ final class HabitWritingViewController: BaseViewController {
         
         self.view.addSubview(self.habitStampView)
         self.habitStampView.snp.makeConstraints {
-            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(30)
+            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
         }
@@ -128,12 +129,69 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
         
         if habitStampCell.isLocked {
-            
+            habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
+            self.popupLockViewAndDown(with: habitStampCell)
         } else {
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
         }
+    }
+    
+    private func popupLockViewAndDown(with habitStampCell: HabitStampCell) {
+        self.setupLockPopupViewBehindBottom(with: habitStampCell)
+        UIView.animate(withDuration: 0.3, delay: 0, animations: {
+            self.popupLockView()
+        }, completion: { _ in
+            self.animateDownLockPopupView()
+        })
+    }
+    
+    private func setupLockPopupViewBehindBottom(with habitStampCell: HabitStampCell) {
+        if self.lockPopupView == nil {
+            self.lockPopupView = LockView()
+            self.lockPopupView?.update(image: habitStampCell.stampDefaultImageWhenLocked)
+        }
+        
+        guard let lockPopupView = self.lockPopupView else { return }
+        lockPopupView.alpha = 0
+        
+        self.view.addSubview(lockPopupView)
+        lockPopupView.snp.makeConstraints {
+            $0.centerX.equalTo(self.habitStampView)
+            $0.width.equalTo(214)
+            $0.height.equalTo(144)
+        }
+        let behindBottomConstant: CGFloat = 800
+        lockPopupView.topAnchorConstraint = lockPopupView.topAnchor.constraint(
+            equalTo: self.habitStampView.topAnchor,
+            constant: behindBottomConstant
+        )
+        lockPopupView.topAnchorConstraint?.isActive = true
+        self.view.layoutIfNeeded()
+    }
+    
+    private func popupLockView() {
+        guard let lockPopupView = self.lockPopupView else { return }
+        
+        lockPopupView.topAnchorConstraint?.constant = 20
+        lockPopupView.alpha = 1
+        self.view.layoutIfNeeded()
+    }
+    
+    private func animateDownLockPopupView() {
+        guard let lockPopupView = self.lockPopupView else { return }
+        
+        UIView.animateKeyframes(withDuration: 0.3, delay: 2, animations: {
+            let behindBottomConstant: CGFloat = 800
+            lockPopupView.topAnchorConstraint?.constant = behindBottomConstant
+            lockPopupView.alpha = 0
+            self.view.layoutIfNeeded()
+        }, completion: { _ in
+            self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = true }
+            lockPopupView.removeFromSuperview()
+            self.lockPopupView = nil
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
