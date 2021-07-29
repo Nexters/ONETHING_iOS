@@ -16,6 +16,8 @@ final class LoginViewController: BaseViewController {
         super.viewDidLoad()
         self.setupTitleLabel()
         self.setupTermsLabel()
+        self.setupLoadingIndicator()
+        self.observeViewModel()
         self.bindButtons()
     }
     
@@ -38,6 +40,7 @@ final class LoginViewController: BaseViewController {
     }
     
     private func setupTermsLabel() {
+        #warning("약관 동의 및 개인정보 이용 약관 WebView 연결해야함")
         guard let lightFont = UIFont.createFont(type: .pretendard(weight: .light), size: 12) else { return }
         guard let boldFont = UIFont.createFont(type: .pretendard(weight: .bold), size: 12)   else { return }
         
@@ -66,34 +69,57 @@ final class LoginViewController: BaseViewController {
         }
     }
     
+    private func setupLoadingIndicator() {
+        self.view.addSubview(self.loadingView)
+        self.loadingView.snp.makeConstraints { make in make.edges.equalToSuperview() }
+        
+        self.loadingView.addSubview(self.loadingIndicatorView)
+        self.loadingIndicatorView.snp.makeConstraints { make in make.centerX.centerY.equalToSuperview() }
+        
+        self.loadingIndicatorView.stopAnimating()
+        self.loadingView.isHidden = true
+    }
+    
     private func bindButtons() {
-        self.appleLoginButton.rx.tap.subscribe(onNext: {
-            SocialManager.sharedInstance.login(with: .apple) {
-                self.dismissLoginViewController()
-            }
+        self.appleLoginButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.viewModel.login(type: .apple)
         }).disposed(by: self.disposeBag)
     }
     
-	private func dismissLoginViewController() {
-        #warning("""
-            1. 습관을 한번도 설정하지 않은 회원이면 바로 네비게이션 뷰로 환경 설정 페이지로 갑니다.
-            2. 습관이 있거나 습관을 완료한 이력이 있는 회원이라면 dismiss 하여 HomeViewController로 가게 됩니다.
-            """)
-        if self.습관을_한번도_설정하지_않은_회원이라면 {
-            guard let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
-            
-            self.navigationController?.pushViewController(goalSettingFirstViewController, animated: true)
-        } else {
-            self.dismiss(animated: true)
-        }
+    private func observeViewModel() {
+        self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] doneHabbitSetting in
+            if doneHabbitSetting == true { self?.dismiss(animated: true, completion: nil) }
+            else { self?.pushGoalSettingController() }
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
+            loading ? self?.startLoadingIndicator() : self?.stopLoadingIndicator()
+        }).disposed(by: self.disposeBag)
     }
     
-    private var 습관을_한번도_설정하지_않은_회원이라면: Bool {
-        return true
+    private func startLoadingIndicator() {
+        self.loadingView.isHidden = false
+        self.loadingIndicatorView.startAnimating()
+    }
+    
+    private func stopLoadingIndicator() {
+        self.loadingView.isHidden = true
+        self.loadingIndicatorView.stopAnimating()
+    }
+    
+    private func pushGoalSettingController() {
+        let storyboardName = StoryboardName.goalSetting
+        let viewController = GoalSettingFirstViewController.instantiateViewController(from: storyboardName)
+        
+        guard let goalSettingController = viewController else { return }
+        self.navigationController?.pushViewController(goalSettingController, animated: true)
     }
     
     private let disposeBag = DisposeBag()
     private let viewModel = LoginViewModel()
+    
+    private let loadingIndicatorView = UIActivityIndicatorView(style: .medium)
+    private let loadingView: UIView = UIView(frame: .zero)
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var termsLabel: ActiveLabel!
