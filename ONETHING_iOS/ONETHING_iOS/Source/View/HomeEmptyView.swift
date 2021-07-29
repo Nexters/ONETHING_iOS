@@ -48,6 +48,7 @@ final class HomeEmptyView: UIView {
         self.mainLabel.do {
             $0.numberOfLines = 2
             $0.textColor = .darkGray
+            $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
             $0.text = "진행중인 습관이 없어요.\n새로운 습관을 더 만들어보세요!"
             $0.textAlignment = .center
         }
@@ -65,6 +66,8 @@ final class HomeEmptyView: UIView {
         self.habitSelectButton.do {
             $0.setTitle("습관 시작하기", for: .normal)
             $0.setTitleColor(.white, for: .normal)
+            $0.setTitleColor($0.titleColor(for: .normal)?.withAlphaComponent(0.5), for: .highlighted)
+            $0.titleLabel?.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
             $0.backgroundColor = .black_100
             $0.addTarget(self, action: #selector(habitSelectButtonDidTap), for: .touchUpInside)
         }

@@ -236,6 +236,9 @@
 		F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
+		F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
+		F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
+		F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
 		F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
@@ -431,6 +434,7 @@
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
+		F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
@@ -684,6 +688,7 @@
 				F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */,
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
 				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
+				F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1418,6 +1423,7 @@
 				F267F9C4269A78E600219B05 /* TestTableViewCell.swift in Sources */,
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
+				F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 			);
@@ -1480,6 +1486,7 @@
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
+				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
@@ -1575,6 +1582,7 @@
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
+				F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,

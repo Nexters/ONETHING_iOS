@@ -15,9 +15,7 @@ final class HomeViewController: BaseViewController {
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
     private let backgroundDimView = BackgroundDimView()
-    private let homeEmptyView = HomeEmptyView().then { _ in
-//        $0.isHidden = true
-    }
+    private let homeEmptyView = HomeEmptyView().then { _ in }
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {

@@ -8,9 +8,20 @@
 import UIKit
 
 final class HistoryViewController: BaseViewController {
-
+    private let historyEmptyView = HistoryEmptyView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.setupHistoryEmptyView()
     }
     
+    private func setupHistoryEmptyView() {
+        self.view.addSubview(self.historyEmptyView)
+        
+        self.historyEmptyView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
 }
