@@ -9,22 +9,16 @@ import UIKit
 
 class GoalSettingCollectionViewCell: UICollectionViewCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.setRandomeColor()
-    }
-
-    func setup(_ goalText: String?) {
-        self.goalLabel.text = goalText
-    }
-    
-    private func setRandomeColor() {
-        let randomRed   = Int((0...255).randomElement() ?? 0)
-        let randomGreen = Int((0...255).randomElement() ?? 0)
-        let randomBlue  = Int((0...255).randomElement() ?? 0)
-        self.backgroundColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue)
+    func configure(_ recommendHabbitModel: RecommendHabbitModel) {
+        self.recommendHabbitModel = recommendHabbitModel
+        
+        self.titleLabel.text = recommendHabbitModel.title
+        self.cornerRadius = recommendHabbitModel.onethingShape.cornerRadius
+        self.backgroundColor = recommendHabbitModel.onethingColor
     }
     
-    @IBOutlet private weak var goalLabel: UILabel!
+    private var recommendHabbitModel: RecommendHabbitModel?
+    
+    @IBOutlet private weak var titleLabel: UILabel!
     
 }

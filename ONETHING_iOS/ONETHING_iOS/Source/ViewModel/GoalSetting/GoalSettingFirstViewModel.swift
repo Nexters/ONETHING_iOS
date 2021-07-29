@@ -10,34 +10,38 @@ import RxSwift
 
 final class GoalSettingFirstViewModel {
     
-    typealias GoalListSection = [[String]]
+    typealias GoalListSection = [[RecommendHabbitModel]]
     
     let reloadFlagSubejct = BehaviorSubject<Void>(value: ())
     
-    init() {
+    init(apiService: APIService<ContentAPI> = APIService<ContentAPI>()) {
+        self.apiService = apiService
+        
         self.goalListSubject.subscribe(onNext: { goalList in
-            guard goalList.count >= 16 else { return }
-            
-            // 일단은 DEFUALT가 16개 이상으로 정함
             var currentIndex: Int   = 0
-            let offset: Int         = 4
+            let offset: Int         = 3
             
-            while currentIndex < 16 {
+            while currentIndex < goalList.count {
                 let list = Array(goalList[currentIndex..<currentIndex+offset])
-                self.goalSection.append(list)
+                self.habbitSection.append(list)
                 currentIndex += offset
             }
             self.reloadFlagSubejct.onNext(())
         }).disposed(by: self.disposeBag)
     }
     
-    private(set) var goalSection: GoalListSection = []
+    func requestRecommendedHabbit() {
+        let recommendHabbitAPI = ContentAPI.getRecommendedHabit
+        self.apiService.requestAndDecode(api: recommendHabbitAPI) { (result: RecommendedHabbitResponseModel) in
+            guard let recommendedList = result.habitRecommend else { return }
+            self.goalListSubject.onNext(recommendedList)
+        }
+    }
     
-    #warning("Mock 데이터")
-    private let goalListSubject = BehaviorSubject<[String]>(value: ["안녕하세요", "안녕하세요", "안녕하세요", "안녕하세요",
-                                                                    "저기요", "저기요", "저기요", "저기요",
-                                                                    "거기는", "안녕하신가요", "안녕하지요", "당신도 안녕?",
-                                                                    "너는 괜찮?", "그럼", "그렇게 괜찮지", "너도?"])
+    private(set) var habbitSection: GoalListSection = []
+    private let goalListSubject = BehaviorSubject<[RecommendHabbitModel]>(value: [])
+    
+    private let apiService: APIService<ContentAPI>
     private let disposeBag = DisposeBag()
     
 }

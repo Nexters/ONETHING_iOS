@@ -16,10 +16,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         let mainTabBarController = MainTabBarController()
         
-        let userManager = OnethingUserManager.sharedInstance
-        if !userManager.hasAccessToken {
+//        let userManager = OnethingUserManager.sharedInstance
+//        if !userManager.hasAccessToken {
             self.presentLoginViewController(mainTabBarController)
-        }
+//        }
         
         self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()

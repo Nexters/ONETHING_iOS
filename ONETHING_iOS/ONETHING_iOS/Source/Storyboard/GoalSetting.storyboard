@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -121,20 +121,6 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GHF-wP-AQK">
-                                <rect key="frame" x="0.0" y="598" width="375" height="74"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="74" id="5qW-a5-vwc"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CYV-lq-XOF">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cCp-Uu-OYY">
                                 <rect key="frame" x="0.0" y="304" width="375" height="74"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,10 +140,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cCp-Uu-OYY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="67v-Pd-oiw"/>
-                            <constraint firstItem="GHF-wP-AQK" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="IA7-zg-aGy"/>
                             <constraint firstItem="ppp-ph-y6a" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="41" id="Lsr-ct-a4H"/>
                             <constraint firstItem="ck0-1r-2TY" firstAttribute="top" secondItem="u2L-9C-zx7" secondAttribute="bottom" constant="24" id="NcE-Ga-UU8"/>
-                            <constraint firstItem="GHF-wP-AQK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Pz2-ri-lKT"/>
                             <constraint firstItem="cCp-Uu-OYY" firstAttribute="top" secondItem="0rl-8Z-btP" secondAttribute="bottom" constant="31" id="UWe-T0-S2b"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pCI-5T-gty" secondAttribute="trailing" id="VD9-Cy-Jzz"/>
                             <constraint firstItem="ck0-1r-2TY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Wtw-A6-EkF"/>
@@ -171,7 +155,6 @@
                             <constraint firstAttribute="bottom" secondItem="pCI-5T-gty" secondAttribute="bottom" id="iQo-pi-MUP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cCp-Uu-OYY" secondAttribute="trailing" id="oMR-fg-b5a"/>
                             <constraint firstItem="u2L-9C-zx7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="t2v-yt-7Vm"/>
-                            <constraint firstItem="GHF-wP-AQK" firstAttribute="top" secondItem="ck0-1r-2TY" secondAttribute="bottom" constant="24" id="uUE-Hc-sHZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="yJa-E1-x1a"/>
@@ -181,7 +164,6 @@
                         <outletCollection property="collectionViews" destination="cCp-Uu-OYY" collectionClass="NSMutableArray" id="717-Ze-UFr"/>
                         <outletCollection property="collectionViews" destination="u2L-9C-zx7" collectionClass="NSMutableArray" id="khP-tw-hP9"/>
                         <outletCollection property="collectionViews" destination="ck0-1r-2TY" collectionClass="NSMutableArray" id="You-ST-S3x"/>
-                        <outletCollection property="collectionViews" destination="GHF-wP-AQK" collectionClass="NSMutableArray" id="DEk-xE-tGq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

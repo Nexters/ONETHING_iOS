@@ -72,10 +72,10 @@ final class LoginViewController: BaseViewController {
     private func setupLoadingIndicator() {
         self.view.addSubview(self.loadingView)
         self.loadingView.snp.makeConstraints { make in make.edges.equalToSuperview() }
-        
+
         self.loadingView.addSubview(self.loadingIndicatorView)
         self.loadingIndicatorView.snp.makeConstraints { make in make.centerX.centerY.equalToSuperview() }
-        
+
         self.loadingIndicatorView.stopAnimating()
         self.loadingView.isHidden = true
     }
