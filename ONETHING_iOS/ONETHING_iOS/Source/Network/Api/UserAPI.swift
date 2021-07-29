@@ -10,14 +10,6 @@ import Foundation
 import Moya
 
 enum UserAPI {
-    /*
-     이거 ServiceMode는 서버 모드에 따라 사용하는건가요?
-     */
-    enum ServiceMode: String {
-        case live
-        case test
-    }
-    
     case appleLogin(authorizationCode: String, identityToken: String, userName: String? = nil)
 }
 

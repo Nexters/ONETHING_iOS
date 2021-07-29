@@ -93,13 +93,10 @@ extension SocialManager: ASAuthorizationControllerDelegate {
         let decodedAuthorizationCode = String(data: authorizationCode, encoding: .utf8)
         let decodedIdentityToken = String(data: identityToken, encoding: .utf8)
         
-        var userFullName: String? = nil
+        var userFullName: String = ""
         if let appleUserName = appleIDCredential.fullName {
-            var finalFullName: String = ""
-            if let givenName = appleUserName.givenName { finalFullName += givenName }
-            if let familyName = appleUserName.familyName { finalFullName += familyName }
-            
-            if finalFullName != "" { userFullName = finalFullName }
+            if let givenName = appleUserName.givenName { userFullName += givenName }
+            if let familyName = appleUserName.familyName { userFullName += familyName }
         }
 
         self.excuteCompletion(decodedAuthorizationCode, decodedIdentityToken, userFullName)
