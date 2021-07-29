@@ -16,6 +16,7 @@ final class HabitWritingViewController: BaseViewController {
     private let habitStampView = HabitStampView()
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     private var lockPopupView: LockView?
+    private let backgroundDimView = BackgroundDimView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupCompleteButton()
         self.setupHabitStampView()
         self.setupRightSwipeGestureRecognizerView()
+        self.setupBackgounndDimColorView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +40,7 @@ final class HabitWritingViewController: BaseViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
         self.tabBarController?.tabBar.isHidden = false
     }
     
@@ -121,6 +124,13 @@ final class HabitWritingViewController: BaseViewController {
             $0.trailing.equalTo(self.backBtnTitleView.snp.leading).offset(-10)
         }
     }
+    
+    private func setupBackgounndDimColorView() {
+        self.view.addSubview(self.backgroundDimView)
+        self.backgroundDimView.snp.makeConstraints {
+            $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+    }
 }
 
 extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
@@ -146,6 +156,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         self.setupLockPopupViewBehindBottom(with: habitStampCell)
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             self.popupLockView()
+            self.backgroundDimView.isHidden = false
         }, completion: { _ in
             self.animateDownLockPopupView()
         })
@@ -153,8 +164,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     private func setupLockPopupViewBehindBottom(with habitStampCell: HabitStampCell) {
         if self.lockPopupView == nil {
-            self.lockPopupView = LockView()
-            self.lockPopupView?.update(image: habitStampCell.stampDefaultImageWhenLocked)
+            self.lockPopupView = self.makeLockPopupView(with: habitStampCell)
         }
         
         guard let lockPopupView = self.lockPopupView else { return }
@@ -166,6 +176,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
             $0.width.equalTo(214)
             $0.height.equalTo(144)
         }
+        
         let behindBottomConstant: CGFloat = 800
         lockPopupView.topAnchorConstraint = lockPopupView.topAnchor.constraint(
             equalTo: self.habitStampView.topAnchor,
@@ -173,6 +184,17 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         )
         lockPopupView.topAnchorConstraint?.isActive = true
         self.view.layoutIfNeeded()
+    }
+    
+    private func makeLockPopupView(with habitStampCell: HabitStampCell) -> LockView {
+        return LockView().then {
+            $0.update(image: habitStampCell.stampDefaultImageWhenLocked)
+            let attributedText = NSMutableAttributedString(string: "습관 22일을 달성하면\n사용할 수 있어요!")
+            attributedText.addAttribute(.foregroundColor,
+                                        value: UIColor.red_default,
+                                        range: attributedText.mutableString.range(of: "22일"))
+            $0.update(attributedText: attributedText)
+        }
     }
     
     private func popupLockView() {
@@ -185,7 +207,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     private func animateDownLockPopupView() {
         guard let lockPopupView = self.lockPopupView else { return }
-        
+                
         UIView.animateKeyframes(withDuration: 0.3, delay: 2, animations: {
             let behindBottomConstant: CGFloat = 800
             lockPopupView.topAnchorConstraint?.constant = behindBottomConstant
@@ -195,6 +217,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
             self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = true }
             lockPopupView.removeFromSuperview()
             self.lockPopupView = nil
+            self.backgroundDimView.isHidden = true
         })
     }
     

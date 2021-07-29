@@ -14,7 +14,7 @@ final class HomeViewController: BaseViewController {
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
-    private let backgounndDimView = BackgroundDimView()
+    private let backgroundDimView = BackgroundDimView()
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -57,8 +57,8 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupBackgounndDimColorView() {
-        self.view.addSubview(self.backgounndDimView)
-        self.backgounndDimView.snp.makeConstraints {
+        self.view.addSubview(self.backgroundDimView)
+        self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
     }
@@ -85,7 +85,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     private func presentHabitWrittenViewController(with habitCalendarCell: HabitCalendarCell) {
-        self.backgounndDimView.isHidden = false
+        self.backgroundDimView.isHidden = false
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
@@ -133,6 +133,6 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 
 extension HomeViewController: HabitWrittenViewControllerDelegate {
     func clearDimEffect() {
-        self.backgounndDimView.isHidden = true
+        self.backgroundDimView.isHidden = true
     }
 }

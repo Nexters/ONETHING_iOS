@@ -13,7 +13,6 @@ final class LockView: UIView {
         $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 16)
         $0.textAlignment = .center
         $0.numberOfLines = 2
-        $0.text = "습관 22일을 달성하면\n사용할 수 있어요!"
     }
     private let mainImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
@@ -54,8 +53,8 @@ final class LockView: UIView {
         }
     }
     
-    func update(text: String) {
-        self.mainLabel.text = text
+    func update(attributedText: NSAttributedString) {
+        self.mainLabel.attributedText = attributedText
     }
     
     func update(image: UIImage?) {
