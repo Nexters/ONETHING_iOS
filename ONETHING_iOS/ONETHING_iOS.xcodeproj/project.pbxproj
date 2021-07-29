@@ -233,6 +233,9 @@
 		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
+		F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
+		F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
+		F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
 		F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
@@ -427,6 +430,7 @@
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
+		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
@@ -679,6 +683,7 @@
 				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
 				F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */,
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
+				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1369,6 +1374,7 @@
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
+				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CE7247BA269995C900BB2C19 /* TestModel.swift in Sources */,
@@ -1508,6 +1514,7 @@
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				F20B573526A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
+				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1591,6 +1598,7 @@
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
+				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
 				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,

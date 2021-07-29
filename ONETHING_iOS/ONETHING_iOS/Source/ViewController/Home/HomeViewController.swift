@@ -15,6 +15,9 @@ final class HomeViewController: BaseViewController {
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
     private let backgroundDimView = BackgroundDimView()
+    private let homeEmptyView = HomeEmptyView().then { _ in
+//        $0.isHidden = true
+    }
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -23,6 +26,10 @@ final class HomeViewController: BaseViewController {
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
+        self.setupHomeEmptyView()
+        self.habitInfoView.isHidden = true
+        self.habitCalendarView.isHidden = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +67,13 @@ final class HomeViewController: BaseViewController {
         self.view.addSubview(self.backgroundDimView)
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setupHomeEmptyView() {
+        self.view.addSubview(self.homeEmptyView)
+        self.homeEmptyView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
 }
