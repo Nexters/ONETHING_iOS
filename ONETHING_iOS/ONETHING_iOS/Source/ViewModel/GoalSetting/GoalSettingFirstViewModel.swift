@@ -10,21 +10,22 @@ import RxSwift
 
 final class GoalSettingFirstViewModel {
     
-    typealias GoalListSection = [[RecommendHabitModel]]
+    typealias GoalListSection = [RecommendHabitModel]
     
-    let reloadFlagSubejct = BehaviorSubject<Void>(value: ())
+    static let lineHabitOffset: Int = 3
+    
+    let reloadFlagSubejct = PublishSubject<Void>()
     
     init(apiService: APIService<ContentAPI> = APIService<ContentAPI>()) {
         self.apiService = apiService
         
         self.goalListSubject.subscribe(onNext: { goalList in
             var currentIndex: Int   = 0
-            let offset: Int         = 3
             
             while currentIndex < goalList.count {
-                let list = Array(goalList[currentIndex..<currentIndex+offset])
+                let list = Array(goalList[currentIndex..<currentIndex+type(of: self).lineHabitOffset])
                 self.habbitSection.append(list)
-                currentIndex += offset
+                currentIndex += type(of: self).lineHabitOffset
             }
             self.reloadFlagSubejct.onNext(())
         }).disposed(by: self.disposeBag)
@@ -38,8 +39,8 @@ final class GoalSettingFirstViewModel {
         }
     }
     
-    private(set) var habbitSection: GoalListSection = []
-    private let goalListSubject = BehaviorSubject<[RecommendHabitModel]>(value: [])
+    private(set) var habbitSection: [GoalListSection] = []
+    private let goalListSubject = BehaviorSubject<GoalListSection>(value: [])
     
     private let apiService: APIService<ContentAPI>
     private let disposeBag = DisposeBag()

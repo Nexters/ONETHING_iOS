@@ -87,12 +87,16 @@ final class GoalSettingFirstViewController: UIViewController {
 extension GoalSettingFirstViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard self.viewModel.habbitSection.isEmpty == false else { return 0 }
         return 10000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let currentLine = self.collectionViews.firstIndex(where: { $0 == collectionView })                else { return UICollectionViewCell() }
-        guard let recommendedHabbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % 4] else { return UICollectionViewCell() }
+        guard let currentLine = self.collectionViews.firstIndex(where: { $0 == collectionView }) else { return UICollectionViewCell() }
+        guard let recommendedHabbit
+                = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % GoalSettingFirstViewModel.lineHabitOffset] else {
+            return UICollectionViewCell()
+        }
         
         guard let goalSettingCell = collectionView.dequeueReusableCell(cell: GoalSettingCollectionViewCell.self, forIndexPath: indexPath) else {
             return UICollectionViewCell()
@@ -127,7 +131,10 @@ extension GoalSettingFirstViewController: UICollectionViewDelegateFlowLayout {
             if self.collectionViews[safe: index] == collectionView { currentLine = index; break }
         }
         
-        guard let habbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % 4]                                          else { return .zero }
+        guard
+            let habbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % GoalSettingFirstViewModel.lineHabitOffset] else {
+            return .zero
+        }
         let dummyLabel  = UILabel(frame: .zero)
         dummyLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         dummyLabel.text = habbit.title
