@@ -56,10 +56,6 @@ final class GoalSettingFinishViewController: BaseViewController {
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
-        self.reserveButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            #warning("시작날짜 예약하는 뷰")
-        }).disposed(by: self.disposeBag)
-        
         self.todayStartButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.임시로_dismiss()
             #warning("오늘부터 시작 뷰")
@@ -78,8 +74,6 @@ final class GoalSettingFinishViewController: BaseViewController {
     @IBOutlet private weak var titleStackView: UIStackView!
     @IBOutlet private weak var titleSecondLineLabel: UILabel!
     
-    @IBOutlet private weak var reserveLabel: UILabel!
-    @IBOutlet private weak var reserveButton: UIButton!
     @IBOutlet private weak var todayStartLabel: UILabel!
     @IBOutlet private weak var todayStartButton: UIButton!
     
