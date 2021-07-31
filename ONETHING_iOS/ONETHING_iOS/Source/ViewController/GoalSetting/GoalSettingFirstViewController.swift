@@ -78,9 +78,10 @@ final class GoalSettingFirstViewController: UIViewController {
         }).disposed(by: self.disposeBag)
     }
     
-    private func pushSecondGoalController() {
+    private func pushSecondGoalController(_ habitName: String? = nil) {
         guard let viewController = GoalSettingSecondViewController
                 .instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        if let habitName = habitName { viewController.setHabitName(habitName) }
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -137,9 +138,7 @@ extension GoalSettingFirstViewController: UICollectionViewDelegate {
             let recommendedHabbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % GoalSettingFirstViewModel.lineHabitOffset] else {
             return
         }
-        
-        #warning("이벤트 연결 필요")
-        print(recommendedHabbit.title)
+        self.pushSecondGoalController(recommendedHabbit.title)
     }
     
 }

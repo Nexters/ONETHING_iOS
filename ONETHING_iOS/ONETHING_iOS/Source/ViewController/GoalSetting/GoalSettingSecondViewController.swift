@@ -27,6 +27,10 @@ final class GoalSettingSecondViewController: BaseViewController {
         self.nextButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
+    func setHabitName(_ habitName: String) {
+        self.viewModel.updateHabitName(habitName)
+    }
+    
     private func setupLabels() {
         guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
         guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }
@@ -72,6 +76,10 @@ final class GoalSettingSecondViewController: BaseViewController {
                                                           attributes: [.font: pretendardFont,
                                                                        .foregroundColor: UIColor.black_20])
         self.habbitTextField.attributedPlaceholder = attributePlaceHolderText
+        if let habitName = self.viewModel.habitName {
+            self.habbitTextField.text = habitName
+            self.viewModel.checkProccessable(habitName)
+        }
     }
     
     private func bindButtons() {
@@ -91,6 +99,7 @@ final class GoalSettingSecondViewController: BaseViewController {
                 return
             }
             
+            self.viewModel.updateHabitName(text)
             self.habbitInputCountLabel.text = "\(text.count) / \(GoalSettingSecondViewModel.maxInputCount)"
             self.viewModel.checkProccessable(text)
         }).disposed(by: self.disposeBag)
