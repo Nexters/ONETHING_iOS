@@ -14,8 +14,8 @@ final class OnethingUserManager {
     var hasAccessToken: Bool { return self.accessToken != nil }
     var hasRefreshToken: Bool { return self.refreshToken != nil }
     
-    func updateAuthToken(_ token: String, _ refreshToken: String) {
-        self.accessToken = token
+    func updateAuthToken(_ accessToken: String, _ refreshToken: String) {
+        self.accessToken = accessToken
         self.refreshToken = refreshToken
     }
     

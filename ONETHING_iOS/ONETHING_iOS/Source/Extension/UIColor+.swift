@@ -69,3 +69,41 @@ extension UIColor {
     @nonobjc static var green_2: UIColor        { return UIColor(hexString: "#97D1A9") }
     
 }
+
+enum OnethingColor: String {
+    case red_3
+    case red_2
+    case red_1
+    case gray
+    case beige
+    case yellow_default
+    case red_default
+    case pink_1
+    case pink_2
+    case purple_1
+    case purple_2
+    case blue_1
+    case blue_2
+    case green_1
+    case green_2
+    
+    var color: UIColor {
+        switch self {
+        case .red_3: return .red_3
+        case .red_2: return .red_2
+        case .red_1: return .red_1
+        case .gray:  return .gray
+        case .beige: return .beige
+        case .yellow_default: return .yellow_default
+        case .red_default: return .red_default
+        case .pink_1: return .pink_1
+        case .pink_2: return .pink_2
+        case .purple_1: return .purple_1
+        case .purple_2: return .purple_2
+        case .blue_1: return .blue_1
+        case .blue_2: return .blue_2
+        case .green_1: return .green_1
+        case .green_2: return .green_2
+        }
+    }
+}

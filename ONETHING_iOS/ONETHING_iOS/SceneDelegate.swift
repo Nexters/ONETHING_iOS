@@ -15,13 +15,14 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         let mainTabBarController = MainTabBarController()
-        self.window?.rootViewController = mainTabBarController
-        self.window?.makeKeyAndVisible()
         
 //        let userManager = OnethingUserManager.sharedInstance
 //        if !userManager.hasAccessToken {
 //            self.presentLoginViewController(mainTabBarController)
 //        }
+
+        self.window?.rootViewController = mainTabBarController
+        self.window?.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -29,14 +30,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SocialManager.sharedInstance.handleSocialURLScheme(url)
     }
 
-    private func presentLoginViewController(_ tabBarController: MainTabBarController) {
-        guard let homeViewController = (tabBarController.children.first as? UINavigationController)?
-                .viewControllers.first as? HomeViewController else { return }
-        
+    private func presentLoginViewController(_ rootController: MainTabBarController) {
         DispatchQueue.main.async {
             guard let navigationWithLoginViewController = self.navigationWithLoginViewController else { return }
-            
-            homeViewController.present(navigationWithLoginViewController, animated: false)
+            rootController.present(navigationWithLoginViewController, animated: false)
         }
     }
     

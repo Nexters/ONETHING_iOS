@@ -9,13 +9,7 @@ import Foundation
 
 import Moya
 
-enum ContentApi {
-    enum ServiceMode: String {
-        case live
-        case test
-    }
-    
-    // Naming: Method + EndPoint
+enum ContentAPI {
     case getRecommendedHabit
     case getHabitInProgress
     case getHabits
@@ -23,15 +17,15 @@ enum ContentApi {
     case getDailyHistories(habitId: Int)
 }
 
-extension ContentApi: TargetType {
+extension ContentAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "NONE, Not Yet.")!
+        return URL(string: ServerHost.main)!
     }
     
     var path: String {
         switch self {
         case .getRecommendedHabit:
-            return "/recommended-habit"
+            return "/api/habit-recommend"
         case .getHabitInProgress:
             return "/habit-in-progress"
         case .getHabits:
@@ -70,8 +64,7 @@ extension ContentApi: TargetType {
     }
     
     var headers: [String: String]? {
-        return [NetworkInfomation.Request.HeaderKeys.contentType: NetworkInfomation.Request.HeaderValues.json,
-                NetworkInfomation.Request.HeaderKeys.authorization: NetworkInfomation.Request.HeaderValues.authorizationKey]
+        return NetworkInfomation.headers
     }
 }
 
