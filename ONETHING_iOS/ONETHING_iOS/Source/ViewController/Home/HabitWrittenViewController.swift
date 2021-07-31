@@ -10,7 +10,7 @@ import UIKit
 import Then
 
 protocol HabitWrittenViewControllerDelegate: AnyObject {
-    func clearDimEffect()
+    func clearDimEffect(habitWrittenViewController: HabitWrittenViewController)
 }
 
 final class HabitWrittenViewController: BaseViewController {
@@ -53,7 +53,7 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     @objc private func dismissViewController() {
-        self.delegate?.clearDimEffect()
+        self.delegate?.clearDimEffect(habitWrittenViewController: self)
         self.upperStampButton.isHidden = true
         super.dismiss(animated: true)
     }

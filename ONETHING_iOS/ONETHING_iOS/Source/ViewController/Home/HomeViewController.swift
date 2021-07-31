@@ -143,7 +143,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension HomeViewController: HabitWrittenViewControllerDelegate {
-    func clearDimEffect() {
+    func clearDimEffect(habitWrittenViewController: HabitWrittenViewController) {
         self.backgroundDimView.isHidden = true
     }
 }
