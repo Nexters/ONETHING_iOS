@@ -15,6 +15,7 @@ final class GoalSettingFirstViewModel {
     static let lineHabitOffset: Int = 3
     
     let reloadFlagSubejct = PublishSubject<Void>()
+    let loadingSubject = PublishSubject<Bool>()
     
     init(apiService: APIService<ContentAPI> = APIService<ContentAPI>()) {
         self.apiService = apiService
@@ -33,7 +34,10 @@ final class GoalSettingFirstViewModel {
     
     func requestRecommendedHabbit() {
         let recommendHabbitAPI = ContentAPI.getRecommendedHabit
-        self.apiService.requestAndDecode(api: recommendHabbitAPI) { (result: RecommendedHabitResponseModel) in
+        self.loadingSubject.onNext(true)
+        self.apiService.requestAndDecode(api: recommendHabbitAPI) { [weak self] (result: RecommendedHabitResponseModel) in
+            guard let self = self else { return }
+            defer { self.loadingSubject.onNext(false) }
             guard let recommendedList = result.habitRecommend else { return }
             self.goalListSubject.onNext(recommendedList)
         }

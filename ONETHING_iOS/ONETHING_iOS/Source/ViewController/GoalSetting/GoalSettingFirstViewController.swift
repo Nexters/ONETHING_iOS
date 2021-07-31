@@ -13,10 +13,11 @@ final class GoalSettingFirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupLoadingIndicatorView()
         self.setupCollectionView()
         self.setupDisplayLayer()
         self.bindButtons()
-        self.observeGoalList()
+        self.observeViewModel()
         
         self.viewModel.requestRecommendedHabbit()
     }
@@ -42,12 +43,31 @@ final class GoalSettingFirstViewController: UIViewController {
         self.displayLayer?.add(to: .main, forMode: .default)
     }
     
-    private func observeGoalList() {
+    private func setupLoadingIndicatorView() {
+        self.view.addSubview(self.loadingIndicatorView)
+        self.loadingIndicatorView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+        self.loadingIndicatorView.isHidden = true
+        self.loadingIndicatorView.stopAnimating()
+    }
+    
+    private func observeViewModel() {
         self.viewModel.reloadFlagSubejct.observeOnMain(onNext: { [weak self] in
             self?.collectionViews.forEach { $0.reloadData() }
             self?.collectionViews.forEach {
                 guard let randomOffset = (0...300).randomElement() else { return }
                 $0.contentOffset = CGPoint(x: randomOffset, y: 0)
+            }
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
+            if loading {
+                self?.loadingIndicatorView.isHidden = false
+                self?.loadingIndicatorView.startAnimating()
+            } else {
+                self?.loadingIndicatorView.isHidden = true
+                self?.loadingIndicatorView.stopAnimating()
             }
         }).disposed(by: self.disposeBag)
     }
@@ -78,6 +98,8 @@ final class GoalSettingFirstViewController: UIViewController {
     
     private var displayLayer: CADisplayLink?
 
+    private let loadingIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
+    
     @IBOutlet private var collectionViews: [UICollectionView]!
     @IBOutlet private weak var directSetButton: UIButton!
     @IBOutlet private weak var directSetButtonBottomConstraint: NSLayoutConstraint!
