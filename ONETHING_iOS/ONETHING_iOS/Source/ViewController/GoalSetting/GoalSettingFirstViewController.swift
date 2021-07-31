@@ -110,8 +110,11 @@ extension GoalSettingFirstViewController: UICollectionViewDataSource {
 extension GoalSettingFirstViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let currentLine = self.collectionViews.firstIndex(where: { $0 == collectionView })                else { return }
-        guard let recommendedHabbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % 4] else { return }
+        guard let currentLine = self.collectionViews.firstIndex(where: { $0 == collectionView }) else { return }
+        guard
+            let recommendedHabbit = self.viewModel.habbitSection[safe: currentLine]?[safe: indexPath.row % GoalSettingFirstViewModel.lineHabitOffset] else {
+            return
+        }
         
         #warning("이벤트 연결 필요")
         print(recommendedHabbit.title)
