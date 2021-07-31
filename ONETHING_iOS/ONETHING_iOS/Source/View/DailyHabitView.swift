@@ -148,9 +148,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupHabitTextView() {
-        self.habitTextView.borderWidth = 0.5
-        self.habitTextView.borderColor = .gray
-        
         self.habitTextView.snp.makeConstraints {
             $0.top.equalTo(self.photoView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
