@@ -13,17 +13,33 @@ final class GoalSettingThirdViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addKeyboardDismissTapGesture()
+        self.addObservers()
         self.setupLabels()
         self.setupAlarmSettingView()
         self.setupPostponeSettingView()
         self.setupProgressView()
+        self.setupDatePicker()
         self.bindButtons()
+        self.observeViewModel()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.nextLabelBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
+        self.datePickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        self.dimView.showCrossDissolve()
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        self.dimView.hideCrossDissolve()
     }
     
     private func setupLabels() {
@@ -83,6 +99,21 @@ final class GoalSettingThirdViewController: BaseViewController {
         }
     }
     
+    private func setupDatePicker() {
+        self.datePicker.setValue(UIColor.white, forKey: "backgroundColor")
+        self.datePicker.locale = Locale(identifier: "ko_KR")
+        self.datePicker.rx.controlEvent(.valueChanged).observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.updatePushDate(self.datePicker.date)
+        }).disposed(by: self.disposeBag)
+    
+        #warning("제거 예정 테스트용")
+        self.testCompleteButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.hideDatePicker()
+        }).disposed(by: self.disposeBag)
+    }
+    
     private func bindButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
@@ -91,11 +122,42 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.startButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.pushGoalFinishController()
         }).disposed(by: self.disposeBag)
+        
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+            self?.hideDatePicker()
+        }).disposed(by: self.disposeBag)
+        self.dimView.addGestureRecognizer(tapGesture)
+    }
+    
+    private func observeViewModel() {
+        self.viewModel.pushDateRelay.observeOnMain(onNext: { [weak self] date in
+            self?.alarmSettingView?.updateDate(date)
+        }).disposed(by: self.disposeBag)
     }
     
     private func pushGoalFinishController() {
         guard let viewController = GoalSettingFinishViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func showDatePicker() {
+        self.dimView.showCrossDissolve()
+        self.datePickerContainerView.isHidden = false
+        self.datePickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1) {
+            self.datePickerContainerView.transform = .identity
+        }
+    }
+    
+    private func hideDatePicker() {
+        self.dimView.hideCrossDissolve()
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, animations: {
+            self.datePickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        }, completion: { [weak self] _ in
+            self?.datePickerContainerView.isHidden = true
+        })
     }
     
     private let disposeBag = DisposeBag()
@@ -118,12 +180,19 @@ final class GoalSettingThirdViewController: BaseViewController {
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var nextLabelBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var dimView: UIView!
+    @IBOutlet private weak var datePickerContainerView: UIView!
+    @IBOutlet private weak var datePickerBottomConstraint: NSLayoutConstraint!
+    #warning("테스트용 삭제 예정")
+    @IBOutlet private weak var testCompleteButton: UIButton!
+    
 }
 
 extension GoalSettingThirdViewController: AlarmSettingViewDelegate {
     
     func alarmSettingViewDidTapTime(_ alarmSettingView: AlarmSettingView) {
-        #warning("Date Picker 추가")
+        self.showDatePicker()
     }
     
 }
