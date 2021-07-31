@@ -172,6 +172,15 @@
 		CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
 		CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
 		CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
+		CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
+		CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
+		CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
+		CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
+		CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
+		CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
+		CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
+		CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
+		CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
@@ -253,8 +262,8 @@
 		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
-		F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
-		F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
+		F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
+		F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
 		F255719F26A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
 		F25571A026A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
 		F25571A126A432CE005A1AAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F255719E26A432CE005A1AAF /* APIService.swift */; };
@@ -312,7 +321,7 @@
 		F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
 		F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
 		F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614AC26A3FA470061A17A /* CompleteButton.swift */; };
-		F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentApi.swift */; };
+		F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
 		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
 /* End PBXBuildFile section */
@@ -421,6 +430,9 @@
 		CEC4D83826A476A800633222 /* GoalSettingThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingThirdViewModel.swift; sourceTree = "<group>"; };
 		CEC4D83C26A479BE00633222 /* AlarmSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmSettingView.xib; sourceTree = "<group>"; };
 		CEC4D84026A479CD00633222 /* AlarmSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
+		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabbitModel.swift; sourceTree = "<group>"; };
+		CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorPopupView.xib; sourceTree = "<group>"; };
+		CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorPopupView.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
 		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
@@ -463,7 +475,7 @@
 		F293C3D5269D19BF0096757C /* Circleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circleable.swift; sourceTree = "<group>"; };
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
-		F2A614B826A4254B0061A17A /* ContentApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentApi.swift; sourceTree = "<group>"; };
+		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +571,8 @@
 			isa = PBXGroup;
 			children = (
 				CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */,
+				CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */,
+				CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -728,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */,
+				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -895,7 +910,7 @@
 		F20E00D326A5978C009A4AB3 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				F2A614B826A4254B0061A17A /* ContentApi.swift */,
+				F2A614B826A4254B0061A17A /* ContentAPI.swift */,
 				F20E00D426A59870009A4AB3 /* UserAPI.swift */,
 			);
 			path = Api;
@@ -1071,6 +1086,7 @@
 				CE3B8BBA26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C726A2D63200633222 /* Pretendard-Light.otf in Resources */,
@@ -1115,6 +1131,7 @@
 				CE3B8BBC26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C926A2D63200633222 /* Pretendard-Light.otf in Resources */,
@@ -1145,6 +1162,7 @@
 				CE3B8BBB26A7084800BD529B /* Intro.storyboard in Resources */,
 				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
 				CEC4D7C826A2D63200633222 /* Pretendard-Light.otf in Resources */,
@@ -1420,10 +1438,11 @@
 				CED5AECE26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CE26C44E26B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
+				CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
-				F2A614B926A4254B0061A17A /* ContentApi.swift in Sources */,
+				F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
@@ -1433,6 +1452,7 @@
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
+				CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -1497,6 +1517,7 @@
 				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
@@ -1514,8 +1535,9 @@
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
+				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
-				F255719C26A42BB4005A1AAF /* ContentApi.swift in Sources */,
+				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
@@ -1582,7 +1604,8 @@
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
-				F255719B26A42BB4005A1AAF /* ContentApi.swift in Sources */,
+				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
+				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
@@ -1609,6 +1632,7 @@
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,

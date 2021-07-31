@@ -31,7 +31,7 @@ final class APIService<T: TargetType> {
                    let onethingError = onethingErrorModel.onethingError {
                     OnethingErrorHandler.sharedInstance.handleError(onethingError)
                     errorHandler?(onethingError)
-                    
+
                     // ExpiredAccessToken이 만료된 경우, 1초 뒤에 해당 API 재요청
                     guard onethingError == .expiredAccessToken else { return }
                     DispatchQueue.executeAyncAfter(on: .onethingNetworkQueue, deadline: .now() + 1) { [weak self] in
@@ -47,8 +47,13 @@ final class APIService<T: TargetType> {
                 } catch let error {
                     errorHandler?(error)
                 }
-            case .failure(let error):
-                errorHandler?(error)
+            case .failure:
+                #warning("여기 Network 아닌 경우도 떨어지긴하는데, 대체로 네트워크라.. 일단..")
+                guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
+                guard let visibleController = UIViewController.getVisibleController() else { return }
+                networkPopupView.show(in: visibleController.view) { [weak self] in
+                    self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
+                }
             }
         }
         

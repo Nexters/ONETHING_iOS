@@ -16,7 +16,7 @@ enum NetworkInfomation {
         
         enum HeaderValues {
             static let json = "application/json"
-            static let authorization = OnethingUserManager.sharedInstance.accessToken ?? ""
+            static let authorization = "Bearer " + (OnethingUserManager.sharedInstance.accessToken ?? "")
         }
         
         enum ParameterKeys {
