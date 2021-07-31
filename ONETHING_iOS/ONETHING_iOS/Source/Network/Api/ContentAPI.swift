@@ -25,7 +25,7 @@ extension ContentAPI: TargetType {
     var path: String {
         switch self {
         case .getRecommendedHabit:
-            return "/api/habbit-recommend"
+            return "/api/habit-recommend"
         case .getHabitInProgress:
             return "/habit-in-progress"
         case .getHabits:

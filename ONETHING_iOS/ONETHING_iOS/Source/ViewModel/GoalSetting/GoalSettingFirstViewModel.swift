@@ -10,7 +10,7 @@ import RxSwift
 
 final class GoalSettingFirstViewModel {
     
-    typealias GoalListSection = [[RecommendHabbitModel]]
+    typealias GoalListSection = [[RecommendHabitModel]]
     
     let reloadFlagSubejct = BehaviorSubject<Void>(value: ())
     
@@ -32,14 +32,14 @@ final class GoalSettingFirstViewModel {
     
     func requestRecommendedHabbit() {
         let recommendHabbitAPI = ContentAPI.getRecommendedHabit
-        self.apiService.requestAndDecode(api: recommendHabbitAPI) { (result: RecommendedHabbitResponseModel) in
+        self.apiService.requestAndDecode(api: recommendHabbitAPI) { (result: RecommendedHabitResponseModel) in
             guard let recommendedList = result.habitRecommend else { return }
             self.goalListSubject.onNext(recommendedList)
         }
     }
     
     private(set) var habbitSection: GoalListSection = []
-    private let goalListSubject = BehaviorSubject<[RecommendHabbitModel]>(value: [])
+    private let goalListSubject = BehaviorSubject<[RecommendHabitModel]>(value: [])
     
     private let apiService: APIService<ContentAPI>
     private let disposeBag = DisposeBag()

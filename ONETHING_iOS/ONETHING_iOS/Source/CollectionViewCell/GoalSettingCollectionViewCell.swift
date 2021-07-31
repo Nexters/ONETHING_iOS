@@ -9,7 +9,7 @@ import UIKit
 
 class GoalSettingCollectionViewCell: UICollectionViewCell {
     
-    func configure(_ recommendHabbitModel: RecommendHabbitModel) {
+    func configure(_ recommendHabbitModel: RecommendHabitModel) {
         self.recommendHabbitModel = recommendHabbitModel
         
         self.titleLabel.text = recommendHabbitModel.title
@@ -17,7 +17,7 @@ class GoalSettingCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = recommendHabbitModel.onethingColor
     }
     
-    private var recommendHabbitModel: RecommendHabbitModel?
+    private var recommendHabbitModel: RecommendHabitModel?
     
     @IBOutlet private weak var titleLabel: UILabel!
     

@@ -7,13 +7,13 @@
 
 import UIKit
 
-struct RecommendedHabbitResponseModel: Codable {
+struct RecommendedHabitResponseModel: Codable {
     
-    let habitRecommend: [RecommendHabbitModel]?
+    let habitRecommend: [RecommendHabitModel]?
     
 }
  
-struct RecommendHabbitModel: Codable {
+struct RecommendHabitModel: Codable {
     
     let habbitRecommendId: Int?
     let title: String?
@@ -22,7 +22,7 @@ struct RecommendHabbitModel: Codable {
     
 }
 
-extension RecommendHabbitModel {
+extension RecommendHabitModel {
     
     enum OnethingShape: String {
         case circle
