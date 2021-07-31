@@ -116,7 +116,7 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupRightSwipeGestureRecognizerView() {
-        self.view.addSubview(self.rightSwipeGestureRecognizerView)
+        self.keyboardDismissableView.addSubview(self.rightSwipeGestureRecognizerView)
         self.rightSwipeGestureRecognizerView.parentViewController = self
         
         self.rightSwipeGestureRecognizerView.snp.makeConstraints {

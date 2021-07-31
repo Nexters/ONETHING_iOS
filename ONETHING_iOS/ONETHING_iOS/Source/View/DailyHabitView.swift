@@ -161,7 +161,7 @@ extension DailyHabitView: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
-        photoView.image = image
+        self.photoView.image = image
         self.dailyHabitViewPhotoViewDelegate?.pickerDidFinish(dailyHabitView: self)
     }
 }
