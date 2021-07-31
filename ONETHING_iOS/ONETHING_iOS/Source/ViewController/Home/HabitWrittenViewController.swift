@@ -14,7 +14,7 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 }
 
 final class HabitWrittenViewController: BaseViewController {
-    private let dailyHabitView = DailyHabitView()
+    private let dailyHabitView = DailyHabitView(hideCloseButton: false)
     private let upperStampButton = UIButton()
     weak var delegate: HabitWrittenViewControllerDelegate?
     
@@ -44,6 +44,7 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
+        self.dailyHabitView.dailyHabitViewCloseButtonDelegate = self
         self.view.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(40)
@@ -72,5 +73,11 @@ final class HabitWrittenViewController: BaseViewController {
     func update(upperStampImage image: UIImage?) {
         self.upperStampButton.setImage(image, for: .normal)
         self.upperStampButton.setImage(image, for: .highlighted)
+    }
+}
+
+extension HabitWrittenViewController: DailyHabitViewCloseButtonDelegate {
+    func closeButtonDidTouch(dailyHabitView: DailyHabitView) {
+        self.dismissViewController()
     }
 }

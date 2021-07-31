@@ -10,7 +10,7 @@ import UIKit
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton: CompleteButton!
-    private let dailyHabitView = DailyHabitView()
+    private let dailyHabitView = DailyHabitView(hideCloseButton: true)
     private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
@@ -71,7 +71,7 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.dailyHabitView.parentViewController = self
+        self.dailyHabitView.dailyHabitViewPhotoViewDelegate = self
         
         self.keyboardDismissableView.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
@@ -227,5 +227,19 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
+    }
+}
+
+extension HabitWritingViewController: DailyHabitViewPhotoViewDelegate {
+    func photoViewButtonDidTouch(dailyHabitView: DailyHabitView, actionSheet: UIAlertController) {
+        self.present(actionSheet, animated: true)
+    }
+    
+    func pickerDidFinish(dailyHabitView: DailyHabitView) {
+        self.dismiss(animated: true)
+    }
+    
+    func pickerWillPresent(dailyHabitView: DailyHabitView, picker: UIImagePickerController) {
+        self.present(picker, animated: true)
     }
 }
