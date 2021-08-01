@@ -413,16 +413,10 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHC-Ta-uQK">
-                                        <rect key="frame" x="340" y="227" width="30" height="30"/>
-                                        <state key="normal" title="Test"/>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81960784313725488" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="XHC-Ta-uQK" firstAttribute="top" secondItem="Apf-0S-apE" secondAttribute="bottom" constant="5" id="0rH-kG-5j8"/>
                                     <constraint firstAttribute="trailing" secondItem="Apf-0S-apE" secondAttribute="trailing" constant="6" id="51W-cw-AtA"/>
-                                    <constraint firstAttribute="trailing" secondItem="XHC-Ta-uQK" secondAttribute="trailing" constant="5" id="DGf-ii-Rhx"/>
                                     <constraint firstItem="Apf-0S-apE" firstAttribute="leading" secondItem="RgY-7f-qGa" secondAttribute="leading" constant="6" id="IKx-wU-wai"/>
                                     <constraint firstAttribute="bottom" secondItem="Apf-0S-apE" secondAttribute="bottom" constant="79" id="WZW-fQ-Ssd"/>
                                     <constraint firstItem="Apf-0S-apE" firstAttribute="top" secondItem="RgY-7f-qGa" secondAttribute="top" constant="6" id="zJn-DH-jdI"/>
@@ -494,7 +488,6 @@
                         <outlet property="postponeTodoContainerView" destination="sae-GI-1aO" id="tol-zy-kPM"/>
                         <outlet property="startButton" destination="Jpe-fG-0OH" id="Y6y-TL-WRy"/>
                         <outlet property="startLabel" destination="hQF-EM-1yy" id="x7u-Or-1gc"/>
-                        <outlet property="testCompleteButton" destination="XHC-Ta-uQK" id="Ygs-Af-5n3"/>
                         <outlet property="titleLastLineLabel" destination="8Le-9c-924" id="HJa-9t-33n"/>
                         <outlet property="titleSecondLineLabel" destination="xZI-PA-lyd" id="W9T-Sy-WKc"/>
                         <outlet property="titleStackView" destination="DCK-wA-B1y" id="nNB-jQ-Yrm"/>

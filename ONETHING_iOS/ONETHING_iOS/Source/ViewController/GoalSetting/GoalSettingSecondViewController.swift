@@ -83,7 +83,8 @@ final class GoalSettingSecondViewController: BaseViewController {
     }
     
     private func bindButtons() {
-        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in self?.navigationController?.popViewController(animated: true)
+        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
         self.nextButton.rx.tap.observeOnMain(onNext: { [weak self] in
@@ -115,6 +116,8 @@ final class GoalSettingSecondViewController: BaseViewController {
     
     private func pushThirdGoalSettingController() {
         guard let viewController = GoalSettingThirdViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        guard let habitName = self.viewModel.habitName else { return }
+        viewController.setHabitTitle(habitName)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 

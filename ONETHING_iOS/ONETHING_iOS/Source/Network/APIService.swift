@@ -42,12 +42,16 @@ final class APIService<T: TargetType> {
                 }
                 
                 do {
-                    let decodedModel = try self.jsonDecoder.decode(D.self, from: response.data)
+                    guard let jsonData = try response.mapString().data(using: .utf8) else {
+                        throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
+                    }
+                    let decodedModel = try self.jsonDecoder.decode(D.self, from: jsonData)
                     comepleteHandler(decodedModel)
-                } catch let error {
+                } catch {
                     errorHandler?(error)
                 }
-            case .failure:
+            case .failure(let error):
+                print(error.localizedDescription)
                 #warning("여기 Network 아닌 경우도 떨어지긴하는데, 대체로 네트워크라.. 일단..")
                 guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
                 guard let visibleController = UIViewController.getVisibleController() else { return }

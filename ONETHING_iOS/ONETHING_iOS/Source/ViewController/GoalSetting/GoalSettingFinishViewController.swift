@@ -15,7 +15,13 @@ final class GoalSettingFinishViewController: BaseViewController {
         super.viewDidLoad()
         self.setupLabels()
         self.setupProgressView()
+        self.setupLoadingIndicatorView()
         self.bindButtons()
+        self.observeViewModel()
+    }
+    
+    func setHabitInformation(_ title: String, _ postponeTodo: String, _ pushTime: Date, _ postponeCount: Int) {
+        self.viewModel.updateHabitInformation(title, postponeTodo, pushTime, postponeCount)
     }
     
     private func setupLabels() {
@@ -51,24 +57,52 @@ final class GoalSettingFinishViewController: BaseViewController {
         }
     }
     
+    private func setupLoadingIndicatorView() {
+        self.view.addSubview(self.loadingIndicatorView)
+        self.loadingIndicatorView.snp.makeConstraints { make in
+            make.centerX.centerY.equalToSuperview()
+        }
+        
+        self.loadingIndicatorView.isHidden = true
+        self.loadingIndicatorView.stopAnimating()
+    }
+    
     private func bindButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
         self.todayStartButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            self?.임시로_dismiss()
-            #warning("오늘부터 시작 뷰")
+            self?.viewModel.requestCreateHabit()
         }).disposed(by: self.disposeBag)
     }
     
-    private func 임시로_dismiss() {
-        self.dismiss(animated: true)
+    private func observeViewModel() {
+        self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
+            self?.todayStartButton.isUserInteractionEnabled = loading == false
+            loading ? self?.startLoadingIndicator() : self?.stopLoadingIndicator()
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] in
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func startLoadingIndicator() {
+        self.loadingIndicatorView.isHidden = false
+        self.loadingIndicatorView.startAnimating()
+    }
+    
+    private func stopLoadingIndicator() {
+        self.loadingIndicatorView.isHidden = true
+        self.loadingIndicatorView.stopAnimating()
     }
 
     private let disposeBag = DisposeBag()
+    private let viewModel = GoalSettingFinishViewModel()
     
     private let progressView: GoalProgressView? = UIView.createFromNib()
+    private let loadingIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var titleStackView: UIStackView!

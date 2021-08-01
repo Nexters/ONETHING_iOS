@@ -12,16 +12,19 @@ import RxRelay
 final class GoalSettingThirdViewModel {
     
     let pushDateRelay = BehaviorRelay<Date>(value: Date())
-    let postponeTodoRelay = BehaviorRelay<String>(value: "")
     let postponeTodoCountRelay = BehaviorRelay<Int>(value: 5)
     let enableSubject = PublishSubject<Bool>()
+    
+    func updateHabitTitle(_ title: String) {
+        self.habitTitle = title
+    }
     
     func updatePushDate(_ date: Date) {
         self.pushDateRelay.accept(date)
     }
     
     func updatePostponeTodo(_ todo: String) {
-        self.postponeTodoRelay.accept(todo)
+        self.postponeTodo = todo
         self.checkProccessable()
     }
     
@@ -30,10 +33,12 @@ final class GoalSettingThirdViewModel {
     }
     
     func checkProccessable() {
-        let enable = self.postponeTodoRelay.value.isEmpty == false
+        let enable = self.postponeTodo.isEmpty == false
         self.enableSubject.onNext(enable)
     }
     
+    private(set) var habitTitle: String = ""
+    private(set) var postponeTodo: String = ""
     private let disposeBag = DisposeBag()
     
 }

@@ -14,7 +14,6 @@ final class GoalSettingSecondViewModel {
     
     let enableNextSubject = BehaviorSubject<Bool>(value: false)
     
-    
     func checkProccessable(_ text: String) {
         let proccessable = text.count > 0 && text.count <= type(of: self).maxInputCount
         self.enableNextSubject.onNext(proccessable)

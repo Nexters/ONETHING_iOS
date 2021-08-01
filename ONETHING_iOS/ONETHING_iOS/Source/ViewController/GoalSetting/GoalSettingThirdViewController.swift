@@ -31,6 +31,10 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.countPickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
     }
     
+    func setHabitTitle(_ habitTitle: String) {
+        self.viewModel.updateHabitTitle(habitTitle)
+    }
+    
     private func addObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -104,15 +108,10 @@ final class GoalSettingThirdViewController: BaseViewController {
     private func setupDatePicker() {
         self.datePicker.setValue(UIColor.white, forKey: "backgroundColor")
         self.datePicker.locale = Locale(identifier: "ko_KR")
+        
         self.datePicker.rx.controlEvent(.valueChanged).observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }
             self.viewModel.updatePushDate(self.datePicker.date)
-        }).disposed(by: self.disposeBag)
-    
-        #warning("제거 예정 테스트용")
-        self.testCompleteButton.rx.tap.subscribe(onNext: { [weak self] in
-            guard let self = self else { return }
-            self.hideDatePicker()
         }).disposed(by: self.disposeBag)
     }
     
@@ -121,8 +120,7 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.countPicker.dataSource = self
         self.countPicker.delegate = self
         
-        self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, component in
-            self?.postponeTodoView?.updateCount(row + 1)
+        self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
             self?.viewModel.updatePostponeCount(row + 1)
         }).disposed(by: self.disposeBag)
     }
@@ -150,6 +148,10 @@ final class GoalSettingThirdViewController: BaseViewController {
             self?.alarmSettingView?.updateDate(date)
         }).disposed(by: self.disposeBag)
         
+        self.viewModel.postponeTodoCountRelay.observeOnMain(onNext: { [weak self] count in
+            self?.postponeTodoView?.updateCount(count)
+        }).disposed(by: self.disposeBag)
+        
         self.viewModel.enableSubject.observeOnMain(onNext: { [weak self] enable in
             self?.startButton.backgroundColor = enable ? .black_100 : .black_40
             self?.startButton.isUserInteractionEnabled = enable
@@ -158,8 +160,17 @@ final class GoalSettingThirdViewController: BaseViewController {
     }
     
     private func pushGoalFinishController() {
-        guard let viewController = GoalSettingFinishViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let storyboardName = StoryboardName.goalSetting
+        let viewController = GoalSettingFinishViewController.instantiateViewController(from: storyboardName)
+        
+        guard let goalSettingFinishController = viewController else { return }
+        let habitTitle = self.viewModel.habitTitle
+        let postponeTodo = self.viewModel.postponeTodo
+        let pushTime = self.viewModel.pushDateRelay.value
+        let postponeTodoCount = self.viewModel.postponeTodoCountRelay.value
+        
+        goalSettingFinishController.setHabitInformation(habitTitle, postponeTodo, pushTime, postponeTodoCount)
+        self.navigationController?.pushViewController(goalSettingFinishController, animated: true)
     }
     
     private func showDatePicker() {
@@ -226,9 +237,6 @@ final class GoalSettingThirdViewController: BaseViewController {
     @IBOutlet private weak var countPickerContainerView: UIView!
     @IBOutlet private weak var countPicker: UIPickerView!
     @IBOutlet private weak var countPickerBottomConstraint: NSLayoutConstraint!
-    
-    #warning("테스트용 삭제 예정")
-    @IBOutlet private weak var testCompleteButton: UIButton!
     
 }
 
