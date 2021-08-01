@@ -103,6 +103,12 @@
 		CE8FEDE726B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */; };
 		CE8FEDE826B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */; };
 		CE8FEDE926B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */; };
+		CE8FEDEB26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */; };
+		CE8FEDEC26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */; };
+		CE8FEDED26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */; };
+		CE8FEDEF26B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
+		CE8FEDF026B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
+		CE8FEDF126B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -427,6 +433,8 @@
 		CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CE8FEDE226B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
 		CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMenuTableViewCell.xib; sourceTree = "<group>"; };
+		CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreparePopupView.xib; sourceTree = "<group>"; };
+		CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePopupView.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -599,6 +607,8 @@
 				CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */,
 				CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */,
 				CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */,
+				CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */,
+				CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1117,6 +1127,7 @@
 				CEC4D7C126A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80126A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
 				CE3B8BBA26A7084800BD529B /* Intro.storyboard in Resources */,
+				CE8FEDEB26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */,
 				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
@@ -1164,6 +1175,7 @@
 				CEC4D7C326A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80326A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
 				CE3B8BBC26A7084800BD529B /* Intro.storyboard in Resources */,
+				CE8FEDED26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */,
 				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
@@ -1197,6 +1209,7 @@
 				CEC4D7C226A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80226A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
 				CE3B8BBB26A7084800BD529B /* Intro.storyboard in Resources */,
+				CE8FEDEC26B6D8FE0092DC0D /* PreparePopupView.xib in Resources */,
 				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
 				CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
@@ -1433,6 +1446,7 @@
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
+				CE8FEDEF26B6D90F0092DC0D /* PreparePopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
@@ -1595,6 +1609,7 @@
 				CE8FEDE626B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
+				CE8FEDF126B6D90F0092DC0D /* PreparePopupView.swift in Sources */,
 				CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
@@ -1664,6 +1679,7 @@
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
 				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
+				CE8FEDF026B6D90F0092DC0D /* PreparePopupView.swift in Sources */,
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE26C45326B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F29B842B269A865C009D293F /* UIViewController+.swift in Sources */,

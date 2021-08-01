@@ -10,6 +10,8 @@ import RxCocoa
 import UIKit
 
 final class ProfileViewController: BaseViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +34,31 @@ final class ProfileViewController: BaseViewController {
             if index == self.viewModel.menuRelay.value.count - 1 {
                 menuCell.separatorInset = UIEdgeInsets(top: 0, left: DeviceInfo.screenWidth, bottom: 0, right: 0)
             }
+            menuCell.selectionStyle = .none
             return menuCell
         }.disposed(by: self.disposeBag)
+        
+        self.tableView.rx.itemSelected.observeOnMain(onNext: { [weak self] indexPath in
+            guard let self = self else { return }
+            guard let menu = ProfileViewModel.Menu(rawValue: indexPath.row) else { return }
+            switch menu {
+            case .myAccount:
+                print("My Account")
+            case .pushSetting:
+                self.showPreparePopupView()
+            case .fontSetting:
+                self.showPreparePopupView()
+            case .announce:
+                self.showPreparePopupView()
+            case .question:
+                self.showPreparePopupView()
+            }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func showPreparePopupView() {
+        guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
+        preparePopupView.show(in: self)
     }
     
     private let disposeBag = DisposeBag()

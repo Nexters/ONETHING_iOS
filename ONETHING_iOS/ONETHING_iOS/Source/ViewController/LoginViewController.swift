@@ -11,6 +11,8 @@ import UIKit
 import ActiveLabel
 
 final class LoginViewController: BaseViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
