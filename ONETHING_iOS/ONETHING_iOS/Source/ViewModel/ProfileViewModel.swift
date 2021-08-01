@@ -20,14 +20,15 @@ final class ProfileViewModel {
     }
     
     func requestUserInform() {
-        let accountAPI = UserAPI.account
         self.loadingSubject.onNext(true)
-        apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (response: OnethingUserModel) in
+        
+        let accountAPI = UserAPI.account
+        self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
+            guard let self = self else { return }
+            self.loadingSubject.onNext(false)
+            self.userRelay.accept(userModel)
+        }, errorHandler: { [weak self] _ in
             self?.loadingSubject.onNext(false)
-            self?.userRelay.accept(response)
-        }, errorHandler: { [weak self] error in
-            self?.loadingSubject.onNext(false)
-            print(error.localizedDescription)
         })
     }
     

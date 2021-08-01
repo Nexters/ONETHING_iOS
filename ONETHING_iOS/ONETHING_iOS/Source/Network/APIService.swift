@@ -41,6 +41,11 @@ final class APIService<T: TargetType> {
                     return
                 }
                 
+                if let userAPI = target as? UserAPI, case .logout = userAPI {
+                    if response.statusCode == 200 { comepleteHandler(true as! D) }
+                    else { comepleteHandler(false as! D) }
+                }
+                
                 do {
                     guard let jsonData = try response.mapString().data(using: .utf8) else {
                         throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)

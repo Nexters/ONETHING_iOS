@@ -112,6 +112,12 @@
 		CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
 		CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
 		CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
+		CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */; };
+		CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */; };
+		CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */; };
+		CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
+		CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
+		CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -391,7 +397,7 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
-		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/ViewController/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/ViewController/Intro/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CE1F96BE26AC0A16006B56E4 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingWebView.swift; sourceTree = "<group>"; };
@@ -439,6 +445,8 @@
 		CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreparePopupView.xib; sourceTree = "<group>"; };
 		CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePopupView.swift; sourceTree = "<group>"; };
 		CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingUserModel.swift; sourceTree = "<group>"; };
+		CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -587,14 +595,6 @@
 				E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CE16C25A26A8461400D87096 /* Intro */ = {
-			isa = PBXGroup;
-			children = (
-				CE16C25B26A8461A00D87096 /* LoginViewController.swift */,
-			);
-			path = Intro;
 			sourceTree = "<group>";
 		};
 		CE1F96C226AC0A1E006B56E4 /* Common */ = {
@@ -766,14 +766,15 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE8FEDF626B6E7930092DC0D /* Intro */,
 				CE1F96C226AC0A1E006B56E4 /* Common */,
-				CE16C25A26A8461400D87096 /* Intro */,
 				F20B573E26A81A1C00391D45 /* Home */,
 				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
+				CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -817,6 +818,7 @@
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
 				CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */,
+				CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -837,6 +839,14 @@
 				F25571A226A437DD005A1AAF /* ViewTag.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		CE8FEDF626B6E7930092DC0D /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				CE16C25B26A8461A00D87096 /* LoginViewController.swift */,
+			);
+			path = Intro;
 			sourceTree = "<group>";
 		};
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
@@ -1437,6 +1447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
@@ -1475,6 +1486,7 @@
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
+				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
@@ -1558,6 +1570,7 @@
 				F25571A126A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
+				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */,
@@ -1573,6 +1586,7 @@
 				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
+				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
@@ -1654,6 +1668,7 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
+				CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
@@ -1675,6 +1690,7 @@
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
+				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,

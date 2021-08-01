@@ -17,6 +17,7 @@ final class ProfileViewController: BaseViewController {
         super.viewDidLoad()
         self.setupTableView()
         self.setupLoadingIndicatorView()
+        self.bindButtons()
         self.observeViewModel()
         
         self.viewModel.requestUserInform()
@@ -57,7 +58,7 @@ final class ProfileViewController: BaseViewController {
             guard let menu = ProfileViewModel.Menu(rawValue: indexPath.row) else { return }
             switch menu {
             case .myAccount:
-                print("My Account")
+                self.pushAccountViewController()
             case .pushSetting:
                 self.showPreparePopupView()
             case .fontSetting:
@@ -67,6 +68,12 @@ final class ProfileViewController: BaseViewController {
             case .question:
                 self.showPreparePopupView()
             }
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func bindButtons() {
+        self.profileEditButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.showPreparePopupView()
         }).disposed(by: self.disposeBag)
     }
     
@@ -85,7 +92,13 @@ final class ProfileViewController: BaseViewController {
     
     private func showPreparePopupView() {
         guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
-        preparePopupView.show(in: self)
+        guard let tabbarController = self.tabBarController                    else { return }
+        preparePopupView.show(in: tabbarController)
+    }
+    
+    private func pushAccountViewController() {
+        guard let viewController = AccountViewController.instantiateViewController(from: .profile) else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func startLoadingIndicator() {
