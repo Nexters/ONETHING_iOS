@@ -10,7 +10,7 @@ import UIKit
 import Then
 
 protocol HabitWrittenViewControllerDelegate: AnyObject {
-    func clearDimEffect(habitWrittenViewController: HabitWrittenViewController)
+    func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController)
 }
 
 final class HabitWrittenViewController: BaseViewController {
@@ -53,7 +53,7 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     @objc private func dismissViewController() {
-        self.delegate?.clearDimEffect(habitWrittenViewController: self)
+        self.delegate?.habitWrittenViewControllerWillDismiss(self)
         self.upperStampButton.isHidden = true
         super.dismiss(animated: true)
     }
@@ -77,7 +77,7 @@ final class HabitWrittenViewController: BaseViewController {
 }
 
 extension HabitWrittenViewController: DailyHabitViewCloseButtonDelegate {
-    func closeButtonDidTouch(dailyHabitView: DailyHabitView) {
+    func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView) {
         self.dismissViewController()
     }
 }

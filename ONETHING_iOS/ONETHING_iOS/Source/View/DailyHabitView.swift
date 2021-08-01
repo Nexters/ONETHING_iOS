@@ -10,13 +10,13 @@ import UIKit
 import Then
 
 protocol DailyHabitViewCloseButtonDelegate: UIViewController {
-    func closeButtonDidTouch(dailyHabitView: DailyHabitView)
+    func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView)
 }
 
 protocol DailyHabitViewPhotoViewDelegate: UIViewController {
-    func photoViewButtonDidTouch(dailyHabitView: DailyHabitView, actionSheet: UIAlertController)
-    func pickerDidFinish(dailyHabitView: DailyHabitView)
-    func pickerWillPresent(dailyHabitView: DailyHabitView, picker: UIImagePickerController)
+    func dailyHabitViewDidTapPhotoButton(_ dailyHabitView: DailyHabitView, actionSheet: UIAlertController)
+    func dailyHabitViewDidPickerFinish(_ dailyHabitView: DailyHabitView)
+    func dailyHabitViewWillPickerPresent(_ dailyHabitView: DailyHabitView, picker: UIImagePickerController)
 }
 
 final class DailyHabitView: UIView {
@@ -58,7 +58,7 @@ final class DailyHabitView: UIView {
         self.closeButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         self.closeButton.tintColor = .darkGray
         self.closeButton.isHidden = hideCloseButton == true ? true : false
-        self.closeButton.addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
+        self.closeButton.addTarget(self, action: #selector(self.closeButtonDidTouch), for: .touchUpInside)
         
         let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
         self.closeButton.snp.makeConstraints {
@@ -69,7 +69,7 @@ final class DailyHabitView: UIView {
     }
     
     @objc private func closeButtonDidTouch() {
-        self.dailyHabitViewCloseButtonDelegate?.closeButtonDidTouch(dailyHabitView: self)
+        self.dailyHabitViewCloseButtonDelegate?.dailyHabitViewDidTapCloseButton(self)
     }
     
     private func setupTimeLabel() {
@@ -131,17 +131,17 @@ final class DailyHabitView: UIView {
             $0.addAction(cancel)
         }
         
-        self.dailyHabitViewPhotoViewDelegate?.photoViewButtonDidTouch(dailyHabitView: self, actionSheet: actionSheet)
+        self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewDidTapPhotoButton(self, actionSheet: actionSheet)
     }
     
     private func openLibrary() {
         self.picker.sourceType = .photoLibrary
-        self.dailyHabitViewPhotoViewDelegate?.pickerWillPresent(dailyHabitView: self, picker: self.picker)
+        self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
     }
     private func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
             self.picker.sourceType = .camera
-            self.dailyHabitViewPhotoViewDelegate?.pickerWillPresent(dailyHabitView: self, picker: self.picker)
+            self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
         } else {
             print("Camera not available")
         }
@@ -162,6 +162,6 @@ extension DailyHabitView: UIImagePickerControllerDelegate, UINavigationControlle
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         
         self.photoView.image = image
-        self.dailyHabitViewPhotoViewDelegate?.pickerDidFinish(dailyHabitView: self)
+        self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewDidPickerFinish(self)
     }
 }

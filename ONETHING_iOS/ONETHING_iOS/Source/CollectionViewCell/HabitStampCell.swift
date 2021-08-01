@@ -52,12 +52,8 @@ final class HabitStampCell: UICollectionViewCell {
     func update(stamp: Stamp, isLocked: Bool) {
         self.currentStamp = stamp
         self.isLocked = isLocked
-        if self.isLocked {
-            self.mainImageView.image = self.currentStamp?.lockImage
-            return
-        }
-        
-        self.mainImageView.image = self.currentStamp?.defaultImage
+      
+        self.mainImageView.image = self.isLocked ? self.currentStamp?.lockImage : self.currentStamp?.defaultImage
     }
     
     func hideCheckView() {

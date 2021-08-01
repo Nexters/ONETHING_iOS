@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol HomeEmptyViewDelegate {
-    func haibtSelectButtonDidTap(homeEmptyView: HomeEmptyView)
+protocol HomeEmptyViewDelegate: AnyObject {
+    func homeEmptyViewDidTapSelectButton(_ homeEmptyView: HomeEmptyView)
 }
 
 final class HomeEmptyView: UIView {
     private let mainImageView = UIImageView()
     private let mainLabel = UILabel()
     private let habitSelectButton = UIButton()
-    var delegate: HomeEmptyViewDelegate?
+    weak var delegate: HomeEmptyViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,6 +84,6 @@ final class HomeEmptyView: UIView {
     }
     
     @objc private func habitSelectButtonDidTap() {
-        delegate?.haibtSelectButtonDidTap(homeEmptyView: self)
+        delegate?.homeEmptyViewDidTapSelectButton(self)
     }
 }

@@ -231,15 +231,15 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HabitWritingViewController: DailyHabitViewPhotoViewDelegate {
-    func photoViewButtonDidTouch(dailyHabitView: DailyHabitView, actionSheet: UIAlertController) {
+    func dailyHabitViewDidTapPhotoButton(_ dailyHabitView: DailyHabitView, actionSheet: UIAlertController) {
         self.present(actionSheet, animated: true)
     }
     
-    func pickerDidFinish(dailyHabitView: DailyHabitView) {
+    func dailyHabitViewDidPickerFinish(_ dailyHabitView: DailyHabitView) {
         self.dismiss(animated: true)
     }
     
-    func pickerWillPresent(dailyHabitView: DailyHabitView, picker: UIImagePickerController) {
+    func dailyHabitViewWillPickerPresent(_ dailyHabitView: DailyHabitView, picker: UIImagePickerController) {
         self.present(picker, animated: true)
     }
 }
