@@ -160,8 +160,7 @@ final class GoalSettingThirdViewController: BaseViewController {
     }
     
     private func pushGoalFinishController() {
-        let storyboardName = StoryboardName.goalSetting
-        let viewController = GoalSettingFinishViewController.instantiateViewController(from: storyboardName)
+        let viewController = GoalSettingFinishViewController.instantiateViewController(from: .goalSetting)
         
         guard let goalSettingFinishController = viewController else { return }
         let habitTitle = self.viewModel.habitTitle

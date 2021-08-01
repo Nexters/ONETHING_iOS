@@ -80,7 +80,7 @@ final class GoalSettingFirstViewController: UIViewController {
     
     private func pushSecondGoalController(_ habitName: String? = nil) {
         guard let viewController = GoalSettingSecondViewController
-                .instantiateViewController(from: StoryboardName.goalSetting) else { return }
+                .instantiateViewController(from: .goalSetting) else { return }
         if let habitName = habitName { viewController.setHabitName(habitName) }
         self.navigationController?.pushViewController(viewController, animated: true)
     }

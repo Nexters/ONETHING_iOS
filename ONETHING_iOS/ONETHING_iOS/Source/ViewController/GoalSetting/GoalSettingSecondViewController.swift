@@ -115,7 +115,7 @@ final class GoalSettingSecondViewController: BaseViewController {
     }
     
     private func pushThirdGoalSettingController() {
-        guard let viewController = GoalSettingThirdViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
+        guard let viewController = GoalSettingThirdViewController.instantiateViewController(from: .goalSetting) else { return }
         guard let habitName = self.viewModel.habitName else { return }
         viewController.setHabitTitle(habitName)
         self.navigationController?.pushViewController(viewController, animated: true)

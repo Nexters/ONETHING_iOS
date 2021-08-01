@@ -25,8 +25,8 @@ extension UIViewController {
         }
     }
     
-    static func instantiateViewController(from storyboardName: String) -> Self? {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+    static func instantiateViewController(from storyboard: Storyboard) -> Self? {
+        let storyboard = UIStoryboard(name: storyboard.rawValue, bundle: nil)
         let identifier = String(describing: self)
         return storyboard.instantiateViewController(withIdentifier: identifier) as? Self
     }

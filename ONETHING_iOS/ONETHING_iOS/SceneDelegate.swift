@@ -38,7 +38,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private var navigationWithLoginViewController: UINavigationController? {
-        guard let loginViewController = LoginViewController.instantiateViewController(from: StoryboardName.intro) else { return nil }
+        guard let loginViewController = LoginViewController.instantiateViewController(from: .intro) else { return nil }
         let navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true
