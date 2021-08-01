@@ -42,10 +42,12 @@ final class AccountViewModel {
             self.loadingSubject.onNext(false)
             
             if isSuccess {
-                print("Success")
+                OnethingUserManager.sharedInstance.logout()
             } else {
                 print("Failure")
             }
+        }, errorHandler: { [weak self] error in
+            self?.loadingSubject.onNext(false)
         })
     }
     

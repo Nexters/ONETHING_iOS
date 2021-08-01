@@ -23,6 +23,12 @@ final class OnethingUserManager {
         self.doneHabitSetting = doneHabitSetting
     }
     
+    func logout() {
+        self.accessToken = nil
+        self.refreshToken = nil
+        self.doneHabitSetting = nil
+    }
+    
     // UserDefualt에 doneHabitSetting 값 보고 처음 습관 만들지 안만들지 페이지로 유도 (참고) - 로그인 떄는 처리되어 있음
     @UserDefaultWrapper<Bool>(key: UserDefaultsKey.doneHabitSetting) private(set) var doneHabitSetting
     @UserDefaultWrapper<String>(key: UserDefaultsKey.accessToken) private(set) var accessToken
