@@ -34,13 +34,10 @@ final class GoalSettingFinishViewModel {
                                                     pushTime: pushTime.convertString(), delayMaxCount: postponeCount)
         self.loadingSubject.onNext(true)
         apiService.requestAndDecode(api: createHabitAPI, comepleteHandler: { [weak self] (responseModel: CreateHabitResponseModel) in
-            print(responseModel)
             self?.loadingSubject.onNext(false)
             self?.completeSubject.onNext(())
-        }, errorHandler: { [weak self] error in
-            #warning("여기서 Error 차리 따로 필요한 경우")
+        }, errorHandler: { [weak self] _ in
             self?.loadingSubject.onNext(false)
-            print(error.localizedDescription)
         })
     }
     

@@ -17,7 +17,7 @@ struct RecommendHabitModel: Codable {
     
     let habbitRecommendId: Int?
     let title: String?
-    let shpae: String?
+    let shape: String?
     let color: String?
     
 }
@@ -30,8 +30,8 @@ extension RecommendHabitModel {
         
         var cornerRadius: CGFloat {
             switch self {
-            case .circle: return 25
-            case .square: return 14
+            case .circle: return 34
+            case .square: return 16
             }
         }
     }
@@ -43,7 +43,7 @@ extension RecommendHabitModel {
     }
     
     var onethingShape: OnethingShape {
-        guard let shape = self.shpae else { return .square }
+        guard let shape = self.shape else { return .square }
         guard let onethingShape = OnethingShape(rawValue: shape) else { return .square }
         return onethingShape
     }
