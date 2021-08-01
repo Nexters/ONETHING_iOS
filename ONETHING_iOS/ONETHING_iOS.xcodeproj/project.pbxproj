@@ -109,6 +109,9 @@
 		CE8FEDEF26B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
 		CE8FEDF026B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
 		CE8FEDF126B6D90F0092DC0D /* PreparePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */; };
+		CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
+		CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
+		CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -435,6 +438,7 @@
 		CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileMenuTableViewCell.xib; sourceTree = "<group>"; };
 		CE8FEDEA26B6D8FE0092DC0D /* PreparePopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreparePopupView.xib; sourceTree = "<group>"; };
 		CE8FEDEE26B6D90F0092DC0D /* PreparePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePopupView.swift; sourceTree = "<group>"; };
+		CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingUserModel.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -780,6 +784,7 @@
 				CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */,
 				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */,
 				CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */,
+				CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1442,6 +1447,7 @@
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
+				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -1556,6 +1562,7 @@
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
+				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
@@ -1697,6 +1704,7 @@
 				CEFA5BC626B52BFF0037F71B /* Date+.swift in Sources */,
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,

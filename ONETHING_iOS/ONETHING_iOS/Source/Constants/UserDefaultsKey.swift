@@ -8,7 +8,7 @@
 import Foundation
 
 struct UserDefaultsKey {
-    #warning("일단 지정 - 나중에 API 나오면 수정")
     static let accessToken = "AccessToken"
     static let refreshToken = "Refresh"
+    static let doneHabitSetting = "DoneHabitSetting"
 }
