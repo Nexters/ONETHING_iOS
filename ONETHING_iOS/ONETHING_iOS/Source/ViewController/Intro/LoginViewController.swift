@@ -5,9 +5,10 @@
 //  Created by Dongmin on 2021/07/11.
 //
 
+import UIKit
+
 import RxCocoa
 import RxSwift
-import UIKit
 import ActiveLabel
 
 final class LoginViewController: BaseViewController {

@@ -8,6 +8,7 @@
 import UIKit
 
 final class HabitCalendarCell: UICollectionViewCell {
+    private static let placeholderImage = UIImage(named: "rabbit_none")
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
     private(set) var isWritten: Bool = false
@@ -22,10 +23,16 @@ final class HabitCalendarCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func prepareForReuse() {
+        self.isWritten = false
+        self.mainImageView.image = Self.placeholderImage
+        self.numberLabel.text = nil
+    }
 
     private func setupImageView() {
         self.mainImageView.contentMode = .scaleAspectFit
-        self.mainImageView.image = UIImage(named: "rabbit_none")
+        self.mainImageView.image = Self.placeholderImage
         
         self.contentView.addSubview(self.mainImageView)
         self.mainImageView.snp.makeConstraints {
@@ -53,5 +60,10 @@ final class HabitCalendarCell: UICollectionViewCell {
     
     func update(stampImage: UIImage) {
         self.mainImageView.image = stampImage
+    }
+    
+    var stampImage: UIImage? {
+        guard mainImageView.image != Self.placeholderImage else { return nil }
+        return mainImageView.image
     }
 }

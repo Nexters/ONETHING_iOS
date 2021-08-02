@@ -21,6 +21,15 @@ extension UINavigationController {
         }
     }
     
+    func changeStatusBar(backgroundColor: UIColor) {
+        self.statusBar.previousBackgroundColor = self.statusBar.backgroundColor
+        self.statusBar.backgroundColor = backgroundColor
+    }
+    
+    func undoStatusBarColor() {
+        self.statusBar.backgroundColor = self.statusBar.previousBackgroundColor
+    }
+    
     class StatusBar: UIView {
         var previousBackgroundColor: UIColor? = .white
     }

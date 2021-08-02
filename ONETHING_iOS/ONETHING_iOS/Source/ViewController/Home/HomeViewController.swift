@@ -10,48 +10,30 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: BaseViewController {
-    private let mainScrollView = UIScrollView()
-    private let scrollInnerView = UIView()
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
     )
-    private let backgounndDimView = BackgroundDimView()
+    private let backgroundDimView = BackgroundDimView()
+    private let homeEmptyView = HomeEmptyView().then {
+        $0.isHidden = true
+    }
     private let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupHabitInfoView()
-        self.setupMainScrollView()
-        self.setupScrollInnerView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
+        self.setupHomeEmptyView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.changeStatusBarColor()
+        self.navigationController?.changeStatusBar(backgroundColor: self.habitInfoView.backgroundColor ?? .black_100)
         super.viewWillAppear(animated)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.undoStatusBarColor()
-        super.viewWillDisappear(animated)
-    }
-    
-    private func changeStatusBarColor() {
-        guard let statusBar = self.navigationController?.statusBar else { return }
-        
-        statusBar.previousBackgroundColor = statusBar.backgroundColor
-        statusBar.backgroundColor = habitInfoView.backgroundColor
-    }
-    
-    private func undoStatusBarColor() {
-        guard let statusBar = self.navigationController?.statusBar else { return }
-        
-        statusBar.backgroundColor = statusBar.previousBackgroundColor
-    }
-
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide
@@ -64,54 +46,36 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func setupMainScrollView() {
-        self.view.addSubview(self.mainScrollView)
-        self.mainScrollView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(self.habitInfoView.snp.bottom)
-            $0.height.equalTo(self.view.frame.height - self.habitInfoView.frame.height)
-        }
-    }
-    
-    private func setupScrollInnerView() {
-        self.mainScrollView.addSubview(self.scrollInnerView)
-        
-        self.scrollInnerView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.width.equalToSuperview()
-        }
-        
-        self.mainScrollView.contentLayoutGuide.snp.makeConstraints {
-            $0.height.equalTo(self.scrollInnerView)
-        }
-    }
-    
     private func setupHabitCalendarView() {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
         self.habitCalendarView.delegate = self
-        self.habitCalendarView.isScrollEnabled = false
         
-        self.scrollInnerView.addSubview(habitCalendarView)
+        self.view.addSubview(self.habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
-            $0.leading.trailing.equalTo(self.scrollInnerView).inset(self.habitCalendarView.outerConstant)
-            $0.top.equalTo(self.scrollInnerView).offset(self.habitCalendarView.topConstant)
-            $0.height.equalTo(self.habitCalendarView.fixedHeight(superViewWidth: self.view.frame.width))
-            $0.bottom.equalTo(self.scrollInnerView)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.habitInfoView.snp.bottom)
+            $0.bottom.equalToSuperview()
         }
     }
     
     private func setupBackgounndDimColorView() {
-        self.view.addSubview(self.backgounndDimView)
-        self.backgounndDimView.snp.makeConstraints {
+        self.view.addSubview(self.backgroundDimView)
+        self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func setupHomeEmptyView() {
+        self.view.addSubview(self.homeEmptyView)
+        self.homeEmptyView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
@@ -122,19 +86,40 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
+        guard let habitCalendarCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
         
-        if habitCell.isWritten {
-            let habitWrittenViewController = HabitWrittenViewController()
-            habitWrittenViewController.modalPresentationStyle = .custom
-            habitWrittenViewController.transitioningDelegate = self
-            habitWrittenViewController.delegate = self
-            self.backgounndDimView.isHidden = false
-            present(habitWrittenViewController, animated: true)
-        } else {
-            let habitWritingViewController = HabitWritingViewController()
-            navigationController?.pushViewController(habitWritingViewController, animated: true)
+        if habitCalendarCell.isWritten {
+            self.presentHabitWrittenViewController(with: habitCalendarCell)
+            return
         }
+        self.presentHabitWritingViewController()
+    }
+    
+    private func presentHabitWrittenViewController(with habitCalendarCell: HabitCalendarCell) {
+        self.backgroundDimView.isHidden = false
+        
+        let habitWrittenViewController = HabitWrittenViewController().then {
+            $0.modalPresentationStyle = .custom
+            $0.transitioningDelegate = self
+            $0.update(upperStampImage: habitCalendarCell.stampImage)
+            $0.delegate = self
+        }
+        self.present(habitWrittenViewController, animated: true)
+    }
+    
+    private func presentHabitWritingViewController() {
+        let habitWritingViewController = HabitWritingViewController()
+        self.navigationController?.pushViewController(habitWritingViewController, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        guard let habitCalendarView = collectionView as? HabitCalendarView else { return .zero }
+        return UIEdgeInsets(
+            top: habitCalendarView.topConstant,
+            left: habitCalendarView.leadingConstant,
+            bottom: habitCalendarView.bottomConstant,
+            right: habitCalendarView.trailingConstant
+        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -158,7 +143,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension HomeViewController: HabitWrittenViewControllerDelegate {
-    func clearDimEffect() {
-        self.backgounndDimView.isHidden = true
+    func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
+        self.backgroundDimView.isHidden = true
     }
 }
