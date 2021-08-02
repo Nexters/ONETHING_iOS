@@ -88,9 +88,9 @@
 		CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD126B67F730092DC0D /* GoalSettingFinishViewModel.swift */; };
 		CE8FEDD326B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD126B67F730092DC0D /* GoalSettingFinishViewModel.swift */; };
 		CE8FEDD426B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD126B67F730092DC0D /* GoalSettingFinishViewModel.swift */; };
-		CE8FEDD626B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */; };
-		CE8FEDD726B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */; };
-		CE8FEDD826B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */; };
+		CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */; };
+		CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */; };
+		CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */; };
 		CE8FEDDA26B6C3DD0092DC0D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDD926B6C3DD0092DC0D /* Profile.storyboard */; };
 		CE8FEDDB26B6C3DD0092DC0D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDD926B6C3DD0092DC0D /* Profile.storyboard */; };
 		CE8FEDDC26B6C3DD0092DC0D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8FEDD926B6C3DD0092DC0D /* Profile.storyboard */; };
@@ -449,7 +449,7 @@
 		CE7247E22699D82300BB2C19 /* SocialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialManager.swift; sourceTree = "<group>"; };
 		CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAccessType.swift; sourceTree = "<group>"; };
 		CE8FEDD126B67F730092DC0D /* GoalSettingFinishViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewModel.swift; sourceTree = "<group>"; };
-		CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabitReponseModel.swift; sourceTree = "<group>"; };
+		CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitReponseModel.swift; sourceTree = "<group>"; };
 		CE8FEDD926B6C3DD0092DC0D /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		CE8FEDE226B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -535,9 +535,9 @@
 		F293C3D5269D19BF0096757C /* Circleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circleable.swift; sourceTree = "<group>"; };
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
+		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
-		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -804,7 +804,7 @@
 			children = (
 				CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */,
 				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */,
-				CE8FEDD526B69A580092DC0D /* CreateHabitReponseModel.swift */,
+				CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */,
 				CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */,
 			);
 			path = Model;
@@ -1552,7 +1552,7 @@
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
-				CE8FEDD626B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */,
+				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
@@ -1597,7 +1597,7 @@
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
-				CE8FEDD826B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */,
+				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
@@ -1785,7 +1785,7 @@
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
-				CE8FEDD726B69A580092DC0D /* CreateHabitReponseModel.swift in Sources */,
+				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
