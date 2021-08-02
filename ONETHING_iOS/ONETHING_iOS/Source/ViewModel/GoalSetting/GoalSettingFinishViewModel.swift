@@ -33,7 +33,7 @@ final class GoalSettingFinishViewModel {
         let createHabitAPI = ContentAPI.createHabit(title: title, sentence: sentence,
                                                     pushTime: pushTime.convertString(), delayMaxCount: postponeCount)
         self.loadingSubject.onNext(true)
-        apiService.requestAndDecode(api: createHabitAPI, comepleteHandler: { [weak self] (responseModel: CreateHabitResponseModel) in
+        apiService.requestAndDecode(api: createHabitAPI, comepleteHandler: { [weak self] (responseModel: HabitResponseModel) in
             self?.loadingSubject.onNext(false)
             self?.completeSubject.onNext(())
         }, errorHandler: { [weak self] _ in

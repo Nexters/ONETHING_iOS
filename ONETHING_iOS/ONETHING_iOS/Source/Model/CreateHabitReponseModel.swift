@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateHabitResponseModel: Codable {
+struct HabitResponseModel: Codable {
     let habitId: Int
     let habitStatus: String
     let title: String
@@ -16,4 +16,20 @@ struct CreateHabitResponseModel: Codable {
     let pushTime: String
     let delayMaxCount: Int
     let delayCount: Int
+}
+
+extension HabitResponseModel {
+    
+    enum HabitStatus: String {
+        case run = "RUN"
+        case pass = "PASS"
+        case success = "SUCCESS"
+        case fail = "FAIL"
+    }
+
+    var castingHabitStatus: HabitStatus? {
+        guard let status = HabitStatus(rawValue: self.habitStatus) else { return nil }
+        return status
+    }
+    
 }
