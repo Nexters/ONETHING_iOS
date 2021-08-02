@@ -13,17 +13,39 @@ final class GoalSettingThirdViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addKeyboardDismissTapGesture()
+        self.addObservers()
         self.setupLabels()
         self.setupAlarmSettingView()
         self.setupPostponeSettingView()
         self.setupProgressView()
+        self.setupDatePicker()
+        self.setupCountPicker()
         self.bindButtons()
+        self.observeViewModel()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.nextLabelBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
+        self.datePickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
+        self.countPickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
+    }
+    
+    func setHabitTitle(_ habitTitle: String) {
+        self.viewModel.updateHabitTitle(habitTitle)
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        self.dimView.showCrossDissolve()
+    }
+    
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        self.dimView.hideCrossDissolve()
     }
     
     private func setupLabels() {
@@ -83,6 +105,26 @@ final class GoalSettingThirdViewController: BaseViewController {
         }
     }
     
+    private func setupDatePicker() {
+        self.datePicker.setValue(UIColor.white, forKey: "backgroundColor")
+        self.datePicker.locale = Locale(identifier: "ko_KR")
+        
+        self.datePicker.rx.controlEvent(.valueChanged).observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.viewModel.updatePushDate(self.datePicker.date)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func setupCountPicker() {
+        self.countPicker.setValue(UIColor.white, forKey: "backgroundColor")
+        self.countPicker.dataSource = self
+        self.countPicker.delegate = self
+        
+        self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
+            self?.viewModel.updatePostponeCount(row + 1)
+        }).disposed(by: self.disposeBag)
+    }
+    
     private func bindButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.navigationController?.popViewController(animated: true)
@@ -91,11 +133,79 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.startButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.pushGoalFinishController()
         }).disposed(by: self.disposeBag)
+        
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+            self?.hideDatePicker()
+            self?.hideCountPicker()
+        }).disposed(by: self.disposeBag)
+        self.dimView.addGestureRecognizer(tapGesture)
+    }
+    
+    private func observeViewModel() {
+        self.viewModel.pushDateRelay.observeOnMain(onNext: { [weak self] date in
+            self?.alarmSettingView?.updateDate(date)
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.postponeTodoCountRelay.observeOnMain(onNext: { [weak self] count in
+            self?.postponeTodoView?.updateCount(count)
+        }).disposed(by: self.disposeBag)
+        
+        self.viewModel.enableSubject.observeOnMain(onNext: { [weak self] enable in
+            self?.startButton.backgroundColor = enable ? .black_100 : .black_40
+            self?.startButton.isUserInteractionEnabled = enable
+            self?.startLabel.textColor = enable ? .black_5 : .black_80
+        }).disposed(by: self.disposeBag)
     }
     
     private func pushGoalFinishController() {
-        guard let viewController = GoalSettingFinishViewController.instantiateViewController(from: StoryboardName.goalSetting) else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = GoalSettingFinishViewController.instantiateViewController(from: .goalSetting)
+        
+        guard let goalSettingFinishController = viewController else { return }
+        let habitTitle = self.viewModel.habitTitle
+        let postponeTodo = self.viewModel.postponeTodo
+        let pushTime = self.viewModel.pushDateRelay.value
+        let postponeTodoCount = self.viewModel.postponeTodoCountRelay.value
+        
+        goalSettingFinishController.setHabitInformation(habitTitle, postponeTodo, pushTime, postponeTodoCount)
+        self.navigationController?.pushViewController(goalSettingFinishController, animated: true)
+    }
+    
+    private func showDatePicker() {
+        self.dimView.showCrossDissolve()
+        self.datePickerContainerView.isHidden = false
+        self.datePickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1) {
+            self.datePickerContainerView.transform = .identity
+        }
+    }
+    
+    private func hideDatePicker() {
+        self.dimView.hideCrossDissolve()
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, animations: {
+            self.datePickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        }, completion: { [weak self] _ in
+            self?.datePickerContainerView.isHidden = true
+        })
+    }
+    
+    private func showCountPicker() {
+        self.dimView.showCrossDissolve()
+        self.countPickerContainerView.isHidden = false
+        self.countPickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1) {
+            self.countPickerContainerView.transform = .identity
+        }
+    }
+    
+    private func hideCountPicker() {
+        self.dimView.hideCrossDissolve()
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, animations: {
+            self.countPickerContainerView.transform = CGAffineTransform(translationX: 0, y: 400)
+        }, completion: { [weak self] _ in
+            self?.countPickerContainerView.isHidden = true
+        })
     }
     
     private let disposeBag = DisposeBag()
@@ -118,12 +228,21 @@ final class GoalSettingThirdViewController: BaseViewController {
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var nextLabelBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var dimView: UIView!
+    @IBOutlet private weak var datePickerContainerView: UIView!
+    @IBOutlet private weak var datePickerBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet private weak var countPickerContainerView: UIView!
+    @IBOutlet private weak var countPicker: UIPickerView!
+    @IBOutlet private weak var countPickerBottomConstraint: NSLayoutConstraint!
+    
 }
 
 extension GoalSettingThirdViewController: AlarmSettingViewDelegate {
     
     func alarmSettingViewDidTapTime(_ alarmSettingView: AlarmSettingView) {
-        #warning("Date Picker 추가")
+        self.showDatePicker()
     }
     
 }
@@ -131,13 +250,32 @@ extension GoalSettingThirdViewController: AlarmSettingViewDelegate {
 extension GoalSettingThirdViewController: PostponeTodoViewDelegate {
     
     func postponeTodoView(_ postponeTodoView: PostponeTodoView, didEditedText text: String) {
-        #warning("추가 예정")
-        print("Here")
+        self.viewModel.updatePostponeTodo(text)
     }
     
     func postponeTodoViewDidTapCount(_ postponeTodoView: PostponeTodoView) {
-        #warning("UIPicker 추가")
-        print("Here1")
+        self.showCountPicker()
     }
 
+}
+
+extension GoalSettingThirdViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    
+}
+
+extension GoalSettingThirdViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(row + 1)"
+    }
+    
 }

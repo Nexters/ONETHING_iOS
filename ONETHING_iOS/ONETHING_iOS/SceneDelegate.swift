@@ -16,11 +16,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         let mainTabBarController = MainTabBarController()
         
-//        let userManager = OnethingUserManager.sharedInstance
-//        if !userManager.hasAccessToken {
-//            self.presentLoginViewController(mainTabBarController)
-//        }
-
+        let userManager = OnethingUserManager.sharedInstance
+        if !userManager.hasAccessToken {
+            self.presentLoginViewController(mainTabBarController)
+        }
+        
         self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
     }
@@ -38,7 +38,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private var navigationWithLoginViewController: UINavigationController? {
-        guard let loginViewController = LoginViewController.instantiateViewController(from: StoryboardName.intro) else { return nil }
+        guard let loginViewController = LoginViewController.instantiateViewController(from: .intro) else { return nil }
         let navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true

@@ -42,6 +42,7 @@ final class LoginViewModel {
             guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
             guard let doneHabbitSetting = loginResponseModel.doneHabitSetting else { return }
             OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
+            OnethingUserManager.sharedInstance.updateDoneHabitSetting(doneHabbitSetting)
             self?.completeSubject.onNext(doneHabbitSetting)
         }, errorHandler: { [weak self] error in
             self?.loadingSubject.onNext(false)

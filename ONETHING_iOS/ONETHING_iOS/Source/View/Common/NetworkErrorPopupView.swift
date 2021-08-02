@@ -35,12 +35,12 @@ class NetworkErrorPopupView: UIView {
     }
     
     private func bindButtons() {
-        self.retryButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            self?.animateForHide {
-                self?.retryAction?()
-                self?.removeFromSuperview()
-            }
-        }).disposed(by: self.disposeBag)
+//        self.retryButton.rx.tap.observeOnMain(onNext: { [weak self] in
+//            self?.animateForHide {
+//                self?.retryAction?()
+//                self?.removeFromSuperview()
+//            }
+//        }).disposed(by: self.disposeBag)
     }
     
     private func animateForShow() {
@@ -60,7 +60,5 @@ class NetworkErrorPopupView: UIView {
 
     private var retryAction: Completion?
     private let disposeBag = DisposeBag()
-
-    @IBOutlet private weak var retryButton: UIButton!
     
 }

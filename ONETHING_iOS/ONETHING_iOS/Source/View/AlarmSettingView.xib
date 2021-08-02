@@ -35,16 +35,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wj5-SP-8Pe">
-                    <rect key="frame" x="85" y="29" width="119" height="34"/>
+                    <rect key="frame" x="85" y="29" width="118" height="34"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오전 7시" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lt-lA-oA6">
-                            <rect key="frame" x="14" y="5" width="69" height="24"/>
+                            <rect key="frame" x="14" y="5" width="68" height="24"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
                             <color key="textColor" name="red_3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="YHf-Gv-Kwt">
-                            <rect key="frame" x="87" y="5" width="24" height="24"/>
+                            <rect key="frame" x="86" y="5" width="24" height="24"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" name="black_5"/>
@@ -64,13 +64,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6H-Jc-SUK">
-                    <rect key="frame" x="214" y="34" width="18" height="24"/>
+                    <rect key="frame" x="213" y="34" width="18" height="24"/>
                     <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="습관 체크 알림을 받을래요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9O-2b-reE">
-                    <rect key="frame" x="40" y="73" width="207" height="24"/>
+                    <rect key="frame" x="40" y="73" width="205" height="24"/>
                     <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -92,6 +92,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="timeSetView" destination="wj5-SP-8Pe" id="W4u-EK-SHi"/>
+                <outlet property="timeStampLabel" destination="2lt-lA-oA6" id="3te-tA-bm6"/>
                 <outlet property="titleLabel" destination="wg7-0n-aQw" id="CI2-jL-zX3"/>
             </connections>
             <point key="canvasLocation" x="81.884057971014499" y="347.87946428571428"/>

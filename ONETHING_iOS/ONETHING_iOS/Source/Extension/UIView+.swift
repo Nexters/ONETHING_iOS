@@ -53,4 +53,21 @@ extension UIView {
         self.layer.mask = mask
     }
     
+    func showCrossDissolve(_ duration: TimeInterval = 0.2) {
+        self.isHidden = false
+        self.alpha = 0
+        
+        UIView.animate(withDuration: duration) {
+            self.alpha = 1
+        }
+    }
+    
+    func hideCrossDissolve(_ duration: TimeInterval = 0.2) {
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.isHidden = true
+        })
+    }
+    
 }

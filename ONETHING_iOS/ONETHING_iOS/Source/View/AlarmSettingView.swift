@@ -22,6 +22,10 @@ class AlarmSettingView: UIView {
         self.bindTapGesture()
     }
     
+    func updateDate(_ date: Date) {
+        self.timeStampLabel.text = date.convertString(format: "a h시 mm분")
+    }
+    
     private func bindTapGesture() {
         let tapGesture = UITapGestureRecognizer()
         tapGesture.rx.event.subscribe(onNext: { [weak self] _ in
@@ -36,5 +40,6 @@ class AlarmSettingView: UIView {
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var timeSetView: UIView!
+    @IBOutlet private weak var timeStampLabel: UILabel!
     
 }
