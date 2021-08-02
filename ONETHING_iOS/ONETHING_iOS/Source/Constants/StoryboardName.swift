@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct StoryboardName {
-    static let goalSetting = "GoalSetting"
-    static let intro = "Intro"
+enum Storyboard: String {
+    case goalSetting = "GoalSetting"
+    case intro = "Intro"
+    case profile = "Profile"
 }

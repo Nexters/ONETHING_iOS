@@ -11,6 +11,8 @@ import UIKit
 import ActiveLabel
 
 final class LoginViewController: BaseViewController {
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,8 +110,7 @@ final class LoginViewController: BaseViewController {
     }
     
     private func pushGoalSettingController() {
-        let storyboardName = StoryboardName.goalSetting
-        let viewController = GoalSettingFirstViewController.instantiateViewController(from: storyboardName)
+        let viewController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting)
         
         guard let goalSettingController = viewController else { return }
         self.navigationController?.pushViewController(goalSettingController, animated: true)
