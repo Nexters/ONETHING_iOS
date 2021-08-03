@@ -27,6 +27,7 @@ final class HomeViewController: BaseViewController {
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
         self.setupHomeEmptyView()
+        self.viewModel.requestHabitInProgress()
     }
     
     override func viewWillAppear(_ animated: Bool) {
