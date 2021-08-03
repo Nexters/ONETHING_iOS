@@ -69,6 +69,7 @@ final class APIService<T: TargetType> {
                 throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
             }
 
+            print(String(data: jsonData, encoding: .utf8)!)
             let decodedModel = try self.jsonDecoder.decode(D.self, from: jsonData)
             comepleteHandler(decodedModel)
         } catch {

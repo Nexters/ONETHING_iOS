@@ -14,6 +14,7 @@ final class HistoryViewController: BaseViewController {
         $0.text = "내습관"
         $0.font = UIFont.createFont(type: .pretendard(weight: .bold), size: 18)
     }
+    private let viewModel = HistoryViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,7 @@ final class HistoryViewController: BaseViewController {
         self.setupTitleLabel()
         self.setupHistoryEmptyView()
         self.setupCountLabel()
+        self.viewModel.requestTotalHistories()
     }
     
     override func reloadContentsIfRequired() {

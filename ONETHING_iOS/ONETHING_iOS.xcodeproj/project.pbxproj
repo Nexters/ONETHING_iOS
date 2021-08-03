@@ -325,6 +325,9 @@
 		F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
+		F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
+		F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -526,6 +529,7 @@
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
+		F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -839,6 +843,7 @@
 				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
 				CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */,
 				CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */,
+				F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1513,6 +1518,7 @@
 				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
+				F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
@@ -1615,6 +1621,7 @@
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
+				F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				F2F588B226B0F95200F5430D /* LockView.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
@@ -1690,6 +1697,7 @@
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
+				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,

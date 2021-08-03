@@ -31,7 +31,7 @@ extension ContentAPI: TargetType {
         case .getHabitInProgress:
             return "/api/habit-in-progress"
         case .getHabits:
-            return "/habits"
+            return "/api/habits"
         case let .getDailyHistories(habitId: habitId):
             return "/habit/\(habitId)/daily-histories"
         }
