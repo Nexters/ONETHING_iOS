@@ -18,9 +18,13 @@ final class HomeViewModel: NSObject {
     
     func requestHabitInProgress() {
         self.apiService.requestAndDecode(api: .getHabitInProgress) { [weak self] (habitResponseModel: HabitResponseModel) in
-            
+            //여기 rx로 바꿀 것입니다~ rx를 하면 코드를 외부로 옮길 예정
+            self?.apiService.requestAndDecode(api: .getDailyHistories(habitId: habitResponseModel.habitId), comepleteHandler: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                
+            })
         }
     }
+    
 }
 
 extension HomeViewModel: UICollectionViewDataSource {

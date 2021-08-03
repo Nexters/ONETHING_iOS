@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Stamp: CaseIterable {
+enum Stamp: String, CaseIterable {
     case beige
     case yellow
     case gray

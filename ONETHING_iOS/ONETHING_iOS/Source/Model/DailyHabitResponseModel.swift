@@ -1,0 +1,33 @@
+//
+//  DailyHistoryResponseModel.swift
+//  ONETHING_iOS
+//
+//  Created by sdean on 2021/08/03.
+//
+
+import Foundation
+
+struct DailyHabitResponseModel: Codable {
+    let habitHistoryId: Int
+    let habitId: Int
+    let date: String
+    let status: String
+    let stampType: String
+    let content: String
+    var imageExtension: String?
+}
+
+extension DailyHabitResponseModel {
+    enum DailyStatus: String {
+        case success = "SUCCESS"
+        case fail = "FAIL"
+    }
+    
+    var castingHabitStatus: DailyStatus? {
+        return DailyStatus(rawValue: self.status)
+    }
+    
+    var castringStamp: Stamp? {
+        return Stamp(rawValue: self.stampType)
+    }
+}

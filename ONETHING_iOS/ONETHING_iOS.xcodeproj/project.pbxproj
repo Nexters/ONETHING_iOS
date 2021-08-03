@@ -328,6 +328,12 @@
 		F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
 		F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
 		F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
+		F271CF0D26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
+		F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
+		F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
+		F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */; };
+		F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */; };
+		F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -530,6 +536,8 @@
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
 		F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsResponseModel.swift; sourceTree = "<group>"; };
+		F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitResponseModel.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -810,6 +818,8 @@
 				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */,
 				CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */,
 				CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */,
+				F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */,
+				F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1496,6 +1506,7 @@
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				CEFA5BC526B52BFF0037F71B /* Date+.swift in Sources */,
@@ -1531,6 +1542,7 @@
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
+				F271CF0D26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				F293C3D6269D19BF0096757C /* Circleable.swift in Sources */,
@@ -1642,6 +1654,7 @@
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
+				F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
 				CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
@@ -1676,6 +1689,7 @@
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F293C3D0269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
+				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
@@ -1780,12 +1794,14 @@
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
+				F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
+				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
