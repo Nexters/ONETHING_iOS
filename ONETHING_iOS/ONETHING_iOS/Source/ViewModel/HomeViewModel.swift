@@ -7,8 +7,20 @@
 
 import UIKit
 
+import Moya
+
 final class HomeViewModel: NSObject {
+    private let apiService: APIService<ContentAPI>
     
+    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+        self.apiService = apiService
+    }
+    
+    func requestHabitInProgress() {
+        self.apiService.requestAndDecode(api: .getHabitInProgress) { [weak self] (habitResponseModel: HabitResponseModel) in
+            
+        }
+    }
 }
 
 extension HomeViewModel: UICollectionViewDataSource {

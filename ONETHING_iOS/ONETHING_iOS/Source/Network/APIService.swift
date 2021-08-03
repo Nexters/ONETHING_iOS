@@ -46,15 +46,7 @@ final class APIService<T: TargetType> {
                     else { comepleteHandler(false as! D) }
                 }
                 
-                do {
-                    guard let jsonData = try response.mapString().data(using: .utf8) else {
-                        throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
-                    }
-                    let decodedModel = try self.jsonDecoder.decode(D.self, from: jsonData)
-                    comepleteHandler(decodedModel)
-                } catch {
-                    errorHandler?(error)
-                }
+                self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
             case .failure(let error):
                 #warning("여기 Network 아닌 경우도 떨어지긴하는데, 대체로 네트워크라.. 일단..")
                 guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
@@ -66,6 +58,22 @@ final class APIService<T: TargetType> {
         }
         
         self.requestTable.updateValue(request, forKey: key)
+    }
+    
+    private func decode<D: Decodable>(
+        with response: Moya.Response,
+        comepleteHandler: @escaping (D) -> Void,
+        errorHandler: ((Error) -> Void)?) {
+        do {
+            guard let jsonData = try response.mapString().data(using: .utf8) else {
+                throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
+            }
+
+            let decodedModel = try self.jsonDecoder.decode(D.self, from: jsonData)
+            comepleteHandler(decodedModel)
+        } catch {
+            errorHandler?(error)
+        }
     }
     
     private func cancelAllRequest() {
