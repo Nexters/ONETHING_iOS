@@ -92,7 +92,7 @@ enum OnethingColor: String {
         case .red_3: return .red_3
         case .red_2: return .red_2
         case .red_1: return .red_1
-        case .gray:  return .gray
+        case .gray:  return .gray_default
         case .beige: return .beige
         case .yellow_default: return .yellow_default
         case .red_default: return .red_default
