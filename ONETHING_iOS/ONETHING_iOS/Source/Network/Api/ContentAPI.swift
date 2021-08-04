@@ -12,9 +12,11 @@ import Moya
 enum ContentAPI {
     case getRecommendedHabit
     case createHabit(title: String, sentence: String, pushTime: String, delayMaxCount: Int)
+    case createDailyHabit(habitId: Int, date: String, status: String, content: String, stickerId: String, image: NSData)
     case getHabitInProgress
     case getHabits
     case getDailyHistories(habitId: Int)
+    case getDailyHabitImage
 }
 
 extension ContentAPI: TargetType {
@@ -34,14 +36,19 @@ extension ContentAPI: TargetType {
             return "/api/habits"
         case let .getDailyHistories(habitId: habitId):
             return "/api/habit/\(habitId)/daily-histories"
+        case let .createDailyHabit(habitId: habitId):
+            return "api/habit/\(habitId)/history"
+        case .getDailyHabitImage:
+            return "api/history/image"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories:
+            case .getRecommendedHabit, .getHabitInProgress, .getHabits,
+                 .getDailyHistories, .getDailyHabitImage:
             return .get
-        case .createHabit:
+        case .createHabit, .createDailyHabit:
             return .post
         }
     }
@@ -51,16 +58,16 @@ extension ContentAPI: TargetType {
     }
     
     var task: Task {
-        var parameters = [String: Any]()
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits:
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getDailyHistories(habitId: let habitId):
-            parameters[NetworkInfomation.ParameterKey.habitId] = habitId
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_), .getDailyHabitImage:
+            return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
                                              "pushTime": pushTime, "delayMaxCount": delayMaxCount]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .createDailyHabit(_, let date, let status, let content, let stickerId, let image):
+            let parameters: [String: Any] = ["date": date, "status": status,
+                                             "content": content, "stickerId": stickerId, "image": image]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }

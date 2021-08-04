@@ -16,6 +16,7 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 final class HabitWrittenViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView(hideCloseButton: false)
     private let upperStampButton = UIButton()
+    private let viewModel = HabitWrittenViewModel()
     weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {

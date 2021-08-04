@@ -7,8 +7,20 @@
 
 import UIKit
 
+import Moya
+
 final class HabitWritingViewModel: NSObject {
+    private let apiService: APIService<ContentAPI>
+
+    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+        self.apiService = apiService
+    }
     
+    func postDailyHabit() {
+        self.apiService.requestAndDecode(api: .createDailyHabit(habitId: 1, date: Date().toString(), status: "SUCCESS", content: "", stickerId: "red", image: NSData())) { (dailyHabit: DailyHabitResponseModel) in
+            
+        }
+    }
 }
 
 extension HabitWritingViewModel: UICollectionViewDataSource {

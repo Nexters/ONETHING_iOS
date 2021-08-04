@@ -9,7 +9,7 @@ import UIKit
 
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
-    private var completeButton: CompleteButton!
+    private var completeButton = CompleteButton()
     private let dailyHabitView = DailyHabitView(hideCloseButton: true)
     private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
@@ -82,7 +82,11 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupCompleteButton() {
-        self.completeButton = CompleteButton(parentViewController: self)
+        // 이것도 rx로 변경 예정입니다.
+        self.completeButton.action = { completeButton in
+            self.viewModel.postDailyHabit()
+            self.dismiss(animated: true)
+        }
         
         self.view.addSubview(self.completeButton)
         let safeArea = self.view.safeAreaLayoutGuide
