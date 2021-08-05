@@ -12,6 +12,7 @@ import RxSwift
 
 final class HomeViewModel: NSObject {
     private let apiService: APIService<ContentAPI>
+    private var habitInProgressModel: HabitResponseModel?
     private(set) var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     
@@ -21,6 +22,7 @@ final class HomeViewModel: NSObject {
     
     func requestHabitInProgress() {
         self.apiService.requestAndDecode(api: .getHabitInProgress) { [weak self] (habitResponseModel: HabitResponseModel) in
+            self?.habitInProgressModel = habitResponseModel
             self?.habitInProgressSubject.onNext(habitResponseModel)
         }
     }
@@ -29,6 +31,23 @@ final class HomeViewModel: NSObject {
         self.apiService.requestAndDecode(api: .getDailyHistories(habitId: habitId)) { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
             self?.dailyHabitModels = dailyHabitsResponseModel.histories
         }
+    }
+    
+    func textOfStartDate() -> String? {
+        guard let habitInProgressModel = self.habitInProgressModel else { return nil}
+        
+        let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
+        return date?.convertString(format: "yyyy.MM.dd")
+    }
+    
+    func textOfEndDate() -> String? {
+        guard let habitInProgressModel = self.habitInProgressModel,
+              let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
+              else { return nil}
+        
+        let days = DateComponents(day: HabitCalendarView.defaultTotalCellNumbers - 1)
+        let endDate = Calendar.current.date(byAdding: days, to: date)
+        return endDate?.convertString(format: "yyyy.MM.dd")
     }
 }
 

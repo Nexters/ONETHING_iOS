@@ -112,7 +112,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupStartDateLabel() {
-        self.startDateLabel.text = "2021.07.17"
         self.startDateLabel.textColor = .white
         self.startDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
         
@@ -124,7 +123,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupEndDateLabel() {
-        self.endDateLabel.text = "2021.07.31"
         self.endDateLabel.textColor = .white
         self.endDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
         
@@ -133,5 +131,13 @@ final class HabitInfoView: UIView {
             $0.centerY.equalTo(self.startDateLabel)
             $0.trailing.equalTo(self.percentView)
         }
+    }
+    
+    func update(startDateText: String?) {
+        self.startDateLabel.text = startDateText
+    }
+    
+    func update(endDateText: String?) {
+        self.endDateLabel.text = endDateText
     }
 }

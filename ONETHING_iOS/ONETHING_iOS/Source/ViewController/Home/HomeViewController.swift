@@ -92,7 +92,8 @@ final class HomeViewController: BaseViewController {
             .habitInProgressSubject
             .bind {
                 self.viewModel.requestDailyHabits(habitId: $0.habitId)
-                
+                self.habitInfoView.update(startDateText: self.viewModel.textOfStartDate())
+                self.habitInfoView.update(endDateText: self.viewModel.textOfEndDate())
             }
             .disposed(by: disposeBag)
     }
