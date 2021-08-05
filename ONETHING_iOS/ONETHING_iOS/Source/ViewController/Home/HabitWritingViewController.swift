@@ -234,7 +234,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     private func animateDownLockPopupView() {
         guard let lockPopupView = self.lockPopupView else { return }
                 
-        UIView.animateKeyframes(withDuration: 0.3, delay: 2, animations: {
+        UIView.animateKeyframes(withDuration: 0.3, delay: 1.2, animations: {
             let behindBottomConstant: CGFloat = 800
             lockPopupView.topAnchorConstraint?.constant = behindBottomConstant
             lockPopupView.alpha = 0
