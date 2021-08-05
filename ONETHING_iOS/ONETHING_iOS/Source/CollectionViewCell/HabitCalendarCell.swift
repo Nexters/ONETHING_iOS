@@ -54,7 +54,7 @@ final class HabitCalendarCell: UICollectionViewCell {
         self.numberLabel.text = numberText
     }
     
-    func cleerNumberText() {
+    func clearNumberText() {
         self.numberLabel.text = ""
     }
     

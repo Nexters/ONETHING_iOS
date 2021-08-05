@@ -132,9 +132,10 @@ final class HabitInfoView: UIView {
     }
     
     func update(with viewModel: HomeViewModel) {
-        self.startDateLabel.text = viewModel.textOfStartDate()
-        self.endDateLabel.text = viewModel.textOfEndDate()
-        self.dayNumberLabel.text = viewModel.currentDayText()
-        self.titleLabel.text = viewModel.titleText()
+        self.startDateLabel.text = viewModel.textOfStartDate
+        self.endDateLabel.text = viewModel.textOfEndDate
+        self.dayNumberLabel.text = viewModel.currentDayText
+        self.titleLabel.text = viewModel.titleText
+        self.descriptionLabel.text = viewModel.discriptionText
     }
 }

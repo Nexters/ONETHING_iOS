@@ -103,7 +103,7 @@ final class HomeViewController: BaseViewController {
             .bind { [weak self] _ in
                 guard let self = self else { return }
                 
-                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio() ?? 0)
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
             }
             .disposed(by: disposeBag)
     }

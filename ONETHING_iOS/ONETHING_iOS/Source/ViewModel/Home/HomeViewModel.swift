@@ -37,20 +37,26 @@ final class HomeViewModel: NSObject {
         }
     }
     
-    func textOfStartDate() -> String? {
+    var discriptionText: String? {
+        guard let habitId = self.habitInProgressModel?.habitId else { return nil }
+        
+        return "님의 \(habitId)번째 습관"
+    }
+    
+    var textOfStartDate: String? {
         guard let habitInProgressModel = self.habitInProgressModel else { return nil }
         
         let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
         return date?.convertString(format: "yyyy.MM.dd")
     }
     
-    func currentDayText() -> String? {
+    var currentDayText: String? {
         guard let diffDays = self.diffDaysFromStartToCurrent else { return nil }
         
         return String(diffDays + 1)
     }
     
-    func textOfEndDate() -> String? {
+    var textOfEndDate: String? {
         guard let habitInProgressModel = self.habitInProgressModel,
               let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
               else { return nil}
@@ -60,12 +66,12 @@ final class HomeViewModel: NSObject {
         return endDate?.convertString(format: "yyyy.MM.dd")
     }
     
-    func progressRatio() -> Double? {
-        return Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
+    var progressRatio: Double? {
+        Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
     }
     
-    func titleText() -> String? {
-        return self.habitInProgressModel?.title
+    var titleText: String? {
+        self.habitInProgressModel?.title
     }
     
     private var diffDaysFromStartToCurrent: Int? {
@@ -102,7 +108,7 @@ extension HomeViewModel: UICollectionViewDataSource {
         let stamp = dailyHabitModel.castringStamp ?? Stamp.beige
         habitCalendarCell.set(isWrtten: true)
         habitCalendarCell.update(stampImage: stamp.defaultImage)
-        habitCalendarCell.cleerNumberText()
+        habitCalendarCell.clearNumberText()
         
         return habitCalendarCell
     }
