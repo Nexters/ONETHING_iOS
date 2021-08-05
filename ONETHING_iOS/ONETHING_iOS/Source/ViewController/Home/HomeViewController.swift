@@ -8,6 +8,8 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 final class HomeViewController: BaseViewController {
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
@@ -19,6 +21,7 @@ final class HomeViewController: BaseViewController {
         $0.isHidden = true
     }
     private let viewModel = HomeViewModel()
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,8 @@ final class HomeViewController: BaseViewController {
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
         self.setupHomeEmptyView()
+        self.observeViewModel()
+        
         self.viewModel.requestHabitInProgress()
     }
     
@@ -78,6 +83,17 @@ final class HomeViewController: BaseViewController {
             $0.centerX.centerY.equalToSuperview()
         }
     }
+    
+    private func observeViewModel() {
+        self.viewModel
+            .habitInProgressSubject
+            .bind { self.viewModel.requestDailyHabits(habitId: $0.habitId) }
+            .disposed(by: disposeBag)
+        
+        
+    }
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {

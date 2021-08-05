@@ -205,9 +205,9 @@
 		CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
 		CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
 		CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D84026A479CD00633222 /* AlarmSettingView.swift */; };
-		CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
-		CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
-		CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */; };
+		CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */; };
+		CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */; };
+		CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */; };
 		CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
 		CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
 		CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */; };
@@ -500,7 +500,7 @@
 		CEC4D83826A476A800633222 /* GoalSettingThirdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingThirdViewModel.swift; sourceTree = "<group>"; };
 		CEC4D83C26A479BE00633222 /* AlarmSettingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlarmSettingView.xib; sourceTree = "<group>"; };
 		CEC4D84026A479CD00633222 /* AlarmSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingView.swift; sourceTree = "<group>"; };
-		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabbitModel.swift; sourceTree = "<group>"; };
+		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabitModel.swift; sourceTree = "<group>"; };
 		CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorPopupView.xib; sourceTree = "<group>"; };
 		CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorPopupView.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
@@ -819,7 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */,
-				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift */,
+				CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */,
 				CE8FEDD526B69A580092DC0D /* HabitReponseModel.swift */,
 				CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */,
 				F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */,
@@ -851,9 +851,9 @@
 		CE7247CE2699D65200BB2C19 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F27E217526BB958D00020EE3 /* Home */,
 				CE3B8BC226A7283800BD529B /* Intro */,
 				CEC4D79626A2B16300633222 /* GoalSetting */,
-				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
 				CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */,
 				CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */,
@@ -1019,6 +1019,14 @@
 				CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		F27E217526BB958D00020EE3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1572,7 +1580,7 @@
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
-				CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
+				CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -1667,7 +1675,7 @@
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
-				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
+				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
@@ -1781,7 +1789,7 @@
 				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
-				CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
+				CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
