@@ -38,10 +38,16 @@ final class HomeViewModel: NSObject {
     }
     
     func textOfStartDate() -> String? {
-        guard let habitInProgressModel = self.habitInProgressModel else { return nil}
+        guard let habitInProgressModel = self.habitInProgressModel else { return nil }
         
         let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
         return date?.convertString(format: "yyyy.MM.dd")
+    }
+    
+    func currentDayText() -> String? {
+        guard let diffDays = self.diffDaysFromStartToCurrent else { return nil }
+        
+        return String(diffDays + 1)
     }
     
     func textOfEndDate() -> String? {
@@ -54,8 +60,29 @@ final class HomeViewModel: NSObject {
         return endDate?.convertString(format: "yyyy.MM.dd")
     }
     
-    func progressRatio() -> Double {
+    func progressRatio() -> Double? {
         return Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
+    }
+    
+    func titleText() -> String? {
+        return self.habitInProgressModel?.title
+    }
+    
+    private var diffDaysFromStartToCurrent: Int? {
+        guard let habitInProgressModel = self.habitInProgressModel,
+              let startDate = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd") else { return nil }
+        
+        let formatter = DateComponentsFormatter().then {
+            $0.allowedUnits = [.day]
+            $0.unitsStyle = .positional
+        }
+        
+        guard let diffDaysStr = formatter
+            .string(from: startDate, to: Date())?
+            .components(separatedBy: .decimalDigits.inverted)
+            .joined(), let diffDays = Int(diffDaysStr) else { return nil }
+        
+        return diffDays
     }
 }
 

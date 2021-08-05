@@ -90,18 +90,20 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         self.viewModel
             .habitInProgressSubject
-            .bind {
+            .bind { [weak self] in
+                guard let self = self else { return }
+                
                 self.viewModel.requestDailyHabits(habitId: $0.habitId)
-                self.habitInfoView.update(startDateText: self.viewModel.textOfStartDate())
-                self.habitInfoView.update(endDateText: self.viewModel.textOfEndDate())
+                self.habitInfoView.update(with: self.viewModel)
             }
             .disposed(by: disposeBag)
         
         self.viewModel
             .dailyHabitsSubject
-            .bind { _ in
-                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio())
+            .bind { [weak self] _ in
+                guard let self = self else { return }
                 
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio() ?? 0)
             }
             .disposed(by: disposeBag)
     }

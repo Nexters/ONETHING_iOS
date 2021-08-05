@@ -9,7 +9,7 @@ import UIKit
 
 final class HabitInfoView: UIView {
     let progressView = ProgressView()
-    private let settingButton = SettingButton()
+    private let settingButton = SettingButton().then { $0.isHidden = true }
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let dayNumberLabel = UILabel()
@@ -65,7 +65,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupTitleLabel() {
-        self.titleLabel.text = "아침에 물 한잔 마시기"
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 26)
         self.titleLabel.textColor = .white
         
@@ -77,7 +76,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupDayNumberLabel() {
-        self.dayNumberLabel.text = "19"
         self.dayNumberLabel.font = UIFont(name: "Montserrat-Regular", size: 36)
         self.dayNumberLabel.textColor = .white
         
@@ -133,11 +131,10 @@ final class HabitInfoView: UIView {
         }
     }
     
-    func update(startDateText: String?) {
-        self.startDateLabel.text = startDateText
-    }
-    
-    func update(endDateText: String?) {
-        self.endDateLabel.text = endDateText
+    func update(with viewModel: HomeViewModel) {
+        self.startDateLabel.text = viewModel.textOfStartDate()
+        self.endDateLabel.text = viewModel.textOfEndDate()
+        self.dayNumberLabel.text = viewModel.currentDayText()
+        self.titleLabel.text = viewModel.titleText()
     }
 }
