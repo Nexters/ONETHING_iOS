@@ -47,6 +47,7 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
+        self.dailyHabitView.hidePlaceHolderLabelOfTextView()
         self.dailyHabitView.dailyHabitViewCloseButtonDelegate = self
         self.view.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {

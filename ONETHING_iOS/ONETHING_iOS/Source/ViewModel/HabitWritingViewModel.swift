@@ -11,15 +11,38 @@ import Moya
 
 final class HabitWritingViewModel: NSObject {
     private let apiService: APIService<ContentAPI>
+    var habitId: Int?
+    private(set) var photoImage: UIImage?
+    private(set) var content: String?
+    private(set) var stampType: String?
 
     init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
         self.apiService = apiService
     }
     
     func postDailyHabit() {
-        self.apiService.requestAndDecode(api: .createDailyHabit(habitId: 1, date: Date().toString(), status: "SUCCESS", content: "", stickerId: "red", image: NSData())) { (dailyHabit: DailyHabitResponseModel) in
+        guard let habitId = self.habitId,
+              let content = self.content,
+              let stickerId = self.stampType,
+              let imageData = self.photoImage?.pngData() else { return }
+        
+        let dailyHabitAPI: ContentAPI = .createDailyHabit(
+            habitId: habitId,
+            date: Date().convertString(format: "yyyy-MM-dd"),
+            status: "SUCCESS",
+            content: content,
+            stickerId: stickerId,
+            image: NSData(data: imageData))
+        
+        self.apiService.requestAndDecode(api: dailyHabitAPI) { (dailyHabit: DailyHabitResponseModel) in
             
         }
+    }
+    
+    func update(photoImage: UIImage? = nil, content: String? = nil, stampType: String?) {
+        self.photoImage = photoImage
+        self.content = content
+        self.stampType = stampType
     }
 }
 

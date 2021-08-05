@@ -10,7 +10,7 @@ import UIKit
 final class HabitStampCell: UICollectionViewCell {
     private let circleCheckView = CircleView()
     private let mainImageView = UIImageView()
-    private var currentStamp: Stamp?
+    private(set) var currentStamp: Stamp?
     private(set) var isLocked = false
     
     override init(frame: CGRect) {

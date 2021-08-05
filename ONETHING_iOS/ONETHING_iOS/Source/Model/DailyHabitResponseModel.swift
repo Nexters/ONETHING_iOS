@@ -24,10 +24,10 @@ extension DailyHabitResponseModel {
     }
     
     var castingHabitStatus: DailyStatus? {
-        return DailyStatus(rawValue: self.status)
+        DailyStatus(rawValue: self.status)
     }
     
     var castringStamp: Stamp? {
-        return Stamp(rawValue: self.stampType)
+        Stamp(rawValue: stampType)
     }
 }

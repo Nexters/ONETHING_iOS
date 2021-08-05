@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Stamp: String, CaseIterable {
+enum Stamp: String, CaseIterable, CustomStringConvertible {
     case beige
     case yellow
     case gray
@@ -71,5 +71,9 @@ enum Stamp: String, CaseIterable {
         default:
             return nil
         }
+    }
+    
+    var description: String {
+        return self.rawValue
     }
 }

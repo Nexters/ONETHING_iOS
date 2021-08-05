@@ -14,7 +14,7 @@ final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
     private let apiService: APIService<ContentAPI>
-    private var habitInProgressModel: HabitResponseModel?
+    private(set) var habitInProgressModel: HabitResponseModel?
     private(set) var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()

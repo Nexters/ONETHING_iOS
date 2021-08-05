@@ -149,7 +149,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupHabitTextView() {
-        self.habitTextView.placeholderLabel.isHidden = true
         self.habitTextView.snp.makeConstraints {
             $0.top.equalTo(self.photoView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
@@ -158,12 +157,24 @@ final class DailyHabitView: UIView {
         }
     }
     
+    var contentText: String? {
+        return self.habitTextView.text
+    }
+    
+    var photoImage: UIImage? {
+        return self.photoView.image
+    }
+    
     func update(contentText: String?) {
-        
+        self.habitTextView.text = contentText
     }
     
     func update(photoImage: UIImage) {
-        
+        self.photoView.image = photoImage
+    }
+    
+    func hidePlaceHolderLabelOfTextView() {
+        self.habitTextView.placeholderLabel.isHidden = true
     }
 }
 

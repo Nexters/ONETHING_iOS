@@ -140,7 +140,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     private func presentHabitWritingViewController() {
-        let habitWritingViewController = HabitWritingViewController()
+        let habitWritingViewController = HabitWritingViewController().then {
+            $0.viewModel.habitId = self.viewModel.habitInProgressModel?.habitId
+        }
+        
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     

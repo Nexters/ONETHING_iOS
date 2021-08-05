@@ -7,16 +7,22 @@
 
 import UIKit
 
+import Then
+import RxSwift
+import RxCocoa
+
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton = CompleteButton()
     private let dailyHabitView = DailyHabitView(hideCloseButton: true)
-    private let viewModel = HabitWritingViewModel()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     private var lockPopupView: LockView?
     private let backgroundDimView = BackgroundDimView()
+    
+    let viewModel = HabitWritingViewModel()
+    private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,8 @@ final class HabitWritingViewController: BaseViewController {
         self.setupHabitStampView()
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
+        
+        self.viewModel.update(stampType: Stamp.beige.description)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,11 +90,22 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupCompleteButton() {
-        // 이것도 rx로 변경 예정입니다.
-        self.completeButton.action = { completeButton in
+        self.completeButton.rx.tap.observeOnMain { [weak self] in
+            guard let self = self,
+                  let photoImage = self.dailyHabitView.photoImage,
+                  let content = self.dailyHabitView.contentText,
+                  let stampType = self.viewModel.stampType
+            else { return }
+            
+            self.viewModel.update(
+                photoImage: photoImage,
+                content: content,
+                stampType: stampType
+            )
+            
             self.viewModel.postDailyHabit()
-            self.dismiss(animated: true)
-        }
+//            self.navigationController?.popViewController(animated: true)
+        }.disposed(by: self.disposeBag)
         
         self.view.addSubview(self.completeButton)
         let safeArea = self.view.safeAreaLayoutGuide
@@ -150,6 +169,8 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
             habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
             self.popupLockViewAndDown(with: habitStampCell)
         } else {
+            self.viewModel.update(stampType: habitStampCell.currentStamp?.description)
+            
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
