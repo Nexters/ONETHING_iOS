@@ -8,7 +8,7 @@
 import UIKit
 
 final class HabitTextView: UITextView {
-    private let placeholderLabel = UILabel()
+    let placeholderLabel = UILabel()
     private let firstBottomLine = UIView()
     private let secondBottomLine = UIView()
     private let textCountLabel = UILabel()

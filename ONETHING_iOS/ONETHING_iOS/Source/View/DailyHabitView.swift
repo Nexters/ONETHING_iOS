@@ -138,6 +138,7 @@ final class DailyHabitView: UIView {
         self.picker.sourceType = .photoLibrary
         self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
     }
+    
     private func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
             self.picker.sourceType = .camera
@@ -148,12 +149,21 @@ final class DailyHabitView: UIView {
     }
     
     private func setupHabitTextView() {
+        self.habitTextView.placeholderLabel.isHidden = true
         self.habitTextView.snp.makeConstraints {
             $0.top.equalTo(self.photoView.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(90)
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    func update(contentText: String?) {
+        
+    }
+    
+    func update(photoImage: UIImage) {
+        
     }
 }
 

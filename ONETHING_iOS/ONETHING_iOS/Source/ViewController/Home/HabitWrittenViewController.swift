@@ -8,6 +8,7 @@
 import UIKit
 
 import Then
+import RxSwift
 
 protocol HabitWrittenViewControllerDelegate: AnyObject {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController)
@@ -17,6 +18,7 @@ final class HabitWrittenViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView(hideCloseButton: false)
     private let upperStampButton = UIButton()
     private let viewModel = HabitWrittenViewModel()
+    private var disposeBag = DisposeBag()
     weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -71,9 +73,16 @@ final class HabitWrittenViewController: BaseViewController {
         self.dismissViewController()
     }
     
-    func update(upperStampImage image: UIImage?) {
-        self.upperStampButton.setImage(image, for: .normal)
-        self.upperStampButton.setImage(image, for: .highlighted)
+    func update(with dailyHabitModel: DailyHabitResponseModel) {
+        self.viewModel.update(dailyHabitModel: dailyHabitModel)
+        self.viewModel.requestAndGetHabitImage()
+            .compactMap { $0! }
+            .bind { self.dailyHabitView.update(photoImage:$0) }
+            .disposed(by: disposeBag)
+
+        self.upperStampButton.setImage(viewModel.currentStampImage, for: .normal)
+        self.upperStampButton.setImage(viewModel.currentStampImage, for: .highlighted)
+        self.dailyHabitView.update(contentText: viewModel.contentText)
     }
 }
 

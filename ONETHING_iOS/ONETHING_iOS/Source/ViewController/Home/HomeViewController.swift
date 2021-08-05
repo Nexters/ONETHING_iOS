@@ -120,22 +120,20 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitCalendarCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
-        
-        if habitCalendarCell.isWritten {
-            self.presentHabitWrittenViewController(with: habitCalendarCell)
-            return
+        if let dailyHabitModel = self.viewModel.dailyHabitModels[safe: indexPath.row] {
+            self.presentHabitWrittenViewController(with: dailyHabitModel)
+        } else {
+            self.presentHabitWritingViewController()
         }
-        self.presentHabitWritingViewController()
     }
     
-    private func presentHabitWrittenViewController(with habitCalendarCell: HabitCalendarCell) {
+    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitResponseModel) {
         self.backgroundDimView.isHidden = false
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
             $0.transitioningDelegate = self
-            $0.update(upperStampImage: habitCalendarCell.stampImage)
+            $0.update(with: dailyHabitModel)
             $0.delegate = self
         }
         self.present(habitWrittenViewController, animated: true)
