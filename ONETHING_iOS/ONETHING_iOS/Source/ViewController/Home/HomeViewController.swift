@@ -123,7 +123,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if let dailyHabitModel = self.viewModel.dailyHabitModels[safe: indexPath.row] {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
-            self.presentHabitWritingViewController()
+            self.presentHabitWritingViewController(with: indexPath)
         }
     }
     
@@ -139,9 +139,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         self.present(habitWrittenViewController, animated: true)
     }
     
-    private func presentHabitWritingViewController() {
+    private func presentHabitWritingViewController(with indexPath: IndexPath) {
         let habitWritingViewController = HabitWritingViewController().then {
             $0.viewModel.habitId = self.viewModel.habitInProgressModel?.habitId
+            $0.viewModel.dailyHabitOrder = indexPath.row + 1
         }
         
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)

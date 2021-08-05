@@ -37,6 +37,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupBackgounndDimColorView()
         
         self.viewModel.update(stampType: Stamp.beige.description)
+        self.backBtnTitleView.update(with: viewModel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,7 +68,6 @@ final class HabitWritingViewController: BaseViewController {
     
     private func setupBackBtnTitleView() {
         self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
-        self.backBtnTitleView.update(title: "1일차")
         let safeArea = self.view.safeAreaLayoutGuide
         
         self.keyboardDismissableView.addSubview(self.backBtnTitleView)
@@ -94,7 +94,8 @@ final class HabitWritingViewController: BaseViewController {
             guard let self = self,
                   let photoImage = self.dailyHabitView.photoImage,
                   let content = self.dailyHabitView.contentText,
-                  let stampType = self.viewModel.stampType
+                  let stampType = self.viewModel.stampType,
+                  content != ""
             else { return }
             
             self.viewModel.update(

@@ -12,7 +12,7 @@ import Moya
 enum ContentAPI {
     case getRecommendedHabit
     case createHabit(title: String, sentence: String, pushTime: String, delayMaxCount: Int)
-    case createDailyHabit(habitId: Int, date: String, status: String, content: String, stickerId: String, image: NSData)
+    case createDailyHabit(habitId: Int, dailyHabitOrder: Int, date: String, status: String, content: String, stickerId: String, image: UIImage)
     case getHabitInProgress
     case getHabits
     case getDailyHistories(habitId: Int)
@@ -65,10 +65,28 @@ extension ContentAPI: TargetType {
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
                                              "pushTime": pushTime, "delayMaxCount": delayMaxCount]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
-        case .createDailyHabit(_, let date, let status, let content, let stickerId, let image):
-            let parameters: [String: Any] = ["date": date, "status": status,
-                                             "content": content, "stickerId": stickerId, "image": image]
-            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .createDailyHabit:
+            return .uploadMultipart(self.multipartFormData!)
+        }
+    }
+    
+    var multipartFormData: [MultipartFormData]? {
+        switch self {
+            case .createDailyHabit(let habitId, let dailyHabitOrder, let date, let status, let content, let stickerId, let image):
+                let dateData = MultipartFormData(provider: .data(date.data(using: .utf8)!), name: "date")
+                let statusData = MultipartFormData(provider: .data(status.data(using: .utf8)!), name: "status")
+                let contentData = MultipartFormData(provider: .data(content.data(using: .utf8)!), name: "content")
+                let stickerIdData = MultipartFormData(provider: .data(stickerId.data(using: .utf8)!), name: "stickerId")
+                
+                let imageMultiFormData = Moya.MultipartFormData(
+                    provider: MultipartFormData.FormDataProvider.data(image.jpegData(compressionQuality: 0.7)!),
+                    name: "image",
+                    fileName: "habitId:\(habitId), dailyHabitOrder:\(dailyHabitOrder).jpg",
+                    mimeType: "image/jpeg")
+                
+                return [dateData, statusData, contentData, stickerIdData, imageMultiFormData]
+            default:
+                return nil
         }
     }
     

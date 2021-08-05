@@ -54,8 +54,8 @@ final class BackBtnTitleView: UIView {
         }
     }
     
-    func update(title text: String) {
-        self.titleLabel.text = text
+    func update(with viewModel: HabitWritingViewModel) {
+        self.titleLabel.text = viewModel.titleText
     }
     
     var backButtonDiameter: CGFloat {
