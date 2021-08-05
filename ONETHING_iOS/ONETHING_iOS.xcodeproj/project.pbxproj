@@ -337,6 +337,9 @@
 		F271CF1926B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */; };
 		F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */; };
 		F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */; };
+		F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
+		F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
+		F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -542,6 +545,7 @@
 		F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewModel.swift; sourceTree = "<group>"; };
+		F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDataSource+.swift"; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -844,6 +848,7 @@
 				CE3B8BC326A72B6B00BD529B /* UIFont+.swift */,
 				CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */,
 				CEFA5BC426B52BFF0037F71B /* Date+.swift */,
+				F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1541,6 +1546,7 @@
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
+				F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
@@ -1625,6 +1631,7 @@
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
 				F25571A126A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
+				F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
@@ -1724,6 +1731,7 @@
 			files = (
 				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
+				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,

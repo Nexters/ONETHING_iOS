@@ -30,8 +30,6 @@ final class HomeViewModel: NSObject {
             self?.dailyHabitModels = dailyHabitsResponseModel.histories
         }
     }
-    
-    
 }
 
 extension HomeViewModel: UICollectionViewDataSource {
@@ -42,7 +40,7 @@ extension HomeViewModel: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let habitCalendarCell = collectionView.dequeueReusableCell(cell: HabitCalendarCell.self, forIndexPath: indexPath)
-        else { return HabitCalendarCell() }
+        else { return self.defaultCell(collectionView: collectionView, indexPath: indexPath) }
         
         guard let dailyHabitModel = self.dailyHabitModels[safe: indexPath.row]
         else { return self.makeCellWithNumbers(with: indexPath, cell: habitCalendarCell) }

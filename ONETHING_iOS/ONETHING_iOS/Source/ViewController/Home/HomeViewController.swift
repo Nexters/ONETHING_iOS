@@ -60,6 +60,7 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
+        self.habitCalendarView.registerCell(cellType: UICollectionViewCell.self)
         self.habitCalendarView.delegate = self
         
         self.view.addSubview(self.habitCalendarView)
