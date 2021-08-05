@@ -129,7 +129,6 @@
 		CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */; };
 		CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
-		CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
 		CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
 		CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */; };
@@ -258,6 +257,7 @@
 		CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
+		F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
 		F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
 		F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
@@ -1626,6 +1626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
@@ -1672,9 +1673,7 @@
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
-				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
-				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* ProgressView.swift in Sources */,
