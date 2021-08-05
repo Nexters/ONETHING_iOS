@@ -12,6 +12,8 @@ import RxSwift
 import RxCocoa
 
 final class HomeViewController: BaseViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: 66, columnNumbers: 5
@@ -25,7 +27,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
@@ -88,13 +90,12 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         self.viewModel
             .habitInProgressSubject
-            .bind { self.viewModel.requestDailyHabits(habitId: $0.habitId) }
+            .bind {
+                self.viewModel.requestDailyHabits(habitId: $0.habitId)
+                
+            }
             .disposed(by: disposeBag)
-        
-        
     }
-    
-    
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
