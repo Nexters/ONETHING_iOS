@@ -165,12 +165,13 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let habitStampView = collectionView as? HabitStampView else { return }
         guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
+        guard let selectStampModel = viewModel.selectStampModels[safe: indexPath.row] else { return }
         
-        if habitStampCell.isLocked {
+        if selectStampModel.isLocked {
             habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
-            self.popupLockViewAndDown(with: habitStampCell)
+            self.popupLockViewAndDown(with: selectStampModel)
         } else {
-            self.viewModel.update(stampType: habitStampCell.currentStamp?.description)
+            self.viewModel.update(stampType: selectStampModel.stamp.description)
             
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
@@ -178,8 +179,8 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    private func popupLockViewAndDown(with habitStampCell: HabitStampCell) {
-        self.setupLockPopupViewBehindBottom(with: habitStampCell)
+    private func popupLockViewAndDown(with selectStampModel: SelectStampModel) {
+        self.setupLockPopupViewBehindBottom(with: selectStampModel)
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             self.popupLockView()
             self.backgroundDimView.isHidden = false
@@ -188,9 +189,9 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         })
     }
     
-    private func setupLockPopupViewBehindBottom(with habitStampCell: HabitStampCell) {
+    private func setupLockPopupViewBehindBottom(with selectStampModel: SelectStampModel) {
         if self.lockPopupView == nil {
-            self.lockPopupView = self.makeLockPopupView(with: habitStampCell)
+            self.lockPopupView = self.makeLockPopupView(with: selectStampModel)
         }
         
         guard let lockPopupView = self.lockPopupView else { return }
@@ -212,9 +213,9 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         self.view.layoutIfNeeded()
     }
     
-    private func makeLockPopupView(with habitStampCell: HabitStampCell) -> LockView {
+    private func makeLockPopupView(with selectStampModel: SelectStampModel) -> LockView {
         return LockView().then {
-            $0.update(image: habitStampCell.stampDefaultImageWhenLocked)
+            $0.update(image: selectStampModel.stamp.lockImage)
             let attributedText = NSMutableAttributedString(string: "습관 22일을 달성하면\n사용할 수 있어요!")
             attributedText.addAttribute(.foregroundColor,
                                         value: UIColor.red_default,

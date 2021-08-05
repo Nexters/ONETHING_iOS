@@ -11,11 +11,13 @@ import Moya
 
 final class HabitWritingViewModel: NSObject {
     private let apiService: APIService<ContentAPI>
-    var habitId: Int?
-    var dailyHabitOrder: Int?
     private(set) var photoImage: UIImage?
     private(set) var content: String?
     private(set) var stampType: String?
+    var habitId: Int?
+    var dailyHabitOrder: Int? {
+        didSet { self.updateSelectStampModels() }
+    }
 
     init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
         self.apiService = apiService
@@ -51,6 +53,38 @@ final class HabitWritingViewModel: NSObject {
         self.content = content
         self.stampType = stampType
     }
+    
+    var selectStampModels: [SelectStampModel] = Stamp.allCases.enumerated().map { n, stamp in
+        let openStampFirstIndex = 0
+        let openStampLastIndex = 3
+        let lockedStampLastIndex = 7
+        
+        if n >= openStampFirstIndex && n <= openStampLastIndex {
+            return SelectStampModel(isLocked: false, lockedDays: nil, stamp: stamp)
+        } else if n <= lockedStampLastIndex {
+            return SelectStampModel(isLocked: true, lockedDays: 22, stamp: stamp)
+        } else {
+            return SelectStampModel(isLocked: true, lockedDays: 44, stamp: stamp)
+        }
+    }
+    
+    func updateSelectStampModels() {
+        guard let dailyHabitOrder = self.dailyHabitOrder else { return }
+        
+        if dailyHabitOrder > 22 {
+            self.selectStampModels.enumerated().forEach { n, model in
+                guard model.lockedDays == 22 else { return }
+                self.selectStampModels[n].isLocked = false
+            }
+        }
+        
+        if dailyHabitOrder > 44 {
+            self.selectStampModels.enumerated().forEach { n, model in
+                guard model.lockedDays == 44 else { return }
+                self.selectStampModels[n].isLocked = false
+            }
+        }
+    }
 }
 
 extension HabitWritingViewModel: UICollectionViewDataSource {
@@ -63,23 +97,16 @@ extension HabitWritingViewModel: UICollectionViewDataSource {
                 cell: HabitStampCell.self, forIndexPath: indexPath
         ) else { return HabitStampCell() }
         
-        let openFirstIndex = 0
-        let openLastIndex = 3
-        
-        if indexPath.item == openFirstIndex {
-            guard let habitStampView = collectionView as? HabitStampView else { return HabitStampCell() }
+        if indexPath.item == 0 {
+            guard let habitStampView = collectionView as? HabitStampView else { return habitStampCell }
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
         }
         
-        guard let stamp = Stamp.allCases[safe: indexPath.item] else { return HabitStampCell() }
-        
-        if indexPath.item >= openFirstIndex && indexPath.item <= openLastIndex {
-            habitStampCell.update(stamp: stamp, isLocked: false)
-        } else  {
-            habitStampCell.update(stamp: stamp, isLocked: true)
+        if let selectStampModel = self.selectStampModels[safe: indexPath.row] {
+            habitStampCell.update(with: selectStampModel)
         }
-        
+
         return habitStampCell
     }
 }

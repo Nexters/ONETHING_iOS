@@ -258,6 +258,9 @@
 		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 		F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
+		F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
+		F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
+		F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
 		F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
 		F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
 		F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B572E26A7EAF700391D45 /* HabitStampView.swift */; };
@@ -519,6 +522,7 @@
 		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2017A8726BBF982009277A6 /* SelectStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStampModel.swift; sourceTree = "<group>"; };
 		F20B572E26A7EAF700391D45 /* HabitStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampView.swift; sourceTree = "<group>"; };
 		F20B573226A7ED3400391D45 /* HabitStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampCell.swift; sourceTree = "<group>"; };
 		F20B573626A7F0C900391D45 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -828,6 +832,7 @@
 				CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */,
 				F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */,
 				F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */,
+				F2017A8726BBF982009277A6 /* SelectStampModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1515,6 +1520,7 @@
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
+				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
@@ -1697,6 +1703,7 @@
 				F20B573926A7F0C900391D45 /* CircleView.swift in Sources */,
 				CE8FEDE626B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CE8FEDF126B6D90F0092DC0D /* PreparePopupView.swift in Sources */,
 				CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -1735,6 +1742,7 @@
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
+				F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
