@@ -315,9 +315,9 @@
 		F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
 		F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
 		F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
-		F267F9A7269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
-		F267F9A8269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
-		F267F9A9269A387000219B05 /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* PercentView.swift */; };
+		F267F9A7269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
+		F267F9A8269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
+		F267F9A9269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
 		F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
 		F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
 		F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9AA269A3AE400219B05 /* SettingButton.swift */; };
@@ -537,7 +537,7 @@
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
-		F267F9A6269A387000219B05 /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
+		F267F9A6269A387000219B05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
@@ -776,7 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1F96C726AC0AAC006B56E4 /* Common */,
-				F267F9A6269A387000219B05 /* PercentView.swift */,
+				F267F9A6269A387000219B05 /* ProgressView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
 				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
 				F293C3CD269D195D0096757C /* StampButton.swift */,
@@ -1581,7 +1581,7 @@
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
-				F267F9A7269A387000219B05 /* PercentView.swift in Sources */,
+				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
@@ -1677,7 +1677,7 @@
 				CEC4D79426A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
-				F267F9A9269A387000219B05 /* PercentView.swift in Sources */,
+				F267F9A9269A387000219B05 /* ProgressView.swift in Sources */,
 				CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
@@ -1786,7 +1786,7 @@
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
-				F267F9A8269A387000219B05 /* PercentView.swift in Sources */,
+				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,

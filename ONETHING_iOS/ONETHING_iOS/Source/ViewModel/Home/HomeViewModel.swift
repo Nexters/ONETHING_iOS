@@ -11,10 +11,13 @@ import Moya
 import RxSwift
 
 final class HomeViewModel: NSObject {
+    static let defaultTotalDays = 66
+    
     private let apiService: APIService<ContentAPI>
     private var habitInProgressModel: HabitResponseModel?
     private(set) var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
+    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     
     init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
         self.apiService = apiService
@@ -30,6 +33,7 @@ final class HomeViewModel: NSObject {
     func requestDailyHabits(habitId: Int) {
         self.apiService.requestAndDecode(api: .getDailyHistories(habitId: habitId)) { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
             self?.dailyHabitModels = dailyHabitsResponseModel.histories
+            self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
         }
     }
     
@@ -45,15 +49,19 @@ final class HomeViewModel: NSObject {
               let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
               else { return nil}
         
-        let days = DateComponents(day: HabitCalendarView.defaultTotalCellNumbers - 1)
+        let days = DateComponents(day: Self.defaultTotalDays - 1)
         let endDate = Calendar.current.date(byAdding: days, to: date)
         return endDate?.convertString(format: "yyyy.MM.dd")
+    }
+    
+    func progressRatio() -> Double {
+        return Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
     }
 }
 
 extension HomeViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let habitCalendarView = collectionView as? HabitCalendarView else { return HabitCalendarView.defaultTotalCellNumbers }
+        guard let habitCalendarView = collectionView as? HabitCalendarView else { return Self.defaultTotalDays }
         return habitCalendarView.totalCellNumbers
     }
     

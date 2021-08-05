@@ -8,8 +8,8 @@
 import UIKit
 
 final class HabitInfoView: UIView {
+    let progressView = ProgressView()
     private let settingButton = SettingButton()
-    private let percentView = PercentView()
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let dayNumberLabel = UILabel()
@@ -28,7 +28,7 @@ final class HabitInfoView: UIView {
         self.setupTitleLabel()
         self.setupDayNumberLabel()
         self.setupDayTextLabel()
-        self.setupPercentView()
+        self.setupProgressView()
         self.setupStartDateLabel()
         self.setupEndDateLabel()
     }
@@ -100,10 +100,10 @@ final class HabitInfoView: UIView {
         }
     }
 
-    private func setupPercentView() {
-        self.addSubview(self.percentView)
+    private func setupProgressView() {
+        self.addSubview(self.progressView)
         
-        self.percentView.snp.makeConstraints {
+        self.progressView.snp.makeConstraints {
             $0.leading.equalTo(self.titleLabel)
             $0.trailing.equalToSuperview().offset(-30)
             $0.top.equalTo(self.titleLabel.snp.bottom).offset(10)
@@ -117,8 +117,8 @@ final class HabitInfoView: UIView {
         
         self.addSubview(self.startDateLabel)
         self.startDateLabel.snp.makeConstraints {
-            $0.top.equalTo(self.percentView.snp.bottom).offset(8)
-            $0.leading.equalTo(self.percentView)
+            $0.top.equalTo(self.progressView.snp.bottom).offset(8)
+            $0.leading.equalTo(self.progressView)
         }
     }
     
@@ -129,7 +129,7 @@ final class HabitInfoView: UIView {
         self.addSubview(self.endDateLabel)
         self.endDateLabel.snp.makeConstraints {
             $0.centerY.equalTo(self.startDateLabel)
-            $0.trailing.equalTo(self.percentView)
+            $0.trailing.equalTo(self.progressView)
         }
     }
     

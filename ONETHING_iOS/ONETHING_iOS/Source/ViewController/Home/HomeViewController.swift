@@ -16,7 +16,7 @@ final class HomeViewController: BaseViewController {
     
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
     private var habitCalendarView = HabitCalendarView(
-        frame: .zero, totalCellNumbers: 66, columnNumbers: 5
+        frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then {
@@ -94,6 +94,14 @@ final class HomeViewController: BaseViewController {
                 self.viewModel.requestDailyHabits(habitId: $0.habitId)
                 self.habitInfoView.update(startDateText: self.viewModel.textOfStartDate())
                 self.habitInfoView.update(endDateText: self.viewModel.textOfEndDate())
+            }
+            .disposed(by: disposeBag)
+        
+        self.viewModel
+            .dailyHabitsSubject
+            .bind { _ in
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio())
+                
             }
             .disposed(by: disposeBag)
     }

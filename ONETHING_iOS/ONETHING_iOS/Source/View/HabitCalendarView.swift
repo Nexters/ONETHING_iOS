@@ -8,7 +8,6 @@
 import UIKit
 
 final class HabitCalendarView: UICollectionView {
-    static let defaultTotalCellNumbers = 66
     let totalCellNumbers: Int
     let numberOfColumns: Int
     
