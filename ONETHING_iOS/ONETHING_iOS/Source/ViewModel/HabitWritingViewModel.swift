@@ -13,10 +13,13 @@ final class HabitWritingViewModel: NSObject {
     private let apiService: APIService<ContentAPI>
     private(set) var photoImage: UIImage?
     private(set) var content: String?
-    private(set) var stampType: String?
     var habitId: Int?
     var dailyHabitOrder: Int? {
         didSet { self.updateSelectStampModels() }
+    }
+    var selectedStampIndex: Int = 0
+    var stampType: String? {
+        self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
     }
 
     init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
@@ -48,13 +51,12 @@ final class HabitWritingViewModel: NSObject {
         "\(self.dailyHabitOrder ?? 0)일차"
     }
     
-    func update(photoImage: UIImage? = nil, content: String? = nil, stampType: String?) {
+    func update(photoImage: UIImage? = nil, content: String? = nil) {
         self.photoImage = photoImage
         self.content = content
-        self.stampType = stampType
     }
     
-    var selectStampModels: [SelectStampModel] = Stamp.allCases.enumerated().map { n, stamp in
+    private var selectStampModels: [SelectStampModel] = Stamp.allCases.enumerated().map { n, stamp in
         let openStampFirstIndex = 0
         let openStampLastIndex = 3
         let lockedStampLastIndex = 7
@@ -84,6 +86,26 @@ final class HabitWritingViewModel: NSObject {
                 self.selectStampModels[n].isLocked = false
             }
         }
+    }
+    
+    func isLocked(at index: Int) -> Bool {
+        return self.selectStampModels[safe: index] != nil && self.selectStampModels[safe: index]!.isLocked
+    }
+    
+    func lockImage(at index: Int) -> UIImage? {
+        guard let selectStampModel = self.selectStampModels[safe: self.selectedStampIndex] else { return nil }
+        
+        return selectStampModel.stamp.lockImage
+    }
+    
+    func lockMessage(at index: Int) -> NSAttributedString? {
+        guard let selectStampModel = self.selectStampModels[safe: self.selectedStampIndex] else { return nil }
+        
+        let attributedText = NSMutableAttributedString(string: "습관 \(selectStampModel.lockedDays ?? 22)일을 달성하면\n사용할 수 있어요!")
+        attributedText.addAttribute(.foregroundColor,
+                                    value: UIColor.red_default,
+                                    range: attributedText.mutableString.range(of: "\(selectStampModel.lockedDays ?? 22)일"))
+        return attributedText
     }
 }
 

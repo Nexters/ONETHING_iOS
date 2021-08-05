@@ -36,7 +36,6 @@ final class HabitWritingViewController: BaseViewController {
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
         
-        self.viewModel.update(stampType: Stamp.beige.description)
         self.backBtnTitleView.update(with: viewModel)
     }
     
@@ -94,14 +93,12 @@ final class HabitWritingViewController: BaseViewController {
             guard let self = self,
                   let photoImage = self.dailyHabitView.photoImage,
                   let content = self.dailyHabitView.contentText,
-                  let stampType = self.viewModel.stampType,
                   content != ""
             else { return }
             
             self.viewModel.update(
                 photoImage: photoImage,
-                content: content,
-                stampType: stampType
+                content: content
             )
             
             self.viewModel.postDailyHabit()
@@ -163,24 +160,23 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitStampView = collectionView as? HabitStampView else { return }
-        guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
-        guard let selectStampModel = viewModel.selectStampModels[safe: indexPath.row] else { return }
+        self.viewModel.selectedStampIndex = indexPath.row
         
-        if selectStampModel.isLocked {
-            habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
-            self.popupLockViewAndDown(with: selectStampModel)
+        if self.viewModel.isLocked(at: indexPath.row) {
+            self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
+            self.popupLockViewAndDown(with: indexPath)
         } else {
-            self.viewModel.update(stampType: selectStampModel.stamp.description)
-            
+            guard let habitStampView = collectionView as? HabitStampView else { return }
+            guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
+    
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
         }
     }
     
-    private func popupLockViewAndDown(with selectStampModel: SelectStampModel) {
-        self.setupLockPopupViewBehindBottom(with: selectStampModel)
+    private func popupLockViewAndDown(with indexPath: IndexPath) {
+        self.setupLockPopupViewBehindBottom(with: indexPath)
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             self.popupLockView()
             self.backgroundDimView.isHidden = false
@@ -189,9 +185,9 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         })
     }
     
-    private func setupLockPopupViewBehindBottom(with selectStampModel: SelectStampModel) {
+    private func setupLockPopupViewBehindBottom(with indexPath: IndexPath) {
         if self.lockPopupView == nil {
-            self.lockPopupView = self.makeLockPopupView(with: selectStampModel)
+            self.lockPopupView = self.makeLockPopupView(with: indexPath)
         }
         
         guard let lockPopupView = self.lockPopupView else { return }
@@ -213,14 +209,10 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         self.view.layoutIfNeeded()
     }
     
-    private func makeLockPopupView(with selectStampModel: SelectStampModel) -> LockView {
+    private func makeLockPopupView(with indexPath: IndexPath) -> LockView {
         return LockView().then {
-            $0.update(image: selectStampModel.stamp.lockImage)
-            let attributedText = NSMutableAttributedString(string: "습관 22일을 달성하면\n사용할 수 있어요!")
-            attributedText.addAttribute(.foregroundColor,
-                                        value: UIColor.red_default,
-                                        range: attributedText.mutableString.range(of: "22일"))
-            $0.update(attributedText: attributedText)
+            $0.update(image: viewModel.lockImage(at: indexPath.row))
+            $0.update(attributedText: viewModel.lockMessage(at: indexPath.row))
         }
     }
     
