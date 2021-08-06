@@ -7,10 +7,10 @@
 
 import UIKit
 
-import Moya
+import Alamofire
 
 final class HabitWritingViewModel: NSObject {
-    private let apiService: APIService<ContentAPI>
+    private let apiService: Alamofire.Session
     private(set) var photoImage: UIImage?
     private(set) var content: String?
     var habitId: Int?
@@ -22,7 +22,7 @@ final class HabitWritingViewModel: NSObject {
         self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
     }
 
-    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+    init(apiService: Alamofire.Session = AF) {
         self.apiService = apiService
     }
     
@@ -33,17 +33,22 @@ final class HabitWritingViewModel: NSObject {
               let stampType = self.stampType,
               let image = self.photoImage else { return }
         
-        let dailyHabitAPI: ContentAPI = .createDailyHabit(
-            habitId: habitId,
-            dailyHabitOrder: dailyHabitOrder,
-            createDateTime: Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss"),
-            status: "SUCCESS",
-            content: content,
-            stampType: stampType,
-            image: image)
-        
-        self.apiService.requestAndDecode(api: dailyHabitAPI) { (dailyHabit: DailyHabitResponseModel) in
-            
+        let headers = HTTPHeaders([HTTPHeader(name: "Authorization", value: NetworkInfomation.Request.HeaderValues.authorization)])
+        AF.upload(multipartFormData: { multipartFormData in
+            let dateData = Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss").data(using: .utf8) ?? Data()
+            let statusData = "SUCCESS".data(using: .utf8) ?? Data()
+            let contentData = content.data(using: .utf8) ?? Data()
+            let stampData = stampType.data(using: .utf8) ?? Data()
+            let imageData = image.jpegData(compressionQuality: 0.1) ?? Data()
+
+            multipartFormData.append(dateData, withName: "createDateTime")
+            multipartFormData.append(statusData, withName: "status")
+            multipartFormData.append(contentData, withName: "content")
+            multipartFormData.append(stampData, withName: "stampType")
+            multipartFormData.append(imageData, withName: "image", fileName: "\(habitId)_\(dailyHabitOrder).jpg", mimeType: "image/jpeg")
+        }, to: "http://49.50.174.147:8080/api/habit/\(habitId)/history", headers: headers)
+        .responseDecodable(of: DailyHabitResponseModel.self) { response in
+            print(String(data: response.data!, encoding: .utf8)!)
         }
     }
     

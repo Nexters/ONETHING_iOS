@@ -12,6 +12,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
   pod 'Moya', '~> 14.0'
+  pod 'Alamofire'
   pod 'Kingfisher', '~> 6.0'
   pod 'lottie-ios'
   pod 'ActiveLabel'
