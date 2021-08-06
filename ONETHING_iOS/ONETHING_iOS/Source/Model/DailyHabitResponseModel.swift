@@ -10,7 +10,7 @@ import Foundation
 struct DailyHabitResponseModel: Codable {
     let habitHistoryId: Int
     let habitId: Int
-    let date: String
+    let createDateTime: String
     let status: String
     let stampType: String
     let content: String
@@ -29,5 +29,9 @@ extension DailyHabitResponseModel {
     
     var castringStamp: Stamp? {
         Stamp(rawValue: stampType)
+    }
+    
+    var dateFormat: String {
+        "yyyy-MM-ddTHH:mm:ss"
     }
 }

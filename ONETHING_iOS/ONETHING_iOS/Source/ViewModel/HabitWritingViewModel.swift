@@ -30,16 +30,16 @@ final class HabitWritingViewModel: NSObject {
         guard let habitId = self.habitId,
               let dailyHabitOrder = self.dailyHabitOrder,
               let content = self.content,
-              let stickerId = self.stampType,
+              let stampType = self.stampType,
               let image = self.photoImage else { return }
         
         let dailyHabitAPI: ContentAPI = .createDailyHabit(
             habitId: habitId,
             dailyHabitOrder: dailyHabitOrder,
-            date: Date().convertString(format: "yyyy-MM-dd"),
+            createDateTime: Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss"),
             status: "SUCCESS",
             content: content,
-            stickerId: stickerId,
+            stampType: stampType,
             image: image)
         
         self.apiService.requestAndDecode(api: dailyHabitAPI) { (dailyHabit: DailyHabitResponseModel) in
@@ -92,10 +92,10 @@ final class HabitWritingViewModel: NSObject {
         return self.selectStampModels[safe: index] != nil && self.selectStampModels[safe: index]!.isLocked
     }
     
-    func lockImage(at index: Int) -> UIImage? {
+    func openImageOfLocked(at index: Int) -> UIImage? {
         guard let selectStampModel = self.selectStampModels[safe: self.selectedStampIndex] else { return nil }
         
-        return selectStampModel.stamp.lockImage
+        return selectStampModel.stamp.defaultImage
     }
     
     func lockMessage(at index: Int) -> NSAttributedString? {

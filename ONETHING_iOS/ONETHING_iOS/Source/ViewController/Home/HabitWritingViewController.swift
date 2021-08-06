@@ -211,7 +211,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     private func makeLockPopupView(with indexPath: IndexPath) -> LockView {
         return LockView().then {
-            $0.update(image: viewModel.lockImage(at: indexPath.row))
+            $0.update(image: viewModel.openImageOfLocked(at: indexPath.row))
             $0.update(attributedText: viewModel.lockMessage(at: indexPath.row))
         }
     }
