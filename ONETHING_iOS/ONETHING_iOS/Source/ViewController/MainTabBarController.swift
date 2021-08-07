@@ -17,6 +17,16 @@ final class MainTabBarController: UITabBarController {
         self.setupViewControllers()
     }
     
+    func broadCastRequiredReload() {
+        self.viewControllers?.forEach { viewController in
+            guard let navigationController = viewController as? UINavigationController else { return }
+            guard let topController = navigationController.topViewController           else { return }
+            guard let baseController = topController as? BaseViewController            else { return }
+            guard baseController.isViewLoaded == true                                  else { return }
+            baseController.reloadContentsIfRequired()
+        }
+    }
+    
     private func setupViewControllers() {
         guard let profileController = ProfileViewController.instantiateViewController(from: .profile) else { return }
         self.viewControllers = [
