@@ -17,6 +17,9 @@ class BaseViewController: UIViewController {
     // Override 해서 각 뷰들 API 호출 - User 정보나 뭔가 새롭게 Login 되었을 때 호출
     func reloadContentsIfRequired() { }
     
+    // Override 해서 각 뷰들 UI Clear - Logout 할 때 호출됨
+    func clearContents() { }
+    
     private func setupBackground() {
         self.view.backgroundColor = .white
     }

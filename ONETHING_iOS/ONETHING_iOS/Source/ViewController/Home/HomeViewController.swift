@@ -37,6 +37,13 @@ final class HomeViewController: BaseViewController {
     
     override func reloadContentsIfRequired() {
         super.reloadContentsIfRequired()
+        #warning("Login할 때, API 재 호출")
+        
+    }
+    
+    override func clearContents() {
+        super.clearContents()
+        #warning("Logout할 때, UI 지워주기")
     }
     
     private func addObserver() {

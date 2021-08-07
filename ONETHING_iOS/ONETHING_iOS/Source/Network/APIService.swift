@@ -30,6 +30,11 @@ final class APIService<T: TargetType> {
                         return
                     }
                     
+                    if let userAPI = apiTarget as? UserAPI, case .logout = userAPI {
+                        if response.statusCode == 200 { single(.success(true as! C)) }
+                        else                          { single(.success(false as! C)) }
+                    }
+                    
                     do {
                         guard let resultData = try response.mapString().data(using: .utf8) else {
                             throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
@@ -45,6 +50,7 @@ final class APIService<T: TargetType> {
                     
                 }
             }
+            
             return Disposables.create { request.cancel() }
         }.retry { errorObservable -> Observable<Int> in
             return errorObservable.flatMap { error -> Observable<Int> in
@@ -80,6 +86,11 @@ final class APIService<T: TargetType> {
                         self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler)
                     }
                     return
+                }
+                
+                if let userAPI = target as? UserAPI, case .logout = userAPI {
+                    if response.statusCode == 200 { comepleteHandler(true as! D) }
+                    else { comepleteHandler(false as! D) }
                 }
                 
                 self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)

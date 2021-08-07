@@ -11,6 +11,7 @@ import RxRelay
 
 final class AccountViewModel {
     
+    let logoutSuccessSubject = PublishSubject<Void>()
     let loadingSubject = PublishSubject<Bool>()
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
     
@@ -37,18 +38,16 @@ final class AccountViewModel {
         
         self.loadingSubject.onNext(true)
         let logoutAPI = UserAPI.logout(accessToken: accessToken, refreshToken: refreshToken)
-        self.apiService.requestAndDecode(api: logoutAPI, comepleteHandler: { [weak self] (isSuccess: Bool) in
+        
+        APIService<UserAPI>.requestRx(apiTarget: logoutAPI).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
             guard let self = self else { return }
             self.loadingSubject.onNext(false)
             
-            if isSuccess {
+            if isSuccess == true {
                 OnethingUserManager.sharedInstance.logout()
-            } else {
-                print("Failure")
+                self.logoutSuccessSubject.onNext(())
             }
-        }, errorHandler: { [weak self] error in
-            self?.loadingSubject.onNext(false)
-        })
+        }).disposed(by: self.disposeBag)
     }
     
     private let apiService: APIService<UserAPI>
