@@ -35,6 +35,10 @@ final class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
     }
     
+    override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+    }
+    
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
         let safeArea = self.view.safeAreaLayoutGuide

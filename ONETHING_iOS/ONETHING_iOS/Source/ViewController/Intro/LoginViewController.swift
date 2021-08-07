@@ -91,8 +91,12 @@ final class LoginViewController: BaseViewController {
     
     private func observeViewModel() {
         self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] doneHabbitSetting in
-            if doneHabbitSetting == true { self?.dismiss(animated: true, completion: nil) }
-            else { self?.pushGoalSettingController() }
+            if doneHabbitSetting == true {
+                self?.mainTabbarController?.broadCastRequiredReload()
+                self?.dismiss(animated: true, completion: nil)
+            } else {
+                self?.pushGoalSettingController()
+            }
         }).disposed(by: self.disposeBag)
         
         self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
@@ -115,6 +119,10 @@ final class LoginViewController: BaseViewController {
         
         guard let goalSettingController = viewController else { return }
         self.navigationController?.pushViewController(goalSettingController, animated: true)
+    }
+    
+    private var mainTabbarController: MainTabBarController? {
+        return self.navigationController?.presentingViewController as? MainTabBarController
     }
     
     private let disposeBag = DisposeBag()

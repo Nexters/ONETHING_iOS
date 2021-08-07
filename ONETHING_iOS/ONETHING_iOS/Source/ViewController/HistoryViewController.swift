@@ -23,6 +23,10 @@ final class HistoryViewController: BaseViewController {
         self.setupCountLabel()
     }
     
+    override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+    }
+    
     private func setupTitleLabel() {
         self.view.addSubview(self.titleLabel)
         

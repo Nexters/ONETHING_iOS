@@ -23,6 +23,10 @@ final class ProfileViewController: BaseViewController {
         self.viewModel.requestUserInform()
     }
     
+    override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+    }
+    
     private func setupLoadingIndicatorView() {
         self.view.addSubview(self.loadingIndicatorView)
         self.loadingIndicatorView.snp.makeConstraints { make in

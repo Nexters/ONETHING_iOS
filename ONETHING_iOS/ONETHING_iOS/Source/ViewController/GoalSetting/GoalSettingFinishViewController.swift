@@ -84,6 +84,7 @@ final class GoalSettingFinishViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] in
+            self?.mainTabbarController?.broadCastRequiredReload()
             self?.navigationController?.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
     }
@@ -96,6 +97,10 @@ final class GoalSettingFinishViewController: BaseViewController {
     private func stopLoadingIndicator() {
         self.loadingIndicatorView.isHidden = true
         self.loadingIndicatorView.stopAnimating()
+    }
+    
+    private var mainTabbarController: MainTabBarController? {
+        return self.navigationController?.presentingViewController as? MainTabBarController
     }
 
     private let disposeBag = DisposeBag()
