@@ -56,7 +56,7 @@ extension ContentAPI: TargetType {
         case .getRecommendedHabit, .getHabitInProgress, .getHabits:
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .getDailyHistories(habitId: let habitId):
-            parameters[NetworkInfomation.Request.ParameterKeys.habitId] = habitId
+            parameters[NetworkInfomation.ParameterKey.habitId] = habitId
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
