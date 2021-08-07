@@ -107,8 +107,8 @@ final class HomeViewController: BaseViewController {
         
         self.viewModel
             .currentIndexPathOfDailyHabitSubject
-            .subscribe(onNext: { indexPath in
-                self.habitCalendarView.reloadItems(at: [indexPath])
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
     }

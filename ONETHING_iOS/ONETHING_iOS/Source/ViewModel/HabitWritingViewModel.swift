@@ -47,7 +47,7 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             self.session.upload(multipartFormData: { multipartFormData in
                 let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
                 let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
-                let contentData = self.dailyHabitModel.content.data(using: .utf8) ?? Data()
+                let contentData = self.dailyHabitModel.content?.data(using: .utf8) ?? Data()
                 let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
                 let imageData = self.photoImage?.jpegData(compressionQuality: 0.1) ?? Data()
                 

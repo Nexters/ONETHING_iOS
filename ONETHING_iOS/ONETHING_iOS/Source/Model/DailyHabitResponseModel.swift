@@ -8,12 +8,12 @@
 import Foundation
 
 struct DailyHabitResponseModel: Codable {
-    let habitId: Int
-    let status: String
     var habitHistoryId: Int
+    let habitId: Int
     let createDateTime: String
+    let status: String
     var stampType: String?
-    var content: String
+    var content: String?
     var imageExtension: String?
 
     // for dummyData
@@ -39,7 +39,7 @@ struct DailyHabitResponseModel: Codable {
 extension DailyHabitResponseModel {
     enum DailyStatus: String {
         case success = "SUCCESS"
-        case fail = "FAIL"
+        case delay = "DELAY_PENALTY"
     }
     
     var castingHabitStatus: DailyStatus? {

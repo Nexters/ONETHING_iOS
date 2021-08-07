@@ -20,6 +20,7 @@ enum Stamp: String, CaseIterable, CustomStringConvertible {
     case mint
     case green_2
     case green_1
+    case delay
     
     var defaultImage: UIImage {
         switch self {
@@ -47,6 +48,8 @@ enum Stamp: String, CaseIterable, CustomStringConvertible {
             return UIImage(named: "stamp_green_2")!
         case .green_1:
             return UIImage(named: "stamp_green_1")!
+        case .delay:
+            return UIImage(named: "stamp_delay")!
         }
     }
     
