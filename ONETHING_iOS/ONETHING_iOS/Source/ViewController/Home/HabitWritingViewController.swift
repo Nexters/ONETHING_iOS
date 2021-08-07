@@ -12,8 +12,8 @@ import RxSwift
 import RxCocoa
 
 final class HabitWritingViewController: BaseViewController {
-    private var backBtnTitleView: BackBtnTitleView!
-    private var completeButton = CompleteButton()
+    private let backBtnTitleView = BackBtnTitleView()
+    private let completeButton = CompleteButton()
     private let dailyHabitView = DailyHabitView()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
@@ -35,8 +35,8 @@ final class HabitWritingViewController: BaseViewController {
         self.setupHabitStampView()
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
-        
         self.backBtnTitleView.update(with: self.viewModel)
+        self.bindingButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,11 +66,9 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupBackBtnTitleView() {
-        self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
-        let safeArea = self.view.safeAreaLayoutGuide
-        
         self.keyboardDismissableView.addSubview(self.backBtnTitleView)
         self.backBtnTitleView.snp.makeConstraints {
+            let safeArea = self.view.safeAreaLayoutGuide
             $0.top.equalTo(safeArea).offset(54)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
@@ -92,22 +90,6 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupCompleteButton() {
-        self.completeButton.rx.tap.observeOnMain { [weak self] in
-            guard let self = self,
-                  let photoImage = self.dailyHabitView.photoImage,
-                  let content = self.dailyHabitView.contentText,
-                  content != ""
-            else { return }
-            
-            self.viewModel?.update(
-                photoImage: photoImage,
-                content: content
-            )
-            
-            self.viewModel?.postDailyHabit()
-//            self.navigationController?.popViewController(animated: true)
-        }.disposed(by: self.disposeBag)
-        
         self.view.addSubview(self.completeButton)
         let safeArea = self.view.safeAreaLayoutGuide
         self.completeButton.snp.makeConstraints {
@@ -144,7 +126,8 @@ final class HabitWritingViewController: BaseViewController {
         self.rightSwipeGestureRecognizerView.parentViewController = self
         
         self.rightSwipeGestureRecognizerView.snp.makeConstraints {
-            $0.leading.top.bottom.equalToSuperview()
+            $0.leading.top.equalToSuperview()
+            $0.bottom.equalTo(self.view)
             $0.trailing.equalTo(self.backBtnTitleView.snp.leading).offset(-10)
         }
     }
@@ -154,6 +137,28 @@ final class HabitWritingViewController: BaseViewController {
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    private func bindingButtons() {
+        self.backBtnTitleView.backButton.rx.tap.observeOnMain { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }.disposed(by: disposeBag)
+        
+        self.completeButton.rx.tap.observeOnMain { [weak self] in
+            guard let self = self,
+                  let photoImage = self.dailyHabitView.photoImage,
+                  let content = self.dailyHabitView.contentText,
+                  content != ""
+            else { return }
+            
+            self.viewModel?.update(
+                photoImage: photoImage,
+                content: content
+            )
+            
+            self.viewModel?.postDailyHabit()
+//            self.navigationController?.popViewController(animated: true)
+        }.disposed(by: self.disposeBag)
     }
 }
 
