@@ -104,6 +104,7 @@ final class HomeViewController: BaseViewController {
                 guard let self = self else { return }
                 
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
+                self.habitCalendarView.reloadData()
             }
             .disposed(by: disposeBag)
     }

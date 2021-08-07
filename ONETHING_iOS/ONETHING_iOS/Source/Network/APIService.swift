@@ -56,8 +56,19 @@ final class APIService<T: TargetType> {
                 }
             }
         }
-        
+    
         self.requestTable.updateValue(request, forKey: key)
+    }
+    
+    func request(api target: T, completionHandler: @escaping (Data) -> Void) {
+        self.provider.request(target) { result in
+            switch result {
+                case.success(let response):
+                    completionHandler(response.data)
+                case .failure(_):
+                    break
+            }
+        }
     }
     
     private func decode<D: Decodable>(

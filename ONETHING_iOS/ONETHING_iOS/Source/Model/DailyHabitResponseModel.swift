@@ -32,6 +32,12 @@ extension DailyHabitResponseModel {
     }
     
     var dateFormat: String {
-        "yyyy-MM-ddTHH:mm:ss"
+        "yyyy-MM-dd'T'HH:mm:ss"
+    }
+    
+    var createDate: String? {
+        return self.createDateTime
+            .convertToDate(format: self.dateFormat)?
+            .convertString(format: "yyyy-MM-dd")
     }
 }

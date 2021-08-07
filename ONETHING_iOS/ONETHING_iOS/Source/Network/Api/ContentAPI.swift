@@ -16,12 +16,17 @@ enum ContentAPI {
     case getHabitInProgress
     case getHabits
     case getDailyHistories(habitId: Int)
-    case getDailyHabitImage
+    case getDailyHabitImage(createDate: String, imageExtension: String)
 }
 
 extension ContentAPI: TargetType {
     var baseURL: URL {
-        return URL(string: ServerHost.main)!
+        switch self {
+            case let .getDailyHabitImage(createDate: createDate, imageExtension: imageExtension):
+                return URL(string: "\(ServerHost.main)?createDate=\(createDate)&imageExtension=\(imageExtension)")!
+            default:
+                return URL(string: ServerHost.main)!
+        }
     }
     
     var path: String {
@@ -38,8 +43,8 @@ extension ContentAPI: TargetType {
             return "/api/habit/\(habitId)/daily-histories"
         case let .createDailyHabit(habitId: habitId):
             return "api/habit/\(habitId)/history"
-        case .getDailyHabitImage:
-            return "api/history/image"
+        case let .getDailyHabitImage(createDate: createDate, imageExtension: imageExtension):
+            return "/api/habit/history/image"
         }
     }
     

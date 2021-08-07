@@ -76,8 +76,8 @@ final class HabitWrittenViewController: BaseViewController {
     
     func update(with dailyHabitModel: DailyHabitResponseModel) {
         self.viewModel.update(dailyHabitModel: dailyHabitModel)
-        self.viewModel.requestAndGetHabitImage()
-            .compactMap { $0! }
+        
+        self.viewModel.requestHabitImage()
             .bind { self.dailyHabitView.update(photoImage:$0) }
             .disposed(by: disposeBag)
 

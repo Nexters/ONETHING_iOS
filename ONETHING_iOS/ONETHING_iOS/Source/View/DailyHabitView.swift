@@ -8,6 +8,7 @@
 import UIKit
 
 import Then
+import Kingfisher
 
 protocol DailyHabitViewCloseButtonDelegate: UIViewController {
     func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView)
