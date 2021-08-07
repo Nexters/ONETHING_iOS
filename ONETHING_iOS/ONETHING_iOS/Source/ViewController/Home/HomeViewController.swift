@@ -14,7 +14,7 @@ import RxCocoa
 final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
+    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
     private var habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
@@ -38,7 +38,6 @@ final class HomeViewController: BaseViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.changeStatusBar(backgroundColor: self.habitInfoView.backgroundColor ?? .black_100)
         super.viewWillAppear(animated)
     }
     
@@ -48,11 +47,10 @@ final class HomeViewController: BaseViewController {
     
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
-        let safeArea = self.view.safeAreaLayoutGuide
         
         self.habitInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(safeArea)
+            $0.top.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
         }

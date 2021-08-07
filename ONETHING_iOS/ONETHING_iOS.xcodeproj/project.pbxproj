@@ -55,8 +55,6 @@
 		CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
-		CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
-		CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -298,8 +296,6 @@
 		F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
-		F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
-		F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */; };
 		F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
@@ -535,7 +531,6 @@
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
-		F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -848,7 +843,6 @@
 				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
 				CEFC3A38269CC1180007AFF2 /* UILabel+.swift */,
-				F24EC60726A12EB400AC5B57 /* UINavigationController+.swift */,
 				CED5AED526A4A0CB003F087C /* String+.swift */,
 				CE3B8BC326A72B6B00BD529B /* UIFont+.swift */,
 				CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */,
@@ -1564,7 +1558,6 @@
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
-				F24EC60826A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
@@ -1598,7 +1591,6 @@
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
-				CE3B8BC826A73B2500BD529B /* UINavigationController+.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
@@ -1654,7 +1646,6 @@
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				F24EC60A26A12EB400AC5B57 /* UINavigationController+.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
@@ -1826,7 +1817,6 @@
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
-				CE3B8BC726A73B2400BD529B /* UINavigationController+.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,

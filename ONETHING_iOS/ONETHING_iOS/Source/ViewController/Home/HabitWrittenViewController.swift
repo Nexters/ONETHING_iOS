@@ -15,6 +15,8 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 }
 
 final class HabitWrittenViewController: BaseViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
     private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
     private var disposeBag = DisposeBag()

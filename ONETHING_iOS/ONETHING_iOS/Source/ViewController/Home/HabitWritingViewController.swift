@@ -12,6 +12,8 @@ import RxSwift
 import RxCocoa
 
 final class HabitWritingViewController: BaseViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .darkContent }
+    
     private let backBtnTitleView = BackBtnTitleView()
     private let completeButton = CompleteButton()
     private let dailyHabitView = DailyHabitView()
@@ -42,7 +44,6 @@ final class HabitWritingViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.undoStatusBarColor()
         self.tabBarController?.tabBar.isHidden = true
     }
     
