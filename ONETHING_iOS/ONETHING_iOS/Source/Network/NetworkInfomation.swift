@@ -7,19 +7,19 @@
 
 import Foundation
 
-struct NetworkInfomation {
+enum NetworkInfomation {
     
-    struct HeaderKey {
+    enum HeaderKey {
         static let contentType = "Content-Type"
         static let authorization = "Authorization"
     }
     
-    struct HeaderValue {
+    enum HeaderValue {
         static let json = "application/json"
         static var authorization: String { return "Bearer " + (OnethingUserManager.sharedInstance.accessToken ?? "") }
     }
     
-    struct ParameterKey {
+    enum ParameterKey {
         static let habitId = "habit_id"
     }
     
