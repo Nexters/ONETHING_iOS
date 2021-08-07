@@ -21,7 +21,7 @@ final class HabitWritingViewController: BaseViewController {
     private var lockPopupView: LockView?
     private let backgroundDimView = BackgroundDimView()
     
-    let viewModel = HabitWritingViewModel()
+    var viewModel: HabitWritingViewModel?
     private var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
         
-        self.backBtnTitleView.update(with: viewModel)
+        self.backBtnTitleView.update(with: self.viewModel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,12 +99,12 @@ final class HabitWritingViewController: BaseViewController {
                   content != ""
             else { return }
             
-            self.viewModel.update(
+            self.viewModel?.update(
                 photoImage: photoImage,
                 content: content
             )
             
-            self.viewModel.postDailyHabit()
+            self.viewModel?.postDailyHabit()
 //            self.navigationController?.popViewController(animated: true)
         }.disposed(by: self.disposeBag)
         
@@ -163,9 +163,11 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.viewModel.selectedStampIndex = indexPath.row
+        guard let viewModel = self.viewModel else { return }
         
-        if self.viewModel.isLocked(at: indexPath.row) {
+        viewModel.selectedStampIndex = indexPath.row
+        
+        if viewModel.isLocked(at: indexPath.row) {
             self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
             self.popupLockViewAndDown(with: indexPath)
         } else {
@@ -214,8 +216,8 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     private func makeLockPopupView(with indexPath: IndexPath) -> LockView {
         return LockView().then {
-            $0.update(image: viewModel.openImageOfLocked(at: indexPath.row))
-            $0.update(attributedText: viewModel.lockMessage(at: indexPath.row))
+            $0.update(image: self.viewModel?.openImageOfLocked(at: indexPath.row))
+            $0.update(attributedText: self.viewModel?.lockMessage(at: indexPath.row))
         }
     }
     

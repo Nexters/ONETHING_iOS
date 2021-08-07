@@ -13,23 +13,24 @@ final class HabitWritingViewModel: NSObject {
     private let apiService: Alamofire.Session
     private(set) var photoImage: UIImage?
     private(set) var content: String?
-    var habitId: Int?
-    var dailyHabitOrder: Int? {
-        didSet { self.updateSelectStampModels() }
-    }
+    let habitId: Int
+    let dailyHabitOrder: Int
     var selectedStampIndex: Int = 0
-    var stampType: String? {
-        self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
-    }
 
-    init(apiService: Alamofire.Session = AF) {
+    init(habitId: Int,
+         dailyHabitOrder: Int,
+         apiService: Alamofire.Session = AF
+    ) {
+        self.habitId = habitId
+        self.dailyHabitOrder = dailyHabitOrder
         self.apiService = apiService
+        super.init()
+        
+        self.updateSelectStampModels()
     }
     
     func postDailyHabit() {
-        guard let habitId = self.habitId,
-              let dailyHabitOrder = self.dailyHabitOrder,
-              let content = self.content,
+        guard let content = self.content,
               let stampType = self.stampType,
               let image = self.photoImage else { return }
         
@@ -45,15 +46,20 @@ final class HabitWritingViewModel: NSObject {
             multipartFormData.append(statusData, withName: "status")
             multipartFormData.append(contentData, withName: "content")
             multipartFormData.append(stampData, withName: "stampType")
-            multipartFormData.append(imageData, withName: "image", fileName: "\(habitId)_\(dailyHabitOrder).jpg", mimeType: "image/jpeg")
+            multipartFormData.append(
+                imageData,
+                withName: "image",
+                fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
+                mimeType: "image/jpeg"
+            )
         }, to: "http://49.50.174.147:8080/api/habit/\(habitId)/history", headers: headers)
         .responseDecodable(of: DailyHabitResponseModel.self) { response in
             print(String(data: response.data!, encoding: .utf8)!)
         }
     }
     
-    var titleText: String? {
-        "\(self.dailyHabitOrder ?? 0)일차"
+    var titleText: String {
+        "\(self.dailyHabitOrder)일차"
     }
     
     func update(photoImage: UIImage? = nil, content: String? = nil) {
@@ -76,8 +82,6 @@ final class HabitWritingViewModel: NSObject {
     }
     
     func updateSelectStampModels() {
-        guard let dailyHabitOrder = self.dailyHabitOrder else { return }
-        
         if dailyHabitOrder > 22 {
             self.selectStampModels.enumerated().forEach { n, model in
                 guard model.lockedDays == 22 else { return }
@@ -91,6 +95,10 @@ final class HabitWritingViewModel: NSObject {
                 self.selectStampModels[n].isLocked = false
             }
         }
+    }
+    
+    var stampType: String? {
+        self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
     }
     
     func isLocked(at index: Int) -> Bool {

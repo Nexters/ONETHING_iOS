@@ -17,8 +17,9 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 final class HabitWrittenViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
-    private let viewModel = HabitWrittenViewModel()
     private var disposeBag = DisposeBag()
+    
+    var viewModel: HabitWrittenViewModel?
     weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -28,6 +29,11 @@ final class HabitWrittenViewController: BaseViewController {
         self.setupUpperStampView()
         self.setupDailyHabitView()
         self.addDownGestureRecognizer()
+
+        self.updateViewsWithViewModel()
+        self.viewModel?.requestHabitImage()
+            .bind { self.dailyHabitView.update(photoImage:$0) }
+            .disposed(by: disposeBag)
     }
 
     private func setupView() {
@@ -78,16 +84,10 @@ final class HabitWrittenViewController: BaseViewController {
         self.dismissViewController()
     }
     
-    func update(with dailyHabitModel: DailyHabitResponseModel) {
-        self.viewModel.update(dailyHabitModel: dailyHabitModel)
-        
-        self.viewModel.requestHabitImage()
-            .bind { self.dailyHabitView.update(photoImage:$0) }
-            .disposed(by: disposeBag)
-
-        self.upperStampButton.setImage(viewModel.currentStampImage, for: .normal)
-        self.upperStampButton.setImage(viewModel.currentStampImage, for: .highlighted)
-        self.dailyHabitView.update(contentText: viewModel.contentText)
+    private func updateViewsWithViewModel() {
+        self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .normal)
+        self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .highlighted)
+        self.dailyHabitView.update(contentText: self.viewModel?.contentText)
     }
 }
 

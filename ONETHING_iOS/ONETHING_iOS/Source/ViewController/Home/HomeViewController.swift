@@ -134,7 +134,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
             $0.transitioningDelegate = self
-            $0.update(with: dailyHabitModel)
+            $0.viewModel = HabitWrittenViewModel(dailyHabitModel: dailyHabitModel)
             $0.delegate = self
         }
         self.present(habitWrittenViewController, animated: true)
@@ -142,8 +142,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     private func presentHabitWritingViewController(with indexPath: IndexPath) {
         let habitWritingViewController = HabitWritingViewController().then {
-            $0.viewModel.habitId = self.viewModel.habitInProgressModel?.habitId
-            $0.viewModel.dailyHabitOrder = indexPath.row + 1
+            $0.viewModel = HabitWritingViewModel(
+                habitId: self.viewModel.habitInProgressModel?.habitId ?? 1,
+                dailyHabitOrder: indexPath.row + 1
+            )
         }
         
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)

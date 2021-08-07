@@ -12,12 +12,14 @@ import RxSwift
 import Kingfisher
 
 final class HabitWrittenViewModel {
-    private(set) var dailyHabitModel: DailyHabitResponseModel?
+    private let dailyHabitModel: DailyHabitResponseModel
     private let apiService: APIService<ContentAPI>
     private let imageCache: Kingfisher.ImageCache
     
-    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>()),
+    init(dailyHabitModel: DailyHabitResponseModel,
+         apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>()),
          imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default) {
+        self.dailyHabitModel = dailyHabitModel
         self.apiService = apiService
         self.imageCache = imageCache
     }
@@ -25,9 +27,8 @@ final class HabitWrittenViewModel {
     func requestHabitImage() -> Observable<Image> {
         return Observable.create { [weak self] emitter in
             guard let self = self,
-                  let dailyHabitModel = self.dailyHabitModel,
-                  let createDate: String = dailyHabitModel.createDateTime
-                    .convertToDate(format: dailyHabitModel.dateFormat)?
+                  let createDate: String = self.dailyHabitModel.createDateTime
+                    .convertToDate(format: self.dailyHabitModel.dateFormat)?
                     .convertString(format: "yyyy-MM-dd") else { return Disposables.create() }
             
             // check first if image is in momoey cache
@@ -39,7 +40,7 @@ final class HabitWrittenViewModel {
             
             self.fetchAndStoreImageOnMemory(
                 createDate: createDate,
-                imageExtension: dailyHabitModel.imageExtension ?? "jpg"
+                imageExtension: self.dailyHabitModel.imageExtension ?? "jpg"
             ) { (photoImage: UIImage) in
                 
                 emitter.onNext(photoImage)
@@ -65,15 +66,11 @@ final class HabitWrittenViewModel {
         }
     }
     
-    func update(dailyHabitModel: DailyHabitResponseModel) {
-        self.dailyHabitModel = dailyHabitModel
-    }
-    
     var currentStampImage: UIImage? {
-        self.dailyHabitModel?.castringStamp?.defaultImage
+        self.dailyHabitModel.castringStamp?.defaultImage
     }
     
     var contentText: String? {
-        self.dailyHabitModel?.content
+        self.dailyHabitModel.content
     }
 }
