@@ -15,9 +15,11 @@ final class MainTabBarController: UITabBarController {
         self.tabBar.tintColor = .black_100
         
         self.setupViewControllers()
+        self.setupUserInformIfNeeded()
     }
     
     func broadCastRequiredReload() {
+        self.setupUserInformIfNeeded()
         self.viewControllers?.forEach { viewController in
             guard let navigationController = viewController as? UINavigationController else { return }
             guard let topController = navigationController.topViewController           else { return }
@@ -56,5 +58,12 @@ final class MainTabBarController: UITabBarController {
         navigationController.isNavigationBarHidden = true
         return navigationController
     }
+    
+    private func setupUserInformIfNeeded() {
+        guard OnethingUserManager.sharedInstance.hasAccessToken == true else { return }
+        self.viewModel.requestUserInformation()
+    }
+    
+    private let viewModel = MainTabbarViewModel()
     
 }
