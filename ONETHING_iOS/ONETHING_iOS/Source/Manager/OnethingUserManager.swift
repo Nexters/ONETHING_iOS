@@ -5,6 +5,7 @@
 //  Created by Dongmin on 2021/07/18.
 //
 
+import RxSwift
 import UIKit
 
 final class OnethingUserManager {
@@ -33,6 +34,21 @@ final class OnethingUserManager {
         self.doneHabitSetting = nil
         self.currentUser = nil
     }
+    
+    func requestAccessTokenUsingRefreshToken() {
+        guard let accessToken = self.accessToken   else { return }
+        guard let refreshToken = self.refreshToken else { return }
+        
+        let refreshAPI = UserAPI.refresh(accessToken: accessToken, refreshToken: refreshToken)
+        APIService<UserAPI>.requestRx(apiTarget: refreshAPI).subscribe(onSuccess: { (tokenResponseModel: TokenResponseModel) in
+            guard let accessToken = tokenResponseModel.accessToken   else { return }
+            guard let refreshToken = tokenResponseModel.refreshToken else { return }
+            
+            self.updateAuthToken(accessToken, refreshToken)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private let disposeBag = DisposeBag()
     
     private(set) var currentUser: OnethingUserModel?
     

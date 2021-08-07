@@ -7,11 +7,10 @@
 
 import Foundation
 
-
-#warning("ErrorCode 필요함..")
 struct OnethingErrorModel: Codable {
-    let isSuccess: Bool?
+    let status: Int?
     let errorCode: Int?
+    let message: String?
 }
 
 extension OnethingErrorModel {

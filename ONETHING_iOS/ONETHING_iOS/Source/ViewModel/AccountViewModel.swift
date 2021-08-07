@@ -15,21 +15,17 @@ final class AccountViewModel {
     let loadingSubject = PublishSubject<Bool>()
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
     
-    init(apiService: APIService<UserAPI> = APIService<UserAPI>()) {
-        self.apiService = apiService
-    }
-    
     func requestUserInform() {
+        let accountAPI = UserAPI.account
         self.loadingSubject.onNext(true)
         
-        let accountAPI = UserAPI.account
-        self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
+        APIService<UserAPI>.requestRx(apiTarget: accountAPI).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
             guard let self = self else { return }
             self.loadingSubject.onNext(false)
             self.userRelay.accept(userModel)
-        }, errorHandler: { [weak self] _ in
+        }, onFailure: { [weak self] error in
             self?.loadingSubject.onNext(false)
-        })
+        }).disposed(by: self.disposeBag)
     }
     
     func requestLogout() {
@@ -47,10 +43,11 @@ final class AccountViewModel {
                 OnethingUserManager.sharedInstance.logout()
                 self.logoutSuccessSubject.onNext(())
             }
+        }, onFailure: { [weak self] error in
+            self?.loadingSubject.onNext(false)
         }).disposed(by: self.disposeBag)
     }
     
-    private let apiService: APIService<UserAPI>
     private let disposeBag = DisposeBag()
     
 }

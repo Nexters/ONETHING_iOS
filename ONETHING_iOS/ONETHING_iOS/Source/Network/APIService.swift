@@ -17,14 +17,13 @@ final class APIService<T: TargetType> {
         self.provider = provider
     }
     
-    static func requestRx<C: Codable>(apiTarget: T) -> Single<C> {
-        let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
+    static func requestRx<C: Codable>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
         return Single<C>.create { single in
+            let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
             let request = provider.request(apiTarget) { result in
                 switch result {
                 case .success(let response):
-                    if let onethingErrorModel = response.onethingErrorModel,
-                       let onethingError = onethingErrorModel.onethingError {
+                    if let onethingError = response.onethingError {
                         OnethingErrorHandler.sharedInstance.handleError(onethingError)
                         single(.failure(onethingError))
                         return
@@ -45,9 +44,11 @@ final class APIService<T: TargetType> {
                     } catch let error {
                         single(.failure(error))
                     }
-                case .failure(let error):
-                    print(error)
-                    
+                case .failure:
+                    guard NetworkErrorPopupView.isPresented == false                                    else { return }
+                    guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
+                    guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+                    networkPopupView.show(in: keyWindow) { retryHandler?() }
                 }
             }
             
@@ -66,7 +67,8 @@ final class APIService<T: TargetType> {
     func requestAndDecode<D: Decodable>(
         api target: T,
         comepleteHandler: @escaping (D) -> Void,
-        errorHandler: ((Error) -> Void)? = nil
+        errorHandler: ((Error) -> Void)? = nil,
+        retryHandler: (() -> Void)? = nil
     ) {
         let key = String(describing: target.self)
         let request = provider.request(target) { [weak self] result in
@@ -74,14 +76,13 @@ final class APIService<T: TargetType> {
             
             switch result {
             case .success(let response):
-                if let onethingErrorModel = response.onethingErrorModel,
-                   let onethingError = onethingErrorModel.onethingError {
+                if let onethingError = response.onethingError {
                     OnethingErrorHandler.sharedInstance.handleError(onethingError)
                     errorHandler?(onethingError)
-
+                    
                     // ExpiredAccessToken이 만료된 경우, 1초 뒤에 해당 API 재요청
                     guard onethingError == .expiredAccessToken else { return }
-                    DispatchQueue.executeAyncAfter(on: .onethingNetworkQueue, deadline: .now() + 1) { [weak self] in
+                    DispatchQueue.executeAyncAfter(on: .onethingNetworkQueue, deadline: .now() + 1.5) { [weak self] in
                         guard self != nil else { self?.cancelAllRequest(); return }
                         self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler)
                     }
@@ -94,13 +95,11 @@ final class APIService<T: TargetType> {
                 }
                 
                 self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
-            case .failure(let error):
-                #warning("여기 Network 아닌 경우도 떨어지긴하는데, 대체로 네트워크라.. 일단..")
-                guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
-                guard let visibleController = UIViewController.getVisibleController() else { return }
-                networkPopupView.show(in: visibleController.view) { [weak self] in
-                    self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
-                }
+            case .failure:
+                guard NetworkErrorPopupView.isPresented == false                                    else { return }
+                guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
+                guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+                networkPopupView.show(in: keyWindow) { retryHandler?() }
             }
         }
         

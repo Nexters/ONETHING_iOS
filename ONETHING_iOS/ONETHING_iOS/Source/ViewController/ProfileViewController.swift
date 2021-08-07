@@ -16,7 +16,6 @@ final class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
-        self.setupLoadingIndicatorView()
         self.bindButtons()
         self.observeViewModel()
         
@@ -30,16 +29,6 @@ final class ProfileViewController: BaseViewController {
     override func clearContents() {
         super.clearContents()
         #warning("로그아웃할 때, 지워주기")
-    }
-    
-    private func setupLoadingIndicatorView() {
-        self.view.addSubview(self.loadingIndicatorView)
-        self.loadingIndicatorView.snp.makeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-        }
-        
-        self.loadingIndicatorView.isHidden = true
-        self.loadingIndicatorView.stopAnimating()
     }
     
     private func setupTableView() {
@@ -93,10 +82,6 @@ final class ProfileViewController: BaseViewController {
             
             self.nicknameLabel.text = String(format: "%@ 님", user.name ?? "")
         }).disposed(by: self.disposeBag)
-        
-        self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
-            loading ? self?.startLoadingIndicator() : self?.stopLoadingIndicator()
-        }).disposed(by: self.disposeBag)
     }
     
     private func showPreparePopupView() {
@@ -110,20 +95,8 @@ final class ProfileViewController: BaseViewController {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func startLoadingIndicator() {
-        self.loadingIndicatorView.isHidden = false
-        self.loadingIndicatorView.startAnimating()
-    }
-    
-    private func stopLoadingIndicator() {
-        self.loadingIndicatorView.isHidden = true
-        self.loadingIndicatorView.stopAnimating()
-    }
-    
     private let disposeBag = DisposeBag()
     private let viewModel = ProfileViewModel()
-    
-    private let loadingIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileEditButton: UIButton!

@@ -13,22 +13,16 @@ final class ProfileViewModel {
     
     let menuRelay = BehaviorRelay<[Menu]>(value: Menu.allCases)
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
-    let loadingSubject = PublishSubject<Bool>()
     
     init(apiService: APIService<UserAPI> = APIService<UserAPI>()) {
         self.apiService = apiService
     }
     
     func requestUserInform() {
-        self.loadingSubject.onNext(true)
-        
         let accountAPI = UserAPI.account
         self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
             guard let self = self else { return }
-            self.loadingSubject.onNext(false)
             self.userRelay.accept(userModel)
-        }, errorHandler: { [weak self] _ in
-            self?.loadingSubject.onNext(false)
         })
     }
     
