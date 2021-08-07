@@ -35,10 +35,6 @@ final class MainTabBarController: UITabBarController {
                 image: UIImage(named: "home_inactive")!
             ),
             createNavigationController(
-                for: HistoryViewController(),
-                image: UIImage(named: "history_inactive")!
-            ),
-            createNavigationController(
                 for: profileController,
                 image: UIImage(named: "mypage_inactive")!
             )

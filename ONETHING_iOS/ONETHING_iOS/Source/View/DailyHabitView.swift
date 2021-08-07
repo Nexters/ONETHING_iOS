@@ -42,11 +42,15 @@ final class DailyHabitView: UIView {
         self.setupPhotoView()
         self.setupEnrollPhotoButton()
         self.setupHabitTextView()
-        picker.delegate = self
+        self.picker.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        self.layoutCloseButton()
     }
     
     private func setupAddSubviews() {
@@ -59,7 +63,10 @@ final class DailyHabitView: UIView {
         self.closeButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         self.closeButton.tintColor = .darkGray
         self.closeButton.addTarget(self, action: #selector(self.closeButtonDidTouch), for: .touchUpInside)
-        
+        self.addSubview(self.closeButton)
+    }
+    
+    private func layoutCloseButton() {
         let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
         self.closeButton.snp.makeConstraints {
             $0.width.height.equalTo(constant)
