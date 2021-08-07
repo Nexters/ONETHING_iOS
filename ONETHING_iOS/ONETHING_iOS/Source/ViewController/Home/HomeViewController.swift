@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import Alamofire
 
 final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -102,7 +103,14 @@ final class HomeViewController: BaseViewController {
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
                 self.habitCalendarView.reloadData()
             }
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel
+            .currentIndexPathOfDailyHabitSubject
+            .subscribe(onNext: { indexPath in
+                self.habitCalendarView.reloadItems(at: [indexPath])
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -138,9 +146,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     private func presentHabitWritingViewController(with indexPath: IndexPath) {
         let habitWritingViewController = HabitWritingViewController().then {
+            $0.delegate = self
             $0.viewModel = HabitWritingViewModel(
                 habitId: self.viewModel.habitInProgressModel?.habitId ?? 1,
-                dailyHabitOrder: indexPath.row + 1
+                dailyHabitOrder: indexPath.row + 1,
+                session: Alamofire.AF
             )
         }
         
@@ -180,5 +190,11 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 extension HomeViewController: HabitWrittenViewControllerDelegate {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
         self.backgroundDimView.isHidden = true
+    }
+}
+
+extension HomeViewController: HabitWritingViewControllerDelegate {
+    func update(currentDailyHabitModel: DailyHabitResponseModel) {
+        self.viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
     }
 }

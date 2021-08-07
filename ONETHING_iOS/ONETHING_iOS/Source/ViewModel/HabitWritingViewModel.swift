@@ -8,53 +8,60 @@
 import UIKit
 
 import Alamofire
+import RxSwift
 
 final class HabitWritingViewModel: NSObject {
-    private let apiService: Alamofire.Session
-    private(set) var photoImage: UIImage?
-    private(set) var content: String?
-    let habitId: Int
-    let dailyHabitOrder: Int
+    private let session: Alamofire.Session
+    private var photoImage: UIImage?
+    private var content: String?
+    private let habitId: Int
+    private let dailyHabitOrder: Int
     var selectedStampIndex: Int = 0
 
     init(habitId: Int,
          dailyHabitOrder: Int,
-         apiService: Alamofire.Session = AF
+         session: Alamofire.Session
     ) {
         self.habitId = habitId
         self.dailyHabitOrder = dailyHabitOrder
-        self.apiService = apiService
+        self.session = session
         super.init()
         
         self.updateSelectStampModels()
     }
     
-    func postDailyHabit() {
-        guard let content = self.content,
-              let stampType = self.stampType,
-              let image = self.photoImage else { return }
-        
-        let headers = HTTPHeaders([HTTPHeader(name: "Authorization", value: NetworkInfomation.Request.HeaderValues.authorization)])
-        AF.upload(multipartFormData: { multipartFormData in
-            let dateData = Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss").data(using: .utf8) ?? Data()
-            let statusData = "SUCCESS".data(using: .utf8) ?? Data()
-            let contentData = content.data(using: .utf8) ?? Data()
-            let stampData = stampType.data(using: .utf8) ?? Data()
-            let imageData = image.jpegData(compressionQuality: 0.1) ?? Data()
-
-            multipartFormData.append(dateData, withName: "createDateTime")
-            multipartFormData.append(statusData, withName: "status")
-            multipartFormData.append(contentData, withName: "content")
-            multipartFormData.append(stampData, withName: "stampType")
-            multipartFormData.append(
-                imageData,
-                withName: "image",
-                fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
-                mimeType: "image/jpeg"
-            )
-        }, to: "http://49.50.174.147:8080/api/habit/\(habitId)/history", headers: headers)
-        .responseDecodable(of: DailyHabitResponseModel.self) { response in
-            print(String(data: response.data!, encoding: .utf8)!)
+    func postDailyHabitAndGetResponse() -> Observable<DailyHabitResponseModel?> {
+        return Observable.create { [weak self] emitter in
+            guard let self = self,
+                  let content = self.content,
+                  let stampType = self.stampType,
+                  let image = self.photoImage else { return Disposables.create() }
+            
+            let headers = HTTPHeaders([HTTPHeader(name: "Authorization", value: NetworkInfomation.Request.HeaderValues.authorization)])
+            self.session.upload(multipartFormData: { multipartFormData in
+                let dateData = Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss").data(using: .utf8) ?? Data()
+                let statusData = "SUCCESS".data(using: .utf8) ?? Data()
+                let contentData = content.data(using: .utf8) ?? Data()
+                let stampData = stampType.data(using: .utf8) ?? Data()
+                let imageData = image.jpegData(compressionQuality: 0.1) ?? Data()
+                
+                multipartFormData.append(dateData, withName: "createDateTime")
+                multipartFormData.append(statusData, withName: "status")
+                multipartFormData.append(contentData, withName: "content")
+                multipartFormData.append(stampData, withName: "stampType")
+                multipartFormData.append(
+                    imageData,
+                    withName: "image",
+                    fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
+                    mimeType: "image/jpeg"
+                )
+            }, to: "http://49.50.174.147:8080/api/habit/\(self.habitId)/history", headers: headers)
+            .responseDecodable(of: DailyHabitResponseModel.self) { response in
+                let dailyHabitResponseModel = response.value
+                emitter.onNext(dailyHabitResponseModel)
+            }
+            
+            return Disposables.create()
         }
     }
     
@@ -62,7 +69,7 @@ final class HabitWritingViewModel: NSObject {
         "\(self.dailyHabitOrder)일차"
     }
     
-    func update(photoImage: UIImage? = nil, content: String? = nil) {
+    func update(photoImage: UIImage?, content: String?) {
         self.photoImage = photoImage
         self.content = content
     }

@@ -76,7 +76,7 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func addDownGestureRecognizer() {
-        let downSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe)).then {
+        let downSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe)).then {
             $0.direction = .down
         }
         

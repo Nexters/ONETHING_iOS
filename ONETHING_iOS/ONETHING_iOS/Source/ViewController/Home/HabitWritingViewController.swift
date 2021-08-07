@@ -11,6 +11,10 @@ import Then
 import RxSwift
 import RxCocoa
 
+protocol HabitWritingViewControllerDelegate: AnyObject {
+    func update(currentDailyHabitModel: DailyHabitResponseModel)
+}
+
 final class HabitWritingViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .darkContent }
     
@@ -22,6 +26,7 @@ final class HabitWritingViewController: BaseViewController {
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     private var lockPopupView: LockView?
     private let backgroundDimView = BackgroundDimView()
+    var delegate: HabitWritingViewControllerDelegate?
     
     var viewModel: HabitWritingViewModel?
     private var disposeBag = DisposeBag()
@@ -146,19 +151,18 @@ final class HabitWritingViewController: BaseViewController {
         }.disposed(by: disposeBag)
         
         self.completeButton.rx.tap.observeOnMain { [weak self] in
-            guard let self = self,
-                  let photoImage = self.dailyHabitView.photoImage,
-                  let content = self.dailyHabitView.contentText,
-                  content != ""
-            else { return }
+            guard let self = self else { return }
             
             self.viewModel?.update(
-                photoImage: photoImage,
-                content: content
+                photoImage: self.dailyHabitView.photoImage,
+                content: self.dailyHabitView.contentText
             )
             
-            self.viewModel?.postDailyHabit()
-//            self.navigationController?.popViewController(animated: true)
+            self.viewModel?.postDailyHabitAndGetResponse()
+                .compactMap { $0! }
+                .subscribe(onNext: { self.delegate?.update(currentDailyHabitModel: $0)
+                    self.navigationController?.popViewController(animated: true) })
+                .disposed(by: self.disposeBag)
         }.disposed(by: self.disposeBag)
     }
 }

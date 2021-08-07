@@ -18,6 +18,7 @@ final class HomeViewModel: NSObject {
     private(set) var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
+    let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
     init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
         self.apiService = apiService
@@ -89,6 +90,11 @@ final class HomeViewModel: NSObject {
             .joined(), let diffDays = Int(diffDaysStr) else { return nil }
         
         return diffDays
+    }
+    
+    func append(currentDailyHabitModel: DailyHabitResponseModel) {
+        self.dailyHabitModels.append(currentDailyHabitModel)
+        self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
     }
 }
 

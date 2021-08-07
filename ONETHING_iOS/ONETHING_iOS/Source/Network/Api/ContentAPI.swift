@@ -43,7 +43,7 @@ extension ContentAPI: TargetType {
             return "/api/habit/\(habitId)/daily-histories"
         case let .createDailyHabit(habitId: habitId):
             return "api/habit/\(habitId)/history"
-        case let .getDailyHabitImage(createDate: createDate, imageExtension: imageExtension):
+        case .getDailyHabitImage:
             return "/api/habit/history/image"
         }
     }
