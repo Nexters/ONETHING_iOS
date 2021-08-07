@@ -183,6 +183,10 @@ final class DailyHabitView: UIView {
     func hidePlaceHolderLabelOfTextView() {
         self.habitTextView.placeholderLabel.isHidden = true
     }
+    
+    func hideTextCountLabelOfTextView() {
+        self.habitTextView.textCountLabel.isHidden = true
+    }
 }
 
 extension DailyHabitView: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

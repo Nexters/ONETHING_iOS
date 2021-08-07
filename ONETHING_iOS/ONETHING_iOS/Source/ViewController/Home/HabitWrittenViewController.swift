@@ -58,6 +58,7 @@ final class HabitWrittenViewController: BaseViewController {
         self.dailyHabitView.do {
             $0.enrollPhotoButton.isHidden = true
             $0.hidePlaceHolderLabelOfTextView()
+            $0.hideTextCountLabelOfTextView()
             $0.dailyHabitViewCloseButtonDelegate = self
         }
         

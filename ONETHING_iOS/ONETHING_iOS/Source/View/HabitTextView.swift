@@ -9,9 +9,9 @@ import UIKit
 
 final class HabitTextView: UITextView {
     let placeholderLabel = UILabel()
+    let textCountLabel = UILabel()
     private let firstBottomLine = UIView()
     private let secondBottomLine = UIView()
-    private let textCountLabel = UILabel()
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)

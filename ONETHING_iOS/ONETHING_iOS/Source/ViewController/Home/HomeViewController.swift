@@ -19,9 +19,7 @@ final class HomeViewController: BaseViewController {
         frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
     private let backgroundDimView = BackgroundDimView()
-    private let homeEmptyView = HomeEmptyView().then {
-        $0.isHidden = true
-    }
+    private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
     private let viewModel = HomeViewModel()
     private var disposeBag = DisposeBag()
     
