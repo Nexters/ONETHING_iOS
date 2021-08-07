@@ -88,9 +88,11 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func updateViewsWithViewModel() {
+        guard let viewModel = self.viewModel else { return }
+        
         self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .normal)
         self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .highlighted)
-        self.dailyHabitView.update(contentText: self.viewModel?.contentText)
+        self.dailyHabitView.update(with: viewModel)
     }
 }
 

@@ -42,7 +42,7 @@ final class HabitWritingViewController: BaseViewController {
         self.setupHabitStampView()
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
-        self.backBtnTitleView.update(with: self.viewModel)
+        self.updateViewsWithViewModel()
         self.bindingButtons()
     }
     
@@ -145,6 +145,13 @@ final class HabitWritingViewController: BaseViewController {
         }
     }
     
+    private func updateViewsWithViewModel() {
+        guard let viewModel = self.viewModel else { return }
+        
+        self.backBtnTitleView.update(with: viewModel)
+        self.dailyHabitView.update(with: viewModel)
+    }
+    
     private func bindingButtons() {
         self.backBtnTitleView.backButton.rx.tap.observeOnMain { [weak self] in
             self?.navigationController?.popViewController(animated: true)
@@ -155,7 +162,7 @@ final class HabitWritingViewController: BaseViewController {
             
             self.viewModel?.update(
                 photoImage: self.dailyHabitView.photoImage,
-                content: self.dailyHabitView.contentText
+                contentText: self.dailyHabitView.contentText ?? ""
             )
             
             self.viewModel?.postDailyHabitAndGetResponse()

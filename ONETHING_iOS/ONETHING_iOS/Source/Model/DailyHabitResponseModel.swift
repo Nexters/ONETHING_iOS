@@ -8,13 +8,32 @@
 import Foundation
 
 struct DailyHabitResponseModel: Codable {
-    let habitHistoryId: Int
     let habitId: Int
-    let createDateTime: String
     let status: String
-    let stampType: String
-    let content: String
+    var habitHistoryId: Int
+    let createDateTime: String
+    var stampType: String?
+    var content: String
     var imageExtension: String?
+
+    // for dummyData
+    init(
+        habitId: Int,
+        status: String,
+        createDateTime: String,
+        habitHistoryId: Int = 0,
+        stampType: String = Stamp.defaultType,
+        content: String = "",
+        imageExtension: String? = nil
+        ) {
+        self.habitId = habitId
+        self.status = status
+        self.habitHistoryId = habitHistoryId
+        self.createDateTime = createDateTime
+        self.stampType = stampType
+        self.content = content
+        self.imageExtension = imageExtension
+    }
 }
 
 extension DailyHabitResponseModel {
@@ -28,16 +47,22 @@ extension DailyHabitResponseModel {
     }
     
     var castringStamp: Stamp? {
-        Stamp(rawValue: stampType)
+        Stamp(rawValue: stampType ?? Stamp.defaultType)
     }
     
-    var dateFormat: String {
-        "yyyy-MM-dd'T'HH:mm:ss"
-    }
-    
-    var createDate: String? {
+    var dateString: String? {
         return self.createDateTime
-            .convertToDate(format: self.dateFormat)?
+            .convertToDate(format: Self.dateFormat)?
             .convertString(format: "yyyy-MM-dd")
+    }
+    
+    var timeString: String? {
+        return self.createDateTime
+            .convertToDate(format: Self.dateFormat)?
+            .convertString(format: "HH:mm PM")
+    }
+    
+    static var dateFormat: String {
+        "yyyy-MM-dd'T'HH:mm:ss"
     }
 }

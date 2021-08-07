@@ -11,7 +11,7 @@ import Moya
 import RxSwift
 import Kingfisher
 
-final class HabitWrittenViewModel {
+final class HabitWrittenViewModel: DailyHabitViewModelable {
     private let dailyHabitModel: DailyHabitResponseModel
     private let apiService: APIService<ContentAPI>
     private let imageCache: Kingfisher.ImageCache
@@ -28,7 +28,7 @@ final class HabitWrittenViewModel {
         return Observable.create { [weak self] emitter in
             guard let self = self,
                   let createDate: String = self.dailyHabitModel.createDateTime
-                    .convertToDate(format: self.dailyHabitModel.dateFormat)?
+                    .convertToDate(format: DailyHabitResponseModel.dateFormat)?
                     .convertString(format: "yyyy-MM-dd") else { return Disposables.create() }
             
             // check first if image is in momoey cache
@@ -72,5 +72,19 @@ final class HabitWrittenViewModel {
     
     var contentText: String? {
         self.dailyHabitModel.content
+    }
+    
+    var dateText: String? {
+        self.dailyHabitModel
+            .createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "yyyy-MM-dd")
+    }
+    
+    var timeText: String? {
+        self.dailyHabitModel
+            .createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "HH:mm PM")
     }
 }

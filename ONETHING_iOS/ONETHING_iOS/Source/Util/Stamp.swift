@@ -76,4 +76,6 @@ enum Stamp: String, CaseIterable, CustomStringConvertible {
     var description: String {
         return self.rawValue
     }
+    
+    static let defaultType: String = Stamp.beige.description
 }

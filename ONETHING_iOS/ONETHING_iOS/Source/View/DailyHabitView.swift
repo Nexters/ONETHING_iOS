@@ -172,8 +172,10 @@ final class DailyHabitView: UIView {
         return self.photoView.image
     }
     
-    func update(contentText: String?) {
-        self.habitTextView.text = contentText
+    func update(with viewModel: DailyHabitViewModelable) {
+        self.habitTextView.text = viewModel.contentText
+        self.dateLabel.text = viewModel.dateText
+        self.timeLabel.text = viewModel.timeText
     }
     
     func update(photoImage: UIImage) {

@@ -10,18 +10,27 @@ import UIKit
 import Alamofire
 import RxSwift
 
-final class HabitWritingViewModel: NSObject {
+final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     private let session: Alamofire.Session
+    private var dailyHabitModel: DailyHabitResponseModel
     private var photoImage: UIImage?
-    private var content: String?
     private let habitId: Int
     private let dailyHabitOrder: Int
-    var selectedStampIndex: Int = 0
+    var selectedStampIndex: Int = 0 {
+        didSet {
+            self.dailyHabitModel.stampType = self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
+        }
+    }
 
     init(habitId: Int,
          dailyHabitOrder: Int,
          session: Alamofire.Session
     ) {
+        self.dailyHabitModel = DailyHabitResponseModel(
+            habitId: habitId,
+            status: "SUCCESS",
+            createDateTime: Date().convertString(format: DailyHabitResponseModel.dateFormat))
+        
         self.habitId = habitId
         self.dailyHabitOrder = dailyHabitOrder
         self.session = session
@@ -33,16 +42,14 @@ final class HabitWritingViewModel: NSObject {
     func postDailyHabitAndGetResponse() -> Observable<DailyHabitResponseModel?> {
         return Observable.create { [weak self] emitter in
             guard let self = self,
-                  let content = self.content,
-                  let stampType = self.stampType,
                   let image = self.photoImage else { return Disposables.create() }
             
             let headers = HTTPHeaders([HTTPHeader(name: "Authorization", value: NetworkInfomation.Request.HeaderValues.authorization)])
             self.session.upload(multipartFormData: { multipartFormData in
-                let dateData = Date().convertString(format: "yyyy-MM-dd'T'HH:mm:ss").data(using: .utf8) ?? Data()
-                let statusData = "SUCCESS".data(using: .utf8) ?? Data()
-                let contentData = content.data(using: .utf8) ?? Data()
-                let stampData = stampType.data(using: .utf8) ?? Data()
+                let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
+                let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
+                let contentData = self.dailyHabitModel.content.data(using: .utf8) ?? Data()
+                let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
                 let imageData = image.jpegData(compressionQuality: 0.1) ?? Data()
                 
                 multipartFormData.append(dateData, withName: "createDateTime")
@@ -69,9 +76,9 @@ final class HabitWritingViewModel: NSObject {
         "\(self.dailyHabitOrder)일차"
     }
     
-    func update(photoImage: UIImage?, content: String?) {
+    func update(photoImage: UIImage?, contentText: String) {
         self.photoImage = photoImage
-        self.content = content
+        self.dailyHabitModel.content = contentText
     }
     
     private var selectStampModels: [SelectStampModel] = Stamp.allCases.enumerated().map { n, stamp in
@@ -104,10 +111,6 @@ final class HabitWritingViewModel: NSObject {
         }
     }
     
-    var stampType: String? {
-        self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
-    }
-    
     func isLocked(at index: Int) -> Bool {
         return self.selectStampModels[safe: index] != nil && self.selectStampModels[safe: index]!.isLocked
     }
@@ -126,6 +129,24 @@ final class HabitWritingViewModel: NSObject {
                                     value: UIColor.red_default,
                                     range: attributedText.mutableString.range(of: "\(selectStampModel.lockedDays ?? 22)일"))
         return attributedText
+    }
+    
+    var contentText: String? {
+        self.dailyHabitModel.content
+    }
+    
+    var dateText: String? {
+        self.dailyHabitModel
+            .createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "yyyy-MM-dd")
+    }
+    
+    var timeText: String? {
+        self.dailyHabitModel
+            .createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "HH:mm PM")
     }
 }
 
