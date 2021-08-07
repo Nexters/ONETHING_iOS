@@ -34,7 +34,7 @@ final class HabitWrittenViewController: BaseViewController {
 
         self.updateViewsWithViewModel()
         self.viewModel?.requestHabitImage()
-            .bind { self.dailyHabitView.update(photoImage:$0) }
+            .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
             .disposed(by: disposeBag)
     }
 
