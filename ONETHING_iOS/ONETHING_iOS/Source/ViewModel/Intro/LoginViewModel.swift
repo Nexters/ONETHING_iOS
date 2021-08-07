@@ -46,6 +46,8 @@ final class LoginViewModel {
             self?.completeSubject.onNext(doneHabbitSetting)
         }, errorHandler: { [weak self] error in
             self?.loadingSubject.onNext(false)
+        }, retryHandler: { [weak self] in
+            self?.loginApple(authorizationCode, identityToken, userName)
         })
     }
     

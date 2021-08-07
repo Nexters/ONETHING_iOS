@@ -23,6 +23,8 @@ final class ProfileViewModel {
         self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
             guard let self = self else { return }
             self.userRelay.accept(userModel)
+        }, retryHandler: { [weak self] in
+            self?.requestUserInform()
         })
     }
     

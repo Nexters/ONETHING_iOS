@@ -26,11 +26,6 @@ final class ProfileViewController: BaseViewController {
         super.reloadContentsIfRequired()
     }
     
-    override func clearContents() {
-        super.clearContents()
-        #warning("로그아웃할 때, 지워주기")
-    }
-    
     private func setupTableView() {
         let rowHeight: CGFloat = 64
         self.tableView.registerCell(cellType: ProfileMenuTableViewCell.self)

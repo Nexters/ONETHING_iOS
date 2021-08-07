@@ -95,7 +95,8 @@ final class APIService<T: TargetType> {
                 }
                 
                 self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
-            case .failure:
+            case .failure(let error):
+                errorHandler?(error as Error)
                 guard NetworkErrorPopupView.isPresented == false                                    else { return }
                 guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
                 guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }

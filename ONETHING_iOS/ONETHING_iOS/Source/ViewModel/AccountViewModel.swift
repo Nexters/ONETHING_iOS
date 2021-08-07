@@ -19,7 +19,9 @@ final class AccountViewModel {
         let accountAPI = UserAPI.account
         self.loadingSubject.onNext(true)
         
-        APIService<UserAPI>.requestRx(apiTarget: accountAPI).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
+        APIService<UserAPI>.requestRx(apiTarget: accountAPI, retryHandler: { [weak self] in
+            self?.requestUserInform()
+        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
             guard let self = self else { return }
             self.loadingSubject.onNext(false)
             self.userRelay.accept(userModel)
@@ -35,7 +37,9 @@ final class AccountViewModel {
         self.loadingSubject.onNext(true)
         let logoutAPI = UserAPI.logout(accessToken: accessToken, refreshToken: refreshToken)
         
-        APIService<UserAPI>.requestRx(apiTarget: logoutAPI).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
+        APIService<UserAPI>.requestRx(apiTarget: logoutAPI, retryHandler: { [weak self] in
+            self?.requestLogout()
+        }).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
             guard let self = self else { return }
             self.loadingSubject.onNext(false)
             
