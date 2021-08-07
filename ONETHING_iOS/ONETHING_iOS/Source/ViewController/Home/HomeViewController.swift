@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.addObserver()
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
@@ -37,6 +37,11 @@ final class HomeViewController: BaseViewController {
     
     override func reloadContentsIfRequired() {
         super.reloadContentsIfRequired()
+    }
+    
+    private func addObserver() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(self.updateUserInform(_:)), name: .didUpdateUserInform, object: nil)
     }
     
     private func setupHabitInfoView() {
@@ -77,6 +82,12 @@ final class HomeViewController: BaseViewController {
         self.homeEmptyView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
+    }
+    
+    @objc private func updateUserInform(_ notification: Notification) {
+        guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
+        guard let userName = currentUser.name                                  else { return }
+        self.habitInfoView.updateDescription(userName, 10)
     }
 }
 

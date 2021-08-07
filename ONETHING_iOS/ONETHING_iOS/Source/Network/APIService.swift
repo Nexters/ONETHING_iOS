@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 final class APIService<T: TargetType> {
     private let provider: MoyaProvider<T>
@@ -14,6 +15,46 @@ final class APIService<T: TargetType> {
     
     init(provider: MoyaProvider<T> = MoyaProvider<T>(session: DefaultSession.sharedInstance)) {
         self.provider = provider
+    }
+    
+    static func requestRx<C: Codable>(apiTarget: T) -> Single<C> {
+        let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
+        return Single<C>.create { single in
+            let request = provider.request(apiTarget) { result in
+                switch result {
+                case .success(let response):
+                    if let onethingErrorModel = response.onethingErrorModel,
+                       let onethingError = onethingErrorModel.onethingError {
+                        OnethingErrorHandler.sharedInstance.handleError(onethingError)
+                        single(.failure(onethingError))
+                        return
+                    }
+                    
+                    do {
+                        guard let resultData = try response.mapString().data(using: .utf8) else {
+                            throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
+                        }
+                        
+                        let responseJson = try JSONDecoder().decode(C.self, from: resultData)
+                        single(.success(responseJson))
+                    } catch let error {
+                        single(.failure(error))
+                    }
+                case .failure(let error):
+                    print(error)
+                    
+                }
+            }
+            return Disposables.create { request.cancel() }
+        }.retry { errorObservable -> Observable<Int> in
+            return errorObservable.flatMap { error -> Observable<Int> in
+                let onethingError = error as? OnethingError
+                if onethingError == .expiredAccessToken {
+                    return Observable<Int>.timer(.milliseconds(1500), scheduler: MainScheduler.instance)
+                }
+                return Observable.error(error)
+            }
+        }
     }
     
     func requestAndDecode<D: Decodable>(
@@ -39,11 +80,6 @@ final class APIService<T: TargetType> {
                         self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler)
                     }
                     return
-                }
-                
-                if let userAPI = target as? UserAPI, case .logout = userAPI {
-                    if response.statusCode == 200 { comepleteHandler(true as! D) }
-                    else { comepleteHandler(false as! D) }
                 }
                 
                 self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
