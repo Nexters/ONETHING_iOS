@@ -21,22 +21,22 @@ protocol DailyHabitViewPhotoViewDelegate: UIViewController {
 }
 
 final class DailyHabitView: UIView {
-    private let closeButton = UIButton()
+    let enrollPhotoButton = UIButton()
+    let closeButton = UIButton()
     private let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
-    private let enrollPhotoButton = UIButton()
     private let habitTextView = HabitTextView()
     
     weak var dailyHabitViewCloseButtonDelegate: DailyHabitViewCloseButtonDelegate?
     weak var dailyHabitViewPhotoViewDelegate: DailyHabitViewPhotoViewDelegate?
     private let picker = UIImagePickerController()
     
-    init(frame: CGRect = .zero, hideCloseButton: Bool) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         self.setupAddSubviews()
-        self.setupCloseButton(with: hideCloseButton)
+        self.setupCloseButton()
         self.setupTimeLabel()
         self.setupDateLabel()
         self.setupPhotoView()
@@ -55,10 +55,9 @@ final class DailyHabitView: UIView {
         }
     }
     
-    private func setupCloseButton(with hideCloseButton: Bool) {
+    private func setupCloseButton() {
         self.closeButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
         self.closeButton.tintColor = .darkGray
-        self.closeButton.isHidden = hideCloseButton == true ? true : false
         self.closeButton.addTarget(self, action: #selector(self.closeButtonDidTouch), for: .touchUpInside)
         
         let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0

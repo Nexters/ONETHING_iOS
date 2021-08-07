@@ -15,7 +15,7 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 }
 
 final class HabitWrittenViewController: BaseViewController {
-    private let dailyHabitView = DailyHabitView(hideCloseButton: false)
+    private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
     private let viewModel = HabitWrittenViewModel()
     private var disposeBag = DisposeBag()
@@ -47,8 +47,12 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.dailyHabitView.hidePlaceHolderLabelOfTextView()
-        self.dailyHabitView.dailyHabitViewCloseButtonDelegate = self
+        self.dailyHabitView.do {
+            $0.enrollPhotoButton.isHidden = true
+            $0.hidePlaceHolderLabelOfTextView()
+            $0.dailyHabitViewCloseButtonDelegate = self
+        }
+        
         self.view.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(40)

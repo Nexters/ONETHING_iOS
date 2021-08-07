@@ -14,7 +14,7 @@ import RxCocoa
 final class HabitWritingViewController: BaseViewController {
     private var backBtnTitleView: BackBtnTitleView!
     private var completeButton = CompleteButton()
-    private let dailyHabitView = DailyHabitView(hideCloseButton: true)
+    private let dailyHabitView = DailyHabitView()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
@@ -78,7 +78,10 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.dailyHabitView.dailyHabitViewPhotoViewDelegate = self
+        self.dailyHabitView.do {
+            $0.dailyHabitViewPhotoViewDelegate = self
+            $0.closeButton.isHidden = true
+        }
         
         self.keyboardDismissableView.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
