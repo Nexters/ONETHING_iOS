@@ -166,7 +166,8 @@ final class HabitWritingViewController: BaseViewController {
             )
             
             self.viewModel?.postDailyHabitAndGetResponse()
-                .compactMap { $0! }
+                .compactMap { $0 }
+                .map { $0! }
                 .subscribe(onNext: { self.delegate?.update(currentDailyHabitModel: $0)
                     self.navigationController?.popViewController(animated: true) })
                 .disposed(by: self.disposeBag)
