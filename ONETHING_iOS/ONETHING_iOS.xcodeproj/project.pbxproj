@@ -296,9 +296,12 @@
 		F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
+		F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */; };
+		F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */; };
 		F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */; };
 		F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */; };
 		F23DD4CD26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */; };
+		F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */; };
 		F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
@@ -535,6 +538,7 @@
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitViewModelable.swift; sourceTree = "<group>"; };
+		F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitImageUseCase.swift; sourceTree = "<group>"; };
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -740,6 +744,7 @@
 				CE7247BD2699BE6500BB2C19 /* Extension */,
 				CEFF0A3D269C87B200DB8D2D /* Storyboard */,
 				CE7247B4269995AA00BB2C19 /* Model */,
+				F23DD4CE26BF5C1700DCDDE5 /* UseCase */,
 				CE7247CE2699D65200BB2C19 /* ViewModel */,
 				CE7247B32699955900BB2C19 /* ViewController */,
 				CE7247B22699955600BB2C19 /* View */,
@@ -1021,6 +1026,13 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
+		F23DD4CE26BF5C1700DCDDE5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		F267F9C2269A78C400219B05 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1033,6 +1045,7 @@
 		F27E217526BB958D00020EE3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */,
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = Home;
@@ -1542,6 +1555,7 @@
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
+				F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
@@ -1655,6 +1669,7 @@
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
+				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
@@ -1769,6 +1784,7 @@
 				F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
+				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -2129,7 +2145,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2150,7 +2166,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

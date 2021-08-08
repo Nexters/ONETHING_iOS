@@ -43,7 +43,8 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
         return Observable.create { [weak self] emitter in
             guard let self = self else { return Disposables.create() }
             
-            let headers = HTTPHeaders([HTTPHeader(name: "Authorization", value: NetworkInfomation.Request.HeaderValues.authorization)])
+            let headers = HTTPHeaders([HTTPHeader(name: NetworkInfomation.HeaderKey.authorization,
+                                                  value: NetworkInfomation.HeaderValue.authorization)])
             self.session.upload(multipartFormData: { multipartFormData in
                 let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
                 let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()

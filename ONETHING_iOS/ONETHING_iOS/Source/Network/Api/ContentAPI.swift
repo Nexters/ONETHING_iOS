@@ -85,7 +85,7 @@ extension ContentAPI: TargetType {
     var headers: [String: String]? {
         switch self {
             case .createDailyHabit:
-                return [NetworkInfomation.Request.HeaderKeys.authorization: NetworkInfomation.Request.HeaderValues.authorization]
+                return [NetworkInfomation.HeaderKey.authorization: NetworkInfomation.HeaderValue.authorization]
             default:
                 return NetworkInfomation.headers
         }

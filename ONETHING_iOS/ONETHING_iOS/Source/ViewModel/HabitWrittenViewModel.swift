@@ -13,14 +13,12 @@ import Kingfisher
 
 final class HabitWrittenViewModel: DailyHabitViewModelable {
     private let dailyHabitModel: DailyHabitResponseModel
-    private let apiService: APIService<ContentAPI>
+    private let imageUseCase = HabitImageUseCase()
     private let imageCache: Kingfisher.ImageCache
     
     init(dailyHabitModel: DailyHabitResponseModel,
-         apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>()),
          imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default) {
         self.dailyHabitModel = dailyHabitModel
-        self.apiService = apiService
         self.imageCache = imageCache
     }
     
@@ -31,38 +29,13 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
                     .convertToDate(format: DailyHabitResponseModel.dateFormat)?
                     .convertString(format: "yyyy-MM-dd") else { return Disposables.create() }
             
-            // check first if image is in momoey cache
-            let photoImage = self.imageCache.retrieveImageInMemoryCache(forKey: createDate)
-            if photoImage != nil {
-                emitter.onNext(photoImage!)
-                return Disposables.create()
-            }
-            
-            self.fetchAndStoreImageOnMemory(
+            self.imageUseCase.requestHabitImage(
                 createDate: createDate,
-                imageExtension: self.dailyHabitModel.imageExtension ?? "jpg"
-            ) { (photoImage: UIImage) in
-                
-                emitter.onNext(photoImage)
-                
+                imageExtension: self.dailyHabitModel.imageExtension ?? "jpg") { (photoImage: UIImage) in
+                    emitter.onNext(photoImage)
             }
             
             return Disposables.create()
-        }
-    }
-    
-    private func fetchAndStoreImageOnMemory(createDate: String, imageExtension: String, completionHandler: @escaping (UIImage) -> Void) {
-        let api = ContentAPI.getDailyHabitImage(
-            createDate: createDate,
-            imageExtension:  imageExtension
-        )
-        
-        self.apiService.request(api: api) { (photoImageData: Data) in
-            guard let photoImage = UIImage(data: photoImageData) else { return }
-            
-            // store image to memory cache
-            self.imageCache.store(photoImage, forKey: createDate, toDisk: false)
-            completionHandler(photoImage)
         }
     }
     
