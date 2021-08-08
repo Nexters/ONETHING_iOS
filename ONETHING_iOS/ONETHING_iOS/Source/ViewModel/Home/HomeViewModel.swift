@@ -94,8 +94,15 @@ final class HomeViewModel: NSObject {
     
     func append(currentDailyHabitModel: DailyHabitResponseModel) {
         self.dailyHabitModels.append(currentDailyHabitModel)
+        self.currentDailyHabitModel = currentDailyHabitModel
         self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
     }
+    
+    func canCreatCurrentDailyHabitModel(with index: Int) -> Bool {
+        return self.currentDailyHabitModel == nil && self.dailyHabitModels.count == index
+    }
+    
+    private var currentDailyHabitModel: DailyHabitResponseModel?
 }
 
 extension HomeViewModel: UICollectionViewDataSource {

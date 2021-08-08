@@ -128,6 +128,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if let dailyHabitModel = self.viewModel.dailyHabitModels[safe: indexPath.row] {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
+            guard self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
+            
             self.presentHabitWritingViewController(with: indexPath)
         }
     }

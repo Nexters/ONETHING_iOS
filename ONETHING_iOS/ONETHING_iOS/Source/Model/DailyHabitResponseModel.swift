@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DailyHabitResponseModel: Codable {
+struct DailyHabitResponseModel: Codable, Equatable {
     var habitHistoryId: Int
     let habitId: Int
     let createDateTime: String
