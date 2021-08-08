@@ -14,20 +14,14 @@ final class AccountViewModel {
     let logoutSuccessSubject = PublishSubject<Void>()
     let loadingSubject = PublishSubject<Bool>()
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
-    
+
     func requestUserInform() {
-        let accountAPI = UserAPI.account
         self.loadingSubject.onNext(true)
         
-        APIService<UserAPI>.requestRx(apiTarget: accountAPI, retryHandler: { [weak self] in
-            self?.requestUserInform()
-        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
-            guard let self = self else { return }
-            self.loadingSubject.onNext(false)
-            self.userRelay.accept(userModel)
-        }, onFailure: { [weak self] error in
+        OnethingUserManager.sharedInstance.requestAccount { [weak self] user in
+            self?.userRelay.accept(user)
             self?.loadingSubject.onNext(false)
-        }).disposed(by: self.disposeBag)
+        }
     }
     
     func requestLogout() {
@@ -37,7 +31,7 @@ final class AccountViewModel {
         self.loadingSubject.onNext(true)
         let logoutAPI = UserAPI.logout(accessToken: accessToken, refreshToken: refreshToken)
         
-        APIService<UserAPI>.requestRx(apiTarget: logoutAPI, retryHandler: { [weak self] in
+        APIService<UserAPI>.requestAndDecodeRx(apiTarget: logoutAPI, retryHandler: { [weak self] in
             self?.requestLogout()
         }).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
             guard let self = self else { return }

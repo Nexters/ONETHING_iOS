@@ -12,12 +12,12 @@ import RxSwift
 final class APIService<T: TargetType> {
     private let provider: MoyaProvider<T>
     private let jsonDecoder = JSONDecoder()
-    
+
     init(provider: MoyaProvider<T> = MoyaProvider<T>(session: DefaultSession.sharedInstance)) {
         self.provider = provider
     }
     
-    static func requestRx<C: Codable>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
+    static func requestAndDecodeRx<C: Codable>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
         return Single<C>.create { single in
             let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
             let request = provider.request(apiTarget) { result in

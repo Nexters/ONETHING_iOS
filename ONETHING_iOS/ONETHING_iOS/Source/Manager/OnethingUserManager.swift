@@ -40,11 +40,22 @@ final class OnethingUserManager {
         guard let refreshToken = self.refreshToken else { return }
         
         let refreshAPI = UserAPI.refresh(accessToken: accessToken, refreshToken: refreshToken)
-        APIService<UserAPI>.requestRx(apiTarget: refreshAPI).subscribe(onSuccess: { (tokenResponseModel: TokenResponseModel) in
+        APIService<UserAPI>.requestAndDecodeRx(apiTarget: refreshAPI).subscribe(onSuccess: { (tokenResponseModel: TokenResponseModel) in
             guard let accessToken = tokenResponseModel.accessToken   else { return }
             guard let refreshToken = tokenResponseModel.refreshToken else { return }
             
             self.updateAuthToken(accessToken, refreshToken)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func requestAccount(completion: @escaping (OnethingUserModel) -> Void) {
+        let accountAPI = UserAPI.account
+        APIService<UserAPI>.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
+            self?.requestAccount(completion: completion)
+        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
+            self?.setCurrentUser(userModel)
+            NotificationCenter.default.post(name: .didUpdateUserInform, object: nil)
+            completion(userModel)
         }).disposed(by: self.disposeBag)
     }
     

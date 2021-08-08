@@ -80,8 +80,9 @@ final class ProfileViewController: BaseViewController {
     }
     
     private func showPreparePopupView() {
-        guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
-        guard let tabbarController = self.tabBarController                    else { return }
+        guard let preparePopupView: CustomPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController                   else { return }
+        preparePopupView.configure(title: "서비스를\n준비중이에요!", image: #imageLiteral(resourceName: "prepare_rabbit"))
         preparePopupView.show(in: tabbarController)
     }
     
