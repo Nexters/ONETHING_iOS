@@ -39,36 +39,31 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
         self.updateSelectStampModels()
     }
     
-    func postDailyHabitRx() -> Observable<DailyHabitResponseModel?> {
-        return Observable.create { [weak self] emitter in
-            guard let self = self else { return Disposables.create() }
+    func postDailyHabit(completionHandler: @escaping (DailyHabitResponseModel) -> ()) {
+        let headers = HTTPHeaders([HTTPHeader(name: NetworkInfomation.HeaderKey.authorization,
+                                              value: NetworkInfomation.HeaderValue.authorization)])
+        self.session.upload(multipartFormData: { [weak self] multipartFormData in
+            guard let self = self else { return }
+            let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
+            let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
+            let contentData = self.dailyHabitModel.content?.data(using: .utf8) ?? Data()
+            let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
+            let imageData = self.photoImage?.jpegData(compressionQuality: 0.1) ?? Data()
             
-            let headers = HTTPHeaders([HTTPHeader(name: NetworkInfomation.HeaderKey.authorization,
-                                                  value: NetworkInfomation.HeaderValue.authorization)])
-            self.session.upload(multipartFormData: { multipartFormData in
-                let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
-                let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
-                let contentData = self.dailyHabitModel.content?.data(using: .utf8) ?? Data()
-                let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
-                let imageData = self.photoImage?.jpegData(compressionQuality: 0.1) ?? Data()
-                
-                multipartFormData.append(dateData, withName: "createDateTime")
-                multipartFormData.append(statusData, withName: "status")
-                multipartFormData.append(contentData, withName: "content")
-                multipartFormData.append(stampData, withName: "stampType")
-                multipartFormData.append(
-                    imageData,
-                    withName: "image",
-                    fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
-                    mimeType: "image/jpeg"
-                )
-            }, to: "http://49.50.174.147:8080/api/habit/\(self.habitId)/history", headers: headers)
-            .responseDecodable(of: DailyHabitResponseModel.self) { response in
-                let dailyHabitResponseModel = response.value
-                emitter.onNext(dailyHabitResponseModel)
-            }
-            
-            return Disposables.create()
+            multipartFormData.append(dateData, withName: "createDateTime")
+            multipartFormData.append(statusData, withName: "status")
+            multipartFormData.append(contentData, withName: "content")
+            multipartFormData.append(stampData, withName: "stampType")
+            multipartFormData.append(
+                imageData,
+                withName: "image",
+                fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
+                mimeType: "image/jpeg"
+            )
+        }, to: "http://49.50.174.147:8080/api/habit/\(self.habitId)/history", headers: headers)
+        .responseDecodable(of: DailyHabitResponseModel.self) { response in
+            guard let dailyHabitResponseModel = response.value else { return }
+            completionHandler(dailyHabitResponseModel)
         }
     }
     

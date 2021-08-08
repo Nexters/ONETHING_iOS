@@ -165,13 +165,11 @@ final class HabitWritingViewController: BaseViewController {
                 contentText: self.dailyHabitView.contentText ?? ""
             )
             
-            self.viewModel?.postDailyHabitRx()
-                .compactMap { $0 }
-                .map { $0! }
-                .subscribe(onNext: { [weak self] in
-                    self?.delegate?.update(currentDailyHabitModel: $0)
-                    self?.navigationController?.popViewController(animated: true) }
-                ).disposed(by: self.disposeBag)
+            self.viewModel?.postDailyHabit{ [weak self] dailyHabitResponseModel in
+                self?.delegate?.update(currentDailyHabitModel: dailyHabitResponseModel)
+                self?.navigationController?.popViewController(animated: true)
+            }
+            
         }.disposed(by: self.disposeBag)
     }
 }
