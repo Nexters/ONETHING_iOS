@@ -11,24 +11,17 @@ import RxRelay
 
 final class AccountViewModel {
     
+    let logoutSuccessSubject = PublishSubject<Void>()
     let loadingSubject = PublishSubject<Bool>()
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
-    
-    init(apiService: APIService<UserAPI> = APIService<UserAPI>()) {
-        self.apiService = apiService
-    }
-    
+
     func requestUserInform() {
         self.loadingSubject.onNext(true)
         
-        let accountAPI = UserAPI.account
-        self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
-            guard let self = self else { return }
-            self.loadingSubject.onNext(false)
-            self.userRelay.accept(userModel)
-        }, errorHandler: { [weak self] _ in
+        OnethingUserManager.sharedInstance.requestAccount { [weak self] user in
+            self?.userRelay.accept(user)
             self?.loadingSubject.onNext(false)
-        })
+        }
     }
     
     func requestLogout() {
@@ -37,21 +30,22 @@ final class AccountViewModel {
         
         self.loadingSubject.onNext(true)
         let logoutAPI = UserAPI.logout(accessToken: accessToken, refreshToken: refreshToken)
-        self.apiService.requestAndDecode(api: logoutAPI, comepleteHandler: { [weak self] (isSuccess: Bool) in
+        
+        APIService<UserAPI>.requestAndDecodeRx(apiTarget: logoutAPI, retryHandler: { [weak self] in
+            self?.requestLogout()
+        }).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
             guard let self = self else { return }
             self.loadingSubject.onNext(false)
             
-            if isSuccess {
+            if isSuccess == true {
                 OnethingUserManager.sharedInstance.logout()
-            } else {
-                print("Failure")
+                self.logoutSuccessSubject.onNext(())
             }
-        }, errorHandler: { [weak self] error in
+        }, onFailure: { [weak self] error in
             self?.loadingSubject.onNext(false)
-        })
+        }).disposed(by: self.disposeBag)
     }
     
-    private let apiService: APIService<UserAPI>
     private let disposeBag = DisposeBag()
     
 }

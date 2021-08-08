@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class PreparePopupView: UIView {
+class CustomPopupView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +26,11 @@ class PreparePopupView: UIView {
         self.showCrossDissolve()
     }
     
+    func configure(title: String?, image: UIImage?) {
+        self.titleLabel.text = title
+        self.imageView.image = image
+    }
+    
     private func bindTapGesture() {
         let tapGesture = UITapGestureRecognizer()
         tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
@@ -38,5 +43,5 @@ class PreparePopupView: UIView {
     
     @IBOutlet private weak var dimView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    
+    @IBOutlet private weak var imageView: UIImageView!
 }

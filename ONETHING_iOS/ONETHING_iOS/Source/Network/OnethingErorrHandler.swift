@@ -5,7 +5,7 @@
 //  Created by Dongmin on 2021/07/27.
 //
 
-import Foundation
+import UIKit
 
 final class OnethingErrorHandler {
     
@@ -13,17 +13,21 @@ final class OnethingErrorHandler {
     
     func handleError(_ error: OnethingError) {
         switch error {
-        case .expiredAccessToken: self.handleExpiredAccessTokenError()
+        case .expiredAccessToken:  self.handleExpiredAccessTokenError()
         case .expiredRefreshToken: self.handleExpiredRefreshTokenError()
         }
     }
     
     private func handleExpiredAccessTokenError() {
-        
+        OnethingUserManager.sharedInstance.requestAccessTokenUsingRefreshToken()
     }
     
     private func handleExpiredRefreshTokenError() {
+        guard let rootViewController = UIViewController.rootViewController           else { return }
+        guard let mainTabbarController = rootViewController as? MainTabBarController else { return }
         
+        OnethingUserManager.sharedInstance.logout()
+        mainTabbarController.processLogout()
     }
     
     private init() { }

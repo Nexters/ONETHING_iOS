@@ -12,6 +12,7 @@ import Moya
 enum UserAPI {
     case logout(accessToken: String, refreshToken: String)
     case appleLogin(authorizationCode: String, identityToken: String, userName: String? = nil)
+    case refresh(accessToken: String, refreshToken: String)
     case account
 }
 
@@ -22,17 +23,19 @@ extension UserAPI: TargetType {
     
     var path: String {
         switch self {
-        case .appleLogin: return "/auth/apple/login"
-        case .account: return "/api/account"
-        case .logout: return "/auth/apple/logout"
+        case .logout:       return "/auth/apple/logout"
+        case .appleLogin:   return "/auth/apple/login"
+        case .refresh:      return "/auth/token/refresh"
+        case .account:      return "/api/account"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .logout: fallthrough
-        case .appleLogin: return .post
-        case .account: return .get
+        case .logout:       fallthrough
+        case .appleLogin:   return .post
+        case .refresh:      return .post
+        case .account:      return .get
         }
     }
     
@@ -49,6 +52,8 @@ extension UserAPI: TargetType {
             var parameters: [String: Any] = ["authorizationCode": authorizationCode, "identityToken": identityToken]
             if let userName = userName { parameters["userName"] = userName }
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .refresh(let accessToken, let refreshToken):
+            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken], encoding: JSONEncoding.default)
         case .account:
             return .requestPlain
         }
