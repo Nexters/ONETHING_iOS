@@ -1029,6 +1029,7 @@
 		F23DD4CE26BF5C1700DCDDE5 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1045,7 +1046,6 @@
 		F27E217526BB958D00020EE3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */,
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = Home;
