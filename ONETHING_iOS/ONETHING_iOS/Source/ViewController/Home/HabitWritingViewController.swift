@@ -157,7 +157,7 @@ final class HabitWritingViewController: BaseViewController {
             self?.navigationController?.popViewController(animated: true)
         }.disposed(by: disposeBag)
         
-        self.completeButton.rx.tap.observeOnMain { [weak self] in
+        self.completeButton.rx.tap.single().observeOnMain { [weak self] in
             guard let self = self else { return }
             
             self.viewModel?.update(
