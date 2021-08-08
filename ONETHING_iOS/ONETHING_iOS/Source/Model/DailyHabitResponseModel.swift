@@ -50,18 +50,6 @@ extension DailyHabitResponseModel {
         Stamp(rawValue: stampType ?? Stamp.defaultType)
     }
     
-    var dateString: String? {
-        return self.createDateTime
-            .convertToDate(format: Self.dateFormat)?
-            .convertString(format: "yyyy-MM-dd")
-    }
-    
-    var timeString: String? {
-        return self.createDateTime
-            .convertToDate(format: Self.dateFormat)?
-            .convertString(format: "HH:mm PM")
-    }
-    
     static var dateFormat: String {
         "yyyy-MM-dd'T'HH:mm:ss"
     }
