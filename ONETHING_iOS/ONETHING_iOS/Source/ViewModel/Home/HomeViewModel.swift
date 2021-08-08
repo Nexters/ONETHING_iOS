@@ -14,8 +14,8 @@ final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
     private let apiService: APIService<ContentAPI>
-    private(set) var habitInProgressModel: HabitResponseModel?
-    private(set) var dailyHabitModels = [DailyHabitResponseModel]()
+    private var habitInProgressModel: HabitResponseModel?
+    private var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
@@ -36,6 +36,14 @@ final class HomeViewModel: NSObject {
             self?.dailyHabitModels = dailyHabitsResponseModel.histories
             self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
         }
+    }
+    
+    func dailyHabitModel(at index: Int) -> DailyHabitResponseModel? {
+        return self.dailyHabitModels[safe: index]
+    }
+    
+    var habitID: Int? {
+        self.habitInProgressModel?.habitId
     }
     
     var discriptionText: String? {

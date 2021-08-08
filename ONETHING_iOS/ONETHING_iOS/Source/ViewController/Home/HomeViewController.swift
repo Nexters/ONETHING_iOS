@@ -125,7 +125,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let dailyHabitModel = self.viewModel.dailyHabitModels[safe: indexPath.row] {
+        if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
             guard self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
@@ -150,7 +150,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let habitWritingViewController = HabitWritingViewController().then {
             $0.delegate = self
             $0.viewModel = HabitWritingViewModel(
-                habitId: self.viewModel.habitInProgressModel?.habitId ?? 1,
+                habitId: self.viewModel.habitID ?? 1,
                 dailyHabitOrder: indexPath.row + 1,
                 session: Alamofire.AF
             )
