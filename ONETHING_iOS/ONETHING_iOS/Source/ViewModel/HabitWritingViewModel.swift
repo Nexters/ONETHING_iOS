@@ -39,7 +39,7 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
         self.updateSelectStampModels()
     }
     
-    func postDailyHabitAndGetResponse() -> Observable<DailyHabitResponseModel?> {
+    func postDailyHabitRx() -> Observable<DailyHabitResponseModel?> {
         return Observable.create { [weak self] emitter in
             guard let self = self else { return Disposables.create() }
             

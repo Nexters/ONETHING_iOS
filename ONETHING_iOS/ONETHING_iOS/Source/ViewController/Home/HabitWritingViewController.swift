@@ -165,7 +165,7 @@ final class HabitWritingViewController: BaseViewController {
                 contentText: self.dailyHabitView.contentText ?? ""
             )
             
-            self.viewModel?.postDailyHabitAndGetResponse()
+            self.viewModel?.postDailyHabitRx()
                 .compactMap { $0 }
                 .map { $0! }
                 .subscribe(onNext: { [weak self] in

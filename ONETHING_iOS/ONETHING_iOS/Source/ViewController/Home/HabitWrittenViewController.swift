@@ -33,7 +33,7 @@ final class HabitWrittenViewController: BaseViewController {
         self.addDownGestureRecognizer()
 
         self.updateViewsWithViewModel()
-        self.viewModel?.requestHabitImage()
+        self.viewModel?.requestHabitImageRx()
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
             .disposed(by: disposeBag)
     }

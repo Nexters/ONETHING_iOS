@@ -24,7 +24,7 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
         self.imageCache = imageCache
     }
     
-    func requestHabitImage() -> Observable<Image> {
+    func requestHabitImageRx() -> Observable<Image> {
         return Observable.create { [weak self] emitter in
             guard let self = self,
                   let createDate: String = self.dailyHabitModel.createDateTime
