@@ -29,7 +29,7 @@ final class HabitWritingViewController: BaseViewController {
     var delegate: HabitWritingViewControllerDelegate?
     
     var viewModel: HabitWritingViewModel?
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

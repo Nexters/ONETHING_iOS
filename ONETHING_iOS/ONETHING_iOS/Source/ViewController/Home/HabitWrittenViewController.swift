@@ -19,7 +19,7 @@ final class HabitWrittenViewController: BaseViewController {
     
     private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     var viewModel: HabitWrittenViewModel?
     weak var delegate: HabitWrittenViewControllerDelegate?

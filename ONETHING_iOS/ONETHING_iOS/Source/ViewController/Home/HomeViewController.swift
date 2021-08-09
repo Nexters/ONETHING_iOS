@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
     private let viewModel = HomeViewModel()
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
