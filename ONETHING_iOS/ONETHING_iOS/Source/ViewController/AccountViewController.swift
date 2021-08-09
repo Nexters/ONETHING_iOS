@@ -50,6 +50,10 @@ final class AccountViewController: UIViewController {
         self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
             loading ? self?.startLoadingIndicator() : self?.stopLoadingIndicator()
         }).disposed(by: self.disposeBag)
+        
+        self.viewModel.logoutSuccessSubject.observeOnMain(onNext: { [weak self] in
+            self?.mainTabbarController?.processLogout()
+        }).disposed(by: self.disposeBag)
     }
     
     private func startLoadingIndicator() {
@@ -60,6 +64,10 @@ final class AccountViewController: UIViewController {
     private func stopLoadingIndicator() {
         self.loadingIndicatorView.isHidden = true
         self.loadingIndicatorView.stopAnimating()
+    }
+    
+    private var mainTabbarController: MainTabBarController? {
+        return self.navigationController?.tabBarController as? MainTabBarController
     }
     
     private let disposeBag = DisposeBag()

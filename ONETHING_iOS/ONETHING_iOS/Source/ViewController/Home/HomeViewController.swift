@@ -27,6 +27,7 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+		self.addObserver()
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
@@ -42,6 +43,18 @@ final class HomeViewController: BaseViewController {
     
     override func reloadContentsIfRequired() {
         super.reloadContentsIfRequired()
+        #warning("Login할 때, API 재 호출")
+        
+    }
+    
+    override func clearContents() {
+        super.clearContents()
+        #warning("Logout할 때, UI 지워주기")
+    }
+    
+    private func addObserver() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(self.updateUserInform(_:)), name: .didUpdateUserInform, object: nil)
     }
     
     private func setupHabitInfoView() {
@@ -111,6 +124,12 @@ final class HomeViewController: BaseViewController {
                 self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+  
+	@objc private func updateUserInform(_ notification: Notification) {
+        guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
+        guard let userName = currentUser.name                                  else { return }
+        self.habitInfoView.updateDescription(userName, 10)
     }
 }
 

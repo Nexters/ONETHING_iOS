@@ -38,6 +38,11 @@ final class HabitInfoView: UIView {
         super.init(coder: coder)
     }
     
+    func updateDescription(_ userName: String, _ index: Int) {
+        self.descriptionLabel.text = String(format: "%@님의 %d번째 습관", arguments: [userName, index])
+        self.descriptionLabel.sizeToFit()
+    }
+    
     private func setup() {
         self.backgroundColor = .black_100
     }

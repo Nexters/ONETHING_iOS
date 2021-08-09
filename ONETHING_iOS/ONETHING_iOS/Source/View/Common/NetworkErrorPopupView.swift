@@ -13,9 +13,14 @@ class NetworkErrorPopupView: UIView {
     
     typealias Completion = () -> Void
     
+    static var isPresented: Bool {
+        let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        return keyWindow?.viewWithTag(ViewTag.networkErrorPopup) != nil
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.bindButtons()
+        self.tag = ViewTag.networkErrorPopup
     }
 
     func show(in view: UIView, completion: Completion?) {
@@ -30,17 +35,13 @@ class NetworkErrorPopupView: UIView {
     
     func hide() {
         self.animateForHide { [weak self] in
+            self?.retryAction?()
             self?.removeFromSuperview()
         }
     }
     
-    private func bindButtons() {
-//        self.retryButton.rx.tap.observeOnMain(onNext: { [weak self] in
-//            self?.animateForHide {
-//                self?.retryAction?()
-//                self?.removeFromSuperview()
-//            }
-//        }).disposed(by: self.disposeBag)
+    @IBAction func retry(_ sender: Any) {
+        self.hide()
     }
     
     private func animateForShow() {

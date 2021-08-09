@@ -7,19 +7,68 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 final class APIService<T: TargetType> {
     private let provider: MoyaProvider<T>
     private let jsonDecoder = JSONDecoder()
-    
+
     init(provider: MoyaProvider<T> = MoyaProvider<T>(session: DefaultSession.sharedInstance)) {
         self.provider = provider
+    }
+    
+    static func requestAndDecodeRx<C: Codable>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
+        return Single<C>.create { single in
+            let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
+            let request = provider.request(apiTarget) { result in
+                switch result {
+                case .success(let response):
+                    if let onethingError = response.onethingError {
+                        OnethingErrorHandler.sharedInstance.handleError(onethingError)
+                        single(.failure(onethingError))
+                        return
+                    }
+                    
+                    if let userAPI = apiTarget as? UserAPI, case .logout = userAPI {
+                        if response.statusCode == 200 { single(.success(true as! C)) }
+                        else                          { single(.success(false as! C)) }
+                    }
+                    
+                    do {
+                        guard let resultData = try response.mapString().data(using: .utf8) else {
+                            throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
+                        }
+                        
+                        let responseJson = try JSONDecoder().decode(C.self, from: resultData)
+                        single(.success(responseJson))
+                    } catch let error {
+                        single(.failure(error))
+                    }
+                case .failure:
+                    guard NetworkErrorPopupView.isPresented == false                                    else { return }
+                    guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
+                    guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+                    networkPopupView.show(in: keyWindow) { retryHandler?() }
+                }
+            }
+            
+            return Disposables.create { request.cancel() }
+        }.retry { errorObservable -> Observable<Int> in
+            return errorObservable.flatMap { error -> Observable<Int> in
+                let onethingError = error as? OnethingError
+                if onethingError == .expiredAccessToken {
+                    return Observable<Int>.timer(.milliseconds(1500), scheduler: MainScheduler.instance)
+                }
+                return Observable.error(error)
+            }
+        }
     }
     
     func requestAndDecode<D: Decodable>(
         api target: T,
         comepleteHandler: @escaping (D) -> Void,
-        errorHandler: ((Error) -> Void)? = nil
+        errorHandler: ((Error) -> Void)? = nil,
+        retryHandler: (() -> Void)? = nil
     ) {
         let key = String(describing: target.self)
         let request = provider.request(target) { [weak self] result in
@@ -27,14 +76,13 @@ final class APIService<T: TargetType> {
             
             switch result {
             case .success(let response):
-                if let onethingErrorModel = response.onethingErrorModel,
-                   let onethingError = onethingErrorModel.onethingError {
+                if let onethingError = response.onethingError {
                     OnethingErrorHandler.sharedInstance.handleError(onethingError)
                     errorHandler?(onethingError)
-
+                    
                     // ExpiredAccessToken이 만료된 경우, 1초 뒤에 해당 API 재요청
                     guard onethingError == .expiredAccessToken else { return }
-                    DispatchQueue.executeAyncAfter(on: .onethingNetworkQueue, deadline: .now() + 1) { [weak self] in
+                    DispatchQueue.executeAyncAfter(on: .onethingNetworkQueue, deadline: .now() + 1.5) { [weak self] in
                         guard self != nil else { self?.cancelAllRequest(); return }
                         self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler)
                     }
@@ -48,12 +96,11 @@ final class APIService<T: TargetType> {
                 
                 self.decode(with: response, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
             case .failure(let error):
-                #warning("여기 Network 아닌 경우도 떨어지긴하는데, 대체로 네트워크라.. 일단..")
-                guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
-                guard let visibleController = UIViewController.getVisibleController() else { return }
-                networkPopupView.show(in: visibleController.view) { [weak self] in
-                    self?.requestAndDecode(api: target, comepleteHandler: comepleteHandler, errorHandler: errorHandler)
-                }
+                errorHandler?(error as Error)
+                guard NetworkErrorPopupView.isPresented == false                                    else { return }
+                guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
+                guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+                networkPopupView.show(in: keyWindow) { retryHandler?() }
             }
         }
     

@@ -27,6 +27,12 @@ final class HistoryViewController: BaseViewController {
     
     override func reloadContentsIfRequired() {
         super.reloadContentsIfRequired()
+        #warning("로그아웃할 때 호출됨")
+    }
+    
+    override func clearContents() {
+        super.clearContents()
+        #warning("로그아웃할 때 호출됨")
     }
     
     private func setupTitleLabel() {
