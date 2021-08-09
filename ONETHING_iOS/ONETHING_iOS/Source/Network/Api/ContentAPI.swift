@@ -21,12 +21,7 @@ enum ContentAPI {
 
 extension ContentAPI: TargetType {
     var baseURL: URL {
-        switch self {
-            case let .getDailyHabitImage(createDate: createDate, imageExtension: imageExtension):
-                return URL(string: "\(ServerHost.main)?createDate=\(createDate)&imageExtension=\(imageExtension)")!
-            default:
-                return URL(string: ServerHost.main)!
-        }
+        return URL(string: ServerHost.main)!
     }
     
     var path: String {
@@ -64,7 +59,7 @@ extension ContentAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_), .getDailyHabitImage:
+        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_):
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
@@ -79,6 +74,9 @@ extension ContentAPI: TargetType {
                 provider: .data(image.jpegData(compressionQuality: 0.1)!),
                 name: "image")
             return .uploadMultipart([dateData, statusData, contentData, stampData, imageData])
+        case .getDailyHabitImage(let createDate, let imageExtension):
+            let parameters: [String: Any] = ["createDate": createDate, "imageExtension": imageExtension]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
