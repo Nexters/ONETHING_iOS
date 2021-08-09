@@ -20,6 +20,7 @@ final class ProfileViewController: BaseViewController {
         self.observeViewModel()
         
         self.viewModel.requestUserInform()
+        self.viewModel.requestHabits()
     }
     
     override func reloadContentsIfRequired() {
@@ -77,6 +78,12 @@ final class ProfileViewController: BaseViewController {
             
             self.nicknameLabel.text = String(format: "%@ 님", user.name ?? "")
         }).disposed(by: self.disposeBag)
+        
+        Observable.combineLatest(self.viewModel.successCountRelay, self.viewModel.delayCountRelay)
+            .observeOnMain(onNext: { [weak self] successCount, delayCount in
+                self?.successCountLabel.text = "\(successCount)"
+                self?.delayCountLabel.text = "\(delayCount)"
+            }).disposed(by: self.disposeBag)
     }
     
     private func showPreparePopupView() {
@@ -99,7 +106,7 @@ final class ProfileViewController: BaseViewController {
     
     @IBOutlet private weak var nicknameLabel: UILabel!
     @IBOutlet private weak var successCountLabel: UILabel!
-    @IBOutlet private weak var postponeCountLabel: UILabel!
+    @IBOutlet private weak var delayCountLabel: UILabel!
     
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!

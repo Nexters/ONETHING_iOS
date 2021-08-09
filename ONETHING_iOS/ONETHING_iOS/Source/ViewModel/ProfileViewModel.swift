@@ -13,6 +13,8 @@ final class ProfileViewModel {
     
     let menuRelay = BehaviorRelay<[Menu]>(value: Menu.allCases)
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
+    let successCountRelay = BehaviorRelay<Int>(value: 0)
+    let delayCountRelay = BehaviorRelay<Int>(value: 0)
     
     init(apiService: APIService<UserAPI> = APIService<UserAPI>()) {
         self.apiService = apiService
@@ -26,6 +28,24 @@ final class ProfileViewModel {
         }, retryHandler: { [weak self] in
             self?.requestUserInform()
         })
+    }
+    
+    func requestHabits() {
+        let habitAPI = ContentAPI.getHabits
+        APIService<ContentAPI>.requestAndDecodeRx(apiTarget: habitAPI, retryHandler: { [weak self] in
+            self?.requestUserInform()
+            self?.requestHabits()
+        }).subscribe(onSuccess: { [weak self] (habitReseponseModel: [HabitResponseModel]) in
+            var totalSuccessCount: Int = 0
+            var totalDelayCount: Int = 0
+            
+            habitReseponseModel.forEach { habit in
+                totalDelayCount += habit.delayCount
+                totalSuccessCount += habit.successCount
+            }
+            self?.successCountRelay.accept(totalSuccessCount)
+            self?.delayCountRelay.accept(totalDelayCount)
+        }).disposed(by: self.disposeBag)
     }
     
     private let apiService: APIService<UserAPI>
