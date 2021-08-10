@@ -28,7 +28,7 @@ final class HabitCalendarCell: UICollectionViewCell {
         self.isWritten = false
         self.mainImageView.image = Self.placeholderImage
         self.numberLabel.text = nil
-        self.numberLabel.textColor = .black
+        self.numberLabel.textColor = .black_60
     }
 
     private func setupImageView() {
@@ -43,6 +43,7 @@ final class HabitCalendarCell: UICollectionViewCell {
     
     private func setupNumberLabel() {
         self.numberLabel.font = UIFont(name: "Montserrat-Medium", size: 10)
+        self.numberLabel.textColor = .black_60
         
         self.contentView.addSubview(self.numberLabel)
         self.numberLabel.snp.makeConstraints {
