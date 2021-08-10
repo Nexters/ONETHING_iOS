@@ -60,7 +60,7 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
                 fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
                 mimeType: "image/jpeg"
             )
-        }, to: "http://49.50.174.147:8080/api/habit/\(self.habitId)/history", headers: headers)
+        }, to: "\(ServerHost.main)/api/habit/\(self.habitId)/history", headers: headers)
         .responseDecodable(of: DailyHabitResponseModel.self) { response in
             guard let dailyHabitResponseModel = response.value else { return }
             completionHandler(dailyHabitResponseModel)
