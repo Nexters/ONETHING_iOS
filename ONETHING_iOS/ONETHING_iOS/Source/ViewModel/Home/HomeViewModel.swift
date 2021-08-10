@@ -133,8 +133,17 @@ extension HomeViewModel: UICollectionViewDataSource {
     }
     
     private func makeCellWithNumbers(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) -> HabitCalendarCell {
+        self.makeCellHighlightedIfToday(with: indexPath, cell: habitCalendarCell)
+        
         habitCalendarCell.setup(numberText: self.numberText(with: indexPath))
         return habitCalendarCell
+    }
+    
+    private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
+        guard self.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
+            
+        habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
+        habitCalendarCell.update(textColor: UIColor.red_3)
     }
     
     private func numberText(with indexPath: IndexPath) -> String {

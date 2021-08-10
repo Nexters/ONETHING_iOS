@@ -28,6 +28,7 @@ final class HabitCalendarCell: UICollectionViewCell {
         self.isWritten = false
         self.mainImageView.image = Self.placeholderImage
         self.numberLabel.text = nil
+        self.numberLabel.textColor = .black
     }
 
     private func setupImageView() {
@@ -62,8 +63,12 @@ final class HabitCalendarCell: UICollectionViewCell {
         self.isWritten = written
     }
     
-    func update(stampImage: UIImage) {
+    func update(stampImage: UIImage?) {
         self.mainImageView.image = stampImage
+    }
+    
+    func update(textColor: UIColor) {
+        self.numberLabel.textColor = textColor
     }
     
     var stampImage: UIImage? {
