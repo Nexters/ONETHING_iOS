@@ -91,14 +91,14 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     }
     
     func updateSelectStampModels() {
-        if dailyHabitOrder > 22 {
+        if self.dailyHabitOrder > 22 {
             self.selectStampModels.enumerated().forEach { n, model in
                 guard model.lockedDays == 22 else { return }
                 self.selectStampModels[n].isLocked = false
             }
         }
         
-        if dailyHabitOrder > 44 {
+        if self.dailyHabitOrder > 44 {
             self.selectStampModels.enumerated().forEach { n, model in
                 guard model.lockedDays == 44 else { return }
                 self.selectStampModels[n].isLocked = false
