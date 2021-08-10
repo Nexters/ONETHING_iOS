@@ -58,6 +58,6 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
         self.dailyHabitModel
             .createDateTime
             .convertToDate(format: DailyHabitResponseModel.dateFormat)?
-            .convertString(format: "HH:mm PM")
+            .convertString(format: "h:mm a", amSymbol: "AM", pmSymbol: "PM")
     }
 }
