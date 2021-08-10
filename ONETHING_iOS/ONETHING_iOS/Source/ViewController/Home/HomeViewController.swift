@@ -42,14 +42,11 @@ final class HomeViewController: BaseViewController {
     }
     
     override func reloadContentsIfRequired() {
-        super.reloadContentsIfRequired()
-        #warning("Login할 때, API 재 호출")
-        
+        self.viewModel.requestHabitInProgress()
     }
     
     override func clearContents() {
-        super.clearContents()
-        #warning("Logout할 때, UI 지워주기")
+        self.viewModel.clearModels()
     }
     
     private func addObserver() {
@@ -129,7 +126,8 @@ final class HomeViewController: BaseViewController {
 	@objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
         guard let userName = currentUser.name                                  else { return }
-        self.habitInfoView.updateDescription(userName, 10)
+        self.viewModel.update(userName: userName)
+        self.habitInfoView.update(with: self.viewModel)
     }
 }
 

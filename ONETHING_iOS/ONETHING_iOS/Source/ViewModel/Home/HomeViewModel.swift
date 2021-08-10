@@ -16,6 +16,7 @@ final class HomeViewModel: NSObject {
     private let apiService: APIService<ContentAPI>
     private var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
+    private var userName: String?
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
@@ -47,9 +48,9 @@ final class HomeViewModel: NSObject {
     }
     
     var discriptionText: String? {
-        guard let habitId = self.habitInProgressModel?.habitId else { return nil }
+        guard let userName = self.userName else { return nil }
         
-        return "님의 \(habitId)번째 습관"
+        return "\(userName) 님의 66일 습관 목표"
     }
     
     var textOfStartDate: String? {
@@ -103,6 +104,15 @@ final class HomeViewModel: NSObject {
     func append(currentDailyHabitModel: DailyHabitResponseModel) {
         self.dailyHabitModels.append(currentDailyHabitModel)
         self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
+    }
+    
+    func update(userName: String) {
+        self.userName = userName
+    }
+    
+    func clearModels() {
+        self.dailyHabitModels.removeAll()
+        self.habitInProgressModel = nil
     }
     
     func canCreatCurrentDailyHabitModel(with index: Int) -> Bool {
