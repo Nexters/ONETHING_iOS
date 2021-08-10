@@ -147,10 +147,24 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
-            guard self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
-            
-            self.presentHabitWritingViewController(with: indexPath)
+            if self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) {
+                self.presentHabitWritingViewController(with: indexPath)
+                return
+            }
+            self.showWriteLimitPopupView(with: indexPath)
         }
+    }
+    
+    private func showWriteLimitPopupView(with indexPath: IndexPath) {
+        guard let writeLimitPopupView: CustomPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController                   else { return }
+        
+        writeLimitPopupView.configure(
+            attributedText: self.viewModel.limitMessage(with: indexPath),
+            numberText: self.viewModel.numberText(with: indexPath),
+            image: HabitCalendarCell.placeholderImage
+        )
+        writeLimitPopupView.show(in: tabbarController)
     }
     
     private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitResponseModel) {

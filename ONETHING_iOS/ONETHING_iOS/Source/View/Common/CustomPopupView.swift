@@ -31,6 +31,12 @@ class CustomPopupView: UIView {
         self.imageView.image = image
     }
     
+    func configure(attributedText: NSAttributedString?, numberText: String?, image: UIImage?) {
+        self.titleLabel.attributedText = attributedText
+        self.numberLabel.text = numberText
+        self.imageView.image = image
+    }
+    
     private func bindTapGesture() {
         let tapGesture = UITapGestureRecognizer()
         tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
@@ -44,4 +50,5 @@ class CustomPopupView: UIView {
     @IBOutlet private weak var dimView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var numberLabel: UILabel!
 }

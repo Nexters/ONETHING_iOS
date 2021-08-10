@@ -8,7 +8,7 @@
 import UIKit
 
 final class HabitCalendarCell: UICollectionViewCell {
-    private static let placeholderImage = UIImage(named: "rabbit_none")
+    static let placeholderImage = UIImage(named: "rabbit_none")
     private let numberLabel = UILabel()
     private let mainImageView = UIImageView()
     private(set) var isWritten: Bool = false

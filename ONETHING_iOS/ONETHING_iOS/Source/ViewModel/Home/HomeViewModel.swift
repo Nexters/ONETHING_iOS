@@ -109,6 +109,15 @@ final class HomeViewModel: NSObject {
         guard let diffDays = self.diffDaysFromStartToCurrent else { return false }
         return diffDays == index
     }
+    
+    func limitMessage(with indexPath: IndexPath) -> NSAttributedString? {
+        let dayText = self.numberText(with: indexPath)
+        let attributedText = NSMutableAttributedString(string: "\(dayText)일차에\n기록할 수 있어요!")
+        attributedText.addAttribute(.foregroundColor,
+                                    value: UIColor.red_default,
+                                    range: attributedText.mutableString.range(of: "\(dayText)일차"))
+        return attributedText
+    }
 }
 
 extension HomeViewModel: UICollectionViewDataSource {
@@ -146,7 +155,7 @@ extension HomeViewModel: UICollectionViewDataSource {
         habitCalendarCell.update(textColor: UIColor.red_3)
     }
     
-    private func numberText(with indexPath: IndexPath) -> String {
+    func numberText(with indexPath: IndexPath) -> String {
         return "\(indexPath.item + 1)"
     }
 }
