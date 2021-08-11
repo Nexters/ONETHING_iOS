@@ -13,30 +13,33 @@ import RxSwift
 final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
-    private let apiService: APIService<ContentAPI>
+    private let apiService: APIService
     private var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private var userName: String?
+    private let disposeBag = DisposeBag()
     let habitInProgressSubject = PublishSubject<HabitResponseModel>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
-    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+    init(apiService: APIService = APIService.shared) {
         self.apiService = apiService
     }
     
     func requestHabitInProgress() {
-        self.apiService.requestAndDecode(api: .getHabitInProgress) { [weak self] (habitResponseModel: HabitResponseModel) in
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabitInProgress)
+            .subscribe(onSuccess: { [weak self] (habitResponseModel: HabitResponseModel) in
             self?.habitInProgressModel = habitResponseModel
             self?.habitInProgressSubject.onNext(habitResponseModel)
-        }
+        }).disposed(by: self.disposeBag)
     }
     
     func requestDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecode(api: .getDailyHistories(habitId: habitId)) { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
-            self?.dailyHabitModels = dailyHabitsResponseModel.histories
-            self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
-        }
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId))
+            .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                self?.dailyHabitModels = dailyHabitsResponseModel.histories
+                self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
+            }).disposed(by: self.disposeBag)
     }
     
     func dailyHabitModel(at index: Int) -> DailyHabitResponseModel? {

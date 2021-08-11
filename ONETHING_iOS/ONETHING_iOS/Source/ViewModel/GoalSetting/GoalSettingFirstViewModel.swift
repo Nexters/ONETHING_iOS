@@ -17,7 +17,7 @@ final class GoalSettingFirstViewModel {
     let reloadFlagSubejct = PublishSubject<Void>()
     let loadingSubject = PublishSubject<Bool>()
     
-    init(apiService: APIService<ContentAPI> = APIService<ContentAPI>()) {
+    init(apiService: APIService = .shared) {
         self.apiService = apiService
         
         self.goalListSubject.subscribe(onNext: { goalList in
@@ -32,21 +32,22 @@ final class GoalSettingFirstViewModel {
         }).disposed(by: self.disposeBag)
     }
     
-    func requestRecommendedHabbit() {
+    func requestRecommendedHabit() {
         let recommendHabbitAPI = ContentAPI.getRecommendedHabit
         self.loadingSubject.onNext(true)
-        self.apiService.requestAndDecode(api: recommendHabbitAPI) { [weak self] (result: RecommendedHabitResponseModel) in
+        self.apiService.requestAndDecodeRx(apiTarget: recommendHabbitAPI)
+            .subscribe(onSuccess: { [weak self] (result: RecommendedHabitResponseModel) in
             guard let self = self else { return }
             defer { self.loadingSubject.onNext(false) }
             guard let recommendedList = result.habitRecommend else { return }
             self.goalListSubject.onNext(recommendedList)
-        }
+        }).disposed(by: self.disposeBag)
     }
     
     private(set) var habbitSection: [GoalListSection] = []
     private let goalListSubject = BehaviorSubject<GoalListSection>(value: [])
     
-    private let apiService: APIService<ContentAPI>
+    private let apiService: APIService
     private let disposeBag = DisposeBag()
     
 }

@@ -8,17 +8,19 @@
 import Foundation
 
 import Moya
+import RxSwift
 
 final class HistoryViewModel {
-    private let apiService: APIService<ContentAPI>
+    private let apiService: APIService
+    private let disposeBag = DisposeBag()
     
-    init(apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+    init(apiService: APIService = .shared) {
         self.apiService = apiService
     }
     
     func requestTotalHistories() {
-        self.apiService.requestAndDecode(api: .getHabits) { [weak self] (habitResponseModels: [HabitResponseModel]) in
-            
-        }
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabits)
+            .subscribe(onSuccess: { (dailyHabits: DailyHabitsResponseModel) in })
+            .disposed(by: self.disposeBag)
     }
 }

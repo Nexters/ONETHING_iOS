@@ -19,7 +19,7 @@ final class GoalSettingFirstViewController: UIViewController {
         self.bindButtons()
         self.observeViewModel()
         
-        self.viewModel.requestRecommendedHabbit()
+        self.viewModel.requestRecommendedHabit()
     }
     
     override func viewDidLayoutSubviews() {

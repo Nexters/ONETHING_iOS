@@ -9,13 +9,15 @@ import UIKit
 
 import Kingfisher
 import Moya
+import RxSwift
 
 final class HabitImageUseCase {
     private let imageCache: Kingfisher.ImageCache
-    private let apiService: APIService<ContentAPI>
+    private let apiService: APIService
+    private let disposeBag = DisposeBag()
     
     init(imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default,
-         apiService: APIService<ContentAPI> = APIService(provider: MoyaProvider<ContentAPI>())) {
+         apiService: APIService = .shared) {
         self.imageCache = imageCache
         self.apiService = apiService
     }
@@ -44,12 +46,13 @@ final class HabitImageUseCase {
             imageExtension:  imageExtension
         )
         
-        self.apiService.request(api: api) { (photoImageData: Data) in
+        self.apiService.requestAndDecodeRx(apiTarget: api).subscribe(onSuccess: { (photoImageData: Data) in
             guard let photoImage = UIImage(data: photoImageData) else { return }
             
             // store image to memory cache
             self.imageCache.store(photoImage, forKey: createDate, toDisk: false)
             completionHandler(photoImage)
-        }
+            
+        }).disposed(by: self.disposeBag)
     }
 }
