@@ -29,13 +29,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func presentNavigationControllerIfNeeded(with userManager: OnethingUserManager, rootController: MainTabBarController) {
-        if !userManager.hasAccessToken {
+        if userManager.hasAccessToken == false {
             let loginViewController = self.navigationController(LoginViewController.instantiateViewController(from: .intro))
             self.present(viewController: loginViewController, with: rootController)
             return
         }
         
-        if self.noHaveHabitSetting(with: userManager) {
+        if let doneHabitSetting = userManager.doneHabitSetting, doneHabitSetting == false {
             let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
             self.present(viewController: goalSettingFirstViewController, with: rootController)
             return
@@ -56,12 +56,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true
         return navigationController
-    }
-    
-    private func noHaveHabitSetting(with userManager: OnethingUserManager) -> Bool {
-        guard let doneHabitSetting = userManager.doneHabitSetting else { return true }
-            
-        return !doneHabitSetting
     }
 }
 
