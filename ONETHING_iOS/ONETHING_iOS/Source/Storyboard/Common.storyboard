@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Common Web View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -15,9 +20,60 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOe-Zm-rIy">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-wy-hP3">
+                                        <rect key="frame" x="32" y="18" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="UaV-5n-YZ3"/>
+                                            <constraint firstAttribute="width" constant="24" id="san-QY-V2v"/>
+                                        </constraints>
+                                        <state key="normal" image="x_icon"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ed3-bQ-arF">
+                                        <rect key="frame" x="186" y="21" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aIQ-wy-hP3" firstAttribute="centerY" secondItem="dOe-Zm-rIy" secondAttribute="centerY" id="6J0-fC-MKl"/>
+                                    <constraint firstItem="ed3-bQ-arF" firstAttribute="centerX" secondItem="dOe-Zm-rIy" secondAttribute="centerX" id="Jcy-iM-ek0"/>
+                                    <constraint firstItem="ed3-bQ-arF" firstAttribute="centerY" secondItem="dOe-Zm-rIy" secondAttribute="centerY" id="LGl-RW-VEG"/>
+                                    <constraint firstAttribute="height" constant="60" id="mWS-Sc-6if"/>
+                                    <constraint firstItem="aIQ-wy-hP3" firstAttribute="leading" secondItem="dOe-Zm-rIy" secondAttribute="leading" constant="32" id="zTa-KG-E8W"/>
+                                </constraints>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rw1-54-pJ8" customClass="OnethingWebView" customModule="ONETHING" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Rw1-54-pJ8" secondAttribute="bottom" id="7bl-r8-LNb"/>
+                            <constraint firstItem="dOe-Zm-rIy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AGy-hb-D69"/>
+                            <constraint firstItem="Rw1-54-pJ8" firstAttribute="top" secondItem="dOe-Zm-rIy" secondAttribute="bottom" id="CxL-cl-tgu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rw1-54-pJ8" secondAttribute="trailing" id="DA3-Sk-j89"/>
+                            <constraint firstItem="dOe-Zm-rIy" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="QCk-iV-ETd"/>
+                            <constraint firstItem="Rw1-54-pJ8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dkV-VP-MC6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dOe-Zm-rIy" secondAttribute="trailing" id="ifY-Fh-PVm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="aIQ-wy-hP3" id="hsG-5L-oxY"/>
+                        <outlet property="titleLabel" destination="ed3-bQ-arF" id="SnM-xX-rdF"/>
+                        <outlet property="webView" destination="Rw1-54-pJ8" id="CCc-2v-B3K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -25,6 +81,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="x_icon" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
