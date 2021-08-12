@@ -49,18 +49,24 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
             let contentData = self.dailyHabitModel.content?.data(using: .utf8) ?? Data()
             let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
-            let imageData = self.photoImage?.jpegData(compressionQuality: 0.1) ?? Data()
+            
+            
+            // default 사진인 경우 사진 데이터는 보내지 않습니다.
+            if self.photoImage != DailyHabitView.photoDefault,
+               let imageData = self.photoImage?.jpegData(compressionQuality: 0.5) {
+                multipartFormData.append(
+                    imageData,
+                    withName: "image",
+                    fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
+                    mimeType: "image/jpeg"
+                )
+            }
             
             multipartFormData.append(dateData, withName: "createDateTime")
             multipartFormData.append(statusData, withName: "status")
-            multipartFormData.append(contentData, withName: "content")
             multipartFormData.append(stampData, withName: "stampType")
-            multipartFormData.append(
-                imageData,
-                withName: "image",
-                fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
-                mimeType: "image/jpeg"
-            )
+            multipartFormData.append(contentData, withName: "content")
+            
         }, to: "\(ServerHost.main)/api/habit/\(self.habitId)/history", headers: headers)
         .responseDecodable(of: DailyHabitResponseModel.self) { response in
             switch response.result {
