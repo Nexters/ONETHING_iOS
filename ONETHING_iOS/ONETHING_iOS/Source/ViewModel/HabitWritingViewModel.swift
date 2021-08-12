@@ -47,20 +47,29 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             guard let self = self else { return }
             let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
             let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
-            let contentData = self.dailyHabitModel.content?.data(using: .utf8) ?? Data()
             let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
-            let imageData = self.photoImage?.jpegData(compressionQuality: 0.1) ?? Data()
+            
+            // Content가 빈 String 값이 아닌 경우에만 Content 데이터를 보냅니다.
+            if let content = self.dailyHabitModel.content, content != "",
+               let contentData = content.data(using: .utf8) {
+                multipartFormData.append(contentData, withName: "content")
+            }
+            
+            // 이미지가 default 사진 이미지가 아닌 경우에만 이미지 데이터를 보냅니다.
+            if self.photoImage != DailyHabitView.photoDefault,
+               let imageData = self.photoImage?.jpegData(compressionQuality: 0.5) {
+                multipartFormData.append(
+                    imageData,
+                    withName: "image",
+                    fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
+                    mimeType: "image/jpeg"
+                )
+            }
             
             multipartFormData.append(dateData, withName: "createDateTime")
             multipartFormData.append(statusData, withName: "status")
-            multipartFormData.append(contentData, withName: "content")
             multipartFormData.append(stampData, withName: "stampType")
-            multipartFormData.append(
-                imageData,
-                withName: "image",
-                fileName: "\(self.habitId)_\(self.dailyHabitOrder).jpg",
-                mimeType: "image/jpeg"
-            )
+            
         }, to: "\(ServerHost.main)/api/habit/\(self.habitId)/history", headers: headers)
         .responseDecodable(of: DailyHabitResponseModel.self) { response in
             switch response.result {
