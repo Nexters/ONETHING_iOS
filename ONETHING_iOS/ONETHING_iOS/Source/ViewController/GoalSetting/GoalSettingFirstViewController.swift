@@ -14,6 +14,7 @@ final class GoalSettingFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupLoadingIndicatorView()
+        self.setupLabels()
         self.setupCollectionView()
         self.setupDisplayLayer()
         self.bindButtons()
@@ -25,6 +26,27 @@ final class GoalSettingFirstViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.directSetButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
+    }
+    
+    private func setupLabels() {
+        guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
+        guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }
+        
+        guard let firstSubRange = "66일 동안".range(of: "66일") else { return }
+        guard let thirdSubRange = "단 하나의 습관을".range(of: "단 하나의 습관") else { return }
+        
+        let mainAttribute: [NSAttributedString.Key: Any] = [.font: pretendard_medium,
+                                                            .foregroundColor: UIColor.black_100]
+        let subAttributes: [NSAttributedString.Key: Any] = [.font: pretendard_bold,
+                                                            .foregroundColor: UIColor.black_100]
+        
+        let firstLineAttributeText = NSMutableAttributedString(string: "66일 동안", attributes: mainAttribute)
+        firstLineAttributeText.addAttributes(subAttributes, range: firstSubRange)
+        self.firstLineLabel.attributedText = firstLineAttributeText
+        
+        let thirdListAttributeText = NSMutableAttributedString(string: "단 하나의 습관을", attributes: mainAttribute)
+        thirdListAttributeText.addAttributes(subAttributes, range: thirdSubRange)
+        self.thirdLineLabel.attributedText = thirdListAttributeText
     }
     
     private func setupCollectionView() {
@@ -101,6 +123,8 @@ final class GoalSettingFirstViewController: UIViewController {
 
     private let loadingIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     
+    @IBOutlet private weak var firstLineLabel: UILabel!
+    @IBOutlet private weak var thirdLineLabel: UILabel!
     @IBOutlet private var collectionViews: [UICollectionView]!
     @IBOutlet private weak var directSetButton: UIButton!
     @IBOutlet private weak var directSetButtonBottomConstraint: NSLayoutConstraint!
