@@ -26,6 +26,12 @@ class CustomPopupView: UIView {
         self.showCrossDissolve()
     }
     
+    func hide(completion: (() -> Void)? = nil) {
+        self.hideCrossDissolve {
+            completion?()
+        }
+    }
+    
     func configure(title: String?, image: UIImage?) {
         self.titleLabel.text = title
         self.imageView.image = image
@@ -35,6 +41,10 @@ class CustomPopupView: UIView {
         self.titleLabel.attributedText = attributedText
         self.numberLabel.text = numberText
         self.imageView.image = image
+    }
+    
+    func setEnableTapGesture(_ enable: Bool) {
+        self.dimView.isUserInteractionEnabled = enable
     }
     
     private func bindTapGesture() {

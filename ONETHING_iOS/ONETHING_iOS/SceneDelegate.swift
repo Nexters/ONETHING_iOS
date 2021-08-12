@@ -15,16 +15,13 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        guard let goalSetting = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting) else { return }
-        self.window?.rootViewController = goalSetting
+        let mainTabBarController = MainTabBarController()
+
+        let userManager = OnethingUserManager.sharedInstance
+        self.presentNavigationControllerIfNeeded(with: userManager, rootController: mainTabBarController)
+
+        self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
-//        let mainTabBarController = MainTabBarController()
-//
-//        let userManager = OnethingUserManager.sharedInstance
-//        self.presentNavigationControllerIfNeeded(with: userManager, rootController: mainTabBarController)
-//
-//        self.window?.rootViewController = mainTabBarController
-//        self.window?.makeKeyAndVisible()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

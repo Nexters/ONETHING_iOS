@@ -84,8 +84,18 @@ final class GoalSettingFinishViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] in
-            self?.mainTabbarController?.broadCastRequiredReload()
-            self?.navigationController?.dismiss(animated: true, completion: nil)
+            guard let self = self                                         else { return }
+            guard let popupView: CustomPopupView = UIView.createFromNib() else { return }
+            popupView.configure(title: "알림과 미룸벌칙은\n2차 출시에 사용할 수 있어요!", image: #imageLiteral(resourceName: "prepare_rabbit"))
+            popupView.setEnableTapGesture(false)
+            popupView.show(in: self)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                popupView.hide { [weak self] in
+                    self?.mainTabbarController?.broadCastRequiredReload()
+                    self?.navigationController?.dismiss(animated: true, completion: nil)
+                }
+            }
         }).disposed(by: self.disposeBag)
     }
     

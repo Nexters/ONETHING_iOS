@@ -62,11 +62,12 @@ extension UIView {
         }
     }
     
-    func hideCrossDissolve(_ duration: TimeInterval = 0.2) {
+    func hideCrossDissolve(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 0
         }, completion: { [weak self] _ in
             self?.isHidden = true
+            completion?()
         })
     }
     
