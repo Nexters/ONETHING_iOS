@@ -39,7 +39,8 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
         self.updateSelectStampModels()
     }
     
-    func postDailyHabit(completionHandler: @escaping (DailyHabitResponseModel) -> ()) {
+    func postDailyHabit(completionHandler: @escaping (DailyHabitResponseModel) -> Void,
+                        failureHandler: @escaping () -> Void) {
         let headers = HTTPHeaders([HTTPHeader(name: NetworkInfomation.HeaderKey.authorization,
                                               value: NetworkInfomation.HeaderValue.authorization)])
         self.session.upload(multipartFormData: { [weak self] multipartFormData in
@@ -62,8 +63,12 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             )
         }, to: "\(ServerHost.main)/api/habit/\(self.habitId)/history", headers: headers)
         .responseDecodable(of: DailyHabitResponseModel.self) { response in
-            guard let dailyHabitResponseModel = response.value else { return }
-            completionHandler(dailyHabitResponseModel)
+            switch response.result {
+                case .success(let dailyHabitResponseModel):
+                    completionHandler(dailyHabitResponseModel)
+                case .failure(_):
+                    failureHandler()
+            }
         }
     }
     

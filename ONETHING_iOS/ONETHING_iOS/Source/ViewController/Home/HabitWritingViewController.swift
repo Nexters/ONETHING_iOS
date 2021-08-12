@@ -165,10 +165,14 @@ final class HabitWritingViewController: BaseViewController {
                 contentText: self.dailyHabitView.contentText ?? ""
             )
             
-            self.viewModel?.postDailyHabit{ [weak self] dailyHabitResponseModel in
+            self.completeButton.isUserInteractionEnabled = false
+            self.viewModel?.postDailyHabit(completionHandler: { [weak self] dailyHabitResponseModel in
                 self?.delegate?.update(currentDailyHabitModel: dailyHabitResponseModel)
                 self?.navigationController?.popViewController(animated: true)
-            }
+                
+            }, failureHandler: { [weak self] in
+                self?.completeButton.isUserInteractionEnabled = true
+            })
             
         }.disposed(by: self.disposeBag)
     }
