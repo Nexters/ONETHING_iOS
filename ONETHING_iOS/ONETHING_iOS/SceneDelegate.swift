@@ -17,9 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainTabBarController = MainTabBarController()
         
         let userManager = OnethingUserManager.sharedInstance
-        if !userManager.hasAccessToken {
-            self.presentLoginViewController(mainTabBarController)
-        }
+        self.presentNavigationControllerIfNeeded(with: userManager, rootController: mainTabBarController)
         
         self.window?.rootViewController = mainTabBarController
         self.window?.makeKeyAndVisible()
@@ -29,20 +27,41 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let url = URLContexts.first?.url else { return }
         SocialManager.sharedInstance.handleSocialURLScheme(url)
     }
+    
+    private func presentNavigationControllerIfNeeded(with userManager: OnethingUserManager, rootController: MainTabBarController) {
+        if !userManager.hasAccessToken {
+            let loginViewController = self.navigationController(LoginViewController.instantiateViewController(from: .intro))
+            self.present(viewController: loginViewController, with: rootController)
+            return
+        }
+        
+        if self.noHaveHabitSetting(with: userManager) {
+            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
+            self.present(viewController: goalSettingFirstViewController, with: rootController)
+            return
+        }
+    }
 
-    private func presentLoginViewController(_ rootController: MainTabBarController) {
+    private func present(viewController: UIViewController?, with rootController: MainTabBarController) {
+        guard let viewController = viewController else { return }
+        
         DispatchQueue.main.async {
-            guard let navigationWithLoginViewController = self.navigationWithLoginViewController else { return }
-            rootController.present(navigationWithLoginViewController, animated: false)
+            rootController.present(viewController, animated: false)
         }
     }
     
-    private var navigationWithLoginViewController: UINavigationController? {
-        guard let loginViewController = LoginViewController.instantiateViewController(from: .intro) else { return nil }
-        let navigationController = UINavigationController(rootViewController: loginViewController)
+    private func navigationController(_ rootController: UIViewController?) -> UINavigationController? {
+        guard let rootController = rootController else { return nil }
+        let navigationController = UINavigationController(rootViewController: rootController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true
         return navigationController
+    }
+    
+    private func noHaveHabitSetting(with userManager: OnethingUserManager) -> Bool {
+        guard let doneHabitSetting = userManager.doneHabitSetting else { return true }
+            
+        return !doneHabitSetting
     }
 }
 
