@@ -63,16 +63,13 @@ final class MainTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         guard let profileController = ProfileViewController.instantiateViewController(from: .profile) else { return }
+
         self.viewControllers = [
-            createNavigationController(
+            self.createNavigationController(
                 for: HomeViewController(),
                 image: UIImage(named: "home_inactive")!
             ),
-            createNavigationController(
-                for: HistoryViewController(),
-                image: UIImage(named: "history_inactive")!
-            ),
-            createNavigationController(
+            self.createNavigationController(
                 for: profileController,
                 image: UIImage(named: "mypage_inactive")!
             )

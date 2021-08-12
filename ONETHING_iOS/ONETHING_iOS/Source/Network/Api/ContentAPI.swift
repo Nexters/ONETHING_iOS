@@ -12,9 +12,11 @@ import Moya
 enum ContentAPI {
     case getRecommendedHabit
     case createHabit(title: String, sentence: String, pushTime: String, delayMaxCount: Int)
+    case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
     case getDailyHistories(habitId: Int)
+    case getDailyHabitImage(createDate: String, imageExtension: String)
 }
 
 extension ContentAPI: TargetType {
@@ -33,15 +35,20 @@ extension ContentAPI: TargetType {
         case .getHabits:
             return "/api/habits"
         case let .getDailyHistories(habitId: habitId):
-            return "/habit/\(habitId)/daily-histories"
+            return "/api/habit/\(habitId)/daily-histories"
+        case let .createDailyHabit(habitId: habitId):
+            return "api/habit/\(habitId)/history"
+        case .getDailyHabitImage:
+            return "/api/habit/history/image"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories:
+            case .getRecommendedHabit, .getHabitInProgress, .getHabits,
+                 .getDailyHistories, .getDailyHabitImage:
             return .get
-        case .createHabit:
+        case .createHabit, .createDailyHabit:
             return .post
         }
     }
@@ -51,22 +58,36 @@ extension ContentAPI: TargetType {
     }
     
     var task: Task {
-        var parameters = [String: Any]()
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits:
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
-        case .getDailyHistories(habitId: let habitId):
-            parameters[NetworkInfomation.ParameterKey.habitId] = habitId
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_):
+            return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
                                              "pushTime": pushTime, "delayMaxCount": delayMaxCount]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .createDailyHabit(_, let createDateTime, let status, let content, let stampType, let image):
+            let dateData = MultipartFormData(provider: .data(createDateTime.data(using: .utf8)!), name: "createDateTime")
+            let statusData = MultipartFormData(provider: .data(status.data(using: .utf8)!), name: "status")
+            let contentData = MultipartFormData(provider: .data(content.data(using: .utf8)!), name: "content")
+            let stampData = MultipartFormData(provider: .data(stampType.data(using: .utf8)!), name: "stampType")
+            let imageData = MultipartFormData(
+                provider: .data(image.jpegData(compressionQuality: 0.1)!),
+                name: "image")
+            return .uploadMultipart([dateData, statusData, contentData, stampData, imageData])
+        case .getDailyHabitImage(let createDate, let imageExtension):
+            let parameters: [String: Any] = ["createDate": createDate, "imageExtension": imageExtension]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String: String]? {
-        return NetworkInfomation.headers
+        switch self {
+            case .createDailyHabit:
+                return [NetworkInfomation.HeaderKey.authorization: NetworkInfomation.HeaderValue.authorization]
+            default:
+                return NetworkInfomation.headers
+        }
     }
 }
+
 

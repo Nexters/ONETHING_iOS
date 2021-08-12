@@ -16,23 +16,23 @@ final class ProfileViewModel {
     let successCountRelay = BehaviorRelay<Int>(value: 0)
     let delayCountRelay = BehaviorRelay<Int>(value: 0)
     
-    init(apiService: APIService<UserAPI> = APIService<UserAPI>()) {
+    init(apiService: APIService = .shared) {
         self.apiService = apiService
     }
     
     func requestUserInform() {
         let accountAPI = UserAPI.account
-        self.apiService.requestAndDecode(api: accountAPI, comepleteHandler: { [weak self] (userModel: OnethingUserModel) in
+        self.apiService.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
+            self?.requestUserInform()
+        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
             guard let self = self else { return }
             self.userRelay.accept(userModel)
-        }, retryHandler: { [weak self] in
-            self?.requestUserInform()
-        })
+        }).disposed(by: self.disposeBag)
     }
     
     func requestHabits() {
         let habitAPI = ContentAPI.getHabits
-        APIService<ContentAPI>.requestAndDecodeRx(apiTarget: habitAPI, retryHandler: { [weak self] in
+        self.apiService.requestAndDecodeRx(apiTarget: habitAPI, retryHandler: { [weak self] in
             self?.requestUserInform()
             self?.requestHabits()
         }).subscribe(onSuccess: { [weak self] (habitReseponseModel: [HabitResponseModel]) in
@@ -48,7 +48,7 @@ final class ProfileViewModel {
         }).disposed(by: self.disposeBag)
     }
     
-    private let apiService: APIService<UserAPI>
+    private let apiService: APIService
     
     private let disposeBag = DisposeBag()
     

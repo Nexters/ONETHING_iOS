@@ -13,7 +13,7 @@ final class GoalSettingFinishViewModel {
     let loadingSubject = PublishSubject<Bool>()
     let completeSubject = PublishSubject<Void>()
     
-    init(apiService: APIService<ContentAPI> = APIService<ContentAPI>()) {
+    init(apiService: APIService = .shared) {
         self.apiService = apiService
     }
     
@@ -33,17 +33,17 @@ final class GoalSettingFinishViewModel {
         let createHabitAPI = ContentAPI.createHabit(title: title, sentence: sentence,
                                                     pushTime: pushTime.convertString(), delayMaxCount: postponeCount)
         self.loadingSubject.onNext(true)
-        apiService.requestAndDecode(api: createHabitAPI, comepleteHandler: { [weak self] (responseModel: HabitResponseModel) in
-            self?.loadingSubject.onNext(false)
-            self?.completeSubject.onNext(())
-        }, errorHandler: { [weak self] _ in
-            self?.loadingSubject.onNext(false)
-        })
+        self.apiService.requestAndDecodeRx(apiTarget: createHabitAPI)
+            .subscribe(onSuccess: { [weak self] (responseModel: HabitResponseModel) in
+                self?.loadingSubject.onNext(false)
+                self?.completeSubject.onNext(())
+            }, onFailure: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            }).disposed(by: self.disposeBag)
     }
     
+    private let apiService: APIService
     private let disposeBag = DisposeBag()
-    
-    private let apiService: APIService<ContentAPI>
     
     private(set) var habitTitle: String?
     private(set) var postponeTodo: String?

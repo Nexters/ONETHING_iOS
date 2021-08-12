@@ -8,42 +8,45 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
+import Alamofire
 
 final class HomeViewController: BaseViewController {
-    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 70)
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
     private var habitCalendarView = HabitCalendarView(
-        frame: .zero, totalCellNumbers: 66, columnNumbers: 5
+        frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
     private let backgroundDimView = BackgroundDimView()
-    private let homeEmptyView = HomeEmptyView().then {
-        $0.isHidden = true
-    }
+    private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
     private let viewModel = HomeViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.addObserver()
+        
+		self.addObserver()
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
         self.setupHomeEmptyView()
+        self.observeViewModel()
+        
         self.viewModel.requestHabitInProgress()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.changeStatusBar(backgroundColor: self.habitInfoView.backgroundColor ?? .black_100)
         super.viewWillAppear(animated)
     }
     
     override func reloadContentsIfRequired() {
-        super.reloadContentsIfRequired()
-        #warning("Login할 때, API 재 호출")
-        
+        self.viewModel.requestHabitInProgress()
     }
     
     override func clearContents() {
-        super.clearContents()
-        #warning("Logout할 때, UI 지워주기")
+        self.viewModel.clearModels()
     }
     
     private func addObserver() {
@@ -53,11 +56,10 @@ final class HomeViewController: BaseViewController {
     
     private func setupHabitInfoView() {
         self.view.addSubview(self.habitInfoView)
-        let safeArea = self.view.safeAreaLayoutGuide
         
         self.habitInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(safeArea)
+            $0.top.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
         }
@@ -67,6 +69,7 @@ final class HomeViewController: BaseViewController {
         self.habitCalendarView.backgroundColor = .clear
         self.habitCalendarView.dataSource = self.viewModel
         self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
+        self.habitCalendarView.registerCell(cellType: UICollectionViewCell.self)
         self.habitCalendarView.delegate = self
         
         self.view.addSubview(self.habitCalendarView)
@@ -91,10 +94,40 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    @objc private func updateUserInform(_ notification: Notification) {
+    private func observeViewModel() {
+        self.viewModel
+            .habitInProgressSubject
+            .bind { [weak self] in
+                guard let self = self else { return }
+                
+                self.viewModel.requestDailyHabits(habitId: $0.habitId)
+                self.habitInfoView.update(with: self.viewModel)
+            }
+            .disposed(by: disposeBag)
+        
+        self.viewModel
+            .dailyHabitsSubject
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
+                self.habitCalendarView.reloadData()
+            }
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel
+            .currentIndexPathOfDailyHabitSubject
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.habitCalendarView.reloadItems(at: [indexPath])
+            })
+            .disposed(by: self.disposeBag)
+    }
+  
+	@objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
         guard let userName = currentUser.name                                  else { return }
-        self.habitInfoView.updateDescription(userName, 10)
+        self.viewModel.update(userName: userName)
+        self.habitInfoView.update(with: self.viewModel)
     }
 }
 
@@ -109,29 +142,51 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitCalendarCell = collectionView.cellForItem(at: indexPath) as? HabitCalendarCell else { return }
-        
-        if habitCalendarCell.isWritten {
-            self.presentHabitWrittenViewController(with: habitCalendarCell)
-            return
+        if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
+            self.presentHabitWrittenViewController(with: dailyHabitModel)
+        } else {
+            if self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) {
+                self.presentHabitWritingViewController(with: indexPath)
+                return
+            }
+            self.showWriteLimitPopupView(with: indexPath)
         }
-        self.presentHabitWritingViewController()
     }
     
-    private func presentHabitWrittenViewController(with habitCalendarCell: HabitCalendarCell) {
+    private func showWriteLimitPopupView(with indexPath: IndexPath) {
+        guard let writeLimitPopupView: CustomPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController                   else { return }
+        
+        writeLimitPopupView.configure(
+            attributedText: self.viewModel.limitMessage(with: indexPath),
+            numberText: self.viewModel.numberText(with: indexPath),
+            image: HabitCalendarCell.placeholderImage
+        )
+        writeLimitPopupView.show(in: tabbarController)
+    }
+    
+    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitResponseModel) {
         self.backgroundDimView.isHidden = false
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
             $0.transitioningDelegate = self
-            $0.update(upperStampImage: habitCalendarCell.stampImage)
+            $0.viewModel = HabitWrittenViewModel(dailyHabitModel: dailyHabitModel)
             $0.delegate = self
         }
         self.present(habitWrittenViewController, animated: true)
     }
     
-    private func presentHabitWritingViewController() {
-        let habitWritingViewController = HabitWritingViewController()
+    private func presentHabitWritingViewController(with indexPath: IndexPath) {
+        let habitWritingViewController = HabitWritingViewController().then {
+            $0.delegate = self
+            $0.viewModel = HabitWritingViewModel(
+                habitId: self.viewModel.habitID ?? 1,
+                dailyHabitOrder: indexPath.row + 1,
+                session: Alamofire.AF
+            )
+        }
+        
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     
@@ -168,5 +223,11 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 extension HomeViewController: HabitWrittenViewControllerDelegate {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
         self.backgroundDimView.isHidden = true
+    }
+}
+
+extension HomeViewController: HabitWritingViewControllerDelegate {
+    func update(currentDailyHabitModel: DailyHabitResponseModel) {
+        self.viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
     }
 }

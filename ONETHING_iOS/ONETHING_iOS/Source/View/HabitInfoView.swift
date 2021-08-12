@@ -8,8 +8,8 @@
 import UIKit
 
 final class HabitInfoView: UIView {
-    private let settingButton = SettingButton()
-    private let percentView = PercentView()
+    let progressView = ProgressView()
+    private let settingButton = SettingButton().then { $0.isHidden = true }
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let dayNumberLabel = UILabel()
@@ -28,7 +28,7 @@ final class HabitInfoView: UIView {
         self.setupTitleLabel()
         self.setupDayNumberLabel()
         self.setupDayTextLabel()
-        self.setupPercentView()
+        self.setupProgressView()
         self.setupStartDateLabel()
         self.setupEndDateLabel()
     }
@@ -38,17 +38,11 @@ final class HabitInfoView: UIView {
         super.init(coder: coder)
     }
     
-    func updateDescription(_ userName: String, _ index: Int) {
-        self.descriptionLabel.text = String(format: "%@님의 %d번째 습관", arguments: [userName, index])
-        self.descriptionLabel.sizeToFit()
-    }
-    
     private func setup() {
         self.backgroundColor = .black_100
     }
     
     private func setupDescriptionLabel() {
-        self.descriptionLabel.text = "예빈님의 2번째 습관"
         self.descriptionLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
         self.descriptionLabel.textColor = .white
         
@@ -70,7 +64,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupTitleLabel() {
-        self.titleLabel.text = "아침에 물 한잔 마시기"
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 26)
         self.titleLabel.textColor = .white
         
@@ -82,7 +75,6 @@ final class HabitInfoView: UIView {
     }
     
     private func setupDayNumberLabel() {
-        self.dayNumberLabel.text = "19"
         self.dayNumberLabel.font = UIFont(name: "Montserrat-Regular", size: 36)
         self.dayNumberLabel.textColor = .white
         
@@ -105,10 +97,10 @@ final class HabitInfoView: UIView {
         }
     }
 
-    private func setupPercentView() {
-        self.addSubview(self.percentView)
+    private func setupProgressView() {
+        self.addSubview(self.progressView)
         
-        self.percentView.snp.makeConstraints {
+        self.progressView.snp.makeConstraints {
             $0.leading.equalTo(self.titleLabel)
             $0.trailing.equalToSuperview().offset(-30)
             $0.top.equalTo(self.titleLabel.snp.bottom).offset(10)
@@ -117,26 +109,32 @@ final class HabitInfoView: UIView {
     }
     
     private func setupStartDateLabel() {
-        self.startDateLabel.text = "2021.07.17"
         self.startDateLabel.textColor = .white
         self.startDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
         
         self.addSubview(self.startDateLabel)
         self.startDateLabel.snp.makeConstraints {
-            $0.top.equalTo(self.percentView.snp.bottom).offset(8)
-            $0.leading.equalTo(self.percentView)
+            $0.top.equalTo(self.progressView.snp.bottom).offset(8)
+            $0.leading.equalTo(self.progressView)
         }
     }
     
     private func setupEndDateLabel() {
-        self.endDateLabel.text = "2021.07.31"
         self.endDateLabel.textColor = .white
         self.endDateLabel.font = UIFont(name: "Montserrat-Medium", size: 11)
         
         self.addSubview(self.endDateLabel)
         self.endDateLabel.snp.makeConstraints {
             $0.centerY.equalTo(self.startDateLabel)
-            $0.trailing.equalTo(self.percentView)
+            $0.trailing.equalTo(self.progressView)
         }
+    }
+    
+    func update(with viewModel: HomeViewModel) {
+        self.startDateLabel.text = viewModel.textOfStartDate
+        self.endDateLabel.text = viewModel.textOfEndDate
+        self.dayNumberLabel.text = viewModel.currentDayText
+        self.titleLabel.text = viewModel.titleText
+        self.descriptionLabel.text = viewModel.discriptionText
     }
 }

@@ -53,7 +53,7 @@ final class LockView: UIView {
         }
     }
     
-    func update(attributedText: NSAttributedString) {
+    func update(attributedText: NSAttributedString?) {
         self.mainLabel.attributedText = attributedText
     }
     

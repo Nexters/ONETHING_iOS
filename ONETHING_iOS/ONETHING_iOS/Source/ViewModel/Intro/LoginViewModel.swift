@@ -13,7 +13,7 @@ final class LoginViewModel {
     let loadingSubject = BehaviorSubject<Bool>(value: false)
     let completeSubject = PublishSubject<Bool>()
     
-    init(loginService: APIService<UserAPI> = APIService()) {
+    init(loginService: APIService = .shared) {
         self.loginService = loginService
     }
     
@@ -35,26 +35,28 @@ final class LoginViewModel {
                                                identityToken: identityToken,
                                                userName: userName)
         
-        self.loginService.requestAndDecode(api: appleLoginAPI, comepleteHandler: { [weak self] (loginResponseModel: LoginResponseModel) in
-            defer { self?.loadingSubject.onNext(false) }
-        
-            guard let accessToken = loginResponseModel.token?.accessToken     else { return }
-            guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
-            guard let doneHabbitSetting = loginResponseModel.doneHabitSetting else { return }
-            OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
-            OnethingUserManager.sharedInstance.updateDoneHabitSetting(doneHabbitSetting)
-            self?.completeSubject.onNext(doneHabbitSetting)
-        }, errorHandler: { [weak self] error in
-            self?.loadingSubject.onNext(false)
-        }, retryHandler: { [weak self] in
-            self?.loginApple(authorizationCode, identityToken, userName)
-        })
+        self.loginService.requestAndDecodeRx(
+            apiTarget: appleLoginAPI, retryHandler: { [weak self] in
+            self?.loginApple(authorizationCode, identityToken, userName)}
+        ).subscribe(onSuccess: { [weak self] (loginResponseModel: LoginResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+            
+                guard let accessToken = loginResponseModel.token?.accessToken     else { return }
+                guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
+                guard let doneHabbitSetting = loginResponseModel.doneHabitSetting else { return }
+                OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
+                OnethingUserManager.sharedInstance.updateDoneHabitSetting(doneHabbitSetting)
+                self?.completeSubject.onNext(doneHabbitSetting)
+
+            }, onFailure: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            }).disposed(by: self.disposeBag)
     }
     
     private func loginKakao() { }
     
     private let disposeBag = DisposeBag()
     
-    private let loginService: APIService<UserAPI>
+    private let loginService: APIService
     
 }

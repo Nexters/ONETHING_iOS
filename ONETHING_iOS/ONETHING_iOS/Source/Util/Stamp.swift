@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Stamp: CaseIterable {
+enum Stamp: String, CaseIterable, CustomStringConvertible {
     case beige
     case yellow
     case gray
@@ -20,6 +20,7 @@ enum Stamp: CaseIterable {
     case mint
     case green_2
     case green_1
+    case delay
     
     var defaultImage: UIImage {
         switch self {
@@ -47,6 +48,8 @@ enum Stamp: CaseIterable {
             return UIImage(named: "stamp_green_2")!
         case .green_1:
             return UIImage(named: "stamp_green_1")!
+        case .delay:
+            return UIImage(named: "stamp_delay")!
         }
     }
     
@@ -72,4 +75,10 @@ enum Stamp: CaseIterable {
             return nil
         }
     }
+    
+    var description: String {
+        return self.rawValue
+    }
+    
+    static let defaultType: String = Stamp.beige.description
 }

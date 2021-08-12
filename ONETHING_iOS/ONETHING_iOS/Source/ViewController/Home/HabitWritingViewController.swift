@@ -7,16 +7,29 @@
 
 import UIKit
 
+import Then
+import RxSwift
+import RxCocoa
+
+protocol HabitWritingViewControllerDelegate: AnyObject {
+    func update(currentDailyHabitModel: DailyHabitResponseModel)
+}
+
 final class HabitWritingViewController: BaseViewController {
-    private var backBtnTitleView: BackBtnTitleView!
-    private var completeButton: CompleteButton!
-    private let dailyHabitView = DailyHabitView(hideCloseButton: true)
-    private let viewModel = HabitWritingViewModel()
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .darkContent }
+    
+    private let backBtnTitleView = BackBtnTitleView()
+    private let completeButton = CompleteButton()
+    private let dailyHabitView = DailyHabitView()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
     private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     private var lockPopupView: LockView?
     private let backgroundDimView = BackgroundDimView()
+    var delegate: HabitWritingViewControllerDelegate?
+    
+    var viewModel: HabitWritingViewModel?
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +42,13 @@ final class HabitWritingViewController: BaseViewController {
         self.setupHabitStampView()
         self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
+        self.updateViewsWithViewModel()
+        self.bindingButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.undoStatusBarColor()
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -58,12 +72,9 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupBackBtnTitleView() {
-        self.backBtnTitleView = BackBtnTitleView(parentViewController: self)
-        self.backBtnTitleView.update(title: "1일차")
-        let safeArea = self.view.safeAreaLayoutGuide
-        
         self.keyboardDismissableView.addSubview(self.backBtnTitleView)
         self.backBtnTitleView.snp.makeConstraints {
+            let safeArea = self.view.safeAreaLayoutGuide
             $0.top.equalTo(safeArea).offset(54)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
@@ -71,7 +82,10 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.dailyHabitView.dailyHabitViewPhotoViewDelegate = self
+        self.dailyHabitView.do {
+            $0.dailyHabitViewPhotoViewDelegate = self
+            $0.closeButton.isHidden = true
+        }
         
         self.keyboardDismissableView.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
@@ -82,8 +96,6 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupCompleteButton() {
-        self.completeButton = CompleteButton(parentViewController: self)
-        
         self.view.addSubview(self.completeButton)
         let safeArea = self.view.safeAreaLayoutGuide
         self.completeButton.snp.makeConstraints {
@@ -120,7 +132,8 @@ final class HabitWritingViewController: BaseViewController {
         self.rightSwipeGestureRecognizerView.parentViewController = self
         
         self.rightSwipeGestureRecognizerView.snp.makeConstraints {
-            $0.leading.top.bottom.equalToSuperview()
+            $0.leading.top.equalToSuperview()
+            $0.bottom.equalTo(self.view)
             $0.trailing.equalTo(self.backBtnTitleView.snp.leading).offset(-10)
         }
     }
@@ -131,6 +144,38 @@ final class HabitWritingViewController: BaseViewController {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
     }
+    
+    private func updateViewsWithViewModel() {
+        guard let viewModel = self.viewModel else { return }
+        
+        self.backBtnTitleView.update(with: viewModel)
+        self.dailyHabitView.update(with: viewModel)
+    }
+    
+    private func bindingButtons() {
+        self.backBtnTitleView.backButton.rx.tap.observeOnMain { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }.disposed(by: disposeBag)
+        
+        self.completeButton.rx.tap.single().observeOnMain { [weak self] in
+            guard let self = self else { return }
+            
+            self.viewModel?.update(
+                photoImage: self.dailyHabitView.photoImage,
+                contentText: self.dailyHabitView.contentText ?? ""
+            )
+            
+            self.completeButton.isUserInteractionEnabled = false
+            self.viewModel?.postDailyHabit(completionHandler: { [weak self] dailyHabitResponseModel in
+                self?.delegate?.update(currentDailyHabitModel: dailyHabitResponseModel)
+                self?.navigationController?.popViewController(animated: true)
+                
+            }, failureHandler: { [weak self] in
+                self?.completeButton.isUserInteractionEnabled = true
+            })
+            
+        }.disposed(by: self.disposeBag)
+    }
 }
 
 extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
@@ -139,21 +184,25 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let habitStampView = collectionView as? HabitStampView else { return }
-        guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
+        guard let viewModel = self.viewModel else { return }
         
-        if habitStampCell.isLocked {
-            habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
-            self.popupLockViewAndDown(with: habitStampCell)
+        viewModel.selectedStampIndex = indexPath.row
+        
+        if viewModel.isLocked(at: indexPath.row) {
+            self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
+            self.popupLockViewAndDown(with: indexPath)
         } else {
+            guard let habitStampView = collectionView as? HabitStampView else { return }
+            guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
+    
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
         }
     }
     
-    private func popupLockViewAndDown(with habitStampCell: HabitStampCell) {
-        self.setupLockPopupViewBehindBottom(with: habitStampCell)
+    private func popupLockViewAndDown(with indexPath: IndexPath) {
+        self.setupLockPopupViewBehindBottom(with: indexPath)
         UIView.animate(withDuration: 0.3, delay: 0, animations: {
             self.popupLockView()
             self.backgroundDimView.isHidden = false
@@ -162,9 +211,9 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         })
     }
     
-    private func setupLockPopupViewBehindBottom(with habitStampCell: HabitStampCell) {
+    private func setupLockPopupViewBehindBottom(with indexPath: IndexPath) {
         if self.lockPopupView == nil {
-            self.lockPopupView = self.makeLockPopupView(with: habitStampCell)
+            self.lockPopupView = self.makeLockPopupView(with: indexPath)
         }
         
         guard let lockPopupView = self.lockPopupView else { return }
@@ -186,14 +235,10 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
         self.view.layoutIfNeeded()
     }
     
-    private func makeLockPopupView(with habitStampCell: HabitStampCell) -> LockView {
+    private func makeLockPopupView(with indexPath: IndexPath) -> LockView {
         return LockView().then {
-            $0.update(image: habitStampCell.stampDefaultImageWhenLocked)
-            let attributedText = NSMutableAttributedString(string: "습관 22일을 달성하면\n사용할 수 있어요!")
-            attributedText.addAttribute(.foregroundColor,
-                                        value: UIColor.red_default,
-                                        range: attributedText.mutableString.range(of: "22일"))
-            $0.update(attributedText: attributedText)
+            $0.update(image: self.viewModel?.openImageOfLocked(at: indexPath.row))
+            $0.update(attributedText: self.viewModel?.lockMessage(at: indexPath.row))
         }
     }
     
@@ -208,7 +253,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     private func animateDownLockPopupView() {
         guard let lockPopupView = self.lockPopupView else { return }
                 
-        UIView.animateKeyframes(withDuration: 0.3, delay: 2, animations: {
+        UIView.animateKeyframes(withDuration: 0.3, delay: 1.2, animations: {
             let behindBottomConstant: CGFloat = 800
             lockPopupView.topAnchorConstraint?.constant = behindBottomConstant
             lockPopupView.alpha = 0

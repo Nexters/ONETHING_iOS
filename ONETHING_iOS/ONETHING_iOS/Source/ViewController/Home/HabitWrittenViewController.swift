@@ -8,14 +8,20 @@
 import UIKit
 
 import Then
+import RxSwift
 
 protocol HabitWrittenViewControllerDelegate: AnyObject {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController)
 }
 
 final class HabitWrittenViewController: BaseViewController {
-    private let dailyHabitView = DailyHabitView(hideCloseButton: false)
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
+    private let disposeBag = DisposeBag()
+    
+    var viewModel: HabitWrittenViewModel?
     weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -24,7 +30,11 @@ final class HabitWrittenViewController: BaseViewController {
         self.setupView()
         self.setupUpperStampView()
         self.setupDailyHabitView()
-        self.addDownGestureRecognizer()
+
+        self.updateViewsWithViewModel()
+        self.viewModel?.requestHabitImageRx()
+            .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
+            .disposed(by: disposeBag)
     }
 
     private func setupView() {
@@ -33,7 +43,6 @@ final class HabitWrittenViewController: BaseViewController {
     
     private func setupUpperStampView() {
         self.upperStampButton.contentMode = .scaleAspectFit
-        self.upperStampButton.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
         
         self.view.addSubview(self.upperStampButton)
         self.upperStampButton.snp.makeConstraints {
@@ -44,7 +53,13 @@ final class HabitWrittenViewController: BaseViewController {
     }
     
     private func setupDailyHabitView() {
-        self.dailyHabitView.dailyHabitViewCloseButtonDelegate = self
+        self.dailyHabitView.do {
+            $0.enrollPhotoButton.isHidden = true
+            $0.hidePlaceHolderLabelOfTextView()
+            $0.hideTextCountLabelOfTextView()
+            $0.dailyHabitViewCloseButtonDelegate = self
+        }
+        
         self.view.addSubview(self.dailyHabitView)
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(40)
@@ -58,21 +73,12 @@ final class HabitWrittenViewController: BaseViewController {
         super.dismiss(animated: true)
     }
     
-    private func addDownGestureRecognizer() {
-        let downSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe)).then {
-            $0.direction = .down
-        }
+    private func updateViewsWithViewModel() {
+        guard let viewModel = self.viewModel else { return }
         
-        self.view.addGestureRecognizer(downSwipeGestureRecognizer)
-    }
-    
-    @objc private func didSwipe() {
-        self.dismissViewController()
-    }
-    
-    func update(upperStampImage image: UIImage?) {
-        self.upperStampButton.setImage(image, for: .normal)
-        self.upperStampButton.setImage(image, for: .highlighted)
+        self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .normal)
+        self.upperStampButton.setImage(self.viewModel?.currentStampImage, for: .highlighted)
+        self.dailyHabitView.update(with: viewModel)
     }
 }
 

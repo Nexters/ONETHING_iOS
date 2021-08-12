@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class PercentView: UIView {
+final class ProgressView: UIView {
     private let completedPercentView = UIView()
-    
+    private var ratio: Double?
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -24,6 +25,13 @@ final class PercentView: UIView {
     override func layoutSubviews() {
         self.layer.cornerRadius = self.frame.height / 2
         self.completedPercentView.layer.cornerRadius = self.frame.height / 2
+        
+        self.completedPercentView.snp.makeConstraints {
+            $0.leading.top.bottom.equalTo(self)
+
+            guard let ratio = self.ratio else { return }
+            $0.width.equalTo(self.snp.width).multipliedBy(ratio)
+        }
     }
     
     private func setup() {
@@ -35,9 +43,11 @@ final class PercentView: UIView {
         self.completedPercentView.backgroundColor = .red_default
         
         self.addSubview(self.completedPercentView)
-        self.completedPercentView.snp.makeConstraints {
-            $0.leading.top.bottom.equalTo(self)
-            $0.width.equalTo(self.snp.width).multipliedBy(0.66)
-        }
+
+    }
+    
+    func update(ratio: Double) {
+        self.ratio = ratio
+        self.layoutSubviews()
     }
 }

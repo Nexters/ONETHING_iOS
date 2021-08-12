@@ -8,12 +8,10 @@
 import UIKit
 
 final class BackBtnTitleView: UIView {
-    private weak var parentViewController: UIViewController?
-    private let backButton = UIButton()
+    let backButton = UIButton()
     private let titleLabel = UILabel()
     
-    init(frame: CGRect = .zero, parentViewController: UIViewController) {
-        self.parentViewController = parentViewController
+    override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setupBackButton()
@@ -27,22 +25,15 @@ final class BackBtnTitleView: UIView {
     private func setupBackButton() {
         self.backButton.setImage(UIImage(named: "arrow_back"), for: .normal)
         self.backButton.contentMode = .scaleAspectFit
-        self.backButton.addTarget(self, action: #selector(backButtonDidTouch(button:)), for: .touchUpInside)
         
-        self.addSubview(backButton)
+        self.addSubview(self.backButton)
         self.backButton.snp.makeConstraints {
             $0.top.leading.equalToSuperview()
             $0.width.equalTo(self.backButtonDiameter)
             $0.height.equalTo(self.backButton.snp.width)
         }
     }
-    
-    @objc private func backButtonDidTouch(button: UIButton?) {
-        guard let parentViewController = self.parentViewController else { return }
-        
-        parentViewController.navigationController?.popViewController(animated: true)
-    }
-    
+
     private func setupTitleLabel() {
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 18)
         
@@ -54,8 +45,8 @@ final class BackBtnTitleView: UIView {
         }
     }
     
-    func update(title text: String) {
-        self.titleLabel.text = text
+    func update(with viewModel: HabitWritingViewModel) {
+        self.titleLabel.text = viewModel.titleText
     }
     
     var backButtonDiameter: CGFloat {

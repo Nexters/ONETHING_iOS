@@ -8,6 +8,7 @@
 import UIKit
 
 import Then
+import Kingfisher
 
 protocol DailyHabitViewCloseButtonDelegate: UIViewController {
     func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView)
@@ -20,52 +21,106 @@ protocol DailyHabitViewPhotoViewDelegate: UIViewController {
 }
 
 final class DailyHabitView: UIView {
-    private let closeButton = UIButton()
+    let enrollPhotoButton = UIButton()
+    let closeButton = LargeTouchableButton()
     private let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
-    private let enrollPhotoButton = UIButton()
     private let habitTextView = HabitTextView()
     
     weak var dailyHabitViewCloseButtonDelegate: DailyHabitViewCloseButtonDelegate?
     weak var dailyHabitViewPhotoViewDelegate: DailyHabitViewPhotoViewDelegate?
     private let picker = UIImagePickerController()
     
-    init(frame: CGRect = .zero, hideCloseButton: Bool) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
-        self.setupAddSubviews()
-        self.setupCloseButton(with: hideCloseButton)
+        self.addSubviews()
+        self.setupCloseButton()
         self.setupTimeLabel()
         self.setupDateLabel()
         self.setupPhotoView()
         self.setupEnrollPhotoButton()
-        self.setupHabitTextView()
-        picker.delegate = self
+        self.picker.delegate = self
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func setupAddSubviews() {
-        [closeButton, dateLabel, timeLabel, photoView, habitTextView].forEach {
+    override func layoutSubviews() {
+        self.layoutCloseButton()
+        self.layoutTimeLabel()
+        self.layoutDateLabel()
+        self.layoutPhotoView()
+        self.layoutEnrollPhotoButton()
+        self.layoutHabitTextView()
+    }
+    
+    // MARK: - setup Layouts
+    
+    private func layoutCloseButton() {
+        self.superview?.addSubview(self.closeButton)
+        let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
+        self.closeButton.snp.makeConstraints {
+            $0.width.height.equalTo(constant)
+            $0.trailing.equalTo(self)
+            $0.centerY.equalTo(self.timeLabel)
+        }
+    }
+    
+    private func layoutTimeLabel() {
+        self.timeLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.closeButton.snp.leading).offset(-10)
+            $0.bottom.equalTo(self.snp.top)
+        }
+    }
+    
+    private func layoutDateLabel() {
+        self.dateLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.timeLabel.snp.leading).offset(-10)
+            $0.centerY.equalTo(self.timeLabel)
+        }
+    }
+    
+    private func layoutPhotoView() {
+        self.photoView.snp.makeConstraints {
+            $0.top.equalTo(self.timeLabel.snp.bottom).offset(25)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(160)
+        }
+    }
+    
+    private func layoutEnrollPhotoButton() {
+        self.enrollPhotoButton.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(18)
+            $0.height.equalToSuperview().multipliedBy(0.1625)
+            $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
+        }
+    }
+    
+    private func layoutHabitTextView() {
+        self.habitTextView.snp.makeConstraints {
+            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(90)
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    // MARK: - setup Attributes
+    
+    private func addSubviews() {
+        [self.dateLabel, self.timeLabel, self.photoView, self.habitTextView].forEach {
             self.addSubview($0)
         }
     }
     
-    private func setupCloseButton(with hideCloseButton: Bool) {
-        self.closeButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
-        self.closeButton.tintColor = .darkGray
-        self.closeButton.isHidden = hideCloseButton == true ? true : false
+    private func setupCloseButton() {
+        self.closeButton.setImage(UIImage(named: "close_button"), for: .normal)
+        self.closeButton.setImage(UIImage(named: "close_button"), for: .highlighted)
         self.closeButton.addTarget(self, action: #selector(self.closeButtonDidTouch), for: .touchUpInside)
-        
-        let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
-        self.closeButton.snp.makeConstraints {
-            $0.width.height.equalTo(constant)
-            $0.trailing.equalToSuperview()
-            $0.centerY.equalTo(self.timeLabel)
-        }
+        self.closeButton.contentMode = .scaleAspectFit
     }
     
     @objc private func closeButtonDidTouch() {
@@ -73,25 +128,13 @@ final class DailyHabitView: UIView {
     }
     
     private func setupTimeLabel() {
-        self.timeLabel.text = "5:05 PM"
         self.timeLabel.textColor = .black_40
         self.timeLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
-        
-        self.timeLabel.snp.makeConstraints {
-            $0.trailing.equalTo(self.closeButton.snp.leading).offset(-10)
-            $0.bottom.equalTo(self.snp.top)
-        }
     }
     
     private func setupDateLabel() {
-        self.dateLabel.text = "2021.07.21"
         self.dateLabel.textColor = .black_60
         self.dateLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
-        
-        self.dateLabel.snp.makeConstraints {
-            $0.trailing.equalTo(self.timeLabel.snp.leading).offset(-10)
-            $0.centerY.equalTo(self.timeLabel)
-        }
     }
     
     private func setupPhotoView() {
@@ -100,12 +143,6 @@ final class DailyHabitView: UIView {
         self.photoView.isUserInteractionEnabled = true
         self.photoView.layer.cornerRadius = 16
         self.photoView.clipsToBounds = true
-        
-        self.photoView.snp.makeConstraints {
-            $0.top.equalTo(self.timeLabel.snp.bottom).offset(25)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(160)
-        }
     }
     
     private func setupEnrollPhotoButton() {
@@ -113,12 +150,6 @@ final class DailyHabitView: UIView {
         self.enrollPhotoButton.addTarget(self, action: #selector(enrollPhotoButtonDidTouch), for: .touchUpInside)
         self.enrollPhotoButton.contentMode = .scaleAspectFit
         self.photoView.addSubview(self.enrollPhotoButton)
-        
-        self.enrollPhotoButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(18)
-            $0.height.equalToSuperview().multipliedBy(0.1625)
-            $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
-        }
     }
     
     @objc private func enrollPhotoButtonDidTouch() {
@@ -138,6 +169,7 @@ final class DailyHabitView: UIView {
         self.picker.sourceType = .photoLibrary
         self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
     }
+    
     private func openCamera() {
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
             self.picker.sourceType = .camera
@@ -147,13 +179,36 @@ final class DailyHabitView: UIView {
         }
     }
     
-    private func setupHabitTextView() {
-        self.habitTextView.snp.makeConstraints {
-            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(90)
-            $0.bottom.equalToSuperview()
+    var contentText: String? {
+        return self.habitTextView.text
+    }
+    
+    var photoImage: UIImage? {
+        return self.photoView.image
+    }
+    
+    func update(with viewModel: DailyHabitViewModelable) {
+        self.habitTextView.text = viewModel.contentText
+        self.dateLabel.text = viewModel.dateText
+        self.timeLabel.text = viewModel.timeText
+    }
+    
+    func update(photoImage: UIImage) {
+        self.photoView.alpha = 0
+        self.photoView.image = photoImage
+        self.photoView.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        UIView.animate(withDuration: 0.5) {
+            self.photoView.alpha = 1
+            self.photoView.transform = .identity
         }
+    }
+    
+    func hidePlaceHolderLabelOfTextView() {
+        self.habitTextView.placeholderLabel.isHidden = true
+    }
+    
+    func hideTextCountLabelOfTextView() {
+        self.habitTextView.textCountLabel.isHidden = true
     }
 }
 

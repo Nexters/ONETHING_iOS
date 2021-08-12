@@ -8,10 +8,7 @@
 import UIKit
 
 final class CompleteButton: UIButton {
-    private weak var parentViewController: UIViewController?
-    
-    init(frame: CGRect = .zero, parentViewController: UIViewController) {
-        self.parentViewController = parentViewController
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         self.setup()
     }
@@ -21,19 +18,8 @@ final class CompleteButton: UIButton {
     }
     
     private func setup() {
-        self.addTarget(self, action: #selector(self.completeButtonDidTouch(button:)), for: .touchUpInside)
         self.setTitle("저장하기", for: .normal)
         self.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 20)
         self.backgroundColor = .black_100
-    }
-    
-    @objc private func completeButtonDidTouch(button: UIButton?) {
-        self.dismiss()
-    }
-    
-    private func dismiss() {
-        guard let parentViewController = self.parentViewController else { return }
-        
-        parentViewController.navigationController?.popViewController(animated: true)
     }
 }

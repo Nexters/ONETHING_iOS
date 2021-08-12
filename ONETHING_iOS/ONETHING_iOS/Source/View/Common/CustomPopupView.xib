@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
         <array key="Pretendard-SemiBold.otf">
             <string>Pretendard-SemiBold</string>
         </array>
@@ -34,6 +37,12 @@
                                 <constraint firstAttribute="height" constant="46" id="nHI-Ls-IRt"/>
                             </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETN-a8-zYR" userLabel="Number Label">
+                            <rect key="frame" x="105" y="46" width="0.0" height="0.0"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                            <color key="textColor" name="black_60"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-Nd-S97">
                             <rect key="frame" x="107" y="76" width="0.0" height="0.0"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
@@ -43,10 +52,12 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstItem="ETN-a8-zYR" firstAttribute="centerY" secondItem="F0I-38-dWc" secondAttribute="centerY" multiplier="16/15" id="0DC-m9-eGG"/>
                         <constraint firstItem="F0I-38-dWc" firstAttribute="centerX" secondItem="Rvt-2R-jkP" secondAttribute="centerX" id="G71-em-bqV"/>
                         <constraint firstItem="C2w-Nd-S97" firstAttribute="top" secondItem="F0I-38-dWc" secondAttribute="bottom" constant="10" id="Gbr-pv-mMN"/>
                         <constraint firstItem="F0I-38-dWc" firstAttribute="top" secondItem="Rvt-2R-jkP" secondAttribute="top" constant="20" id="OxU-eQ-kXZ"/>
                         <constraint firstItem="C2w-Nd-S97" firstAttribute="centerX" secondItem="Rvt-2R-jkP" secondAttribute="centerX" id="ZNl-Ra-z82"/>
+                        <constraint firstItem="ETN-a8-zYR" firstAttribute="centerX" secondItem="F0I-38-dWc" secondAttribute="centerX" multiplier="49/50" id="ni0-SW-odL"/>
                         <constraint firstAttribute="trailing" secondItem="F0I-38-dWc" secondAttribute="trailing" constant="64" id="oF9-d5-jjj"/>
                         <constraint firstAttribute="bottom" secondItem="C2w-Nd-S97" secondAttribute="bottom" constant="20" id="v7Y-S4-I4v"/>
                         <constraint firstItem="F0I-38-dWc" firstAttribute="leading" secondItem="Rvt-2R-jkP" secondAttribute="leading" constant="64" id="vRB-TA-arl"/>
@@ -71,6 +82,7 @@
             <connections>
                 <outlet property="dimView" destination="LFz-Sa-8IU" id="f1k-9j-cAe"/>
                 <outlet property="imageView" destination="F0I-38-dWc" id="aFi-OG-gkC"/>
+                <outlet property="numberLabel" destination="ETN-a8-zYR" id="SLJ-F2-Noo"/>
                 <outlet property="titleLabel" destination="C2w-Nd-S97" id="xTL-sB-Rbj"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="123.88392857142857"/>
@@ -79,6 +91,9 @@
     <resources>
         <namedColor name="black_100">
             <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_60">
+            <color red="0.53299999237060547" green="0.53299999237060547" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
