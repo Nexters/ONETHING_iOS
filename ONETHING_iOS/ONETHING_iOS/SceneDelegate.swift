@@ -35,11 +35,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-//        if self.noHaveHabitSetting(with: userManager) {
-//            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
-//            self.present(viewController: goalSettingFirstViewController, with: rootController)
-//            return
-//        }
+        if self.noHaveHabitSetting(with: userManager) {
+            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
+            self.present(viewController: goalSettingFirstViewController, with: rootController)
+            return
+        }
     }
 
     private func present(viewController: UIViewController?, with rootController: MainTabBarController) {
