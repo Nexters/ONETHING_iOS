@@ -29,7 +29,7 @@ final class HomeViewModel: NSObject {
     func requestHabitInProgress() {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabitInProgress)
             .subscribe(onSuccess: { [weak self] (responseModel: InProgressHabitResponseModel) in
-                let habitInProgressModel = responseModel.data
+                guard let habitInProgressModel = responseModel.data else { return }
                 
                 self?.habitInProgressModel = habitInProgressModel
                 self?.habitInProgressSubject.onNext(habitInProgressModel)

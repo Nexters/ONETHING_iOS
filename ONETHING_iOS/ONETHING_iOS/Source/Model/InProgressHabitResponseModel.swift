@@ -8,5 +8,5 @@
 import Foundation
 
 struct InProgressHabitResponseModel: Codable {
-    var data: HabitResponseModel
+    var data: HabitResponseModel?
 }
