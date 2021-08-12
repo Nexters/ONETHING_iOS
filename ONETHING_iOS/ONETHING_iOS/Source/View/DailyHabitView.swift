@@ -194,7 +194,13 @@ final class DailyHabitView: UIView {
     }
     
     func update(photoImage: UIImage) {
+        self.photoView.alpha = 0
         self.photoView.image = photoImage
+        self.photoView.transform = CGAffineTransform(scaleX: 0.98, y: 0.98)
+        UIView.animate(withDuration: 0.5) {
+            self.photoView.alpha = 1
+            self.photoView.transform = .identity
+        }
     }
     
     func hidePlaceHolderLabelOfTextView() {
