@@ -19,10 +19,6 @@ class CommonWebViewController: UIViewController {
         self.bindButtons()
     }
     
-    deinit {
-        print("De init")
-    }
-    
     func setWebViewTitle(_ title: String) {
         self.webViewTitle = title
     }
