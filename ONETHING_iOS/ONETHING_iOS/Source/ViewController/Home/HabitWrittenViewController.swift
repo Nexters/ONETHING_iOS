@@ -30,7 +30,6 @@ final class HabitWrittenViewController: BaseViewController {
         self.setupView()
         self.setupUpperStampView()
         self.setupDailyHabitView()
-        self.addDownGestureRecognizer()
 
         self.updateViewsWithViewModel()
         self.viewModel?.requestHabitImageRx()
@@ -44,7 +43,6 @@ final class HabitWrittenViewController: BaseViewController {
     
     private func setupUpperStampView() {
         self.upperStampButton.contentMode = .scaleAspectFit
-        self.upperStampButton.addTarget(self, action: #selector(self.dismissViewController), for: .touchUpInside)
         
         self.view.addSubview(self.upperStampButton)
         self.upperStampButton.snp.makeConstraints {
@@ -73,18 +71,6 @@ final class HabitWrittenViewController: BaseViewController {
         self.delegate?.habitWrittenViewControllerWillDismiss(self)
         self.upperStampButton.isHidden = true
         super.dismiss(animated: true)
-    }
-    
-    private func addDownGestureRecognizer() {
-        let downSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.didSwipe)).then {
-            $0.direction = .down
-        }
-        
-        self.view.addGestureRecognizer(downSwipeGestureRecognizer)
-    }
-    
-    @objc private func didSwipe() {
-        self.dismissViewController()
     }
     
     private func updateViewsWithViewModel() {

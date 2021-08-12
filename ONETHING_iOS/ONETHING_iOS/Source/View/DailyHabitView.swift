@@ -22,7 +22,7 @@ protocol DailyHabitViewPhotoViewDelegate: UIViewController {
 
 final class DailyHabitView: UIView {
     let enrollPhotoButton = UIButton()
-    let closeButton = UIButton()
+    let closeButton = LargeTouchableButton()
     private let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
@@ -35,13 +35,12 @@ final class DailyHabitView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
-        self.setupAddSubviews()
+        self.addSubviews()
         self.setupCloseButton()
         self.setupTimeLabel()
         self.setupDateLabel()
         self.setupPhotoView()
         self.setupEnrollPhotoButton()
-        self.setupHabitTextView()
         self.picker.delegate = self
     }
     
@@ -51,28 +50,77 @@ final class DailyHabitView: UIView {
     
     override func layoutSubviews() {
         self.layoutCloseButton()
+        self.layoutTimeLabel()
+        self.layoutDateLabel()
+        self.layoutPhotoView()
+        self.layoutEnrollPhotoButton()
+        self.layoutHabitTextView()
     }
     
-    private func setupAddSubviews() {
-        [closeButton, dateLabel, timeLabel, photoView, habitTextView].forEach {
+    // MARK: - setup Layouts
+    
+    private func layoutCloseButton() {
+        self.superview?.addSubview(self.closeButton)
+        let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
+        self.closeButton.snp.makeConstraints {
+            $0.width.height.equalTo(constant)
+            $0.trailing.equalTo(self)
+            $0.centerY.equalTo(self.timeLabel)
+        }
+    }
+    
+    private func layoutTimeLabel() {
+        self.timeLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.closeButton.snp.leading).offset(-10)
+            $0.bottom.equalTo(self.snp.top)
+        }
+    }
+    
+    private func layoutDateLabel() {
+        self.dateLabel.snp.makeConstraints {
+            $0.trailing.equalTo(self.timeLabel.snp.leading).offset(-10)
+            $0.centerY.equalTo(self.timeLabel)
+        }
+    }
+    
+    private func layoutPhotoView() {
+        self.photoView.snp.makeConstraints {
+            $0.top.equalTo(self.timeLabel.snp.bottom).offset(25)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(160)
+        }
+    }
+    
+    private func layoutEnrollPhotoButton() {
+        self.enrollPhotoButton.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(18)
+            $0.height.equalToSuperview().multipliedBy(0.1625)
+            $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
+        }
+    }
+    
+    private func layoutHabitTextView() {
+        self.habitTextView.snp.makeConstraints {
+            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(90)
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    // MARK: - setup Attributes
+    
+    private func addSubviews() {
+        [self.dateLabel, self.timeLabel, self.photoView, self.habitTextView].forEach {
             self.addSubview($0)
         }
     }
     
     private func setupCloseButton() {
-        self.closeButton.setImage(UIImage(systemName: "xmark.circle"), for: .normal)
-        self.closeButton.tintColor = .darkGray
+        self.closeButton.setImage(UIImage(named: "close_button"), for: .normal)
+        self.closeButton.setImage(UIImage(named: "close_button"), for: .highlighted)
         self.closeButton.addTarget(self, action: #selector(self.closeButtonDidTouch), for: .touchUpInside)
-        self.addSubview(self.closeButton)
-    }
-    
-    private func layoutCloseButton() {
-        let constant: CGFloat = self.closeButton.isHidden == false ? 20 : 0
-        self.closeButton.snp.makeConstraints {
-            $0.width.height.equalTo(constant)
-            $0.trailing.equalToSuperview()
-            $0.centerY.equalTo(self.timeLabel)
-        }
+        self.closeButton.contentMode = .scaleAspectFit
     }
     
     @objc private func closeButtonDidTouch() {
@@ -80,25 +128,13 @@ final class DailyHabitView: UIView {
     }
     
     private func setupTimeLabel() {
-        self.timeLabel.text = "5:05 PM"
         self.timeLabel.textColor = .black_40
         self.timeLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
-        
-        self.timeLabel.snp.makeConstraints {
-            $0.trailing.equalTo(self.closeButton.snp.leading).offset(-10)
-            $0.bottom.equalTo(self.snp.top)
-        }
     }
     
     private func setupDateLabel() {
-        self.dateLabel.text = "2021.07.21"
         self.dateLabel.textColor = .black_60
         self.dateLabel.font = UIFont.createFont(type: .montserrat(weight: .medium), size: 10)
-        
-        self.dateLabel.snp.makeConstraints {
-            $0.trailing.equalTo(self.timeLabel.snp.leading).offset(-10)
-            $0.centerY.equalTo(self.timeLabel)
-        }
     }
     
     private func setupPhotoView() {
@@ -107,12 +143,6 @@ final class DailyHabitView: UIView {
         self.photoView.isUserInteractionEnabled = true
         self.photoView.layer.cornerRadius = 16
         self.photoView.clipsToBounds = true
-        
-        self.photoView.snp.makeConstraints {
-            $0.top.equalTo(self.timeLabel.snp.bottom).offset(25)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(160)
-        }
     }
     
     private func setupEnrollPhotoButton() {
@@ -120,12 +150,6 @@ final class DailyHabitView: UIView {
         self.enrollPhotoButton.addTarget(self, action: #selector(enrollPhotoButtonDidTouch), for: .touchUpInside)
         self.enrollPhotoButton.contentMode = .scaleAspectFit
         self.photoView.addSubview(self.enrollPhotoButton)
-        
-        self.enrollPhotoButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(18)
-            $0.height.equalToSuperview().multipliedBy(0.1625)
-            $0.width.equalTo(self.enrollPhotoButton.snp.height).multipliedBy(4)
-        }
     }
     
     @objc private func enrollPhotoButtonDidTouch() {
@@ -152,15 +176,6 @@ final class DailyHabitView: UIView {
             self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
         } else {
             print("Camera not available")
-        }
-    }
-    
-    private func setupHabitTextView() {
-        self.habitTextView.snp.makeConstraints {
-            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
-            $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(90)
-            $0.bottom.equalToSuperview()
         }
     }
     

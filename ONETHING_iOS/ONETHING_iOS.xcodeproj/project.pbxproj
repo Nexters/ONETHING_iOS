@@ -391,6 +391,9 @@
 		F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
 		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
+		F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
+		F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
@@ -571,6 +574,7 @@
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
+		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -664,6 +668,7 @@
 				CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */,
 				CE8FEDEA26B6D8FE0092DC0D /* CustomPopupView.xib */,
 				CE8FEDEE26B6D90F0092DC0D /* CustomPopupView.swift */,
+				F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1603,6 +1608,7 @@
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
+				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
@@ -1671,6 +1677,7 @@
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
+				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
@@ -1711,7 +1718,7 @@
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
-				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabbitModel.swift in Sources */,
+				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
@@ -1797,6 +1804,7 @@
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
+				F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
