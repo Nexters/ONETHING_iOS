@@ -17,7 +17,7 @@ protocol OnthingWebViewNavigationDelegate: AnyObject {
 
 class OnethingWebView: WKWebView {
     
-    weak var onthingNavigationDelegate: OnthingWebViewNavigationDelegate?
+    weak var onethingNavigationDelegate: OnthingWebViewNavigationDelegate?
 
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
@@ -105,16 +105,16 @@ extension OnethingWebView: WKUIDelegate {
 extension OnethingWebView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        self.onthingNavigationDelegate?.onethingWebView(self, didCommit: navigation)
+        self.onethingNavigationDelegate?.onethingWebView(self, didCommit: navigation)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        self.onthingNavigationDelegate?.onethingWebView(self, didFinish: navigation)
+        self.onethingNavigationDelegate?.onethingWebView(self, didFinish: navigation)
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.stopIndicator()
-        self.onthingNavigationDelegate?.onethingWebView(self, didFail: navigation, withError: error)
+        self.onethingNavigationDelegate?.onethingWebView(self, didFail: navigation, withError: error)
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {

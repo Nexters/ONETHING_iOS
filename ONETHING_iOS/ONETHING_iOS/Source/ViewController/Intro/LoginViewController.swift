@@ -63,13 +63,25 @@ final class LoginViewController: BaseViewController {
         }
         self.termsLabel.text = termsText
         
-        self.termsLabel.handleCustomTap(for: personal) {
-            print($0)
+        self.termsLabel.handleCustomTap(for: personal) { [weak self] _ in
+            self?.presentServiceTermWebView(.personal)
         }
         
-        self.termsLabel.handleCustomTap(for: serviceOfTerms) {
-            print($0)
+        self.termsLabel.handleCustomTap(for: serviceOfTerms) { [weak self] _ in
+            self?.presentServiceTermWebView(.serviceOfTerm)
         }
+    }
+    
+    private func presentServiceTermWebView(_ serviceTerm: ServieTerm) {
+        let viewController = CommonWebViewController.instantiateViewController(from: .common)
+        
+        guard let webViewController = viewController                 else { return }
+        guard let webViewURL = URL(string: serviceTerm.webStringURL) else { return }
+        
+        webViewController.setWebViewTitle(serviceTerm.title)
+        webViewController.configureURL(webViewURL)
+        webViewController.modalPresentationStyle = .fullScreen
+        self.present(webViewController, animated: true, completion: nil)
     }
     
     private func setupLoadingIndicator() {
@@ -134,5 +146,28 @@ final class LoginViewController: BaseViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var termsLabel: ActiveLabel!
     @IBOutlet private weak var appleLoginButton: UIButton!
+    
+}
+
+extension LoginViewController {
+    
+    enum ServieTerm {
+        case personal
+        case serviceOfTerm
+        
+        var title: String {
+            switch self {
+            case .personal: return "개인정보 처리방침"
+            case .serviceOfTerm: return "서비스 이용약관"
+            }
+        }
+        
+        var webStringURL: String {
+            switch self {
+            case .personal: return "https://sites.google.com/view/nyongnyongpersonal"
+            case .serviceOfTerm: return "https://sites.google.com/view/nyongnyongserviceofterm"
+            }
+        }
+    }
     
 }
