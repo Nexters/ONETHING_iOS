@@ -12,12 +12,12 @@ final class OnethingUserManager {
     
     static let sharedInstance = OnethingUserManager()
     
+    var hasAccessToken: Bool { return self.accessToken != nil }
+    var hasRefreshToken: Bool { return self.refreshToken != nil }
+    
     init(apiService: APIService = .shared) {
         self.apiService = apiService
     }
-    
-    var hasAccessToken: Bool { return self.accessToken != nil }
-    var hasRefreshToken: Bool { return self.refreshToken != nil }
     
     func updateAuthToken(_ accessToken: String, _ refreshToken: String) {
         self.accessToken = accessToken

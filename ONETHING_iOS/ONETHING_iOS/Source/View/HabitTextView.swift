@@ -126,6 +126,12 @@ extension HabitTextView: UITextViewDelegate {
     }
     
     func textViewDidChangeSelection(_ textView: UITextView) {
+        guard textView.text != "\n" else {
+            textView.text.removeLast()
+            textView.resignFirstResponder()
+            return
+        }
+        
         self.showOrHidePlaceholderLabel(with: textView)
         self.updateCountLabel(with: textView)
     }

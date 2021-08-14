@@ -43,7 +43,6 @@ final class LoginViewController: BaseViewController {
     }
     
     private func setupTermsLabel() {
-        #warning("약관 동의 및 개인정보 이용 약관 WebView 연결해야함")
         guard let lightFont = UIFont.createFont(type: .pretendard(weight: .light), size: 12) else { return }
         guard let boldFont = UIFont.createFont(type: .pretendard(weight: .bold), size: 12)   else { return }
         
@@ -105,7 +104,7 @@ final class LoginViewController: BaseViewController {
         self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] doneHabbitSetting in
             if doneHabbitSetting == true {
                 self?.mainTabbarController?.broadCastRequiredReload()
-                self?.dismiss(animated: true, completion: nil)
+                self?.navigationController?.dismiss(animated: true, completion: nil)
             } else {
                 self?.pushGoalSettingController()
             }

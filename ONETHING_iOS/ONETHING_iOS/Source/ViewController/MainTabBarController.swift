@@ -23,7 +23,7 @@ final class MainTabBarController: UITabBarController {
         let navigationController = UINavigationController(rootViewController: loginViewController)
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.setNavigationBarHidden(true, animated: false)
-        self.present(navigationController, animated: false) { [weak self] in
+        self.present(navigationController, animated: true) { [weak self] in
             guard let self = self else { return }
             self.selectedIndex = 0
             self.moveToRoot()

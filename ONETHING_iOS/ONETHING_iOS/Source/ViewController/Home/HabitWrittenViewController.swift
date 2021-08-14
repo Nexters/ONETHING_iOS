@@ -34,7 +34,7 @@ final class HabitWrittenViewController: BaseViewController {
         self.updateViewsWithViewModel()
         self.viewModel?.requestHabitImageRx()
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
     }
 
     private func setupView() {
@@ -65,6 +65,8 @@ final class HabitWrittenViewController: BaseViewController {
             $0.top.equalToSuperview().offset(40)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
+        
+        self.dailyHabitView.setEditingEnable(false)
     }
     
     @objc private func dismissViewController() {

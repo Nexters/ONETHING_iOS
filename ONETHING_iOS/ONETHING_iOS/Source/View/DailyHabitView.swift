@@ -58,6 +58,10 @@ final class DailyHabitView: UIView {
         self.layoutHabitTextView()
     }
     
+    func setEditingEnable(_ enable: Bool) {
+        self.habitTextView.isEditable = enable
+    }
+    
     // MARK: - setup Layouts
     
     private func layoutCloseButton() {
