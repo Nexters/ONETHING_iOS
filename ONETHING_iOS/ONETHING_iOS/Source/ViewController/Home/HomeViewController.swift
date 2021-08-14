@@ -13,7 +13,8 @@ import RxCocoa
 import Alamofire
 
 final class HomeViewController: BaseViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    private var barStyle: UIStatusBarStyle = .lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
     private var habitCalendarView = HabitCalendarView(
@@ -101,6 +102,8 @@ final class HomeViewController: BaseViewController {
             .bind { [weak self] habitInProgressModel in
                 guard let self = self,
                 let habitInProgressModel = habitInProgressModel else {
+                    self?.barStyle = .darkContent
+                    self?.setNeedsStatusBarAppearanceUpdate()
                     self?.showEmptyView()
                     return
                 }
@@ -250,6 +253,8 @@ extension HomeViewController: HomeEmptyViewDelegate {
         
         self.present(navigationController, animated: true) {
             self.hideEmptyView()
+            self.barStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
         }
     }
     
