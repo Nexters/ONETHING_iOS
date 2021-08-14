@@ -44,10 +44,11 @@ final class APIService {
                         single(.failure(error))
                     }
                 case .failure:
-                    guard NetworkErrorPopupView.isPresented == false                                    else { return }
-                    guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib()          else { return }
-                    guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
-                    networkPopupView.show(in: keyWindow) { retryHandler?() }
+                    if NetworkErrorPopupView.isPresented == false {
+                        NetworkErrorPopupView.showInKeyWindow { retryHandler?() }
+                    } else {
+                        NetworkErrorPopupView.append { retryHandler?() }
+                    }
                 }
             }
             
