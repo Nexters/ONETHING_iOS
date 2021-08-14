@@ -13,18 +13,35 @@ class NetworkErrorPopupView: UIView {
     
     typealias Completion = () -> Void
     
-    static var isPresented: Bool {
-        let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
-        return keyWindow?.viewWithTag(ViewTag.networkErrorPopup) != nil
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.tag = ViewTag.networkErrorPopup
     }
 
-    func show(in view: UIView, completion: Completion?) {
-        self.retryAction = completion
+    // MARK: - internal methods
+    static func showInKeyWindow(completion: Completion?) {
+        guard let networkPopupView: NetworkErrorPopupView = UIView.createFromNib() else { return }
+        guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+        
+        networkPopupView.show(in: keyWindow) { completion?() }
+    }
+    
+    static func append(completion: Completion?) {
+        guard let networkPopupView = self.presentedView else { return }
+        guard let completion = completion else { return }
+        
+        networkPopupView.retryActions.append(completion)
+    }
+    
+    static var presentedView: Self? {
+        let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+        return keyWindow?.viewWithTag(ViewTag.networkErrorPopup) as? Self
+    }
+    
+    private func show(in view: UIView, completion: Completion?) {
+        if let completion = completion {
+            self.retryActions.append(completion)
+        }
         
         view.addSubview(self)
         self.snp.makeConstraints { make in
@@ -33,9 +50,11 @@ class NetworkErrorPopupView: UIView {
         self.animateForShow()
     }
     
-    func hide() {
+    private func hide() {
         self.animateForHide { [weak self] in
-            self?.retryAction?()
+            self?.retryActions.forEach { retryAction in retryAction() }
+            self?.retryActions.removeAll()
+            
             self?.removeFromSuperview()
         }
     }
@@ -59,7 +78,7 @@ class NetworkErrorPopupView: UIView {
         })
     }
 
-    private var retryAction: Completion?
+    private var retryActions = [Completion]()
     private let disposeBag = DisposeBag()
     
 }
