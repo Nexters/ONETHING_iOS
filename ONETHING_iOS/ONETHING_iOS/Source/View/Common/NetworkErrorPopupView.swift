@@ -22,6 +22,7 @@ class NetworkErrorPopupView: UIView {
     static func showInKeyWindow(completion: Completion?) {
         guard let networkPopupView = NetworkErrorPopupView.shared else { return }
         guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+        
         networkPopupView.show(in: keyWindow) { completion?() }
     }
     
@@ -63,7 +64,7 @@ class NetworkErrorPopupView: UIView {
         self.animateForHide { [weak self] in
             self?.retryActions.forEach { retryAction in retryAction() }
             self?.retryActions.removeAll()
-            NetworkErrorPopupView._shared = nil
+            Self._shared = nil
             
             self?.removeFromSuperview()
         }
