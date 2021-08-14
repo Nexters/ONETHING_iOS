@@ -44,7 +44,7 @@ final class APIService {
                         single(.failure(error))
                     }
                 case .failure:
-                    if NetworkErrorPopupView.isPresented == false {
+                    if NetworkErrorPopupView.presentedView == nil {
                         NetworkErrorPopupView.showInKeyWindow { retryHandler?() }
                     } else {
                         NetworkErrorPopupView.append { retryHandler?() }
