@@ -18,7 +18,7 @@ final class HomeViewModel: NSObject {
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private var userName: String?
     private let disposeBag = DisposeBag()
-    let habitInProgressSubject = PublishSubject<HabitResponseModel>()
+    let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
@@ -31,10 +31,13 @@ final class HomeViewModel: NSObject {
             apiTarget: ContentAPI.getHabitInProgress,
             retryHandler: { self.requestHabitInProgress() }
         ).subscribe(onSuccess: { [weak self] (responseModel: InProgressHabitResponseModel) in
-                guard let habitInProgressModel = responseModel.data else { return }
-                
-                self?.habitInProgressModel = habitInProgressModel
-                self?.habitInProgressSubject.onNext(habitInProgressModel)
+            guard let habitInProgressModel = responseModel.data else {
+                self?.habitInProgressSubject.onNext(nil)
+                return
+            }
+            
+            self?.habitInProgressModel = habitInProgressModel
+            self?.habitInProgressSubject.onNext(habitInProgressModel)
         }).disposed(by: self.disposeBag)
     }
     

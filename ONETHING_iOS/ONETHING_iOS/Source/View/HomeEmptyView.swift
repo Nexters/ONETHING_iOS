@@ -36,7 +36,6 @@ final class HomeEmptyView: UIView {
         }
         
         self.addSubview(self.mainImageView)
-        
         self.mainImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
             $0.width.equalTo(308)
