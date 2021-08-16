@@ -185,9 +185,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewModel = self.viewModel else { return }
-        
-        viewModel.selectedStampIndex = indexPath.row
-        
+
         if viewModel.isLocked(at: indexPath.row) {
             self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
             self.popupLockViewAndDown(with: indexPath)
@@ -195,6 +193,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
             guard let habitStampView = collectionView as? HabitStampView else { return }
             guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
     
+            viewModel.selectedStampIndex = indexPath.row
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
             habitStampCell.showCheckView()
