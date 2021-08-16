@@ -13,7 +13,8 @@ import RxCocoa
 import Alamofire
 
 final class HomeViewController: BaseViewController {
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    private var barStyle: UIStatusBarStyle = .lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     private let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
     private var habitCalendarView = HabitCalendarView(
@@ -88,6 +89,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupHomeEmptyView() {
+        self.homeEmptyView.delegate = self
         self.view.addSubview(self.homeEmptyView)
         self.homeEmptyView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
@@ -97,10 +99,16 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         self.viewModel
             .habitInProgressSubject
-            .bind { [weak self] in
-                guard let self = self else { return }
+            .bind { [weak self] habitInProgressModel in
+                guard let self = self,
+                let habitInProgressModel = habitInProgressModel else {
+                    self?.barStyle = .darkContent
+                    self?.setNeedsStatusBarAppearanceUpdate()
+                    self?.showEmptyView()
+                    return
+                }
                 
-                self.viewModel.requestDailyHabits(habitId: $0.habitId)
+                self.viewModel.requestDailyHabits(habitId: habitInProgressModel.habitId)
                 self.habitInfoView.update(with: self.viewModel)
             }
             .disposed(by: disposeBag)
@@ -121,6 +129,12 @@ final class HomeViewController: BaseViewController {
                 self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func showEmptyView() {
+        let views = [self.habitInfoView, self.habitCalendarView, self.backgroundDimView]
+        views.forEach { $0.isHidden = true }
+        self.homeEmptyView.isHidden = false
     }
   
 	@objc private func updateUserInform(_ notification: Notification) {
@@ -229,5 +243,32 @@ extension HomeViewController: HabitWrittenViewControllerDelegate {
 extension HomeViewController: HabitWritingViewControllerDelegate {
     func update(currentDailyHabitModel: DailyHabitResponseModel) {
         self.viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
+    }
+}
+
+extension HomeViewController: HomeEmptyViewDelegate {
+    func homeEmptyViewDidTapSelectButton(_ homeEmptyView: HomeEmptyView) {
+        guard let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting),
+              let navigationController = self.navigationController(goalSettingFirstViewController) else { return }
+        
+        self.present(navigationController, animated: true) {
+            self.hideEmptyView()
+            self.barStyle = .lightContent
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+    private func navigationController(_ rootController: UIViewController?) -> UINavigationController? {
+        guard let rootController = rootController else { return nil }
+        let navigationController = UINavigationController(rootViewController: rootController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.isNavigationBarHidden = true
+        return navigationController
+    }
+    
+    private func hideEmptyView() {
+        let views = [self.habitInfoView, self.habitCalendarView, self.backgroundDimView]
+        views.forEach { $0.isHidden = false }
+        self.homeEmptyView.isHidden = false
     }
 }

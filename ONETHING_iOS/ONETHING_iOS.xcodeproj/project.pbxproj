@@ -235,8 +235,6 @@
 		CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A16269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
 		CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A14269C8F800007AFF2 /* GoalSettingFirstViewModel.swift */; };
-		CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
-		CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
 		CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
 		CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFC3A24269CA2E20007AFF2 /* Array+.swift */; };
@@ -259,7 +257,6 @@
 		CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
-		CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
 		F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
@@ -374,8 +371,6 @@
 		F293C3D8269D19BF0096757C /* Circleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3D5269D19BF0096757C /* Circleable.swift */; };
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
-		F29B842D269A8661009D293F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C02699BFE300BB2C19 /* UIColor+.swift */; };
-		F29B842F269A8665009D293F /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C22699C14800BB2C19 /* UIView+.swift */; };
 		F29B8431269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		F29B8432269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
 		F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
@@ -1572,12 +1567,10 @@
 				F271CF1926B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				F2BADE0626C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
-				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
-				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
@@ -1611,17 +1604,12 @@
 				CEC4D82926A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				CED5AECE26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CE26C44E26B0313E00BE7DDC /* OnethingError.swift in Sources */,
-				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
-				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
-				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */,
-				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
-				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
@@ -1798,8 +1786,6 @@
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
-				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
-				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
@@ -1808,7 +1794,6 @@
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
-				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
@@ -1821,14 +1806,12 @@
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				CE8FEDE526B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
-				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				F293C3D7269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
 				F2F588B126B0F95200F5430D /* LockView.swift in Sources */,
-				F29B842F269A8665009D293F /* UIView+.swift in Sources */,
 				CE8FEDF026B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE26C45326B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -1837,21 +1820,17 @@
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
-				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
-				CEFC3A22269C92E40007AFF2 /* UICollectionView+.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				CEFA5BC626B52BFF0037F71B /* Date+.swift in Sources */,
-				CEFC3A20269C92E00007AFF2 /* UITableView+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CEC6C36E26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
-				CEFF0A4B269C8EE200DB8D2D /* UIViewController+.swift in Sources */,
 				CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CEFC3A26269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CE8FEDE026B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
@@ -1881,7 +1860,6 @@
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
-				F29B842D269A8661009D293F /* UIColor+.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CEE8AB1526BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
