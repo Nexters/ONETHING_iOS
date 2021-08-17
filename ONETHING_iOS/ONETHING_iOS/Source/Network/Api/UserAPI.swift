@@ -14,6 +14,7 @@ enum UserAPI {
     case appleLogin(authorizationCode: String, identityToken: String, userName: String? = nil)
     case refresh(accessToken: String, refreshToken: String)
     case account
+    case withdrawl(accessToken: String, refreshToken: String)
 }
 
 extension UserAPI: TargetType {
@@ -27,13 +28,15 @@ extension UserAPI: TargetType {
         case .appleLogin:   return "/auth/apple/login"
         case .refresh:      return "/auth/token/refresh"
         case .account:      return "/api/account"
+        case .withdrawl:    return "/api/sign-out"
         }
     }
     
     var method: Moya.Method {
         switch self {
         case .logout:       fallthrough
-        case .appleLogin:   return .post
+        case .appleLogin:   fallthrough
+        case .withdrawl:    fallthrough
         case .refresh:      return .post
         case .account:      return .get
         }
@@ -53,9 +56,13 @@ extension UserAPI: TargetType {
             if let userName = userName { parameters["userName"] = userName }
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .refresh(let accessToken, let refreshToken):
-            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
+                                      encoding: JSONEncoding.default)
         case .account:
             return .requestPlain
+        case .withdrawl(let accessToken, let refreshToken):
+            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
+                                      encoding: JSONEncoding.default)
         }
     }
     
