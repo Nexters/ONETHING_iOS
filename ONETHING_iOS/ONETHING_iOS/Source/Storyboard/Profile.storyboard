@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,14 +26,14 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2e-3v-9Kw">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="342.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="236.5"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8O-6d-0k6">
-                                        <rect key="frame" x="32" y="210.5" width="100" height="100"/>
+                                        <rect key="frame" x="32" y="104.5" width="100" height="100"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_rabbit_box" translatesAutoresizingMaskIntoConstraints="NO" id="EJZ-Ug-toB">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -53,7 +55,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTj-eY-y13">
-                                        <rect key="frame" x="494" y="54" width="74" height="28"/>
+                                        <rect key="frame" x="308" y="54" width="74" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="74" id="Pxe-bb-vq9"/>
                                             <constraint firstAttribute="height" constant="28" id="ctF-BF-LEP"/>
@@ -75,19 +77,19 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-EA-2I4">
-                                        <rect key="frame" x="156" y="281.5" width="88.5" height="14"/>
+                                        <rect key="frame" x="156" y="175" width="89.5" height="14.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poF-n2-XuL">
-                                                <rect key="frame" x="0.0" y="0.0" width="40.5" height="14"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="14.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="성공" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ir6-UI-bnL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" name="red_2"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URU-Rm-XNg">
-                                                        <rect key="frame" x="27" y="0.0" width="13.5" height="14"/>
+                                                        <rect key="frame" x="27" y="0.0" width="14.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -104,16 +106,16 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDW-7a-3n4">
-                                                <rect key="frame" x="54.5" y="0.0" width="34" height="14"/>
+                                                <rect key="frame" x="55.5" y="0.0" width="34" height="14.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="미룸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqR-mP-bVh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="14"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" red="0.52156862745098043" green="0.81960784313725488" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poZ-ko-zLN">
-                                                        <rect key="frame" x="27" y="0.0" width="7" height="14"/>
+                                                        <rect key="frame" x="27" y="0.0" width="7" height="14.5"/>
                                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -132,7 +134,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah8-eR-zKl">
-                                        <rect key="frame" x="156" y="271.5" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="156" y="165" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -152,7 +154,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="32P-Md-slX">
-                                <rect key="frame" x="0.0" y="352.5" width="600" height="554"/>
+                                <rect key="frame" x="0.0" y="246.5" width="414" height="554"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="554" id="dOs-wA-LvE"/>
@@ -189,18 +191,18 @@
             <objects>
                 <viewController storyboardIdentifier="AccountViewController" id="BMN-Cr-BaE" customClass="AccountViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6k1-gv-c9c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b1-24-U7o">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7b-tc-gxF">
                                         <rect key="frame" x="32" y="18" width="24" height="24"/>
                                         <state key="normal" image="arrow_back"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 계정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-zT-7wj">
-                                        <rect key="frame" x="274" y="19.5" width="52" height="21"/>
+                                        <rect key="frame" x="181.5" y="19" width="51" height="22"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                                         <color key="textColor" name="black_100"/>
                                         <nil key="highlightedColor"/>
@@ -216,10 +218,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dL-kt-aoh">
-                                <rect key="frame" x="0.0" y="80" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="124" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apple로 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j71-7O-yEc">
-                                        <rect key="frame" x="492" y="25" width="76" height="14"/>
+                                        <rect key="frame" x="307" y="25" width="75" height="14"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                         <color key="textColor" name="black_60"/>
                                         <nil key="highlightedColor"/>
@@ -241,14 +243,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rhy-jW-Vhu">
-                                <rect key="frame" x="32" y="144" width="536" height="1"/>
+                                <rect key="frame" x="32" y="188" width="350" height="1"/>
                                 <color key="backgroundColor" name="black_20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="Tek-yb-Ic6"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-1Y-0ek">
-                                <rect key="frame" x="0.0" y="145" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="189" width="414" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이메일 주소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQK-t9-1dq">
                                         <rect key="frame" x="32" y="22.5" width="74" height="19"/>
@@ -257,7 +259,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek2-SB-bOf">
-                                        <rect key="frame" x="568" y="32" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="382" y="32" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                         <color key="textColor" name="black_60"/>
                                         <nil key="highlightedColor"/>
@@ -273,7 +275,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Yr-fP-vRW">
-                                <rect key="frame" x="32" y="209" width="536" height="1"/>
+                                <rect key="frame" x="32" y="253" width="350" height="1"/>
                                 <color key="backgroundColor" name="black_20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="Ype-Op-w9u"/>
@@ -281,10 +283,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfB-NN-vmN">
-                                <rect key="frame" x="0.0" y="210" width="600" height="64"/>
+                                <rect key="frame" x="0.0" y="254" width="414" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsw-zx-GGt">
-                                        <rect key="frame" x="526" y="19" width="42" height="26"/>
+                                        <rect key="frame" x="340" y="18.5" width="42" height="27"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
                                         <state key="normal" title="로그아웃">
                                             <color key="titleColor" name="black_40"/>
@@ -298,11 +300,30 @@
                                     <constraint firstItem="Xsw-zx-GGt" firstAttribute="centerY" secondItem="cfB-NN-vmN" secondAttribute="centerY" id="oWq-ik-8ap"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ei2-wG-RIw">
+                                <rect key="frame" x="0.0" y="318" width="414" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZID-at-B9a">
+                                        <rect key="frame" x="340" y="18.5" width="42" height="27"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                                        <state key="normal" title="회원탈퇴">
+                                            <color key="titleColor" name="black_40"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZID-at-B9a" firstAttribute="centerY" secondItem="ei2-wG-RIw" secondAttribute="centerY" id="7b6-QW-6wR"/>
+                                    <constraint firstAttribute="height" constant="64" id="m5t-RX-asu"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZID-at-B9a" secondAttribute="trailing" constant="32" id="tBH-4F-srg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xaJ-d8-g72"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5dL-kt-aoh" firstAttribute="top" secondItem="9b1-24-U7o" secondAttribute="bottom" constant="20" id="7Mp-BQ-EQs"/>
+                            <constraint firstItem="ei2-wG-RIw" firstAttribute="top" secondItem="cfB-NN-vmN" secondAttribute="bottom" id="Els-gY-U34"/>
                             <constraint firstItem="xaJ-d8-g72" firstAttribute="trailing" secondItem="9b1-24-U7o" secondAttribute="trailing" id="Flv-nB-ydx"/>
                             <constraint firstItem="5dL-kt-aoh" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" id="Grd-D0-7QS"/>
                             <constraint firstItem="cfB-NN-vmN" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" id="O6p-po-cju"/>
@@ -311,6 +332,8 @@
                             <constraint firstItem="sLt-1Y-0ek" firstAttribute="top" secondItem="Rhy-jW-Vhu" secondAttribute="bottom" id="W9c-8S-Atn"/>
                             <constraint firstItem="9b1-24-U7o" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" id="Ygu-5W-TmQ"/>
                             <constraint firstItem="9b1-24-U7o" firstAttribute="top" secondItem="xaJ-d8-g72" secondAttribute="top" id="ZF5-rb-1QL"/>
+                            <constraint firstItem="ei2-wG-RIw" firstAttribute="trailing" secondItem="xaJ-d8-g72" secondAttribute="trailing" id="acK-5m-OC1"/>
+                            <constraint firstItem="ei2-wG-RIw" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" id="ayp-AL-U9G"/>
                             <constraint firstItem="7Yr-fP-vRW" firstAttribute="leading" secondItem="6k1-gv-c9c" secondAttribute="leading" constant="32" id="bL5-VI-3gB"/>
                             <constraint firstItem="sLt-1Y-0ek" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" id="fIQ-rQ-Zc1"/>
                             <constraint firstItem="Rhy-jW-Vhu" firstAttribute="leading" secondItem="xaJ-d8-g72" secondAttribute="leading" constant="32" id="gOm-xn-ies"/>
@@ -326,6 +349,7 @@
                         <outlet property="backButton" destination="b7b-tc-gxF" id="C9G-xW-Drc"/>
                         <outlet property="emailLabel" destination="Ek2-SB-bOf" id="CyJ-7E-aYc"/>
                         <outlet property="logoutButton" destination="Xsw-zx-GGt" id="fqH-NY-iME"/>
+                        <outlet property="withDrawlButton" destination="ZID-at-B9a" id="bAK-pk-vFm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IgG-Z0-OKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

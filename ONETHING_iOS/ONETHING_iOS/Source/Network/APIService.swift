@@ -24,9 +24,14 @@ final class APIService {
                         return
                     }
                     
-                    if let userAPI = apiTarget as? UserAPI, case .logout = userAPI {
-                        if response.statusCode == 200 { single(.success(true as! C)) }
-                        else                          { single(.success(false as! C)) }
+                    if let userAPI = apiTarget as? UserAPI {
+                        switch userAPI {
+                        case .logout, .withdrawl:
+                            if response.statusCode == 200 { single(.success(true as! C)) }
+                            else                          { single(.success(false as! C)) }
+                        default:
+                            break
+                        }
                     }
                     
                     if let contentAPI = apiTarget as? ContentAPI, case .getDailyHabitImage = contentAPI {

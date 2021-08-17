@@ -32,7 +32,7 @@ final class OnethingUserManager {
         self.currentUser = currentUser
     }
     
-    func logout() {
+    func clearUserInform() {
         self.accessToken = nil
         self.refreshToken = nil
         self.doneHabitSetting = nil

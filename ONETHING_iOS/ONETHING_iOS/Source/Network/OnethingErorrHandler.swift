@@ -26,7 +26,7 @@ final class OnethingErrorHandler {
         guard let rootViewController = UIViewController.rootViewController           else { return }
         guard let mainTabbarController = rootViewController as? MainTabBarController else { return }
         
-        OnethingUserManager.sharedInstance.logout()
+        OnethingUserManager.sharedInstance.clearUserInform()
         mainTabbarController.processLogout()
     }
     

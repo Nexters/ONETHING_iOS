@@ -42,10 +42,29 @@ final class AccountViewModel {
             self.loadingSubject.onNext(false)
             
             if isSuccess == true {
-                OnethingUserManager.sharedInstance.logout()
+                OnethingUserManager.sharedInstance.clearUserInform()
                 self.logoutSuccessSubject.onNext(())
             }
-        }, onFailure: { [weak self] error in
+        }, onFailure: { [weak self] _ in
+            self?.loadingSubject.onNext(false)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func requestWithdrawl() {
+        guard let accessToken = OnethingUserManager.sharedInstance.accessToken   else { return }
+        guard let refreshToken = OnethingUserManager.sharedInstance.refreshToken else { return }
+        
+        self.loadingSubject.onNext(true)
+        let withdrwalAPI = UserAPI.withdrawl(accessToken: accessToken, refreshToken: refreshToken)
+        APIService.shared.requestAndDecodeRx(apiTarget: withdrwalAPI).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
+            guard let self = self else { return }
+            self.loadingSubject.onNext(false)
+            
+            if isSuccess == true {
+                OnethingUserManager.sharedInstance.clearUserInform()
+                self.logoutSuccessSubject.onNext(())
+            }
+        }, onFailure: { [weak self] _ in
             self?.loadingSubject.onNext(false)
         }).disposed(by: self.disposeBag)
     }

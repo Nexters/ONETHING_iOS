@@ -37,6 +37,10 @@ final class AccountViewController: UIViewController {
         self.logoutButton.rx.tap.subscribe(onNext: { [weak self] in
             self?.viewModel.requestLogout()
         }).disposed(by: self.disposeBag)
+        
+        self.withDrawlButton.rx.tap.subscribe(onNext: { [weak self] in
+            self?.viewModel.requestWithdrawl()
+        }).disposed(by: self.disposeBag)
     }
     
     private func observeViewModel() {
@@ -78,5 +82,6 @@ final class AccountViewController: UIViewController {
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var emailLabel: UILabel!
     @IBOutlet private weak var logoutButton: UIButton!
+    @IBOutlet private weak var withDrawlButton: UIButton!
     
 }
