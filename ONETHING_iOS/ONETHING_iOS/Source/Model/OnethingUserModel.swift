@@ -12,14 +12,9 @@ struct OnethingUserModel: Codable {
     let email: String?
     let authType: String
     
-    var castingAuthType: AuthType {
-        guard let authType = AuthType(rawValue: self.authType) else { return .apple }
+    var castingAccessType: SocialAccessType {
+        guard let accessType = SocialAccessType(rawValue: self.authType) else { return .apple }
         
-        return authType
+        return accessType
     }
-}
-
-enum AuthType: String {
-    case apple = "APPLE"
-    case kakao = "KAKAO"
 }
