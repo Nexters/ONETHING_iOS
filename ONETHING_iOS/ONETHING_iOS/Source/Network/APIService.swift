@@ -24,6 +24,8 @@ final class APIService {
                         return
                     }
                     
+                    print(try? response.mapString())
+                    
                     if let userAPI = apiTarget as? UserAPI {
                         switch userAPI {
                         case .logout, .withdrawl:
