@@ -39,7 +39,22 @@ final class AccountViewController: UIViewController {
         }).disposed(by: self.disposeBag)
         
         self.withDrawlButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.viewModel.requestWithdrawl()
+            guard let self = self else { return }
+            
+            let titleText = "회원탈퇴시\n모든 습관 기록이\n영구적으로 삭제돼요.\n\n그래도 탈퇴하시겠어요?"
+            guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow })          else { return }
+            guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib()                        else { return }
+            guard let highlightedRange = titleText.range(of: "모든 습관 기록이\n영구적으로 삭제돼요.")             else { return }
+            guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 16) else { return }
+            
+            let attributeText = NSMutableAttributedString(string: titleText,
+                                                          attributes: [.font: pretendardFont,
+                                                                       .foregroundColor: UIColor.black_100])
+            attributeText.addAttribute(.foregroundColor, value: UIColor.red_default, range: highlightedRange)
+            confirmPopupView.configure(attributeText, confirmHandler: {
+                                        self.viewModel.requestWithdrawl()
+            })
+            confirmPopupView.show(in: keyWindow)
         }).disposed(by: self.disposeBag)
     }
     

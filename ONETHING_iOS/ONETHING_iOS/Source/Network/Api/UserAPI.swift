@@ -28,7 +28,7 @@ extension UserAPI: TargetType {
         case .appleLogin:   return "/auth/apple/login"
         case .refresh:      return "/auth/token/refresh"
         case .account:      return "/api/account"
-        case .withdrawl:    return "/api/sign-out"
+        case .withdrawl:    return "/auth/sign-out"
         }
     }
     
