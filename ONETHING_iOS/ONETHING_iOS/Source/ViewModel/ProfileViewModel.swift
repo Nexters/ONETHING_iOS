@@ -60,6 +60,7 @@ extension ProfileViewModel {
         case myAccount = 0
         case pushSetting
         case fontSetting
+        case openSource
         case announce
         case question
         
@@ -68,6 +69,7 @@ extension ProfileViewModel {
             case .myAccount: return "내 계정"
             case .pushSetting: return "알림 설정"
             case .fontSetting: return "폰트 설정"
+            case .openSource: return "오픈소스 라이센스"
             case .announce: return "공지사항"
             case .question: return "자주 묻는 질문"
             }
