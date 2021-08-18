@@ -7,9 +7,9 @@
 
 import Foundation
 
-enum SocialAccessType {
-    case kakao
-    case apple
+enum SocialAccessType: String {
+    case kakao = "KAKAO"
+    case apple = "APPLE"
     
     var appKey: String {
         switch self {
