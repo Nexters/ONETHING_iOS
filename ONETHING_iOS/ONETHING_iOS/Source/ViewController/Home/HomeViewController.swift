@@ -159,11 +159,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
-            if self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) {
-                self.presentHabitWritingViewController(with: indexPath)
-                return
+            guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
+              self.showWriteLimitPopupView(with: indexPath)
+              return
             }
-            self.showWriteLimitPopupView(with: indexPath)
+          
+          self.presentHabitWritingViewController(with: indexPath)
         }
     }
     

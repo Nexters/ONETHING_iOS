@@ -125,7 +125,7 @@ final class HomeViewModel: NSObject {
         self.habitInProgressModel = nil
     }
     
-    func canCreatCurrentDailyHabitModel(with index: Int) -> Bool {
+    func canCreateCurrentDailyHabitModel(with index: Int) -> Bool {
         guard let diffDays = self.diffDaysFromStartToCurrent else { return false }
         return diffDays == index
     }
@@ -169,7 +169,7 @@ extension HomeViewModel: UICollectionViewDataSource {
     }
     
     private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
-        guard self.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
+        guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
             
         habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
         habitCalendarCell.update(textColor: UIColor.red_3)
