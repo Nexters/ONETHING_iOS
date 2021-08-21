@@ -24,7 +24,7 @@ extension UserAPI: TargetType {
     
     var path: String {
         switch self {
-        case .logout:       return "/auth/apple/logout"
+        case .logout:       return "/auth/logout"
         case .appleLogin:   return "/auth/apple/login"
         case .refresh:      return "/auth/token/refresh"
         case .account:      return "/api/account"
