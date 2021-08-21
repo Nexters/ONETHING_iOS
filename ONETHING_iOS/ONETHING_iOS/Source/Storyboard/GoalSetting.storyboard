@@ -591,17 +591,27 @@
                                     <constraint firstItem="8L9-K8-YFh" firstAttribute="leading" secondItem="n67-qo-3rs" secondAttribute="leading" id="sj7-s7-hNx"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJn-KT-0Lb" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="240" width="375" height="493"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YJn-KT-0Lb" secondAttribute="height" multiplier="375:493" id="Ydk-t7-MLT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vr2-5j-NCh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="YJn-KT-0Lb" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="0Cx-xr-j02"/>
                             <constraint firstItem="l4M-tF-uJZ" firstAttribute="top" secondItem="vr2-5j-NCh" secondAttribute="top" constant="54" id="0zY-us-gvi"/>
                             <constraint firstAttribute="bottom" secondItem="n67-qo-3rs" secondAttribute="bottom" id="6Hm-X3-DPH"/>
                             <constraint firstItem="uug-f9-51L" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="7hU-pe-Ok2"/>
                             <constraint firstItem="B2k-BG-DSn" firstAttribute="top" secondItem="l4M-tF-uJZ" secondAttribute="bottom" constant="10" id="7if-7e-QUb"/>
                             <constraint firstItem="uug-f9-51L" firstAttribute="top" secondItem="B2k-BG-DSn" secondAttribute="bottom" id="7oZ-9T-I4P"/>
                             <constraint firstItem="vr2-5j-NCh" firstAttribute="trailing" secondItem="uug-f9-51L" secondAttribute="trailing" id="BXg-pt-VlM"/>
+                            <constraint firstItem="n67-qo-3rs" firstAttribute="top" secondItem="YJn-KT-0Lb" secondAttribute="bottom" id="Bsl-ST-WqQ"/>
                             <constraint firstItem="n67-qo-3rs" firstAttribute="top" secondItem="uug-f9-51L" secondAttribute="bottom" id="HDD-So-cFk"/>
+                            <constraint firstItem="vr2-5j-NCh" firstAttribute="trailing" secondItem="YJn-KT-0Lb" secondAttribute="trailing" id="SSf-kj-lQ8"/>
                             <constraint firstItem="n67-qo-3rs" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="VJo-IW-9d2"/>
                             <constraint firstItem="l4M-tF-uJZ" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" constant="40" id="Yf7-fQ-G1u"/>
                             <constraint firstAttribute="trailing" secondItem="n67-qo-3rs" secondAttribute="trailing" id="uDP-WB-ktd"/>
@@ -610,6 +620,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="l4M-tF-uJZ" id="NRj-aS-x6j"/>
+                        <outlet property="lottieView" destination="YJn-KT-0Lb" id="XC2-BQ-ua5"/>
                         <outlet property="titleSecondLineLabel" destination="Q93-J4-9Cl" id="OSk-8i-4dH"/>
                         <outlet property="titleStackView" destination="B2k-BG-DSn" id="mkj-EN-NCd"/>
                         <outlet property="todayStartButton" destination="XkD-aL-Mcf" id="ahP-GI-c4u"/>

@@ -700,6 +700,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		CE38763126CE8E6F003BDCCA /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Lottie;
+			sourceTree = "<group>";
+		};
 		CE3B8BC226A7283800BD529B /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -789,6 +796,7 @@
 		CE7247A72699947A00BB2C19 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CE38763126CE8E6F003BDCCA /* Lottie */,
 				CEC4D79D26A2D1F800633222 /* Font */,
 				CE72475F26998F3000BB2C19 /* Assets.xcassets */,
 				CE72476426998F3000BB2C19 /* AppStore-Info.plist */,

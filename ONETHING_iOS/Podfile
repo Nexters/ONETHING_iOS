@@ -17,6 +17,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'ActiveLabel'
   pod 'Then'
   pod 'Carte'
+  pod 'lottie-ios'
 
   target 'ONETHING' do
   end
