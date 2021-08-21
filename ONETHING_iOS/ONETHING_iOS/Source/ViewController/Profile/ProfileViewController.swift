@@ -59,16 +59,14 @@ final class ProfileViewController: BaseViewController {
             switch menu {
             case .myAccount:
                 self.pushAccountViewController()
-            case .pushSetting:
-                self.showPreparePopupView()
-            case .fontSetting:
-                self.showPreparePopupView()
+            case .notice:
+                self.pushNoticeViewController()
+            case .question:
+                self.pushFAQViewController()
+            case .makePeople:
+                self.pushMakePeopleViewController()
             case .openSource:
                 self.pushOpenSourceLisenceView()
-            case .announce:
-                self.showPreparePopupView()
-            case .question:
-                self.showPreparePopupView()
             }
         }).disposed(by: self.disposeBag)
     }
@@ -102,15 +100,33 @@ final class ProfileViewController: BaseViewController {
     }
     
     private func pushAccountViewController() {
-        guard let viewController = AccountViewController.instantiateViewController(from: .profile) else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = AccountViewController.instantiateViewController(from: .profile)
+        guard let accountViewController = viewController else { return }
+        self.navigationController?.pushViewController(accountViewController, animated: true)
+    }
+    
+    private func pushNoticeViewController() {
+        let viewController = NoticeViewController.instantiateViewController(from: .profile)
+        guard let noticeViewControlelr = viewController else { return }
+        self.navigationController?.pushViewController(noticeViewControlelr, animated: true)
+    }
+    
+    private func pushFAQViewController() {
+        let viewController = FAQViewController.instantiateViewController(from: .profile)
+        guard let faqViewController = viewController else { return }
+        self.navigationController?.pushViewController(faqViewController, animated: true)
+    }
+    
+    private func pushMakePeopleViewController() {
+        let viewController = MakePeopleViewController.instantiateViewController(from: .profile)
+        guard let makePeopleViewController = viewController else { return }
+        self.navigationController?.pushViewController(makePeopleViewController, animated: true)
     }
     
     private func pushOpenSourceLisenceView() {
         let lisenceViewController = CarteViewController()
         let lisenceItems = CarteViewController.makeOpenSourceLisenceItems()
         lisenceViewController.items.append(contentsOf: lisenceItems)
-        lisenceViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.pushViewController(lisenceViewController, animated: true)
     }
