@@ -9,5 +9,6 @@ import Foundation
 
 struct DailyHabitModel {
     let order: Int
+    var sentenceForDelay: String?
     var responseModel: DailyHabitResponseModel
 }

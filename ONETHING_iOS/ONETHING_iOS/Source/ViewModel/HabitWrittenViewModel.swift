@@ -90,7 +90,17 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
     }
     
     var contentText: String? {
-        self.dailyHabitModel.responseModel.content
+        guard let status = self.dailyHabitModel.responseModel.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return self.dailyHabitModel.responseModel.content
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return self.dailyHabitModel.sentenceForDelay
+        }
     }
     
     var dateText: String? {

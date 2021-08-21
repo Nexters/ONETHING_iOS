@@ -138,6 +138,10 @@ final class HomeViewModel: NSObject {
                                     range: attributedText.mutableString.range(of: "\(dayText)일차"))
         return attributedText
     }
+    
+    var sentenceForDelay: String? {
+        return self.habitInProgressModel?.sentence
+    }
 }
 
 extension HomeViewModel: UICollectionViewDataSource {

@@ -157,7 +157,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
-            let dailyHabitModel = DailyHabitModel(order: indexPath.row, responseModel: responseModel)
+            let dailyHabitModel = DailyHabitModel(
+                order: indexPath.row,
+                sentenceForDelay: viewModel.sentenceForDelay,
+                responseModel: responseModel
+            )
+            
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
             guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
