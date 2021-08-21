@@ -17,6 +17,8 @@ protocol HabitWrittenViewControllerDelegate: AnyObject {
 final class HabitWrittenViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
+    private let dayLabel = UILabel()
+    private let statusLabel = UILabel()
     private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
     private let disposeBag = DisposeBag()
@@ -27,8 +29,11 @@ final class HabitWrittenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupView()
+        self.view.cornerRadius = 40
+        self.addSubviews()
         self.setupUpperStampView()
+        self.setupDayLabel()
+        self.setupStatusLabel()
         self.setupDailyHabitView()
 
         self.updateViewsWithViewModel()
@@ -36,19 +41,44 @@ final class HabitWrittenViewController: BaseViewController {
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
             .disposed(by: self.disposeBag)
     }
-
-    private func setupView() {
-        self.view.cornerRadius = 40
+    
+    private func addSubviews() {
+        let views = [self.upperStampButton, self.dayLabel, self.statusLabel, self.dailyHabitView]
+        views.forEach { self.view.addSubview($0) }
     }
     
     private func setupUpperStampView() {
         self.upperStampButton.contentMode = .scaleAspectFit
         
-        self.view.addSubview(self.upperStampButton)
         self.upperStampButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(-28)
             $0.height.width.equalTo(70)
             $0.leading.equalToSuperview().inset(32)
+        }
+    }
+    
+    private func setupDayLabel() {
+        self.dayLabel.do {
+            $0.font = UIFont.createFont(type: .pretendard(weight: .bold), size: 18)
+            $0.textColor = .black_100
+        }
+    
+        
+        self.dayLabel.snp.makeConstraints {
+            $0.leading.equalTo(self.upperStampButton.snp.trailing).offset(10)
+            $0.lastBaseline.equalTo(self.dailyHabitView.dateLabel)
+        }
+    }
+    
+    private func setupStatusLabel() {
+        self.statusLabel.do {
+            $0.font = UIFont.createFont(type: .pretendard(weight: .bold), size: 18)
+            $0.textColor = .red_default
+        }
+        
+        self.statusLabel.snp.makeConstraints {
+            $0.leading.equalTo(self.dayLabel.snp.trailing).offset(5)
+            $0.lastBaseline.equalTo(self.dailyHabitView.dateLabel)
         }
     }
     
@@ -60,7 +90,7 @@ final class HabitWrittenViewController: BaseViewController {
             $0.dailyHabitViewCloseButtonDelegate = self
         }
         
-        self.view.addSubview(self.dailyHabitView)
+        
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(40)
             $0.leading.trailing.equalToSuperview().inset(32)

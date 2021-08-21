@@ -25,7 +25,7 @@ final class DailyHabitView: UIView {
     let enrollPhotoButton = UIButton()
     let closeButton = LargeTouchableButton()
     let habitTextView = HabitTextView()
-    private let dateLabel = UILabel()
+    let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
     
