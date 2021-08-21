@@ -75,7 +75,7 @@ final class HabitWritingViewController: BaseViewController {
         self.keyboardDismissableView.addSubview(self.backBtnTitleView)
         self.backBtnTitleView.snp.makeConstraints {
             let safeArea = self.view.safeAreaLayoutGuide
-            $0.top.equalTo(safeArea).offset(54)
+            $0.top.equalTo(safeArea).offset(40)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
         }
@@ -100,7 +100,7 @@ final class HabitWritingViewController: BaseViewController {
         let safeArea = self.view.safeAreaLayoutGuide
         self.completeButton.snp.makeConstraints {
             $0.leading.trailing.bottom.width.equalTo(safeArea)
-            $0.height.equalTo(63)
+            $0.height.equalTo(58)
         }
         
         let bottomView = UIView()
@@ -121,7 +121,9 @@ final class HabitWritingViewController: BaseViewController {
         
         self.view.addSubview(self.habitStampView)
         self.habitStampView.snp.makeConstraints {
-            $0.top.equalTo(self.dailyHabitView.snp.bottom).offset(20)
+            // 간격 값은 디바이스별로 다르게 주기 위해 디바이스의 높이의 0.0615배로 설정합니다.
+            let constant = UIScreen.main.bounds.size.height * 0.047
+            $0.top.equalTo(self.dailyHabitView.habitTextView.secondBottomLine.snp.bottom).offset(constant)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
         }
