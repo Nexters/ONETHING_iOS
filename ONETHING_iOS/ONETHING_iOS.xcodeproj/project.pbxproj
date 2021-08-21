@@ -76,6 +76,18 @@
 		CE6751EF26D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F026D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F126D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
+		CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F226D0E56D00616CA8 /* FAQViewController.swift */; };
+		CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F226D0E56D00616CA8 /* FAQViewController.swift */; };
+		CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F226D0E56D00616CA8 /* FAQViewController.swift */; };
+		CE6751F726D0E63D00616CA8 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */; };
+		CE6751F826D0E63D00616CA8 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */; };
+		CE6751F926D0E63D00616CA8 /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */; };
+		CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */; };
+		CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */; };
+		CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */; };
+		CE6751FF26D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
+		CE67520026D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
+		CE67520126D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -478,6 +490,10 @@
 		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goalFinish.json; sourceTree = "<group>"; };
+		CE6751F226D0E56D00616CA8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
+		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
+		CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
+		CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -717,6 +733,7 @@
 				F293C3BD269D011B0096757C /* ProfileViewController.swift */,
 				CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */,
 				CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */,
+				CE6751F226D0E56D00616CA8 /* FAQViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -735,6 +752,7 @@
 				CE8FEDDE26B6CABB0092DC0D /* ProfileViewModel.swift */,
 				CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */,
 				CE38764F26D0D3AB003BDCCA /* NoticeViewModel.swift */,
+				CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1113,6 +1131,8 @@
 				CE8FEDE326B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib */,
 				CE38764626D0D08A003BDCCA /* NoticeTableViewCell.swift */,
 				CE38764726D0D08A003BDCCA /* NoticeTableViewCell.xib */,
+				CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */,
+				CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1292,6 +1312,7 @@
 				CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CE6751FF26D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */,
 				CEC4D7C726A2D63200633222 /* Pretendard-Light.otf in Resources */,
 				CE38764B26D0D08A003BDCCA /* NoticeTableViewCell.xib in Resources */,
 				CE8FEDDA26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
@@ -1343,6 +1364,7 @@
 				CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CE67520126D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */,
 				CEC4D7C926A2D63200633222 /* Pretendard-Light.otf in Resources */,
 				CE38764D26D0D08A003BDCCA /* NoticeTableViewCell.xib in Resources */,
 				CE8FEDDC26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
@@ -1380,6 +1402,7 @@
 				CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
+				CE67520026D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */,
 				CEC4D7C826A2D63200633222 /* Pretendard-Light.otf in Resources */,
 				CE38764C26D0D08A003BDCCA /* NoticeTableViewCell.xib in Resources */,
 				CE8FEDDB26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
@@ -1613,6 +1636,7 @@
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
+				CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
@@ -1644,8 +1668,10 @@
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
+				CE6751F726D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
+				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
@@ -1741,6 +1767,7 @@
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
+				CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
@@ -1772,8 +1799,10 @@
 				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
 				CEFA5BC726B52BFF0037F71B /* Date+.swift in Sources */,
+				CE6751F926D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				CE26C45026B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */,
+				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
@@ -1853,6 +1882,7 @@
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
+				CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
@@ -1884,8 +1914,10 @@
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				CE8FEDE526B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F293C3D7269D19BF0096757C /* Circleable.swift in Sources */,
+				CE6751F826D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
+				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,

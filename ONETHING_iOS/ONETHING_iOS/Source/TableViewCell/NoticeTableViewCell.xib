@@ -26,33 +26,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="21.08.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZV-rm-zUd">
-                        <rect key="frame" x="32" y="20" width="36.5" height="12.5"/>
+                        <rect key="frame" x="32" y="20" width="39" height="12"/>
                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="10"/>
                         <color key="textColor" name="black_40"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="66일 습관앱 '뇽뇽' 출시 안내" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlw-Iv-4GL">
-                        <rect key="frame" x="32" y="32.5" width="267" height="19.5"/>
+                        <rect key="frame" x="32" y="32" width="267" height="19"/>
                         <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
                         <color key="textColor" name="black_100"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Y-kG-qfG">
-                        <rect key="frame" x="319" y="32.5" width="24" height="24"/>
+                        <rect key="frame" x="319" y="32" width="24" height="24"/>
                         <state key="normal" image="arrow_down"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-Q1-jqz">
-                        <rect key="frame" x="0.0" y="72" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="71" width="375" height="1"/>
                         <color key="backgroundColor" name="black_20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Jxh-zN-pb3"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syN-iH-WrS">
-                        <rect key="frame" x="0.0" y="73" width="375" height="54.5"/>
+                        <rect key="frame" x="0.0" y="72" width="375" height="54"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뇽뇽 유저님들 안녕하세요! 운영진입니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vju-kG-Fw1">
-                                <rect key="frame" x="32" y="20" width="311" height="14.5"/>
+                                <rect key="frame" x="32" y="20" width="311" height="14"/>
                                 <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -69,7 +69,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="vlw-Iv-4GL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="79O-4s-acT"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tlG-Q1-jqz" secondAttribute="bottom" id="AlS-A7-23g"/>
+                    <constraint firstAttribute="bottom" secondItem="tlG-Q1-jqz" secondAttribute="bottom" priority="999" id="AlS-A7-23g"/>
                     <constraint firstItem="r2Y-kG-qfG" firstAttribute="leading" secondItem="vlw-Iv-4GL" secondAttribute="trailing" constant="20" id="CK8-K4-CYe"/>
                     <constraint firstItem="vlw-Iv-4GL" firstAttribute="top" secondItem="qZV-rm-zUd" secondAttribute="bottom" id="ECl-RY-BZe"/>
                     <constraint firstItem="tlG-Q1-jqz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gem-1A-w17"/>

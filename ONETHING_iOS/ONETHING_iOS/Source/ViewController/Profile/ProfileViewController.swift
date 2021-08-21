@@ -62,7 +62,7 @@ final class ProfileViewController: BaseViewController {
             case .notice:
                 self.pushNoticeViewController()
             case .question:
-                self.showPreparePopupView()
+                self.pushFAQViewController()
             case .makePeople:
                 self.showPreparePopupView()
             case .openSource:
@@ -109,6 +109,12 @@ final class ProfileViewController: BaseViewController {
         let viewController = NoticeViewController.instantiateViewController(from: .profile)
         guard let noticeViewControlelr = viewController else { return }
         self.navigationController?.pushViewController(noticeViewControlelr, animated: true)
+    }
+    
+    private func pushFAQViewController() {
+        let viewController = FAQViewController.instantiateViewController(from: .profile)
+        guard let faqViewController = viewController else { return }
+        self.navigationController?.pushViewController(faqViewController, animated: true)
     }
     
     private func pushOpenSourceLisenceView() {
