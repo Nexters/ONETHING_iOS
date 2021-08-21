@@ -88,6 +88,12 @@
 		CE6751FF26D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
 		CE67520026D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
 		CE67520126D0E86B00616CA8 /* FAQTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */; };
+		CE67520326D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */; };
+		CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */; };
+		CE67520526D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */; };
+		CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520626D0F45500616CA8 /* UIButton+.swift */; };
+		CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520626D0F45500616CA8 /* UIButton+.swift */; };
+		CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE67520626D0F45500616CA8 /* UIButton+.swift */; };
 		CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475826998F2D00BB2C19 /* SceneDelegate.swift */; };
 		CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475A26998F2D00BB2C19 /* HomeViewController.swift */; };
@@ -494,6 +500,8 @@
 		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
 		CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
 		CE6751FB26D0E86B00616CA8 /* FAQTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FAQTableViewCell.xib; sourceTree = "<group>"; };
+		CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakePeopleViewController.swift; sourceTree = "<group>"; };
+		CE67520626D0F45500616CA8 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		CE72475326998F2D00BB2C19 /* ONETHING.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONETHING.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE72475626998F2D00BB2C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE72475826998F2D00BB2C19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -734,6 +742,7 @@
 				CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */,
 				CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */,
 				CE6751F226D0E56D00616CA8 /* FAQViewController.swift */,
+				CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -946,6 +955,7 @@
 				CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */,
 				CEFA5BC426B52BFF0037F71B /* Date+.swift */,
 				F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */,
+				CE67520626D0F45500616CA8 /* UIButton+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1652,6 +1662,7 @@
 				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
+				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				CE38762526CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -1715,6 +1726,7 @@
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
+				CE67520326D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764826D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
@@ -1783,6 +1795,7 @@
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
+				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				CE38762726CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -1846,6 +1859,7 @@
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED826A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
+				CE67520526D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764A26D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
 				F293C3D0269D195D0096757C /* StampButton.swift in Sources */,
 				F23DD4CD26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
@@ -1898,6 +1912,7 @@
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
+				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE38762626CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -1961,6 +1976,7 @@
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
+				CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764926D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
 				F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,

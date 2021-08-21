@@ -64,7 +64,7 @@ final class ProfileViewController: BaseViewController {
             case .question:
                 self.pushFAQViewController()
             case .makePeople:
-                self.showPreparePopupView()
+                self.pushMakePeopleViewController()
             case .openSource:
                 self.pushOpenSourceLisenceView()
             }
@@ -117,11 +117,16 @@ final class ProfileViewController: BaseViewController {
         self.navigationController?.pushViewController(faqViewController, animated: true)
     }
     
+    private func pushMakePeopleViewController() {
+        let viewController = MakePeopleViewController.instantiateViewController(from: .profile)
+        guard let makePeopleViewController = viewController else { return }
+        self.navigationController?.pushViewController(makePeopleViewController, animated: true)
+    }
+    
     private func pushOpenSourceLisenceView() {
         let lisenceViewController = CarteViewController()
         let lisenceItems = CarteViewController.makeOpenSourceLisenceItems()
         lisenceViewController.items.append(contentsOf: lisenceItems)
-        lisenceViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.pushViewController(lisenceViewController, animated: true)
     }
