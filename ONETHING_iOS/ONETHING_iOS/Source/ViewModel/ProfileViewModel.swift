@@ -58,20 +58,18 @@ extension ProfileViewModel {
     
     enum Menu: Int, CaseIterable {
         case myAccount = 0
-        case pushSetting
-        case fontSetting
-        case openSource
         case announce
         case question
+        case makePeople
+        case openSource
         
         var title: String {
             switch self {
-            case .myAccount: return "내 계정"
-            case .pushSetting: return "알림 설정"
-            case .fontSetting: return "폰트 설정"
-            case .openSource: return "오픈소스 라이센스"
-            case .announce: return "공지사항"
-            case .question: return "자주 묻는 질문"
+            case .myAccount:    return "내 계정"
+            case .announce:     return "공지사항"
+            case .question:     return "자주 묻는 질문"
+            case .makePeople:   return "만든 사람들"
+            case .openSource:   return "오픈소스 라이센스"
             }
         }
     }

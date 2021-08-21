@@ -59,16 +59,14 @@ final class ProfileViewController: BaseViewController {
             switch menu {
             case .myAccount:
                 self.pushAccountViewController()
-            case .pushSetting:
-                self.showPreparePopupView()
-            case .fontSetting:
-                self.showPreparePopupView()
-            case .openSource:
-                self.pushOpenSourceLisenceView()
             case .announce:
                 self.showPreparePopupView()
             case .question:
                 self.showPreparePopupView()
+            case .makePeople:
+                self.showPreparePopupView()
+            case .openSource:
+                self.pushOpenSourceLisenceView()
             }
         }).disposed(by: self.disposeBag)
     }
