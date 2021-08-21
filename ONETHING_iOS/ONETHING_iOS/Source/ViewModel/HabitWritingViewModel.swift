@@ -125,13 +125,13 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     }
     
     func openImageOfLocked(at index: Int) -> UIImage? {
-        guard let selectStampModel = self.selectStampModels[safe: self.selectedStampIndex] else { return nil }
+        guard let selectStampModel = self.selectStampModels[safe: index] else { return nil }
         
         return selectStampModel.stamp.defaultImage
     }
     
     func lockMessage(at index: Int) -> NSAttributedString? {
-        guard let selectStampModel = self.selectStampModels[safe: self.selectedStampIndex] else { return nil }
+        guard let selectStampModel = self.selectStampModels[safe: index] else { return nil }
         
         let attributedText = NSMutableAttributedString(string: "습관 \(selectStampModel.lockedDays ?? 22)일을 달성하면\n사용할 수 있어요!")
         attributedText.addAttribute(.foregroundColor,
