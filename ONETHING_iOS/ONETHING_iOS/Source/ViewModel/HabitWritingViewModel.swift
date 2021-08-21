@@ -59,7 +59,7 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             }
             
             // 이미지가 default 사진 이미지가 아닌 경우에만 이미지 데이터를 보냅니다.
-            if self.photoImage != DailyHabitView.photoDefault,
+            if self.photoImage != self.defaultPhotoImage,
                let imageData = self.photoImage?.jpegData(compressionQuality: 0.5) {
                 multipartFormData.append(
                     imageData,
@@ -83,6 +83,11 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
             }
         }
     }
+    
+    var defaultPhotoImage: UIImage? {
+        return UIImage(named: "photo_default")
+    }
+    
     
     var titleText: String {
         "\(self.dailyHabitOrder)일차"

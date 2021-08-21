@@ -75,6 +75,20 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
         }
     }
     
+    var defaultPhotoImage: UIImage? {
+        guard let status = self.dailyHabitModel.responseModel.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return UIImage(named: "photo_default")
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return UIImage(named: "photo_delay")
+        }
+    }
+    
     var contentText: String? {
         self.dailyHabitModel.responseModel.content
     }
