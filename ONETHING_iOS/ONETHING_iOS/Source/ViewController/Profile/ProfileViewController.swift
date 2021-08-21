@@ -59,8 +59,8 @@ final class ProfileViewController: BaseViewController {
             switch menu {
             case .myAccount:
                 self.pushAccountViewController()
-            case .announce:
-                self.showPreparePopupView()
+            case .notice:
+                self.pushNoticeViewController()
             case .question:
                 self.showPreparePopupView()
             case .makePeople:
@@ -100,8 +100,15 @@ final class ProfileViewController: BaseViewController {
     }
     
     private func pushAccountViewController() {
-        guard let viewController = AccountViewController.instantiateViewController(from: .profile) else { return }
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = AccountViewController.instantiateViewController(from: .profile)
+        guard let accountViewController = viewController else { return }
+        self.navigationController?.pushViewController(accountViewController, animated: true)
+    }
+    
+    private func pushNoticeViewController() {
+        let viewController = NoticeViewController.instantiateViewController(from: .profile)
+        guard let noticeViewControlelr = viewController else { return }
+        self.navigationController?.pushViewController(noticeViewControlelr, animated: true)
     }
     
     private func pushOpenSourceLisenceView() {

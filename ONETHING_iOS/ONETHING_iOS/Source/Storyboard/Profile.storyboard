@@ -356,6 +356,62 @@
             </objects>
             <point key="canvasLocation" x="1007" y="104"/>
         </scene>
+        <!--Notice View Controller-->
+        <scene sceneID="Gr2-yW-h2p">
+            <objects>
+                <viewController storyboardIdentifier="NoticeViewController" id="1m2-Fu-v6Y" customClass="NoticeViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TD8-tI-bqF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyy-Bl-MCJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxU-js-9MI">
+                                        <rect key="frame" x="32" y="18" width="24" height="24"/>
+                                        <state key="normal" image="arrow_back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="공지사항" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzW-oB-deg">
+                                        <rect key="frame" x="175.5" y="19" width="63" height="22"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
+                                        <color key="textColor" name="black_100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gzW-oB-deg" firstAttribute="centerY" secondItem="wyy-Bl-MCJ" secondAttribute="centerY" id="PHU-2F-KPD"/>
+                                    <constraint firstAttribute="height" constant="60" id="Xs3-cI-5Ml"/>
+                                    <constraint firstItem="gzW-oB-deg" firstAttribute="centerX" secondItem="wyy-Bl-MCJ" secondAttribute="centerX" id="kgs-vf-68T"/>
+                                    <constraint firstItem="SxU-js-9MI" firstAttribute="centerY" secondItem="wyy-Bl-MCJ" secondAttribute="centerY" id="qiY-AH-JTF"/>
+                                    <constraint firstItem="SxU-js-9MI" firstAttribute="leading" secondItem="wyy-Bl-MCJ" secondAttribute="leading" constant="32" id="tdl-NB-d4c"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3hq-cT-zJV">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="arX-mv-Zqt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3hq-cT-zJV" firstAttribute="top" secondItem="wyy-Bl-MCJ" secondAttribute="bottom" id="327-6I-Fyi"/>
+                            <constraint firstItem="wyy-Bl-MCJ" firstAttribute="leading" secondItem="arX-mv-Zqt" secondAttribute="leading" id="GBs-kg-IXM"/>
+                            <constraint firstItem="arX-mv-Zqt" firstAttribute="trailing" secondItem="3hq-cT-zJV" secondAttribute="trailing" id="aNG-KP-Neo"/>
+                            <constraint firstItem="arX-mv-Zqt" firstAttribute="bottom" secondItem="3hq-cT-zJV" secondAttribute="bottom" id="cVF-5k-Syg"/>
+                            <constraint firstItem="wyy-Bl-MCJ" firstAttribute="trailing" secondItem="arX-mv-Zqt" secondAttribute="trailing" id="jMc-1H-hBq"/>
+                            <constraint firstItem="3hq-cT-zJV" firstAttribute="leading" secondItem="arX-mv-Zqt" secondAttribute="leading" id="mQX-Ou-Cmo"/>
+                            <constraint firstItem="wyy-Bl-MCJ" firstAttribute="top" secondItem="arX-mv-Zqt" secondAttribute="top" id="q1R-wJ-MOE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="3hq-cT-zJV" id="N7S-OW-w0M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOe-CT-YmX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="767"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow_back" width="24" height="24"/>

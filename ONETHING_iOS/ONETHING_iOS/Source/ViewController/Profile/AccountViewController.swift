@@ -9,7 +9,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-final class AccountViewController: UIViewController {
+final class AccountViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

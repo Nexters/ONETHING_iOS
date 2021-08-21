@@ -43,10 +43,10 @@ final class GoalSettingFinishViewController: BaseViewController {
     }
     
     private func setupLottieView() {
-//        self.lottieView.animation = Animation.named("1st")
-//        self.lottieView.contentMode = .scaleAspectFit
-//        self.lottieView.loopMode = .loop
-//        self.lottieView.play()
+        self.lottieView.animation = Animation.named("goalFinish")
+        self.lottieView.contentMode = .scaleAspectFit
+        self.lottieView.loopMode = .playOnce
+        self.lottieView.play()
     }
     
     private func setupProgressView() {

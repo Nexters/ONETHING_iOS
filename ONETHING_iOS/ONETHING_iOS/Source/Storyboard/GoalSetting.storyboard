@@ -535,9 +535,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro_graphic" translatesAutoresizingMaskIntoConstraints="NO" id="uug-f9-51L">
-                                <rect key="frame" x="0.0" y="240" width="375" height="493"/>
-                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n67-qo-3rs">
                                 <rect key="frame" x="0.0" y="733" width="375" height="79"/>
                                 <subviews>
@@ -605,12 +602,8 @@
                             <constraint firstItem="YJn-KT-0Lb" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="0Cx-xr-j02"/>
                             <constraint firstItem="l4M-tF-uJZ" firstAttribute="top" secondItem="vr2-5j-NCh" secondAttribute="top" constant="54" id="0zY-us-gvi"/>
                             <constraint firstAttribute="bottom" secondItem="n67-qo-3rs" secondAttribute="bottom" id="6Hm-X3-DPH"/>
-                            <constraint firstItem="uug-f9-51L" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="7hU-pe-Ok2"/>
                             <constraint firstItem="B2k-BG-DSn" firstAttribute="top" secondItem="l4M-tF-uJZ" secondAttribute="bottom" constant="10" id="7if-7e-QUb"/>
-                            <constraint firstItem="uug-f9-51L" firstAttribute="top" secondItem="B2k-BG-DSn" secondAttribute="bottom" id="7oZ-9T-I4P"/>
-                            <constraint firstItem="vr2-5j-NCh" firstAttribute="trailing" secondItem="uug-f9-51L" secondAttribute="trailing" id="BXg-pt-VlM"/>
                             <constraint firstItem="n67-qo-3rs" firstAttribute="top" secondItem="YJn-KT-0Lb" secondAttribute="bottom" id="Bsl-ST-WqQ"/>
-                            <constraint firstItem="n67-qo-3rs" firstAttribute="top" secondItem="uug-f9-51L" secondAttribute="bottom" id="HDD-So-cFk"/>
                             <constraint firstItem="vr2-5j-NCh" firstAttribute="trailing" secondItem="YJn-KT-0Lb" secondAttribute="trailing" id="SSf-kj-lQ8"/>
                             <constraint firstItem="n67-qo-3rs" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" id="VJo-IW-9d2"/>
                             <constraint firstItem="l4M-tF-uJZ" firstAttribute="leading" secondItem="vr2-5j-NCh" secondAttribute="leading" constant="40" id="Yf7-fQ-G1u"/>
@@ -632,9 +625,11 @@
             <point key="canvasLocation" x="3632.8000000000002" y="71.674876847290648"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="YJn-KT-0Lb"/>
+    </designables>
     <resources>
         <image name="arrow_back" width="24" height="24"/>
-        <image name="intro_graphic" width="375" height="375"/>
         <namedColor name="black_10">
             <color red="0.92199999094009399" green="0.92199999094009399" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
