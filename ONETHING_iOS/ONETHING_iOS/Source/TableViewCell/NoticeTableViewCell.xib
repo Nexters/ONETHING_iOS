@@ -57,10 +57,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAt-Wc-29j">
+                                <rect key="frame" x="0.0" y="53" width="375" height="1"/>
+                                <color key="backgroundColor" name="black_20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4v3-d2-Lvx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="black_5"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RAt-Wc-29j" secondAttribute="bottom" id="0uk-zK-T5A"/>
+                            <constraint firstAttribute="trailing" secondItem="RAt-Wc-29j" secondAttribute="trailing" id="631-29-MiW"/>
                             <constraint firstItem="vju-kG-Fw1" firstAttribute="leading" secondItem="syN-iH-WrS" secondAttribute="leading" constant="32" id="Abi-Ea-chP"/>
+                            <constraint firstItem="RAt-Wc-29j" firstAttribute="leading" secondItem="syN-iH-WrS" secondAttribute="leading" id="Jc4-0g-XC6"/>
                             <constraint firstAttribute="bottom" secondItem="vju-kG-Fw1" secondAttribute="bottom" constant="20" id="QI1-Lq-VyF"/>
                             <constraint firstAttribute="trailing" secondItem="vju-kG-Fw1" secondAttribute="trailing" constant="32" id="gB8-Jb-ajl"/>
                             <constraint firstItem="vju-kG-Fw1" firstAttribute="top" secondItem="syN-iH-WrS" secondAttribute="top" constant="20" id="lVF-kd-xTe"/>
@@ -85,6 +95,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="borderView" destination="tlG-Q1-jqz" id="mRn-8h-SqF"/>
                 <outlet property="bottomConstraint" destination="AlS-A7-23g" id="L33-Qo-Ypu"/>
                 <outlet property="dateLabel" destination="qZV-rm-zUd" id="bY4-CX-3mM"/>
                 <outlet property="expandButton" destination="r2Y-kG-qfG" id="ZmN-lW-pLo"/>
@@ -92,7 +103,7 @@
                 <outlet property="noticeDescriptionView" destination="syN-iH-WrS" id="Fmh-Xt-ZZb"/>
                 <outlet property="noticeTitleLabel" destination="vlw-Iv-4GL" id="sPW-Wg-qrR"/>
             </connections>
-            <point key="canvasLocation" x="145.6521739130435" y="145.98214285714286"/>
+            <point key="canvasLocation" x="145.6521739130435" y="145.64732142857142"/>
         </tableViewCell>
     </objects>
     <resources>

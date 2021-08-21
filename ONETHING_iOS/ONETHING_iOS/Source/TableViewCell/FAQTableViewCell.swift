@@ -23,6 +23,8 @@ class FAQTableViewCell: UITableViewCell {
             guard let self = self else { return }
             
             self.expanding.toggle()
+            
+            self.borderView.isHidden = self.expanding == true
             self.updateLayoutForExpand(self.expanding)
             self.updateExpandUI(self.expanding)
         }).disposed(by: self.disposeBag)
@@ -54,5 +56,6 @@ class FAQTableViewCell: UITableViewCell {
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var faqTitleLabel: UILabel!
     @IBOutlet private weak var faqDescriptionLabel: UILabel!
+    @IBOutlet private weak var borderView: UIView!
     
 }

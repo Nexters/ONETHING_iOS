@@ -22,6 +22,7 @@ class NoticeTableViewCell: UITableViewCell {
             
             self.expanding.toggle()
             
+            self.borderView.isHidden = self.expanding == true
             self.updateExpandUI(self.expanding)
             self.updateLayoutForExpand(self.expanding)
         }).disposed(by: self.disposeBag)
@@ -53,6 +54,7 @@ class NoticeTableViewCell: UITableViewCell {
     @IBOutlet private weak var noticeTitleLabel: UILabel!
     @IBOutlet private weak var noticeDescriptionLabel: UILabel!
     @IBOutlet private weak var noticeDescriptionView: UIView!
+    @IBOutlet private weak var borderView: UIView!
     
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     

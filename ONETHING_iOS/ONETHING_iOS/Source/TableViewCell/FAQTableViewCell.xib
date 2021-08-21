@@ -43,12 +43,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="acB-vH-IYy">
+                                <rect key="frame" x="0.0" y="39" width="375" height="1"/>
+                                <color key="backgroundColor" name="black_20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="zJ2-H4-3lf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="black_5"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="acB-vH-IYy" secondAttribute="trailing" id="5fa-TW-1o6"/>
                             <constraint firstAttribute="bottom" secondItem="HTC-cz-3yP" secondAttribute="bottom" constant="20" id="FJn-DC-7BS"/>
+                            <constraint firstItem="acB-vH-IYy" firstAttribute="leading" secondItem="Jco-O4-Xl8" secondAttribute="leading" id="MHQ-ZL-9nN"/>
                             <constraint firstItem="HTC-cz-3yP" firstAttribute="leading" secondItem="Jco-O4-Xl8" secondAttribute="leading" constant="32" id="goR-Oc-fds"/>
                             <constraint firstAttribute="trailing" secondItem="HTC-cz-3yP" secondAttribute="trailing" constant="32" id="lCV-qb-EAo"/>
+                            <constraint firstAttribute="bottom" secondItem="acB-vH-IYy" secondAttribute="bottom" id="pBW-rZ-DVb"/>
                             <constraint firstItem="HTC-cz-3yP" firstAttribute="top" secondItem="Jco-O4-Xl8" secondAttribute="top" constant="20" id="sXa-B9-RXg"/>
                         </constraints>
                     </view>
@@ -76,6 +86,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="borderView" destination="6Qd-JV-n7t" id="wjh-Ye-v99"/>
                 <outlet property="bottomConstraint" destination="7v1-EE-xLt" id="QNS-E4-mQr"/>
                 <outlet property="expandButton" destination="0cJ-Fn-Dqk" id="0uv-q8-ais"/>
                 <outlet property="faqDescriptionLabel" destination="HTC-cz-3yP" id="RcW-dx-qgI"/>
