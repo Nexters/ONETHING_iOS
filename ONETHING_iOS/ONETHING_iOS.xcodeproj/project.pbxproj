@@ -375,6 +375,9 @@
 		F293C3D6269D19BF0096757C /* Circleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3D5269D19BF0096757C /* Circleable.swift */; };
 		F293C3D7269D19BF0096757C /* Circleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3D5269D19BF0096757C /* Circleable.swift */; };
 		F293C3D8269D19BF0096757C /* Circleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3D5269D19BF0096757C /* Circleable.swift */; };
+		F295FE6126D1008100F8589E /* DailyHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F295FE6026D1008100F8589E /* DailyHabitModel.swift */; };
+		F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F295FE6026D1008100F8589E /* DailyHabitModel.swift */; };
+		F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F295FE6026D1008100F8589E /* DailyHabitModel.swift */; };
 		F29B842B269A865C009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B842C269A865D009D293F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */; };
 		F29B8431269A866E009D293F /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C42699C3FF00BB2C19 /* UITableView+.swift */; };
@@ -577,6 +580,7 @@
 		F293C3C5269D12940096757C /* HabitWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewController.swift; sourceTree = "<group>"; };
 		F293C3CD269D195D0096757C /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		F293C3D5269D19BF0096757C /* Circleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circleable.swift; sourceTree = "<group>"; };
+		F295FE6026D1008100F8589E /* DailyHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitModel.swift; sourceTree = "<group>"; };
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
@@ -860,6 +864,7 @@
 				F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */,
 				F2017A8726BBF982009277A6 /* SelectStampModel.swift */,
 				F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */,
+				F295FE6026D1008100F8589E /* DailyHabitModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1627,6 +1632,7 @@
 				CED5AED226A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
+				F295FE6126D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
@@ -1752,6 +1758,7 @@
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
+				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CEC4D83326A4693A00633222 /* GoalProgressView.swift in Sources */,
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
@@ -1861,6 +1868,7 @@
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CEC4D83226A4693A00633222 /* GoalProgressView.swift in Sources */,
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
+				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,

@@ -12,13 +12,13 @@ import RxSwift
 
 final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     private let session: Alamofire.Session
-    private var dailyHabitModel: DailyHabitResponseModel
+    private var dailyHabitModel: DailyHabitModel
     private var photoImage: UIImage?
     private let habitId: Int
     private let dailyHabitOrder: Int
     var selectedStampIndex: Int = 0 {
         didSet {
-            self.dailyHabitModel.stampType = self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
+            self.dailyHabitModel.responseModel.stampType = self.selectStampModels[safe: self.selectedStampIndex]?.stamp.description
         }
     }
 
@@ -26,10 +26,13 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
          dailyHabitOrder: Int,
          session: Alamofire.Session
     ) {
-        self.dailyHabitModel = DailyHabitResponseModel(
-            habitId: habitId,
-            status: "SUCCESS",
-            createDateTime: Date().convertString(format: DailyHabitResponseModel.dateFormat))
+        self.dailyHabitModel = DailyHabitModel(
+            order: dailyHabitOrder,
+            responseModel: DailyHabitResponseModel(
+                habitId: habitId,
+                status: "SUCCESS",
+                createDateTime: Date().convertString(format: DailyHabitResponseModel.dateFormat)
+            ))
         
         self.habitId = habitId
         self.dailyHabitOrder = dailyHabitOrder
@@ -45,12 +48,12 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
                                               value: NetworkInfomation.HeaderValue.authorization)])
         self.session.upload(multipartFormData: { [weak self] multipartFormData in
             guard let self = self else { return }
-            let dateData = self.dailyHabitModel.createDateTime.data(using: .utf8) ?? Data()
-            let statusData = self.dailyHabitModel.status.data(using: .utf8) ?? Data()
-            let stampData = self.dailyHabitModel.stampType?.data(using: .utf8) ?? Data()
+            let dateData = self.dailyHabitModel.responseModel.createDateTime.data(using: .utf8) ?? Data()
+            let statusData = self.dailyHabitModel.responseModel.status.data(using: .utf8) ?? Data()
+            let stampData = self.dailyHabitModel.responseModel.stampType?.data(using: .utf8) ?? Data()
             
             // Content가 빈 String 값이 아닌 경우에만 Content 데이터를 보냅니다.
-            if let content = self.dailyHabitModel.content, content != "",
+            if let content = self.dailyHabitModel.responseModel.content, content != "",
                let contentData = content.data(using: .utf8) {
                 multipartFormData.append(contentData, withName: "content")
             }
@@ -87,7 +90,7 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     
     func update(photoImage: UIImage?, contentText: String) {
         self.photoImage = photoImage
-        self.dailyHabitModel.content = contentText
+        self.dailyHabitModel.responseModel.content = contentText
     }
     
     private var selectStampModels: [SelectStampModel] = Stamp.allCases.enumerated().map { n, stamp in
@@ -141,18 +144,18 @@ final class HabitWritingViewModel: NSObject, DailyHabitViewModelable {
     }
     
     var contentText: String? {
-        self.dailyHabitModel.content
+        self.dailyHabitModel.responseModel.content
     }
     
     var dateText: String? {
-        self.dailyHabitModel
+        self.dailyHabitModel.responseModel
             .createDateTime
             .convertToDate(format: DailyHabitResponseModel.dateFormat)?
             .convertString(format: "yyyy-MM-dd")
     }
     
     var timeText: String? {
-        self.dailyHabitModel
+        self.dailyHabitModel.responseModel
             .createDateTime
             .convertToDate(format: DailyHabitResponseModel.dateFormat)?
             .convertString(format: "h:mm a", amSymbol: "AM", pmSymbol: "PM")

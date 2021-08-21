@@ -49,7 +49,7 @@ final class HomeViewModel: NSObject {
             }).disposed(by: self.disposeBag)
     }
     
-    func dailyHabitModel(at index: Int) -> DailyHabitResponseModel? {
+    func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
         return self.dailyHabitModels[safe: index]
     }
     

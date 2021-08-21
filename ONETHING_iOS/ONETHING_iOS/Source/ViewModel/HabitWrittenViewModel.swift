@@ -12,11 +12,11 @@ import RxSwift
 import Kingfisher
 
 final class HabitWrittenViewModel: DailyHabitViewModelable {
-    private let dailyHabitModel: DailyHabitResponseModel
+    private let dailyHabitModel: DailyHabitModel
     private let imageUseCase = HabitImageUseCase()
     private let imageCache: Kingfisher.ImageCache
     
-    init(dailyHabitModel: DailyHabitResponseModel,
+    init(dailyHabitModel: DailyHabitModel,
          imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default) {
         self.dailyHabitModel = dailyHabitModel
         self.imageCache = imageCache
@@ -25,13 +25,13 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
     func requestHabitImageRx() -> Observable<Image> {
         return Observable.create { [weak self] emitter in
             guard let self = self,
-                  let createDate: String = self.dailyHabitModel.createDateTime
+                  let createDate: String = self.dailyHabitModel.responseModel.createDateTime
                     .convertToDate(format: DailyHabitResponseModel.dateFormat)?
                     .convertString(format: "yyyy-MM-dd") else { return Disposables.create() }
             
             self.imageUseCase.requestHabitImage(
                 createDate: createDate,
-                imageExtension: self.dailyHabitModel.imageExtension ?? "jpg") { (photoImage: UIImage) in
+                imageExtension: self.dailyHabitModel.responseModel.imageExtension ?? "jpg") { (photoImage: UIImage) in
                     emitter.onNext(photoImage)
             }
             
@@ -40,22 +40,54 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
     }
     
     var currentStampImage: UIImage? {
-        self.dailyHabitModel.castringStamp?.defaultImage
+        self.dailyHabitModel.responseModel.castringStamp?.defaultImage
+    }
+    
+    var dayText: String {
+        "\(self.dailyHabitModel.order)일차"
+    }
+    
+    var statusText: String? {
+        guard let status = self.dailyHabitModel.responseModel.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return "성공"
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return "미룸"
+        }
+    }
+    
+    var statusColor: UIColor? {
+        guard let status = self.dailyHabitModel.responseModel.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return .red_default
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return .mint_2
+        }
     }
     
     var contentText: String? {
-        self.dailyHabitModel.content
+        self.dailyHabitModel.responseModel.content
     }
     
     var dateText: String? {
-        self.dailyHabitModel
+        self.dailyHabitModel.responseModel
             .createDateTime
             .convertToDate(format: DailyHabitResponseModel.dateFormat)?
             .convertString(format: "yyyy-MM-dd")
     }
     
     var timeText: String? {
-        self.dailyHabitModel
+        self.dailyHabitModel.responseModel
             .createDateTime
             .convertToDate(format: DailyHabitResponseModel.dateFormat)?
             .convertString(format: "h:mm a", amSymbol: "AM", pmSymbol: "PM")

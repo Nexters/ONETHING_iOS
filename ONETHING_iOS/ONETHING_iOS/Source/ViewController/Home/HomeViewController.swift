@@ -156,7 +156,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
+        if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
+            let dailyHabitModel = DailyHabitModel(order: indexPath.row, responseModel: responseModel)
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
             guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
@@ -180,7 +181,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         writeLimitPopupView.show(in: tabbarController)
     }
     
-    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitResponseModel) {
+    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
         self.backgroundDimView.isHidden = false
         
         let habitWrittenViewController = HabitWrittenViewController().then {
