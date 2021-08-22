@@ -11,7 +11,7 @@ import Moya
 
 enum ContentAPI {
     case getRecommendedHabit
-    case createHabit(title: String, sentence: String, pushTime: String, delayMaxCount: Int)
+    case createHabit(title: String, sentence: String, pushTime: String, penaltyCount: Int)
     case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
@@ -67,9 +67,9 @@ extension ContentAPI: TargetType {
         switch self {
         case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_), .getNotices, .getQuestions:
             return .requestPlain
-        case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
+        case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
-                                             "pushTime": pushTime, "delayMaxCount": delayMaxCount]
+                                             "pushTime": pushTime, "penaltyCount": penaltyCount]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .createDailyHabit(_, let createDateTime, let status, let content, let stampType, let image):
             let dateData = MultipartFormData(provider: .data(createDateTime.data(using: .utf8)!), name: "createDateTime")
