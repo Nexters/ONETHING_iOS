@@ -28,6 +28,10 @@ final class GoalSettingFirstViewController: UIViewController {
         self.directSetButtonBottomConstraint.constant = 12 + DeviceInfo.safeAreaBottomInset
     }
     
+    private func set() {
+        
+    }
+    
     private func setupLabels() {
         guard let pretendard_medium = UIFont.createFont(type: .pretendard(weight: .medium), size: 26) else { return }
         guard let pretendard_bold = UIFont.createFont(type: .pretendard(weight: .bold), size: 26) else { return }

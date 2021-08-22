@@ -11,38 +11,32 @@ struct OnethingUserModel: Codable {
     let name: String?
     let email: String?
     let authType: String?
-    let nickName: String?
+    let nickname: String?
     let imageType: String?
     let enableAlarm: String?
     
-    var castingAccessType: SocialAccessType {
+    var castingAccessType: SocialAccessType? {
         guard let authType = self.authType,
               let accessType = SocialAccessType(rawValue: authType)
-        else { return .apple }
+        else { return nil }
         
         return accessType
     }
     
-    var castingImageType: ImageType {
+    var profileImageType: OnethingProfileType? {
         guard let strongImageType = self.imageType,
-              let imageType = ImageType(rawValue: strongImageType)
-        else { return .study }
+              let imageType = OnethingProfileType(rawValue: strongImageType)
+        else { return nil }
         
         return imageType
     }
     
-    var castingAlarm: AlarmToggle {
+    var castingAlarm: AlarmToggle? {
         guard let enableAlarm = self.enableAlarm,
               let alarmToggle = AlarmToggle(rawValue: enableAlarm)
-        else { return .off }
+        else { return nil }
         
         return alarmToggle
-    }
-    
-    enum ImageType: String {
-        case study = "STUDY"
-        case strong = "STRONG"
-        case heart = "HEART"
     }
     
     enum AlarmToggle: String {

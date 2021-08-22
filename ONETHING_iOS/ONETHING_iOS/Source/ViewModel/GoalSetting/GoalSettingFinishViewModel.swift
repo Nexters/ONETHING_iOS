@@ -21,14 +21,14 @@ final class GoalSettingFinishViewModel {
         self.habitTitle = title
         self.postponeTodo = postponeTodo
         self.pushTime = pushTime
-        self.postponeCount = postponeCount
+        self.penaltyCount = postponeCount
     }
     
     func requestCreateHabit() {
         guard let title = self.habitTitle            else { return }
         guard let sentence = self.postponeTodo       else { return }
         guard let pushTime = self.pushTime           else { return }
-        guard let postponeCount = self.postponeCount else { return }
+        guard let postponeCount = self.penaltyCount else { return }
         
         let createHabitAPI = ContentAPI.createHabit(title: title, sentence: sentence,
                                                     pushTime: pushTime.convertString(), penaltyCount: postponeCount)
@@ -49,5 +49,5 @@ final class GoalSettingFinishViewModel {
     private(set) var habitTitle: String?
     private(set) var postponeTodo: String?
     private(set) var pushTime: Date?
-    private(set) var postponeCount: Int?
+    private(set) var penaltyCount: Int?
 }

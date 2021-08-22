@@ -49,6 +49,15 @@
 		CE307A4D26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
 		CE307A4E26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
 		CE307A4F26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
+		CE307A5126D26A85005919AE /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */; };
+		CE307A5226D26A85005919AE /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */; };
+		CE307A5326D26A85005919AE /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */; };
+		CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5426D295DE005919AE /* OnethingProfileType.swift */; };
+		CE307A5626D295DE005919AE /* OnethingProfileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5426D295DE005919AE /* OnethingProfileType.swift */; };
+		CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5426D295DE005919AE /* OnethingProfileType.swift */; };
+		CE307A5926D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
+		CE307A5A26D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
+		CE307A5B26D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
 		CE38762126CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762226CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762326CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
@@ -490,6 +499,9 @@
 		CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		CE307A4C26D23A07005919AE /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		CE307A5426D295DE005919AE /* OnethingProfileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingProfileType.swift; sourceTree = "<group>"; };
+		CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
 		CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPopupView.xib; sourceTree = "<group>"; };
 		CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopupView.swift; sourceTree = "<group>"; };
 		CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -774,6 +786,7 @@
 			isa = PBXGroup;
 			children = (
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
+				CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -995,6 +1008,7 @@
 			children = (
 				CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */,
 				F25571A226A437DD005A1AAF /* ViewTag.swift */,
+				CE307A5426D295DE005919AE /* OnethingProfileType.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1003,6 +1017,7 @@
 			isa = PBXGroup;
 			children = (
 				CE16C25B26A8461A00D87096 /* LoginViewController.swift */,
+				CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -1651,6 +1666,7 @@
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
+				CE307A5926D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
@@ -1681,6 +1697,7 @@
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
+				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */,
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
@@ -1693,6 +1710,7 @@
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
+				CE307A5126D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
 				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
@@ -1785,6 +1803,7 @@
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
+				CE307A5B26D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
@@ -1815,6 +1834,7 @@
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
 				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
+				CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
@@ -1827,6 +1847,7 @@
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				CE7247DF2699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
+				CE307A5326D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
 				CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
@@ -1903,6 +1924,7 @@
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
+				CE307A5A26D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
@@ -1933,6 +1955,7 @@
 				F2BADE0726C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
+				CE307A5626D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				CE8FEDE526B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
@@ -1945,6 +1968,7 @@
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
 				F2F588B126B0F95200F5430D /* LockView.swift in Sources */,
+				CE307A5226D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
 				CE8FEDF026B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE26C45326B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,

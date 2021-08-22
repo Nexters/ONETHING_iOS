@@ -82,7 +82,7 @@ final class ProfileViewController: BaseViewController {
             guard let self = self else { return }
             guard let user = user else { return }
             
-            self.nicknameLabel.text = String(format: "%@ 님", user.name ?? "")
+            self.nicknameLabel.text = String(format: "%@ 님", user.nickname ?? "")
         }).disposed(by: self.disposeBag)
         
         Observable.combineLatest(self.viewModel.successCountRelay, self.viewModel.delayCountRelay)

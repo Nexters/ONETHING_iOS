@@ -16,6 +16,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         let mainTabBarController = MainTabBarController()
+        
+        OnethingUserManager.sharedInstance.updateDoneHabitSetting(true)
 
         let userManager = OnethingUserManager.sharedInstance
         self.presentNavigationControllerIfNeeded(with: userManager, rootController: mainTabBarController)
@@ -37,17 +39,25 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         if let doneHabitSetting = userManager.doneHabitSetting, doneHabitSetting == false {
-            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
-            self.present(viewController: goalSettingFirstViewController, with: rootController)
-            return
+            OnethingUserManager.sharedInstance.requestAccount(completion: { user in
+                let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
+                self.present(viewController: goalSettingFirstViewController, with: rootController) {
+                    guard user.nickname == nil else { return }
+                    
+                    let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
+                    guard let profileSettingController = viewController else { return }
+                    profileSettingController.modalPresentationStyle = .fullScreen
+                    rootController.present(profileSettingController, animated: false, completion: nil)
+                }
+            })
         }
     }
 
-    private func present(viewController: UIViewController?, with rootController: MainTabBarController) {
+    private func present(viewController: UIViewController?, with rootController: MainTabBarController, completion: (() -> Void)? = nil) {
         guard let viewController = viewController else { return }
         
         DispatchQueue.main.async {
-            rootController.present(viewController, animated: false)
+            rootController.present(viewController, animated: false, completion: completion)
         }
     }
     
