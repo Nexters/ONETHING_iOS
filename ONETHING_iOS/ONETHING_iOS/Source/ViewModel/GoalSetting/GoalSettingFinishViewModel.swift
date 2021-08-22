@@ -31,7 +31,7 @@ final class GoalSettingFinishViewModel {
         guard let postponeCount = self.postponeCount else { return }
         
         let createHabitAPI = ContentAPI.createHabit(title: title, sentence: sentence,
-                                                    pushTime: pushTime.convertString(), delayMaxCount: postponeCount)
+                                                    pushTime: pushTime.convertString(), penaltyCount: postponeCount)
         self.loadingSubject.onNext(true)
         self.apiService.requestAndDecodeRx(apiTarget: createHabitAPI)
             .subscribe(onSuccess: { [weak self] (responseModel: HabitResponseModel) in

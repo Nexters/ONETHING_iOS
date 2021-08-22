@@ -11,12 +11,14 @@ import Moya
 
 enum ContentAPI {
     case getRecommendedHabit
-    case createHabit(title: String, sentence: String, pushTime: String, delayMaxCount: Int)
+    case createHabit(title: String, sentence: String, pushTime: String, penaltyCount: Int)
     case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
     case getDailyHistories(habitId: Int)
     case getDailyHabitImage(createDate: String, imageExtension: String)
+    case getNotices
+    case getQuestions
 }
 
 extension ContentAPI: TargetType {
@@ -40,13 +42,17 @@ extension ContentAPI: TargetType {
             return "api/habit/\(habitId)/history"
         case .getDailyHabitImage:
             return "/api/habit/history/image"
+        case .getNotices:
+            return "/api/info/notices"
+        case .getQuestions:
+            return "/api/info/questions"
         }
     }
     
     var method: Moya.Method {
         switch self {
             case .getRecommendedHabit, .getHabitInProgress, .getHabits,
-                 .getDailyHistories, .getDailyHabitImage:
+                 .getDailyHistories, .getDailyHabitImage, .getNotices, .getQuestions:
             return .get
         case .createHabit, .createDailyHabit:
             return .post
@@ -59,11 +65,11 @@ extension ContentAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_):
+        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_), .getNotices, .getQuestions:
             return .requestPlain
-        case .createHabit(let title, let sentence, let pushTime, let delayMaxCount):
+        case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
-                                             "pushTime": pushTime, "delayMaxCount": delayMaxCount]
+                                             "pushTime": pushTime, "penaltyCount": penaltyCount]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .createDailyHabit(_, let createDateTime, let status, let content, let stampType, let image):
             let dateData = MultipartFormData(provider: .data(createDateTime.data(using: .utf8)!), name: "createDateTime")
