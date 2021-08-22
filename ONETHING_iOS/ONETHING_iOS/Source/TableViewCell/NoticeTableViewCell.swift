@@ -16,6 +16,19 @@ class NoticeTableViewCell: UITableViewCell {
         self.bindButtons()
     }
     
+    func configure(_ noticeModel: NoticeModel) {
+        self.noticeTitleLabel.text = noticeModel.title
+        self.noticeDescriptionLabel.text = noticeModel.content
+        self.dateLabel.text = noticeModel.createDateTime
+        
+        guard let createDate = noticeModel.createDateTime else { return }
+        guard let convertedDate = createDate.convertToDate(format: "yyyy-MM-ddahh:mm:ss") else { return }
+        var convertedStringDate = convertedDate.convertString(format: "yyyy.MM.dd")
+        convertedStringDate.removeFirst()
+        convertedStringDate.removeFirst()
+        self.dateLabel.text = convertedStringDate
+    }
+    
     private func bindButtons() {
         self.expandButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }

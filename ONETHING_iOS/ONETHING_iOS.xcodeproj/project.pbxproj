@@ -46,6 +46,9 @@
 		CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
 		CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
 		CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */; };
+		CE307A4D26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
+		CE307A4E26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
+		CE307A4F26D23A07005919AE /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A4C26D23A07005919AE /* NoticeModel.swift */; };
 		CE38762126CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762226CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762326CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
@@ -486,6 +489,7 @@
 		CE26C45A26B03A0400BE7DDC /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
+		CE307A4C26D23A07005919AE /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPopupView.xib; sourceTree = "<group>"; };
 		CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopupView.swift; sourceTree = "<group>"; };
 		CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -935,6 +939,7 @@
 				F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */,
 				F2017A8726BBF982009277A6 /* SelectStampModel.swift */,
 				F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */,
+				CE307A4C26D23A07005919AE /* NoticeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1636,6 +1641,7 @@
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
+				CE307A4D26D23A07005919AE /* NoticeModel.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
@@ -1769,6 +1775,7 @@
 				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
+				CE307A4F26D23A07005919AE /* NoticeModel.swift in Sources */,
 				F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */,
 				F25571A126A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
@@ -1886,6 +1893,7 @@
 				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
+				CE307A4E26D23A07005919AE /* NoticeModel.swift in Sources */,
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CEE8AB1D26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
@@ -2147,8 +2155,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2159,7 +2167,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2172,8 +2180,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2184,7 +2192,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

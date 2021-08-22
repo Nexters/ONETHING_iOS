@@ -15,6 +15,8 @@ final class NoticeViewController: BaseViewController {
         super.viewDidLoad()
         self.setupTableView()
         self.bindButtons()
+        
+        self.viewModel.requestNoticeModel()
     }
     
     private func setupTableView() {
@@ -28,6 +30,7 @@ final class NoticeViewController: BaseViewController {
             let cell      = tableView.dequeueReuableCell(cell: NoticeTableViewCell.self, forIndexPath: indexPath)
             
             guard let noticeCell = cell else { return UITableViewCell() }
+            noticeCell.configure(item)
             return noticeCell
         }.disposed(by: self.disposeBag)
     }
