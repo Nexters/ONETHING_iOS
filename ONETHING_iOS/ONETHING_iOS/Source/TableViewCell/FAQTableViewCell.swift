@@ -18,6 +18,11 @@ class FAQTableViewCell: UITableViewCell {
         self.faqDescriptionLabel.sizeToFit()
     }
     
+    func configure(_ faqModel: NoticeModel) {
+        self.faqTitleLabel.text = faqModel.title
+        self.faqDescriptionLabel.text = faqModel.content
+    }
+    
     private func bindButtons() {
         self.expandButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }

@@ -11,7 +11,6 @@ import RxRelay
 
 final class NoticeViewModel {
     
-    #warning("일단 임시로 데이터 타입 몰라서 지정")
     let noticesRelay = BehaviorRelay<[NoticeModel]>(value: [])
     
     func requestNoticeModel() {
@@ -19,8 +18,8 @@ final class NoticeViewModel {
         
         APIService.shared.requestAndDecodeRx(apiTarget: noticeAPI, retryHandler: { [weak self] in
             self?.requestNoticeModel()
-        }).subscribe(onSuccess: { (noticeListModel: [NoticeModel]) in
-            self.noticesRelay.accept(noticeListModel)
+        }).subscribe(onSuccess: { [weak self] (noticeListModel: [NoticeModel]) in
+            self?.noticesRelay.accept(noticeListModel)
         }).disposed(by: self.disposeBag)
     }
     
