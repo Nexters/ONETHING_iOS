@@ -35,7 +35,7 @@ final class ProfileSettingViewModel {
         APIService.shared.requestAndDecodeRx(apiTarget: profileAPI, retryHandler: { [weak self] in
             self?.requestSetProfile()
         }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
-            OnethingUserManager.sharedInstance.setCurrentUser(userModel)
+            OnethingUserManager.sharedInstance.updateUser(userModel)
             self?.completeSubject.onNext(())
             self?.requesting = false
         }, onFailure: { [weak self] _ in

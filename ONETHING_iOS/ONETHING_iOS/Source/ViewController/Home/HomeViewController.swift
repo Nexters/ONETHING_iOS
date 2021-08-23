@@ -139,8 +139,8 @@ final class HomeViewController: BaseViewController {
   
 	@objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
-        guard let userName = currentUser.nickname                              else { return }
-        self.viewModel.update(userName: userName)
+        guard let nickname = currentUser.account?.nickname                     else { return }
+        self.viewModel.update(userName: nickname)
         self.habitInfoView.update(with: self.viewModel)
     }
 }

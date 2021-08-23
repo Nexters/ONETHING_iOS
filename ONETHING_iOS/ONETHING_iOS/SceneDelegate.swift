@@ -16,8 +16,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         let mainTabBarController = MainTabBarController()
-        
-        OnethingUserManager.sharedInstance.updateDoneHabitSetting(true)
 
         let userManager = OnethingUserManager.sharedInstance
         self.presentNavigationControllerIfNeeded(with: userManager, rootController: mainTabBarController)
@@ -38,19 +36,19 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        if let doneHabitSetting = userManager.doneHabitSetting, doneHabitSetting == false {
-            OnethingUserManager.sharedInstance.requestAccount(completion: { user in
-                let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
-                self.present(viewController: goalSettingFirstViewController, with: rootController) {
-                    guard user.nickname == nil else { return }
-                    
-                    let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
-                    guard let profileSettingController = viewController else { return }
-                    profileSettingController.modalPresentationStyle = .fullScreen
-                    rootController.present(profileSettingController, animated: false, completion: nil)
-                }
-            })
-        }
+        OnethingUserManager.sharedInstance.requestAccount(completion: { accountModel in
+            guard accountModel.doneHabitSetting == false else { return }
+            
+            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
+            self.present(viewController: goalSettingFirstViewController, with: rootController) {
+                guard accountModel.account?.nickname == nil else { return }
+                
+                let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
+                guard let profileSettingController = viewController else { return }
+                profileSettingController.modalPresentationStyle = .fullScreen
+                rootController.present(profileSettingController, animated: false, completion: nil)
+            }
+        })
     }
 
     private func present(viewController: UIViewController?, with rootController: MainTabBarController, completion: (() -> Void)? = nil) {

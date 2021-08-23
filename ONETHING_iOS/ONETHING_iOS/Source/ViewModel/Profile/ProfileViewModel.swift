@@ -24,9 +24,10 @@ final class ProfileViewModel {
         let accountAPI = UserAPI.account
         self.apiService.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
             self?.requestUserInform()
-        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
+        }).subscribe(onSuccess: { [weak self] (accountModel: OnethingAccountModel) in
             guard let self = self else { return }
-            self.userRelay.accept(userModel)
+            guard let account = accountModel.account else { return }
+            self.userRelay.accept(account)
         }).disposed(by: self.disposeBag)
     }
     

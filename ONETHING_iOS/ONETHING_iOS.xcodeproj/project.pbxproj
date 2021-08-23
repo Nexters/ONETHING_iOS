@@ -85,6 +85,9 @@
 		CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
 		CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3B8BC326A72B6B00BD529B /* UIFont+.swift */; };
+		CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
+		CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
+		CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
 		CE6751EF26D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F026D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F126D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
@@ -511,6 +514,7 @@
 		CE3B8BB126A7073D00BD529B /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingAccountModel.swift; sourceTree = "<group>"; };
 		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goalFinish.json; sourceTree = "<group>"; };
 		CE6751F226D0E56D00616CA8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
@@ -953,6 +957,7 @@
 				F2017A8726BBF982009277A6 /* SelectStampModel.swift */,
 				F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */,
 				CE307A4C26D23A07005919AE /* NoticeModel.swift */,
+				CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1662,6 +1667,7 @@
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				F2F588B026B0F95200F5430D /* LockView.swift in Sources */,
+				CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
@@ -1799,6 +1805,7 @@
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
 				F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
+				CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
@@ -1920,6 +1927,7 @@
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
+				CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,

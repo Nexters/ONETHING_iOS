@@ -82,6 +82,7 @@ final class ProfileViewController: BaseViewController {
             guard let self = self else { return }
             guard let user = user else { return }
             
+            self.profileImageView.image = user.profileImageType?.image
             self.nicknameLabel.text = String(format: "%@ 님", user.nickname ?? "")
         }).disposed(by: self.disposeBag)
         

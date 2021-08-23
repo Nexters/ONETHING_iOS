@@ -36,7 +36,6 @@ final class GoalSettingFinishViewModel {
         self.apiService.requestAndDecodeRx(apiTarget: createHabitAPI)
             .subscribe(onSuccess: { [weak self] (responseModel: HabitResponseModel) in
                 self?.loadingSubject.onNext(false)
-                OnethingUserManager.sharedInstance.updateDoneHabitSetting(true)
                 self?.completeSubject.onNext(())
             }, onFailure: { [weak self] _ in
                 self?.loadingSubject.onNext(false)
