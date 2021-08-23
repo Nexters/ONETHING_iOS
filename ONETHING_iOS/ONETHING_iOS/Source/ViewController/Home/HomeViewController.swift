@@ -214,7 +214,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         delayPopupView.delegate = self
         delayPopupView.show(in: tabbarController, completion: {
-            // delayPopupView shaking 효과 적용
+            delayPopupView.animateShaking()
         })
     }
     
