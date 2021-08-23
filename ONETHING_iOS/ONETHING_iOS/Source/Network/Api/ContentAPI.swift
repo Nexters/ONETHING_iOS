@@ -12,6 +12,7 @@ import Moya
 enum ContentAPI {
     case getRecommendedHabit
     case createHabit(title: String, sentence: String, pushTime: String, penaltyCount: Int)
+    case modifyHabit(habitId: Int, color: String, pushTime: String, penaltyCount: Int)
     case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
@@ -30,7 +31,7 @@ extension ContentAPI: TargetType {
         switch self {
         case .getRecommendedHabit:
             return "/api/habit-recommend"
-        case .createHabit:
+        case .createHabit, .modifyHabit:
             return "/api/habit"
         case .getHabitInProgress:
             return "/api/habit-in-progress"
@@ -56,6 +57,8 @@ extension ContentAPI: TargetType {
             return .get
         case .createHabit, .createDailyHabit:
             return .post
+        case .modifyHabit:
+            return .put
         }
     }
     
@@ -69,6 +72,10 @@ extension ContentAPI: TargetType {
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
+                                             "pushTime": pushTime, "penaltyCount": penaltyCount]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+        case .modifyHabit(let habitId, let color , let pushTime, let penaltyCount):
+            let parameters: [String: Any] = ["habitId": habitId, "color": color,
                                              "pushTime": pushTime, "penaltyCount": penaltyCount]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         case .createDailyHabit(_, let createDateTime, let status, let content, let stampType, let image):
