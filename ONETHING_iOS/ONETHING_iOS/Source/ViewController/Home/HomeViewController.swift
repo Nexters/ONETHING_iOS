@@ -101,17 +101,12 @@ final class HomeViewController: BaseViewController {
             .habitInProgressSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    self?.barStyle = .darkContent
-                    self?.setNeedsStatusBarAppearanceUpdate()
-                    self?.updateEmptyViewHiddenStatus(false)
-                    self?.updateContentViewHiddenStatus(true)
+                    self?.showEmptyViewAndHideMainView()
+                
                     return
                 }
                 
-                self.barStyle = .lightContent
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.updateEmptyViewHiddenStatus(true)
-                self.updateContentViewHiddenStatus(false)
+                self.showMainViewAndHideEmptyView()
                 self.viewModel.requestDailyHabits(habitId: habitInProgressModel.habitId)
                 self.habitInfoView.update(with: self.viewModel)
             }
@@ -135,6 +130,20 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: self.disposeBag)
     }
+    
+    private func showEmptyViewAndHideMainView() {
+        self.barStyle = .darkContent
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.updateEmptyViewHiddenStatus(false)
+        self.updateContentViewHiddenStatus(true)
+    }
+    
+    private func showMainViewAndHideEmptyView() {
+        self.barStyle = .lightContent
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.updateEmptyViewHiddenStatus(true)
+        self.updateContentViewHiddenStatus(false)
+    }
    
     private func updateEmptyViewHiddenStatus(_ isHidden: Bool) {
         self.homeEmptyView.isHidden = isHidden
@@ -148,6 +157,7 @@ final class HomeViewController: BaseViewController {
 	@objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
         guard let nickname = currentUser.account?.nickname                     else { return }
+        
         self.viewModel.update(nickname: nickname)
         self.habitInfoView.update(with: self.viewModel)
     }
@@ -266,9 +276,7 @@ extension HomeViewController: HomeEmptyViewDelegate {
               let navigationController = self.navigationController(goalSettingFirstViewController) else { return }
         
         self.present(navigationController, animated: true) {
-            self.hideEmptyView()
-            self.barStyle = .lightContent
-            self.setNeedsStatusBarAppearanceUpdate()
+            self.showMainViewAndHideEmptyView()
         }
     }
     
@@ -278,11 +286,5 @@ extension HomeViewController: HomeEmptyViewDelegate {
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true
         return navigationController
-    }
-    
-    private func hideEmptyView() {
-        let views = [self.habitInfoView, self.habitCalendarView]
-        views.forEach { $0.isHidden = false }
-        self.homeEmptyView.isHidden = false
     }
 }
