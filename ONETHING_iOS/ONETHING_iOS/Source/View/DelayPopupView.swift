@@ -21,8 +21,8 @@ final class DelayPopupView: UIView {
     
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
         targetController.view.addSubview(self)
-        self.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        self.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
         
         self.showCrossDissolve(completion: {

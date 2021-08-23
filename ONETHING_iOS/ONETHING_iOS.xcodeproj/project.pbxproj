@@ -455,6 +455,9 @@
 		F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
 		F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
 		F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
+		F2B571D926D4242E0059F75E /* DashLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D826D4242E0059F75E /* DashLine.swift */; };
+		F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D826D4242E0059F75E /* DashLine.swift */; };
+		F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D826D4242E0059F75E /* DashLine.swift */; };
 		F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
@@ -664,6 +667,7 @@
 		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
 		F2B571D026D3E0D60059F75E /* DelayPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelayPopupView.xib; sourceTree = "<group>"; };
 		F2B571D426D3E14F0059F75E /* DelayPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayPopupView.swift; sourceTree = "<group>"; };
+		F2B571D826D4242E0059F75E /* DashLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLine.swift; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
@@ -762,6 +766,7 @@
 				F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */,
 				CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */,
 				CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */,
+				F2B571D826D4242E0059F75E /* DashLine.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1719,6 +1724,7 @@
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
@@ -1861,6 +1867,7 @@
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
+				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -1987,6 +1994,7 @@
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
+				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
