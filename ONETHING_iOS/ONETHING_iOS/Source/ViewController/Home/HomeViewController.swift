@@ -100,8 +100,7 @@ final class HomeViewController: BaseViewController {
         self.viewModel
             .habitInProgressSubject
             .bind { [weak self] habitInProgressModel in
-                guard let self = self,
-                let habitInProgressModel = habitInProgressModel else {
+                guard let self = self, let habitInProgressModel = habitInProgressModel else {
                     self?.barStyle = .darkContent
                     self?.setNeedsStatusBarAppearanceUpdate()
                     self?.updateEmptyViewHiddenStatus(false)
@@ -125,6 +124,7 @@ final class HomeViewController: BaseViewController {
                 
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
                 self.habitCalendarView.reloadData()
+                
             }
             .disposed(by: self.disposeBag)
         
@@ -184,7 +184,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     private func showWriteLimitPopupView(with indexPath: IndexPath) {
         guard let writeLimitPopupView: CustomPopupView = UIView.createFromNib() else { return }
-        guard let tabbarController = self.tabBarController                   else { return }
+        guard let tabbarController = self.tabBarController                      else { return }
         
         writeLimitPopupView.configure(
             attributedText: self.viewModel.limitMessage(with: indexPath),

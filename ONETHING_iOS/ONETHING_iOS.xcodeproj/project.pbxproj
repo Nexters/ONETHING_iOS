@@ -449,6 +449,12 @@
 		F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
 		F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247E22699D82300BB2C19 /* SocialManager.swift */; };
+		F2B571D126D3E0D60059F75E /* DelayPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571D026D3E0D60059F75E /* DelayPopupView.xib */; };
+		F2B571D226D3E0D60059F75E /* DelayPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571D026D3E0D60059F75E /* DelayPopupView.xib */; };
+		F2B571D326D3E0D60059F75E /* DelayPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571D026D3E0D60059F75E /* DelayPopupView.xib */; };
+		F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
+		F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
+		F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571D426D3E14F0059F75E /* DelayPopupView.swift */; };
 		F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
@@ -656,6 +662,8 @@
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
+		F2B571D026D3E0D60059F75E /* DelayPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DelayPopupView.xib; sourceTree = "<group>"; };
+		F2B571D426D3E14F0059F75E /* DelayPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayPopupView.swift; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
@@ -940,6 +948,8 @@
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
 				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
 				F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */,
+				F2B571D426D3E14F0059F75E /* DelayPopupView.swift */,
+				F2B571D026D3E0D60059F75E /* DelayPopupView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1372,6 +1382,7 @@
 				CE38762126CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D7FE26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CD26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
+				F2B571D126D3E0D60059F75E /* DelayPopupView.xib in Resources */,
 				CE72476026998F3000BB2C19 /* Assets.xcassets in Resources */,
 				CEC4D80426A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
 				CEC4D7C426A2D63200633222 /* Pretendard-Medium.otf in Resources */,
@@ -1424,6 +1435,7 @@
 				CE38762326CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D80026A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CF26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
+				F2B571D326D3E0D60059F75E /* DelayPopupView.xib in Resources */,
 				CE72478E269992C700BB2C19 /* Assets.xcassets in Resources */,
 				CEC4D80626A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
 				CEC4D7C626A2D63200633222 /* Pretendard-Medium.otf in Resources */,
@@ -1462,6 +1474,7 @@
 				CE38762226CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D7FF26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
 				CEC4D7CE26A2D63200633222 /* Pretendard-SemiBold.otf in Resources */,
+				F2B571D226D3E0D60059F75E /* DelayPopupView.xib in Resources */,
 				CE72479C269992CC00BB2C19 /* Assets.xcassets in Resources */,
 				CEC4D80526A2D88500633222 /* Montserrat-Bold.ttf in Resources */,
 				CEC4D7C526A2D63200633222 /* Pretendard-Medium.otf in Resources */,
@@ -1699,6 +1712,7 @@
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
+				F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -1840,6 +1854,7 @@
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
@@ -1965,6 +1980,7 @@
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
+				F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
