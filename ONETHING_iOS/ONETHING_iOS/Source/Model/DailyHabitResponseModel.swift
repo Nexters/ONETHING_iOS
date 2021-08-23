@@ -39,7 +39,8 @@ struct DailyHabitResponseModel: Codable, Equatable {
 extension DailyHabitResponseModel {
     enum DailyStatus: String {
         case success = "SUCCESS"
-        case delay = "DELAY_PENALTY"
+        case delayPenalty = "DELAY_PENALTY"
+        case delay = "DELAY"
     }
     
     var castingHabitStatus: DailyStatus? {

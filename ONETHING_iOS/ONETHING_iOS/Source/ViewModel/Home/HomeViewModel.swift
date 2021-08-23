@@ -49,7 +49,7 @@ final class HomeViewModel: NSObject {
             }).disposed(by: self.disposeBag)
     }
     
-    func dailyHabitModel(at index: Int) -> DailyHabitResponseModel? {
+    func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
         return self.dailyHabitModels[safe: index]
     }
     
@@ -125,7 +125,7 @@ final class HomeViewModel: NSObject {
         self.habitInProgressModel = nil
     }
     
-    func canCreatCurrentDailyHabitModel(with index: Int) -> Bool {
+    func canCreateCurrentDailyHabitModel(with index: Int) -> Bool {
         guard let diffDays = self.diffDaysFromStartToCurrent else { return false }
         return diffDays == index
     }
@@ -137,6 +137,10 @@ final class HomeViewModel: NSObject {
                                     value: UIColor.red_default,
                                     range: attributedText.mutableString.range(of: "\(dayText)일차"))
         return attributedText
+    }
+    
+    var sentenceForDelay: String? {
+        return self.habitInProgressModel?.sentence
     }
 }
 
@@ -169,7 +173,7 @@ extension HomeViewModel: UICollectionViewDataSource {
     }
     
     private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
-        guard self.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
+        guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
             
         habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
         habitCalendarCell.update(textColor: UIColor.red_3)

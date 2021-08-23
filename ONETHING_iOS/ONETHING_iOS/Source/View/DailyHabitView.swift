@@ -21,11 +21,10 @@ protocol DailyHabitViewPhotoViewDelegate: UIViewController {
 }
 
 final class DailyHabitView: UIView {
-    static let photoDefault = UIImage(named: "photo_default")
     let enrollPhotoButton = UIButton()
     let closeButton = LargeTouchableButton()
     let habitTextView = HabitTextView()
-    private let dateLabel = UILabel()
+    let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
     
@@ -145,7 +144,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupPhotoView() {
-        self.photoView.image = Self.photoDefault
         self.photoView.contentMode = .scaleAspectFill
         self.photoView.isUserInteractionEnabled = true
         self.photoView.layer.cornerRadius = 16
@@ -198,6 +196,7 @@ final class DailyHabitView: UIView {
         self.habitTextView.text = viewModel.contentText
         self.dateLabel.text = viewModel.dateText
         self.timeLabel.text = viewModel.timeText
+        self.photoView.image = viewModel.defaultPhotoImage
     }
     
     func update(photoImage: UIImage) {
