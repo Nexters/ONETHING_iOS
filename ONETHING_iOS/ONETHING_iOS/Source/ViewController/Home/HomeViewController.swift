@@ -195,7 +195,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
-        self.backgroundDimView.isHidden = false
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
@@ -236,7 +236,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
-    
 }
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {
@@ -251,7 +250,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 
 extension HomeViewController: HabitWrittenViewControllerDelegate {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
-        self.backgroundDimView.isHidden = true
+        self.backgroundDimView.hideCrossDissolve()
     }
 }
 

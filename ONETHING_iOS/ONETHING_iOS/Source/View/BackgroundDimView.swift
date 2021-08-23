@@ -19,7 +19,11 @@ final class BackgroundDimView: UIView {
     
     private func setup() {
         self.backgroundColor = .black
-        self.layer.opacity = 0.6
+        self.alpha = 0
         self.isHidden = true
+    }
+    
+    var completedAlpha: CGFloat {
+        return 0.6
     }
 }
