@@ -13,6 +13,7 @@ enum ContentAPI {
     case getRecommendedHabit
     case createHabit(title: String, sentence: String, pushTime: String, penaltyCount: Int)
     case modifyHabit(habitId: Int, color: String, pushTime: String, penaltyCount: Int)
+    case deleteHabit(habitId: Int)
     case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
@@ -35,6 +36,8 @@ extension ContentAPI: TargetType {
             return "/api/habit-recommend"
         case .createHabit, .modifyHabit:
             return "/api/habit"
+        case let .deleteHabit(habitId: habitId):
+            return "/api/habit/\(habitId)"
         case .getHabitInProgress:
             return "/api/habit-in-progress"
         case .getHabits:
@@ -58,13 +61,15 @@ extension ContentAPI: TargetType {
     
     var method: Moya.Method {
         switch self {
-            case .getRecommendedHabit, .getHabitInProgress, .getHabits,
+        case .getRecommendedHabit, .getHabitInProgress, .getHabits,
                  .getDailyHistories, .getDailyHabitImage, .getNotices, .getQuestions:
             return .get
         case .createHabit, .createDailyHabit:
             return .post
         case .modifyHabit, .putPassDelayPenalty, .putGiveUpHabit:
             return .put
+        case .deleteHabit:
+            return .delete
         }
     }
     
@@ -75,7 +80,7 @@ extension ContentAPI: TargetType {
     var task: Task {
         switch self {
             case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_),
-                 .getNotices, .getQuestions, .putPassDelayPenalty, .putGiveUpHabit:
+                 .getNotices, .getQuestions, .putPassDelayPenalty, .putGiveUpHabit, .deleteHabit:
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
