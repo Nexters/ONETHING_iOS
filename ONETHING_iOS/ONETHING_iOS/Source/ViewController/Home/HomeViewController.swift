@@ -166,7 +166,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
             let dailyHabitModel = DailyHabitModel(
-                order: indexPath.row,
+                order: indexPath.row + 1,
                 sentenceForDelay: viewModel.sentenceForDelay,
                 responseModel: responseModel
             )
