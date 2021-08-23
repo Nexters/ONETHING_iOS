@@ -30,6 +30,7 @@ final class OnethingUserManager {
     
     func updateUser(_ userModel: OnethingUserModel) {
         self.currentUser?.updateUserModel(userModel)
+        NotificationCenter.default.post(name: .didUpdateUserInform, object: nil)
     }
     
     func clearUserInform() {

@@ -16,6 +16,7 @@ final class ProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addObserver()
         self.setupTableView()
         self.bindButtons()
         self.observeViewModel()
@@ -31,6 +32,11 @@ final class ProfileViewController: BaseViewController {
     
     override func reloadContentsIfRequired() {
         super.reloadContentsIfRequired()
+    }
+    
+    private func addObserver() {
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(self.didUpdateUserInform(_:)), name: .didUpdateUserInform, object: nil)
     }
     
     private func setupTableView() {
@@ -73,7 +79,10 @@ final class ProfileViewController: BaseViewController {
     
     private func bindButtons() {
         self.profileEditButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            self?.showPreparePopupView()
+            let viewController = ProfileEditViewController.instantiateViewController(from: .profile)
+            guard let profileEditController = viewController else { return }
+            profileEditController.modalPresentationStyle = .fullScreen
+            self?.present(profileEditController, animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
     }
     
@@ -91,13 +100,6 @@ final class ProfileViewController: BaseViewController {
                 self?.successCountLabel.text = "\(successCount)"
                 self?.delayCountLabel.text = "\(delayCount)"
             }).disposed(by: self.disposeBag)
-    }
-    
-    private func showPreparePopupView() {
-        guard let preparePopupView: CustomPopupView = UIView.createFromNib() else { return }
-        guard let tabbarController = self.tabBarController                   else { return }
-        preparePopupView.configure(title: "서비스를\n준비중이에요!", image: #imageLiteral(resourceName: "prepare_rabbit"))
-        preparePopupView.show(in: tabbarController)
     }
     
     private func pushAccountViewController() {
@@ -130,6 +132,12 @@ final class ProfileViewController: BaseViewController {
         lisenceViewController.items.append(contentsOf: lisenceItems)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationController?.pushViewController(lisenceViewController, animated: true)
+    }
+    
+    @objc private func didUpdateUserInform(_ notification: Notification) {
+        guard let user = OnethingUserManager.sharedInstance.currentUser else { return }
+        self.nicknameLabel.text = user.account?.nickname
+        self.profileImageView.image = user.account?.profileImageType?.image
     }
     
     private let disposeBag = DisposeBag()

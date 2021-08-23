@@ -91,6 +91,9 @@
 		CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
 		CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
 		CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
+		CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */; };
+		CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */; };
+		CE466A7F26D3941100CE441B /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */; };
 		CE6751EF26D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F026D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F126D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
@@ -519,6 +522,7 @@
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingAccountModel.swift; sourceTree = "<group>"; };
 		CE466A7826D3822200CE441B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
+		CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goalFinish.json; sourceTree = "<group>"; };
 		CE6751F226D0E56D00616CA8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
@@ -787,6 +791,7 @@
 				CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */,
 				CE38764F26D0D3AB003BDCCA /* NoticeViewModel.swift */,
 				CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */,
+				CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1707,6 +1712,7 @@
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
@@ -1846,6 +1852,7 @@
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
+				CE466A7F26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
 				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */,
@@ -1969,6 +1976,7 @@
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F2BADE0726C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
+				CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE307A5626D295DE005919AE /* OnethingProfileType.swift in Sources */,
@@ -2195,8 +2203,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2207,7 +2215,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2220,8 +2228,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2232,7 +2240,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
