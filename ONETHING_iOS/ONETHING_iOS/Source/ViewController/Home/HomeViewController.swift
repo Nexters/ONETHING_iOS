@@ -104,10 +104,15 @@ final class HomeViewController: BaseViewController {
                 let habitInProgressModel = habitInProgressModel else {
                     self?.barStyle = .darkContent
                     self?.setNeedsStatusBarAppearanceUpdate()
-                    self?.showEmptyView()
+                    self?.updateEmptyViewHiddenStatus(false)
+                    self?.updateContentViewHiddenStatus(true)
                     return
                 }
                 
+                self.barStyle = .lightContent
+                self.setNeedsStatusBarAppearanceUpdate()
+                self.updateEmptyViewHiddenStatus(true)
+                self.updateContentViewHiddenStatus(false)
                 self.viewModel.requestDailyHabits(habitId: habitInProgressModel.habitId)
                 self.habitInfoView.update(with: self.viewModel)
             }
@@ -130,11 +135,14 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: self.disposeBag)
     }
+   
+    private func updateEmptyViewHiddenStatus(_ isHidden: Bool) {
+        self.homeEmptyView.isHidden = isHidden
+    }
     
-    private func showEmptyView() {
-        let views = [self.habitInfoView, self.habitCalendarView, self.backgroundDimView]
-        views.forEach { $0.isHidden = true }
-        self.homeEmptyView.isHidden = false
+    private func updateContentViewHiddenStatus(_ isHidden: Bool) {
+        let views = [self.habitInfoView, self.habitCalendarView]
+        views.forEach { $0.isHidden = isHidden }
     }
   
 	@objc private func updateUserInform(_ notification: Notification) {
@@ -267,7 +275,7 @@ extension HomeViewController: HomeEmptyViewDelegate {
     }
     
     private func hideEmptyView() {
-        let views = [self.habitInfoView, self.habitCalendarView, self.backgroundDimView]
+        let views = [self.habitInfoView, self.habitCalendarView]
         views.forEach { $0.isHidden = false }
         self.homeEmptyView.isHidden = false
     }
