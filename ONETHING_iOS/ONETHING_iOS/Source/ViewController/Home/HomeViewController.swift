@@ -306,10 +306,11 @@ extension HomeViewController: HomeEmptyViewDelegate {
 
 extension HomeViewController: DelayPopupViewDelegate {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
-        
+        #warning("외부에서 실패 팝업 메시지 띄워져야함")
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
-        
+        #warning("미룸 벌칙 페이지 만들면 띄워져야 함 ")
+        #warning("미룸 벌칙을 모두 수행한 경우에만 미룸 팝업 뷰 없애기(hide)")
     }
 }

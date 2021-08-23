@@ -7,6 +7,9 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 protocol DelayPopupViewDelegate: AnyObject {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView)
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
@@ -24,6 +27,7 @@ final class DelayPopupView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.bindButtons()
     }
     
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
@@ -32,7 +36,6 @@ final class DelayPopupView: UIView {
             $0.centerX.centerY.equalToSuperview()
         }
         self.setupGuideLabel(with: targetController)
-        
         self.showCrossDissolve(completion: {
             completion?()
         })
@@ -47,10 +50,11 @@ final class DelayPopupView: UIView {
     }
     
     func hide(completion: (() -> Void)? = nil) {
+        self.guideLabel.removeFromSuperview()
+        
         self.hideCrossDissolve {
-            completion?()
             self.removeFromSuperview()
-            self.guideLabel.removeFromSuperview()
+            completion?()
         }
     }
     
@@ -64,4 +68,37 @@ final class DelayPopupView: UIView {
 
         self.layer.add(animation, forKey: "position")
     }
+    
+    private func bindButtons() {
+        self.giveUpButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
+            
+            confirmPopupView.configure(self.titleText, confirmHandler: {
+                self.hide(completion: {
+                    self.delegate?.delayPopupViewDidTapGiveUpButton(self)
+                })
+            })
+            confirmPopupView.show(in: self)
+        }).disposed(by: self.disposeBag)
+        
+        self.passPenaltyButton.rx.tap.observeOnMain(onNext: {
+            self.delegate?.delayPopupViewDidTapPassPenaltyButton(self)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private var titleText: NSMutableAttributedString? {
+        guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 15)
+        else { return nil }
+        
+        let titleText = "열심히 달려온\n지금의 습관을\n정말로 그만하시겠어요?"
+        let attributeText = NSMutableAttributedString(string: titleText,
+                                                      attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100])
+        return attributeText
+    }
+    
+    private let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var giveUpButton: UIButton!
+    @IBOutlet weak var passPenaltyButton: UIButton!
 }
