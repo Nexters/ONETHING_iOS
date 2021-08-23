@@ -17,6 +17,7 @@ enum ContentAPI {
     case getHabitInProgress
     case getHabits
     case putPassDelayPenalty(historyId: Int)
+    case putGiveUpHabit
     case getDailyHistories(habitId: Int)
     case getDailyHabitImage(createDate: String, imageExtension: String)
     case getNotices
@@ -40,6 +41,8 @@ extension ContentAPI: TargetType {
             return "/api/habits"
         case let .putPassDelayPenalty(historyId: historyId):
             return "/api/habit/history/\(historyId)/pass-delay-penalty"
+        case .putGiveUpHabit:
+            return "/api/habit-failure"
         case let .getDailyHistories(habitId: habitId):
             return "/api/habit/\(habitId)/daily-histories"
         case let .createDailyHabit(habitId: habitId):
@@ -60,10 +63,8 @@ extension ContentAPI: TargetType {
             return .get
         case .createHabit, .createDailyHabit:
             return .post
-        case .modifyHabit:
+        case .modifyHabit, .putPassDelayPenalty, .putGiveUpHabit:
             return .put
-        case .putPassDelayPenalty:
-                return .put
         }
     }
     
@@ -73,7 +74,8 @@ extension ContentAPI: TargetType {
     
     var task: Task {
         switch self {
-        case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_), .getNotices, .getQuestions, .putPassDelayPenalty:
+            case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_),
+                 .getNotices, .getQuestions, .putPassDelayPenalty, .putGiveUpHabit:
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
