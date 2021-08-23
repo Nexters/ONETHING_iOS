@@ -69,7 +69,7 @@ final class DelayPopupView: UIView, ShakeView {
         })
     }
     
-    func setupGuideLabel(with targetController: UIViewController) {
+    private func setupGuideLabel(with targetController: UIViewController) {
         targetController.view.addSubview(self.guideLabel)
         self.guideLabel.snp.makeConstraints {
             $0.top.equalTo(self.snp.bottom).offset(20)

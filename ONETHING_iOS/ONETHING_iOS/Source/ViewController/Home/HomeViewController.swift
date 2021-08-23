@@ -307,7 +307,16 @@ extension HomeViewController: HomeEmptyViewDelegate {
 
 extension HomeViewController: DelayPopupViewDelegate {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
-        #warning("외부에서 실패 팝업 메시지 띄워져야함")
+        self.showFailPopupView(with: self.viewModel)
+    }
+    
+    private func showFailPopupView(with viewModel: HomeViewModel) {
+        guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController              else { return }
+        
+        failPopupView.show(in: tabbarController) {
+            failPopupView.animateShaking()
+        }
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
