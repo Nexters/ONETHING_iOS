@@ -114,6 +114,9 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="closeButton" destination="rIo-wo-SZB" id="vU6-zP-d5n"/>
+                <outlet property="progressCountLabel" destination="8Pe-WQ-yl4" id="vEp-B2-jAz"/>
+                <outlet property="reasonLabel" destination="YNa-k6-Q6E" id="Shv-O9-pMr"/>
+                <outlet property="titleLabel" destination="yqt-IF-Ch7" id="7PO-RW-V0e"/>
             </connections>
             <point key="canvasLocation" x="-107" y="146"/>
         </view>

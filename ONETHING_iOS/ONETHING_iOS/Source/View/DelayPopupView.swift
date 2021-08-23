@@ -10,23 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ShakeView: UIView {
-    func animateShaking()
-}
-
-extension ShakeView {
-    func animateShaking() {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.07
-        animation.repeatCount = 2
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
-
-        self.layer.add(animation, forKey: "position")
-    }
-}
-
 protocol DelayPopupViewDelegate: AnyObject {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView)
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
@@ -50,6 +33,25 @@ final class DelayPopupView: UIView, ShakeView {
     
     private func setupSubTitleLabel() {
         self.subTitleLabel.text = "미룸벌칙을 완료하고\n다시 열심히 지속해봐요!"
+    }
+    
+    private func bindButtons() {
+        self.giveUpButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
+            
+            let titleText = self.titleTextOfConfirmPopupView
+            confirmPopupView.configure(titleText, confirmHandler: {
+                self.hide(0.1, completion: {
+                    self.delegate?.delayPopupViewDidTapGiveUpButton(self)
+                })
+            })
+            confirmPopupView.show(in: self)
+        }).disposed(by: self.disposeBag)
+        
+        self.passPenaltyButton.rx.tap.observeOnMain(onNext: {
+            self.delegate?.delayPopupViewDidTapPassPenaltyButton(self)
+        }).disposed(by: self.disposeBag)
     }
     
     func configure(with viewModel: HomeViewModel) {
@@ -84,25 +86,6 @@ final class DelayPopupView: UIView, ShakeView {
             self.removeFromSuperview()
             completion?()
         })
-    }
-    
-    private func bindButtons() {
-        self.giveUpButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            guard let self = self else { return }
-            guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
-            
-            let titleText = self.titleTextOfConfirmPopupView
-            confirmPopupView.configure(titleText, confirmHandler: {
-                self.hide(0.1, completion: {
-                    self.delegate?.delayPopupViewDidTapGiveUpButton(self)
-                })
-            })
-            confirmPopupView.show(in: self)
-        }).disposed(by: self.disposeBag)
-        
-        self.passPenaltyButton.rx.tap.observeOnMain(onNext: {
-            self.delegate?.delayPopupViewDidTapPassPenaltyButton(self)
-        }).disposed(by: self.disposeBag)
     }
     
     private var titleTextOfConfirmPopupView: NSMutableAttributedString? {

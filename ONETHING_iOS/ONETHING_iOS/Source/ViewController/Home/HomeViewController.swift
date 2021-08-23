@@ -307,6 +307,7 @@ extension HomeViewController: HomeEmptyViewDelegate {
 
 extension HomeViewController: DelayPopupViewDelegate {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
+        self.viewModel.update(isGiveUp: true)
         self.showFailPopupView(with: self.viewModel)
     }
     
@@ -315,6 +316,7 @@ extension HomeViewController: DelayPopupViewDelegate {
         guard let tabbarController = self.tabBarController              else { return }
         
         failPopupView.delegate = self
+        failPopupView.configure(with: viewModel)
         failPopupView.show(in: tabbarController) {
             failPopupView.animateShaking()
         }
@@ -328,6 +330,7 @@ extension HomeViewController: DelayPopupViewDelegate {
 
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
+        self.viewModel.update(isGiveUp: false)
         self.backgroundDimView.hideCrossDissolve()
     }
 }

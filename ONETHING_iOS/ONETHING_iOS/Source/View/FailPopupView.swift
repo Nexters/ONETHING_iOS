@@ -29,6 +29,12 @@ final class FailPopupView: UIView, ShakeView {
             self?.hide()
         }).disposed(by: self.disposeBag)
     }
+    
+    func configure(with viewModel: HomeViewModel) {
+        self.titleLabel.text = viewModel.titleTextOfFailPopupView
+        self.progressCountLabel.text = viewModel.progressCountTextOfFailPopupView
+        self.reasonLabel.text = viewModel.reasonTextOfFailPopupView
+    }
         
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
         targetController.view.addSubview(self)
@@ -49,6 +55,10 @@ final class FailPopupView: UIView, ShakeView {
     }
     
     private let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var progressCountLabel: UILabel!
+    @IBOutlet weak var reasonLabel: UILabel!
     
     @IBOutlet weak var closeButton: UIButton!
 }
