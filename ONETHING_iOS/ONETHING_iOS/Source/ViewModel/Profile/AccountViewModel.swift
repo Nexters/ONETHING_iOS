@@ -23,7 +23,8 @@ final class AccountViewModel {
         self.loadingSubject.onNext(true)
         
         OnethingUserManager.sharedInstance.requestAccount { [weak self] user in
-            self?.userRelay.accept(user)
+            guard let userModel = user.account else { return }
+            self?.userRelay.accept(userModel)
             self?.loadingSubject.onNext(false)
         }
     }

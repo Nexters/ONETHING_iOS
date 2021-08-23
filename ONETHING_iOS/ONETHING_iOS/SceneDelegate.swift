@@ -36,18 +36,26 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
         
-        if let doneHabitSetting = userManager.doneHabitSetting, doneHabitSetting == false {
+        OnethingUserManager.sharedInstance.requestAccount(completion: { accountModel in
+            guard accountModel.doneHabitSetting == false else { return }
+            
             let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
-            self.present(viewController: goalSettingFirstViewController, with: rootController)
-            return
-        }
+            self.present(viewController: goalSettingFirstViewController, with: rootController) {
+                guard accountModel.account?.nickname == nil else { return }
+                
+                let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
+                guard let profileSettingController = viewController else { return }
+                profileSettingController.modalPresentationStyle = .fullScreen
+                goalSettingFirstViewController?.present(profileSettingController, animated: false, completion: nil)
+            }
+        })
     }
 
-    private func present(viewController: UIViewController?, with rootController: MainTabBarController) {
+    private func present(viewController: UIViewController?, with rootController: MainTabBarController, completion: (() -> Void)? = nil) {
         guard let viewController = viewController else { return }
         
         DispatchQueue.main.async {
-            rootController.present(viewController, animated: false)
+            rootController.present(viewController, animated: false, completion: completion)
         }
     }
     

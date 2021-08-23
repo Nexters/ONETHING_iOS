@@ -101,12 +101,18 @@ final class LoginViewController: BaseViewController {
     }
     
     private func observeViewModel() {
-        self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] doneHabbitSetting in
-            if doneHabbitSetting == true {
-                self?.mainTabbarController?.broadCastRequiredReload()
-                self?.navigationController?.dismiss(animated: true, completion: nil)
+        self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] completeFlag in
+            if completeFlag.isSettingNickname == true {
+                if completeFlag.doneHabit == true {
+                    self?.mainTabbarController?.broadCastRequiredReload()
+                    self?.navigationController?.dismiss(animated: true, completion: nil)
+                } else {
+                    self?.pushGoalSettingController()
+                }
             } else {
-                self?.pushGoalSettingController()
+                self?.presentSettingProfileController(completion: { [weak self] in
+                    self?.pushGoalSettingController()
+                })
             }
         }).disposed(by: self.disposeBag)
         
@@ -130,6 +136,13 @@ final class LoginViewController: BaseViewController {
         
         guard let goalSettingController = viewController else { return }
         self.navigationController?.pushViewController(goalSettingController, animated: true)
+    }
+    
+    private func presentSettingProfileController(completion: (() -> Void)? = nil) {
+        let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
+        guard let profileSettingController = viewController else { return }
+        profileSettingController.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(profileSettingController, animated: true, completion: completion)
     }
     
     private var mainTabbarController: MainTabBarController? {

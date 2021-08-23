@@ -9,7 +9,6 @@ import Foundation
 
 struct LoginResponseModel: Codable {
     let token: TokenResponseModel?
-    let doneHabitSetting: Bool?
 }
 
 struct TokenResponseModel: Codable {

@@ -8,12 +8,14 @@
 import RxCocoa
 import RxSwift
 import UIKit
+import Lottie
 
 final class GoalSettingFinishViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupLabels()
+        self.setupLottieView()
         self.setupProgressView()
         self.setupLoadingIndicatorView()
         self.bindButtons()
@@ -38,6 +40,13 @@ final class GoalSettingFinishViewController: BaseViewController {
         let attributeText = NSMutableAttributedString(string: "66일 동안", attributes: mainAttribute)
         attributeText.addAttributes(subAttributes, range: subRange)
         self.titleSecondLineLabel.attributedText = attributeText
+    }
+    
+    private func setupLottieView() {
+        self.lottieView.animation = Animation.named("goalFinish")
+        self.lottieView.contentMode = .scaleAspectFit
+        self.lottieView.loopMode = .playOnce
+        self.lottieView.play()
     }
     
     private func setupProgressView() {
@@ -125,5 +134,6 @@ final class GoalSettingFinishViewController: BaseViewController {
     
     @IBOutlet private weak var todayStartLabel: UILabel!
     @IBOutlet private weak var todayStartButton: UIButton!
+    @IBOutlet private weak var lottieView: AnimationView!
     
 }

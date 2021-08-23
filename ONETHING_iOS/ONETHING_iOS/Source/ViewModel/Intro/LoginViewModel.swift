@@ -10,8 +10,10 @@ import RxSwift
 
 final class LoginViewModel {
     
+    typealias CompleteFlag = (doneHabit: Bool, isSettingNickname: Bool)
+    
     let loadingSubject = BehaviorSubject<Bool>(value: false)
-    let completeSubject = PublishSubject<Bool>()
+    let completeSubject = PublishSubject<CompleteFlag>()
     
     init(loginService: APIService = .shared) {
         self.loginService = loginService
@@ -43,11 +45,12 @@ final class LoginViewModel {
             
                 guard let accessToken = loginResponseModel.token?.accessToken     else { return }
                 guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
-                guard let doneHabbitSetting = loginResponseModel.doneHabitSetting else { return }
                 OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
-                OnethingUserManager.sharedInstance.updateDoneHabitSetting(doneHabbitSetting)
-                self?.completeSubject.onNext(doneHabbitSetting)
-
+    
+                OnethingUserManager.sharedInstance.requestAccount(completion: { [weak self] accountModel in
+                    self?.completeSubject.onNext((accountModel.doneHabitSetting == true,
+                                                  accountModel.account?.nickname != nil))
+                })
             }, onFailure: { [weak self] _ in
                 self?.loadingSubject.onNext(false)
             }).disposed(by: self.disposeBag)

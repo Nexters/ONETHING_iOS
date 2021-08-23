@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Light.ttf">
+            <string>Montserrat-Light</string>
+        </array>
+        <array key="Pretendard-Light.otf">
+            <string>Pretendard-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="76" id="KGk-i7-Jjw" customClass="NoticeTableViewCell" customModule="ONETHING" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="21.08.10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZV-rm-zUd">
+                        <rect key="frame" x="32" y="20" width="39" height="12"/>
+                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="10"/>
+                        <color key="textColor" name="black_40"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="66일 습관앱 '뇽뇽' 출시 안내" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlw-Iv-4GL">
+                        <rect key="frame" x="32" y="32" width="267" height="19"/>
+                        <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="16"/>
+                        <color key="textColor" name="black_100"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Y-kG-qfG">
+                        <rect key="frame" x="319" y="32" width="24" height="24"/>
+                        <state key="normal" image="arrow_down"/>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlG-Q1-jqz">
+                        <rect key="frame" x="0.0" y="71" width="375" height="1"/>
+                        <color key="backgroundColor" name="black_20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Jxh-zN-pb3"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syN-iH-WrS">
+                        <rect key="frame" x="0.0" y="72" width="375" height="54"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뇽뇽 유저님들 안녕하세요! 운영진입니다" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vju-kG-Fw1">
+                                <rect key="frame" x="32" y="20" width="311" height="14"/>
+                                <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAt-Wc-29j">
+                                <rect key="frame" x="0.0" y="53" width="375" height="1"/>
+                                <color key="backgroundColor" name="black_20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="4v3-d2-Lvx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="black_5"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="RAt-Wc-29j" secondAttribute="bottom" id="0uk-zK-T5A"/>
+                            <constraint firstAttribute="trailing" secondItem="RAt-Wc-29j" secondAttribute="trailing" id="631-29-MiW"/>
+                            <constraint firstItem="vju-kG-Fw1" firstAttribute="leading" secondItem="syN-iH-WrS" secondAttribute="leading" constant="32" id="Abi-Ea-chP"/>
+                            <constraint firstItem="RAt-Wc-29j" firstAttribute="leading" secondItem="syN-iH-WrS" secondAttribute="leading" id="Jc4-0g-XC6"/>
+                            <constraint firstAttribute="bottom" secondItem="vju-kG-Fw1" secondAttribute="bottom" constant="20" id="QI1-Lq-VyF"/>
+                            <constraint firstAttribute="trailing" secondItem="vju-kG-Fw1" secondAttribute="trailing" constant="32" id="gB8-Jb-ajl"/>
+                            <constraint firstItem="vju-kG-Fw1" firstAttribute="top" secondItem="syN-iH-WrS" secondAttribute="top" constant="20" id="lVF-kd-xTe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vlw-Iv-4GL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="79O-4s-acT"/>
+                    <constraint firstAttribute="bottom" secondItem="tlG-Q1-jqz" secondAttribute="bottom" priority="999" id="AlS-A7-23g"/>
+                    <constraint firstItem="r2Y-kG-qfG" firstAttribute="leading" secondItem="vlw-Iv-4GL" secondAttribute="trailing" constant="20" id="CK8-K4-CYe"/>
+                    <constraint firstItem="vlw-Iv-4GL" firstAttribute="top" secondItem="qZV-rm-zUd" secondAttribute="bottom" id="ECl-RY-BZe"/>
+                    <constraint firstItem="tlG-Q1-jqz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gem-1A-w17"/>
+                    <constraint firstItem="syN-iH-WrS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Jod-fZ-qEj"/>
+                    <constraint firstAttribute="trailing" secondItem="tlG-Q1-jqz" secondAttribute="trailing" id="SPH-bQ-zEG"/>
+                    <constraint firstItem="qZV-rm-zUd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="YnB-8z-fhZ"/>
+                    <constraint firstItem="tlG-Q1-jqz" firstAttribute="top" secondItem="vlw-Iv-4GL" secondAttribute="bottom" constant="20" id="aDo-fw-ixQ"/>
+                    <constraint firstItem="syN-iH-WrS" firstAttribute="top" secondItem="tlG-Q1-jqz" secondAttribute="bottom" id="dnH-cw-uhO"/>
+                    <constraint firstItem="qZV-rm-zUd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="gAo-es-Cyc"/>
+                    <constraint firstAttribute="trailing" secondItem="r2Y-kG-qfG" secondAttribute="trailing" constant="32" id="o0n-V9-u7i"/>
+                    <constraint firstItem="r2Y-kG-qfG" firstAttribute="top" secondItem="vlw-Iv-4GL" secondAttribute="top" id="sFx-R5-MTy"/>
+                    <constraint firstAttribute="trailing" secondItem="syN-iH-WrS" secondAttribute="trailing" id="yzw-ca-c2d"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="borderView" destination="tlG-Q1-jqz" id="mRn-8h-SqF"/>
+                <outlet property="bottomConstraint" destination="AlS-A7-23g" id="L33-Qo-Ypu"/>
+                <outlet property="dateLabel" destination="qZV-rm-zUd" id="bY4-CX-3mM"/>
+                <outlet property="expandButton" destination="r2Y-kG-qfG" id="ZmN-lW-pLo"/>
+                <outlet property="noticeDescriptionLabel" destination="vju-kG-Fw1" id="d17-oE-bG1"/>
+                <outlet property="noticeDescriptionView" destination="syN-iH-WrS" id="Fmh-Xt-ZZb"/>
+                <outlet property="noticeTitleLabel" destination="vlw-Iv-4GL" id="sPW-Wg-qrR"/>
+            </connections>
+            <point key="canvasLocation" x="145.6521739130435" y="145.64732142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow_down" width="24" height="24"/>
+        <namedColor name="black_100">
+            <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_20">
+            <color red="0.84299999475479126" green="0.84299999475479126" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_40">
+            <color red="0.68999999761581421" green="0.68999999761581421" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_5">
+            <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

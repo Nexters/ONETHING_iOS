@@ -15,6 +15,7 @@ enum UserAPI {
     case refresh(accessToken: String, refreshToken: String)
     case account
     case withdrawl(accessToken: String, refreshToken: String)
+    case setProfile(nickname: String, imageType: String)
 }
 
 extension UserAPI: TargetType {
@@ -24,11 +25,12 @@ extension UserAPI: TargetType {
     
     var path: String {
         switch self {
-        case .logout:       return "/auth/apple/logout"
+        case .logout:       return "/auth/logout"
         case .appleLogin:   return "/auth/apple/login"
         case .refresh:      return "/auth/token/refresh"
         case .account:      return "/api/account"
         case .withdrawl:    return "/auth/sign-out"
+        case .setProfile:   return "/api/account/profile"
         }
     }
     
@@ -39,6 +41,7 @@ extension UserAPI: TargetType {
         case .withdrawl:    fallthrough
         case .refresh:      return .post
         case .account:      return .get
+        case .setProfile:   return .put
         }
     }
     
@@ -62,6 +65,9 @@ extension UserAPI: TargetType {
             return .requestPlain
         case .withdrawl(let accessToken, let refreshToken):
             return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
+                                      encoding: JSONEncoding.default)
+        case .setProfile(let nickname, let imageType):
+            return .requestParameters(parameters: ["nickname": nickname, "imageType": imageType],
                                       encoding: JSONEncoding.default)
         }
     }

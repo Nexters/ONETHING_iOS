@@ -24,18 +24,18 @@ final class OnethingUserManager {
         self.refreshToken = refreshToken
     }
     
-    func updateDoneHabitSetting(_ doneHabitSetting: Bool) {
-        self.doneHabitSetting = doneHabitSetting
+    func setCurrentUser(_ currentUser: OnethingAccountModel) {
+        self.currentUser = currentUser
     }
     
-    func setCurrentUser(_ currentUser: OnethingUserModel) {
-        self.currentUser = currentUser
+    func updateUser(_ userModel: OnethingUserModel) {
+        self.currentUser?.updateUserModel(userModel)
+        NotificationCenter.default.post(name: .didUpdateUserInform, object: nil)
     }
     
     func clearUserInform() {
         self.accessToken = nil
         self.refreshToken = nil
-        self.doneHabitSetting = nil
         self.currentUser = nil
     }
     
@@ -52,24 +52,23 @@ final class OnethingUserManager {
         }).disposed(by: self.disposeBag)
     }
     
-    func requestAccount(completion: @escaping (OnethingUserModel) -> Void) {
+    func requestAccount(completion: @escaping (OnethingAccountModel) -> Void) {
         let accountAPI = UserAPI.account
         self.apiService.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
             self?.requestAccount(completion: completion)
-        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
-            self?.setCurrentUser(userModel)
+        }).subscribe(onSuccess: { [weak self] (accountModel: OnethingAccountModel) in
+            self?.setCurrentUser(accountModel)
             NotificationCenter.default.post(name: .didUpdateUserInform, object: nil)
-            completion(userModel)
+            completion(accountModel)
         }).disposed(by: self.disposeBag)
     }
     
     private let disposeBag = DisposeBag()
-    
-    private(set) var currentUser: OnethingUserModel?
     private let apiService: APIService
     
-    // UserDefualt에 doneHabitSetting 값 보고 처음 습관 만들지 안만들지 페이지로 유도 (참고) - 로그인 떄는 처리되어 있음
-    @UserDefaultWrapper<Bool>(key: UserDefaultsKey.doneHabitSetting) private(set) var doneHabitSetting
+    private(set) var currentUser: OnethingAccountModel?
+    
     @UserDefaultWrapper<String>(key: UserDefaultsKey.accessToken) private(set) var accessToken
     @UserDefaultWrapper<String>(key: UserDefaultsKey.refreshToken) private(set) var refreshToken
+    
 }

@@ -24,9 +24,10 @@ final class ProfileViewModel {
         let accountAPI = UserAPI.account
         self.apiService.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
             self?.requestUserInform()
-        }).subscribe(onSuccess: { [weak self] (userModel: OnethingUserModel) in
+        }).subscribe(onSuccess: { [weak self] (accountModel: OnethingAccountModel) in
             guard let self = self else { return }
-            self.userRelay.accept(userModel)
+            guard let account = accountModel.account else { return }
+            self.userRelay.accept(account)
         }).disposed(by: self.disposeBag)
     }
     
@@ -58,18 +59,18 @@ extension ProfileViewModel {
     
     enum Menu: Int, CaseIterable {
         case myAccount = 0
-        case pushSetting
-        case fontSetting
-        case announce
+        case notice
         case question
+        case makePeople
+        case openSource
         
         var title: String {
             switch self {
-            case .myAccount: return "내 계정"
-            case .pushSetting: return "알림 설정"
-            case .fontSetting: return "폰트 설정"
-            case .announce: return "공지사항"
-            case .question: return "자주 묻는 질문"
+            case .myAccount:    return "내 계정"
+            case .notice:       return "공지사항"
+            case .question:     return "자주 묻는 질문"
+            case .makePeople:   return "만든 사람들"
+            case .openSource:   return "오픈소스 라이센스"
             }
         }
     }
