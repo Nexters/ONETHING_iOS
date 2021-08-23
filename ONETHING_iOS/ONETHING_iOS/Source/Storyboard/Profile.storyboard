@@ -362,6 +362,42 @@
             </objects>
             <point key="canvasLocation" x="1007" y="104"/>
         </scene>
+        <!--Profile Edit View Controller-->
+        <scene sceneID="4DL-ek-OW5">
+            <objects>
+                <viewController storyboardIdentifier="ProfileEditViewController" id="mLJ-sg-agW" customClass="ProfileEditViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ah0-9j-G2A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgN-q1-qEj">
+                                <rect key="frame" x="0.0" y="44" width="375" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKs-MV-7P8">
+                                        <rect key="frame" x="25" y="15" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TtL-F0-yz7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kYd-91-17B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cgN-q1-qEj" firstAttribute="top" secondItem="kYd-91-17B" secondAttribute="top" id="90j-cw-Ng5"/>
+                            <constraint firstItem="kYd-91-17B" firstAttribute="trailing" secondItem="cgN-q1-qEj" secondAttribute="trailing" id="XrO-1c-HLw"/>
+                            <constraint firstItem="cgN-q1-qEj" firstAttribute="leading" secondItem="kYd-91-17B" secondAttribute="leading" id="ijC-zD-mUM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pO-es-LHU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="103"/>
+        </scene>
         <!--Make People View Controller-->
         <scene sceneID="uZF-FK-9Oh">
             <objects>

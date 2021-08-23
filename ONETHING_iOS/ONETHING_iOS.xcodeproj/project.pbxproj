@@ -88,6 +88,9 @@
 		CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
 		CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
 		CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */; };
+		CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
+		CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
+		CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE466A7826D3822200CE441B /* ProfileEditViewController.swift */; };
 		CE6751EF26D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F026D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
 		CE6751F126D0E31B00616CA8 /* goalFinish.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6751EE26D0E31B00616CA8 /* goalFinish.json */; };
@@ -515,6 +518,7 @@
 		CE3B8BB926A7084800BD529B /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		CE3B8BC326A72B6B00BD529B /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingAccountModel.swift; sourceTree = "<group>"; };
+		CE466A7826D3822200CE441B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goalFinish.json; sourceTree = "<group>"; };
 		CE6751F226D0E56D00616CA8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
@@ -763,6 +767,7 @@
 				CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */,
 				CE6751F226D0E56D00616CA8 /* FAQViewController.swift */,
 				CE67520226D0F3AC00616CA8 /* MakePeopleViewController.swift */,
+				CE466A7826D3822200CE441B /* ProfileEditViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1682,6 +1687,7 @@
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
+				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
@@ -1820,6 +1826,7 @@
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
+				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
@@ -1942,6 +1949,7 @@
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
+				CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
