@@ -112,6 +112,9 @@
                     <real key="value" value="16"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="closeButton" destination="rIo-wo-SZB" id="vU6-zP-d5n"/>
+            </connections>
             <point key="canvasLocation" x="-107" y="146"/>
         </view>
     </objects>

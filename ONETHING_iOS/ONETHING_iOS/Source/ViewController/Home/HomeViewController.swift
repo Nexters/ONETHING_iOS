@@ -314,6 +314,7 @@ extension HomeViewController: DelayPopupViewDelegate {
         guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
         guard let tabbarController = self.tabBarController              else { return }
         
+        failPopupView.delegate = self
         failPopupView.show(in: tabbarController) {
             failPopupView.animateShaking()
         }
@@ -322,5 +323,11 @@ extension HomeViewController: DelayPopupViewDelegate {
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
         #warning("미룸 벌칙 페이지 만들면 띄워져야 함 ")
         #warning("미룸 벌칙을 모두 수행한 경우에만 미룸 팝업 뷰 없애기(hide)")
+    }
+}
+
+extension HomeViewController: FailPopupViewDelegate {
+    func failPopupViewDidTapCloseButton() {
+        self.backgroundDimView.hideCrossDissolve()
     }
 }

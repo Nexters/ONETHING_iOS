@@ -7,7 +7,29 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
+protocol FailPopupViewDelegate: AnyObject {
+    func failPopupViewDidTapCloseButton()
+}
+
 final class FailPopupView: UIView, ShakeView {
+    weak var delegate: FailPopupViewDelegate?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.bindButtons()
+    }
+    
+    private func bindButtons() {
+        self.closeButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.delegate?.failPopupViewDidTapCloseButton()
+            self?.hide()
+        }).disposed(by: self.disposeBag)
+    }
+        
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
         targetController.view.addSubview(self)
         self.snp.makeConstraints {
@@ -25,4 +47,8 @@ final class FailPopupView: UIView, ShakeView {
             completion?()
         })
     }
+    
+    private let disposeBag = DisposeBag()
+    
+    @IBOutlet weak var closeButton: UIButton!
 }
