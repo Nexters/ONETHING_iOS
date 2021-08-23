@@ -146,6 +146,17 @@ final class HomeViewModel: NSObject {
     var sentenceForDelay: String? {
         return self.habitInProgressModel?.sentence
     }
+    
+    var titleTextOfDelayPopupView: String? {
+        return "앗!\n습관을 미뤘네요"
+    }
+    
+    var remainedDelayTextOfDelayPopupView: String? {
+        let delayMaxCount = self.habitInProgressModel?.delayMaxCount ?? 6
+        let delayCount = self.habitInProgressModel?.delayCount ?? 0
+        let remainedCount = delayMaxCount - delayCount
+        return "남은 미루기 기회: \(remainedCount)번"
+    }
 }
 
 extension HomeViewModel: UICollectionViewDataSource {

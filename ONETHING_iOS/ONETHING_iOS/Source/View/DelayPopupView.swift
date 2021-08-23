@@ -44,7 +44,18 @@ final class DelayPopupView: UIView, ShakeView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.setupSubTitleLabel()
         self.bindButtons()
+    }
+    
+    private func setupSubTitleLabel() {
+        self.subTitleLabel.text = "미룸벌칙을 완료하고\n다시 열심히 지속해봐요!"
+    }
+    
+    func configure(with viewModel: HomeViewModel) {
+        self.titleLabel.text = viewModel.titleTextOfDelayPopupView
+        
+        self.remainedDelayCountLabel.text = viewModel.remainedDelayTextOfDelayPopupView
     }
     
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
@@ -80,7 +91,8 @@ final class DelayPopupView: UIView, ShakeView {
             guard let self = self else { return }
             guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
             
-            confirmPopupView.configure(self.titleText, confirmHandler: {
+            let titleText = self.titleTextOfConfirmPopupView
+            confirmPopupView.configure(titleText, confirmHandler: {
                 self.hide(0.1, completion: {
                     self.delegate?.delayPopupViewDidTapGiveUpButton(self)
                 })
@@ -93,7 +105,7 @@ final class DelayPopupView: UIView, ShakeView {
         }).disposed(by: self.disposeBag)
     }
     
-    private var titleText: NSMutableAttributedString? {
+    private var titleTextOfConfirmPopupView: NSMutableAttributedString? {
         guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 15)
         else { return nil }
         
@@ -104,6 +116,10 @@ final class DelayPopupView: UIView, ShakeView {
     }
     
     private let disposeBag = DisposeBag()
+ 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    @IBOutlet weak var remainedDelayCountLabel: UILabel!
     
     @IBOutlet weak var giveUpButton: UIButton!
     @IBOutlet weak var passPenaltyButton: UIButton!

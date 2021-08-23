@@ -36,21 +36,21 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앗!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t10-FZ-SEk" userLabel="title label">
-                    <rect key="frame" x="141" y="140" width="29.5" height="213.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앗! 습관을 미뤘네요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t10-FZ-SEk" userLabel="title label">
+                    <rect key="frame" x="51.5" y="140" width="208" height="213"/>
                     <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="26"/>
                     <color key="textColor" name="black_100"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PL-yU-3Gl" customClass="DashLine" customModule="ONETHING" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="373.5" width="311" height="1.5"/>
+                    <rect key="frame" x="0.0" y="373" width="311" height="1.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1.5" id="BMc-E1-Hfp"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="미룸벌칙" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-vv-lLH" userLabel="subtitle label">
-                    <rect key="frame" x="128" y="403" width="55.5" height="19"/>
+                    <rect key="frame" x="128" y="402.5" width="55.5" height="19.5"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <color key="textColor" name="black_100"/>
                     <nil key="highlightedColor"/>
@@ -112,6 +112,9 @@
             <connections>
                 <outlet property="giveUpButton" destination="qVM-o5-adl" id="1xO-aw-vCh"/>
                 <outlet property="passPenaltyButton" destination="IsW-LT-FjD" id="zSA-fh-Iwj"/>
+                <outlet property="remainedDelayCountLabel" destination="HVW-gM-mNi" id="tzg-cE-nuB"/>
+                <outlet property="subTitleLabel" destination="e8A-vv-lLH" id="XpD-9A-Ffc"/>
+                <outlet property="titleLabel" destination="t10-FZ-SEk" id="TXL-D4-A0G"/>
             </connections>
             <point key="canvasLocation" x="-106" y="146"/>
         </view>
