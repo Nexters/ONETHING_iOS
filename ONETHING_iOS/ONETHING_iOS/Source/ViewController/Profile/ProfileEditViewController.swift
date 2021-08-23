@@ -42,6 +42,12 @@ final class ProfileEditViewController: UIViewController {
     }
     
     private func bindTextField() {
+        guard let placeHolderFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) else { return }
+        
+        self.nicknameTextField.attributedPlaceholder = NSMutableAttributedString(string: "닉네임을 적어주세요.",
+                                                                                 attributes: [.foregroundColor: UIColor.black_20,
+                                                                                              .font: placeHolderFont])
+        
         self.nicknameTextField.rx.controlEvent(.editingChanged).observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }
             guard let text = self.nicknameTextField.text else { return }
