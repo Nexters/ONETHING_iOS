@@ -16,6 +16,27 @@ class NoticeTableViewCell: UITableViewCell {
         self.bindButtons()
     }
     
+    func configure(_ noticeModel: NoticeModel) {
+        self.noticeTitleLabel.text = noticeModel.title
+        self.noticeDescriptionLabel.text = noticeModel.content
+        
+        if let boldFont = UIFont.createFont(type: .pretendard(weight: .bold), size: 12),
+           let attributeText = noticeModel.content?.attributeFontAsTag(startTag: "<b>", endTag: "</b>",
+                                                                       attributes: [.font: boldFont,
+                                                                                    .foregroundColor: UIColor.black_100]) {
+            self.noticeDescriptionLabel.attributedText = attributeText
+            return
+        }
+        
+        if let createDate = noticeModel.createDateTime,
+           let convertedDate = createDate.convertToDate(format: "yyyy-MM-dd'T'HH:mm:ss") {
+            var convertedStringDate = convertedDate.convertString(format: "yyyy.MM.dd")
+            convertedStringDate.removeFirst()
+            convertedStringDate.removeFirst()
+            self.dateLabel.text = convertedStringDate
+        }
+    }
+    
     private func bindButtons() {
         self.expandButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }

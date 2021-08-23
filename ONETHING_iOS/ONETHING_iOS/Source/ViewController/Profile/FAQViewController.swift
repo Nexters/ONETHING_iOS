@@ -15,6 +15,8 @@ final class FAQViewController: BaseViewController {
         super.viewDidLoad()
         self.setupTableView()
         self.bindButtons()
+        
+        self.viewModel.requestFAQ()
     }
     
     private func setupTableView() {
@@ -27,6 +29,7 @@ final class FAQViewController: BaseViewController {
             let cell = tableView.dequeueReuableCell(cell: FAQTableViewCell.self, forIndexPath: indexPath)
             
             guard let faqCell = cell else { return UITableViewCell() }
+            faqCell.configure(item)
             return faqCell
         }.disposed(by: self.disposeBag)
     }

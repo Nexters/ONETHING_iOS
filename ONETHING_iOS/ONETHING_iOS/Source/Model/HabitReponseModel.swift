@@ -15,6 +15,7 @@ struct HabitResponseModel: Codable {
     let startDate: String
     let pushTime: String
     let delayMaxCount: Int
+    let penaltyCount: Int
     let delayCount: Int
     let successCount: Int
 }

@@ -18,6 +18,18 @@ class FAQTableViewCell: UITableViewCell {
         self.faqDescriptionLabel.sizeToFit()
     }
     
+    func configure(_ faqModel: NoticeModel) {
+        self.faqTitleLabel.text = faqModel.title
+        
+        guard let boldFont = UIFont.createFont(type: .pretendard(weight: .bold), size: 12) else { return }
+        guard let attributeText = faqModel.content?.attributeFontAsTag(startTag: "<b>", endTag: "</b>",
+                                                                       attributes: [.font: boldFont,
+                                                                                    .foregroundColor: UIColor.black_100]) else {
+            return
+        }
+        self.faqDescriptionLabel.attributedText = attributeText
+    }
+    
     private func bindButtons() {
         self.expandButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }

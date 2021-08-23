@@ -16,7 +16,7 @@ final class HomeViewModel: NSObject {
     private let apiService: APIService
     private var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
-    private var userName: String?
+    private var nickname: String?
     private let disposeBag = DisposeBag()
     let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
@@ -58,7 +58,7 @@ final class HomeViewModel: NSObject {
     }
     
     var discriptionText: String? {
-        guard let userName = self.userName else { return nil }
+        guard let userName = self.nickname else { return nil }
         
         return "\(userName) 님의 66일 습관 목표"
     }
@@ -116,8 +116,8 @@ final class HomeViewModel: NSObject {
         self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
     }
     
-    func update(userName: String) {
-        self.userName = userName
+    func update(nickname: String) {
+        self.nickname = nickname
     }
     
     func clearModels() {

@@ -11,6 +11,18 @@ import RxRelay
 
 final class FAQViewModel {
     
-    let faqRelay = BehaviorRelay<[String]>(value: ["awdawd", "awdawdawd", "awdawdawdawd"])
+    let faqRelay = BehaviorRelay<[NoticeModel]>(value: [])
+    
+    func requestFAQ() {
+        let faqAPI = ContentAPI.getQuestions
+        
+        APIService.shared.requestAndDecodeRx(apiTarget: faqAPI, retryHandler: { [weak self] in
+            self?.requestFAQ()
+        }).subscribe(onSuccess: { [weak self] (faqListModel: [NoticeModel]) in
+            self?.faqRelay.accept(faqListModel)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private let disposeBag = DisposeBag()
     
 }
