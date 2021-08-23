@@ -46,7 +46,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
                 guard let profileSettingController = viewController else { return }
                 profileSettingController.modalPresentationStyle = .fullScreen
-                rootController.present(profileSettingController, animated: false, completion: nil)
+                goalSettingFirstViewController?.present(profileSettingController, animated: false, completion: nil)
             }
         })
     }
