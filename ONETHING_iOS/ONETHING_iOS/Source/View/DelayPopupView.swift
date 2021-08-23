@@ -10,12 +10,29 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol ShakeView: UIView {
+    func animateShaking()
+}
+
+extension ShakeView {
+    func animateShaking() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
+
+        self.layer.add(animation, forKey: "position")
+    }
+}
+
 protocol DelayPopupViewDelegate: AnyObject {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView)
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
 }
 
-final class DelayPopupView: UIView {
+final class DelayPopupView: UIView, ShakeView {
     private let guideLabel = UILabel().then {
         $0.text = "미룸벌칙을 완료해야만 서비스를 이용할 수 있어요!"
         $0.textAlignment = .center
@@ -49,24 +66,13 @@ final class DelayPopupView: UIView {
         }
     }
     
-    func hide(completion: (() -> Void)? = nil) {
+    func hide(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         self.guideLabel.removeFromSuperview()
         
-        self.hideCrossDissolve {
+        self.hideCrossDissolve(duration, completion: {
             self.removeFromSuperview()
             completion?()
-        }
-    }
-    
-    func animateShaking() {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.07
-        animation.repeatCount = 2
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
-
-        self.layer.add(animation, forKey: "position")
+        })
     }
     
     private func bindButtons() {
@@ -75,7 +81,7 @@ final class DelayPopupView: UIView {
             guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
             
             confirmPopupView.configure(self.titleText, confirmHandler: {
-                self.hide(completion: {
+                self.hide(0.1, completion: {
                     self.delegate?.delayPopupViewDidTapGiveUpButton(self)
                 })
             })
