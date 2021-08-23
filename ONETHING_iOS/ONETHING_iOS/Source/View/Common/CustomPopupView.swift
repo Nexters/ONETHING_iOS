@@ -29,6 +29,7 @@ class CustomPopupView: UIView {
     func hide(completion: (() -> Void)? = nil) {
         self.hideCrossDissolve {
             completion?()
+            self.removeFromSuperview()
         }
     }
     
@@ -50,7 +51,7 @@ class CustomPopupView: UIView {
     private func bindTapGesture() {
         let tapGesture = UITapGestureRecognizer()
         tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
-            self?.hideCrossDissolve()
+            self?.hide()
         }).disposed(by: self.disposeBag)
         self.dimView.addGestureRecognizer(tapGesture)
     }

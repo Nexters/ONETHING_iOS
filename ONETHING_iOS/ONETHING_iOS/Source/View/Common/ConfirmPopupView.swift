@@ -18,13 +18,13 @@ final class ConfirmPopupView: UIView {
         self.bindButtons()
     }
     
-    func configure(_ title: String, confirmHandler: Handler? = nil, cancelHandler: Handler? = nil) {
+    func configure(_ title: String?, confirmHandler: Handler? = nil, cancelHandler: Handler? = nil) {
         self.titleLabel.text = title
         self.confirmHandler = confirmHandler
         self.cancelHandler = cancelHandler
     }
     
-    func configure(_ attributeText: NSAttributedString, confirmHandler: Handler? = nil, cancelHandler: Handler? = nil) {
+    func configure(_ attributeText: NSAttributedString?, confirmHandler: Handler? = nil, cancelHandler: Handler? = nil) {
         self.titleLabel.attributedText = attributeText
         self.confirmHandler = confirmHandler
         self.cancelHandler = cancelHandler
