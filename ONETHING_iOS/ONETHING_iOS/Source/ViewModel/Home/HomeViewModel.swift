@@ -57,6 +57,10 @@ final class HomeViewModel: NSObject {
         self.habitInProgressModel?.habitId
     }
     
+    var isDelayPenatyForLatestDailyHabits: Bool {
+        self.dailyHabitModels.last?.castingHabitStatus == .delayPenalty
+    }
+    
     var discriptionText: String? {
         guard let userName = self.nickname else { return nil }
         

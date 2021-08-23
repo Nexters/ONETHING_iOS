@@ -82,7 +82,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupBackgounndDimColorView() {
-        self.view.addSubview(self.backgroundDimView)
+        self.tabBarController?.view.addSubview(self.backgroundDimView)
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
@@ -120,6 +120,9 @@ final class HomeViewController: BaseViewController {
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
                 self.habitCalendarView.reloadData()
                 
+                guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
+                
+                self.showDelayPopupView(with: self.viewModel)
             }
             .disposed(by: self.disposeBag)
         
@@ -204,6 +207,17 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         writeLimitPopupView.show(in: tabbarController)
     }
     
+    private func showDelayPopupView(with viewModel: HomeViewModel) {
+        guard let delayPopupView: DelayPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController                else { return }
+        
+        backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+        delayPopupView.delegate = self
+        delayPopupView.show(in: tabbarController, completion: {
+            // delayPopupView shaking 효과 적용
+        })
+    }
+    
     private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
         self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         
@@ -286,5 +300,15 @@ extension HomeViewController: HomeEmptyViewDelegate {
         navigationController.modalPresentationStyle = .fullScreen
         navigationController.isNavigationBarHidden = true
         return navigationController
+    }
+}
+
+extension HomeViewController: DelayPopupViewDelegate {
+    func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
+        
+    }
+    
+    func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
+        
     }
 }
