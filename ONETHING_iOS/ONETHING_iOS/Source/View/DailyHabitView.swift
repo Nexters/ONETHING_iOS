@@ -152,6 +152,8 @@ final class DailyHabitView: UIView {
     }
     
     private func setupEnrollPhotoButton() {
+        self.enrollPhotoButton.cornerRadius = 13
+        self.enrollPhotoButton.backgroundColor = .black_100
         self.enrollPhotoButton.setImage(UIImage(named: "enroll_photo"), for: .normal)
         self.enrollPhotoButton.addTarget(self, action: #selector(enrollPhotoButtonDidTouch), for: .touchUpInside)
         self.enrollPhotoButton.contentMode = .scaleAspectFit
