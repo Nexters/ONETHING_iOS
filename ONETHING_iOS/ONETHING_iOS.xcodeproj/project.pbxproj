@@ -467,6 +467,12 @@
 		F2B571E526D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
 		F2B571E626D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
 		F2B571E726D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
+		F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
+		F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
+		F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
+		F2B571EE26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */; };
+		F2B571EF26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */; };
+		F2B571F026D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */; };
 		F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
@@ -680,6 +686,8 @@
 		F2B571DC26D443A40059F75E /* FailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailPopupView.swift; sourceTree = "<group>"; };
 		F2B571E026D443BB0059F75E /* FailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailPopupView.xib; sourceTree = "<group>"; };
 		F2B571E426D44F710059F75E /* ShakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeView.swift; sourceTree = "<group>"; };
+		F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPenaltyViewController.swift; sourceTree = "<group>"; };
+		F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingPenalty.storyboard; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
@@ -985,6 +993,7 @@
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
+				F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1160,6 +1169,7 @@
 				CE3B8BB926A7084800BD529B /* Intro.storyboard */,
 				CE1F96BE26AC0A16006B56E4 /* Common.storyboard */,
 				CE8FEDD926B6C3DD0092DC0D /* Profile.storyboard */,
+				F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -1377,6 +1387,7 @@
 				CEC4D82D26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FB26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80D26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
+				F2B571EE26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CE8FEDE726B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D026A2D63200633222 /* Pretendard-Bold.otf in Resources */,
@@ -1431,6 +1442,7 @@
 				CEC4D82F26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FD26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80F26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
+				F2B571F026D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CE8FEDE926B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D226A2D63200633222 /* Pretendard-Bold.otf in Resources */,
@@ -1471,6 +1483,7 @@
 				CEC4D82E26A4692D00633222 /* GoalProgressView.xib in Resources */,
 				CEC4D7FC26A2D88500633222 /* Montserrat-ExtraLight.ttf in Resources */,
 				CEC4D80E26A2D88500633222 /* Montserrat-Medium.ttf in Resources */,
+				F2B571EF26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
 				CE8FEDE826B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D126A2D63200633222 /* Pretendard-Bold.otf in Resources */,
@@ -1822,6 +1835,7 @@
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
+				F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE8FEDDF26B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
@@ -1967,6 +1981,7 @@
 				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
+				F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				CEE8AB1E26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
@@ -2096,6 +2111,7 @@
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
+				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,

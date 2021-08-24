@@ -16,7 +16,7 @@ protocol DelayPopupViewDelegate: AnyObject {
 }
 
 final class DelayPopupView: UIView, ShakeView {
-    private let guideLabel = UILabel().then {
+    let guideLabel = UILabel().then {
         $0.text = "미룸벌칙을 완료해야만 서비스를 이용할 수 있어요!"
         $0.textAlignment = .center
         $0.textColor = .white
@@ -49,7 +49,9 @@ final class DelayPopupView: UIView, ShakeView {
             confirmPopupView.show(in: self)
         }).disposed(by: self.disposeBag)
         
-        self.passPenaltyButton.rx.tap.observeOnMain(onNext: {
+        self.passPenaltyButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            
             self.delegate?.delayPopupViewDidTapPassPenaltyButton(self)
         }).disposed(by: self.disposeBag)
     }
