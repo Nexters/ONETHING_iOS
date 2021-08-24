@@ -10,23 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol ShakeView: UIView {
-    func animateShaking()
-}
-
-extension ShakeView {
-    func animateShaking() {
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.07
-        animation.repeatCount = 2
-        animation.autoreverses = true
-        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
-        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
-
-        self.layer.add(animation, forKey: "position")
-    }
-}
-
 protocol DelayPopupViewDelegate: AnyObject {
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView)
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
@@ -52,40 +35,6 @@ final class DelayPopupView: UIView, ShakeView {
         self.subTitleLabel.text = "미룸벌칙을 완료하고\n다시 열심히 지속해봐요!"
     }
     
-    func configure(with viewModel: HomeViewModel) {
-        self.titleLabel.text = viewModel.titleTextOfDelayPopupView
-        
-        self.remainedDelayCountLabel.text = viewModel.remainedDelayTextOfDelayPopupView
-    }
-    
-    func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
-        targetController.view.addSubview(self)
-        self.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-        }
-        self.setupGuideLabel(with: targetController)
-        self.showCrossDissolve(completion: {
-            completion?()
-        })
-    }
-    
-    func setupGuideLabel(with targetController: UIViewController) {
-        targetController.view.addSubview(self.guideLabel)
-        self.guideLabel.snp.makeConstraints {
-            $0.top.equalTo(self.snp.bottom).offset(20)
-            $0.centerX.equalToSuperview()
-        }
-    }
-    
-    func hide(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
-        self.guideLabel.removeFromSuperview()
-        
-        self.hideCrossDissolve(duration, completion: {
-            self.removeFromSuperview()
-            completion?()
-        })
-    }
-    
     private func bindButtons() {
         self.giveUpButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }
@@ -103,6 +52,40 @@ final class DelayPopupView: UIView, ShakeView {
         self.passPenaltyButton.rx.tap.observeOnMain(onNext: {
             self.delegate?.delayPopupViewDidTapPassPenaltyButton(self)
         }).disposed(by: self.disposeBag)
+    }
+    
+    func configure(with viewModel: HomeViewModel) {
+        self.titleLabel.text = viewModel.titleTextOfDelayPopupView
+        
+        self.remainedDelayCountLabel.text = viewModel.remainedDelayTextOfDelayPopupView
+    }
+    
+    func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {
+        targetController.view.addSubview(self)
+        self.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        self.setupGuideLabel(with: targetController)
+        self.showCrossDissolve(completion: {
+            completion?()
+        })
+    }
+    
+    private func setupGuideLabel(with targetController: UIViewController) {
+        targetController.view.addSubview(self.guideLabel)
+        self.guideLabel.snp.makeConstraints {
+            $0.top.equalTo(self.snp.bottom).offset(20)
+            $0.centerX.equalToSuperview()
+        }
+    }
+    
+    func hide(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+        self.guideLabel.removeFromSuperview()
+        
+        self.hideCrossDissolve(duration, completion: {
+            self.removeFromSuperview()
+            completion?()
+        })
     }
     
     private var titleTextOfConfirmPopupView: NSMutableAttributedString? {

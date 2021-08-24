@@ -18,6 +18,7 @@ final class HomeViewModel: NSObject {
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private var nickname: String?
     private let disposeBag = DisposeBag()
+    private(set) var isGiveUp = false
     let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
@@ -156,6 +157,22 @@ final class HomeViewModel: NSObject {
         let delayCount = self.habitInProgressModel?.delayCount ?? 0
         let remainedCount = delayMaxCount - delayCount
         return "남은 미루기 기회: \(remainedCount)번"
+    }
+    
+    var titleTextOfFailPopupView: String? {
+        return "아쉽지만\n습관은 여기까지!"
+    }
+    
+    var progressCountTextOfFailPopupView: String? {
+        return "진행: \(self.dailyHabitModels.count + 1)일차"
+    }
+    
+    func update(isGiveUp: Bool) {
+        self.isGiveUp = isGiveUp
+    }
+    
+    var reasonTextOfFailPopupView: String? {
+        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
 }
 
