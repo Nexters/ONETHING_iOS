@@ -9,6 +9,7 @@ import UIKit
 
 import Then
 import Kingfisher
+import Photos
 
 protocol DailyHabitViewCloseButtonDelegate: UIViewController {
     func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView)
@@ -171,16 +172,24 @@ final class DailyHabitView: UIView {
     }
     
     private func openLibrary() {
-        self.picker.sourceType = .photoLibrary
-        self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+        MediaAuthorizationManager.sharedInstance.requestGalleryAuthorization { granted in
+            if granted {
+                self.picker.sourceType = .photoLibrary
+                self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+            } else {
+                print("널 허용 안할래")
+            }
+        }
     }
     
     private func openCamera() {
-        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            self.picker.sourceType = .camera
-            self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
-        } else {
-            print("Camera not available")
+        MediaAuthorizationManager.sharedInstance.requestCameraAuthorization { granted in
+            if granted {
+                self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+                self.picker.sourceType = .camera
+            } else {
+                print("허용 안할래")
+            }
         }
     }
     
