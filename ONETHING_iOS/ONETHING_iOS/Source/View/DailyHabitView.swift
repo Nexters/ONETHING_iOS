@@ -172,25 +172,43 @@ final class DailyHabitView: UIView {
     }
     
     private func openLibrary() {
-        MediaAuthorizationManager.sharedInstance.requestGalleryAuthorization { granted in
-            if granted {
-                self.picker.sourceType = .photoLibrary
-                self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
-            } else {
-                print("널 허용 안할래")
+        MediaAuthorizationManager.sharedInstance.requestGalleryAuthorization { [weak self] granted in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if granted {
+                    self.picker.sourceType = .photoLibrary
+                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+                } else {
+                    self.showAuthorizationView(.gallery)
+                }
             }
         }
     }
     
     private func openCamera() {
-        MediaAuthorizationManager.sharedInstance.requestCameraAuthorization { granted in
-            if granted {
-                self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
-                self.picker.sourceType = .camera
-            } else {
-                print("허용 안할래")
+        MediaAuthorizationManager.sharedInstance.requestCameraAuthorization { [weak self] granted in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if granted {
+                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+                    self.picker.sourceType = .camera
+                } else {
+                    self.showAuthorizationView(.camera)
+                }
             }
         }
+    }
+    
+    private func showAuthorizationView(_ type: MediaType) {
+        guard let authorizationView: AuthorizationView = UIView.createFromNib()             else { return }
+        guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+        authorizationView.configure(type) {
+            guard let optionURL = URL(string: "\(UIApplication.openSettingsURLString)") else { return }
+            UIApplication.shared.open(optionURL, options: [:])
+        }
+        authorizationView.show(in: keyWindow)
     }
     
     var contentText: String? {

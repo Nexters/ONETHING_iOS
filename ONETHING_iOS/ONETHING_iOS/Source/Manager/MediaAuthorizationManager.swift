@@ -39,6 +39,7 @@ class MediaAuthorizationManager {
         case .authorized:
             completion(true)
         case .notDetermined:
+            
             if #available(iOS 14.0, *) {
                 PHPhotoLibrary.requestAuthorization(for: .readWrite) { _ in
                     self.requestGalleryAuthorization(completion: completion)
@@ -48,6 +49,8 @@ class MediaAuthorizationManager {
                     self.requestGalleryAuthorization(completion: completion)
                 }
             }
+        case .limited:
+            completion(true)
         default:
             completion(false)
         }

@@ -31,6 +31,9 @@
 		CE2390CA26D52DCB002A002E /* AuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2390C926D52DCB002A002E /* AuthorizationView.xib */; };
 		CE2390CB26D52DCB002A002E /* AuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2390C926D52DCB002A002E /* AuthorizationView.xib */; };
 		CE2390CC26D52DCB002A002E /* AuthorizationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2390C926D52DCB002A002E /* AuthorizationView.xib */; };
+		CE2390CE26D52E37002A002E /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2390CD26D52E37002A002E /* AuthorizationView.swift */; };
+		CE2390CF26D52E37002A002E /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2390CD26D52E37002A002E /* AuthorizationView.swift */; };
+		CE2390D026D52E37002A002E /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2390CD26D52E37002A002E /* AuthorizationView.swift */; };
 		CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
 		CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
 		CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */; };
@@ -508,6 +511,7 @@
 		CE1F96C826AC0ACB006B56E4 /* OnethingWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingWebView.swift; sourceTree = "<group>"; };
 		CE2390C526D52887002A002E /* MediaAuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaAuthorizationManager.swift; sourceTree = "<group>"; };
 		CE2390C926D52DCB002A002E /* AuthorizationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorizationView.xib; sourceTree = "<group>"; };
+		CE2390CD26D52E37002A002E /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErorrHandler.swift; sourceTree = "<group>"; };
 		CE26C44D26B0313E00BE7DDC /* OnethingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingError.swift; sourceTree = "<group>"; };
 		CE26C45126B031A600BE7DDC /* OnethingErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErrorModel.swift; sourceTree = "<group>"; };
@@ -759,6 +763,7 @@
 				CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */,
 				CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */,
 				CE2390C926D52DCB002A002E /* AuthorizationView.xib */,
+				CE2390CD26D52E37002A002E /* AuthorizationView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1721,6 +1726,7 @@
 				CEFA5BC526B52BFF0037F71B /* Date+.swift in Sources */,
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				F271CF1926B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
+				CE2390CE26D52E37002A002E /* AuthorizationView.swift in Sources */,
 				F2BADE0626C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
@@ -1862,6 +1868,7 @@
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
+				CE2390D026D52E37002A002E /* AuthorizationView.swift in Sources */,
 				F2F588B226B0F95200F5430D /* LockView.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
@@ -1987,6 +1994,7 @@
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
+				CE2390CF26D52E37002A002E /* AuthorizationView.swift in Sources */,
 				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
@@ -2219,8 +2227,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2231,7 +2239,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2244,8 +2252,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2256,7 +2264,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
