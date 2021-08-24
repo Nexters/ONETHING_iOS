@@ -100,10 +100,10 @@ final class DelayPopupView: UIView, ShakeView {
     
     private let disposeBag = DisposeBag()
  
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var remainedDelayCountLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subTitleLabel: UILabel!
+    @IBOutlet private weak var remainedDelayCountLabel: UILabel!
     
-    @IBOutlet weak var giveUpButton: UIButton!
-    @IBOutlet weak var passPenaltyButton: UIButton!
+    @IBOutlet private weak var giveUpButton: UIButton!
+    @IBOutlet private weak var passPenaltyButton: UIButton!
 }
