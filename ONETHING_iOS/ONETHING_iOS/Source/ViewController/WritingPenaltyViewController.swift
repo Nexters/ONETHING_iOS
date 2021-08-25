@@ -52,6 +52,18 @@ final class WritingPenaltyViewController: BaseViewController {
         self.penaltyTextableViews = penaltyTextableViews
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     private func updateBindingForTextFields() {
         self.penaltyTextableViews?.forEach {
             $0.textField.rx.text.orEmpty
