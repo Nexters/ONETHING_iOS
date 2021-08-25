@@ -25,6 +25,8 @@ final class HomeViewController: BaseViewController {
     private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
+    private weak var delayPopupView: DelayPopupView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -323,8 +325,20 @@ extension HomeViewController: DelayPopupViewDelegate {
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
-        #warning("미룸 벌칙 페이지 만들면 띄워져야 함 ")
+        self.backgroundDimView.isHidden = true
+        self.delayPopupView = delayPopupView
+        self.delayPopupView?.isHidden = true
+        self.delayPopupView?.guideLabel.isHidden = true
+        
+        self.pushWritingPenaltyViewController()
         #warning("미룸 벌칙을 모두 수행한 경우에만 미룸 팝업 뷰 없애기(hide)")
+    }
+    
+    private func pushWritingPenaltyViewController() {
+        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty) else { return }
+        
+        writingPenaltyViewController.delegate = self
+        self.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
 }
 
@@ -332,5 +346,17 @@ extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
         self.viewModel.update(isGiveUp: false)
         self.backgroundDimView.hideCrossDissolve()
+    }
+}
+
+extension HomeViewController: WritingPenaltyViewControllerDelegate {
+    func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.backgroundDimView.isHidden = false
+        self.delayPopupView?.isHidden = false
+        self.delayPopupView?.guideLabel.isHidden = false
+    }
+    
+    func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.delayPopupView?.hide()
     }
 }

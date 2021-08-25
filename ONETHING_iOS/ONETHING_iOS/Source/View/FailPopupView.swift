@@ -56,9 +56,9 @@ final class FailPopupView: UIView, ShakeView {
     
     private let disposeBag = DisposeBag()
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var progressCountLabel: UILabel!
-    @IBOutlet weak var reasonLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var progressCountLabel: UILabel!
+    @IBOutlet private weak var reasonLabel: UILabel!
     
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
 }
