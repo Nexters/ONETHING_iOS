@@ -58,7 +58,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-9r-hdv" userLabel="bottom view">
-                                <rect key="frame" x="0.0" y="783" width="414" height="79"/>
+                                <rect key="frame" x="0.0" y="817" width="414" height="79"/>
                                 <subviews>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5u-pr-lhD" userLabel="complete button">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
@@ -92,7 +92,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dkb-9r-hdv" secondAttribute="trailing" id="NGA-jX-9qQ"/>
                             <constraint firstItem="wrU-dQ-hjp" firstAttribute="top" secondItem="keq-uo-fzW" secondAttribute="bottom" constant="20" id="S3h-qY-oUo"/>
                             <constraint firstItem="Dkb-9r-hdv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dTs-TC-bPf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dkb-9r-hdv" secondAttribute="bottom" id="gd6-FO-KDa"/>
+                            <constraint firstAttribute="bottom" secondItem="Dkb-9r-hdv" secondAttribute="bottom" id="gd6-FO-KDa"/>
                             <constraint firstItem="keq-uo-fzW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hiq-y9-ICV"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="keq-uo-fzW" secondAttribute="leading" id="ndC-fO-Sl0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="keq-uo-fzW" secondAttribute="trailing" id="tqy-UT-etq"/>

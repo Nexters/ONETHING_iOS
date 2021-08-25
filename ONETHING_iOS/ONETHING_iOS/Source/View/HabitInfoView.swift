@@ -9,7 +9,7 @@ import UIKit
 
 final class HabitInfoView: UIView {
     let progressView = ProgressView()
-    private let settingButton = SettingButton().then { $0.isHidden = true }
+    let settingButton = SettingButton()
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let dayNumberLabel = UILabel()
@@ -49,7 +49,7 @@ final class HabitInfoView: UIView {
         self.addSubview(self.descriptionLabel)
         self.descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(self).offset(self.descriptionLabelTopConstant)
-            $0.leading.equalTo(self).offset(29)
+            $0.leading.equalTo(self).offset(20)
         }
     }
     

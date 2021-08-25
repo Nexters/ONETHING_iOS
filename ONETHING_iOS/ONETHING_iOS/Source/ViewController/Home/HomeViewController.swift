@@ -35,6 +35,7 @@ final class HomeViewController: BaseViewController {
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
         self.setupHomeEmptyView()
+        self.bindButtons()
         self.observeViewModel()
         
         self.viewModel.requestHabitInProgress()
@@ -134,6 +135,15 @@ final class HomeViewController: BaseViewController {
                 self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func bindButtons() {
+        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
+            guard let habitModifyViewController = HabitModfiyViewController.instantiateViewController(from: .habitModify)
+            else { return }
+            
+            self.navigationController?.pushViewController(habitModifyViewController, animated: true)
+        }).disposed(by: self.disposeBag)
     }
     
     private func showEmptyViewAndHideMainView() {
@@ -331,7 +341,6 @@ extension HomeViewController: DelayPopupViewDelegate {
         self.delayPopupView?.guideLabel.isHidden = true
         
         self.pushWritingPenaltyViewController()
-        #warning("미룸 벌칙을 모두 수행한 경우에만 미룸 팝업 뷰 없애기(hide)")
     }
     
     private func pushWritingPenaltyViewController() {
