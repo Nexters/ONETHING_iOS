@@ -17,7 +17,6 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.setupLabels()
         self.setupAlarmSettingView()
         self.setupPostponeSettingView()
-        self.setupProgressView()
         self.setupDatePicker()
         self.setupCountPicker()
         self.bindButtons()
@@ -66,23 +65,6 @@ final class GoalSettingThirdViewController: BaseViewController {
         attributeText.addAttributes(subAttributes, range: firstSubRange)
         attributeText.addAttributes(subAttributes, range: secondSubRange)
         self.titleSecondLineLabel.attributedText = attributeText
-    }
-    
-    private func setupProgressView() {
-        guard let progressView = self.progressView else { return }
-        progressView.totalProgress = 3
-        progressView.currentProgress = 2
-        progressView.currentProgressColor = .black_100
-        progressView.totalProgressColor = .black_20
-        self.view.addSubview(progressView)
-        
-        progressView.snp.makeConstraints { make in
-            let screenRatio = DeviceInfo.screenWidth / 375
-            make.width.equalTo(143 * screenRatio)
-            make.trailing.equalToSuperview().offset(-40)
-            make.bottom.equalTo(self.titleStackView.snp.bottom)
-            make.height.equalTo(14)
-        }
     }
     
     private func setupAlarmSettingView() {
@@ -211,7 +193,6 @@ final class GoalSettingThirdViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = GoalSettingThirdViewModel()
 
-    private let progressView: GoalProgressView? = UIView.createFromNib()
     private let alarmSettingView: AlarmSettingView? = UIView.createFromNib()
     private let postponeTodoView: PostponeTodoView? = UIView.createFromNib()
     

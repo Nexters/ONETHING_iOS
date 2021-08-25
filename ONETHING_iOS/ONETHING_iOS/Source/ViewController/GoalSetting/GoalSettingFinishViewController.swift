@@ -16,7 +16,6 @@ final class GoalSettingFinishViewController: BaseViewController {
         super.viewDidLoad()
         self.setupLabels()
         self.setupLottieView()
-        self.setupProgressView()
         self.setupLoadingIndicatorView()
         self.bindButtons()
         self.observeViewModel()
@@ -47,23 +46,6 @@ final class GoalSettingFinishViewController: BaseViewController {
         self.lottieView.contentMode = .scaleAspectFit
         self.lottieView.loopMode = .playOnce
         self.lottieView.play()
-    }
-    
-    private func setupProgressView() {
-        guard let progressView = self.progressView else { return }
-        progressView.totalProgress = 3
-        progressView.currentProgress = 3
-        progressView.currentProgressColor = .black_100
-        progressView.totalProgressColor = .black_20
-        self.view.addSubview(progressView)
-        
-        progressView.snp.makeConstraints { make in
-            let screenRatio = DeviceInfo.screenWidth / 375
-            make.width.equalTo(143 * screenRatio)
-            make.trailing.equalToSuperview().offset(-40)
-            make.bottom.equalTo(self.titleStackView.snp.bottom)
-            make.height.equalTo(14)
-        }
     }
     
     private func setupLoadingIndicatorView() {
@@ -125,7 +107,6 @@ final class GoalSettingFinishViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = GoalSettingFinishViewModel()
     
-    private let progressView: GoalProgressView? = UIView.createFromNib()
     private let loadingIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView(style: .medium)
     
     @IBOutlet private weak var backButton: UIButton!

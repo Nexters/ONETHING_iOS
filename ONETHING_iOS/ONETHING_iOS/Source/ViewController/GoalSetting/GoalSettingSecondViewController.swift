@@ -15,7 +15,6 @@ final class GoalSettingSecondViewController: BaseViewController {
         super.viewDidLoad()
         self.addKeyboardDismissTapGesture()
         self.setupLabels()
-        self.setupProgressView()
         self.setupTextField()
         self.bindButtons()
         self.bindTextField()
@@ -50,23 +49,6 @@ final class GoalSettingSecondViewController: BaseViewController {
         let secondLineAttributeText = NSMutableAttributedString(string: "어떤 습관을", attributes: mainAttribute)
         secondLineAttributeText.addAttributes(subAttributes, range: secondSubRange)
         self.titleSecondLineLabel.attributedText = secondLineAttributeText
-    }
-    
-    private func setupProgressView() {
-        guard let progressView = self.progressView else { return }
-        progressView.totalProgress = 3
-        progressView.currentProgress = 1
-        progressView.currentProgressColor = .black_100
-        progressView.totalProgressColor = .black_20
-        self.view.addSubview(progressView)
-        
-        progressView.snp.makeConstraints { make in
-            let screenRatio = DeviceInfo.screenWidth / 375
-            make.width.equalTo(143 * screenRatio)
-            make.trailing.equalToSuperview().offset(-40)
-            make.bottom.equalTo(self.titleStackView.snp.bottom)
-            make.height.equalTo(14)
-        }
     }
     
     private func setupTextField() {
@@ -123,9 +105,7 @@ final class GoalSettingSecondViewController: BaseViewController {
 
     private let disposeBag = DisposeBag()
     private let viewModel = GoalSettingSecondViewModel()
-    
-    private let progressView: GoalProgressView? = UIView.createFromNib()
-    
+        
     @IBOutlet private weak var backButton: UIButton!
     
     @IBOutlet private weak var titleStackView: UIStackView!
