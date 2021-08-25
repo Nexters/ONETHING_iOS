@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텍스트 입력하는곳" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg7-eH-xMk" userLabel="placeholder label">
-                    <rect key="frame" x="0.0" y="7.5" width="114.5" height="21"/>
+                    <rect key="frame" x="0.0" y="7.5" width="115.5" height="21"/>
                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                     <color key="textColor" name="black_20"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="텍스트 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uY8-z6-tvC" userLabel="TextField">
-                    <rect key="frame" x="0.0" y="7.5" width="114.5" height="21"/>
+                    <rect key="frame" x="0.0" y="7.5" width="115.5" height="21"/>
                     <color key="tintColor" name="red_3"/>
                     <color key="textColor" name="black_100"/>
                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>

@@ -13,9 +13,7 @@ final class PenaltyInfoView: UIView {
         super.awakeFromNib()
     }
     
-    
     @IBOutlet weak var countBoxView: UIView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var arrowImageView: UIImageView!
-    
 }
