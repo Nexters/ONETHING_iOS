@@ -625,6 +625,9 @@
             <point key="canvasLocation" x="3632.8000000000002" y="71.674876847290648"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="YJn-KT-0Lb"/>
+    </designables>
     <resources>
         <image name="arrow_back" width="24" height="24"/>
         <namedColor name="black_10">

@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keq-uo-fzW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keq-uo-fzW" userLabel="header view">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3w-jP-viJ">
@@ -34,7 +34,7 @@
                                         <state key="normal" image="arrow_back"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룸벌칙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X11-gD-TIS">
-                                        <rect key="frame" x="175.5" y="19" width="63" height="22"/>
+                                        <rect key="frame" x="175.5" y="19.5" width="63" height="21"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                                         <color key="textColor" name="black_100"/>
                                         <nil key="highlightedColor"/>
@@ -49,7 +49,34 @@
                                     <constraint firstItem="X11-gD-TIS" firstAttribute="centerX" secondItem="keq-uo-fzW" secondAttribute="centerX" id="oFv-xZ-hzO"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-9r-hdv">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrU-dQ-hjp" userLabel="penaltyInfo container view">
+                                <rect key="frame" x="51.5" y="124" width="311" height="108"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="Vuo-mU-Lxu"/>
+                                    <constraint firstAttribute="width" constant="311" id="a7t-ya-kvH"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojZ-Mu-Me0">
+                                <rect key="frame" x="51.5" y="262" width="311" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RnG-tY-Joc">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="478"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="RnG-tY-Joc" secondAttribute="bottom" id="4qr-w9-E7S"/>
+                                    <constraint firstItem="RnG-tY-Joc" firstAttribute="top" secondItem="ojZ-Mu-Me0" secondAttribute="top" id="904-UO-AMq"/>
+                                    <constraint firstAttribute="trailing" secondItem="RnG-tY-Joc" secondAttribute="trailing" id="PEt-qt-soi"/>
+                                    <constraint firstItem="RnG-tY-Joc" firstAttribute="centerX" secondItem="ojZ-Mu-Me0" secondAttribute="centerX" id="abX-56-TLb"/>
+                                    <constraint firstItem="RnG-tY-Joc" firstAttribute="leading" secondItem="ojZ-Mu-Me0" secondAttribute="leading" id="vA8-iC-F1E"/>
+                                    <constraint firstItem="RnG-tY-Joc" firstAttribute="centerY" secondItem="ojZ-Mu-Me0" secondAttribute="centerY" id="zCJ-hl-XSd"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="huP-RO-dfg"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="8z9-hl-jco"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-9r-hdv" userLabel="bottom view">
                                 <rect key="frame" x="0.0" y="783" width="414" height="79"/>
                                 <subviews>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5u-pr-lhD" userLabel="complete button">
@@ -60,7 +87,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="벌칙 완료하고 습관 지속하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-gz-IQD" userLabel="complete label">
-                                        <rect key="frame" x="95.5" y="12" width="223" height="24"/>
+                                        <rect key="frame" x="95" y="12" width="224.5" height="24"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
                                         <color key="textColor" name="black_80"/>
                                         <nil key="highlightedColor"/>
@@ -81,18 +108,25 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ojZ-Mu-Me0" firstAttribute="bottom" secondItem="Dkb-9r-hdv" secondAttribute="top" constant="-43" id="3xQ-4P-cpz"/>
+                            <constraint firstItem="ojZ-Mu-Me0" firstAttribute="width" secondItem="wrU-dQ-hjp" secondAttribute="width" id="5MB-zL-hQX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dkb-9r-hdv" secondAttribute="trailing" id="NGA-jX-9qQ"/>
+                            <constraint firstItem="ojZ-Mu-Me0" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="OFf-7Z-wWW"/>
+                            <constraint firstItem="wrU-dQ-hjp" firstAttribute="top" secondItem="keq-uo-fzW" secondAttribute="bottom" constant="20" id="S3h-qY-oUo"/>
                             <constraint firstItem="Dkb-9r-hdv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dTs-TC-bPf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Dkb-9r-hdv" secondAttribute="bottom" id="gd6-FO-KDa"/>
                             <constraint firstItem="keq-uo-fzW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hiq-y9-ICV"/>
+                            <constraint firstItem="ojZ-Mu-Me0" firstAttribute="top" secondItem="wrU-dQ-hjp" secondAttribute="bottom" constant="30" id="lIb-dW-sfq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="keq-uo-fzW" secondAttribute="leading" id="ndC-fO-Sl0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="keq-uo-fzW" secondAttribute="trailing" id="tqy-UT-etq"/>
+                            <constraint firstItem="wrU-dQ-hjp" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="vtM-m8-XVZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="a3w-jP-viJ" id="Ca7-xZ-Dbi"/>
                         <outlet property="completeButton" destination="o5u-pr-lhD" id="f7d-Z5-BZf"/>
                         <outlet property="completeLabel" destination="JHZ-gz-IQD" id="IDJ-UI-vju"/>
+                        <outlet property="penaltyInfoContainerView" destination="wrU-dQ-hjp" id="XzN-p0-Scz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

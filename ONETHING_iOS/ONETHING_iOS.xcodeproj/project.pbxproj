@@ -318,6 +318,9 @@
 		CEFF0A49269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */; };
 		DA2304DCAF15FC48B1D2C19B /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */; };
+		F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
+		F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
+		F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
 		F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
 		F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
@@ -440,6 +443,9 @@
 		F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */; };
 		F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
 		F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
+		F29F6EC426D5C3F30080F17E /* PenaltyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */; };
+		F29F6EC526D5C3F30080F17E /* PenaltyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */; };
+		F29F6EC626D5C3F30080F17E /* PenaltyInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */; };
 		F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
 		F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
 		F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */; };
@@ -640,6 +646,7 @@
 		CEFF0A42269C881000DB8D2D /* GoalSettingFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFirstViewController.swift; sourceTree = "<group>"; };
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyInfoView.swift; sourceTree = "<group>"; };
 		F2017A8726BBF982009277A6 /* SelectStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStampModel.swift; sourceTree = "<group>"; };
 		F20B572E26A7EAF700391D45 /* HabitStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampView.swift; sourceTree = "<group>"; };
 		F20B573226A7ED3400391D45 /* HabitStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampCell.swift; sourceTree = "<group>"; };
@@ -677,6 +684,7 @@
 		F293C3CD269D195D0096757C /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		F293C3D5269D19BF0096757C /* Circleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circleable.swift; sourceTree = "<group>"; };
 		F295FE6026D1008100F8589E /* DailyHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitModel.swift; sourceTree = "<group>"; };
+		F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenaltyInfoView.xib; sourceTree = "<group>"; };
 		F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBtnTitleView.swift; sourceTree = "<group>"; };
 		F2A614AC26A3FA470061A17A /* CompleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteButton.swift; sourceTree = "<group>"; };
 		F2A614B826A4254B0061A17A /* ContentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentAPI.swift; sourceTree = "<group>"; };
@@ -978,6 +986,8 @@
 				F2B571D026D3E0D60059F75E /* DelayPopupView.xib */,
 				F2B571DC26D443A40059F75E /* FailPopupView.swift */,
 				F2B571E026D443BB0059F75E /* FailPopupView.xib */,
+				F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */,
+				F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1401,6 +1411,7 @@
 				CE8FEDEB26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78A26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				F29F6EC426D5C3F30080F17E /* PenaltyInfoView.xib in Resources */,
 				CEC6C37126B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D326A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80A26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
@@ -1456,6 +1467,7 @@
 				CE8FEDED26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78C26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				F29F6EC626D5C3F30080F17E /* PenaltyInfoView.xib in Resources */,
 				CEC6C37326B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D526A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80C26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
@@ -1497,6 +1509,7 @@
 				CE8FEDEC26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
 				CEC4D78B26A27EAA00633222 /* GoalSettingCollectionViewCell.xib in Resources */,
+				F29F6EC526D5C3F30080F17E /* PenaltyInfoView.xib in Resources */,
 				CEC6C37226B33239007C4ACC /* NetworkErrorPopupView.xib in Resources */,
 				CEC4D7D426A2D63200633222 /* Pretendard-ExtraBold.otf in Resources */,
 				CEC4D80B26A2D88500633222 /* Montserrat-ExtraBold.ttf in Resources */,
@@ -1754,6 +1767,7 @@
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
+				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
@@ -1900,6 +1914,7 @@
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
+				F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
@@ -2030,6 +2045,7 @@
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
+				F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,

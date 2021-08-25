@@ -21,7 +21,27 @@ final class WritingPenaltyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupPenaltyInfoView()
         self.bindButtons()
+    }
+    
+    private func setupPenaltyInfoView() {
+        guard let penaltyInfoView = self.penaltyInfoView else { return }
+
+        penaltyInfoView.do {
+            $0.isUserInteractionEnabled = false
+            $0.arrowImageView.isHidden = true
+
+        }
+        
+        self.penaltyInfoContainerView.addSubview(penaltyInfoView)
+        penaltyInfoView.snp.remakeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        penaltyInfoView.countBoxView.snp.remakeConstraints {
+            $0.width.equalTo(64)
+        }
     }
     
     private func bindButtons() {
@@ -43,6 +63,9 @@ final class WritingPenaltyViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     
     @IBOutlet private weak var backButton: UIButton!
+    
+    @IBOutlet private weak var penaltyInfoContainerView: UIView!
+    private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var completeLabel: UILabel!
