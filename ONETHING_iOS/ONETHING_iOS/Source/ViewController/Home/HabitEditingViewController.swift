@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class HabitModfiyViewController: BaseViewController {
+final class HabitEditingViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -100,8 +100,20 @@ final class HabitModfiyViewController: BaseViewController {
 
     }
     
+    private var prevColorSelectButton: ColorSelectButton?
     private func setupColorSelectButtons() {
-        
+        self.colorSelectButtons.forEach { button in
+            if button.tag == 0 {
+                button.checkView.isHidden = false
+                self.prevColorSelectButton = button
+            }
+            
+            button.rx.tap.observeOnMain(onNext: { _ in
+                button.checkView.isHidden = false
+                self.prevColorSelectButton?.checkView.isHidden = true
+                self.prevColorSelectButton = button
+            }).disposed(by: self.disposeBag)
+        }
     }
     
     private func bindingButtons() {
@@ -140,7 +152,7 @@ final class HabitModfiyViewController: BaseViewController {
     @IBOutlet weak var countPickerBottomConstraint: NSLayoutConstraint!
 }
 
-extension HabitModfiyViewController: UIPickerViewDataSource {
+extension HabitEditingViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -150,7 +162,7 @@ extension HabitModfiyViewController: UIPickerViewDataSource {
     }
 }
 
-extension HabitModfiyViewController: UIPickerViewDelegate {
+extension HabitEditingViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row + 1)"
     }

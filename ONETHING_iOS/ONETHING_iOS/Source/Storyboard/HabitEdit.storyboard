@@ -21,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Habit Modfiy View Controller-->
+        <!--Habit Editing View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="HabitModfiyViewController" id="Y6W-OH-hqX" customClass="HabitModfiyViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HabitEditingViewController" id="Y6W-OH-hqX" customClass="HabitEditingViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="메인 색상" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmi-Jj-sq6" userLabel="sub title label4">
-                                <rect key="frame" x="32" y="579" width="60" height="19.5"/>
+                                <rect key="frame" x="32" y="579.5" width="60" height="19"/>
                                 <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                                 <color key="textColor" name="black_100"/>
                                 <nil key="highlightedColor"/>

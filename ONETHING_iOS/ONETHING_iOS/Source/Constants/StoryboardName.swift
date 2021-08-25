@@ -13,5 +13,5 @@ enum Storyboard: String {
     case profile = "Profile"
     case common = "Common"
     case writingPenalty = "WritingPenalty"
-    case habitModify = "HabitModify"
+    case habitEdit = "HabitEdit"
 }

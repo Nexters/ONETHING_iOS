@@ -139,7 +139,7 @@ final class HomeViewController: BaseViewController {
     
     private func bindButtons() {
         self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
-            guard let habitModifyViewController = HabitModfiyViewController.instantiateViewController(from: .habitModify)
+            guard let habitModifyViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
             else { return }
             
             self.navigationController?.pushViewController(habitModifyViewController, animated: true)
