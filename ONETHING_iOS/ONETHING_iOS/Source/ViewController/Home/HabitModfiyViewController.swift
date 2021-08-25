@@ -15,8 +15,10 @@ final class HabitModfiyViewController: BaseViewController {
         super.viewDidLoad()
         
         self.setupTimeSetView()
+        self.setupDelayInfoViews()
         self.setupPenaltyInfoView()
         self.setupCountPicker()
+        self.setupColorSelectButtons()
         
         self.bindingButtons()
     }
@@ -51,6 +53,12 @@ final class HabitModfiyViewController: BaseViewController {
         guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
         guard let tabbarController = self.tabBarController                    else { return }
         preparePopupView.show(in: tabbarController)
+    }
+    
+    private func setupDelayInfoViews() {
+        self.delayInfoViews.forEach {
+            $0.image = UIImage(named: "delay_info")
+        }
     }
     
     private func setupPenaltyInfoView() {
@@ -92,6 +100,10 @@ final class HabitModfiyViewController: BaseViewController {
 
     }
     
+    private func setupColorSelectButtons() {
+        
+    }
+    
     private func bindingButtons() {
         self.backButton.rx.tap.observeOnMain(onNext: { _ in
             self.navigationController?.popViewController(animated: true)
@@ -110,12 +122,17 @@ final class HabitModfiyViewController: BaseViewController {
     }
     
     private let disposeBag = DisposeBag()
+
+    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet weak var timeSetView: UIView!
+    
+    @IBOutlet var delayInfoViews: [UIImageView]!
     
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
-    @IBOutlet weak var timeSetView: UIView!
-    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet var colorSelectButtons: [ColorSelectButton]!
+
     @IBOutlet private weak var completeButton: UIButton!
     
     @IBOutlet weak var countPickerContainerView: UIView!

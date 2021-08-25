@@ -380,6 +380,9 @@
 		F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
 		F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */; };
+		F21CCD2726D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
+		F21CCD2826D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
+		F21CCD2926D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
 		F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */; };
 		F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */; };
 		F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */; };
@@ -684,6 +687,7 @@
 		F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitView.swift; sourceTree = "<group>"; };
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
+		F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectButton.swift; sourceTree = "<group>"; };
 		F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitViewModelable.swift; sourceTree = "<group>"; };
 		F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitImageUseCase.swift; sourceTree = "<group>"; };
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
@@ -1016,6 +1020,7 @@
 				F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */,
 				F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */,
 				F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */,
+				F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1880,6 +1885,7 @@
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
+				F21CCD2726D6874E0067FDD1 /* ColorSelectButton.swift in Sources */,
 				CEC6C36D26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CE67520326D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764826D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
@@ -2030,6 +2036,7 @@
 				CEC4D83326A4693A00633222 /* GoalProgressView.swift in Sources */,
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED826A4A0CB003F087C /* String+.swift in Sources */,
+				F21CCD2926D6874E0067FDD1 /* ColorSelectButton.swift in Sources */,
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE67520526D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764A26D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
@@ -2164,6 +2171,7 @@
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
+				F21CCD2826D6874E0067FDD1 /* ColorSelectButton.swift in Sources */,
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764926D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
