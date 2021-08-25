@@ -321,6 +321,12 @@
 		F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
 		F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
 		F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */; };
+		F200E4B926D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */; };
+		F200E4BA26D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */; };
+		F200E4BB26D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */; };
+		F200E4BD26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */; };
+		F200E4BE26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */; };
+		F200E4BF26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */; };
 		F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D79126A2B14200633222 /* GoalSettingSecondViewModel.swift */; };
 		F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
 		F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2017A8726BBF982009277A6 /* SelectStampModel.swift */; };
@@ -647,6 +653,8 @@
 		CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyInfoView.swift; sourceTree = "<group>"; };
+		F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenaltyTextableView.xib; sourceTree = "<group>"; };
+		F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyTextableView.swift; sourceTree = "<group>"; };
 		F2017A8726BBF982009277A6 /* SelectStampModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStampModel.swift; sourceTree = "<group>"; };
 		F20B572E26A7EAF700391D45 /* HabitStampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampView.swift; sourceTree = "<group>"; };
 		F20B573226A7ED3400391D45 /* HabitStampCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampCell.swift; sourceTree = "<group>"; };
@@ -988,6 +996,8 @@
 				F2B571E026D443BB0059F75E /* FailPopupView.xib */,
 				F29F6EC326D5C3F30080F17E /* PenaltyInfoView.xib */,
 				F200E4B426D5CFBC0084BAB9 /* PenaltyInfoView.swift */,
+				F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */,
+				F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1407,6 +1417,7 @@
 				CEC4D83D26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C126A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80126A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				F200E4B926D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */,
 				CE3B8BBA26A7084800BD529B /* Intro.storyboard in Resources */,
 				CE8FEDEB26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80726A2D88500633222 /* Montserrat-Light.ttf in Resources */,
@@ -1463,6 +1474,7 @@
 				CEC4D83F26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C326A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80326A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				F200E4BB26D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */,
 				CE3B8BBC26A7084800BD529B /* Intro.storyboard in Resources */,
 				CE8FEDED26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80926A2D88500633222 /* Montserrat-Light.ttf in Resources */,
@@ -1505,6 +1517,7 @@
 				CEC4D83E26A479BE00633222 /* AlarmSettingView.xib in Resources */,
 				CEC4D7C226A2D63200633222 /* Pretendard-Regular.otf in Resources */,
 				CEC4D80226A2D88500633222 /* Montserrat-Regular.ttf in Resources */,
+				F200E4BA26D5D4620084BAB9 /* PenaltyTextableView.xib in Resources */,
 				CE3B8BBB26A7084800BD529B /* Intro.storyboard in Resources */,
 				CE8FEDEC26B6D8FE0092DC0D /* CustomPopupView.xib in Resources */,
 				CEC4D80826A2D88500633222 /* Montserrat-Light.ttf in Resources */,
@@ -1854,6 +1867,7 @@
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE8FEDDF26B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CE26C45F26B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
+				F200E4BD26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
@@ -2001,6 +2015,7 @@
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
 				CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */,
+				F200E4BF26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45826B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F20B573526A7ED3400391D45 /* HabitStampCell.swift in Sources */,
@@ -2132,6 +2147,7 @@
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
+				F200E4BE26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CEE8AB1526BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,

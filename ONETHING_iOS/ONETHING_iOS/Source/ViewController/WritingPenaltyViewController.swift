@@ -16,13 +16,39 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
 }
 
 final class WritingPenaltyViewController: BaseViewController {
+    private var penaltyTextableViews: [PenaltyTextableView]?
+    private let scrollView = UIScrollView()
+    private let innerStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.spacing = 20
+    }
+    
     weak var delegate:  WritingPenaltyViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.addKeyboardDismissTapGesture()
         self.setupPenaltyInfoView()
+        self.setupScrollView()
+        self.setupInnerStackView()
         self.bindButtons()
+        
+        let penaltyTextableViews = (0..<7).compactMap { _ -> PenaltyTextableView? in
+            let view: PenaltyTextableView? = UIView.createFromNib()
+            return view
+        }
+        
+        penaltyTextableViews.forEach {
+            self.innerStackView.addArrangedSubview($0)
+            $0.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.width.equalToSuperview()
+            }
+        }
+        
+        self.penaltyTextableViews = penaltyTextableViews
     }
     
     private func setupPenaltyInfoView() {
@@ -41,6 +67,30 @@ final class WritingPenaltyViewController: BaseViewController {
         
         penaltyInfoView.countBoxView.snp.remakeConstraints {
             $0.width.equalTo(64)
+        }
+    }
+    
+    private func setupScrollView() {
+        self.view.addSubview(self.scrollView)
+        self.scrollView.snp.makeConstraints {
+            guard let penaltyInfoView = self.penaltyInfoView else { return }
+            
+            $0.top.equalTo(penaltyInfoView.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(32)
+            $0.bottom.equalTo(self.completeButton.snp.top).offset(-43)
+        }
+    }
+    
+    private func setupInnerStackView() {
+        self.scrollView.addSubview(self.innerStackView)
+        
+        self.innerStackView.snp.makeConstraints {
+            $0.leading.top.trailing.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+        
+        self.scrollView.contentLayoutGuide.snp.makeConstraints {
+            $0.height.equalTo(self.innerStackView)
         }
     }
     

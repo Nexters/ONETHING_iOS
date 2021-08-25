@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-SemiBold.otf">
+            <string>Pretendard-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PenaltyTextableView" customModule="ONETHING" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="텍스트 입력하는곳" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg7-eH-xMk" userLabel="placeholder label">
+                    <rect key="frame" x="0.0" y="7.5" width="114.5" height="21"/>
+                    <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                    <color key="textColor" name="black_20"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="텍스트 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uY8-z6-tvC" userLabel="TextField">
+                    <rect key="frame" x="0.0" y="7.5" width="114.5" height="21"/>
+                    <color key="textColor" name="black_100"/>
+                    <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eaG-Td-B4D" userLabel="Bottom Line">
+                    <rect key="frame" x="0.0" y="48.5" width="311" height="1.5"/>
+                    <color key="backgroundColor" name="black_10"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1.5" id="Hnq-Es-xsZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eaG-Td-B4D" secondAttribute="trailing" id="3Lz-Lw-Nbj"/>
+                <constraint firstItem="vg7-eH-xMk" firstAttribute="bottom" secondItem="uY8-z6-tvC" secondAttribute="bottom" id="4w4-i2-LFi"/>
+                <constraint firstItem="eaG-Td-B4D" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="N1j-xc-FKL"/>
+                <constraint firstItem="vg7-eH-xMk" firstAttribute="top" secondItem="uY8-z6-tvC" secondAttribute="top" id="P0S-m1-S20"/>
+                <constraint firstItem="eaG-Td-B4D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ryg-tA-dEB"/>
+                <constraint firstItem="vg7-eH-xMk" firstAttribute="leading" secondItem="uY8-z6-tvC" secondAttribute="leading" id="bOf-nQ-JvC"/>
+                <constraint firstItem="uY8-z6-tvC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dGn-yH-9SK"/>
+                <constraint firstItem="vg7-eH-xMk" firstAttribute="trailing" secondItem="uY8-z6-tvC" secondAttribute="trailing" id="eFk-oH-hKW"/>
+                <constraint firstItem="uY8-z6-tvC" firstAttribute="bottom" secondItem="eaG-Td-B4D" secondAttribute="top" constant="-20" id="oiV-TM-3Hm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="placeholderLabel" destination="vg7-eH-xMk" id="MKP-jq-Xns"/>
+                <outlet property="textField" destination="uY8-z6-tvC" id="u7G-uh-k0S"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="70"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="black_10">
+            <color red="0.92199999094009399" green="0.92199999094009399" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_100">
+            <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_20">
+            <color red="0.84299999475479126" green="0.84299999475479126" blue="0.84299999475479126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
