@@ -12,7 +12,7 @@ final class PenaltyTextableView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textField.text = ""
-        self.placeholderLabel.text = "내가 또 미루면 사람이 아니다"
+        self.placeholderLabel.text = "제발!"
     }
   
     @IBOutlet weak var textField: UITextField!

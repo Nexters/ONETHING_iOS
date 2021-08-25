@@ -16,7 +16,9 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
 }
 
 final class WritingPenaltyViewController: BaseViewController {
-    private var penaltyTextableViews: [PenaltyTextableView]?
+    private var penaltyTextableViews: [PenaltyTextableView]? {
+        didSet { self.updateBindingForTextFields() }
+    }
     private let scrollView = UIScrollView()
     private let innerStackView = UIStackView().then {
         $0.axis = .vertical
@@ -35,7 +37,7 @@ final class WritingPenaltyViewController: BaseViewController {
         self.setupInnerStackView()
         self.bindButtons()
         
-        let penaltyTextableViews = (0..<7).compactMap { _ -> PenaltyTextableView? in
+        let penaltyTextableViews = (0..<2).compactMap { _ -> PenaltyTextableView? in
             let view: PenaltyTextableView? = UIView.createFromNib()
             return view
         }
@@ -47,8 +49,23 @@ final class WritingPenaltyViewController: BaseViewController {
                 $0.width.equalToSuperview()
             }
         }
-        
         self.penaltyTextableViews = penaltyTextableViews
+    }
+    
+    private func updateBindingForTextFields() {
+        self.penaltyTextableViews?.forEach {
+            $0.textField.rx.text.orEmpty
+                .distinctUntilChanged()
+                .subscribe(onNext: { _ in
+                    guard let allValid = self.penaltyTextableViews?.reduce(false, { result, element in
+                        return element.textField.text == element.placeholderLabel.text
+                    }) else { return }
+                    
+                    self.completeButton.isUserInteractionEnabled = allValid ? true : false
+                    self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
+                    self.completeLabel.textColor = allValid ? .white : .black_80
+                }).disposed(by: self.disposeBag)
+        }
     }
     
     private func setupPenaltyInfoView() {
