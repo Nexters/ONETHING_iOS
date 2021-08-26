@@ -40,15 +40,15 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         OnethingUserManager.sharedInstance.requestAccount(completion: { accountModel in
             guard accountModel.doneHabitSetting == false else { return }
             
-            let goalSettingFirstViewController =
-                UIViewController.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
-            self.present(viewController: goalSettingFirstViewController, with: rootController) {
+            let goalSettingController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting)
+            let navigationController  = UIViewController.navigationController(goalSettingController)
+            self.present(viewController: navigationController, with: rootController) {
                 guard accountModel.account?.nickname == nil else { return }
                 
                 let viewController = ProfileSettingViewController.instantiateViewController(from: .intro)
                 guard let profileSettingController = viewController else { return }
                 profileSettingController.modalPresentationStyle = .fullScreen
-                goalSettingFirstViewController?.present(profileSettingController, animated: false, completion: nil)
+                navigationController?.present(profileSettingController, animated: false, completion: nil)
             }
         })
     }
