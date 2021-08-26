@@ -10,15 +10,23 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol HabitEditingViewControllerDelegate: AnyObject {
+    func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController)
+}
+
 final class HabitEditingViewController: BaseViewController {
+    weak var delegate: HabitEditingViewControllerDelegate?
+    var viewModel: HabitEditViewModel?
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.setupTimeSetView()
+        self.setupTimeRelatedViews()
         self.setupDelayInfoViews()
         self.setupPenaltyInfoView()
         self.setupCountPicker()
         self.setupColorSelectButtons()
+        self.updateViews(with: self.viewModel)
         
         self.bindingButtons()
     }
@@ -39,9 +47,9 @@ final class HabitEditingViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    private func setupTimeSetView() {
+    private func setupTimeRelatedViews() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.timeSetViewDidTap))
-        
+    
         self.timeSetView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -102,27 +110,39 @@ final class HabitEditingViewController: BaseViewController {
     
     private var prevColorSelectButton: ColorSelectButton?
     private func setupColorSelectButtons() {
+        let firstButton = self.colorSelectButtons.first(where: { $0.tag == 0})
+        firstButton?.checkView.isHidden = false
+        self.prevColorSelectButton = firstButton
+    }
+    
+    private func updateViews(with viewModel: HabitEditViewModel?) {
+        guard let viewModel = viewModel else { return }
+        
+        self.timeStampLabel.text = viewModel.pushTimeText
+        self.timeStampLabel.sizeToFit()
+        
+        self.delayInfoViews.forEach { delayInfoView in
+            delayInfoView.image = viewModel.delayImage(at: delayInfoView.tag)
+        }
+        self.delayRemainedCountLabel.text = viewModel.delayRemainedText
+        
+        self.penaltyInfoView?.updateCount(with: viewModel)
+        
         self.colorSelectButtons.forEach { button in
-            if button.tag == 0 {
-                button.checkView.isHidden = false
-                self.prevColorSelectButton = button
-            }
-            
-            button.rx.tap.observeOnMain(onNext: { _ in
-                button.checkView.isHidden = false
-                self.prevColorSelectButton?.checkView.isHidden = true
-                self.prevColorSelectButton = button
-            }).disposed(by: self.disposeBag)
+            button.backgroundColor = viewModel.color(at: button.tag)
         }
     }
     
     private func bindingButtons() {
-        self.backButton.rx.tap.observeOnMain(onNext: { _ in
+        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
             self.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
-        self.completeButton.rx.tap.observeOnMain(onNext: { _ in
-            self.navigationController?.popViewController(animated: true)
+        self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
+            self?.viewModel?.update(penaltyCount: row + 1)
+            self?.updateViews(with: self?.viewModel)
         }).disposed(by: self.disposeBag)
         
         let tapGesture = UITapGestureRecognizer()
@@ -131,14 +151,48 @@ final class HabitEditingViewController: BaseViewController {
             self?.hideCountPicker()
         }).disposed(by: self.disposeBag)
         self.view.addGestureRecognizer(tapGesture)
+        
+        self.pickerCompleteButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            self?.view.endEditing(true)
+            self?.hideCountPicker()
+        }).disposed(by: self.disposeBag)
+        
+        self.colorSelectButtons.forEach { button in
+            button.rx.tap.observeOnMain(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
+                button.checkView.isHidden = false
+                self.prevColorSelectButton?.checkView.isHidden = true
+                self.prevColorSelectButton = button
+                self.viewModel?.updateColor(with: button.tag)
+            }).disposed(by: self.disposeBag)
+        }
+        
+        self.completeButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.completeButton.isUserInteractionEnabled = false
+            self.viewModel?.putEditHabit(completionHandler: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.delegate?.habitEditingViewControllerDidTapCompleteButton(self)
+                self.navigationController?.popViewController(animated: true)
+            }, failureHandler: {
+                self.completeButton.isUserInteractionEnabled = true
+            })
+            
+        }).disposed(by: self.disposeBag)
     }
     
     private let disposeBag = DisposeBag()
 
     @IBOutlet private weak var backButton: UIButton!
+    
     @IBOutlet weak var timeSetView: UIView!
+    @IBOutlet weak var timeStampLabel: UILabel!
     
     @IBOutlet var delayInfoViews: [UIImageView]!
+    @IBOutlet weak var delayRemainedCountLabel: UILabel!
     
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
@@ -146,6 +200,8 @@ final class HabitEditingViewController: BaseViewController {
     @IBOutlet var colorSelectButtons: [ColorSelectButton]!
 
     @IBOutlet private weak var completeButton: UIButton!
+    
+    @IBOutlet weak var pickerCompleteButton: UIButton!
     
     @IBOutlet weak var countPickerContainerView: UIView!
     @IBOutlet weak var countPicker: UIPickerView!

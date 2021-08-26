@@ -31,16 +31,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HU1-5j-otg">
-                    <rect key="frame" x="132.5" y="15.5" width="72" height="28"/>
+                    <rect key="frame" x="132.5" y="15.5" width="71" height="28"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0번" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMs-MD-je8">
-                            <rect key="frame" x="20" y="4.5" width="24" height="19"/>
+                            <rect key="frame" x="20" y="4.5" width="23" height="19"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                             <color key="textColor" name="red_3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="small_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-5Z-kIh">
-                            <rect key="frame" x="44" y="5" width="18" height="18"/>
+                            <rect key="frame" x="43" y="5" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Jvf-5Z-kIh" secondAttribute="height" multiplier="1:1" id="Ak7-oQ-vA9"/>
                             </constraints>
@@ -48,11 +48,11 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="Jvf-5Z-kIh" firstAttribute="leading" secondItem="MMs-MD-je8" secondAttribute="trailing" id="2TQ-aX-tkj"/>
                         <constraint firstAttribute="height" constant="28" id="4YU-Co-RCi"/>
                         <constraint firstItem="MMs-MD-je8" firstAttribute="leading" secondItem="HU1-5j-otg" secondAttribute="leading" constant="20" id="avc-er-Hkn"/>
                         <constraint firstAttribute="trailing" secondItem="Jvf-5Z-kIh" secondAttribute="trailing" constant="10" id="gOb-ju-4Cu"/>
                         <constraint firstItem="Jvf-5Z-kIh" firstAttribute="centerY" secondItem="HU1-5j-otg" secondAttribute="centerY" id="mlh-Pq-1RU"/>
-                        <constraint firstAttribute="width" constant="72" id="y5k-CO-Uge"/>
                         <constraint firstItem="MMs-MD-je8" firstAttribute="centerY" secondItem="HU1-5j-otg" secondAttribute="centerY" id="y5o-KH-UOg"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -62,7 +62,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="적기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WCt-cF-r9D">
-                    <rect key="frame" x="214.5" y="20" width="28" height="19"/>
+                    <rect key="frame" x="213.5" y="20" width="28" height="19"/>
                     <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
                     <color key="textColor" name="black_100"/>
                     <nil key="highlightedColor"/>
@@ -114,6 +114,7 @@
                 <outlet property="arrowImageView" destination="Jvf-5Z-kIh" id="f9q-tF-JNH"/>
                 <outlet property="countBoxView" destination="HU1-5j-otg" id="sjl-3L-TIj"/>
                 <outlet property="countLabel" destination="MMs-MD-je8" id="Bat-YE-90p"/>
+                <outlet property="sentenceLabel" destination="lVO-Li-1R0" id="5S8-Sf-17R"/>
             </connections>
             <point key="canvasLocation" x="2.1739130434782612" y="145.98214285714286"/>
         </view>

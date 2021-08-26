@@ -139,10 +139,13 @@ final class HomeViewController: BaseViewController {
     
     private func bindButtons() {
         self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
-            guard let habitModifyViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
+            guard let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
             else { return }
+            guard let habitInProgressModel = self.viewModel.habitInProgressModel else { return }
             
-            self.navigationController?.pushViewController(habitModifyViewController, animated: true)
+            habitEditingViewController.delegate = self
+            habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
+            self.navigationController?.pushViewController(habitEditingViewController, animated: true)
         }).disposed(by: self.disposeBag)
     }
     
@@ -223,7 +226,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         guard let delayPopupView: DelayPopupView = UIView.createFromNib() else { return }
         guard let tabbarController = self.tabBarController                else { return }
         
-        backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         
         delayPopupView.delegate = self
         delayPopupView.configure(with: viewModel)
@@ -344,9 +347,17 @@ extension HomeViewController: DelayPopupViewDelegate {
     }
     
     private func pushWritingPenaltyViewController() {
-        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty) else { return }
+        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
+              let habitId = self.viewModel.habitInProgressModel?.habitId,
+              let sentence = self.viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = self.viewModel.habitInProgressModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
+        writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
+            habitID: habitId,
+            sentence: sentence,
+            penaltyCount: penaltyCount
+        )
         self.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
 }
@@ -366,6 +377,16 @@ extension HomeViewController: WritingPenaltyViewControllerDelegate {
     }
     
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.viewModel.requestHabitInProgress()
         self.delayPopupView?.hide()
+    }
+}
+
+extension HomeViewController: HabitEditingViewControllerDelegate {
+    func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController) {
+        guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
+        
+        self.viewModel.update(habitInProgressModel: habitInProgressModel)
+        self.habitInfoView.update(with: self.viewModel)
     }
 }
