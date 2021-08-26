@@ -36,7 +36,9 @@ extension HabitResponseModel {
     enum HabitStatus: String {
         case run = "RUN"
         case pass = "PASS"
+        case unseenSuccess = "UNSEEN_SUCCESS"
         case success = "SUCCESS"
+        case unseenFail = "UNSEEN_FAIL"
         case fail = "FAIL"
     }
 }
