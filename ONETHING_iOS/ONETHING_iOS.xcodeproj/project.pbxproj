@@ -13,6 +13,9 @@
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
 		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
+		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
+		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
@@ -559,6 +562,7 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
+		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/ViewController/Intro/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CE1F96BE26AC0A16006B56E4 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
@@ -870,6 +874,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6751EE26D0E31B00616CA8 /* goalFinish.json */,
+				CE16972126D7F5EC00AD0BE9 /* splash_screen.json */,
 			);
 			name = Lottie;
 			sourceTree = "<group>";
@@ -1474,6 +1479,7 @@
 				CE8FEDDA26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
 				CE1F96BF26AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CE6751EF26D0E31B00616CA8 /* goalFinish.json in Resources */,
+				CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */,
 				CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CE38762126CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D7FE26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1533,6 +1539,7 @@
 				CE8FEDDC26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
 				CE1F96C126AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CE6751F126D0E31B00616CA8 /* goalFinish.json in Resources */,
+				CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */,
 				CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CE38762326CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D80026A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1578,6 +1585,7 @@
 				CE8FEDDB26B6C3DD0092DC0D /* Profile.storyboard in Resources */,
 				CE1F96C026AC0A16006B56E4 /* Common.storyboard in Resources */,
 				CE6751F026D0E31B00616CA8 /* goalFinish.json in Resources */,
+				CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */,
 				CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */,
 				CE38762226CCF650003BDCCA /* ConfirmPopupView.xib in Resources */,
 				CEC4D7FF26A2D88500633222 /* Montserrat-SemiBold.ttf in Resources */,
@@ -1826,7 +1834,6 @@
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
-				CEC4D83126A4693A00633222 /* GoalProgressView.swift in Sources */,
 				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
@@ -2372,8 +2379,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2384,7 +2391,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2397,8 +2404,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2409,7 +2416,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
