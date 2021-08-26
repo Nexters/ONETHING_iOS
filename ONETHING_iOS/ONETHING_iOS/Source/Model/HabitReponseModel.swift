@@ -5,7 +5,7 @@
 //  Created by Dongmin on 2021/08/01.
 //
 
-import Foundation
+import UIKit
 
 struct HabitResponseModel: Codable {
     let habitId: Int
@@ -13,25 +13,32 @@ struct HabitResponseModel: Codable {
     let title: String
     let sentence: String
     let startDate: String
-    let pushTime: String
+    var pushTime: String?
     let delayMaxCount: Int
-    let penaltyCount: Int
     let delayCount: Int
+    var penaltyCount: Int
     let successCount: Int
+    var color: String
 }
 
 extension HabitResponseModel {
-    
-    enum HabitStatus: String {
-        case run = "RUN"
-        case pass = "PASS"
-        case success = "SUCCESS"
-        case fail = "FAIL"
-    }
 
     var castingHabitStatus: HabitStatus? {
         guard let status = HabitStatus(rawValue: self.habitStatus) else { return nil }
         return status
     }
     
+    var onethingColor: UIColor {
+        guard let onethingColor = OnethingColor(rawValue: color) else { return .green_1 }
+        return onethingColor.color
+    }
+    
+    enum HabitStatus: String {
+        case run = "RUN"
+        case pass = "PASS"
+        case unseenSuccess = "UNSEEN_SUCCESS"
+        case success = "SUCCESS"
+        case unseenFail = "UNSEEN_FAIL"
+        case fail = "FAIL"
+    }
 }

@@ -14,10 +14,12 @@ final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
     private let apiService: APIService
-    private var habitInProgressModel: HabitResponseModel?
+    private(set) var habitInProgressModel: HabitResponseModel?
+    private(set) var passedUncheckedModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private var nickname: String?
     private let disposeBag = DisposeBag()
+    private(set) var isGiveUp = false
     let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
@@ -49,7 +51,26 @@ final class HomeViewModel: NSObject {
             }).disposed(by: self.disposeBag)
     }
     
-    func dailyHabitModel(at index: Int) -> DailyHabitResponseModel? {
+    func requestPassedHabitForSuccessOrFailView(completion: @escaping (HabitResponseModel.HabitStatus) -> Void) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabits)
+            .subscribe(onSuccess: { (habitReseponseModels: [HabitResponseModel]) in
+                guard let passedHabitModel = habitReseponseModels.last else { return }
+                guard let habitStatus = passedHabitModel.castingHabitStatus else { return }
+                
+                self.passedUncheckedModel = passedHabitModel
+                completion(habitStatus)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId))
+            .subscribe(onSuccess: { (result: Bool) in
+                
+            completion(result)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
         return self.dailyHabitModels[safe: index]
     }
     
@@ -57,10 +78,14 @@ final class HomeViewModel: NSObject {
         self.habitInProgressModel?.habitId
     }
     
+    var isDelayPenatyForLatestDailyHabits: Bool {
+        self.dailyHabitModels.last?.castingHabitStatus == .delayPenalty
+    }
+    
     var discriptionText: String? {
-        guard let userName = self.nickname else { return nil }
+        guard let nickname = self.nickname else { return nil }
         
-        return "\(userName) 님의 66일 습관 목표"
+        return "\(nickname) 님의 66일 습관 목표"
     }
     
     var textOfStartDate: String? {
@@ -116,6 +141,10 @@ final class HomeViewModel: NSObject {
         self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
     }
     
+    func update(habitInProgressModel: HabitResponseModel) {
+        self.habitInProgressModel = habitInProgressModel
+    }
+    
     func update(nickname: String) {
         self.nickname = nickname
     }
@@ -125,7 +154,7 @@ final class HomeViewModel: NSObject {
         self.habitInProgressModel = nil
     }
     
-    func canCreatCurrentDailyHabitModel(with index: Int) -> Bool {
+    func canCreateCurrentDailyHabitModel(with index: Int) -> Bool {
         guard let diffDays = self.diffDaysFromStartToCurrent else { return false }
         return diffDays == index
     }
@@ -137,6 +166,37 @@ final class HomeViewModel: NSObject {
                                     value: UIColor.red_default,
                                     range: attributedText.mutableString.range(of: "\(dayText)일차"))
         return attributedText
+    }
+    
+    var sentenceForDelay: String? {
+        return self.habitInProgressModel?.sentence
+    }
+    
+    var titleTextOfDelayPopupView: String? {
+        return "앗!\n습관을 미뤘네요"
+    }
+    
+    var remainedDelayTextOfDelayPopupView: String? {
+        let delayMaxCount = self.habitInProgressModel?.delayMaxCount ?? 6
+        let delayCount = self.habitInProgressModel?.delayCount ?? 0
+        let remainedCount = delayMaxCount - delayCount
+        return "남은 미루기 기회: \(remainedCount)번"
+    }
+    
+    var titleTextOfFailPopupView: String? {
+        return "아쉽지만\n습관은 여기까지!"
+    }
+    
+    var progressCountTextOfFailPopupView: String? {
+        return "진행: \(self.dailyHabitModels.count + 1)일차"
+    }
+    
+    func update(isGiveUp: Bool) {
+        self.isGiveUp = isGiveUp
+    }
+    
+    var reasonTextOfFailPopupView: String? {
+        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
 }
 
@@ -169,7 +229,7 @@ extension HomeViewModel: UICollectionViewDataSource {
     }
     
     private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
-        guard self.canCreatCurrentDailyHabitModel(with: indexPath.row) else { return }
+        guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
             
         habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
         habitCalendarCell.update(textColor: UIColor.red_3)

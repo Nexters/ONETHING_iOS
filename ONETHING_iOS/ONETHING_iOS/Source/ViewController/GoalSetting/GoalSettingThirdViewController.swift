@@ -123,6 +123,16 @@ final class GoalSettingThirdViewController: BaseViewController {
             self?.hideCountPicker()
         }).disposed(by: self.disposeBag)
         self.dimView.addGestureRecognizer(tapGesture)
+        
+        self.datePickerCompleteButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+            self?.hideDatePicker()
+        }).disposed(by: self.disposeBag)
+        
+        self.countPickerCompleteButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+            self?.hideCountPicker()
+        }).disposed(by: self.disposeBag)
     }
     
     private func observeViewModel() {
@@ -213,11 +223,12 @@ final class GoalSettingThirdViewController: BaseViewController {
     @IBOutlet private weak var dimView: UIView!
     @IBOutlet private weak var datePickerContainerView: UIView!
     @IBOutlet private weak var datePickerBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var datePickerCompleteButton: UIButton!
     
     @IBOutlet private weak var countPickerContainerView: UIView!
     @IBOutlet private weak var countPicker: UIPickerView!
     @IBOutlet private weak var countPickerBottomConstraint: NSLayoutConstraint!
-    
+    @IBOutlet private weak var countPickerCompleteButton: UIButton!
 }
 
 extension GoalSettingThirdViewController: AlarmSettingViewDelegate {

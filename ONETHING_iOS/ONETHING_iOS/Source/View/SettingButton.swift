@@ -21,7 +21,7 @@ final class SettingButton: UIButton {
     private func setup() {
         let settingImage = UIImage(systemName: "ellipsis")
         self.setImage(settingImage, for: .normal)
-        self.tintColor = .black_40
+        self.tintColor = .white
         imageView?.contentMode = .scaleAspectFit
     }
 }

@@ -35,12 +35,12 @@ final class ProgressView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = .black_40
+        self.backgroundColor = .white.withAlphaComponent(0.5)
     }
     
     private func setupCompletedPercentLabel() {
         self.completedPercentView.layer.cornerRadius = self.layer.cornerRadius
-        self.completedPercentView.backgroundColor = .red_default
+        self.completedPercentView.backgroundColor = .white
         
         self.addSubview(self.completedPercentView)
 

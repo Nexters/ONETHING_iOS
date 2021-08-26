@@ -22,13 +22,12 @@ protocol DailyHabitViewPhotoViewDelegate: UIViewController {
 }
 
 final class DailyHabitView: UIView {
-    static let photoDefault = UIImage(named: "photo_default")
     let enrollPhotoButton = UIButton()
     let closeButton = LargeTouchableButton()
-    private let dateLabel = UILabel()
+    let habitTextView = HabitTextView()
+    let dateLabel = UILabel()
     private let timeLabel = UILabel()
     private let photoView = UIImageView()
-    private let habitTextView = HabitTextView()
     
     weak var dailyHabitViewCloseButtonDelegate: DailyHabitViewCloseButtonDelegate?
     weak var dailyHabitViewPhotoViewDelegate: DailyHabitViewPhotoViewDelegate?
@@ -107,7 +106,9 @@ final class DailyHabitView: UIView {
     
     private func layoutHabitTextView() {
         self.habitTextView.snp.makeConstraints {
-            $0.top.equalTo(self.photoView.snp.bottom).offset(20)
+            // 간격 값은 디바이스별로 다르게 주기 위해 디바이스의 높이의 0.04배로 설정합니다.
+            let constant = UIScreen.main.bounds.size.height * 0.04
+            $0.top.equalTo(self.photoView.snp.bottom).offset(constant)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(90)
             $0.bottom.equalToSuperview()
@@ -144,7 +145,6 @@ final class DailyHabitView: UIView {
     }
     
     private func setupPhotoView() {
-        self.photoView.image = Self.photoDefault
         self.photoView.contentMode = .scaleAspectFill
         self.photoView.isUserInteractionEnabled = true
         self.photoView.layer.cornerRadius = 16
@@ -225,6 +225,7 @@ final class DailyHabitView: UIView {
         self.habitTextView.text = viewModel.contentText
         self.dateLabel.text = viewModel.dateText
         self.timeLabel.text = viewModel.timeText
+        self.photoView.image = viewModel.defaultPhotoImage
     }
     
     func update(photoImage: UIImage) {

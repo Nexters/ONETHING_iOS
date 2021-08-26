@@ -68,6 +68,7 @@ final class HomeEmptyView: UIView {
             $0.setTitleColor($0.titleColor(for: .normal)?.withAlphaComponent(0.5), for: .highlighted)
             $0.titleLabel?.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
             $0.backgroundColor = .black_100
+            $0.layer.cornerRadius = 10
             $0.addTarget(self, action: #selector(habitSelectButtonDidTap), for: .touchUpInside)
         }
         

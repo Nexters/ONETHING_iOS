@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Writing Penalty View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="WritingPenaltyViewController" id="Y6W-OH-hqX" customClass="WritingPenaltyViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="keq-uo-fzW" userLabel="header view">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3w-jP-viJ">
+                                        <rect key="frame" x="32" y="18" width="24" height="24"/>
+                                        <state key="normal" image="arrow_back"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룸벌칙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X11-gD-TIS">
+                                        <rect key="frame" x="176" y="19.5" width="62.5" height="21"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
+                                        <color key="textColor" name="black_100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="a3w-jP-viJ" firstAttribute="leading" secondItem="keq-uo-fzW" secondAttribute="leading" constant="32" id="1Lp-Jh-pzz"/>
+                                    <constraint firstItem="a3w-jP-viJ" firstAttribute="centerY" secondItem="keq-uo-fzW" secondAttribute="centerY" id="MBc-qs-Gb9"/>
+                                    <constraint firstAttribute="height" constant="60" id="QvH-69-Og0"/>
+                                    <constraint firstItem="X11-gD-TIS" firstAttribute="centerY" secondItem="keq-uo-fzW" secondAttribute="centerY" id="aQY-Ch-3VK"/>
+                                    <constraint firstItem="X11-gD-TIS" firstAttribute="centerX" secondItem="keq-uo-fzW" secondAttribute="centerX" id="oFv-xZ-hzO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrU-dQ-hjp" userLabel="penaltyInfo container view">
+                                <rect key="frame" x="51.5" y="124" width="311" height="108"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="Vuo-mU-Lxu"/>
+                                    <constraint firstAttribute="width" constant="311" id="a7t-ya-kvH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-9r-hdv" userLabel="bottom view">
+                                <rect key="frame" x="0.0" y="817" width="414" height="79"/>
+                                <subviews>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5u-pr-lhD" userLabel="complete button">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="79"/>
+                                        <color key="backgroundColor" name="black_40"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="벌칙 완료하고 습관 지속하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-gz-IQD" userLabel="complete label">
+                                        <rect key="frame" x="95" y="12" width="224.5" height="24"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
+                                        <color key="textColor" name="black_80"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="JHZ-gz-IQD" firstAttribute="centerX" secondItem="Dkb-9r-hdv" secondAttribute="centerX" id="533-pA-RG2"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5u-pr-lhD" secondAttribute="trailing" id="6Go-8j-wVC"/>
+                                    <constraint firstItem="JHZ-gz-IQD" firstAttribute="top" secondItem="Dkb-9r-hdv" secondAttribute="top" constant="12" id="9V1-2b-pIt"/>
+                                    <constraint firstItem="o5u-pr-lhD" firstAttribute="leading" secondItem="Dkb-9r-hdv" secondAttribute="leading" id="Crx-TN-Jnx"/>
+                                    <constraint firstAttribute="bottom" secondItem="o5u-pr-lhD" secondAttribute="bottom" id="Ssr-Sv-dLD"/>
+                                    <constraint firstAttribute="bottom" secondItem="JHZ-gz-IQD" secondAttribute="bottom" constant="43" id="WyB-f5-W8i"/>
+                                    <constraint firstItem="o5u-pr-lhD" firstAttribute="top" secondItem="Dkb-9r-hdv" secondAttribute="top" id="gwD-5x-98h"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dkb-9r-hdv" secondAttribute="trailing" id="NGA-jX-9qQ"/>
+                            <constraint firstItem="wrU-dQ-hjp" firstAttribute="top" secondItem="keq-uo-fzW" secondAttribute="bottom" constant="20" id="S3h-qY-oUo"/>
+                            <constraint firstItem="Dkb-9r-hdv" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dTs-TC-bPf"/>
+                            <constraint firstAttribute="bottom" secondItem="Dkb-9r-hdv" secondAttribute="bottom" id="gd6-FO-KDa"/>
+                            <constraint firstItem="keq-uo-fzW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hiq-y9-ICV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="keq-uo-fzW" secondAttribute="leading" id="ndC-fO-Sl0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="keq-uo-fzW" secondAttribute="trailing" id="tqy-UT-etq"/>
+                            <constraint firstItem="wrU-dQ-hjp" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="vtM-m8-XVZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="a3w-jP-viJ" id="Ca7-xZ-Dbi"/>
+                        <outlet property="completeButton" destination="o5u-pr-lhD" id="f7d-Z5-BZf"/>
+                        <outlet property="completeLabel" destination="JHZ-gz-IQD" id="IDJ-UI-vju"/>
+                        <outlet property="penaltyInfoContainerView" destination="wrU-dQ-hjp" id="XzN-p0-Scz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow_back" width="24" height="24"/>
+        <namedColor name="black_100">
+            <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_40">
+            <color red="0.68999999761581421" green="0.68999999761581421" blue="0.68999999761581421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_80">
+            <color red="0.37999999523162842" green="0.37999999523162842" blue="0.37999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

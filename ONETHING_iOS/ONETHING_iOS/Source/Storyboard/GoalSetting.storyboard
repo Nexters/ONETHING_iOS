@@ -559,12 +559,19 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fd6-Jp-Btw">
+                                        <rect key="frame" x="314" y="226" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
+                                        <state key="normal" title="완료"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81960784313725488" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Apf-0S-apE" secondAttribute="trailing" constant="6" id="51W-cw-AtA"/>
                                     <constraint firstItem="Apf-0S-apE" firstAttribute="leading" secondItem="RgY-7f-qGa" secondAttribute="leading" constant="6" id="IKx-wU-wai"/>
+                                    <constraint firstAttribute="bottom" secondItem="fd6-Jp-Btw" secondAttribute="bottom" constant="39" id="Ots-uj-m2f"/>
                                     <constraint firstAttribute="bottom" secondItem="Apf-0S-apE" secondAttribute="bottom" constant="79" id="WZW-fQ-Ssd"/>
+                                    <constraint firstAttribute="trailing" secondItem="fd6-Jp-Btw" secondAttribute="trailing" constant="26" id="xhL-Vv-Ctc"/>
                                     <constraint firstItem="Apf-0S-apE" firstAttribute="top" secondItem="RgY-7f-qGa" secondAttribute="top" constant="6" id="zJn-DH-jdI"/>
                                 </constraints>
                             </view>
@@ -579,10 +586,17 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwD-Me-lMM">
+                                        <rect key="frame" x="314" y="226" width="35" height="36"/>
+                                        <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
+                                        <state key="normal" title="완료"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.81960784313725488" green="0.83529411764705885" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="d7O-ht-Fs0" secondAttribute="trailing" constant="6" id="IJs-gc-4DB"/>
+                                    <constraint firstAttribute="trailing" secondItem="cwD-Me-lMM" secondAttribute="trailing" constant="26" id="QVW-Wk-BgY"/>
+                                    <constraint firstAttribute="bottom" secondItem="cwD-Me-lMM" secondAttribute="bottom" constant="39" id="UN8-Iy-TCs"/>
                                     <constraint firstItem="d7O-ht-Fs0" firstAttribute="leading" secondItem="gY9-bX-HtR" secondAttribute="leading" constant="6" id="caP-LI-Ofh"/>
                                     <constraint firstAttribute="bottom" secondItem="d7O-ht-Fs0" secondAttribute="bottom" constant="79" id="hDx-Sz-B7W"/>
                                     <constraint firstItem="d7O-ht-Fs0" firstAttribute="top" secondItem="gY9-bX-HtR" secondAttribute="top" constant="6" id="yla-Dn-tMu"/>
@@ -627,9 +641,11 @@
                         <outlet property="backButton" destination="zjs-zI-7ir" id="jT8-Ya-Unj"/>
                         <outlet property="countPicker" destination="d7O-ht-Fs0" id="wWK-O2-qEv"/>
                         <outlet property="countPickerBottomConstraint" destination="hDx-Sz-B7W" id="BDb-fM-xDJ"/>
+                        <outlet property="countPickerCompleteButton" destination="cwD-Me-lMM" id="j32-QW-YVh"/>
                         <outlet property="countPickerContainerView" destination="gY9-bX-HtR" id="bQl-PA-8ZU"/>
                         <outlet property="datePicker" destination="Apf-0S-apE" id="CKj-Zl-wvD"/>
                         <outlet property="datePickerBottomConstraint" destination="WZW-fQ-Ssd" id="c4z-s3-baM"/>
+                        <outlet property="datePickerCompleteButton" destination="fd6-Jp-Btw" id="cyx-U8-2Mx"/>
                         <outlet property="datePickerContainerView" destination="RgY-7f-qGa" id="PK5-oD-pLR"/>
                         <outlet property="dimView" destination="B6d-em-wdL" id="IU0-mq-ZBF"/>
                         <outlet property="nextLabelBottomConstraint" destination="Fiq-77-lNV" id="Yeh-uk-nlu"/>

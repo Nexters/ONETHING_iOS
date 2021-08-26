@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Pretendard-Bold.otf">
+            <string>Pretendard-Bold</string>
+        </array>
+        <array key="Pretendard-Regular.otf">
+            <string>Pretendard-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="DelayPopupView" customModule="ONETHING" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="311" height="540"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upper_delay_img" translatesAutoresizingMaskIntoConstraints="NO" id="qsU-JI-1bY">
+                    <rect key="frame" x="0.0" y="0.0" width="311" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="2VN-HK-ysZ"/>
+                        <constraint firstAttribute="width" constant="311" id="6ny-dB-5qW"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앗! 습관을 미뤘네요!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t10-FZ-SEk" userLabel="title label">
+                    <rect key="frame" x="51.5" y="140" width="208" height="213"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="26"/>
+                    <color key="textColor" name="black_100"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PL-yU-3Gl" customClass="DashLine" customModule="ONETHING" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="373" width="311" height="1.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1.5" id="BMc-E1-Hfp"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="미룸벌칙" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8A-vv-lLH" userLabel="subtitle label">
+                    <rect key="frame" x="128" y="402.5" width="55.5" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="16"/>
+                    <color key="textColor" name="black_100"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="남은 미루기 기회" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVW-gM-mNi" userLabel="count label">
+                    <rect key="frame" x="116" y="442" width="79" height="14"/>
+                    <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="12"/>
+                    <color key="textColor" name="black_60"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IsW-LT-FjD" userLabel="pass penalty button">
+                    <rect key="frame" x="96.5" y="476" width="214.5" height="64"/>
+                    <color key="backgroundColor" name="black_100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="yaC-9n-u7k"/>
+                    </constraints>
+                    <state key="normal" title="미룸벌칙 하러가기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVM-o5-adl" userLabel="giveup button">
+                    <rect key="frame" x="0.0" y="476" width="96.5" height="64"/>
+                    <color key="backgroundColor" name="black_60"/>
+                    <state key="normal" title="그만하기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="IsW-LT-FjD" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.69" id="5jd-5m-eq1"/>
+                <constraint firstItem="5PL-yU-3Gl" firstAttribute="top" secondItem="t10-FZ-SEk" secondAttribute="bottom" constant="20" id="8VW-fT-7nE"/>
+                <constraint firstItem="qsU-JI-1bY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9eg-2U-JUn"/>
+                <constraint firstAttribute="bottom" secondItem="qVM-o5-adl" secondAttribute="bottom" id="BdY-Jc-V7K"/>
+                <constraint firstItem="HVW-gM-mNi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Bkh-kJ-uep"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IsW-LT-FjD" secondAttribute="trailing" id="Eng-Z8-cpt"/>
+                <constraint firstItem="IsW-LT-FjD" firstAttribute="top" secondItem="HVW-gM-mNi" secondAttribute="bottom" constant="20" id="FZU-tm-Toh"/>
+                <constraint firstItem="e8A-vv-lLH" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KbK-gE-gow"/>
+                <constraint firstAttribute="bottom" secondItem="IsW-LT-FjD" secondAttribute="bottom" id="Mwd-Es-kex"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qsU-JI-1bY" secondAttribute="trailing" id="Rfj-Mk-KMm"/>
+                <constraint firstItem="e8A-vv-lLH" firstAttribute="top" secondItem="5PL-yU-3Gl" secondAttribute="bottom" constant="28" id="UI5-5N-OlK"/>
+                <constraint firstItem="qVM-o5-adl" firstAttribute="height" secondItem="IsW-LT-FjD" secondAttribute="height" id="XJs-2h-hpQ"/>
+                <constraint firstItem="qVM-o5-adl" firstAttribute="trailing" secondItem="IsW-LT-FjD" secondAttribute="leading" id="YS4-BJ-MYb"/>
+                <constraint firstAttribute="trailing" secondItem="5PL-yU-3Gl" secondAttribute="trailing" id="acr-Bj-AuT"/>
+                <constraint firstItem="t10-FZ-SEk" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gcF-XD-34v"/>
+                <constraint firstItem="qVM-o5-adl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="grt-Dl-S4t"/>
+                <constraint firstItem="HVW-gM-mNi" firstAttribute="top" secondItem="e8A-vv-lLH" secondAttribute="bottom" constant="20" id="mmn-ir-qZd"/>
+                <constraint firstItem="5PL-yU-3Gl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="onQ-iQ-Hw4"/>
+                <constraint firstItem="t10-FZ-SEk" firstAttribute="top" secondItem="qsU-JI-1bY" secondAttribute="bottom" constant="20" id="qjT-bZ-46R"/>
+                <constraint firstItem="qsU-JI-1bY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="si8-me-7Eb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="16"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="giveUpButton" destination="qVM-o5-adl" id="1xO-aw-vCh"/>
+                <outlet property="passPenaltyButton" destination="IsW-LT-FjD" id="zSA-fh-Iwj"/>
+                <outlet property="remainedDelayCountLabel" destination="HVW-gM-mNi" id="tzg-cE-nuB"/>
+                <outlet property="subTitleLabel" destination="e8A-vv-lLH" id="XpD-9A-Ffc"/>
+                <outlet property="titleLabel" destination="t10-FZ-SEk" id="TXL-D4-A0G"/>
+            </connections>
+            <point key="canvasLocation" x="-106" y="146"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="upper_delay_img" width="311" height="120"/>
+        <namedColor name="black_100">
+            <color red="0.22400000691413879" green="0.22400000691413879" blue="0.22400000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_60">
+            <color red="0.53299999237060547" green="0.53299999237060547" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -25,6 +25,8 @@ final class HomeViewController: BaseViewController {
     private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
+    private weak var delayPopupView: DelayPopupView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +35,7 @@ final class HomeViewController: BaseViewController {
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
         self.setupHomeEmptyView()
+        self.bindButtons()
         self.observeViewModel()
         
         self.viewModel.requestHabitInProgress()
@@ -82,7 +85,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupBackgounndDimColorView() {
-        self.view.addSubview(self.backgroundDimView)
+        self.tabBarController?.view.addSubview(self.backgroundDimView)
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
@@ -100,19 +103,12 @@ final class HomeViewController: BaseViewController {
         self.viewModel
             .habitInProgressSubject
             .bind { [weak self] habitInProgressModel in
-                guard let self = self,
-                let habitInProgressModel = habitInProgressModel else {
-                    self?.barStyle = .darkContent
-                    self?.setNeedsStatusBarAppearanceUpdate()
-                    self?.updateEmptyViewHiddenStatus(false)
-                    self?.updateContentViewHiddenStatus(true)
+                guard let self = self, let habitInProgressModel = habitInProgressModel else {
+                    self?.processIfInProgressModelIsNil()
                     return
                 }
                 
-                self.barStyle = .lightContent
-                self.setNeedsStatusBarAppearanceUpdate()
-                self.updateEmptyViewHiddenStatus(true)
-                self.updateContentViewHiddenStatus(false)
+                self.showMainViewAndHideEmptyView()
                 self.viewModel.requestDailyHabits(habitId: habitInProgressModel.habitId)
                 self.habitInfoView.update(with: self.viewModel)
             }
@@ -125,6 +121,10 @@ final class HomeViewController: BaseViewController {
                 
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
                 self.habitCalendarView.reloadData()
+                
+                guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
+                
+                self.showDelayPopupView(with: self.viewModel)
             }
             .disposed(by: self.disposeBag)
         
@@ -134,6 +134,45 @@ final class HomeViewController: BaseViewController {
                 self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func processIfInProgressModelIsNil() {
+        self.viewModel.requestPassedHabitForSuccessOrFailView(completion: { habitStatus in
+            switch habitStatus {
+            case .unseenFail:
+                self.showFailPopupView(with: self.viewModel)
+            case .unseenSuccess:
+                break
+            default:
+                self.showEmptyViewAndHideMainView()
+            }
+        })
+    }
+    
+    private func bindButtons() {
+        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
+            guard let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
+            else { return }
+            guard let habitInProgressModel = self.viewModel.habitInProgressModel else { return }
+            
+            habitEditingViewController.delegate = self
+            habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
+            self.navigationController?.pushViewController(habitEditingViewController, animated: true)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    private func showEmptyViewAndHideMainView() {
+        self.barStyle = .darkContent
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.updateEmptyViewHiddenStatus(false)
+        self.updateContentViewHiddenStatus(true)
+    }
+    
+    private func showMainViewAndHideEmptyView() {
+        self.barStyle = .lightContent
+        self.setNeedsStatusBarAppearanceUpdate()
+        self.updateEmptyViewHiddenStatus(true)
+        self.updateContentViewHiddenStatus(false)
     }
    
     private func updateEmptyViewHiddenStatus(_ isHidden: Bool) {
@@ -148,6 +187,7 @@ final class HomeViewController: BaseViewController {
 	@objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
         guard let nickname = currentUser.account?.nickname                     else { return }
+        
         self.viewModel.update(nickname: nickname)
         self.habitInfoView.update(with: self.viewModel)
     }
@@ -164,20 +204,27 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let dailyHabitModel = self.viewModel.dailyHabitModel(at: indexPath.row) {
+        if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
+            let dailyHabitModel = DailyHabitModel(
+                order: indexPath.row + 1,
+                sentenceForDelay: viewModel.sentenceForDelay,
+                responseModel: responseModel
+            )
+            
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
-            if self.viewModel.canCreatCurrentDailyHabitModel(with: indexPath.row) {
-                self.presentHabitWritingViewController(with: indexPath)
-                return
+            guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
+              self.showWriteLimitPopupView(with: indexPath)
+              return
             }
-            self.showWriteLimitPopupView(with: indexPath)
+          
+          self.presentHabitWritingViewController(with: indexPath)
         }
     }
     
     private func showWriteLimitPopupView(with indexPath: IndexPath) {
         guard let writeLimitPopupView: CustomPopupView = UIView.createFromNib() else { return }
-        guard let tabbarController = self.tabBarController                   else { return }
+        guard let tabbarController = self.tabBarController                      else { return }
         
         writeLimitPopupView.configure(
             attributedText: self.viewModel.limitMessage(with: indexPath),
@@ -187,8 +234,21 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         writeLimitPopupView.show(in: tabbarController)
     }
     
-    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitResponseModel) {
-        self.backgroundDimView.isHidden = false
+    private func showDelayPopupView(with viewModel: HomeViewModel) {
+        guard let delayPopupView: DelayPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController                else { return }
+        
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+        
+        delayPopupView.delegate = self
+        delayPopupView.configure(with: viewModel)
+        delayPopupView.show(in: tabbarController, completion: {
+            delayPopupView.animateShaking()
+        })
+    }
+    
+    private func presentHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
@@ -229,7 +289,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20
     }
-    
 }
 
 extension HomeViewController: UIViewControllerTransitioningDelegate {
@@ -244,7 +303,7 @@ extension HomeViewController: UIViewControllerTransitioningDelegate {
 
 extension HomeViewController: HabitWrittenViewControllerDelegate {
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
-        self.backgroundDimView.isHidden = true
+        self.backgroundDimView.hideCrossDissolve()
     }
 }
 
@@ -260,9 +319,7 @@ extension HomeViewController: HomeEmptyViewDelegate {
               let navigationController = self.navigationController(goalSettingFirstViewController) else { return }
         
         self.present(navigationController, animated: true) {
-            self.hideEmptyView()
-            self.barStyle = .lightContent
-            self.setNeedsStatusBarAppearanceUpdate()
+            self.showMainViewAndHideEmptyView()
         }
     }
     
@@ -273,10 +330,92 @@ extension HomeViewController: HomeEmptyViewDelegate {
         navigationController.isNavigationBarHidden = true
         return navigationController
     }
+}
+
+extension HomeViewController: DelayPopupViewDelegate {
+    func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
+        self.viewModel.update(isGiveUp: true)
+        self.showFailPopupView(with: self.viewModel)
+    }
     
-    private func hideEmptyView() {
-        let views = [self.habitInfoView, self.habitCalendarView]
-        views.forEach { $0.isHidden = false }
-        self.homeEmptyView.isHidden = false
+    private func showFailPopupView(with viewModel: HomeViewModel) {
+        guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
+        guard let tabbarController = self.tabBarController              else { return }
+        
+        failPopupView.delegate = self
+        failPopupView.configure(with: viewModel)
+        failPopupView.show(in: tabbarController) {
+            failPopupView.animateShaking()
+        }
+    }
+    
+    func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
+        self.backgroundDimView.isHidden = true
+        self.delayPopupView = delayPopupView
+        self.delayPopupView?.isHidden = true
+        self.delayPopupView?.guideLabel.isHidden = true
+        
+        self.pushWritingPenaltyViewController()
+    }
+    
+    private func pushWritingPenaltyViewController() {
+        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
+              let habitId = self.viewModel.habitInProgressModel?.habitId,
+              let sentence = self.viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = self.viewModel.habitInProgressModel?.penaltyCount else { return }
+        
+        writingPenaltyViewController.delegate = self
+        writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
+            habitID: habitId,
+            sentence: sentence,
+            penaltyCount: penaltyCount
+        )
+        self.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
+    }
+}
+
+extension HomeViewController: FailPopupViewDelegate {
+    func failPopupViewDidTapCloseButton() {
+        guard let habitId = self.habitId else { return }
+        
+        self.viewModel.requestUnseenFailToBeFail(habitId: habitId, completion: { _ in
+            self.viewModel.requestHabitInProgress()
+            self.viewModel.update(isGiveUp: false)
+            self.backgroundDimView.hideCrossDissolve()
+        })
+    }
+    
+    private var habitId: Int? {
+        if let habitInProgressModel = self.viewModel.habitInProgressModel {
+            return habitInProgressModel.habitId
+        }
+        
+        if let passedUncheckedModel = self.viewModel.passedUncheckedModel {
+            return passedUncheckedModel.habitId
+        }
+        
+        return nil
+    }
+}
+
+extension HomeViewController: WritingPenaltyViewControllerDelegate {
+    func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.backgroundDimView.isHidden = false
+        self.delayPopupView?.isHidden = false
+        self.delayPopupView?.guideLabel.isHidden = false
+    }
+    
+    func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.viewModel.requestHabitInProgress()
+        self.delayPopupView?.hide()
+    }
+}
+
+extension HomeViewController: HabitEditingViewControllerDelegate {
+    func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController) {
+        guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
+        
+        self.viewModel.update(habitInProgressModel: habitInProgressModel)
+        self.habitInfoView.update(with: self.viewModel)
     }
 }
