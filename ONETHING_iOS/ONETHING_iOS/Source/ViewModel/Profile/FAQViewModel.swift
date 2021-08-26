@@ -23,6 +23,14 @@ final class FAQViewModel {
         }).disposed(by: self.disposeBag)
     }
     
+    func updateExpandingStatus(of faqModel: NoticeModel, expanding: Bool) {
+        guard let id = faqModel.id else { return }
+        
+        if expanding { self.expandingSet.insert(id) }
+        else         { self.expandingSet.remove(id) }
+    }
+    
+    private(set) var expandingSet: Set<Int> = []
     private let disposeBag = DisposeBag()
     
 }
