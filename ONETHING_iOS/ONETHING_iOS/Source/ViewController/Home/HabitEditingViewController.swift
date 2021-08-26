@@ -134,11 +134,9 @@ final class HabitEditingViewController: BaseViewController {
     }
     
     private func bindingButtons() {
-        self.backButton.rx.tap.observeOnMain(onNext: { _ in
-            self.navigationController?.popViewController(animated: true)
-        }).disposed(by: self.disposeBag)
-        
-        self.completeButton.rx.tap.observeOnMain(onNext: { _ in
+        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
             self.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
@@ -160,13 +158,30 @@ final class HabitEditingViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.colorSelectButtons.forEach { button in
-            button.rx.tap.observeOnMain(onNext: { _ in
+            button.rx.tap.observeOnMain(onNext: { [weak self] _ in
+                guard let self = self else { return }
+                
                 button.checkView.isHidden = false
                 self.prevColorSelectButton?.checkView.isHidden = true
                 self.prevColorSelectButton = button
                 self.viewModel?.updateColor(with: button.tag)
             }).disposed(by: self.disposeBag)
         }
+        
+        self.completeButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.completeButton.isUserInteractionEnabled = false
+            self.viewModel?.putEditHabit(completionHandler: { [weak self] _ in
+                guard let self = self else { return }
+                
+                self.delegate?.habitEditingViewControllerDidTapCompleteButton(self)
+                self.navigationController?.popViewController(animated: true)
+            }, failureHandler: {
+                self.completeButton.isUserInteractionEnabled = true
+            })
+            
+        }).disposed(by: self.disposeBag)
     }
     
     private let disposeBag = DisposeBag()

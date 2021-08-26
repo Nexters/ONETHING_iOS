@@ -226,7 +226,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         guard let delayPopupView: DelayPopupView = UIView.createFromNib() else { return }
         guard let tabbarController = self.tabBarController                else { return }
         
-        backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         
         delayPopupView.delegate = self
         delayPopupView.configure(with: viewModel)
@@ -378,5 +378,6 @@ extension HomeViewController: HabitEditingViewControllerDelegate {
         guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
         
         self.viewModel.update(habitInProgressModel: habitInProgressModel)
+        self.habitInfoView.update(with: self.viewModel)
     }
 }

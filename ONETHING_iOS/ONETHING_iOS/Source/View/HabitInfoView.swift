@@ -86,7 +86,7 @@ final class HabitInfoView: UIView {
     }
     
     private func setupDayTextLabel() {
-        self.dayTextLabel.text = "일 째"
+        self.dayTextLabel.text = "일차"
         self.dayTextLabel.font = UIFont(name: "Pretendard-Regular", size: 10)
         self.dayTextLabel.textColor = .white
         
@@ -136,5 +136,6 @@ final class HabitInfoView: UIView {
         self.dayNumberLabel.text = viewModel.currentDayText
         self.titleLabel.text = viewModel.titleText
         self.descriptionLabel.text = viewModel.discriptionText
+        self.backgroundColor = viewModel.habitInProgressModel?.onethingColor
     }
 }

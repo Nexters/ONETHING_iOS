@@ -7,12 +7,38 @@
 
 import UIKit
 
+import RxSwift
+
 final class HabitEditViewModel {
     private(set) var habitInProgressModel: HabitResponseModel
     private let colors: [OnethingColor] = [.black_100, .red, .yellow_2, .mint_2, .blue, .purple_2]
     
-    init(habitInProgressModel: HabitResponseModel) {
+    private let apiService: APIService
+    private let disposeBag = DisposeBag()
+    
+    init(habitInProgressModel: HabitResponseModel, apiService: APIService = APIService()) {
         self.habitInProgressModel = habitInProgressModel
+        self.apiService = apiService
+    }
+    
+    func putEditHabit(completionHandler: @escaping (HabitResponseModel) -> Void, failureHandler: @escaping () -> Void) {
+        let habitInProgressModel = self.habitInProgressModel
+        guard let pushTime = habitInProgressModel.pushTime else { return }
+        
+        let editHabitAPI: ContentAPI = .editHabit(
+            habitId: habitInProgressModel.habitId,
+            color: habitInProgressModel.color,
+            pushTime: pushTime,
+            penaltyCount: habitInProgressModel.penaltyCount
+        )
+        
+        self.apiService.requestAndDecodeRx(apiTarget: editHabitAPI)
+            .subscribe(onSuccess: { (responseModel: HabitResponseModel) in
+                self.habitInProgressModel = responseModel
+                completionHandler(responseModel)
+            }, onFailure: { _ in
+                failureHandler()
+            }).disposed(by: self.disposeBag)
     }
     
     func update(penaltyCount: Int) {

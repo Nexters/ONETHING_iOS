@@ -63,9 +63,9 @@ final class HomeViewModel: NSObject {
     }
     
     var discriptionText: String? {
-        guard let userName = self.nickname else { return nil }
+        guard let nickname = self.nickname else { return nil }
         
-        return "\(userName) 님의 66일 습관 목표"
+        return "\(nickname) 님의 66일 습관 목표"
     }
     
     var textOfStartDate: String? {
@@ -122,7 +122,7 @@ final class HomeViewModel: NSObject {
     }
     
     func update(habitInProgressModel: HabitResponseModel) {
-        
+        self.habitInProgressModel = habitInProgressModel
     }
     
     func update(nickname: String) {
