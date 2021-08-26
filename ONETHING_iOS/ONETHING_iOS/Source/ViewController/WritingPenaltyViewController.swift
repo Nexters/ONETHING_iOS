@@ -86,7 +86,6 @@ final class WritingPenaltyViewController: BaseViewController {
         penaltyInfoView.do {
             $0.isUserInteractionEnabled = false
             $0.arrowImageView.isHidden = true
-
         }
         
         self.penaltyInfoContainerView.addSubview(penaltyInfoView)

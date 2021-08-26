@@ -25,7 +25,7 @@ extension Date {
 }
 
 extension String {
-    func convertToDate(format: String, locale: Locale = Locale(identifier: "ko_KR")) -> Date? {
+    func convertToDate(format: String = "HH:mm", locale: Locale = Locale(identifier: "ko_KR")) -> Date? {
         let formatter = DateFormatter()
         formatter.locale = locale
         formatter.dateFormat = format

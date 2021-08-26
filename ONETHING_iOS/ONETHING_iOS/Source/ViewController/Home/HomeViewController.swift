@@ -139,10 +139,13 @@ final class HomeViewController: BaseViewController {
     
     private func bindButtons() {
         self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
-            guard let habitModifyViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
+            guard let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
             else { return }
+            guard let habitInProgressModel = self.viewModel.habitInProgressModel else { return }
             
-            self.navigationController?.pushViewController(habitModifyViewController, animated: true)
+            habitEditingViewController.delegate = self
+            habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
+            self.navigationController?.pushViewController(habitEditingViewController, animated: true)
         }).disposed(by: self.disposeBag)
     }
     
@@ -367,5 +370,13 @@ extension HomeViewController: WritingPenaltyViewControllerDelegate {
     
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
         self.delayPopupView?.hide()
+    }
+}
+
+extension HomeViewController: HabitEditingViewControllerDelegate {
+    func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController) {
+        guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
+        
+        self.viewModel.update(habitInProgressModel: habitInProgressModel)
     }
 }

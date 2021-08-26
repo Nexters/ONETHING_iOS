@@ -13,7 +13,12 @@ final class PenaltyInfoView: UIView {
         super.awakeFromNib()
     }
     
+    func updateCount(with viewModel: HabitEditViewModel) {
+        self.countLabel.text = viewModel.penaltyWriteCountText
+        self.countLabel.sizeToFit()
+    }
+    
     @IBOutlet weak var countBoxView: UIView!
-    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var arrowImageView: UIImageView!
+    @IBOutlet private weak var countLabel: UILabel!
 }

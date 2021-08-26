@@ -34,7 +34,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만약 습관을 미루면, 다짐 문장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kT-rj-vhh">
-                    <rect key="frame" x="40" y="34" width="232" height="24"/>
+                    <rect key="frame" x="40" y="34" width="235.5" height="24"/>
                     <fontDescription key="fontDescription" name="Pretendard-Light" family="Pretendard" pointSize="20"/>
                     <color key="textColor" name="black_100"/>
                     <nil key="highlightedColor"/>
@@ -43,13 +43,13 @@
                     <rect key="frame" x="40" y="68" width="334" height="35"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dJ4-lE-lTa">
-                            <rect key="frame" x="14" y="5" width="264.5" height="25"/>
+                            <rect key="frame" x="14" y="5" width="266" height="25"/>
                             <color key="textColor" name="red_3"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="0 / 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzU-kG-xMo">
-                            <rect key="frame" x="292.5" y="18" width="27.5" height="12"/>
+                            <rect key="frame" x="294" y="18" width="26" height="12"/>
                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                             <color key="textColor" name="black_40"/>
                             <nil key="highlightedColor"/>
@@ -77,16 +77,16 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgA-sL-vaQ">
-                    <rect key="frame" x="92" y="113" width="80" height="34"/>
+                    <rect key="frame" x="92" y="113" width="78.5" height="34"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0번" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avs-Mv-CTa">
-                            <rect key="frame" x="14" y="5" width="30" height="24"/>
+                            <rect key="frame" x="14" y="5" width="28.5" height="24"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="20"/>
                             <color key="textColor" name="red_3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="Ejg-9Q-5NM">
-                            <rect key="frame" x="48" y="5" width="24" height="24"/>
+                            <rect key="frame" x="46.5" y="5" width="24" height="24"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" name="black_5"/>
@@ -106,7 +106,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="적을게요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BqT-CU-PfN">
-                    <rect key="frame" x="182" y="119.5" width="59" height="21"/>
+                    <rect key="frame" x="180.5" y="119.5" width="59" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="black_100"/>
                     <nil key="highlightedColor"/>

@@ -76,15 +76,18 @@ enum OnethingColor: String {
     case red_3
     case red_2
     case red_1
+    case red
     case black_40
+    case black_100
     case beige
     case yellow_1
-    case red_default = "red"
+    case yellow_2
     case pink_1
     case pink_2
     case purple_1
     case purple_2
     case mint_1
+    case mint_2
     case blue = "blue"
     case green_1
     case green_2
@@ -94,16 +97,19 @@ enum OnethingColor: String {
         case .red_3: return .red_3
         case .red_2: return .red_2
         case .red_1: return .red_1
+        case .red: return .red_default
         case .black_40:  return .black_40
+        case .black_100: return .black_100
         case .beige: return .beige
         case .yellow_1: return .yellow_1
-        case .red_default: return .red_default
+        case .yellow_2: return .yellow_2
         case .pink_1: return .pink_1
         case .pink_2: return .pink_2
         case .purple_1: return .purple_1
         case .purple_2: return .purple_2
         case .blue: return .blue_default
         case .mint_1: return .mint_1
+        case .mint_2: return .mint_2
         case .green_1: return .green_1
         case .green_2: return .green_2
         }

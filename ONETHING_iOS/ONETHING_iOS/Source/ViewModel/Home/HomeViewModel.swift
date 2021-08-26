@@ -14,7 +14,7 @@ final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
     private let apiService: APIService
-    private var habitInProgressModel: HabitResponseModel?
+    private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private var nickname: String?
     private let disposeBag = DisposeBag()
@@ -119,6 +119,10 @@ final class HomeViewModel: NSObject {
     func append(currentDailyHabitModel: DailyHabitResponseModel) {
         self.dailyHabitModels.append(currentDailyHabitModel)
         self.currentIndexPathOfDailyHabitSubject.onNext(IndexPath(item: self.dailyHabitModels.count - 1, section: 0))
+    }
+    
+    func update(habitInProgressModel: HabitResponseModel) {
+        
     }
     
     func update(nickname: String) {
