@@ -25,7 +25,17 @@ final class ProfileEditViewController: UIViewController {
         }).disposed(by: self.disposeBag)
         
         self.saveButton.rx.tap.subscribe(onNext: {
-            self.viewModel.requestSetProfile()
+            if self.nicknameTextField.text?.count == 0 {
+                guard let customPopupView: CustomPopupView = UIView.createFromNib() else { return }
+                customPopupView.configure(title: "닉네임을 적어주세요.", image: #imageLiteral(resourceName: "prepare_rabbit"))
+                customPopupView.show(in: self)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    customPopupView.hide()
+                }
+            } else {
+                self.viewModel.requestSetProfile()
+            }
         }).disposed(by: self.disposeBag)
         
         self.studyProfileButton?.rx.tap.observeOnMain(onNext: { [weak self] in
@@ -58,7 +68,7 @@ final class ProfileEditViewController: UIViewController {
             }
             
             self.nicknameCountLabel.text = String(format: "%d / 10", text.count)
-            self.updateSetButton(as: text.count != 0)
+            self.updateSetButton(as: text.count <= 10)
             self.viewModel.updateNickname(text)
         }).disposed(by: self.disposeBag)
     }

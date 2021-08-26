@@ -16,6 +16,12 @@
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
+		CE16973226D80B2600AD0BE9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973126D80B2600AD0BE9 /* SplashViewController.swift */; };
+		CE16973326D80B2600AD0BE9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973126D80B2600AD0BE9 /* SplashViewController.swift */; };
+		CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973126D80B2600AD0BE9 /* SplashViewController.swift */; };
+		CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */; };
+		CE16973726D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */; };
+		CE16973826D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */; };
 		CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
 		CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16C25B26A8461A00D87096 /* LoginViewController.swift */; };
@@ -563,6 +569,8 @@
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
+		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
 		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/ViewController/Intro/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CE1F96BE26AC0A16006B56E4 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
 		CE1F96C326AC0A31006B56E4 /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
@@ -896,6 +904,7 @@
 			children = (
 				CE00AA492699FF5F002C674B /* LoginViewModel.swift */,
 				CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */,
+				CE16973126D80B2600AD0BE9 /* SplashViewController.swift */,
 			);
 			path = Intro;
 			sourceTree = "<group>";
@@ -1052,6 +1061,7 @@
 				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
+				CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 				F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */,
 			);
@@ -1835,6 +1845,7 @@
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
+				CE16973226D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
@@ -1851,6 +1862,7 @@
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
@@ -1989,6 +2001,7 @@
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
+				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
@@ -2005,6 +2018,7 @@
 				F2F588B226B0F95200F5430D /* LockView.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE26C44B26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
+				CE16973826D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				CE466A7F26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
@@ -2127,6 +2141,7 @@
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
+				CE16973326D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
@@ -2143,6 +2158,7 @@
 				F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
+				CE16973726D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				F2BADE0726C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
 				CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
@@ -2379,8 +2395,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2391,7 +2407,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2404,8 +2420,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2416,7 +2432,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

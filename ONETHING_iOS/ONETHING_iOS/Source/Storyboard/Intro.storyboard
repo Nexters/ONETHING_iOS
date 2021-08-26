@@ -62,13 +62,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 생성 시 뇽뇽의 개인정보 수집 방침" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-5t-NtD" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <rect key="frame" x="40" y="468" width="295" height="15"/>
+                                <rect key="frame" x="40" y="468" width="295" height="14.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="black_40"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEP-t9-VHJ">
-                                <rect key="frame" x="40" y="515" width="295" height="44"/>
+                                <rect key="frame" x="40" y="514.33333333333337" width="295" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Z0l-Pq-eC5">
                                         <rect key="frame" x="17" y="10" width="24" height="24"/>
@@ -293,10 +293,40 @@
             </objects>
             <point key="canvasLocation" x="775" y="102"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="sM6-GK-6bF">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="hlr-Jd-cTE" customClass="SplashViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MMH-EH-13n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHD-cZ-uk3" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="m29-Ct-az6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IHD-cZ-uk3" firstAttribute="top" secondItem="MMH-EH-13n" secondAttribute="top" id="DNB-Pc-Bt1"/>
+                            <constraint firstItem="IHD-cZ-uk3" firstAttribute="leading" secondItem="m29-Ct-az6" secondAttribute="leading" id="TVo-Pi-I4g"/>
+                            <constraint firstItem="m29-Ct-az6" firstAttribute="trailing" secondItem="IHD-cZ-uk3" secondAttribute="trailing" id="b0j-X8-1pV"/>
+                            <constraint firstAttribute="bottom" secondItem="IHD-cZ-uk3" secondAttribute="bottom" id="bbq-ia-qiO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="IHD-cZ-uk3" id="K8S-BF-qP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mb-TX-f72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="770.68965517241384"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="d2v-5t-NtD">
-            <size key="intrinsicContentSize" width="187" height="15"/>
+            <size key="intrinsicContentSize" width="186.33333333333334" height="14.333333333333334"/>
         </designable>
     </designables>
     <resources>

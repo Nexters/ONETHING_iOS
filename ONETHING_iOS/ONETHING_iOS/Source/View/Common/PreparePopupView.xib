@@ -26,7 +26,7 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvt-2R-jkP">
-                    <rect key="frame" x="100" y="390.5" width="214" height="115.5"/>
+                    <rect key="frame" x="100" y="390.5" width="214" height="115"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prepare_rabbit" translatesAutoresizingMaskIntoConstraints="NO" id="F0I-38-dWc">
                             <rect key="frame" x="64" y="20" width="86" height="46"/>
@@ -36,7 +36,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서비스를" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2w-Nd-S97">
-                            <rect key="frame" x="79.5" y="76" width="55.5" height="19.5"/>
+                            <rect key="frame" x="79.5" y="76" width="55.5" height="19"/>
                             <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
                             <color key="textColor" name="black_100"/>
                             <nil key="highlightedColor"/>
