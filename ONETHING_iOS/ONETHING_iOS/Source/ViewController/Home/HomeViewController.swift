@@ -104,8 +104,7 @@ final class HomeViewController: BaseViewController {
             .habitInProgressSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    self?.showEmptyViewAndHideMainView()
-                
+                    self?.processIfInProgressModelIsNil()
                     return
                 }
                 
@@ -135,6 +134,19 @@ final class HomeViewController: BaseViewController {
                 self?.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func processIfInProgressModelIsNil() {
+        self.viewModel.requestPassedHabitForSuccessOrFailView(completion: { habitStatus in
+            switch habitStatus {
+            case .unseenFail:
+                self.showFailPopupView(with: self.viewModel)
+            case .unseenSuccess:
+                break
+            default:
+                self.showEmptyViewAndHideMainView()
+            }
+        })
     }
     
     private func bindButtons() {
@@ -364,8 +376,25 @@ extension HomeViewController: DelayPopupViewDelegate {
 
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
-        self.viewModel.update(isGiveUp: false)
-        self.backgroundDimView.hideCrossDissolve()
+        guard let habitId = self.habitId else { return }
+        
+        self.viewModel.requestUnseenFailToBeFail(habitId: habitId, completion: { _ in
+            self.viewModel.requestHabitInProgress()
+            self.viewModel.update(isGiveUp: false)
+            self.backgroundDimView.hideCrossDissolve()
+        })
+    }
+    
+    private var habitId: Int? {
+        if let habitInProgressModel = self.viewModel.habitInProgressModel {
+            return habitInProgressModel.habitId
+        }
+        
+        if let passedUncheckedModel = self.viewModel.passedUncheckedModel {
+            return passedUncheckedModel.habitId
+        }
+        
+        return nil
     }
 }
 
