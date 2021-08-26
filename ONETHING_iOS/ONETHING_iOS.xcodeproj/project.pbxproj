@@ -2397,14 +2397,14 @@
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
@@ -2422,14 +2422,14 @@
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
@@ -2535,14 +2535,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -2558,14 +2558,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
@@ -2582,14 +2582,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.ent.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2606,14 +2606,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Ent.entitlements";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Ent-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.ent.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
