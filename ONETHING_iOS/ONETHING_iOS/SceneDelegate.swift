@@ -35,8 +35,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.present(viewController: loginViewController, with: rootController)
             return
         }
-        
-        OnethingUserManager.sharedInstance.requestAccount(completion: { accountModel in
+
+        userManager.requestAccount(completion: { accountModel in
             guard accountModel.doneHabitSetting == false else { return }
             
             let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))

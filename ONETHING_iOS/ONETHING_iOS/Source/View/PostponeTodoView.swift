@@ -33,7 +33,7 @@ class PostponeTodoView: UIView {
     private func setupTextField() {
         guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) else { return }
         
-        let attributePlaceHolderText = NSAttributedString(string: "매일 스쿼트 한 세트하기",
+        let attributePlaceHolderText = NSAttributedString(string: "절대로! 다시는! 미루지 말자!",
                                                           attributes: [.font: pretendardFont,
                                                                        .foregroundColor: UIColor.black_20])
         self.postponeTextfield.attributedPlaceholder = attributePlaceHolderText
