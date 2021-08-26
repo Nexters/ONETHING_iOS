@@ -31,7 +31,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     private func presentNavigationControllerIfNeeded(with userManager: OnethingUserManager, rootController: MainTabBarController) {
         if userManager.hasAccessToken == false {
-            let loginViewController = self.navigationController(LoginViewController.instantiateViewController(from: .intro))
+            let loginViewController =
+                UIViewController.navigationController(LoginViewController.instantiateViewController(from: .intro))
             self.present(viewController: loginViewController, with: rootController)
             return
         }
@@ -39,7 +40,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         OnethingUserManager.sharedInstance.requestAccount(completion: { accountModel in
             guard accountModel.doneHabitSetting == false else { return }
             
-            let goalSettingFirstViewController = self.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
+            let goalSettingFirstViewController =
+                UIViewController.navigationController(GoalSettingFirstViewController.instantiateViewController(from: .goalSetting))
             self.present(viewController: goalSettingFirstViewController, with: rootController) {
                 guard accountModel.account?.nickname == nil else { return }
                 
@@ -59,12 +61,5 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
     
-    private func navigationController(_ rootController: UIViewController?) -> UINavigationController? {
-        guard let rootController = rootController else { return nil }
-        let navigationController = UINavigationController(rootViewController: rootController)
-        navigationController.modalPresentationStyle = .fullScreen
-        navigationController.isNavigationBarHidden = true
-        return navigationController
-    }
 }
 
