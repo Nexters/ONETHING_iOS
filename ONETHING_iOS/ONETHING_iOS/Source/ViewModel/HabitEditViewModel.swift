@@ -9,7 +9,7 @@ import UIKit
 
 import RxSwift
 
-final class HabitEditViewModel {
+final class HabitEditViewModel: PenaltyInfoViewModable {
     private(set) var habitInProgressModel: HabitResponseModel
     private let colors: [OnethingColor] = [.black_100, .red, .yellow_2, .mint_2, .blue, .purple_2]
     

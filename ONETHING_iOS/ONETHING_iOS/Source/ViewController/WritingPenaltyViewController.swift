@@ -25,8 +25,9 @@ final class WritingPenaltyViewController: BaseViewController {
         $0.distribution = .fillEqually
         $0.spacing = 20
     }
+    var viewModel: WritingPenaltyViewModel?
     
-    weak var delegate:  WritingPenaltyViewControllerDelegate?
+    weak var delegate: WritingPenaltyViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +37,7 @@ final class WritingPenaltyViewController: BaseViewController {
         self.setupScrollView()
         self.setupInnerStackView()
         self.bindButtons()
-        
-        let penaltyTextableViews = (0..<2).compactMap { _ -> PenaltyTextableView? in
-            let view: PenaltyTextableView? = UIView.createFromNib()
-            return view
-        }
-        
-        penaltyTextableViews.forEach {
-            self.innerStackView.addArrangedSubview($0)
-            $0.snp.makeConstraints {
-                $0.height.equalTo(50)
-                $0.width.equalToSuperview()
-            }
-        }
-        self.penaltyTextableViews = penaltyTextableViews
+        self.updateViews(with: self.viewModel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,10 +80,6 @@ final class WritingPenaltyViewController: BaseViewController {
         penaltyInfoView.snp.remakeConstraints {
             $0.edges.equalToSuperview()
         }
-        
-        penaltyInfoView.countBoxView.snp.remakeConstraints {
-            $0.width.equalTo(64)
-        }
     }
     
     private func setupScrollView() {
@@ -133,9 +117,46 @@ final class WritingPenaltyViewController: BaseViewController {
         self.completeButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }
             
-            self.delegate?.writingPenaltyViewControllerDidTapCompleteButton(self)
-            self.navigationController?.popViewController(animated: true)
+            self.viewModel?.putDelayPenaltyForCompleted(completion: { _ in
+                self.delegate?.writingPenaltyViewControllerDidTapCompleteButton(self)
+                self.navigationController?.popViewController(animated: true)
+            })
         }).disposed(by: self.disposeBag)
+    }
+    
+    func updateViews(with viewModel: WritingPenaltyViewModel?) {
+        guard let viewModel = viewModel else { return }
+        
+        self.addPenaltyTextableViews(with: viewModel.penaltyCount, sentence: viewModel.sentence)
+        self.penaltyInfoView?.updateCount(with: viewModel)
+        self.penaltyInfoView?.update(sentence: viewModel.sentence)
+    }
+    
+    private func addPenaltyTextableViews(with count: Int, sentence: String) {
+        let penaltyTextableViews = (0..<count).compactMap { _ -> PenaltyTextableView? in
+            let view: PenaltyTextableView? = UIView.createFromNib()
+            view?.placeholderLabel.text = sentence
+            return view
+        }
+        
+        penaltyTextableViews.forEach {
+            self.innerStackView.addArrangedSubview($0)
+            $0.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.width.equalToSuperview()
+            }
+        }
+        
+        let dummyViews = (0..<4).map { _ in return UIView() }
+        dummyViews.forEach { dummyView in
+            self.innerStackView.addArrangedSubview(dummyView)
+            dummyView.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.width.equalToSuperview()
+            }
+        }
+        
+        self.penaltyTextableViews = penaltyTextableViews
     }
     
     private let disposeBag = DisposeBag()

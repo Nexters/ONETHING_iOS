@@ -383,6 +383,9 @@
 		F2129BE926D786C700C6D49E /* HabitEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */; };
 		F2129BEA26D786C700C6D49E /* HabitEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */; };
 		F2129BEB26D786C700C6D49E /* HabitEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */; };
+		F2129BED26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */; };
+		F2129BEE26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */; };
+		F2129BEF26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */; };
 		F21CCD2726D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
 		F21CCD2826D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
 		F21CCD2926D6874E0067FDD1 /* ColorSelectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */; };
@@ -691,6 +694,7 @@
 		F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTextView.swift; sourceTree = "<group>"; };
 		F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewModel.swift; sourceTree = "<group>"; };
 		F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitEditViewModel.swift; sourceTree = "<group>"; };
+		F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPenaltyViewModel.swift; sourceTree = "<group>"; };
 		F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectButton.swift; sourceTree = "<group>"; };
 		F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitViewModelable.swift; sourceTree = "<group>"; };
 		F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitImageUseCase.swift; sourceTree = "<group>"; };
@@ -1097,6 +1101,7 @@
 				F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */,
 				CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */,
 				F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */,
+				F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1879,6 +1884,7 @@
 				CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
+				F2129BED26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
@@ -2031,6 +2037,7 @@
 				CE8FEDE626B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
+				F2129BEF26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CE8FEDF126B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CE3B8BB426A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -2167,6 +2174,7 @@
 				F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
+				F2129BEE26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CE8FEDD326B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CEFC3A2E269CA74A0007AFF2 /* UIColor+.swift in Sources */,

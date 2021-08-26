@@ -114,6 +114,7 @@
                 <outlet property="arrowImageView" destination="Jvf-5Z-kIh" id="f9q-tF-JNH"/>
                 <outlet property="countBoxView" destination="HU1-5j-otg" id="sjl-3L-TIj"/>
                 <outlet property="countLabel" destination="MMs-MD-je8" id="Bat-YE-90p"/>
+                <outlet property="sentenceLabel" destination="lVO-Li-1R0" id="5S8-Sf-17R"/>
             </connections>
             <point key="canvasLocation" x="2.1739130434782612" y="145.98214285714286"/>
         </view>

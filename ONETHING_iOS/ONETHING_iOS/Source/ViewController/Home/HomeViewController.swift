@@ -347,9 +347,17 @@ extension HomeViewController: DelayPopupViewDelegate {
     }
     
     private func pushWritingPenaltyViewController() {
-        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty) else { return }
+        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
+              let habitId = self.viewModel.habitInProgressModel?.habitId,
+              let sentence = self.viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = self.viewModel.habitInProgressModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
+        writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
+            habitID: habitId,
+            sentence: sentence,
+            penaltyCount: penaltyCount
+        )
         self.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
 }
@@ -369,6 +377,7 @@ extension HomeViewController: WritingPenaltyViewControllerDelegate {
     }
     
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
+        self.viewModel.requestHabitInProgress()
         self.delayPopupView?.hide()
     }
 }

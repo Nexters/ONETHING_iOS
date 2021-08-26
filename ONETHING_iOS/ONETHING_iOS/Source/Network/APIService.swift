@@ -38,6 +38,12 @@ final class APIService {
                         if response.statusCode == 200 { single(.success(response.data as! C)) }
                     }
                     
+                    if let contentAPI = apiTarget as? ContentAPI, case .putPassDelayPenalty = contentAPI {
+                        if response.statusCode == 200 {
+                            single(.success(true as! C))
+                        }
+                    }
+                    
                     do {
                         guard let resultData = try response.mapString().data(using: .utf8) else {
                             throw NSError(domain: "JSON Parsing Error", code: -1, userInfo: nil)
