@@ -9,6 +9,7 @@ import UIKit
 
 import Then
 import Kingfisher
+import Photos
 
 protocol DailyHabitViewCloseButtonDelegate: UIViewController {
     func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView)
@@ -151,6 +152,8 @@ final class DailyHabitView: UIView {
     }
     
     private func setupEnrollPhotoButton() {
+        self.enrollPhotoButton.cornerRadius = 13
+        self.enrollPhotoButton.backgroundColor = .black_100
         self.enrollPhotoButton.setImage(UIImage(named: "enroll_photo"), for: .normal)
         self.enrollPhotoButton.addTarget(self, action: #selector(enrollPhotoButtonDidTouch), for: .touchUpInside)
         self.enrollPhotoButton.contentMode = .scaleAspectFit
@@ -171,17 +174,43 @@ final class DailyHabitView: UIView {
     }
     
     private func openLibrary() {
-        self.picker.sourceType = .photoLibrary
-        self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+        MediaAuthorizationManager.sharedInstance.requestGalleryAuthorization { [weak self] granted in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if granted {
+                    self.picker.sourceType = .photoLibrary
+                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+                } else {
+                    self.showAuthorizationView(.gallery)
+                }
+            }
+        }
     }
     
     private func openCamera() {
-        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            self.picker.sourceType = .camera
-            self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
-        } else {
-            print("Camera not available")
+        MediaAuthorizationManager.sharedInstance.requestCameraAuthorization { [weak self] granted in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                if granted {
+                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
+                    self.picker.sourceType = .camera
+                } else {
+                    self.showAuthorizationView(.camera)
+                }
+            }
         }
+    }
+    
+    private func showAuthorizationView(_ type: MediaType) {
+        guard let authorizationView: AuthorizationView = UIView.createFromNib()             else { return }
+        guard let keyWindow = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+        authorizationView.configure(type) {
+            guard let optionURL = URL(string: "\(UIApplication.openSettingsURLString)") else { return }
+            UIApplication.shared.open(optionURL, options: [:])
+        }
+        authorizationView.show(in: keyWindow)
     }
     
     var contentText: String? {

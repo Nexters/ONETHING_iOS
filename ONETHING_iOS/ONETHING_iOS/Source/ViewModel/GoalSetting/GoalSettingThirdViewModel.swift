@@ -13,7 +13,7 @@ final class GoalSettingThirdViewModel {
     
     let pushDateRelay = BehaviorRelay<Date>(value: Date())
     let postponeTodoCountRelay = BehaviorRelay<Int>(value: 5)
-    let enableSubject = PublishSubject<Bool>()
+    let enableSubject = BehaviorSubject<Bool>(value: false)
     
     func updateHabitTitle(_ title: String) {
         self.habitTitle = title
