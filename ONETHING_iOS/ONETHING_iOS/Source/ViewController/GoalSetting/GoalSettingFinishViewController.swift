@@ -77,7 +77,7 @@ final class GoalSettingFinishViewController: BaseViewController {
         self.viewModel.completeSubject.observeOnMain(onNext: { [weak self] in
             guard let self = self                                         else { return }
             guard let popupView: CustomPopupView = UIView.createFromNib() else { return }
-            popupView.configure(title: "알림과 미룸벌칙은\n2차 출시에 사용할 수 있어요!", image: #imageLiteral(resourceName: "prepare_rabbit"))
+            popupView.configure(title: "알림은\n2차 출시에 사용할 수 있어요!", image: #imageLiteral(resourceName: "prepare_rabbit"))
             popupView.setEnableTapGesture(false)
             popupView.show(in: self)
             
