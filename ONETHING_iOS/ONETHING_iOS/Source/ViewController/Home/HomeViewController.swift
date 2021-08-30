@@ -102,11 +102,12 @@ final class HomeViewController: BaseViewController {
     }
     
     private func observeViewModel() {
+        // MARK: - related to In Progress Habit
         self.viewModel
             .habitInProgressSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    self?.processIfInProgressModelIsNil()
+                    self?.viewModel.requestPassedHabitForSuccessOrFailView()
                     return
                 }
                 
@@ -120,12 +121,10 @@ final class HomeViewController: BaseViewController {
             .dailyHabitsSubject
             .bind { [weak self] _ in
                 guard let self = self else { return }
-                
-                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio ?? 0)
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
                 self.habitCalendarView.reloadData()
                 
                 guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
-                
                 self.showDelayPopupView(with: self.viewModel)
             }
             .disposed(by: self.disposeBag)
@@ -133,22 +132,45 @@ final class HomeViewController: BaseViewController {
         self.viewModel
             .currentIndexPathOfDailyHabitSubject
             .subscribe(onNext: { [weak self] indexPath in
-                self?.habitCalendarView.reloadItems(at: [indexPath])
+                guard let self = self else { return }
+//                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
+                self.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
-    }
-    
-    private func processIfInProgressModelIsNil() {
-        self.viewModel.requestPassedHabitForSuccessOrFailView(completion: { habitStatus in
-            switch habitStatus {
-            case .unseenFail:
-                self.showFailPopupView(with: self.viewModel)
-            case .unseenSuccess:
-                break
-            default:
-                self.showEmptyViewAndHideMainView()
+        
+        // MARK: - related to Passed Unseen Success Of Unseen Fail Habit
+        self.viewModel
+            .unseenHabitSubject
+            .bind { [weak self] unseenResponseModel in
+                guard let self = self, let unseenResponseModel = unseenResponseModel else {
+                    self?.showEmptyViewAndHideMainView()
+                    return
+                }
+                
+                self.showMainViewAndHideEmptyView()
+                self.viewModel.requestUnseenDailyHabits(habitId: unseenResponseModel.habitId)
+                self.habitInfoView.update(with: self.viewModel)
+            }.disposed(by: self.disposeBag)
+        
+        self.viewModel
+            .unseenHabitSubject
+            .bind { [weak self] _ in
+                guard let self = self else { return }
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
+                self.habitCalendarView.reloadData()
+                
+                guard let status = self.viewModel.unseenHabitModel?.onethingHabitStatus else { return }
+                switch status {
+                    case .unseenSuccess:
+                        #warning("성공 페이지 만들면 성공 페이지 띄워줘야 함")
+                        break
+                    case .unseenFail:
+                        self.showFailPopupView(with: self.viewModel)
+                    default:
+                        break
+                }
             }
-        })
+            .disposed(by: self.disposeBag)
     }
     
     private func bindButtons() {
@@ -379,7 +401,7 @@ extension HomeViewController: DelayPopupViewDelegate {
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
         // uncheked fail인 경우
-        if let habitId = self.viewModel.passedUncheckedModel?.habitId {
+        if let habitId = self.viewModel.unseenHabitModel?.habitId {
             self.viewModel.requestUnseenFailToBeFail(habitId: habitId) { _ in
                 self.viewModel.requestHabitInProgress()
                 self.viewModel.update(isGiveUp: false)

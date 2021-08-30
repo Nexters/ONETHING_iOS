@@ -15,13 +15,18 @@ final class HomeViewModel: NSObject {
     
     private let apiService: APIService
     private(set) var habitInProgressModel: HabitResponseModel?
-    private(set) var passedUncheckedModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
+    let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
+    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
+    
+    private(set) var unseenHabitModel: HabitResponseModel?
+    private var unseenDailyHabitModels = [DailyHabitResponseModel]()
+    let unseenHabitSubject = PublishSubject<HabitResponseModel?>()
+    let unseenDailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
+    
     private var nickname: String?
     private let disposeBag = DisposeBag()
     private(set) var isGiveUp = false
-    let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
-    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
     init(apiService: APIService = APIService.shared) {
@@ -32,8 +37,8 @@ final class HomeViewModel: NSObject {
         self.apiService.requestAndDecodeRx(
             apiTarget: ContentAPI.getHabitInProgress,
             retryHandler: { self.requestHabitInProgress() }
-        ).subscribe(onSuccess: { [weak self] (responseModel: InProgressHabitResponseModel) in
-            guard let habitInProgressModel = responseModel.data else {
+        ).subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+            guard let habitInProgressModel = wrappingResponseModel.data else {
                 self?.habitInProgressSubject.onNext(nil)
                 return
             }
@@ -51,13 +56,24 @@ final class HomeViewModel: NSObject {
             }).disposed(by: self.disposeBag)
     }
     
-    func requestPassedHabitForSuccessOrFailView(completion: @escaping (HabitResponseModel.HabitStatus) -> Void) {
+    func requestPassedHabitForSuccessOrFailView() {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus)
-            .subscribe(onSuccess: { (passedUncheckedModel: HabitResponseModel) in
-                guard let habitStatus = passedUncheckedModel.castingHabitStatus else { return }
+            .subscribe(onSuccess: { [weak self ] (wrappingResponseModel: WrappingHabitResponseModel) in
+                guard let unseenHabitModel = wrappingResponseModel.data else {
+                    self?.unseenHabitSubject.onNext(nil)
+                    return
+                }
                 
-                self.passedUncheckedModel = passedUncheckedModel
-                completion(habitStatus)
+                self?.unseenHabitModel = unseenHabitModel
+                self?.unseenHabitSubject.onNext(unseenHabitModel)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    func requestUnseenDailyHabits(habitId: Int) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId))
+            .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                self?.unseenDailyHabitModels = dailyHabitsResponseModel.histories
+                self?.unseenDailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
     }
     
@@ -118,8 +134,16 @@ final class HomeViewModel: NSObject {
         return endDate?.convertString(format: "yyyy.MM.dd")
     }
     
-    var progressRatio: Double? {
-        Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
+    var progressRatio: Double {
+        if dailyHabitModels.isEmpty == false {
+            return Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
+        }
+        
+        if unseenDailyHabitModels.isEmpty == false {
+            return Double(unseenDailyHabitModels.count) / Double(Self.defaultTotalDays)
+        }
+        
+        return 0
     }
     
     var titleText: String? {

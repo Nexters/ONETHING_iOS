@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct InProgressHabitResponseModel: Codable {
+struct WrappingHabitResponseModel: Codable {
     var data: HabitResponseModel?
 }

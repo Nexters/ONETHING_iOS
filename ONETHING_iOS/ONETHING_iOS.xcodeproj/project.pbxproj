@@ -521,9 +521,9 @@
 		F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
 		F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */; };
-		F2BADE0626C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */; };
-		F2BADE0726C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */; };
-		F2BADE0826C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */; };
+		F2BADE0626C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
+		F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
+		F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
 		F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
 		F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
@@ -749,7 +749,7 @@
 		F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPenaltyViewController.swift; sourceTree = "<group>"; };
 		F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingPenalty.storyboard; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
-		F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InProgressHabitResponseModel.swift; sourceTree = "<group>"; };
+		F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1078,7 +1078,7 @@
 				F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */,
 				F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */,
 				F2017A8726BBF982009277A6 /* SelectStampModel.swift */,
-				F2BADE0526C5659400FD7766 /* InProgressHabitResponseModel.swift */,
+				F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */,
 				F295FE6026D1008100F8589E /* DailyHabitModel.swift */,
 				CE307A4C26D23A07005919AE /* NoticeModel.swift */,
 				CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */,
@@ -1858,7 +1858,7 @@
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				F271CF1926B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				CE2390CE26D52E37002A002E /* AuthorizationView.swift in Sources */,
-				F2BADE0626C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
+				F2BADE0626C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
@@ -1997,7 +1997,7 @@
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
-				F2BADE0826C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
+				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
@@ -2159,7 +2159,7 @@
 				CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F235A24126BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				CE16973726D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
-				F2BADE0726C5659400FD7766 /* InProgressHabitResponseModel.swift in Sources */,
+				F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
