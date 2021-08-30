@@ -376,6 +376,7 @@ extension HomeViewController: DelayPopupViewDelegate {
 
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
+        // uncheked fail인 경우
         if let habitId = self.viewModel.passedUncheckedModel?.habitId {
             self.viewModel.requestUnseenFailToBeFail(habitId: habitId) { _ in
                 self.viewModel.requestHabitInProgress()
@@ -385,6 +386,7 @@ extension HomeViewController: FailPopupViewDelegate {
             return
         }
         
+        // 습관 그만하기 버튼을 누른 경우
         self.viewModel.requestGiveup(completion: { _ in
             self.viewModel.requestHabitInProgress()
             self.viewModel.update(isGiveUp: false)

@@ -52,12 +52,11 @@ final class HomeViewModel: NSObject {
     }
     
     func requestPassedHabitForSuccessOrFailView(completion: @escaping (HabitResponseModel.HabitStatus) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabits)
-            .subscribe(onSuccess: { (habitReseponseModels: [HabitResponseModel]) in
-                guard let passedHabitModel = habitReseponseModels.last else { return }
-                guard let habitStatus = passedHabitModel.castingHabitStatus else { return }
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus)
+            .subscribe(onSuccess: { (passedUncheckedModel: HabitResponseModel) in
+                guard let habitStatus = passedUncheckedModel.castingHabitStatus else { return }
                 
-                self.passedUncheckedModel = passedHabitModel
+                self.passedUncheckedModel = passedUncheckedModel
                 completion(habitStatus)
             }).disposed(by: self.disposeBag)
     }
