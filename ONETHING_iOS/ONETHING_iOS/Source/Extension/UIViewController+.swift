@@ -31,6 +31,14 @@ extension UIViewController {
         return storyboard.instantiateViewController(withIdentifier: identifier) as? Self
     }
     
+    static func navigationController(_ rootController: UIViewController?) -> UINavigationController? {
+        guard let rootController = rootController else { return nil }
+        let navigationController = UINavigationController(rootViewController: rootController)
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.isNavigationBarHidden = true
+        return navigationController
+    }
+    
     @objc func addKeyboardDismissTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.view.addGestureRecognizer(tapGesture)

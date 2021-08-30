@@ -46,6 +46,8 @@ final class HomeViewController: BaseViewController {
     }
     
     override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+        
         self.viewModel.requestHabitInProgress()
     }
     

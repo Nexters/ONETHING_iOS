@@ -194,8 +194,8 @@ final class DailyHabitView: UIView {
             
             DispatchQueue.main.async {
                 if granted {
-                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
                     self.picker.sourceType = .camera
+                    self.dailyHabitViewPhotoViewDelegate?.dailyHabitViewWillPickerPresent(self, picker: self.picker)
                 } else {
                     self.showAuthorizationView(.camera)
                 }

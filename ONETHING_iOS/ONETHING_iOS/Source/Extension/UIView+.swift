@@ -42,6 +42,10 @@ extension UIView {
         return nib.first as? T
     }
     
+    static var splashView: UIView? {
+        return UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.viewWithTag(ViewTag.splashView)
+    }
+    
     /// 부분적으로 Corner Radius 줄 떄, [.bottomLeft, .bottomRight, .topLeft, .topRight, .allCorners] 선택 가능
     func makeCornerRadius(directions: UIRectCorner = .allCorners, radius: CGFloat) {
         let path = UIBezierPath(roundedRect: self.bounds,
