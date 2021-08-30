@@ -9,14 +9,22 @@ import RxSwift
 import RxCocoa
 import UIKit
 
-class NoticeTableViewCell: UITableViewCell {
+protocol NoticeTableViewCellDelegate: AnyObject {
+    func noticeTableViewCell(_ cell: NoticeTableViewCell, isExpanding: Bool, didUpdateExpand notice: NoticeModel)
+}
 
+class NoticeTableViewCell: UITableViewCell {
+    
+    weak var delegate: NoticeTableViewCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.bindButtons()
+        self.bindTapGesture()
     }
     
     func configure(_ noticeModel: NoticeModel) {
+        self.noticeModel = noticeModel
+        
         self.noticeTitleLabel.text = noticeModel.title
         self.noticeDescriptionLabel.text = noticeModel.content
         
@@ -37,37 +45,51 @@ class NoticeTableViewCell: UITableViewCell {
         }
     }
     
-    private func bindButtons() {
-        self.expandButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            guard let self = self else { return }
-            
-            self.expanding.toggle()
-            
-            self.borderView.isHidden = self.expanding == true
-            self.updateExpandUI(self.expanding)
-            self.updateLayoutForExpand(self.expanding)
-        }).disposed(by: self.disposeBag)
-    }
-    
-    private func updateLayoutForExpand(_ expanding: Bool) {
+    func updateLayoutForExpand(_ expanding: Bool, animated: Bool = true) {
         let constant: CGFloat = expanding ? self.noticeDescriptionLabel.frame.height + (20 * 2) : 0
         self.bottomConstraint.constant = constant
+        self.expanding = expanding
         
-        UIView.animate(withDuration: 0.3) { self.layoutIfNeeded() }
+        if animated {
+            UIView.animate(withDuration: 0.3) { self.layoutIfNeeded() }
+        } else {
+            self.layoutIfNeeded()
+        }
         
         (self.superview as? UITableView)?.beginUpdates()
         (self.superview as? UITableView)?.endUpdates()
+        
+        self.updateExpandUI(expanding, animated: animated)
     }
     
-    private func updateExpandUI(_ expanding: Bool) {
+    private func bindTapGesture() {
+        let tapGesture = UITapGestureRecognizer()
+        tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self                    else { return }
+            guard let noticeModel = self.noticeModel else { return }
+            guard let expanding = self.expanding     else { return }
+            
+            self.delegate?.noticeTableViewCell(self, isExpanding: !expanding, didUpdateExpand: noticeModel)
+            self.updateLayoutForExpand(!expanding, animated: true)
+        }).disposed(by: self.disposeBag)
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    private func updateExpandUI(_ expanding: Bool, animated: Bool = true) {
+        self.borderView.isHidden = expanding == true
+        
         let transform: CGAffineTransform = expanding ? CGAffineTransform(rotationAngle: .pi) : .identity
-        UIView.animate(withDuration: 0.3) {
+        if animated {
+            UIView.animate(withDuration: 0.3) {
+                self.expandButton.transform = transform
+            }
+        } else {
             self.expandButton.transform = transform
         }
     }
     
-    private var expanding: Bool = false
-    
+    private var expanding: Bool?
+    private var noticeModel: NoticeModel?
     private let disposeBag = DisposeBag()
     
     @IBOutlet private weak var expandButton: UIButton!

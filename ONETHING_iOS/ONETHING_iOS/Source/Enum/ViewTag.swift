@@ -11,4 +11,5 @@ enum ViewTag {
     static let statusBar = 3848245
     
     static let networkErrorPopup = 10001
+    static let splashView        = 10002
 }

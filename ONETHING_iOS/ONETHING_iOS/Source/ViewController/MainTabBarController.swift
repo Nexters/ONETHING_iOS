@@ -5,6 +5,7 @@
 //  Created by sdean on 2021/07/13.
 //
 
+import Lottie
 import UIKit
 
 final class MainTabBarController: UITabBarController {
@@ -13,9 +14,12 @@ final class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         self.tabBar.barTintColor = .white
         self.tabBar.tintColor = .black_100
-        
         self.setupViewControllers()
         self.setupUserInformIfNeeded()
+        
+        DispatchQueue.main.async {
+            self.decideStartController()
+        }
     }
     
     func processLogout() {
