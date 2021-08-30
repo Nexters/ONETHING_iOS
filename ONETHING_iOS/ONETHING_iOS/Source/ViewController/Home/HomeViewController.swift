@@ -152,8 +152,8 @@ final class HomeViewController: BaseViewController {
     }
     
     private func bindButtons() {
-        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { _ in
-            guard let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
+        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self, let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
             else { return }
             guard let habitInProgressModel = self.viewModel.habitInProgressModel else { return }
             
@@ -389,10 +389,10 @@ extension HomeViewController: FailPopupViewDelegate {
         }
         
         // 습관 그만하기 버튼을 누른 경우
-        self.viewModel.requestGiveup(completion: { _ in
-            self.viewModel.requestHabitInProgress()
-            self.viewModel.update(isGiveUp: false)
-            self.backgroundDimView.hideCrossDissolve()
+        self.viewModel.requestGiveup(completion: { [weak self] _ in
+            self?.viewModel.requestHabitInProgress()
+            self?.viewModel.update(isGiveUp: false)
+            self?.backgroundDimView.hideCrossDissolve()
         })
     }
 }

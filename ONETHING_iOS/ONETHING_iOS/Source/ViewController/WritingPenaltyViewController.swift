@@ -56,14 +56,14 @@ final class WritingPenaltyViewController: BaseViewController {
         self.penaltyTextableViews?.forEach {
             $0.textField.rx.text.orEmpty
                 .distinctUntilChanged()
-                .subscribe(onNext: { _ in
-                    guard let allValid = self.penaltyTextableViews?.reduce(false, { result, element in
+                .subscribe(onNext: { [weak self] _ in
+                    guard let allValid = self?.penaltyTextableViews?.reduce(false, { result, element in
                         return element.textField.text == element.placeholderLabel.text
                     }) else { return }
                     
-                    self.completeButton.isUserInteractionEnabled = allValid ? true : false
-                    self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
-                    self.completeLabel.textColor = allValid ? .white : .black_80
+                    self?.completeButton.isUserInteractionEnabled = allValid ? true : false
+                    self?.completeButton.backgroundColor = allValid ? .black_100 : .black_40
+                    self?.completeLabel.textColor = allValid ? .white : .black_80
                 }).disposed(by: self.disposeBag)
         }
     }
