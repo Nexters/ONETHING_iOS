@@ -133,7 +133,7 @@ final class HomeViewController: BaseViewController {
             .currentIndexPathOfDailyHabitSubject
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-//                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
+                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
                 self.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
