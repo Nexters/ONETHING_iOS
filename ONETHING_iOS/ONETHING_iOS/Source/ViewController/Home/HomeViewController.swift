@@ -376,25 +376,20 @@ extension HomeViewController: DelayPopupViewDelegate {
 
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
-        guard let habitId = self.habitId else { return }
+        if let habitId = self.viewModel.passedUncheckedModel?.habitId {
+            self.viewModel.requestUnseenFailToBeFail(habitId: habitId) { _ in
+                self.viewModel.requestHabitInProgress()
+                self.viewModel.update(isGiveUp: false)
+                self.backgroundDimView.hideCrossDissolve()
+            }
+            return
+        }
         
-        self.viewModel.requestUnseenFailToBeFail(habitId: habitId, completion: { _ in
+        self.viewModel.requestGiveup(completion: { _ in
             self.viewModel.requestHabitInProgress()
             self.viewModel.update(isGiveUp: false)
             self.backgroundDimView.hideCrossDissolve()
         })
-    }
-    
-    private var habitId: Int? {
-        if let habitInProgressModel = self.viewModel.habitInProgressModel {
-            return habitInProgressModel.habitId
-        }
-        
-        if let passedUncheckedModel = self.viewModel.passedUncheckedModel {
-            return passedUncheckedModel.habitId
-        }
-        
-        return nil
     }
 }
 

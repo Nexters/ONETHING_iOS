@@ -62,6 +62,14 @@ final class HomeViewModel: NSObject {
             }).disposed(by: self.disposeBag)
     }
     
+    func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit)
+            .subscribe(onSuccess: { (habitResponseModel: HabitResponseModel) in
+                
+            completion(habitResponseModel)
+        }).disposed(by: self.disposeBag)
+    }
+    
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId))
             .subscribe(onSuccess: { (result: Bool) in
