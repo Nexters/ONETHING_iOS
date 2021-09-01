@@ -450,9 +450,12 @@
 		F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
 		F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
 		F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
-		F289D29126DF3CB60019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
-		F289D29226DF3FE40019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
-		F289D29326DF3FE50019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
+		F289D29126DF3CB60019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */; };
+		F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */; };
+		F289D29326DF3FE50019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */; };
+		F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
+		F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
+		F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -731,7 +734,8 @@
 		F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewModel.swift; sourceTree = "<group>"; };
 		F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDataSource+.swift"; sourceTree = "<group>"; };
-		F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceFakeForGiveUp.swift; sourceTree = "<group>"; };
+		F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForGiveUp.swift; sourceTree = "<group>"; };
+		F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenFail.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -1318,7 +1322,8 @@
 		F289D28F26DF3C800019B3FA /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */,
+				F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */,
+				F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1860,6 +1865,7 @@
 				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CE16973226D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
+				F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F2B571DD26D443A40059F75E /* FailPopupView.swift in Sources */,
@@ -1943,7 +1949,7 @@
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
-				F289D29126DF3CB60019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
+				F289D29126DF3CB60019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
@@ -2017,6 +2023,7 @@
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
+				F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
@@ -2088,7 +2095,7 @@
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
-				F289D29326DF3FE50019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
+				F289D29326DF3FE50019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED826A4A0CB003F087C /* String+.swift in Sources */,
@@ -2158,6 +2165,7 @@
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CE16973326D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
+				F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
@@ -2229,7 +2237,7 @@
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
-				F289D29226DF3FE40019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
+				F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,

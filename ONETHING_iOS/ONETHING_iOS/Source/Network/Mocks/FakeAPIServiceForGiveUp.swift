@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Moya
 
-final class APIServiceFakeForGiveUp: APIServiceType {
+final class FakeAPIServiceForGiveUp: APIServiceType {
     let habitId = -1000
     
     enum DailyHabitsOrder {

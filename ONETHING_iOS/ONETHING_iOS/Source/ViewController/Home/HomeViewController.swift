@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let viewModel = HomeViewModel(apiService: APIServiceFakeForGiveUp())
+    private let viewModel = HomeViewModel(apiService: FakeAPIServiceForUnseenFail())
     private let disposeBag = DisposeBag()
     
     private weak var delayPopupView: DelayPopupView?
@@ -104,10 +104,10 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         // MARK: - related to In Progress Habit
         self.viewModel
-            .habitInProgressSubject
+            .habitRsponseModelSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    self?.viewModel.requestPassedHabitForSuccessOrFailView()
+                    self!.viewModel.unseenChecked == false ? self?.viewModel.requestPassedHabitForSuccessOrFailView() : self?.showEmptyViewAndHideMainView()
                     return
                 }
                 
@@ -124,8 +124,7 @@ final class HomeViewController: BaseViewController {
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
                 self.habitCalendarView.reloadData()
                 
-                guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
-                self.showDelayPopupView(with: self.viewModel)
+                self.presentPopupViewIfNeeded(with: self.viewModel.habitResponseModel?.onethingHabitStatus)
             }
             .disposed(by: self.disposeBag)
         
@@ -137,47 +136,28 @@ final class HomeViewController: BaseViewController {
                 self.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
-        
-        // MARK: - related to Passed Unseen Success Of Unseen Fail Habit
-        self.viewModel
-            .unseenHabitSubject
-            .bind { [weak self] unseenResponseModel in
-                guard let self = self, let unseenResponseModel = unseenResponseModel else {
-                    self?.showEmptyViewAndHideMainView()
-                    return
-                }
+    }
+    
+    private func presentPopupViewIfNeeded(with habitStatus: HabitResponseModel.HabitStatus?) {
+        guard let status = habitStatus else { return }
+        switch status {
+            case .unseenSuccess:
+                #warning("성공 페이지 만들면 성공 페이지 띄워줘야 함")
+                break
+            case .unseenFail:
+                self.showFailPopupView(with: self.viewModel)
+            default:
+                guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
                 
-                self.showMainViewAndHideEmptyView()
-                self.viewModel.requestUnseenDailyHabits(habitId: unseenResponseModel.habitId)
-                self.habitInfoView.update(with: self.viewModel)
-            }.disposed(by: self.disposeBag)
-        
-        self.viewModel
-            .unseenHabitSubject
-            .bind { [weak self] _ in
-                guard let self = self else { return }
-                self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
-                self.habitCalendarView.reloadData()
-                
-                guard let status = self.viewModel.unseenHabitModel?.onethingHabitStatus else { return }
-                switch status {
-                    case .unseenSuccess:
-                        #warning("성공 페이지 만들면 성공 페이지 띄워줘야 함")
-                        break
-                    case .unseenFail:
-                        self.showFailPopupView(with: self.viewModel)
-                    default:
-                        break
-                }
-            }
-            .disposed(by: self.disposeBag)
+                self.showDelayPopupView(with: self.viewModel)
+        }
     }
     
     private func bindButtons() {
         self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
             guard let self = self, let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
             else { return }
-            guard let habitInProgressModel = self.viewModel.habitInProgressModel else { return }
+            guard let habitInProgressModel = self.viewModel.habitResponseModel else { return }
             
             habitEditingViewController.delegate = self
             habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
@@ -384,9 +364,9 @@ extension HomeViewController: DelayPopupViewDelegate {
     
     private func pushWritingPenaltyViewController() {
         guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
-              let habitId = self.viewModel.habitInProgressModel?.habitId,
-              let sentence = self.viewModel.habitInProgressModel?.sentence,
-              let penaltyCount = self.viewModel.habitInProgressModel?.penaltyCount else { return }
+              let habitId = self.viewModel.habitResponseModel?.habitId,
+              let sentence = self.viewModel.habitResponseModel?.sentence,
+              let penaltyCount = self.viewModel.habitResponseModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
         writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
@@ -401,7 +381,7 @@ extension HomeViewController: DelayPopupViewDelegate {
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
         // uncheked fail인 경우
-        if let habitId = self.viewModel.unseenHabitModel?.habitId {
+        if let habitId = self.viewModel.habitResponseModel?.habitId {
             self.viewModel.requestUnseenFailToBeFail(habitId: habitId) { _ in
                 self.viewModel.requestHabitInProgress()
                 self.viewModel.update(isGiveUp: false)
