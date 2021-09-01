@@ -17,6 +17,7 @@ enum ContentAPI {
     case createDailyHabit(habitId: Int, createDateTime: String, status: String, content: String, stampType: String, image: UIImage)
     case getHabitInProgress
     case getHabits
+    case getUnseenStatus
     case putPassDelayPenalty(habitId: Int)
     case putGiveUpHabit
     case putUnSeenSuccess(habitId: Int)
@@ -44,6 +45,8 @@ extension ContentAPI: TargetType {
             return "/api/habit-in-progress"
         case .getHabits:
             return "/api/habits"
+        case .getUnseenStatus:
+            return "/api/habit-in-unseen-status"
         case let .putPassDelayPenalty(habitId: habitId):
             return "/api/habit/\(habitId)/history/pass-delay-penalty"
         case .putGiveUpHabit:
@@ -69,7 +72,7 @@ extension ContentAPI: TargetType {
     var method: Moya.Method {
         switch self {
         case .getRecommendedHabit, .getHabitInProgress, .getHabits,
-                 .getDailyHistories, .getDailyHabitImage, .getNotices, .getQuestions:
+             .getDailyHistories, .getDailyHabitImage, .getUnseenStatus, .getNotices, .getQuestions:
             return .get
         case .createHabit, .createDailyHabit:
             return .post
@@ -87,7 +90,7 @@ extension ContentAPI: TargetType {
     var task: Task {
         switch self {
             case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_),
-                 .getNotices, .getQuestions, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .deleteHabit:
+                 .getNotices, .getQuestions, .getUnseenStatus, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .deleteHabit:
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,

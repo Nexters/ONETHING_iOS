@@ -23,7 +23,7 @@ struct HabitResponseModel: Codable {
 
 extension HabitResponseModel {
 
-    var castingHabitStatus: HabitStatus? {
+    var onethingHabitStatus: HabitStatus? {
         guard let status = HabitStatus(rawValue: self.habitStatus) else { return nil }
         return status
     }

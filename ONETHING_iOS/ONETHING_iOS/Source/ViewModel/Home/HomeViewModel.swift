@@ -13,18 +13,19 @@ import RxSwift
 final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
-    private let apiService: APIService
-    private(set) var habitInProgressModel: HabitResponseModel?
-    private(set) var passedUncheckedModel: HabitResponseModel?
+    private let apiService: APIServiceType
+    private(set) var habitResponseModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
+    private(set) var hasToCheckUnseen = true
+    let habitRsponseModelSubject = PublishSubject<HabitResponseModel?>()
+    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
+    
     private var nickname: String?
     private let disposeBag = DisposeBag()
     private(set) var isGiveUp = false
-    let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
-    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
-    init(apiService: APIService = APIService.shared) {
+    init(apiService: APIServiceType = APIService.shared) {
         self.apiService = apiService
     }
     
@@ -32,38 +33,61 @@ final class HomeViewModel: NSObject {
         self.apiService.requestAndDecodeRx(
             apiTarget: ContentAPI.getHabitInProgress,
             retryHandler: { self.requestHabitInProgress() }
-        ).subscribe(onSuccess: { [weak self] (responseModel: InProgressHabitResponseModel) in
-            guard let habitInProgressModel = responseModel.data else {
-                self?.habitInProgressSubject.onNext(nil)
+        ).subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+            guard let habitInProgressModel = wrappingResponseModel.data else {
+                self?.habitRsponseModelSubject.onNext(nil)
                 return
             }
             
-            self?.habitInProgressModel = habitInProgressModel
-            self?.habitInProgressSubject.onNext(habitInProgressModel)
+            self?.habitResponseModel = habitInProgressModel
+            self?.habitRsponseModelSubject.onNext(habitInProgressModel)
         }).disposed(by: self.disposeBag)
     }
     
     func requestDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId))
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
     }
     
-    func requestPassedHabitForSuccessOrFailView(completion: @escaping (HabitResponseModel.HabitStatus) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getHabits)
-            .subscribe(onSuccess: { (habitReseponseModels: [HabitResponseModel]) in
-                guard let passedHabitModel = habitReseponseModels.last else { return }
-                guard let habitStatus = passedHabitModel.castingHabitStatus else { return }
+    func requestPassedHabitForSuccessOrFailView() {
+        guard self.hasToCheckUnseen == true else { return }
+        
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus, retryHandler: nil)
+            .subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+                self?.hasToCheckUnseen = false
                 
-                self.passedUncheckedModel = passedHabitModel
-                completion(habitStatus)
+                guard let unseenHabitModel = wrappingResponseModel.data else {
+                    self?.habitRsponseModelSubject.onNext(nil)
+                    return
+                }
+                
+                self?.habitResponseModel = unseenHabitModel
+                self?.habitRsponseModelSubject.onNext(unseenHabitModel)
             }).disposed(by: self.disposeBag)
     }
     
+    func requestUnseenDailyHabits(habitId: Int) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
+            .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                self?.dailyHabitModels = dailyHabitsResponseModel.histories
+                self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
+            .subscribe(onSuccess: { [weak self] (habitResponseModel: HabitResponseModel) in
+                self?.hasToCheckUnseen = false
+                
+                completion(habitResponseModel)
+        }).disposed(by: self.disposeBag)
+    }
+    
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId))
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { (result: Bool) in
                 
             completion(result)
@@ -75,7 +99,7 @@ final class HomeViewModel: NSObject {
     }
     
     var habitID: Int? {
-        self.habitInProgressModel?.habitId
+        self.habitResponseModel?.habitId
     }
     
     var isDelayPenatyForLatestDailyHabits: Bool {
@@ -89,7 +113,7 @@ final class HomeViewModel: NSObject {
     }
     
     var textOfStartDate: String? {
-        guard let habitInProgressModel = self.habitInProgressModel else { return nil }
+        guard let habitInProgressModel = self.habitResponseModel else { return nil }
         
         let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
         return date?.convertString(format: "yyyy.MM.dd")
@@ -102,7 +126,7 @@ final class HomeViewModel: NSObject {
     }
     
     var textOfEndDate: String? {
-        guard let habitInProgressModel = self.habitInProgressModel,
+        guard let habitInProgressModel = self.habitResponseModel,
               let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
               else { return nil}
         
@@ -111,16 +135,16 @@ final class HomeViewModel: NSObject {
         return endDate?.convertString(format: "yyyy.MM.dd")
     }
     
-    var progressRatio: Double? {
-        Double(dailyHabitModels.count) / Double(Self.defaultTotalDays)
+    var progressRatio: Double {
+        return Double(self.dailyHabitModels.count) / Double(Self.defaultTotalDays)
     }
     
     var titleText: String? {
-        self.habitInProgressModel?.title
+        self.habitResponseModel?.title
     }
     
     private var diffDaysFromStartToCurrent: Int? {
-        guard let habitInProgressModel = self.habitInProgressModel,
+        guard let habitInProgressModel = self.habitResponseModel,
               let startDate = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd") else { return nil }
         
         let formatter = DateComponentsFormatter().then {
@@ -142,7 +166,7 @@ final class HomeViewModel: NSObject {
     }
     
     func update(habitInProgressModel: HabitResponseModel) {
-        self.habitInProgressModel = habitInProgressModel
+        self.habitResponseModel = habitInProgressModel
     }
     
     func update(nickname: String) {
@@ -151,7 +175,7 @@ final class HomeViewModel: NSObject {
     
     func clearModels() {
         self.dailyHabitModels.removeAll()
-        self.habitInProgressModel = nil
+        self.habitResponseModel = nil
     }
     
     func canCreateCurrentDailyHabitModel(with index: Int) -> Bool {
@@ -169,7 +193,7 @@ final class HomeViewModel: NSObject {
     }
     
     var sentenceForDelay: String? {
-        return self.habitInProgressModel?.sentence
+        return self.habitResponseModel?.sentence
     }
     
     var titleTextOfDelayPopupView: String? {
@@ -177,8 +201,8 @@ final class HomeViewModel: NSObject {
     }
     
     var remainedDelayTextOfDelayPopupView: String? {
-        let delayMaxCount = self.habitInProgressModel?.delayMaxCount ?? 6
-        let delayCount = self.habitInProgressModel?.delayCount ?? 0
+        let delayMaxCount = self.habitResponseModel?.delayMaxCount ?? 6
+        let delayCount = self.habitResponseModel?.delayCount ?? 0
         let remainedCount = delayMaxCount - delayCount
         return "남은 미루기 기회: \(remainedCount)번"
     }
