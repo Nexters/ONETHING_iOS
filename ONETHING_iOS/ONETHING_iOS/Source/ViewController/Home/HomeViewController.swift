@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let viewModel = HomeViewModel()
+    private let viewModel = HomeViewModel(apiService: APIServiceFakeForGiveUp())
     private let disposeBag = DisposeBag()
     
     private weak var delayPopupView: DelayPopupView?

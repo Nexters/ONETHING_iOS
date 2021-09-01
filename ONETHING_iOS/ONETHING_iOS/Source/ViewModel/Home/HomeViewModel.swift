@@ -13,7 +13,7 @@ import RxSwift
 final class HomeViewModel: NSObject {
     static let defaultTotalDays = 66
     
-    private let apiService: APIService
+    private let apiService: APIServiceType
     private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     let habitInProgressSubject = PublishSubject<HabitResponseModel?>()
@@ -29,7 +29,7 @@ final class HomeViewModel: NSObject {
     private(set) var isGiveUp = false
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
     
-    init(apiService: APIService = APIService.shared) {
+    init(apiService: APIServiceType = APIService.shared) {
         self.apiService = apiService
     }
     
@@ -49,7 +49,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId))
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
@@ -57,7 +57,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestPassedHabitForSuccessOrFailView() {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus)
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus, retryHandler: nil)
             .subscribe(onSuccess: { [weak self ] (wrappingResponseModel: WrappingHabitResponseModel) in
                 guard let unseenHabitModel = wrappingResponseModel.data else {
                     self?.unseenHabitSubject.onNext(nil)
@@ -70,7 +70,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestUnseenDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId))
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
                 self?.unseenDailyHabitModels = dailyHabitsResponseModel.histories
                 self?.unseenDailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
@@ -78,7 +78,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit)
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
             .subscribe(onSuccess: { (habitResponseModel: HabitResponseModel) in
                 
             completion(habitResponseModel)
@@ -86,7 +86,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId))
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { (result: Bool) in
                 
             completion(result)

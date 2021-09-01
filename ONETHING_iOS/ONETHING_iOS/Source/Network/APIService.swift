@@ -9,7 +9,11 @@ import Foundation
 import Moya
 import RxSwift
 
-final class APIService {
+protocol APIServiceType {
+  func requestAndDecodeRx<C: Codable, T: TargetType>(apiTarget: T, retryHandler: (() -> Void)?) -> Single<C>
+}
+
+final class APIService: APIServiceType {
     static let shared = APIService()
     
     func requestAndDecodeRx<C: Codable, T: TargetType>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {

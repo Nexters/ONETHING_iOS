@@ -450,6 +450,9 @@
 		F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
 		F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
 		F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */; };
+		F289D29126DF3CB60019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
+		F289D29226DF3FE40019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
+		F289D29326DF3FE50019B3FA /* APIServiceFakeForGiveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */; };
 		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
@@ -728,6 +731,7 @@
 		F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewModel.swift; sourceTree = "<group>"; };
 		F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDataSource+.swift"; sourceTree = "<group>"; };
+		F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceFakeForGiveUp.swift; sourceTree = "<group>"; };
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -1003,6 +1007,7 @@
 		CE7247AD269994E400BB2C19 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F289D28F26DF3C800019B3FA /* Mocks */,
 				CE26C44C26B0313200BE7DDC /* Error */,
 				F20E00D326A5978C009A4AB3 /* Api */,
 				F255719E26A432CE005A1AAF /* APIService.swift */,
@@ -1308,6 +1313,14 @@
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		F289D28F26DF3C800019B3FA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F289D29026DF3CB50019B3FA /* APIServiceFakeForGiveUp.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1930,6 +1943,7 @@
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
+				F289D29126DF3CB60019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
@@ -2074,6 +2088,7 @@
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				F289D29326DF3FE50019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				CED5AED826A4A0CB003F087C /* String+.swift in Sources */,
@@ -2214,6 +2229,7 @@
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
+				F289D29226DF3FE40019B3FA /* APIServiceFakeForGiveUp.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
