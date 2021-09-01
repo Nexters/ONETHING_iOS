@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let viewModel = HomeViewModel(apiService: FakeAPIServiceForUnseenFail())
+    private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
     private weak var delayPopupView: DelayPopupView?
@@ -107,7 +107,9 @@ final class HomeViewController: BaseViewController {
             .habitRsponseModelSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    self!.viewModel.unseenChecked == false ? self?.viewModel.requestPassedHabitForSuccessOrFailView() : self?.showEmptyViewAndHideMainView()
+                    guard let hasToCheckUnseen = self?.viewModel.hasToCheckUnseen else { return }
+                    
+                    hasToCheckUnseen == true ? self?.viewModel.requestPassedHabitForSuccessOrFailView() : self?.showEmptyViewAndHideMainView()
                     return
                 }
                 
@@ -146,10 +148,12 @@ final class HomeViewController: BaseViewController {
                 break
             case .unseenFail:
                 self.showFailPopupView(with: self.viewModel)
-            default:
+            case .run:
                 guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
                 
                 self.showDelayPopupView(with: self.viewModel)
+            default:
+                break
         }
     }
     
@@ -381,8 +385,10 @@ extension HomeViewController: DelayPopupViewDelegate {
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
         // uncheked fail인 경우
-        if let habitId = self.viewModel.habitResponseModel?.habitId {
-            self.viewModel.requestUnseenFailToBeFail(habitId: habitId) { _ in
+        if self.viewModel.hasToCheckUnseen == false {
+            guard let habitID = self.viewModel.habitResponseModel?.habitId else { return }
+            
+            self.viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
                 self.viewModel.requestHabitInProgress()
                 self.viewModel.update(isGiveUp: false)
                 self.backgroundDimView.hideCrossDissolve()

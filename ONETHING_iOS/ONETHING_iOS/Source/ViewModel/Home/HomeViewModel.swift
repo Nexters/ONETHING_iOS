@@ -16,7 +16,7 @@ final class HomeViewModel: NSObject {
     private let apiService: APIServiceType
     private(set) var habitResponseModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
-    private(set) var unseenChecked = false
+    private(set) var hasToCheckUnseen = true
     let habitRsponseModelSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     
@@ -53,11 +53,11 @@ final class HomeViewModel: NSObject {
     }
     
     func requestPassedHabitForSuccessOrFailView() {
-        guard self.unseenChecked == false else { return }
+        guard self.hasToCheckUnseen == true else { return }
         
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus, retryHandler: nil)
-            .subscribe(onSuccess: { [weak self ] (wrappingResponseModel: WrappingHabitResponseModel) in
-                self?.unseenChecked = true
+            .subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+                self?.hasToCheckUnseen = false
                 
                 guard let unseenHabitModel = wrappingResponseModel.data else {
                     self?.habitRsponseModelSubject.onNext(nil)
@@ -79,9 +79,10 @@ final class HomeViewModel: NSObject {
     
     func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
-            .subscribe(onSuccess: { (habitResponseModel: HabitResponseModel) in
+            .subscribe(onSuccess: { [weak self] (habitResponseModel: HabitResponseModel) in
+                self?.hasToCheckUnseen = false
                 
-            completion(habitResponseModel)
+                completion(habitResponseModel)
         }).disposed(by: self.disposeBag)
     }
     
