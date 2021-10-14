@@ -12,7 +12,7 @@ import Then
 import Lottie
 
 final class SuccessPopupViewController: BaseViewController {
-    let viewModel = SuccessPopupViewModel()
+    var viewModel: SuccessPopupViewModel?
     private let closeButton = UIButton()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
@@ -34,6 +34,8 @@ final class SuccessPopupViewController: BaseViewController {
         self.setupSubTitleLabel()
         self.setupBoxedView()
         self.setupCompleteButton()
+        
+        self.updateViews(with: self.viewModel)
     }
     
     private func setupCloseButton() {
@@ -72,7 +74,6 @@ final class SuccessPopupViewController: BaseViewController {
     
     private func setupTitleLabel() {
         self.titleLabel.do {
-            $0.text = "아침에 물 한잔 마시기"
             $0.font = UIFont(name: "Pretendard-Bold", size: 26)
             $0.textColor = .red_default
         }
@@ -134,7 +135,6 @@ final class SuccessPopupViewController: BaseViewController {
         }
         
         self.progressContentLabel.do {
-            $0.text = "21.07.21 - 21.08.30"
             $0.textColor = .black_100
             $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
         }
@@ -154,7 +154,6 @@ final class SuccessPopupViewController: BaseViewController {
         }
         
         self.percentContentLabel.do {
-            $0.text = "98.5%"
             $0.textColor = .black_100
             $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
         }
@@ -179,6 +178,7 @@ final class SuccessPopupViewController: BaseViewController {
             $0.titleLabel?.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
             $0.backgroundColor = .black_100
             $0.layer.cornerRadius = 10
+            $0.addTarget(self, action: #selector(self.completeButtonDidTap), for: .touchUpInside)
         }
         
         self.view.addSubview(self.completeButton)
@@ -189,5 +189,17 @@ final class SuccessPopupViewController: BaseViewController {
             $0.width.equalTo(311)
             $0.height.equalTo(48)
         }
+    }
+    
+    @objc private func completeButtonDidTap() {
+        self.dismiss(animated: true)
+    }
+    
+    private func updateViews(with viewModel: SuccessPopupViewModel?) {
+        guard let viewModel = viewModel else { return }
+        
+        self.titleLabel.text = viewModel.titleText
+        self.progressContentLabel.text = viewModel.progressText
+        self.percentContentLabel.text = viewModel.percentText
     }
 }

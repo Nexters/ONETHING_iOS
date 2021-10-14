@@ -144,7 +144,7 @@ final class HomeViewController: BaseViewController {
         guard let status = habitStatus else { return }
         switch status {
             case .unseenSuccess:
-                #warning("성공 페이지 만들면 성공 페이지 띄워줘야 함")
+                self.showSuccessPopupViewController()
                 break
             case .unseenFail:
                 self.showFailPopupView(with: self.viewModel)
@@ -424,5 +424,15 @@ extension HomeViewController: HabitEditingViewControllerDelegate {
         
         self.viewModel.update(habitInProgressModel: habitInProgressModel)
         self.habitInfoView.update(with: self.viewModel)
+    }
+}
+
+extension HomeViewController {
+    func showSuccessPopupViewController() {
+        let successPopupViewController = SuccessPopupViewController()
+        
+        guard let habitResponseModel = self.viewModel.habitResponseModel else { return }
+        successPopupViewController.viewModel = SuccessPopupViewModel(habitResponseModel: habitResponseModel)
+        self.present(successPopupViewController, animated: true)
     }
 }
