@@ -425,6 +425,15 @@
 		F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
 		F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
 		F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
+		F25AE3662718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
+		F25AE3672718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
+		F25AE3682718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
+		F25AE36A271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */; };
+		F25AE36B271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */; };
+		F25AE36C271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */; };
+		F25AE36E27183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
+		F25AE36F27183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
+		F25AE37027183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
 		F267F9A7269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
 		F267F9A8269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
 		F267F9A9269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
@@ -725,6 +734,9 @@
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
+		F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewController.swift; sourceTree = "<group>"; };
+		F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewModel.swift; sourceTree = "<group>"; };
+		F25AE36D27183BC9009A59C6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -889,6 +901,7 @@
 		CE38763126CE8E6F003BDCCA /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				F25AE36D27183BC9009A59C6 /* success.json */,
 				CE6751EE26D0E31B00616CA8 /* goalFinish.json */,
 				CE16972126D7F5EC00AD0BE9 /* splash_screen.json */,
 			);
@@ -1073,6 +1086,7 @@
 				CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 				F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */,
+				F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1130,6 +1144,7 @@
 				CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */,
 				F2129BE826D786C700C6D49E /* HabitEditViewModel.swift */,
 				F2129BEC26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift */,
+				F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1482,6 +1497,7 @@
 				F200E4C526D650210084BAB9 /* HabitEdit.storyboard in Resources */,
 				F2B571EE26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72476326998F3000BB2C19 /* LaunchScreen.storyboard in Resources */,
+				F25AE36E27183BC9009A59C6 /* success.json in Resources */,
 				CE8FEDE726B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D026A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				F2B571E126D443BB0059F75E /* FailPopupView.xib in Resources */,
@@ -1542,6 +1558,7 @@
 				F200E4C726D650210084BAB9 /* HabitEdit.storyboard in Resources */,
 				F2B571F026D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72478D269992C700BB2C19 /* LaunchScreen.storyboard in Resources */,
+				F25AE37027183BC9009A59C6 /* success.json in Resources */,
 				CE8FEDE926B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D226A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				F2B571E326D443BB0059F75E /* FailPopupView.xib in Resources */,
@@ -1588,6 +1605,7 @@
 				F200E4C626D650210084BAB9 /* HabitEdit.storyboard in Resources */,
 				F2B571EF26D4C6EF0059F75E /* WritingPenalty.storyboard in Resources */,
 				CE72479B269992CC00BB2C19 /* LaunchScreen.storyboard in Resources */,
+				F25AE36F27183BC9009A59C6 /* success.json in Resources */,
 				CE8FEDE826B6CBAD0092DC0D /* ProfileMenuTableViewCell.xib in Resources */,
 				CEC4D7D126A2D63200633222 /* Pretendard-Bold.otf in Resources */,
 				F2B571E226D443BB0059F75E /* FailPopupView.xib in Resources */,
@@ -1908,6 +1926,7 @@
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
+				F25AE3662718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F2B571E526D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765026D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
@@ -1929,6 +1948,7 @@
 				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F2129BED26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
+				F25AE36A271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */,
 				CED5AED626A4A0CB003F087C /* String+.swift in Sources */,
@@ -2066,6 +2086,7 @@
 				CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
+				F25AE3682718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
 				F2B571E726D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765226D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
@@ -2087,6 +2108,7 @@
 				CE8FEDE626B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
+				F25AE36C271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F2129BEF26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				CE8FEDF126B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
@@ -2208,6 +2230,7 @@
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
+				F25AE3672718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
 				F2B571E626D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765126D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
@@ -2229,6 +2252,7 @@
 				F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
+				F25AE36B271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F2129BEE26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CE8FEDD326B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
 				CEFF0A44269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
