@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class SuccessPopupViewModel {
     private let habitResponseModel: HabitResponseModel

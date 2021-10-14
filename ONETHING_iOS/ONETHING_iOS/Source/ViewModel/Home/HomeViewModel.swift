@@ -94,6 +94,20 @@ final class HomeViewModel: NSObject {
         }).disposed(by: self.disposeBag)
     }
     
+    func requestUnseenSuccessToBeSuccess(completion: @escaping (Bool) -> Void) {
+        guard let habitID = self.habitResponseModel?.habitId
+        else {
+            completion(false)
+            return
+        }
+        
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenSuccess(habitId: habitID), retryHandler: nil)
+            .subscribe(onSuccess: { (result: Bool) in
+                
+            completion(result)
+        }).disposed(by: self.disposeBag)
+    }
+    
     func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
         return self.dailyHabitModels[safe: index]
     }
@@ -221,6 +235,10 @@ final class HomeViewModel: NSObject {
     
     var reasonTextOfFailPopupView: String? {
         self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
+    }
+    
+    var isHabitSuccess: Bool {
+        self.dailyHabitModels.count == Self.defaultTotalDays
     }
 }
 

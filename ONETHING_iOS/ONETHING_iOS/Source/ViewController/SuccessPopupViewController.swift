@@ -11,6 +11,10 @@ import SnapKit
 import Then
 import Lottie
 
+protocol SuccessPopupViewControllerDelegate: AnyObject {
+    func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController)
+}
+
 final class SuccessPopupViewController: BaseViewController {
     var viewModel: SuccessPopupViewModel?
     private let closeButton = UIButton()
@@ -24,6 +28,7 @@ final class SuccessPopupViewController: BaseViewController {
     private let percentContentLabel = UILabel()
     private let completeButton = UIButton()
     private let lottieView = AnimationView()
+    weak var delegate: SuccessPopupViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +57,10 @@ final class SuccessPopupViewController: BaseViewController {
     }
     
     @objc private func closeButtonDidTap() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.successPopupViewControllerDidTapButton(self)
+        })
     }
     
     private func setupLottieView() {
@@ -192,7 +200,10 @@ final class SuccessPopupViewController: BaseViewController {
     }
     
     @objc private func completeButtonDidTap() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: { [weak self] in
+            guard let self = self else { return }
+            self.delegate?.successPopupViewControllerDidTapButton(self)
+        })
     }
     
     private func updateViews(with viewModel: SuccessPopupViewModel?) {

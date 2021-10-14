@@ -434,6 +434,9 @@
 		F25AE36E27183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
 		F25AE36F27183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
 		F25AE37027183BC9009A59C6 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = F25AE36D27183BC9009A59C6 /* success.json */; };
+		F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3712718630D009A59C6 /* UINavigationController+.swift */; };
+		F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3712718630D009A59C6 /* UINavigationController+.swift */; };
+		F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3712718630D009A59C6 /* UINavigationController+.swift */; };
 		F267F9A7269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
 		F267F9A8269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
 		F267F9A9269A387000219B05 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9A6269A387000219B05 /* ProgressView.swift */; };
@@ -737,6 +740,7 @@
 		F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewController.swift; sourceTree = "<group>"; };
 		F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewModel.swift; sourceTree = "<group>"; };
 		F25AE36D27183BC9009A59C6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		F25AE3712718630D009A59C6 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -1126,6 +1130,7 @@
 				CEFA5BC426B52BFF0037F71B /* Date+.swift */,
 				F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */,
 				CE67520626D0F45500616CA8 /* UIButton+.swift */,
+				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1913,6 +1918,7 @@
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
+				F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
@@ -2073,6 +2079,7 @@
 				CE26C45026B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
+				F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
@@ -2217,6 +2224,7 @@
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
+				F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,

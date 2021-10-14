@@ -318,6 +318,11 @@ extension HomeViewController: HabitWrittenViewControllerDelegate {
 extension HomeViewController: HabitWritingViewControllerDelegate {
     func update(currentDailyHabitModel: DailyHabitResponseModel) {
         self.viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
+        
+        // 66일째 일일 습관 완료 후, 습관이 성공했을 때
+        if self.viewModel.isHabitSuccess {
+            self.showSuccessPopupViewController()
+        }
     }
 }
 
@@ -427,12 +432,19 @@ extension HomeViewController: HabitEditingViewControllerDelegate {
     }
 }
 
-extension HomeViewController {
+extension HomeViewController: SuccessPopupViewControllerDelegate {
     func showSuccessPopupViewController() {
         let successPopupViewController = SuccessPopupViewController()
+        successPopupViewController.delegate = self
         
         guard let habitResponseModel = self.viewModel.habitResponseModel else { return }
         successPopupViewController.viewModel = SuccessPopupViewModel(habitResponseModel: habitResponseModel)
         self.present(successPopupViewController, animated: true)
+    }
+    
+    func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
+        self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+            self.viewModel.requestHabitInProgress()
+        }
     }
 }
