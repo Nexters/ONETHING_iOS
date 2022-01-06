@@ -106,10 +106,11 @@ final class HomeViewController: BaseViewController {
         self.viewModel
             .habitRsponseModelSubject
             .bind { [weak self] habitInProgressModel in
-                guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    guard let hasToCheckUnseen = self?.viewModel.hasToCheckUnseen else { return }
+                guard let self = self else { return }
+                guard let habitInProgressModel = habitInProgressModel else {
+                    let hasToCheckUnseen = self.viewModel.hasToCheckUnseen
                     
-                    hasToCheckUnseen == true ? self?.viewModel.requestPassedHabitForSuccessOrFailView() : self?.showEmptyViewAndHideMainView()
+                    hasToCheckUnseen == true ? self.viewModel.requestPassedHabitForSuccessOrFailView() : self.showEmptyViewAndHideMainView()
                     return
                 }
                 

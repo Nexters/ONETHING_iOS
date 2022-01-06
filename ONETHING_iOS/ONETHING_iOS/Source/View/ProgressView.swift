@@ -35,7 +35,7 @@ final class ProgressView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = .white.withAlphaComponent(0.5)
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.5)
     }
     
     private func setupCompletedPercentLabel() {

@@ -168,7 +168,7 @@ final class HomeViewModel: NSObject {
         
         guard let diffDaysStr = formatter
             .string(from: startDate, to: Date())?
-            .components(separatedBy: .decimalDigits.inverted)
+            .components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined(), let diffDays = Int(diffDaysStr) else { return nil }
         
         return diffDays
