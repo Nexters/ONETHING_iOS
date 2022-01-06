@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		09FB29CCCA608B96AC2D180C /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */; };
+		5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
+		5ADD32FB2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
+		5ADD32FC2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
 		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
 		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
@@ -573,6 +576,7 @@
 		19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.release.xcconfig"; sourceTree = "<group>"; };
 		307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBoxedView.swift; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
 		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -839,6 +843,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		5ADD32F82786DFA1007CE0C0 /* SuccessPopup */ = {
+			isa = PBXGroup;
+			children = (
+				F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */,
+				5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */,
+			);
+			path = SuccessPopup;
+			sourceTree = "<group>";
+		};
 		A846A92C809349534BFDCA3D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1080,6 +1093,7 @@
 		CE7247B32699955900BB2C19 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5ADD32F82786DFA1007CE0C0 /* SuccessPopup */,
 				CE38762826CD0A07003BDCCA /* Profile */,
 				CE8FEDF626B6E7930092DC0D /* Intro */,
 				CE1F96C226AC0A1E006B56E4 /* Common */,
@@ -1090,7 +1104,6 @@
 				CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */,
 				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 				F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */,
-				F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1862,6 +1875,7 @@
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
 				F2F588B026B0F95200F5430D /* LockView.swift in Sources */,
+				5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F200E4C126D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
@@ -2023,6 +2037,7 @@
 				F2A614BE26A427DE0061A17A /* SocialManager.swift in Sources */,
 				F27E217926BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				F2A614BC26A427A50061A17A /* LoginViewModel.swift in Sources */,
+				5ADD32FC2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				F200E4C326D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
@@ -2168,6 +2183,7 @@
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
 				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
+				5ADD32FB2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F200E4C226D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,

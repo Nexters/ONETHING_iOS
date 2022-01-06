@@ -20,12 +20,7 @@ final class SuccessPopupViewController: BaseViewController {
     private let closeButton = UIButton()
     private let titleLabel = UILabel()
     private let subTitleLabel = UILabel()
-    private let upperLineView = UIView()
-    private let lowerLineView = UIView()
-    private let progressTitleLabel = UILabel()
-    private let progressContentLabel = UILabel()
-    private let percentTitleLabel = UILabel()
-    private let percentContentLabel = UILabel()
+    private let boxedView = SuccessBoxedView()
     private let completeButton = UIButton()
     private let lottieView = AnimationView()
     weak var delegate: SuccessPopupViewControllerDelegate?
@@ -116,65 +111,13 @@ final class SuccessPopupViewController: BaseViewController {
         }
     }
     
+    // $0.top.equalTo(self.subTitleLabel.snp.bottom).offset(50)
     private func setupBoxedView() {
-        self.view.addSubview(self.upperLineView)
-        self.view.addSubview(self.progressTitleLabel)
-        self.view.addSubview(self.progressContentLabel)
-        self.view.addSubview(self.percentTitleLabel)
-        self.view.addSubview(self.percentContentLabel)
-        self.view.addSubview(self.lowerLineView)
+        self.view.addSubview(self.boxedView)
         
-        self.upperLineView.backgroundColor = .black_20
-        self.upperLineView.snp.makeConstraints {
+        self.boxedView.snp.makeConstraints {
             $0.top.equalTo(self.subTitleLabel.snp.bottom).offset(50)
             $0.leading.trailing.equalToSuperview().inset(32)
-            $0.height.equalTo(1.5)
-        }
-        
-        self.progressTitleLabel.do {
-            $0.text = "진행 기간"
-            $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
-            $0.textColor = .black_60
-        }
-        
-        self.progressTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.upperLineView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(32)
-        }
-        
-        self.progressContentLabel.do {
-            $0.textColor = .black_100
-            $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
-        }
-        self.progressContentLabel.snp.makeConstraints {
-            $0.centerY.equalTo(self.progressTitleLabel)
-            $0.trailing.equalToSuperview().offset(-32)
-        }
-        
-        self.percentTitleLabel.do {
-            $0.text = "성공률"
-            $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
-            $0.textColor = .black_60
-        }
-        self.percentTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.progressTitleLabel.snp.bottom).offset(15)
-            $0.leading.equalTo(self.progressTitleLabel)
-        }
-        
-        self.percentContentLabel.do {
-            $0.textColor = .black_100
-            $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
-        }
-        self.percentContentLabel.snp.makeConstraints {
-            $0.centerY.equalTo(self.percentTitleLabel)
-            $0.trailing.equalTo(self.progressContentLabel)
-        }
-        
-        self.lowerLineView.backgroundColor = .black_20
-        self.lowerLineView.snp.makeConstraints {
-            $0.top.equalTo(self.percentTitleLabel.snp.bottom).offset(25)
-            $0.leading.trailing.equalToSuperview().inset(32)
-            $0.height.equalTo(1.5)
         }
     }
     
@@ -210,7 +153,6 @@ final class SuccessPopupViewController: BaseViewController {
         guard let viewModel = viewModel else { return }
         
         self.titleLabel.text = viewModel.titleText
-        self.progressContentLabel.text = viewModel.progressText
-        self.percentContentLabel.text = viewModel.percentText
+        self.boxedView.update(with: self.viewModel)
     }
 }
