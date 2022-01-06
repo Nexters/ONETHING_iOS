@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let viewModel = HomeViewModel(apiService: FakeAPIServiceForUnseenSuccess())
+    private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     
     private weak var delayPopupView: DelayPopupView?
@@ -104,7 +104,7 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         // MARK: - related to In Progress Habit
         self.viewModel
-            .habitRsponseModelSubject
+            .habitResponseModelSubject
             .bind { [weak self] habitInProgressModel in
                 guard let self = self else { return }
                 guard let habitInProgressModel = habitInProgressModel else {
@@ -444,8 +444,18 @@ extension HomeViewController: SuccessPopupViewControllerDelegate {
     }
     
     func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
-        self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+        guard let status: HabitResponseModel.HabitStatus = self.viewModel.habitResponseModel?.onethingHabitStatus else { return }
+        
+        switch status {
+        case .run:
             self.viewModel.requestHabitInProgress()
+        case .unseenSuccess:
+            self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+                self.viewModel.requestHabitInProgress()
+            }
+        default:
+            break
         }
+        
     }
 }

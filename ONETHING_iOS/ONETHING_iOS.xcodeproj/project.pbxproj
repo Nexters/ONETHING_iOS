@@ -14,6 +14,9 @@
 		5ADD33032786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */; };
 		5ADD33042786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */; };
 		5ADD33052786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */; };
+		5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
+		5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
+		5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
 		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
 		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
@@ -581,6 +584,7 @@
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBoxedView.swift; sourceTree = "<group>"; };
 		5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenSuccess.swift; sourceTree = "<group>"; };
+		5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForWriteSuccess.swift; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
 		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1362,6 +1366,7 @@
 				F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */,
 				F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */,
 				5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */,
+				5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1871,6 +1876,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
 				F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
@@ -2034,6 +2040,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
 				F20E00D826A61593009A4AB3 /* SocialAccessType.swift in Sources */,
@@ -2181,6 +2188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,

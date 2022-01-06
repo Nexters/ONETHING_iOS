@@ -53,7 +53,6 @@ final class FakeAPIServiceForUnseenSuccess: APIServiceType {
             }
             
             return Disposables.create()
-            
         }
     }
     

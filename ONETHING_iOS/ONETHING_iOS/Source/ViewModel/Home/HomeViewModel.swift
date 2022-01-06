@@ -17,7 +17,7 @@ final class HomeViewModel: NSObject {
     private(set) var habitResponseModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private(set) var hasToCheckUnseen = true
-    let habitRsponseModelSubject = PublishSubject<HabitResponseModel?>()
+    let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     
     private var nickname: String?
@@ -35,12 +35,12 @@ final class HomeViewModel: NSObject {
             retryHandler: { self.requestHabitInProgress() }
         ).subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
             guard let habitInProgressModel = wrappingResponseModel.data else {
-                self?.habitRsponseModelSubject.onNext(nil)
+                self?.habitResponseModelSubject.onNext(nil)
                 return
             }
             
             self?.habitResponseModel = habitInProgressModel
-            self?.habitRsponseModelSubject.onNext(habitInProgressModel)
+            self?.habitResponseModelSubject.onNext(habitInProgressModel)
         }).disposed(by: self.disposeBag)
     }
     
@@ -60,12 +60,12 @@ final class HomeViewModel: NSObject {
                 self?.hasToCheckUnseen = false
                 
                 guard let unseenHabitModel = wrappingResponseModel.data else {
-                    self?.habitRsponseModelSubject.onNext(nil)
+                    self?.habitResponseModelSubject.onNext(nil)
                     return
                 }
                 
                 self?.habitResponseModel = unseenHabitModel
-                self?.habitRsponseModelSubject.onNext(unseenHabitModel)
+                self?.habitResponseModelSubject.onNext(unseenHabitModel)
             }).disposed(by: self.disposeBag)
     }
     
