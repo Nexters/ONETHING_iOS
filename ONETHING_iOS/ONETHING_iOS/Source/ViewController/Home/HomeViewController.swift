@@ -22,7 +22,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let viewModel = HomeViewModel()
+    private let viewModel = HomeViewModel(apiService: FakeAPIServiceForUnseenSuccess())
     private let disposeBag = DisposeBag()
     
     private weak var delayPopupView: DelayPopupView?
@@ -146,12 +146,10 @@ final class HomeViewController: BaseViewController {
         switch status {
             case .unseenSuccess:
                 self.showSuccessPopupViewController()
-                break
             case .unseenFail:
                 self.showFailPopupView(with: self.viewModel)
             case .run:
                 guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
-                
                 self.showDelayPopupView(with: self.viewModel)
             default:
                 break
@@ -435,8 +433,10 @@ extension HomeViewController: HabitEditingViewControllerDelegate {
 
 extension HomeViewController: SuccessPopupViewControllerDelegate {
     func showSuccessPopupViewController() {
-        let successPopupViewController = SuccessPopupViewController()
-        successPopupViewController.delegate = self
+        let successPopupViewController = SuccessPopupViewController().then {
+            $0.delegate = self
+            $0.modalPresentationStyle = .fullScreen
+        }
         
         guard let habitResponseModel = self.viewModel.habitResponseModel else { return }
         successPopupViewController.viewModel = SuccessPopupViewModel(habitResponseModel: habitResponseModel)

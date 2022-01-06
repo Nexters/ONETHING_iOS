@@ -7,8 +7,8 @@
 
 import Foundation
 
-import RxSwift
 import Moya
+import RxSwift
 
 final class FakeAPIServiceForUnseenFail: APIServiceType {
     let habitId = -1000

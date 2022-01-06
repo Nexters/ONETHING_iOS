@@ -17,7 +17,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             $0.overrideUserInterfaceStyle = .light
         }
 
-        self.window?.rootViewController = SuccessPopupViewController()
+        self.window?.rootViewController = MainTabBarController()
         self.window?.makeKeyAndVisible()
     }
     
