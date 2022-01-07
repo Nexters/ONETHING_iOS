@@ -23,7 +23,10 @@ final class SuccessPopupViewController: BaseViewController {
     private let boxedView = SuccessBoxedView()
     private let completeButton = UIButton()
     private let lottieView = AnimationView()
+    private let commentView = UIImageView()
+    private let commentLabel = UILabel()
     weak var delegate: SuccessPopupViewControllerDelegate?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,7 @@ final class SuccessPopupViewController: BaseViewController {
         self.setupSubTitleLabel()
         self.setupBoxedView()
         self.setupCompleteButton()
+        self.setupCommentView()
         
         self.updateViews(with: self.viewModel)
     }
@@ -68,7 +72,7 @@ final class SuccessPopupViewController: BaseViewController {
         
         self.view.addSubview(self.lottieView)
         self.lottieView.snp.makeConstraints {
-            $0.top.equalTo(self.closeButton.snp.bottom).offset(15)
+            $0.top.equalTo(self.closeButton.snp.bottom).offset(3)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalTo(self.lottieView.snp.width).multipliedBy(0.67)
@@ -111,19 +115,18 @@ final class SuccessPopupViewController: BaseViewController {
         }
     }
     
-    // $0.top.equalTo(self.subTitleLabel.snp.bottom).offset(50)
     private func setupBoxedView() {
         self.view.addSubview(self.boxedView)
         
         self.boxedView.snp.makeConstraints {
-            $0.top.equalTo(self.subTitleLabel.snp.bottom).offset(50)
+            $0.top.equalTo(self.subTitleLabel.snp.bottom).offset(36)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
     }
     
     private func setupCompleteButton() {
         self.completeButton.do {
-            $0.setTitle("성공카드 확인하기", for: .normal)
+            $0.setTitle("닫기", for: .normal)
             $0.setTitleColor(.white, for: .normal)
             $0.setTitleColor($0.titleColor(for: .normal)?.withAlphaComponent(0.5), for: .highlighted)
             $0.titleLabel?.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
@@ -140,6 +143,31 @@ final class SuccessPopupViewController: BaseViewController {
             $0.width.equalTo(311)
             $0.height.equalTo(48)
         }
+    }
+    
+    private func setupCommentView() {
+        self.commentView.image = UIImage(named: "comment_view")
+        self.commentView.contentMode = .scaleAspectFit
+        self.view.addSubview(self.commentView)
+        self.commentView.snp.makeConstraints {
+            $0.centerX.equalTo(self.completeButton)
+            $0.width.equalTo(self.completeButton).multipliedBy(0.7)
+            $0.height.equalTo(self.commentView.snp.width).multipliedBy(36.0/208.0)
+            $0.bottom.equalTo(self.completeButton.snp.top).offset(-9)
+        }
+        
+        self.commentLabel.do {
+            $0.text = "내 달성 습관을 볼 수 있도록 준비 중이에요"
+            $0.font = UIFont.createFont(
+                type: .pretendard(weight: .medium),
+                size: 12)
+            $0.textColor = .black_60
+        }
+        self.commentView.addSubview(self.commentLabel)
+        self.commentLabel.snp.makeConstraints({
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(7.5)
+        })
     }
     
     @objc private func completeButtonDidTap() {

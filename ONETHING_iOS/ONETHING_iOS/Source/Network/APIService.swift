@@ -80,8 +80,7 @@ final class APIService: APIServiceType {
             }
             
             return Disposables.create { request.cancel() }
-        }
-        .retry { errorObservable -> Observable<Int> in
+        }.retry { errorObservable -> Observable<Int> in
             return errorObservable.flatMap { error -> Observable<Int> in
                 let onethingError = error as? OnethingError
                 if onethingError == .expiredAccessToken {

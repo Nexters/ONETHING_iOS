@@ -33,7 +33,7 @@ final class FakeAPIServiceForUnseenSuccess: APIServiceType {
                         delayMaxCount: 6,
                         delayCount: 1,
                         penaltyCount: 5,
-                        successCount: 2,
+                        successCount: 50,
                         color: "blue")) as! C
                 single(.success(responseModel))
             }

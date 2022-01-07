@@ -24,7 +24,7 @@ final class SuccessPopupViewModel {
               let endDate = self.textOfEndDate
         else { return nil }
         
-        return "\(startDate) - \(endDate)"
+        return "\(startDate) ~ \(endDate)"
     }
     
     private var textOfStartDate: String? {
@@ -42,7 +42,7 @@ final class SuccessPopupViewModel {
     }
     
     var percentText: String {
-        let percent: Double = Double(self.habitResponseModel.successCount) / Double(HomeViewModel.defaultTotalDays)
-        return String(format: "%.1f%", percent)
+        let percent: Double = (Double(self.habitResponseModel.successCount) / Double(HomeViewModel.defaultTotalDays)) * 100
+        return String(format: "%.1f%%", percent)
     }
 }
