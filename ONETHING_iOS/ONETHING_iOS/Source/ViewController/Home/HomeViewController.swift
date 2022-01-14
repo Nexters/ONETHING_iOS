@@ -104,12 +104,13 @@ final class HomeViewController: BaseViewController {
     private func observeViewModel() {
         // MARK: - related to In Progress Habit
         self.viewModel
-            .habitRsponseModelSubject
+            .habitResponseModelSubject
             .bind { [weak self] habitInProgressModel in
-                guard let self = self, let habitInProgressModel = habitInProgressModel else {
-                    guard let hasToCheckUnseen = self?.viewModel.hasToCheckUnseen else { return }
+                guard let self = self else { return }
+                guard let habitInProgressModel = habitInProgressModel else {
+                    let hasToCheckUnseen = self.viewModel.hasToCheckUnseen
                     
-                    hasToCheckUnseen == true ? self?.viewModel.requestPassedHabitForSuccessOrFailView() : self?.showEmptyViewAndHideMainView()
+                    hasToCheckUnseen == true ? self.viewModel.requestPassedHabitForSuccessOrFailView() : self.showEmptyViewAndHideMainView()
                     return
                 }
                 
@@ -144,13 +145,11 @@ final class HomeViewController: BaseViewController {
         guard let status = habitStatus else { return }
         switch status {
             case .unseenSuccess:
-                #warning("성공 페이지 만들면 성공 페이지 띄워줘야 함")
-                break
+                self.showSuccessPopupViewController()
             case .unseenFail:
                 self.showFailPopupView(with: self.viewModel)
             case .run:
                 guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
-                
                 self.showDelayPopupView(with: self.viewModel)
             default:
                 break
@@ -318,6 +317,11 @@ extension HomeViewController: HabitWrittenViewControllerDelegate {
 extension HomeViewController: HabitWritingViewControllerDelegate {
     func update(currentDailyHabitModel: DailyHabitResponseModel) {
         self.viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
+        
+        // 66일째 일일 습관 완료 후, 습관이 성공했을 때
+        if self.viewModel.isHabitSuccess {
+            self.showSuccessPopupViewController()
+        }
     }
 }
 
@@ -424,5 +428,34 @@ extension HomeViewController: HabitEditingViewControllerDelegate {
         
         self.viewModel.update(habitInProgressModel: habitInProgressModel)
         self.habitInfoView.update(with: self.viewModel)
+    }
+}
+
+extension HomeViewController: SuccessPopupViewControllerDelegate {
+    func showSuccessPopupViewController() {
+        let successPopupViewController = SuccessPopupViewController().then {
+            $0.delegate = self
+            $0.modalPresentationStyle = .fullScreen
+        }
+        
+        guard let habitResponseModel = self.viewModel.habitResponseModel else { return }
+        successPopupViewController.viewModel = SuccessPopupViewModel(habitResponseModel: habitResponseModel)
+        self.present(successPopupViewController, animated: true)
+    }
+    
+    func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
+        guard let status: HabitResponseModel.HabitStatus = self.viewModel.habitResponseModel?.onethingHabitStatus else { return }
+        
+        switch status {
+        case .run:
+            self.viewModel.requestHabitInProgress()
+        case .unseenSuccess:
+            self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+                self.viewModel.requestHabitInProgress()
+            }
+        default:
+            break
+        }
+        
     }
 }

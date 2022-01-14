@@ -17,7 +17,7 @@ final class HomeViewModel: NSObject {
     private(set) var habitResponseModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private(set) var hasToCheckUnseen = true
-    let habitRsponseModelSubject = PublishSubject<HabitResponseModel?>()
+    let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
     let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     
     private var nickname: String?
@@ -35,12 +35,12 @@ final class HomeViewModel: NSObject {
             retryHandler: { self.requestHabitInProgress() }
         ).subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
             guard let habitInProgressModel = wrappingResponseModel.data else {
-                self?.habitRsponseModelSubject.onNext(nil)
+                self?.habitResponseModelSubject.onNext(nil)
                 return
             }
             
             self?.habitResponseModel = habitInProgressModel
-            self?.habitRsponseModelSubject.onNext(habitInProgressModel)
+            self?.habitResponseModelSubject.onNext(habitInProgressModel)
         }).disposed(by: self.disposeBag)
     }
     
@@ -60,12 +60,12 @@ final class HomeViewModel: NSObject {
                 self?.hasToCheckUnseen = false
                 
                 guard let unseenHabitModel = wrappingResponseModel.data else {
-                    self?.habitRsponseModelSubject.onNext(nil)
+                    self?.habitResponseModelSubject.onNext(nil)
                     return
                 }
                 
                 self?.habitResponseModel = unseenHabitModel
-                self?.habitRsponseModelSubject.onNext(unseenHabitModel)
+                self?.habitResponseModelSubject.onNext(unseenHabitModel)
             }).disposed(by: self.disposeBag)
     }
     
@@ -88,6 +88,20 @@ final class HomeViewModel: NSObject {
     
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId), retryHandler: nil)
+            .subscribe(onSuccess: { (result: Bool) in
+                
+            completion(result)
+        }).disposed(by: self.disposeBag)
+    }
+    
+    func requestUnseenSuccessToBeSuccess(completion: @escaping (Bool) -> Void) {
+        guard let habitID = self.habitResponseModel?.habitId
+        else {
+            completion(false)
+            return
+        }
+        
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenSuccess(habitId: habitID), retryHandler: nil)
             .subscribe(onSuccess: { (result: Bool) in
                 
             completion(result)
@@ -154,7 +168,7 @@ final class HomeViewModel: NSObject {
         
         guard let diffDaysStr = formatter
             .string(from: startDate, to: Date())?
-            .components(separatedBy: .decimalDigits.inverted)
+            .components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined(), let diffDays = Int(diffDaysStr) else { return nil }
         
         return diffDays
@@ -221,6 +235,10 @@ final class HomeViewModel: NSObject {
     
     var reasonTextOfFailPopupView: String? {
         self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
+    }
+    
+    var isHabitSuccess: Bool {
+        self.dailyHabitModels.count == Self.defaultTotalDays
     }
 }
 

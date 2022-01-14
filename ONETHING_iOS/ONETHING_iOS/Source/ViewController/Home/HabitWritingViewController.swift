@@ -169,8 +169,9 @@ final class HabitWritingViewController: BaseViewController {
             
             self.completeButton.isUserInteractionEnabled = false
             self.viewModel?.postDailyHabit(completionHandler: { [weak self] dailyHabitResponseModel in
-                self?.delegate?.update(currentDailyHabitModel: dailyHabitResponseModel)
-                self?.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popViewController(animated: true, completion: {
+                    self?.delegate?.update(currentDailyHabitModel: dailyHabitResponseModel)
+                })
                 
             }, failureHandler: { [weak self] in
                 self?.completeButton.isUserInteractionEnabled = true

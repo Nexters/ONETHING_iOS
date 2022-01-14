@@ -7,8 +7,8 @@
 
 import Foundation
 
-import RxSwift
 import Moya
+import RxSwift
 
 final class FakeAPIServiceForUnseenFail: APIServiceType {
     let habitId = -1000
@@ -18,7 +18,7 @@ final class FakeAPIServiceForUnseenFail: APIServiceType {
         case 실패_닫기_버튼_누른후
     }
     
-    var order: HabitResponseOrder = .실패_닫기_버튼_누르기전
+    private var order: HabitResponseOrder = .실패_닫기_버튼_누르기전
     
     func requestAndDecodeRx<C: Codable, T: TargetType>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
         return Single<C>.create { [weak self] single in
