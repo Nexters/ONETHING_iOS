@@ -51,6 +51,14 @@ final class HabitEditViewModel: PenaltyInfoViewModable {
         self.habitInProgressModel.color = onethingColor.rawValue
     }
     
+    var currentColorIndex: Int {
+        return self.index(of: OnethingColor(rawValue: self.habitInProgressModel.color) ?? .black_100)
+    }
+    
+    private func index(of color: OnethingColor) -> Int {
+        return self.colors.firstIndex(of: color) ?? 0
+    }
+    
     func color(at index: Int) -> UIColor? {
         return self.colors[safe: index]?.color
     }
