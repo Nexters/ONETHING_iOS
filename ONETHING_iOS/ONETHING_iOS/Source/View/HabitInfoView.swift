@@ -66,11 +66,13 @@ final class HabitInfoView: UIView {
     private func setupTitleLabel() {
         self.titleLabel.font = UIFont(name: "Pretendard-Bold", size: 26)
         self.titleLabel.textColor = .white
+        self.titleLabel.adjustsFontSizeToFitWidth = true
         
         self.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints {
             $0.top.equalTo(self.descriptionLabel.snp.bottom).offset(6)
             $0.leading.equalTo(self.descriptionLabel)
+            $0.width.equalToSuperview().multipliedBy(0.7)
         }
     }
     
