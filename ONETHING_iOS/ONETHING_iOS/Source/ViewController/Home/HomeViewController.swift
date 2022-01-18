@@ -30,7 +30,7 @@ final class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-		self.addObserver()
+        self.addObserver()
         self.setupHabitInfoView()
         self.setupHabitCalendarView()
         self.setupBackgounndDimColorView()
