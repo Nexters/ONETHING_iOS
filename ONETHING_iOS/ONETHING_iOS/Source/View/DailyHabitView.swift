@@ -50,6 +50,8 @@ final class DailyHabitView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+      
         self.layoutCloseButton()
         self.layoutTimeLabel()
         self.layoutDateLabel()
