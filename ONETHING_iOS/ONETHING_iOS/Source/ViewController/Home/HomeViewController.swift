@@ -41,8 +41,10 @@ final class HomeViewController: BaseViewController {
         self.viewModel.requestHabitInProgress()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override func reloadContentsIfRequired() {
@@ -276,6 +278,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             )
         }
         
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.isHidden = true
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     

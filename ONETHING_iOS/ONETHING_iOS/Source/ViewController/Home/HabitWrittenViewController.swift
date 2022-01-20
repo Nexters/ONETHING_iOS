@@ -21,6 +21,12 @@ final class HabitWrittenViewController: BaseViewController {
     private let statusLabel = UILabel()
     private let dailyHabitView = DailyHabitView()
     private let upperStampButton = UIButton()
+    private var panGestureManager: PanGestureRecognizerManager?
+    
+    private var height: CGFloat?
+    private var originMinY: CGFloat?
+    private var originCenter: CGPoint?
+    
     private let disposeBag = DisposeBag()
     
     var viewModel: HabitWrittenViewModel?
@@ -30,6 +36,7 @@ final class HabitWrittenViewController: BaseViewController {
         super.viewDidLoad()
         
         self.view.cornerRadius = 40
+        self.setupPanGesture()
         self.addSubviews()
         self.setupUpperStampView()
         self.setupDayLabel()
@@ -40,6 +47,52 @@ final class HabitWrittenViewController: BaseViewController {
         self.viewModel?.requestHabitImageRx()
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
             .disposed(by: self.disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.height = UIScreen.main.bounds.height - self.view.frame.minY
+        self.originMinY = self.view.frame.minY
+        self.originCenter = self.view.center
+    }
+    
+    private func setupPanGesture() {
+        self.panGestureManager = PanGestureRecognizerManager(view: self.view, direction: .down)
+        self.panGestureManager?.panGestureAction = { [weak self] panGesture in
+            self?.handlePanGestureByState(panGesture)
+        }
+    }
+    
+    private func handlePanGestureByState(_ panGesture: UIPanGestureRecognizer) {
+        switch panGesture.state {
+            case .ended:
+                self.routeToHomeOrReturnOriginCenter()
+            default:
+                self.panGestureManager?.changeCenterDuring(panGesture: panGesture, view: panGesture.view)
+        }
+    }
+    
+    private func routeToHomeOrReturnOriginCenter() {
+        guard let height = self.height, let originMinY = self.originMinY else {
+            self.dismissViewController()
+            return
+        }
+
+        let thresholdY = originMinY + (height / 6.0)
+        if self.view.frame.minY < thresholdY {
+            self.returnToOriginCenter()
+        } else {
+            self.dismissViewController()
+        }
+    }
+    
+    private func returnToOriginCenter() {
+        guard let originCenter = self.originCenter else { return }
+
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.center = originCenter
+        })
     }
     
     private func addSubviews() {
@@ -63,7 +116,6 @@ final class HabitWrittenViewController: BaseViewController {
             $0.textColor = .black_100
         }
     
-        
         self.dayLabel.snp.makeConstraints {
             $0.leading.equalTo(self.upperStampButton.snp.trailing).offset(10)
             $0.lastBaseline.equalTo(self.dailyHabitView.dateLabel)
@@ -90,7 +142,6 @@ final class HabitWrittenViewController: BaseViewController {
             $0.dailyHabitViewCloseButtonDelegate = self
         }
         
-        
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(40)
             $0.leading.trailing.equalToSuperview().inset(32)
@@ -102,7 +153,7 @@ final class HabitWrittenViewController: BaseViewController {
     @objc private func dismissViewController() {
         self.delegate?.habitWrittenViewControllerWillDismiss(self)
         self.upperStampButton.isHidden = true
-        super.dismiss(animated: true)
+        self.dismiss(animated: true)
     }
     
     private func updateViewsWithViewModel() {
