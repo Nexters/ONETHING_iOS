@@ -23,6 +23,9 @@ final class HabitWrittenViewController: BaseViewController {
     private let upperStampButton = UIButton()
     private var panGestureManager: PanGestureRecognizerManager?
     
+    private var timerForSwipe: Timer?
+    private var panGestureState: UIPanGestureRecognizer.State?
+    
     private var height: CGFloat?
     private var originMinY: CGFloat?
     private var originCenter: CGPoint?
@@ -69,8 +72,21 @@ final class HabitWrittenViewController: BaseViewController {
             case .ended:
                 self.routeToHomeOrReturnOriginCenter()
             default:
+                self.updateStateAndTimerForSwipe(state: panGesture.state)
                 self.panGestureManager?.changeCenterDuring(panGesture: panGesture, view: panGesture.view)
         }
+    }
+    
+    // NOTE: 마지막 state가 ended 가 아닌 changed로 그대로 끝난 경우에 대비하기 위해 사용합니다.
+    private func updateStateAndTimerForSwipe(state: UIPanGestureRecognizer.State) {
+      self.timerForSwipe?.invalidate()
+      
+      self.panGestureState = state
+      self.timerForSwipe = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { timer in
+        guard self.panGestureState == .changed else { return }
+        
+        self.routeToHomeOrReturnOriginCenter()
+      })
     }
     
     private func routeToHomeOrReturnOriginCenter() {
