@@ -110,7 +110,8 @@ final class HabitEditingViewController: BaseViewController {
     
     private var prevColorSelectButton: ColorSelectButton?
     private func setupColorSelectButtons() {
-        let firstButton = self.colorSelectButtons.first(where: { $0.tag == 0})
+        let currentColorIndex: Int = self.viewModel?.currentColorIndex ?? 0
+        let firstButton = self.colorSelectButtons.first(where: { $0.tag == currentColorIndex })
         firstButton?.checkView.isHidden = false
         self.prevColorSelectButton = firstButton
     }
@@ -120,14 +121,11 @@ final class HabitEditingViewController: BaseViewController {
         
         self.timeStampLabel.text = viewModel.pushTimeText
         self.timeStampLabel.sizeToFit()
-        
         self.delayInfoViews.forEach { delayInfoView in
             delayInfoView.image = viewModel.delayImage(at: delayInfoView.tag)
         }
         self.delayRemainedCountLabel.text = viewModel.delayRemainedText
-        
         self.penaltyInfoView?.updateCount(with: viewModel)
-        
         self.colorSelectButtons.forEach { button in
             button.backgroundColor = viewModel.color(at: button.tag)
         }
