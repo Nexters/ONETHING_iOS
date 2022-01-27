@@ -23,7 +23,6 @@ final class HabitWritingViewController: BaseViewController {
     private let dailyHabitView = DailyHabitView()
     private let keyboardDismissableView = UIView()
     private let habitStampView = HabitStampView()
-    private let rightSwipeGestureRecognizerView = RightSwipeGestureRecognizerView()
     private var lockPopupView: LockView?
     private let backgroundDimView = BackgroundDimView()
     var delegate: HabitWritingViewControllerDelegate?
@@ -33,14 +32,13 @@ final class HabitWritingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.addKeyboardDismissTapGesture()
         self.setupKeyboardDismissableView()
         self.setupBackBtnTitleView()
         self.setupDailyHabitView()
         self.setupCompleteButton()
         self.setupHabitStampView()
-        self.setupRightSwipeGestureRecognizerView()
         self.setupBackgounndDimColorView()
         self.updateViewsWithViewModel()
         self.bindingButtons()
@@ -52,12 +50,6 @@ final class HabitWritingViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        self.tabBarController?.tabBar.isHidden = false
-    }
-    
     override func addKeyboardDismissTapGesture() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard(_:)))
         self.keyboardDismissableView.addGestureRecognizer(tapGesture)
@@ -67,7 +59,7 @@ final class HabitWritingViewController: BaseViewController {
         self.view.addSubview(self.keyboardDismissableView)
         
         self.keyboardDismissableView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
@@ -91,7 +83,6 @@ final class HabitWritingViewController: BaseViewController {
         self.dailyHabitView.snp.makeConstraints {
             $0.top.equalTo(self.backBtnTitleView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(32)
-            $0.bottom.equalToSuperview().offset(-30)
         }
     }
     
@@ -114,7 +105,6 @@ final class HabitWritingViewController: BaseViewController {
     }
     
     private func setupHabitStampView() {
-        self.habitStampView.backgroundColor = .clear
         self.habitStampView.delegate = self
         self.habitStampView.dataSource = viewModel
         self.habitStampView.registerCell(cellType: HabitStampCell.self)
@@ -126,17 +116,6 @@ final class HabitWritingViewController: BaseViewController {
             $0.top.equalTo(self.dailyHabitView.habitTextView.secondBottomLine.snp.bottom).offset(constant)
             $0.leading.trailing.equalToSuperview().inset(50)
             $0.bottom.equalTo(self.completeButton.snp.top)
-        }
-    }
-    
-    private func setupRightSwipeGestureRecognizerView() {
-        self.keyboardDismissableView.addSubview(self.rightSwipeGestureRecognizerView)
-        self.rightSwipeGestureRecognizerView.parentViewController = self
-        
-        self.rightSwipeGestureRecognizerView.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-            $0.bottom.equalTo(self.view)
-            $0.trailing.equalTo(self.backBtnTitleView.snp.leading).offset(-10)
         }
     }
     
@@ -188,14 +167,14 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let viewModel = self.viewModel else { return }
-
+        
         if viewModel.isLocked(at: indexPath.row) {
             self.habitStampView.visibleCells.forEach { $0.isUserInteractionEnabled = false }
             self.popupLockViewAndDown(with: indexPath)
         } else {
             guard let habitStampView = collectionView as? HabitStampView else { return }
             guard let habitStampCell = collectionView.cellForItem(at: indexPath) as? HabitStampCell else { return }
-    
+            
             viewModel.selectedStampIndex = indexPath.row
             habitStampView.hideCircleCheckViewOfPrevCell()
             habitStampView.prevCheckedCell = habitStampCell
@@ -254,7 +233,7 @@ extension HabitWritingViewController: UICollectionViewDelegateFlowLayout {
     
     private func animateDownLockPopupView() {
         guard let lockPopupView = self.lockPopupView else { return }
-                
+        
         UIView.animateKeyframes(withDuration: 0.3, delay: 1.2, animations: {
             let behindBottomConstant: CGFloat = 800
             lockPopupView.topAnchorConstraint?.constant = behindBottomConstant

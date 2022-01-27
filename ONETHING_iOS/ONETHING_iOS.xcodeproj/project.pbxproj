@@ -551,9 +551,9 @@
 		F2BADE0626C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
 		F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
 		F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
-		F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
-		F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
-		F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */; };
+		F2F588A326B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
+		F2F588A426B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
+		F2F588A526B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588B026B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
 		F2F588B126B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
 		F2F588B226B0F95200F5430D /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588AF26B0F95200F5430D /* LockView.swift */; };
@@ -786,7 +786,7 @@
 		F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingPenalty.storyboard; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHabitResponseModel.swift; sourceTree = "<group>"; };
-		F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightSwipeGestureRecognizerView.swift; sourceTree = "<group>"; };
+		F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureRecognizerManager.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1081,7 +1081,7 @@
 				F20B572E26A7EAF700391D45 /* HabitStampView.swift */,
 				F20B573626A7F0C900391D45 /* CircleView.swift */,
 				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
-				F2F588A226B0042400F5430D /* RightSwipeGestureRecognizerView.swift */,
+				F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */,
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
 				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
 				F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */,
@@ -1884,7 +1884,7 @@
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
 				CEFC3A29269CA4620007AFF2 /* ObservableType+.swift in Sources */,
-				F2F588A326B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
+				F2F588A326B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */,
 				F2F588B026B0F95200F5430D /* LockView.swift in Sources */,
 				5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
@@ -2134,7 +2134,7 @@
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
-				F2F588A526B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
+				F2F588A526B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */,
 				F20B574726A8246600391D45 /* Stamp.swift in Sources */,
 				F20E00E526A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CE26C45426B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -2303,7 +2303,7 @@
 				F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
-				F2F588A426B0042400F5430D /* RightSwipeGestureRecognizerView.swift in Sources */,
+				F2F588A426B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */,
 				F21CCD2826D6874E0067FDD1 /* ColorSelectButton.swift in Sources */,
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
@@ -2624,7 +2624,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2647,7 +2647,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

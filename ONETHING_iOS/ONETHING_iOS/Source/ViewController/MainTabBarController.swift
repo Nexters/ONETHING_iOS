@@ -98,5 +98,4 @@ final class MainTabBarController: UITabBarController {
     }
     
     private let viewModel = MainTabbarViewModel()
-    
 }
