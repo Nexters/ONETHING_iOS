@@ -320,7 +320,7 @@ extension HomeViewController: HabitWritingViewControllerDelegate {
         
         // 66일째 일일 습관 완료 후, 습관이 성공했을 때
         if self.viewModel.isHabitSuccess {
-            self.showSuccessPopupViewController()
+            self.viewModel.requestPassedHabitForSuccessOrFailView()
         }
     }
 }
