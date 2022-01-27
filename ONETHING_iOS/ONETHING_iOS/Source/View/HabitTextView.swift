@@ -27,6 +27,8 @@ final class HabitTextView: UITextView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        
         self.layoutPlaceholderLabel()
         self.layoutBottomLines()
         self.layoutTextCountLabel()
@@ -37,6 +39,7 @@ final class HabitTextView: UITextView {
         self.layoutManager.delegate = self
         self.delegate = self
         self.isScrollEnabled = false
+        self.spellCheckingType = .no
     }
     
     private func setupPlaceholderLabel() {
