@@ -59,7 +59,12 @@ final class HomeViewController: BaseViewController {
     
     private func addObserver() {
         let center = NotificationCenter.default
-        center.addObserver(self, selector: #selector(self.updateUserInform(_:)), name: .didUpdateUserInform, object: nil)
+        center.addObserver(
+            self,
+            selector: #selector(self.updateUserInform(_:)),
+            name: .didUpdateUserInform,
+            object: nil
+        )
     }
     
     private func setupHabitInfoView() {
@@ -108,11 +113,9 @@ final class HomeViewController: BaseViewController {
         self.viewModel
             .habitResponseModelSubject
             .bind { [weak self] habitInProgressModel in
-                guard let self = self else { return }
-                guard let habitInProgressModel = habitInProgressModel else {
-                    let hasToCheckUnseen = self.viewModel.hasToCheckUnseen
-                    
-                    hasToCheckUnseen == true ? self.viewModel.requestPassedHabitForSuccessOrFailView() : self.showEmptyViewAndHideMainView()
+                guard let self = self, let habitInProgressModel = habitInProgressModel
+                else {
+                    self?.handleIfIsUnSeenEvent()
                     return
                 }
                 
@@ -141,6 +144,16 @@ final class HomeViewController: BaseViewController {
                 self.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func handleIfIsUnSeenEvent() {
+        let hasToCheckUnseen = self.viewModel.hasToCheckUnseen
+        
+        if hasToCheckUnseen {
+            self.viewModel.requestPassedHabitForSuccessOrFailView()
+        } else {
+            self.showEmptyViewAndHideMainView()
+        }
     }
     
     private func presentPopupViewIfNeeded(with habitStatus: HabitResponseModel.HabitStatus?) {
@@ -283,7 +296,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         self.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         guard let habitCalendarView = collectionView as? HabitCalendarView else { return .zero }
         return UIEdgeInsets(
             top: habitCalendarView.topConstant,
@@ -392,7 +409,7 @@ extension HomeViewController: DelayPopupViewDelegate {
 
 extension HomeViewController: FailPopupViewDelegate {
     func failPopupViewDidTapCloseButton() {
-        // uncheked fail인 경우
+        // unseen fail인 경우
         if self.viewModel.hasToCheckUnseen == false {
             guard let habitID = self.viewModel.habitResponseModel?.habitId else { return }
             
@@ -404,7 +421,7 @@ extension HomeViewController: FailPopupViewDelegate {
             return
         }
         
-        // 습관 그만하기 버튼을 누른 경우
+        // 이전에 습관 그만하기 버튼을 눌렀던 경우
         self.viewModel.requestGiveup(completion: { [weak self] _ in
             self?.viewModel.requestHabitInProgress()
             self?.viewModel.update(isGiveUp: false)
