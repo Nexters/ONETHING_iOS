@@ -190,6 +190,30 @@ final class HomeViewController: BaseViewController {
         self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
             self?.router?.routeToHabitEditingViewController()
         }).disposed(by: self.disposeBag)
+        
+        self.habitCalendarView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.habitCalendarCellDidSelect(with: indexPath)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func habitCalendarCellDidSelect(with indexPath: IndexPath) {
+        if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
+            let dailyHabitModel = DailyHabitModel(
+                order: indexPath.row + 1,
+                sentenceForDelay: self.viewModel.sentenceForDelay,
+                responseModel: responseModel
+            )
+            
+            self.router?.routeToHabitWrittenViewController(with: dailyHabitModel)
+        } else {
+            guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
+                self.router?.showWriteLimitPopupView(with: indexPath)
+                return
+            }
+            
+            self.presentHabitWritingViewController(with: indexPath)
+        }
     }
     
     private func revealEmptyViewAndHideMainView() {
@@ -232,25 +256,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         let cellDiameter = self.habitCalendarView.cellDiameter(superViewWidth: self.view.frame.width)
         return CGSize(width: cellDiameter, height: cellDiameter)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let responseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
-            let dailyHabitModel = DailyHabitModel(
-                order: indexPath.row + 1,
-                sentenceForDelay: viewModel.sentenceForDelay,
-                responseModel: responseModel
-            )
-            
-            self.router?.routeToHabitWrittenViewController(with: dailyHabitModel)
-        } else {
-            guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
-                self.router?.showWriteLimitPopupView(with: indexPath)
-                return
-            }
-            
-            self.presentHabitWritingViewController(with: indexPath)
-        }
     }
     
     private func presentHabitWritingViewController(with indexPath: IndexPath) {
