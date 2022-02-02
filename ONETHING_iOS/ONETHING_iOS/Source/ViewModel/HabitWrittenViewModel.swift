@@ -35,7 +35,7 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
                 createDate: createDate,
                 imageExtension: imageExtension) { (photoImage: UIImage) in
                     emitter.onNext(photoImage)
-            }
+                }
             
             return Disposables.create()
         }

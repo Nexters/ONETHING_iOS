@@ -106,7 +106,7 @@ final class HabitWritingViewController: BaseViewController {
     
     private func setupHabitStampView() {
         self.habitStampView.delegate = self
-        self.habitStampView.dataSource = viewModel
+        self.habitStampView.dataSource = self.viewModel
         self.habitStampView.registerCell(cellType: HabitStampCell.self)
         
         self.view.addSubview(self.habitStampView)

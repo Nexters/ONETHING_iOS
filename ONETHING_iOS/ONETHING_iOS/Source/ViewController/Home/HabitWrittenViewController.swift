@@ -45,7 +45,7 @@ final class HabitWrittenViewController: BaseViewController {
         self.setupDayLabel()
         self.setupStatusLabel()
         self.setupDailyHabitView()
-
+        
         self.updateViewsWithViewModel()
         self.viewModel?.requestHabitImageRx()
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
@@ -79,14 +79,14 @@ final class HabitWrittenViewController: BaseViewController {
     
     // NOTE: 마지막 state가 ended 가 아닌 changed로 그대로 끝난 경우에 대비하기 위해 사용합니다.
     private func updateStateAndTimerForSwipe(state: UIPanGestureRecognizer.State) {
-      self.timerForSwipe?.invalidate()
-      
-      self.panGestureState = state
-      self.timerForSwipe = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { timer in
-        guard self.panGestureState == .changed else { return }
+        self.timerForSwipe?.invalidate()
         
-        self.routeToHomeOrReturnOriginCenter()
-      })
+        self.panGestureState = state
+        self.timerForSwipe = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { timer in
+            guard self.panGestureState == .changed else { return }
+            
+            self.routeToHomeOrReturnOriginCenter()
+        })
     }
     
     private func routeToHomeOrReturnOriginCenter() {
@@ -94,7 +94,7 @@ final class HabitWrittenViewController: BaseViewController {
             self.dismissViewController()
             return
         }
-
+        
         let thresholdY = originMinY + (height / 6.0)
         if self.view.frame.minY < thresholdY {
             self.returnToOriginCenter()
@@ -105,7 +105,7 @@ final class HabitWrittenViewController: BaseViewController {
     
     private func returnToOriginCenter() {
         guard let originCenter = self.originCenter else { return }
-
+        
         UIView.animate(withDuration: 0.2, animations: {
             self.view.center = originCenter
         })
@@ -131,7 +131,7 @@ final class HabitWrittenViewController: BaseViewController {
             $0.font = UIFont.createFont(type: .pretendard(weight: .bold), size: 18)
             $0.textColor = .black_100
         }
-    
+        
         self.dayLabel.snp.makeConstraints {
             $0.leading.equalTo(self.upperStampButton.snp.trailing).offset(10)
             $0.lastBaseline.equalTo(self.dailyHabitView.dateLabel)

@@ -70,7 +70,8 @@ final class HomeViewModel: NSObject {
     }
     
     func requestUnseenDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId),
+                                           retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
@@ -83,15 +84,15 @@ final class HomeViewModel: NSObject {
                 self?.hasToCheckUnseen = false
                 
                 completion(habitResponseModel)
-        }).disposed(by: self.disposeBag)
+            }).disposed(by: self.disposeBag)
     }
     
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId), retryHandler: nil)
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId),
+                                           retryHandler: nil)
             .subscribe(onSuccess: { (result: Bool) in
-                
-            completion(result)
-        }).disposed(by: self.disposeBag)
+                completion(result)
+            }).disposed(by: self.disposeBag)
     }
     
     func requestUnseenSuccessToBeSuccess(completion: @escaping (Bool) -> Void) {
@@ -101,11 +102,11 @@ final class HomeViewModel: NSObject {
             return
         }
         
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenSuccess(habitId: habitID), retryHandler: nil)
+        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenSuccess(habitId: habitID),
+                                           retryHandler: nil)
             .subscribe(onSuccess: { (result: Bool) in
-                
-            completion(result)
-        }).disposed(by: self.disposeBag)
+                completion(result)
+            }).disposed(by: self.disposeBag)
     }
     
     func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
@@ -142,7 +143,7 @@ final class HomeViewModel: NSObject {
     var textOfEndDate: String? {
         guard let habitInProgressModel = self.habitResponseModel,
               let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
-              else { return nil}
+        else { return nil}
         
         let days = DateComponents(day: Self.defaultTotalDays - 1)
         let endDate = Calendar.current.date(byAdding: days, to: date)
@@ -159,7 +160,8 @@ final class HomeViewModel: NSObject {
     
     private var diffDaysFromStartToCurrent: Int? {
         guard let habitInProgressModel = self.habitResponseModel,
-              let startDate = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd") else { return nil }
+              let startDate = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
+        else { return nil }
         
         let formatter = DateComponentsFormatter().then {
             $0.allowedUnits = [.day]
@@ -167,9 +169,9 @@ final class HomeViewModel: NSObject {
         }
         
         guard let diffDaysStr = formatter
-            .string(from: startDate, to: Date())?
-            .components(separatedBy: CharacterSet.decimalDigits.inverted)
-            .joined(), let diffDays = Int(diffDaysStr) else { return nil }
+                .string(from: startDate, to: Date())?
+                .components(separatedBy: CharacterSet.decimalDigits.inverted)
+                .joined(), let diffDays = Int(diffDaysStr) else { return nil }
         
         return diffDays
     }
@@ -272,7 +274,7 @@ extension HomeViewModel: UICollectionViewDataSource {
     
     private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
         guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
-            
+        
         habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
         habitCalendarCell.update(textColor: UIColor.red_3)
     }

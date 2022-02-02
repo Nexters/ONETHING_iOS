@@ -69,7 +69,7 @@ final class HomeViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalTo(habitInfoView.snp.width).dividedBy(2)
+            $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2)
         }
     }
     
@@ -183,7 +183,7 @@ final class HomeViewController: BaseViewController {
         self.updateEmptyViewHiddenStatus(true)
         self.updateContentViewHiddenStatus(false)
     }
-   
+    
     private func updateEmptyViewHiddenStatus(_ isHidden: Bool) {
         self.homeEmptyView.isHidden = isHidden
     }
@@ -192,8 +192,8 @@ final class HomeViewController: BaseViewController {
         let views = [self.habitInfoView, self.habitCalendarView]
         views.forEach { $0.isHidden = isHidden }
     }
-  
-	@objc private func updateUserInform(_ notification: Notification) {
+    
+    @objc private func updateUserInform(_ notification: Notification) {
         guard let currentUser = OnethingUserManager.sharedInstance.currentUser else { return }
         guard let nickname = currentUser.account?.nickname                     else { return }
         
@@ -223,11 +223,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             self.presentHabitWrittenViewController(with: dailyHabitModel)
         } else {
             guard self.viewModel.canCreateCurrentDailyHabitModel(with: indexPath.row) else {
-              self.showWriteLimitPopupView(with: indexPath)
-              return
+                self.showWriteLimitPopupView(with: indexPath)
+                return
             }
-          
-          self.presentHabitWritingViewController(with: indexPath)
+            
+            self.presentHabitWritingViewController(with: indexPath)
         }
     }
     
@@ -451,15 +451,14 @@ extension HomeViewController: SuccessPopupViewControllerDelegate {
         guard let status: HabitResponseModel.HabitStatus = self.viewModel.habitResponseModel?.onethingHabitStatus else { return }
         
         switch status {
-        case .run:
-            self.viewModel.requestHabitInProgress()
-        case .unseenSuccess:
-            self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+            case .run:
                 self.viewModel.requestHabitInProgress()
-            }
-        default:
-            break
+            case .unseenSuccess:
+                self.viewModel.requestUnseenSuccessToBeSuccess { _ in
+                    self.viewModel.requestHabitInProgress()
+                }
+            default:
+                break
         }
-        
     }
 }
