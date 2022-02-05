@@ -83,6 +83,10 @@ final class HabitEditViewModel: PenaltyInfoViewModable {
         let penaltyCount = self.habitInProgressModel.penaltyCount
         return "\(penaltyCount)번"
     }
+  
+    var penaltySentence: String {
+        return self.habitInProgressModel.sentence
+    }
     
     var pushTimeText: String? {
         self.habitInProgressModel.pushTime?
