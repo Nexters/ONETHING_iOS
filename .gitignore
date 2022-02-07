@@ -9,6 +9,10 @@
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 Pods/
 
+# Base URL #
+ONETHING_iOS/ONETHING_iOS/Source/Constants/ServerHost.swift
+
+
 ### Objective-C ###
 # Xcode
 #
