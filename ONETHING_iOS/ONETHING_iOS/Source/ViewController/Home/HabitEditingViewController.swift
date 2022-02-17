@@ -126,6 +126,7 @@ final class HabitEditingViewController: BaseViewController {
         }
         self.delayRemainedCountLabel.text = viewModel.delayRemainedText
         self.penaltyInfoView?.updateCount(with: viewModel)
+        self.penaltyInfoView?.update(sentence: viewModel.penaltySentence)
         self.colorSelectButtons.forEach { button in
             button.backgroundColor = viewModel.color(at: button.tag)
         }
