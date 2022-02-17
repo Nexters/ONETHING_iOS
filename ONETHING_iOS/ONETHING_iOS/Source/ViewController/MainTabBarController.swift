@@ -12,8 +12,7 @@ final class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.barTintColor = .white
-        self.tabBar.tintColor = .black_100
+        self.setupTabBar()
         self.setupViewControllers()
         self.setupUserInformIfNeeded()
         
@@ -63,6 +62,33 @@ final class MainTabBarController: UITabBarController {
             guard baseController.isViewLoaded == true                                  else { return }
             baseController.clearContents()
         }
+    }
+    
+    private func setupTabBar() {
+        if #available(iOS 15.0, *) {
+            self.setupTabBarBackgroundForiOS15Above()
+        } else {
+            self.setupTabBarBackgroundForiOS14Below()
+        }
+        
+        self.tabBar.layer.applyShadow(x: 0, y: 0, blur: 30.0)
+        self.tabBar.tintColor = .black_100
+    }
+    
+    private func setupTabBarBackgroundForiOS14Below() {
+        self.tabBar.barTintColor = .white
+        self.tabBar.isTranslucent = false
+        self.tabBar.backgroundImage = UIImage()
+        self.tabBar.shadowImage = UIImage()
+    }
+    
+    @available(iOS 15.0, *)
+    private func setupTabBarBackgroundForiOS15Above() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = .white
+        self.tabBar.standardAppearance = appearance
+        self.tabBar.scrollEdgeAppearance = appearance
     }
     
     private func setupViewControllers() {

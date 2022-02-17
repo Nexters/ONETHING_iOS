@@ -551,6 +551,9 @@
 		F2BADE0626C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
 		F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
 		F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */; };
+		F2F10FA627AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
+		F2F10FA727AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
+		F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
 		F2F588A326B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A426B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A526B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
@@ -787,6 +790,7 @@
 		F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingPenalty.storyboard; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHabitResponseModel.swift; sourceTree = "<group>"; };
+		F2F10FA527AA5723006334AC /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureRecognizerManager.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1153,6 +1157,7 @@
 				F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */,
 				CE67520626D0F45500616CA8 /* UIButton+.swift */,
 				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
+				F2F10FA527AA5723006334AC /* CALayer+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1981,6 +1986,7 @@
 				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F2129BED26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
+				F2F10FA627AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36A271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F255719F26A432CE005A1AAF /* APIService.swift in Sources */,
 				F2A614B926A4254B0061A17A /* ContentAPI.swift in Sources */,
@@ -2145,6 +2151,7 @@
 				CE8FEDE626B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
+				F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36C271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F2129BEF26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CED5AED426A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
@@ -2293,6 +2300,7 @@
 				F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
+				F2F10FA727AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36B271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
 				F2129BEE26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				CE8FEDD326B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
