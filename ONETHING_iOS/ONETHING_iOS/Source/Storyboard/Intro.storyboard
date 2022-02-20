@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -62,13 +62,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 생성 시 뇽뇽의 개인정보 수집 방침" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-5t-NtD" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <rect key="frame" x="40" y="468" width="295" height="14.333333333333314"/>
+                                <rect key="frame" x="40" y="468" width="295" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="black_40"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BEP-t9-VHJ">
-                                <rect key="frame" x="40" y="514.33333333333337" width="295" height="44"/>
+                                <rect key="frame" x="40" y="651" width="295" height="44"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Z0l-Pq-eC5">
                                         <rect key="frame" x="17" y="10" width="24" height="24"/>
@@ -119,12 +119,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d2v-5t-NtD" secondAttribute="trailing" constant="40" id="9Ge-9W-zJp"/>
                             <constraint firstItem="d2v-5t-NtD" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="C7q-1v-uHO"/>
                             <constraint firstItem="6EY-oA-lYC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Cm1-EB-Rsd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="BEP-t9-VHJ" secondAttribute="bottom" constant="83" id="GlU-zb-ojR"/>
                             <constraint firstItem="6EY-oA-lYC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jh1-Zx-fCC"/>
                             <constraint firstItem="d2v-5t-NtD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="MOf-Hk-o5k"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6EY-oA-lYC" secondAttribute="trailing" id="f7Z-nI-h96"/>
                             <constraint firstItem="BEP-t9-VHJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="m79-gd-wJM"/>
                             <constraint firstItem="BEP-t9-VHJ" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.786667" id="rg7-iv-J2E"/>
-                            <constraint firstItem="BEP-t9-VHJ" firstAttribute="top" secondItem="d2v-5t-NtD" secondAttribute="bottom" constant="32" id="s7U-i0-P9z"/>
                         </constraints>
                     </view>
                     <connections>
@@ -296,7 +296,7 @@
     </scenes>
     <designables>
         <designable name="d2v-5t-NtD">
-            <size key="intrinsicContentSize" width="186.33333333333334" height="14.333333333333334"/>
+            <size key="intrinsicContentSize" width="187" height="15"/>
         </designable>
     </designables>
     <resources>
