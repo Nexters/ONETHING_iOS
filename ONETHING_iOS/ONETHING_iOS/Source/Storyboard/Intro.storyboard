@@ -62,7 +62,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 생성 시 뇽뇽의 개인정보 수집 방침" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d2v-5t-NtD" customClass="ActiveLabel" customModule="ActiveLabel">
-                                <rect key="frame" x="40" y="468" width="295" height="15"/>
+                                <rect key="frame" x="40" y="604" width="295" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" name="black_40"/>
                                 <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="d2v-5t-NtD" firstAttribute="top" secondItem="6EY-oA-lYC" secondAttribute="bottom" constant="28" id="3jw-LL-7zC"/>
+                            <constraint firstItem="BEP-t9-VHJ" firstAttribute="top" secondItem="d2v-5t-NtD" secondAttribute="bottom" constant="32" id="33g-c8-K1r"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="d2v-5t-NtD" secondAttribute="trailing" constant="40" id="9Ge-9W-zJp"/>
                             <constraint firstItem="d2v-5t-NtD" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="C7q-1v-uHO"/>
                             <constraint firstItem="6EY-oA-lYC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Cm1-EB-Rsd"/>
