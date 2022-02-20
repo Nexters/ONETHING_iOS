@@ -92,30 +92,9 @@ final class MainTabBarController: UITabBarController {
     }
     
     private func setupViewControllers() {
-        guard let profileController = ProfileViewController.instantiateViewController(from: .profile) else { return }
-
-        self.viewControllers = [
-            self.createNavigationController(
-                for: HomeViewController(),
-                image: UIImage(named: "home_inactive")!
-            ),
-            self.createNavigationController(
-                for: profileController,
-                image: UIImage(named: "mypage_inactive")!
-            )
-        ]
-    }
-    
-    private func createNavigationController(
-        for rootViewController: UIViewController,
-        title: String = "",
-        image: UIImage
-    ) -> UIViewController {
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        navigationController.tabBarItem.title = title
-        navigationController.tabBarItem.image = image
-        navigationController.isNavigationBarHidden = true
-        return navigationController
+        self.viewControllers = Child.allCases.map {
+            $0.createController()
+        }
     }
     
     private func setupUserInformIfNeeded() {
@@ -124,4 +103,39 @@ final class MainTabBarController: UITabBarController {
     }
     
     private let viewModel = MainTabbarViewModel()
+}
+
+extension MainTabBarController {
+    
+    enum Child: CaseIterable {
+        case home
+        case myhabit
+        case mypage
+        
+        var tabbarImage: UIImage? {
+            switch self {
+            case .home:     return UIImage(named: "home_inactive")
+            case .myhabit:  return UIImage(named: "history_inactive")
+            case .mypage:   return UIImage(named: "mypage_inactive")
+            }
+        }
+        
+        func createController() -> UIViewController {
+            var childController: UIViewController
+            switch self {
+            case .home:
+                childController = HomeViewController()
+            case .myhabit:
+                childController = MyHabitViewController()
+            case .mypage:
+                childController = ProfileViewController.instantiateViewController(from: .profile) ?? ProfileViewController()
+            }
+            
+            let navigationController = UINavigationController(rootViewController: childController)
+            navigationController.tabBarItem.image = self.tabbarImage
+            navigationController.isNavigationBarHidden = true
+            return navigationController
+        }
+    }
+    
 }

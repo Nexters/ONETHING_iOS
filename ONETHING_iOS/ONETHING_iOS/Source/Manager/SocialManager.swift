@@ -102,9 +102,6 @@ extension SocialManager: ASAuthorizationControllerDelegate {
         self.excuteCompletion(decodedAuthorizationCode, decodedIdentityToken, userFullName)
     }
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        #warning("에러에 대한 처리 필요")
-        print(error.localizedDescription)
-    }
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {}
     
 }

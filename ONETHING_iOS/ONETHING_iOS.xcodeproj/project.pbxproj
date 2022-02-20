@@ -203,6 +203,9 @@
 		CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
 		CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
 		CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */; };
+		CE9F7DEB27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
+		CE9F7DEC27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
+		CE9F7DED27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -677,6 +680,7 @@
 		CE8FEDF226B6DE400092DC0D /* OnethingUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingUserModel.swift; sourceTree = "<group>"; };
 		CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewController.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -1020,6 +1024,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F7DE627C26D4200F49044 /* MyHabit */,
 				CEC4D79726A2B1E000633222 /* Util */,
 				CEFF0A46269C8E7E00DB8D2D /* Constants */,
 				CE7247E42699DCAD00BB2C19 /* Enum */,
@@ -1208,6 +1213,38 @@
 				CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */,
 			);
 			path = Intro;
+			sourceTree = "<group>";
+		};
+		CE9F7DE627C26D4200F49044 /* MyHabit */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F7DE927C26D5400F49044 /* Model */,
+				CE9F7DE827C26D4D00F49044 /* ViewModel */,
+				CE9F7DE727C26D4800F49044 /* ViewController */,
+			);
+			path = MyHabit;
+			sourceTree = "<group>";
+		};
+		CE9F7DE727C26D4800F49044 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE9F7DE827C26D4D00F49044 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE9F7DE927C26D5400F49044 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
@@ -1901,6 +1938,7 @@
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CE307A5926D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
+				CE9F7DEB27C26D7400F49044 /* MyHabitViewController.swift in Sources */,
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
@@ -2066,6 +2104,7 @@
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CE307A5B26D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
+				CE9F7DED27C26D7400F49044 /* MyHabitViewController.swift in Sources */,
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
@@ -2215,6 +2254,7 @@
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
 				CE307A5A26D29780005919AE /* ProfileSettingViewModel.swift in Sources */,
+				CE9F7DEC27C26D7400F49044 /* MyHabitViewController.swift in Sources */,
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
@@ -2496,8 +2536,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2508,7 +2548,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2521,8 +2561,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
@@ -2533,7 +2573,7 @@
 				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "ONETHING MAIN";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2637,7 +2677,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2660,7 +2700,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = NXRYTWY76F;
+				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
