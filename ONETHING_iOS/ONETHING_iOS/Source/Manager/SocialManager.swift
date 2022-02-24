@@ -56,10 +56,12 @@ final class SocialManager: NSObject {
     
     private func executeKakaoCompletion(usingOauthToken oauthToken: OAuthToken) {
         let response = LoginResponse.kakao(
-            accessToken: oauthToken.accessToken,
-            refreshToken: oauthToken.refreshToken,
-            refreshExpiresIn: oauthToken.refreshTokenExpiresIn,
-            scope: oauthToken.scope ?? ""
+            response: KakaoLoginReqeustBody(
+                accessToken: oauthToken.accessToken,
+                refreshToken: oauthToken.refreshToken,
+                refreshExpiresIn: oauthToken.refreshTokenExpiresIn,
+                scope: oauthToken.scope ?? ""
+            )
         )
         self.executeCompletion(response: response)
     }
@@ -114,9 +116,11 @@ extension SocialManager: ASAuthorizationControllerDelegate {
         }
 
         let response = LoginResponse.apple(
-            authorizationCode: decodedAuthorizationCode,
-            identityToken: decodedIdentityToken,
-            userFullName: userFullName != "" ? userFullName : nil
+            response: AppleLoginRequestBody(
+                authorizationCode: decodedAuthorizationCode,
+                identityToken: decodedIdentityToken,
+                userFullName: userFullName != "" ? userFullName : nil
+            )
         )
         self.executeCompletion(response: response)
     }
@@ -128,8 +132,8 @@ extension SocialManager: ASAuthorizationControllerDelegate {
 extension SocialManager {
     
     enum LoginResponse {
-        case apple(authorizationCode: String, identityToken: String, userFullName: String?)
-        case kakao(accessToken: String, refreshToken: String, refreshExpiresIn: TimeInterval, scope: String)
+        case apple(response: AppleLoginRequestBody)
+        case kakao(response: KakaoLoginReqeustBody)
     }
     
 }

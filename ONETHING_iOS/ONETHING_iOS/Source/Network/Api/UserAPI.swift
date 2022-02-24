@@ -12,6 +12,7 @@ import Moya
 enum UserAPI {
     case logout(accessToken: String, refreshToken: String)
     case appleLogin(authorizationCode: String, identityToken: String, userName: String? = nil)
+    case kakaoLogin(accessToken: String, refreshToken: String, refreshTokenExpiresIn: TimeInterval, scope: String)
     case refresh(accessToken: String, refreshToken: String)
     case account
     case withdrawl(accessToken: String, refreshToken: String)
@@ -27,6 +28,7 @@ extension UserAPI: TargetType {
         switch self {
         case .logout:       return "/auth/logout"
         case .appleLogin:   return "/auth/apple/login"
+        case .kakaoLogin:   return "/auth/kakao/login"
         case .refresh:      return "/auth/token/refresh"
         case .account:      return "/api/account"
         case .withdrawl:    return "/auth/sign-out"
@@ -38,6 +40,7 @@ extension UserAPI: TargetType {
         switch self {
         case .logout:       fallthrough
         case .appleLogin:   fallthrough
+        case .kakaoLogin:   fallthrough
         case .withdrawl:    fallthrough
         case .refresh:      return .post
         case .account:      return .get
@@ -54,21 +57,41 @@ extension UserAPI: TargetType {
         case .logout(let accessToken, let refreshToken):
             let parameters: [String: Any] = ["accessToken": accessToken, "refreshToken": refreshToken]
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            
         case .appleLogin(let authorizationCode, let identityToken, let userName):
             var parameters: [String: Any] = ["authorizationCode": authorizationCode, "identityToken": identityToken]
             if let userName = userName { parameters["userName"] = userName }
             return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            
+        case .kakaoLogin(let accessToken, let refreshToken, let refreshTokenExpiresIn, let scope):
+            let parameters: [String: Any] = [
+                "accessToken": accessToken,
+                "refreshToken": refreshToken,
+                "refreshTokenExpiresIn": refreshTokenExpiresIn,
+                "scope": scope
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            
         case .refresh(let accessToken, let refreshToken):
-            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
-                                      encoding: JSONEncoding.default)
+            return .requestParameters(
+                parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
+                encoding: JSONEncoding.default
+            )
+            
         case .account:
             return .requestPlain
         case .withdrawl(let accessToken, let refreshToken):
-            return .requestParameters(parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
-                                      encoding: JSONEncoding.default)
+            return .requestParameters(
+                parameters: ["accessToken": accessToken, "refreshToken": refreshToken],
+                encoding: JSONEncoding.default
+            )
+            
         case .setProfile(let nickname, let imageType):
-            return .requestParameters(parameters: ["nickname": nickname, "imageType": imageType],
-                                      encoding: JSONEncoding.default)
+            return .requestParameters(
+                parameters: ["nickname": nickname, "imageType": imageType],
+                encoding: JSONEncoding.default
+            )
+            
         }
     }
     

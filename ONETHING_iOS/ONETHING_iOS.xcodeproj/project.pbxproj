@@ -25,6 +25,12 @@
 		CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
+		CE0EE3FA27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
+		CE0EE3FB27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
+		CE0EE3FC27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
+		CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
+		CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
+		CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
@@ -608,6 +614,8 @@
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
 		CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestBody.swift; sourceTree = "<group>"; };
+		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
@@ -888,6 +896,7 @@
 		CE0EE3EE27C78375003B7C0E /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE3F827C784FA003B7C0E /* Model */,
 				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3F027C78380003B7C0E /* ViewModel */,
 				CE0EE3EF27C7837A003B7C0E /* ViewController */,
@@ -917,6 +926,15 @@
 				CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE0EE3F827C784FA003B7C0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */,
+				CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CE1F96C226AC0A1E006B56E4 /* Common */ = {
@@ -2093,12 +2111,14 @@
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CEFF0A48269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE8FEDDF26B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
+				CE0EE3FA27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */,
 				CE26C45F26B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				F200E4BD26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				F200E4C926D673570084BAB9 /* PreparePopupView.swift in Sources */,
 				F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
+				CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 			);
@@ -2260,12 +2280,14 @@
 				CEE8AB1E26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				F20E00D226A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CEC4D81F26A4168800633222 /* FontName.swift in Sources */,
+				CE0EE3FC27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */,
 				CE16C25E26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				F200E4BF26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45826B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F200E4CB26D673570084BAB9 /* PreparePopupView.swift in Sources */,
 				F20B573526A7ED3400391D45 /* HabitStampCell.swift in Sources */,
+				CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 			);
@@ -2411,12 +2433,14 @@
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,
+				CE0EE3FB27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
 				F200E4BE26D5D5470084BAB9 /* PenaltyTextableView.swift in Sources */,
 				CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CEE8AB1526BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				F200E4CA26D673570084BAB9 /* PreparePopupView.swift in Sources */,
 				CE1F96C526AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
+				CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 			);

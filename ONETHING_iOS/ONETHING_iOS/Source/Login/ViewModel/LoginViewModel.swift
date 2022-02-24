@@ -15,59 +15,67 @@ final class LoginViewModel {
     let loadingSubject = BehaviorSubject<Bool>(value: false)
     let completeSubject = PublishSubject<CompleteFlag>()
     
-    init(loginService: APIService = .shared) {
-        self.loginService = loginService
+    init(loginRepository: LoginRepository = LoginRepositoryImpl()) {
+        self.loginRepository = loginRepository
     }
     
     func login(type: SocialAccessType) {
         self.loadingSubject.onNext(true)
         SocialManager.sharedInstance.login(with: type) { [weak self] response in
             switch response {
-            case .kakao(let accessToken, let refreshToken, let refreshExpiresIn, let scope):
-                self?.loginKakao(
-                    accessToken: accessToken,
-                    refreshToken: refreshToken,
-                    refreshExpiresIn: refreshExpiresIn,
-                    scope: scope
-                )
-            case .apple(let authorizationCode, let identityToken, let userFullName):
-                self?.loginApple(authorizationCode, identityToken, userFullName)
+            case .kakao(let response):
+                self?.loginKakao(requestBody: response)
+            case .apple(let response):
+                self?.loginApple(requestBody: response)
             }
         }
     }
     
-    private func loginApple(_ authorizationCode: String, _ identityToken: String, _ userName: String? = nil) {
-        let appleLoginAPI = UserAPI.appleLogin(
-            authorizationCode: authorizationCode,
-            identityToken: identityToken,
-            userName: userName
-        )
-        
-        self.loginService.requestAndDecodeRx(
-            apiTarget: appleLoginAPI,
-            retryHandler: { [weak self] in self?.loginApple(authorizationCode, identityToken, userName) }
-        ).subscribe(onSuccess: { [weak self] (loginResponseModel: LoginResponseModel) in
-            defer { self?.loadingSubject.onNext(false) }
-            
-            guard let accessToken = loginResponseModel.token?.accessToken     else { return }
-            guard let refreshToken = loginResponseModel.token?.refreshToken   else { return }
-            OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
-            
-            OnethingUserManager.sharedInstance.requestAccount(completion: { [weak self] accountModel in
-                self?.completeSubject.onNext((accountModel.doneHabitSetting == true,
-                                              accountModel.account?.nickname != nil))
+    private func loginApple(requestBody: AppleLoginRequestBody) {
+        self.loginRepository.requestAppleLogin(
+            requestBody: requestBody,
+            retryHandler: { [weak self] in
+                self?.loginApple(requestBody: requestBody)
             })
-        }, onFailure: { [weak self] _ in
-            self?.loadingSubject.onNext(false)
-        }).disposed(by: self.disposeBag)
+            .withUnretained(self)
+            .subscribe(onNext: { owner, loginResponseModel in
+                owner.loadingSubject.onNext(false)
+                owner.handleAfterLogin(loginResponse: loginResponseModel)
+            }, onError: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
     }
     
-    private func loginKakao(accessToken: String, refreshToken: String, refreshExpiresIn: TimeInterval, scope: String) {
+    private func loginKakao(requestBody: KakaoLoginReqeustBody) {
+        self.loginRepository.reqeustKakaoLogin(
+            requestBody: requestBody,
+            retryHandler: { [weak self] in
+                self?.loginKakao(requestBody: requestBody)
+            })
+            .withUnretained(self)
+            .subscribe(onNext: { owner, loginResponseModel in
+                owner.loadingSubject.onNext(false)
+                owner.handleAfterLogin(loginResponse: loginResponseModel)
+            }, onError: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func handleAfterLogin(loginResponse: LoginResponseModel) {
+        guard let accessToken = loginResponse.token?.accessToken   else { return }
+        guard let refreshToken = loginResponse.token?.refreshToken else { return }
         
+        OnethingUserManager.sharedInstance.updateAuthToken(accessToken, refreshToken)
+        OnethingUserManager.sharedInstance.requestAccount(completion: { [weak self] accountModel in
+            self?.completeSubject.onNext((accountModel.doneHabitSetting == true,
+                                          accountModel.account?.nickname != nil))
+        })
     }
     
     private let disposeBag = DisposeBag()
     
-    private let loginService: APIService
+    private let loginRepository: LoginRepository
     
 }

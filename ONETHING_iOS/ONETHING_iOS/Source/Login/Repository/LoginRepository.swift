@@ -9,8 +9,8 @@ import RxSwift
 import Foundation
 
 protocol LoginRepository {
-    func requestAppleLogin(authorizationCode: String, identityToken: String, userName: String?) -> Observable<LoginResponseModel>
-    func reqeustKakaoLogin(accessToken: String, refreshToken: String, refreshExpiresIn: TimeInterval, scope: String) -> Observable<LoginResponseModel>
+    func requestAppleLogin(requestBody: AppleLoginRequestBody, retryHandler: (() -> Void)?) -> Observable<LoginResponseModel>
+    func reqeustKakaoLogin(requestBody: KakaoLoginReqeustBody, retryHandler: (() -> Void)?) -> Observable<LoginResponseModel>
 }
 
 final class LoginRepositoryImpl: LoginRepository {
@@ -19,12 +19,27 @@ final class LoginRepositoryImpl: LoginRepository {
         self.apiService = apiService
     }
     
-    func requestAppleLogin(authorizationCode: String, identityToken: String, userName: String?) {
+    func requestAppleLogin(requestBody: AppleLoginRequestBody, retryHandler: (() -> Void)? = nil) -> Observable<LoginResponseModel> {
+        let appleLoginAPI = UserAPI.appleLogin(
+            authorizationCode: requestBody.authorizationCode,
+            identityToken: requestBody.identityToken,
+            userName: requestBody.userFullName
+        )
         
+        return self.apiService.requestAndDecodeRx(apiTarget: appleLoginAPI, retryHandler: retryHandler)
+            .asObservable()
     }
     
-    func reqeustKakaoLogin(accessToken: String, refreshToken: String, refreshExpiresIn: TimeInterval, scope: String) {
+    func reqeustKakaoLogin(requestBody: KakaoLoginReqeustBody, retryHandler: (() -> Void)? = nil) -> Observable<LoginResponseModel> {
+        let kakaoLoginAPI = UserAPI.kakaoLogin(
+            accessToken: requestBody.accessToken,
+            refreshToken: requestBody.refreshToken,
+            refreshTokenExpiresIn: requestBody.refreshExpiresIn,
+            scope: requestBody.scope
+        )
         
+        return self.apiService.requestAndDecodeRx(apiTarget: kakaoLoginAPI, retryHandler: retryHandler)
+            .asObservable()
     }
     
     private let apiService: APIService
