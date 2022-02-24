@@ -95,9 +95,19 @@ final class LoginViewController: BaseViewController {
     }
     
     private func bindButtons() {
-        self.appleLoginButton.rx.tap.subscribe(onNext: { [weak self] in
-            self?.viewModel.login(type: .apple)
-        }).disposed(by: self.disposeBag)
+        self.appleLoginButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.viewModel.login(type: .apple)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.kakaoLoginButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.viewModel.login(type: .kakao)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func observeViewModel() {
@@ -158,6 +168,7 @@ final class LoginViewController: BaseViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var termsLabel: ActiveLabel!
     @IBOutlet private weak var appleLoginButton: UIButton!
+    @IBOutlet private weak var kakaoLoginButton: UIButton!
     
 }
 
