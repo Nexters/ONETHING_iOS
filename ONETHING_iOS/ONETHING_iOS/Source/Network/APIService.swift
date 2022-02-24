@@ -71,6 +71,7 @@ final class APIService: APIServiceType {
                         single(.failure(error))
                     }
                 case .failure:
+                    guard NetworkDetector.shared.isConnected == false else { return }
                     if NetworkErrorPopupView.presentedView == nil {
                         NetworkErrorPopupView.showInKeyWindow { retryHandler?() }
                     } else {
