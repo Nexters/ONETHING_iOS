@@ -13,10 +13,10 @@ final class WritingPenaltyViewModel: PenaltyInfoViewModable {
     private let habitID: Int
     private(set) var sentence: String
     private(set) var penaltyCount: Int
-    private let apiService: APIService
+    private let apiService: APIServiceType
         
     init(habitID: Int, sentence: String,
-         penaltyCount: Int, apiService: APIService = APIService()) {
+         penaltyCount: Int, apiService: APIServiceType = APIService.shared) {
         self.habitID = habitID
         self.sentence = sentence
         self.penaltyCount = penaltyCount
@@ -25,10 +25,15 @@ final class WritingPenaltyViewModel: PenaltyInfoViewModable {
     
     func putDelayPenaltyForCompleted(completion: @escaping (Bool) -> Void) {
         let writePenaltyAPI: ContentAPI = .putPassDelayPenalty(habitId: self.habitID)
-        self.apiService.requestAndDecodeRx(apiTarget: writePenaltyAPI)
-            .subscribe(onSuccess: { (result: Bool) in
-                completion(result)
-            }).disposed(by: self.disposeBag)
+
+        self.apiService.requestRx(apiTarget: writePenaltyAPI, retryHandler: nil)
+            .asObservable()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, response in
+                let isComplete = response.statusCode == 200 ? true : false
+                completion(isComplete)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private let disposeBag = DisposeBag()
