@@ -15,8 +15,8 @@ final class AccountViewModel {
     let loadingSubject = PublishSubject<Bool>()
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
 
-    init(apiService: APIService = .shared) {
-        self.apiService = apiService
+    init(userRepository: UserRepository = UserRepositoryImpl()) {
+        self.userRepository = userRepository
     }
     
     func requestUserInform() {
@@ -30,47 +30,41 @@ final class AccountViewModel {
     }
     
     func requestLogout() {
-        guard let accessToken = OnethingUserManager.sharedInstance.accessToken else { return }
-        guard let refreshToken = OnethingUserManager.sharedInstance.refreshToken else { return }
-        
         self.loadingSubject.onNext(true)
-        let logoutAPI = UserAPI.logout(accessToken: accessToken, refreshToken: refreshToken)
-        
-        self.apiService.requestAndDecodeRx(apiTarget: logoutAPI, retryHandler: { [weak self] in
-            self?.requestLogout()
-        }).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
-            guard let self = self else { return }
-            self.loadingSubject.onNext(false)
-            
-            if isSuccess == true {
+        self.userRepository.requestLogout(
+            retryHandler: { [weak self] in
+                self?.requestLogout()
+            })
+            .withUnretained(self)
+            .subscribe(onNext: { owner, isSuccess in
+                owner.loadingSubject.onNext(false)
+
+                guard isSuccess == true else { return }
                 OnethingUserManager.sharedInstance.clearUserInform()
-                self.logoutSuccessSubject.onNext(())
-            }
-        }, onFailure: { [weak self] _ in
-            self?.loadingSubject.onNext(false)
-        }).disposed(by: self.disposeBag)
+                owner.logoutSuccessSubject.onNext(())
+            }, onError: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func requestWithdrawl() {
-        guard let accessToken = OnethingUserManager.sharedInstance.accessToken   else { return }
-        guard let refreshToken = OnethingUserManager.sharedInstance.refreshToken else { return }
-        
         self.loadingSubject.onNext(true)
-        let withdrwalAPI = UserAPI.withdrawl(accessToken: accessToken, refreshToken: refreshToken)
-        APIService.shared.requestAndDecodeRx(apiTarget: withdrwalAPI).subscribe(onSuccess: { [weak self] (isSuccess: Bool) in
-            guard let self = self else { return }
-            self.loadingSubject.onNext(false)
-            
-            if isSuccess == true {
+        self.userRepository.requestWithdrawl()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, isSuccess in
+                owner.loadingSubject.onNext(false)
+                
+                guard isSuccess == true else { return }
                 OnethingUserManager.sharedInstance.clearUserInform()
-                self.logoutSuccessSubject.onNext(())
-            }
-        }, onFailure: { [weak self] _ in
-            self?.loadingSubject.onNext(false)
-        }).disposed(by: self.disposeBag)
+                owner.logoutSuccessSubject.onNext(())
+            }, onError: { [weak self] _ in
+                self?.loadingSubject.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
     }
     
-    private let apiService: APIService
+    private let userRepository: UserRepository
     private let disposeBag = DisposeBag()
     
 }
