@@ -49,15 +49,8 @@ final class APIService: APIServiceType {
             return Disposables.create {
                 request.cancel()
             }
-        }.retry { errorObservable -> Observable<Int> in
-            return errorObservable.flatMap { error -> Observable<Int> in
-                let onethingError = error as? OnethingError
-                if onethingError == .expiredAccessToken {
-                    return Observable<Int>.timer(.milliseconds(1500), scheduler: MainScheduler.instance)
-                }
-                return Observable.error(error)
-            }
         }
+        .retry(when: self.retryWhenHandler)
     }
     
     func requestRx<T: TargetType>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<Response> {
@@ -83,15 +76,7 @@ final class APIService: APIServiceType {
                 request.cancel()
             }
         }
-        .retry(when: { errorObservable -> Observable<Int> in
-            errorObservable.flatMap { error -> Observable<Int> in
-                let onethingError = error as? OnethingError
-                if onethingError == .expiredAccessToken {
-                    return Observable<Int>.timer(.milliseconds(1500), scheduler: MainScheduler.instance)
-                }
-                return Observable.error(error)
-            }
-        })
+        .retry(when: self.retryWhenHandler)
     }
     
     private func handleNetworkDisconnectIfNeeded(withHandler handler: (() -> Void)? = nil) {
@@ -100,6 +85,16 @@ final class APIService: APIServiceType {
             NetworkErrorPopupView.showInKeyWindow { handler?() }
         } else {
             NetworkErrorPopupView.append { handler?() }
+        }
+    }
+    
+    private let retryWhenHandler: (Observable<Error>) -> Observable<Int> = { errorObservable in
+        errorObservable.flatMap { error -> Observable<Int> in
+            let onethingError = error as? OnethingError
+            if onethingError == .expiredAccessToken {
+                return Observable<Int>.timer(.milliseconds(1500), scheduler: MainScheduler.instance)
+            }
+            return Observable.error(error)
         }
     }
     
