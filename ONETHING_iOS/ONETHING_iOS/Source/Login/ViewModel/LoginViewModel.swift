@@ -15,8 +15,8 @@ final class LoginViewModel {
     let loadingSubject = BehaviorSubject<Bool>(value: false)
     let completeSubject = PublishSubject<CompleteFlag>()
     
-    init(loginRepository: LoginRepository = LoginRepositoryImpl()) {
-        self.loginRepository = loginRepository
+    init(userRepository: UserRepository = UserRepositoryImpl()) {
+        self.userRepository = userRepository
     }
     
     func login(type: SocialAccessType) {
@@ -32,7 +32,7 @@ final class LoginViewModel {
     }
     
     private func loginApple(requestBody: AppleLoginRequestBody) {
-        self.loginRepository.requestAppleLogin(
+        self.userRepository.requestAppleLogin(
             requestBody: requestBody,
             retryHandler: { [weak self] in
                 self?.loginApple(requestBody: requestBody)
@@ -48,7 +48,7 @@ final class LoginViewModel {
     }
     
     private func loginKakao(requestBody: KakaoLoginReqeustBody) {
-        self.loginRepository.reqeustKakaoLogin(
+        self.userRepository.reqeustKakaoLogin(
             requestBody: requestBody,
             retryHandler: { [weak self] in
                 self?.loginKakao(requestBody: requestBody)
@@ -76,6 +76,6 @@ final class LoginViewModel {
     
     private let disposeBag = DisposeBag()
     
-    private let loginRepository: LoginRepository
+    private let userRepository: UserRepository
     
 }

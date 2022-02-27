@@ -13,11 +13,11 @@ import RxSwift
 
 final class HabitImageUseCase {
     private let imageCache: Kingfisher.ImageCache
-    private let apiService: APIService
+    private let apiService: APIServiceType
     private let disposeBag = DisposeBag()
     
     init(imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default,
-         apiService: APIService = .shared) {
+         apiService: APIServiceType = APIService.shared) {
         self.imageCache = imageCache
         self.apiService = apiService
     }
@@ -46,13 +46,19 @@ final class HabitImageUseCase {
             imageExtension:  imageExtension
         )
         
-        self.apiService.requestAndDecodeRx(apiTarget: api).subscribe(onSuccess: { (photoImageData: Data) in
-            guard let photoImage = UIImage(data: photoImageData) else { return }
-            
-            // store image to memory cache
-            self.imageCache.store(photoImage, forKey: createDate, toDisk: false)
-            completionHandler(photoImage)
-            
-        }).disposed(by: self.disposeBag)
+        self.apiService.requestRx(apiTarget: api, retryHandler: nil)
+            .asObservable()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, response in
+                guard response.statusCode == 200 else { return }
+                
+                let imageData = response.data
+                guard let photoImage = UIImage(data: imageData) else { return }
+                
+                // store image to memory cache
+                owner.imageCache.store(photoImage, forKey: createDate, toDisk: false)
+                completionHandler(photoImage)
+            })
+            .disposed(by: self.disposeBag)
     }
 }

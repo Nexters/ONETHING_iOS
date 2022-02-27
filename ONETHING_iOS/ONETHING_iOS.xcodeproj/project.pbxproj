@@ -22,15 +22,18 @@
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
 		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
-		CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
-		CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
-		CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3FA27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FB27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FC27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
+		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40B27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40C27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40D27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
@@ -613,9 +616,10 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
-		CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestBody.swift; sourceTree = "<group>"; };
 		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
+		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
+		CE0EE40A27CB9685003B7C0E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
@@ -897,7 +901,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0EE3F827C784FA003B7C0E /* Model */,
-				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3F027C78380003B7C0E /* ViewModel */,
 				CE0EE3EF27C7837A003B7C0E /* ViewController */,
 			);
@@ -923,7 +926,7 @@
 		CE0EE3F327C783EC003B7C0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */,
+				CE0EE40A27CB9685003B7C0E /* UserRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -1079,6 +1082,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3EE27C78375003B7C0E /* Login */,
 				CE9F7DE627C26D4200F49044 /* MyHabit */,
 				CEC4D79726A2B1E000633222 /* Util */,
@@ -1122,6 +1126,7 @@
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
 				CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */,
+				CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1989,6 +1994,7 @@
 				CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				F200E4C126D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CE0EE40B27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -2016,6 +2022,7 @@
 				F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
+				CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F2B571DD26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
@@ -2064,7 +2071,6 @@
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
-				CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
@@ -2158,6 +2164,7 @@
 				CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				F200E4C326D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CE0EE40D27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
@@ -2185,6 +2192,7 @@
 				F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
+				CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F2B571DF26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
@@ -2233,7 +2241,6 @@
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
-				CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				CE8FEDD426B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
@@ -2311,6 +2318,7 @@
 				CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F200E4C226D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CE0EE40C27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
@@ -2338,6 +2346,7 @@
 				F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
+				CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F2B571DE26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,
@@ -2386,7 +2395,6 @@
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
-				CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,

@@ -48,5 +48,13 @@ final class FakeAPIServiceForGiveUp: APIServiceType {
             return Disposables.create()
         }
     }
+    
+    func requestRx<T: TargetType>(apiTarget: T, retryHandler: (() -> Void)?) -> Single<Response> {
+        return Single<Response>.create { single in
+            return Disposables.create {
+                
+            }
+        }
+    }
 }
 
