@@ -1036,7 +1036,6 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CE0EE40527C8B22A003B7C0E /* Repository */,
 				CEC4D79726A2B1E000633222 /* Util */,
 				CEFF0A46269C8E7E00DB8D2D /* Constants */,
 				CE7247E42699DCAD00BB2C19 /* Enum */,
@@ -1071,6 +1070,7 @@
 		CE7247AD269994E400BB2C19 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE40527C8B22A003B7C0E /* Repository */,
 				F289D28F26DF3C800019B3FA /* Mocks */,
 				CE26C44C26B0313200BE7DDC /* Error */,
 				F20E00D326A5978C009A4AB3 /* Api */,
