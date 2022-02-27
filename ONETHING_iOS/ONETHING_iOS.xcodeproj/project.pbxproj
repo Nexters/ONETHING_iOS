@@ -554,6 +554,9 @@
 		F2F10FA627AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
 		F2F10FA727AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
 		F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
+		F2F10FAA27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
+		F2F10FAB27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
+		F2F10FAC27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
 		F2F588A326B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A426B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A526B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
@@ -791,6 +794,7 @@
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F10FA527AA5723006334AC /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		F2F10FA927AA68B4006334AC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureRecognizerManager.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1324,6 +1328,7 @@
 				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
 				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
 				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
+				F2F10FA927AA68B4006334AC /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1926,6 +1931,7 @@
 				F2B571DD26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
+				F2F10FAA27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				CE38762526CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
 				CEFA5BC526B52BFF0037F71B /* Date+.swift in Sources */,
@@ -2091,6 +2097,7 @@
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F2B571DF26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
+				F2F10FAC27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				CE38762726CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -2240,6 +2247,7 @@
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F2B571DE26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,
+				F2F10FAB27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE38762626CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
