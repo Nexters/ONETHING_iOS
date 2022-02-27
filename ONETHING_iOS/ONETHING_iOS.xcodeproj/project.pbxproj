@@ -34,6 +34,15 @@
 		CE0EE40B27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
 		CE0EE40C27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
 		CE0EE40D27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40F27CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41027CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41327CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41527CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41927CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
+		CE0EE41A27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
+		CE0EE41B27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
@@ -620,6 +629,9 @@
 		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
 		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
 		CE0EE40A27CB9685003B7C0E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewModel.swift; sourceTree = "<group>"; };
+		CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitLayoutGuide.swift; sourceTree = "<group>"; };
+		CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
@@ -938,6 +950,14 @@
 				CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		CE1F96C226AC0A1E006B56E4 /* Common */ = {
@@ -1278,6 +1298,8 @@
 		CE9F7DE627C26D4200F49044 /* MyHabit */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */,
+				CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */,
 				CE9F7DE927C26D5400F49044 /* Model */,
 				CE9F7DE827C26D4D00F49044 /* ViewModel */,
 				CE9F7DE727C26D4800F49044 /* ViewController */,
@@ -1296,6 +1318,7 @@
 		CE9F7DE827C26D4D00F49044 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1980,6 +2003,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41327CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
@@ -2007,6 +2031,7 @@
 				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CEE8AB1C26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
+				CE0EE40F27CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
@@ -2051,6 +2076,7 @@
 				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CE0EE41927CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
@@ -2150,6 +2176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41527CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
@@ -2177,6 +2204,7 @@
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
+				CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
@@ -2221,6 +2249,7 @@
 				F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CE0EE41B27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				F20B573126A7EAF700391D45 /* HabitStampView.swift in Sources */,
@@ -2304,6 +2333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
@@ -2331,6 +2361,7 @@
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
+				CE0EE41027CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
@@ -2375,6 +2406,7 @@
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CE0EE41A27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
