@@ -15,7 +15,7 @@ import AuthenticationServices
 
 final class SocialManager: NSObject {
     
-    typealias Completion = (String?, String?, String?) -> Void
+    typealias Completion = (LoginResponse) -> Void
     
     static let sharedInstance = SocialManager()
     
@@ -37,17 +37,33 @@ final class SocialManager: NSObject {
     }
     
     private func loginThroughKakao() {
-        if KakaoSDKUser.UserApi.isKakaoTalkLoginAvailable() {
-            KakaoSDKUser.UserApi.shared.loginWithKakaoTalk { oauthToken, error in
-                guard error != nil else { return }
-                self.excuteCompletion(oauthToken?.accessToken, oauthToken?.refreshToken, nil)
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { oauthToken, error in
+                guard error == nil else { return }
+                guard let oauthToken = oauthToken else { return }
+                
+                self.executeKakaoCompletion(usingOauthToken: oauthToken)
             }
         } else {
-            KakaoSDKUser.UserApi.shared.loginWithKakaoAccount { oauthToken, error in
-                guard error != nil else { return }
-                self.excuteCompletion(oauthToken?.accessToken, oauthToken?.refreshToken, nil)
+            UserApi.shared.loginWithKakaoAccount { oauthToken, error in
+                guard error == nil else { return }
+                guard let oauthToken = oauthToken else { return }
+                
+                self.executeKakaoCompletion(usingOauthToken: oauthToken)
             }
         }
+    }
+    
+    private func executeKakaoCompletion(usingOauthToken oauthToken: OAuthToken) {
+        let response = LoginResponse.kakao(
+            response: KakaoLoginReqeustBody(
+                accessToken: oauthToken.accessToken,
+                refreshToken: oauthToken.refreshToken,
+                refreshExpiresIn: oauthToken.refreshTokenExpiresIn,
+                scope: oauthToken.scope ?? ""
+            )
+        )
+        self.executeCompletion(response: response)
     }
     
     private func loginThroughApple() {
@@ -61,8 +77,8 @@ final class SocialManager: NSObject {
         controller.performRequests()
     }
     
-    private func excuteCompletion(_ accessToken: String?, _ refreshToken: String?, _ name: String?) {
-        self.completion?(accessToken, refreshToken, name)
+    private func executeCompletion(response: LoginResponse) {
+        self.completion?(response)
         self.completion = nil
     }
     
@@ -90,8 +106,8 @@ extension SocialManager: ASAuthorizationControllerDelegate {
         guard let identityToken = appleIDCredential.identityToken         else { return }
         guard let authorizationCode = appleIDCredential.authorizationCode else { return }
         
-        let decodedAuthorizationCode = String(data: authorizationCode, encoding: .utf8)
-        let decodedIdentityToken = String(data: identityToken, encoding: .utf8)
+        guard let decodedAuthorizationCode = String(data: authorizationCode, encoding: .utf8) else { return }
+        guard let decodedIdentityToken = String(data: identityToken, encoding: .utf8)         else { return }
         
         var userFullName: String = ""
         if let appleUserName = appleIDCredential.fullName {
@@ -99,12 +115,25 @@ extension SocialManager: ASAuthorizationControllerDelegate {
             if let familyName = appleUserName.familyName { userFullName += familyName }
         }
 
-        self.excuteCompletion(decodedAuthorizationCode, decodedIdentityToken, userFullName)
+        let response = LoginResponse.apple(
+            response: AppleLoginRequestBody(
+                authorizationCode: decodedAuthorizationCode,
+                identityToken: decodedIdentityToken,
+                userFullName: userFullName != "" ? userFullName : nil
+            )
+        )
+        self.executeCompletion(response: response)
     }
     
-    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        #warning("에러에 대한 처리 필요")
-        print(error.localizedDescription)
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {}
+    
+}
+
+extension SocialManager {
+    
+    enum LoginResponse {
+        case apple(response: AppleLoginRequestBody)
+        case kakao(response: KakaoLoginReqeustBody)
     }
     
 }
