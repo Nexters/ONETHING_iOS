@@ -41,14 +41,14 @@ final class ProfileViewController: BaseViewController {
     
     private func setupTableView() {
         let rowHeight: CGFloat = 64
-        self.tableView.registerCell(cellType: ProfileMenuTableViewCell.self)
+        self.tableView.registerCell(cellType: MenuTableViewCell.self)
         self.tableView.rowHeight = rowHeight
         self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 32)
         self.tableViewHeightConstraint.constant = CGFloat(self.viewModel.menuRelay.value.count) * rowHeight
         
         self.viewModel.menuRelay.bind(to: self.tableView.rx.items) { tableView, index, item in
             let indexPath = IndexPath(row: index, section: 0)
-            let cell = tableView.dequeueReuableCell(cell: ProfileMenuTableViewCell.self, forIndexPath: indexPath)
+            let cell = tableView.dequeueReuableCell(cell: MenuTableViewCell.self, forIndexPath: indexPath)
             
             guard let menuCell = cell else { return UITableViewCell() }
             menuCell.configure(item.title)

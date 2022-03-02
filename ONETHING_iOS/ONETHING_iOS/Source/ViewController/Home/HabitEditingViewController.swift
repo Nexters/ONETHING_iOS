@@ -139,6 +139,12 @@ final class HabitEditingViewController: BaseViewController {
             self.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
         
+        self.manageButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            guard let manageViewController = HabitManagingController.instantiateViewController(from: .habitEdit) else { return }
+            
+            self?.navigationController?.pushViewController(manageViewController, animated: true)
+        }).disposed(by: self.disposeBag)
+        
         self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
             self?.viewModel?.update(penaltyCount: row + 1)
             self?.updateViews(with: self?.viewModel)
@@ -186,25 +192,24 @@ final class HabitEditingViewController: BaseViewController {
     private let disposeBag = DisposeBag()
 
     @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var manageButton: UIButton!
     
-    @IBOutlet weak var timeSetView: UIView!
-    @IBOutlet weak var timeStampLabel: UILabel!
+    @IBOutlet private weak var timeSetView: UIView!
+    @IBOutlet private weak var timeStampLabel: UILabel!
     
-    @IBOutlet var delayInfoViews: [UIImageView]!
-    @IBOutlet weak var delayRemainedCountLabel: UILabel!
+    @IBOutlet private var delayInfoViews: [UIImageView]!
+    @IBOutlet private weak var delayRemainedCountLabel: UILabel!
     
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
-    @IBOutlet var colorSelectButtons: [ColorSelectButton]!
-
+    @IBOutlet private var colorSelectButtons: [ColorSelectButton]!
     @IBOutlet private weak var completeButton: UIButton!
+    @IBOutlet private weak var pickerCompleteButton: UIButton!
     
-    @IBOutlet weak var pickerCompleteButton: UIButton!
-    
-    @IBOutlet weak var countPickerContainerView: UIView!
-    @IBOutlet weak var countPicker: UIPickerView!
-    @IBOutlet weak var countPickerBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var countPickerContainerView: UIView!
+    @IBOutlet private weak var countPicker: UIPickerView!
+    @IBOutlet private weak var countPickerBottomConstraint: NSLayoutConstraint!
 }
 
 extension HabitEditingViewController: UIPickerViewDataSource {
