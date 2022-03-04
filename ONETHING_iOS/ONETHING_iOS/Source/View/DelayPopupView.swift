@@ -90,7 +90,7 @@ final class DelayPopupView: UIView, ShakeView {
         })
     }
     
-    private var titleTextOfConfirmPopupView: NSMutableAttributedString? {
+    private var titleTextOfConfirmPopupView: NSAttributedString? {
         guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 15)
         else { return nil }
         

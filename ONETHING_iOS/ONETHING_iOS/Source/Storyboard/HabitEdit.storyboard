@@ -392,10 +392,10 @@
             </objects>
             <point key="canvasLocation" x="113" y="131"/>
         </scene>
-        <!--Habit Managing Controller-->
+        <!--Habit Managing View Controller-->
         <scene sceneID="BNu-WO-6z9">
             <objects>
-                <viewController storyboardIdentifier="HabitManagingController" id="mbJ-TF-8Ar" customClass="HabitManagingController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HabitManagingViewController" id="mbJ-TF-8Ar" customClass="HabitManagingViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dk7-Be-gFy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

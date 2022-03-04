@@ -140,9 +140,10 @@ final class HabitEditingViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.manageButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
-            guard let manageViewController = HabitManagingController.instantiateViewController(from: .habitEdit) else { return }
+            guard let managingViewController = HabitManagingViewController.instantiateViewController(from: .habitEdit) else { return }
             
-            self?.navigationController?.pushViewController(manageViewController, animated: true)
+            managingViewController.viewModel.habitInProgressModel = self?.viewModel?.habitInProgressModel
+            self?.navigationController?.pushViewController(managingViewController, animated: true)
         }).disposed(by: self.disposeBag)
         
         self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in

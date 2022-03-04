@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		09FB29CCCA608B96AC2D180C /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */; };
-		5AC9FC8B27CF5C1400C674E4 /* HabitManagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingController.swift */; };
-		5AC9FC8C27CF5C1400C674E4 /* HabitManagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingController.swift */; };
-		5AC9FC8D27CF5C1400C674E4 /* HabitManagingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingController.swift */; };
+		5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
+		5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
+		5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
+		5AD88CC827D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
+		5AD88CC927D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
+		5AD88CCA27D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
 		5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
 		5ADD32FB2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
 		5ADD32FC2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
@@ -23,14 +26,20 @@
 		5AF85B9627D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
 		5AF85B9727D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
 		5AF85B9827D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
+		5AF85B9A27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
+		5AF85B9B27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
+		5AF85B9C27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
+		5AF85B9E27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
+		5AF85B9F27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
+		5AF85BA027D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
+		5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
+		5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
+		5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
 		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
 		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
 		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
-		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
-		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
-		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
 		CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
@@ -40,6 +49,9 @@
 		CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
+		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
@@ -609,11 +621,15 @@
 		19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.release.xcconfig"; sourceTree = "<group>"; };
 		307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		5AC9FC8A27CF5C1400C674E4 /* HabitManagingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingController.swift; sourceTree = "<group>"; };
+		5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewController.swift; sourceTree = "<group>"; };
+		5AD88CC727D356FA00A92850 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBoxedView.swift; sourceTree = "<group>"; };
 		5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenSuccess.swift; sourceTree = "<group>"; };
 		5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForWriteSuccess.swift; sourceTree = "<group>"; };
 		5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewModel.swift; sourceTree = "<group>"; };
+		5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
+		5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNConfirmPopupView.swift; sourceTree = "<group>"; };
+		5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAgainPopupView.swift; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
 		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -627,10 +643,10 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
-		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
 		CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestBody.swift; sourceTree = "<group>"; };
 		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
+		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
@@ -978,6 +994,7 @@
 				F2B571E426D44F710059F75E /* ShakeView.swift */,
 				CE2390C926D52DCB002A002E /* AuthorizationView.xib */,
 				CE2390CD26D52E37002A002E /* AuthorizationView.swift */,
+				5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1070,6 +1087,7 @@
 				CE72475626998F2D00BB2C19 /* AppDelegate.swift */,
 				CE72475826998F2D00BB2C19 /* SceneDelegate.swift */,
 				CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */,
+				5AD88CC727D356FA00A92850 /* UserRepository.swift */,
 			);
 			path = ONETHING_iOS;
 			sourceTree = "<group>";
@@ -1177,6 +1195,7 @@
 				F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */,
 				F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */,
 				F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */,
+				5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1222,8 +1241,8 @@
 			children = (
 				CE7247BE2699BF0D00BB2C19 /* UIViewController+.swift */,
 				CE7247C02699BFE300BB2C19 /* UIColor+.swift */,
-				CE7247C22699C14800BB2C19 /* UIView+.swift */,
 				CE7247C42699C3FF00BB2C19 /* UITableView+.swift */,
+				CE7247C22699C14800BB2C19 /* UIView+.swift */,
 				CE7247C62699C5F900BB2C19 /* UICollectionView+.swift */,
 				CEFC3A24269CA2E20007AFF2 /* Array+.swift */,
 				CEFC3A28269CA4620007AFF2 /* ObservableType+.swift */,
@@ -1236,6 +1255,7 @@
 				CE67520626D0F45500616CA8 /* UIButton+.swift */,
 				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
 				F2F10FA527AA5723006334AC /* CALayer+.swift */,
+				5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1434,7 +1454,7 @@
 				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
 				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
 				F2F10FA927AA68B4006334AC /* HomeRouter.swift */,
-				5AC9FC8A27CF5C1400C674E4 /* HabitManagingController.swift */,
+				5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2017,6 +2037,7 @@
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
+				5AF85B9E27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CEE8AB1C26BEB3320012D21D /* NSNotification+.swift in Sources */,
@@ -2060,6 +2081,7 @@
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
+				5AD88CC827D356FA00A92850 /* UserRepository.swift in Sources */,
 				CE6751F726D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
@@ -2086,6 +2108,8 @@
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
+				5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85B9A27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
@@ -2144,7 +2168,7 @@
 				CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
-				5AC9FC8B27CF5C1400C674E4 /* HabitManagingController.swift in Sources */,
+				5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2190,6 +2214,7 @@
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
+				5AF85BA027D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -2233,6 +2258,7 @@
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
+				5AD88CCA27D356FA00A92850 /* UserRepository.swift in Sources */,
 				CEFA5BC726B52BFF0037F71B /* Date+.swift in Sources */,
 				CE6751F926D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				CE26C45026B0313E00BE7DDC /* OnethingError.swift in Sources */,
@@ -2259,6 +2285,8 @@
 				CE38765226D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
+				5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85B9C27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
@@ -2317,7 +2345,7 @@
 				CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
-				5AC9FC8D27CF5C1400C674E4 /* HabitManagingController.swift in Sources */,
+				5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2347,6 +2375,7 @@
 				CE724797269992CC00BB2C19 /* AppDelegate.swift in Sources */,
 				CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
+				5AF85B9F27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
 				CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
@@ -2390,6 +2419,7 @@
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				CE8FEDE526B6CBAD0092DC0D /* MenuTableViewCell.swift in Sources */,
+				5AD88CC927D356FA00A92850 /* UserRepository.swift in Sources */,
 				F293C3D7269D19BF0096757C /* Circleable.swift in Sources */,
 				CE6751F826D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
@@ -2416,6 +2446,8 @@
 				CE38765126D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
+				5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85B9B27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
@@ -2474,7 +2506,7 @@
 				CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
-				5AC9FC8C27CF5C1400C674E4 /* HabitManagingController.swift in Sources */,
+				5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
