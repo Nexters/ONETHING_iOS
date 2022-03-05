@@ -27,14 +27,6 @@ final class MyHabitShareViewController: BaseViewController {
     }
     
     private func setupUI() {
-        self.setupNavigationView()
-    }
-    
-    private func setupLayout() {
-        self.layoutNavigationView()
-    }
-    
-    private func setupNavigationView() {
         self.navigationView.do {
             $0.backgroundColor = .clear
             $0.delegate = self
@@ -43,7 +35,7 @@ final class MyHabitShareViewController: BaseViewController {
         self.view.addSubview(self.navigationView)
     }
     
-    private func layoutNavigationView() {
+    private func setupLayout() {
         self.navigationView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.leading.trailing.equalToSuperview()

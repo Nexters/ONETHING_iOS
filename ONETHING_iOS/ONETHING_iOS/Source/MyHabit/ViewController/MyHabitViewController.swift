@@ -27,38 +27,18 @@ final class MyHabitViewController: BaseViewController {
     }
     
     private func setupUI() {
-        self.setupTitleLabel()
-        self.setupHabitNumberLabel()
-        self.setupCollectionView()
-    }
-    
-    private func layoutUI() {
-        self.layoutTitleLabel()
-        self.layoutHabitNumberLabel()
-        self.layoutCollectionView()
-    }
-    
-    private func setupTitleLabel() {
         self.titleLabel.do {
             $0.text = "내 습관"
             $0.textColor = .black_100
             $0.font = UIFont.createFont(type: .pretendard(weight: .bold), size: 18)
         }
         
-        self.view.addSubview(self.titleLabel)
-    }
-    
-    private func setupHabitNumberLabel() {
         self.habitNumberLabel.do {
             $0.text = "\(0)개"
             $0.textColor = .black_40
             $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
         }
         
-        self.view.addSubview(self.habitNumberLabel)
-    }
-    
-    private func setupCollectionView() {
         self.collectionView.do {
             $0.delegate = self
             $0.dataSource = self
@@ -72,24 +52,22 @@ final class MyHabitViewController: BaseViewController {
             $0.registerCell(cellType: MyHabitCollectionViewCell.self)
         }
         
+        self.view.addSubview(self.titleLabel)
+        self.view.addSubview(self.habitNumberLabel)
         self.view.addSubview(self.collectionView)
     }
     
-    private func layoutTitleLabel() {
+    private func layoutUI() {
         self.titleLabel.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(54)
             make.leading.equalToSuperview().offset(32)
         }
-    }
-    
-    private func layoutHabitNumberLabel() {
+        
         self.habitNumberLabel.snp.makeConstraints { make in
             make.leading.equalTo(self.titleLabel.snp.trailing).offset(10)
             make.centerY.equalTo(self.titleLabel.snp.centerY)
         }
-    }
-    
-    private func layoutCollectionView() {
+        
         self.collectionView.snp.makeConstraints { make in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview()
@@ -103,6 +81,7 @@ final class MyHabitViewController: BaseViewController {
         frame: .zero,
         collectionViewLayout: MyHabitLayoutGuide.collectionViewFlowLayout
     )
+    
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel

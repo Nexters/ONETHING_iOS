@@ -31,16 +31,6 @@ class MyHabitShareNavigationView: UIView {
     }
     
     private func setupUI() {
-        self.setupTitleLabel()
-        self.setupCloseButton()
-    }
-    
-    private func setupLayout() {
-        self.layoutTitleLabel()
-        self.layoutCloseButton()
-    }
-    
-    private func setupTitleLabel() {
         self.titleLabel.do {
             $0.textAlignment = .center
             $0.textColor = .black_100
@@ -48,25 +38,20 @@ class MyHabitShareNavigationView: UIView {
             $0.text = "공유하기"
         }
         
-        self.addSubview(self.titleLabel)
-    }
-    
-    private func setupCloseButton() {
         self.closeButton.do {
             $0.backgroundColor = .clear
             $0.setImage(UIImage(named: "x_icon"), for: .normal)
         }
         
+        self.addSubview(self.titleLabel)
         self.addSubview(self.closeButton)
     }
     
-    private func layoutTitleLabel() {
+    private func setupLayout() {
         self.titleLabel.snp.makeConstraints { make in
             make.centerY.centerX.equalToSuperview()
         }
-    }
-    
-    private func layoutCloseButton() {
+        
         self.closeButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(32)
             make.centerY.equalToSuperview()
