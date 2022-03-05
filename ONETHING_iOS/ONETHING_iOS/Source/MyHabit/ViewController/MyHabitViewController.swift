@@ -119,6 +119,7 @@ extension MyHabitViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(cell: MyHabitCollectionViewCell.self, forIndexPath: indexPath)
         
         guard let myHabitCell = cell else { return UICollectionViewCell() }
+        myHabitCell.configure(habitState: indexPath.row % 2 == 0 ? .success : .failure)
         return myHabitCell
     }
     

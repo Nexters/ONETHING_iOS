@@ -85,9 +85,6 @@
 		CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
 		CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
 		CE26C45826B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
-		CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
-		CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
-		CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
 		CE26C45F26B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
@@ -316,6 +313,9 @@
 		CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
+		CECA072927D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
+		CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
+		CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
 		CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
@@ -578,6 +578,9 @@
 		F2F10FA627AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
 		F2F10FA727AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
 		F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA527AA5723006334AC /* CALayer+.swift */; };
+		F2F10FAA27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
+		F2F10FAB27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
+		F2F10FAC27AA68B4006334AC /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F10FA927AA68B4006334AC /* HomeRouter.swift */; };
 		F2F588A326B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A426B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
 		F2F588A526B0042400F5430D /* PanGestureRecognizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */; };
@@ -646,7 +649,6 @@
 		CE26C44D26B0313E00BE7DDC /* OnethingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingError.swift; sourceTree = "<group>"; };
 		CE26C45126B031A600BE7DDC /* OnethingErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErrorModel.swift; sourceTree = "<group>"; };
 		CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
-		CE26C45A26B03A0400BE7DDC /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		CE307A4C26D23A07005919AE /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabitModel.swift; sourceTree = "<group>"; };
 		CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorPopupView.xib; sourceTree = "<group>"; };
 		CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorPopupView.swift; sourceTree = "<group>"; };
+		CECA072827D34610008DCD21 /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
 		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
@@ -823,6 +826,7 @@
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
 		F2BADE0526C5659400FD7766 /* WrappingHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappingHabitResponseModel.swift; sourceTree = "<group>"; };
 		F2F10FA527AA5723006334AC /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		F2F10FA927AA68B4006334AC /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGestureRecognizerManager.swift; sourceTree = "<group>"; };
 		F2F588AF26B0F95200F5430D /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1430,9 +1434,9 @@
 				CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */,
 				CEC4D81C26A4168800633222 /* FontName.swift */,
 				CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */,
-				CE26C45A26B03A0400BE7DDC /* ServerHost.swift */,
 				CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */,
 				CEE8AB1B26BEB3320012D21D /* NSNotification+.swift */,
+				CECA072827D34610008DCD21 /* ServerHost.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -1444,6 +1448,7 @@
 				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
 				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
 				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
+				F2F10FA927AA68B4006334AC /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2051,6 +2056,7 @@
 				F2B571DD26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
+				F2F10FAA27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				CE38762526CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
 				CEFA5BC526B52BFF0037F71B /* Date+.swift in Sources */,
@@ -2081,7 +2087,6 @@
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE307A5126D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
-				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
@@ -2138,6 +2143,7 @@
 				F289D29126DF3CB60019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
+				CECA072927D34610008DCD21 /* ServerHost.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -2210,7 +2216,6 @@
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
-				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -2224,6 +2229,7 @@
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F2B571DF26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
+				F2F10FAC27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				CE38762726CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -2311,6 +2317,7 @@
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
+				CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				CEE8AB1E26BEB3320012D21D /* NSNotification+.swift in Sources */,
@@ -2335,7 +2342,6 @@
 			files = (
 				CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
-				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE307A4E26D23A07005919AE /* NoticeModel.swift in Sources */,
@@ -2381,6 +2387,7 @@
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F2B571DE26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,
+				F2F10FAB27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE38762626CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
@@ -2468,6 +2475,7 @@
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
+				CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
