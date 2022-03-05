@@ -144,7 +144,14 @@ extension MyHabitViewController: UICollectionViewDelegate {
 extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
     
     func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: String) {
-        print(habit)
+        self.presentHabitShareViewController(selectedHabit: habit)
+    }
+    
+    private func presentHabitShareViewController(selectedHabit: String) {
+        // TODO: - 선택된 Habit 정보 넘겨줘야함
+        let habitShareViewController = MyHabitShareViewController()
+        habitShareViewController.modalPresentationStyle = .fullScreen
+        self.present(habitShareViewController, animated: true, completion: nil)
     }
 
 }
