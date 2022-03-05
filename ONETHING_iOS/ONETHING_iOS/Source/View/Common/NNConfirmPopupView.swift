@@ -33,6 +33,13 @@ class NNConfirmPopupView: UIView {
         super.init(coder: coder)
     }
     
+    override func removeFromSuperview() {
+        self.backgroundDimView?.hideCrossDissolve()
+        self.backgroundDimView?.removeFromSuperview()
+        
+        super.removeFromSuperview()
+    }
+    
     func setupContentView() {
         self.addSubview(self.contentView)
         self.contentView.snp.makeConstraints {

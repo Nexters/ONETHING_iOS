@@ -10,7 +10,7 @@ import UIKit
 import Moya
 import RxSwift
 
-final class HomeViewModel: NSObject {
+final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable, FailPopupViewPresentable {
     static let defaultTotalDays = 66
     
     private let apiService: APIServiceType

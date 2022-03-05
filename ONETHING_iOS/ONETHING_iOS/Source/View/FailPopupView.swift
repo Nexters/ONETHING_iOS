@@ -30,7 +30,7 @@ final class FailPopupView: UIView, ShakeView {
         }).disposed(by: self.disposeBag)
     }
     
-    func configure(with viewModel: HomeViewModel) {
+    func configure(with viewModel: FailPopupViewPresentable) {
         self.titleLabel.text = viewModel.titleTextOfFailPopupView
         self.progressCountLabel.text = viewModel.progressCountTextOfFailPopupView
         self.reasonLabel.text = viewModel.reasonTextOfFailPopupView

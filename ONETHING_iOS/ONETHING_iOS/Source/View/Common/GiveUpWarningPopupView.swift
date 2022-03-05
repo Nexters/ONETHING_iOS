@@ -8,6 +8,7 @@
 import UIKit
 
 final class GiveUpWarningPopupView: NNConfirmPopupView {
+    private let dayView = UIView()
     private let dayNumberLabel = UILabel()
     private let dayTextLabel = UILabel()
     private let subTitleLabel = UILabel().then {
@@ -19,17 +20,27 @@ final class GiveUpWarningPopupView: NNConfirmPopupView {
         super.setupContentView()
         
         self.setupDayNumberLabel()
-        self.setupDayTextLabel()
-        self.setupSubTitleLabel()
+        self.setupDayLabel()
     }
     
     override var heightOfContentView: CGFloat {
         return 184.0
     }
     
-    func update(with viewModel: HomeViewModel) {
+    func update(with viewModel: GiveUpWarningPopupViewPresentable) {
         self.dayNumberLabel.text = viewModel.currentDayText
         self.subTitleLabel.attributedText = viewModel.subTitleTextOfGiveupWarningPopupView
+    }
+    
+    private func setupDayLabel() {
+        self.addSubview(self.dayView)
+        self.dayView.snp.makeConstraints {
+            $0.top.equalTo(self.contentView).offset(30.0)
+            $0.centerX.equalTo(self.contentView)
+        }
+        
+        self.setupDayTextLabel()
+        self.setupSubTitleLabel()
     }
     
     private func setupDayNumberLabel() {
@@ -38,10 +49,11 @@ final class GiveUpWarningPopupView: NNConfirmPopupView {
             $0.textColor = .red_default
         }
         
-        self.addSubview(self.dayNumberLabel)
+        self.dayView.addSubview(self.dayNumberLabel)
         self.dayNumberLabel.snp.makeConstraints {
-            $0.top.equalTo(self.contentView).offset(30.0)
-            $0.leading.equalTo(self.contentView).offset(80.0)
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview()
         }
     }
         
@@ -52,9 +64,10 @@ final class GiveUpWarningPopupView: NNConfirmPopupView {
             $0.textColor = .red_default
         }
         
-        self.addSubview(self.dayTextLabel)
+        self.dayView.addSubview(self.dayTextLabel)
         self.dayTextLabel.snp.makeConstraints {
             $0.leading.equalTo(self.dayNumberLabel.snp.trailing).offset(5.0)
+            $0.trailing.equalToSuperview()
             $0.lastBaseline.equalTo(self.dayNumberLabel)
         }
     }

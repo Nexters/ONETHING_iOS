@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import Then
 
-final class HabitManagingViewController: BaseViewController {
+final class HabitManagingViewController: BaseViewController, FailPopupViewDelegate {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     private let tableView = UITableView()
@@ -80,16 +80,44 @@ final class HabitManagingViewController: BaseViewController {
             case .startAgain:
                 self.showStartAgainView()
             case .giveup:
-                #warning("알랏 띄우고 네 누르면 실패 뷰 띄우고 닫기 버튼 누르기. 닫기 누르면 서버에 습관 포기하기 api 쏘고, response 받고 홈으로 이동. 배경 딤처리&애니메이션 적용")
-                #warning("loading indicator 적용하자")
+                self.showGiveUpWarningView()
             }
         }.disposed(by: self.disposeBag)
     }
     
     private func showStartAgainView() {
         let popupView = self.startAgainPopupView
-        popupView.show(in: view)
+        popupView.show(in: self.view)
         self.view.bringSubviewToFront(self.loadingIndicator)
+    }
+    
+    private func showGiveUpWarningView() {
+        let popupView = GiveUpWarningPopupView().then {
+            $0.update(with: self.viewModel)
+            self.observeViewModel(with: $0)
+            $0.confirmAction = { [weak self] _ in
+                self?.showFailPopupView()
+            }
+            $0.cancelAction = { popupView in
+                popupView.removeFromSuperview()
+            }
+        }
+        popupView.show(in: self.view)
+        self.view.bringSubviewToFront(self.loadingIndicator)
+    }
+    
+    func showFailPopupView() {
+        guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
+        
+        failPopupView.delegate = self
+        failPopupView.configure(with: self.viewModel)
+        failPopupView.show(in: self) {
+            failPopupView.animateShaking()
+        }
+    }
+    
+    func failPopupViewDidTapCloseButton() {
+        self.viewModel.executeGiveUp()
     }
     
     private var startAgainPopupView: StartAgainPopupView {
@@ -100,8 +128,6 @@ final class HabitManagingViewController: BaseViewController {
                 self?.viewModel.executeReStart()
             }
             $0.cancelAction = { popupView in
-                popupView.backgroundDimView?.hideCrossDissolve()
-                popupView.backgroundDimView?.removeFromSuperview()
                 popupView.removeFromSuperview()
             }
         }
@@ -136,6 +162,27 @@ final class HabitManagingViewController: BaseViewController {
     }
     
     private func observeViewModel(with popupView: StartAgainPopupView) {
+        self.viewModel.loadingSubject
+            .subscribe(onNext: { [weak self, weak popupView] loading in
+                popupView?.buttons.forEach {
+                    $0.isUserInteractionEnabled = loading == false
+                }
+                loading ? self?.loadingIndicator.showAndStart() : self?.loadingIndicator.hideAndStop()
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.completeSubject
+            .subscribe(onNext: { [weak self] in
+                guard let homeViewController = self?.navigationController?
+                        .rootViewController(type: HomeViewController.self)
+                else { return }
+                
+                homeViewController.viewModel.requestHabitInProgress()
+                self?.navigationController?.popToRootViewController(animated: true)
+            }).disposed(by: self.disposeBag)
+    }
+    
+    private func observeViewModel(with popupView: GiveUpWarningPopupView) {
         self.viewModel.loadingSubject
             .subscribe(onNext: { [weak self, weak popupView] loading in
                 popupView?.buttons.forEach {
