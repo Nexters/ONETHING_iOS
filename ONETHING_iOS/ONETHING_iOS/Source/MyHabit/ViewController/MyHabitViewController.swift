@@ -119,6 +119,7 @@ extension MyHabitViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(cell: MyHabitCollectionViewCell.self, forIndexPath: indexPath)
         
         guard let myHabitCell = cell else { return UICollectionViewCell() }
+        myHabitCell.delegate = self
         myHabitCell.configure(habitState: indexPath.row % 2 == 0 ? .success : .failure)
         return myHabitCell
     }
@@ -138,4 +139,12 @@ extension MyHabitViewController: UICollectionViewDelegate {
         targetContentOffset.pointee = CGPoint(x: estimatedOffsetX, y: 0)
     }
     
+}
+
+extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
+    
+    func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: String) {
+        print(habit)
+    }
+
 }

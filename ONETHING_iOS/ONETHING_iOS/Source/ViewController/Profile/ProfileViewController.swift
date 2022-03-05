@@ -17,6 +17,7 @@ final class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addObserver()
+        self.setupNavigationProperties()
         self.setupTableView()
         self.bindButtons()
         self.observeViewModel()
@@ -37,6 +38,11 @@ final class ProfileViewController: BaseViewController {
     private func addObserver() {
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(self.didUpdateUserInform(_:)), name: .didUpdateUserInform, object: nil)
+    }
+    
+    private func setupNavigationProperties() {
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     private func setupTableView() {
