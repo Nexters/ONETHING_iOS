@@ -22,6 +22,9 @@
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
 		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
+		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
 		CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
@@ -616,6 +619,7 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
+		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
 		CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestBody.swift; sourceTree = "<group>"; };
 		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
@@ -1126,6 +1130,7 @@
 				F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */,
 				CE3B8BB126A7073D00BD529B /* DefaultSession.swift */,
 				CE26C44826B0310A00BE7DDC /* OnethingErorrHandler.swift */,
+				CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2021,6 +2026,7 @@
 				F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				F2B571D926D4242E0059F75E /* DashLine.swift in Sources */,
 				F271CF1126B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
+				CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F2B571DD26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520726D0F45500616CA8 /* UIButton+.swift in Sources */,
 				F2A614A926A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
@@ -2191,6 +2197,7 @@
 				F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F2B571DB26D4242E0059F75E /* DashLine.swift in Sources */,
+				CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F235A24226BF5F11003E7758 /* HabitImageUseCase.swift in Sources */,
 				F2B571DF26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520926D0F45500616CA8 /* UIButton+.swift in Sources */,
@@ -2345,6 +2352,7 @@
 				F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				F2B571DA26D4242E0059F75E /* DashLine.swift in Sources */,
+				CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */,
 				F267F9AC269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F2B571DE26D443A40059F75E /* FailPopupView.swift in Sources */,
 				CE67520826D0F45500616CA8 /* UIButton+.swift in Sources */,

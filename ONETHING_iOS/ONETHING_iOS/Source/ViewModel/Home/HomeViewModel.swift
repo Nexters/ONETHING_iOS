@@ -88,25 +88,26 @@ final class HomeViewModel: NSObject {
     }
     
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenFail(habitId: habitId),
-                                           retryHandler: nil)
-            .subscribe(onSuccess: { (result: Bool) in
-                completion(result)
-            }).disposed(by: self.disposeBag)
+        let putUnseenFail = ContentAPI.putUnSeenFail(habitId: habitId)
+        
+        self.apiService.requestRx(apiTarget: putUnseenFail, retryHandler: nil)
+            .subscribe(onSuccess: { response in
+                let isSuccess = response.statusCode == 200
+                completion(isSuccess)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func requestUnseenSuccessToBeSuccess(completion: @escaping (Bool) -> Void) {
-        guard let habitID = self.habitResponseModel?.habitId
-        else {
-            completion(false)
-            return
-        }
+        guard let habitID = self.habitResponseModel?.habitId else { completion(false); return }
         
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putUnSeenSuccess(habitId: habitID),
-                                           retryHandler: nil)
-            .subscribe(onSuccess: { (result: Bool) in
-                completion(result)
-            }).disposed(by: self.disposeBag)
+        let putUnseenSuccess = ContentAPI.putUnSeenSuccess(habitId: habitID)
+        self.apiService.requestRx(apiTarget: putUnseenSuccess, retryHandler: nil)
+            .subscribe(onSuccess: { response in
+                let isSuccess = response.statusCode == 200
+                completion(isSuccess)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {

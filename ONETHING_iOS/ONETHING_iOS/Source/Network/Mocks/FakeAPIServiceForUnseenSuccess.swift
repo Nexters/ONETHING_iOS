@@ -56,4 +56,10 @@ final class FakeAPIServiceForUnseenSuccess: APIServiceType {
         }
     }
     
+    func requestRx<T: TargetType>(apiTarget: T, retryHandler: (() -> Void)?) -> Single<Response> {
+        return Single<Response>.create { single in
+            return Disposables.create { }
+        }
+    }
+    
 }
