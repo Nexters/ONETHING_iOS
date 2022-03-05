@@ -16,7 +16,6 @@ final class HabitManagingViewController: BaseViewController {
     @IBOutlet private weak var backButton: UIButton!
     private let tableView = UITableView()
     private var tableViewHeightConstraint: NSLayoutConstraint!
-    private let backgroundDimView = BackgroundDimView()
     private var loadingIndicator = UIActivityIndicatorView(style: .medium)
     
     var viewModel = HabitManagingViewModel()
@@ -28,7 +27,6 @@ final class HabitManagingViewController: BaseViewController {
         
         self.setupLoadingIndicator()
         self.setupTableView()
-        self.setupBackgounndDimColorView()
         self.bindButtons()
     }
     
@@ -42,13 +40,6 @@ final class HabitManagingViewController: BaseViewController {
         super.viewWillDisappear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    private func setupBackgounndDimColorView() {
-        self.view.addSubview(self.backgroundDimView)
-        self.backgroundDimView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
     }
     
     private func setupLoadingIndicator() {
@@ -96,12 +87,8 @@ final class HabitManagingViewController: BaseViewController {
     }
     
     private func showStartAgainView() {
-        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
         let popupView = self.startAgainPopupView
-        self.view.addSubview(popupView)
-        popupView.snp.makeConstraints({
-            $0.centerX.centerY.equalToSuperview()
-        })
+        popupView.show(in: view)
         self.view.bringSubviewToFront(self.loadingIndicator)
     }
     
@@ -112,8 +99,9 @@ final class HabitManagingViewController: BaseViewController {
             $0.confirmAction = { [weak self] _ in
                 self?.viewModel.executeReStart()
             }
-            $0.cancelAction = { [weak self] popupView in
-                self?.backgroundDimView.hideCrossDissolve()
+            $0.cancelAction = { popupView in
+                popupView.backgroundDimView?.hideCrossDissolve()
+                popupView.backgroundDimView?.removeFromSuperview()
                 popupView.removeFromSuperview()
             }
         }
@@ -149,24 +137,22 @@ final class HabitManagingViewController: BaseViewController {
     
     private func observeViewModel(with popupView: StartAgainPopupView) {
         self.viewModel.loadingSubject
-            .withUnretained(self)
-            .subscribe(onNext: { owner, loading in
-                popupView.buttons.forEach {
+            .subscribe(onNext: { [weak self, weak popupView] loading in
+                popupView?.buttons.forEach {
                     $0.isUserInteractionEnabled = loading == false
                 }
-                loading ? owner.loadingIndicator.showAndStart() : owner.loadingIndicator.hideAndStop()
+                loading ? self?.loadingIndicator.showAndStart() : self?.loadingIndicator.hideAndStop()
             })
             .disposed(by: self.disposeBag)
         
         self.viewModel.completeSubject
-            .withUnretained(self)
-            .subscribe(onNext: { owner in
-                guard let homeViewController = self.navigationController?
+            .subscribe(onNext: { [weak self] in
+                guard let homeViewController = self?.navigationController?
                         .rootViewController(type: HomeViewController.self)
                 else { return }
                 
                 homeViewController.viewModel.requestHabitInProgress()
-                self.navigationController?.popToRootViewController(animated: true)
+                self?.navigationController?.popToRootViewController(animated: true)
             }).disposed(by: self.disposeBag)
     }
 }

@@ -121,9 +121,20 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
         guard let viewModel = self.viewController?.viewModel else { return }
-        
-        viewModel.update(isGiveUp: true)
-        self.showFailPopupView()
+        let warningPopupView = GiveUpWarningPopupView().then {
+            $0.confirmAction = { [weak self] _ in
+                delayPopupView.removeFromSuperView(0.1, completion: {
+                    viewModel.update(isGiveUp: true)
+                    self?.showFailPopupView()
+                })
+            }
+            $0.cancelAction = { popupView in
+                popupView.backgroundDimView?.hideCrossDissolve()
+                popupView.removeFromSuperview()
+            }
+            $0.update(with: viewModel)
+        }
+        warningPopupView.show(in: delayPopupView)
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
@@ -204,7 +215,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         guard let viewController = self.viewController else { return }
         
         viewController.viewModel.requestHabitInProgress()
-        viewController.delayPopupView?.hide()
+        viewController.delayPopupView?.removeFromSuperView()
     }
 }
 

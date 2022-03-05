@@ -15,6 +15,7 @@ class NNConfirmPopupView: UIView {
     private let cancelButton = UIButton()
     var confirmAction: ((NNConfirmPopupView) -> Void)?
     var cancelAction: ((NNConfirmPopupView) -> Void)?
+    var backgroundDimView: BackgroundDimView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,6 +39,25 @@ class NNConfirmPopupView: UIView {
             $0.leading.trailing.top.equalToSuperview()
             $0.height.equalTo(self.heightOfContentView)
         }
+    }
+    
+    func show(in view: UIView) {
+        self.showBackgroundDimView(in: view)
+        
+        view.addSubview(self)
+        self.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+    }
+    
+    private func showBackgroundDimView(in view: UIView) {
+        let backgroundDimView = BackgroundDimView()
+        view.addSubview(backgroundDimView)
+        backgroundDimView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        backgroundDimView.showCrossDissolve(completedAlpha: backgroundDimView.completedAlpha)
+        self.backgroundDimView = backgroundDimView
     }
     
     var heightOfContentView: CGFloat {

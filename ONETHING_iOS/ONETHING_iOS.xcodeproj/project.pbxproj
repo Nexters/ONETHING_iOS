@@ -14,6 +14,9 @@
 		5AD88CC827D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
 		5AD88CC927D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
 		5AD88CCA27D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
+		5AD88CCC27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
+		5AD88CCD27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
+		5AD88CCE27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
 		5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
 		5ADD32FB2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
 		5ADD32FC2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */; };
@@ -623,6 +626,7 @@
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewController.swift; sourceTree = "<group>"; };
 		5AD88CC727D356FA00A92850 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveUpWarningPopupView.swift; sourceTree = "<group>"; };
 		5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBoxedView.swift; sourceTree = "<group>"; };
 		5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenSuccess.swift; sourceTree = "<group>"; };
 		5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForWriteSuccess.swift; sourceTree = "<group>"; };
@@ -995,6 +999,7 @@
 				CE2390C926D52DCB002A002E /* AuthorizationView.xib */,
 				CE2390CD26D52E37002A002E /* AuthorizationView.swift */,
 				5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */,
+				5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2126,6 +2131,7 @@
 				CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				F2BADE0226C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
 				F23DD4CB26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
+				5AD88CCC27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */,
 				F2129BED26D7AD6E00C6D49E /* WritingPenaltyViewModel.swift in Sources */,
 				F2F10FA627AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36A271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
@@ -2303,6 +2309,7 @@
 				F20B573926A7F0C900391D45 /* CircleView.swift in Sources */,
 				CE8FEDE626B6CBAD0092DC0D /* MenuTableViewCell.swift in Sources */,
 				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				5AD88CCE27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */,
 				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36C271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
@@ -2464,6 +2471,7 @@
 				CE724798269992CC00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20E00E426A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CEFC3A2A269CA4620007AFF2 /* ObservableType+.swift in Sources */,
+				5AD88CCD27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */,
 				CED5AED326A49AD7003F087C /* GoalSettingFinishViewController.swift in Sources */,
 				F2F10FA727AA5723006334AC /* CALayer+.swift in Sources */,
 				F25AE36B271835C1009A59C6 /* SuccessPopupViewModel.swift in Sources */,
