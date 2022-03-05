@@ -62,10 +62,12 @@ final class MyHabitViewController: BaseViewController {
         self.collectionView.do {
             $0.delegate = self
             $0.dataSource = self
+            $0.backgroundColor = .clear
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
             $0.allowsSelection = false
             $0.isPagingEnabled = false
+            $0.clipsToBounds = false
             $0.decelerationRate = .fast
             $0.registerCell(cellType: MyHabitCollectionViewCell.self)
         }
