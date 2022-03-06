@@ -12,8 +12,7 @@ import SnapKit
 import UIKit
 
 protocol MyHabitCollectionViewCellDelegate: AnyObject {
-    // TODO: - Habit 데이터 넣어줘야 함
-    func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: String)
+    func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: MyHabitCellPresentable)
 }
 
 class MyHabitCollectionViewCell: UICollectionViewCell {
@@ -32,6 +31,7 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(presentable: MyHabitCellPresentable, index: Int) {
+        self.presentable = presentable
         self.updateLabelText(asPresentable: presentable, index: index)
         self.updateUI(asPresentable: presentable)
     }
@@ -192,11 +192,11 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
     }
     
     private func bindUI() {
-        // TODO: - 데이터에 맞게 반영 필요
         self.shareButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.delegate?.myhabitCollectionViewCell(owner, didTapShare: "share")
+                guard let presentable = owner.presentable else { return }
+                owner.delegate?.myhabitCollectionViewCell(owner, didTapShare: presentable)
             })
             .disposed(by: self.disposeBag)
     }
@@ -230,6 +230,8 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         self.firstVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
         self.secondVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
     }
+    
+    private var presentable: MyHabitCellPresentable?
     
     private let disposeBag = DisposeBag()
     

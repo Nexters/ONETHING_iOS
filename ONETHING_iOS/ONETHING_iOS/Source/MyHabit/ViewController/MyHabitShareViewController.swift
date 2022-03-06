@@ -32,7 +32,12 @@ final class MyHabitShareViewController: BaseViewController {
             $0.delegate = self
         }
         
+        self.shareContentView.do {
+            $0.backgroundColor = .clear
+        }
+        
         self.view.addSubview(self.navigationView)
+        self.view.addSubview(self.shareContentView)
     }
     
     private func setupLayout() {
@@ -41,11 +46,18 @@ final class MyHabitShareViewController: BaseViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(60)
         }
+        
+        self.shareContentView.snp.makeConstraints { make in
+            make.top.equalTo(self.navigationView.snp.bottom).offset(40)
+            make.leading.trailing.equalToSuperview().inset(32)
+            make.height.equalTo(self.shareContentView.snp.width)
+        }
     }
     
     private let viewModel: MyHabitShareViewModel
     
     private let navigationView = MyHabitShareNavigationView(frame: .zero)
+    private let shareContentView = MyHabitShareContentView(frame: .zero)
 
 }
 
