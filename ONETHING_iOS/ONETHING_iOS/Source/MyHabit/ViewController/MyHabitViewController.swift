@@ -52,9 +52,18 @@ final class MyHabitViewController: BaseViewController {
             $0.registerCell(cellType: MyHabitCollectionViewCell.self)
         }
         
+        self.pageControl.do {
+            // TODO: - 습관 개수에 따라 수정 필요
+            $0.numberOfPages = 5
+            $0.currentPage = 0
+            $0.currentPageIndicatorTintColor = .red_3
+            $0.pageIndicatorTintColor = .black_20
+        }
+        
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.habitNumberLabel)
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.pageControl)
     }
     
     private func layoutUI() {
@@ -73,6 +82,11 @@ final class MyHabitViewController: BaseViewController {
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(MyHabitLayoutGuide.collectionViewItemSize.height)
         }
+        
+        self.pageControl.snp.makeConstraints { make in
+            make.top.equalTo(self.collectionView.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
     }
     
     private let titleLabel: UILabel = UILabel(frame: .zero)
@@ -81,7 +95,7 @@ final class MyHabitViewController: BaseViewController {
         frame: .zero,
         collectionViewLayout: MyHabitLayoutGuide.collectionViewFlowLayout
     )
-    
+    private let pageControl = UIPageControl()
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel
@@ -91,6 +105,7 @@ final class MyHabitViewController: BaseViewController {
 extension MyHabitViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // TODO: - 습관 개수에 따라 수정 필요
         return 5
     }
     
