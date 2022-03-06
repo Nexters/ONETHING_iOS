@@ -23,8 +23,7 @@ final class HabitRepositoryImpl: HabitRepository {
         return self.apiService.requestRx(apiTarget: allHabitAPI, retryHandler: nil)
             .asObservable()
             .map { response in
-                let responseData = response.data
-                return ModelDecoder.decodeData(fromData: responseData, toType: [HabitResponseModel].self) ?? []
+                ModelDecoder.decodeData(fromData: response.data, toType: [HabitResponseModel].self) ?? []
             }
     }
     

@@ -7,6 +7,7 @@
 
 import SnapKit
 import UIKit
+import RxCocoa
 import RxSwift
 
 final class MyHabitViewController: BaseViewController {
@@ -24,6 +25,8 @@ final class MyHabitViewController: BaseViewController {
         super.viewDidLoad()
         self.setupUI()
         self.layoutUI()
+        self.observeViewModel()
+        self.viewModel.occur(viewEvent: .viewDidLoad)
     }
     
     private func setupUI() {
@@ -40,8 +43,6 @@ final class MyHabitViewController: BaseViewController {
         }
         
         self.collectionView.do {
-            $0.delegate = self
-            $0.dataSource = self
             $0.backgroundColor = .clear
             $0.showsVerticalScrollIndicator = false
             $0.showsHorizontalScrollIndicator = false
@@ -89,9 +90,40 @@ final class MyHabitViewController: BaseViewController {
         }
     }
     
-    private let titleLabel: UILabel = UILabel(frame: .zero)
-    private let habitNumberLabel: UILabel = UILabel(frame: .zero)
-    private let collectionView: UICollectionView = UICollectionView(
+    private func observeViewModel() {
+        self.collectionView.rx.setDelegate(self)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.habitCountObservable
+            .bind(to: self.pageControl.rx.numberOfPages)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.habitCountObservable
+            .map { "\($0)개" }
+            .bind(to: self.habitNumberLabel.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.currentPageObservable
+            .bind(to: self.pageControl.rx.currentPage)
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.habitListObservable
+            .bind(to: self.collectionView.rx.items) { collectionView, index, item in
+                let indexPath = IndexPath(row: index, section: 0)
+                let cellType = MyHabitCollectionViewCell.self
+                let cell = collectionView.dequeueReusableCell(cell: cellType, forIndexPath: indexPath)
+                
+                guard let myHabitCell = cell else { return UICollectionViewCell() }
+                myHabitCell.delegate = self
+                myHabitCell.configure(presentable: item, index: index)
+                return myHabitCell
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    private let titleLabel = UILabel(frame: .zero)
+    private let habitNumberLabel = UILabel(frame: .zero)
+    private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: MyHabitLayoutGuide.collectionViewFlowLayout
     )
@@ -99,24 +131,6 @@ final class MyHabitViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel
-    
-}
-
-extension MyHabitViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: - 습관 개수에 따라 수정 필요
-        return 5
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(cell: MyHabitCollectionViewCell.self, forIndexPath: indexPath)
-        
-        guard let myHabitCell = cell else { return UICollectionViewCell() }
-        myHabitCell.delegate = self
-        myHabitCell.configure(habitState: indexPath.row % 2 == 0 ? .success : .failure)
-        return myHabitCell
-    }
     
 }
 
@@ -131,6 +145,7 @@ extension MyHabitViewController: UICollectionViewDelegate {
         
         let estimatedOffsetX = width * CGFloat(castingIntPage)
         targetContentOffset.pointee = CGPoint(x: estimatedOffsetX, y: 0)
+        self.viewModel.occur(viewEvent: .scroll(page: castingIntPage))
     }
     
 }

@@ -171,7 +171,7 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    private func presentPopupViewIfNeeded(with habitStatus: HabitResponseModel.HabitStatus?) {
+    private func presentPopupViewIfNeeded(with habitStatus: HabitStatus?) {
         guard let status = habitStatus else { return }
         switch status {
             case .unseenSuccess:

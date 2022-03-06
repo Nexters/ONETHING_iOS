@@ -31,12 +31,9 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(habitState: HabitState) {
-        // TODO: - 습관 데이터에 따라 데이터 Update
-        self.contentView.backgroundColor = habitState.backgroundColor
-        self.backgroundImageView.image = habitState.backgroundImage
-        self.firstVerticalBorderView.backgroundColor = habitState.borderColor
-        self.secondVerticalBorderView.backgroundColor = habitState.borderColor
+    func configure(presentable: MyHabitCellPresentable, index: Int) {
+        self.updateLabelText(asPresentable: presentable, index: index)
+        self.updateUI(asPresentable: presentable)
     }
     
     private func setupUI() {
@@ -204,6 +201,36 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
             .disposed(by: self.disposeBag)
     }
     
+    private func updateLabelText(asPresentable presentable: MyHabitCellPresentable, index: Int) {
+        guard let habitStatus = presentable.onethingHabitStatus                                    else { return }
+        guard let userNickname = OnethingUserManager.sharedInstance.currentUser?.account?.nickname else { return }
+        guard let startDate = presentable.startDate.convertToDate(format: "yyyy-MM-dd")            else { return }
+        guard let endDate = Calendar.current.date(byAdding: .day, value: 66 - 1, to: startDate)    else { return }
+        
+        let isSuccess = habitStatus == .success
+        let descriptionSuccessText = isSuccess ? "성공" : "실패"
+        
+        var startDateString = startDate.convertString(format: "yyyy-MM-dd")
+        var endDateString = endDate.convertString(format: "yyyy-MM-dd")
+        
+        startDateString.removeFirst()
+        startDateString.removeFirst()
+        endDateString.removeFirst()
+        endDateString.removeFirst()
+        
+        self.titleLabel.text = presentable.title
+        self.titleDescriptionLabel.text = "\(userNickname) 님의 \(index + 1)번째 \(descriptionSuccessText) 습관"
+        self.progressDurationLabel.text = "\(startDateString) - \(endDateString)"
+        self.successRateLabel.text = "\(presentable.successCount / 66)%"
+    }
+    
+    private func updateUI(asPresentable presentable: MyHabitCellPresentable) {
+        self.contentView.backgroundColor = presentable.cellBackgroundColor
+        self.backgroundImageView.image = presentable.cellBackgroundImage
+        self.firstVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
+        self.secondVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
+    }
+    
     private let disposeBag = DisposeBag()
     
     private let titleDescriptionLabel = UILabel(frame: .zero)
@@ -217,35 +244,5 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
     private let successRateLabel = UILabel(frame: .zero)
     private let backgroundImageView = UIImageView(frame: .zero)
     private let shareButton = UIButton(frame: .zero)
-    
-}
-
-extension MyHabitCollectionViewCell {
-    
-    enum HabitState {
-        case success
-        case failure
-        
-        var backgroundImage: UIImage? {
-            switch self {
-            case .success: return UIImage(named: "habit_success")
-            case .failure: return UIImage(named: "habit_failure")
-            }
-        }
-        
-        var backgroundColor: UIColor {
-            switch self {
-            case .success: return .black_100
-            case .failure: return .black_60
-            }
-        }
-        
-        var borderColor: UIColor {
-            switch self {
-            case .success: return .black_80
-            case .failure: return .black_40
-            }
-        }
-    }
     
 }

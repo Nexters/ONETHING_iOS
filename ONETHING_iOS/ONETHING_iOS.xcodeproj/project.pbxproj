@@ -224,6 +224,12 @@
 		CE9F7DEB27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
 		CE9F7DEC27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
 		CE9F7DED27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
+		CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDF27D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
+		CEAABCE027D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
+		CEAABCE127D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -726,6 +732,8 @@
 		CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewController.swift; sourceTree = "<group>"; };
+		CEAABCD927D49825005B8381 /* HabitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStatus.swift; sourceTree = "<group>"; };
+		CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitCellPresentable.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -1309,6 +1317,7 @@
 				CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */,
 				F25571A226A437DD005A1AAF /* ViewTag.swift */,
 				CE307A5426D295DE005919AE /* OnethingProfileType.swift */,
+				CEAABCD927D49825005B8381 /* HabitStatus.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1325,6 +1334,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */,
+				CEAABCDD27D49C27005B8381 /* Presentable */,
 				CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */,
 				CE9F7DE927C26D5400F49044 /* Model */,
 				CECA073427D3668A008DCD21 /* View */,
@@ -1357,6 +1367,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEAABCDD27D49C27005B8381 /* Presentable */ = {
+			isa = PBXGroup;
+			children = (
+				CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */,
+			);
+			path = Presentable;
 			sourceTree = "<group>";
 		};
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
@@ -2069,6 +2087,7 @@
 				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				CEE8AB1C26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
+				CEAABCDF27D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
 				CE0EE40F27CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
@@ -2197,6 +2216,7 @@
 				CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2248,6 +2268,7 @@
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
+				CEAABCE127D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
 				CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
@@ -2376,6 +2397,7 @@
 				CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
+				CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2411,6 +2433,7 @@
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
 				CE0EE41027CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
+				CEAABCE027D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
@@ -2539,6 +2562,7 @@
 				CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
+				CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

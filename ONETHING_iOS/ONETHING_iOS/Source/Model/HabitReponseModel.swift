@@ -21,7 +21,7 @@ struct HabitResponseModel: Codable {
     var color: String
 }
 
-extension HabitResponseModel {
+extension HabitResponseModel: MyHabitCellPresentable {
 
     var onethingHabitStatus: HabitStatus? {
         guard let status = HabitStatus(rawValue: self.habitStatus) else { return nil }
@@ -33,12 +33,4 @@ extension HabitResponseModel {
         return onethingColor.color
     }
     
-    enum HabitStatus: String {
-        case run = "RUN"
-        case pass = "PASS"
-        case unseenSuccess = "UNSEEN_SUCCESS"
-        case success = "SUCCESS"
-        case unseenFail = "UNSEEN_FAIL"
-        case fail = "FAIL"
-    }
 }
