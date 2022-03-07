@@ -14,9 +14,6 @@
 		5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
 		5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
 		5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
-		5AD88CC827D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
-		5AD88CC927D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
-		5AD88CCA27D356FA00A92850 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CC727D356FA00A92850 /* UserRepository.swift */; };
 		5AD88CCC27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
 		5AD88CCD27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
 		5AD88CCE27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */; };
@@ -629,7 +626,6 @@
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocols.swift; sourceTree = "<group>"; };
 		5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewController.swift; sourceTree = "<group>"; };
-		5AD88CC727D356FA00A92850 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveUpWarningPopupView.swift; sourceTree = "<group>"; };
 		5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessBoxedView.swift; sourceTree = "<group>"; };
 		5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenSuccess.swift; sourceTree = "<group>"; };
@@ -1096,7 +1092,6 @@
 				CE72475626998F2D00BB2C19 /* AppDelegate.swift */,
 				CE72475826998F2D00BB2C19 /* SceneDelegate.swift */,
 				CE72476126998F3000BB2C19 /* LaunchScreen.storyboard */,
-				5AD88CC727D356FA00A92850 /* UserRepository.swift */,
 			);
 			path = ONETHING_iOS;
 			sourceTree = "<group>";
@@ -2091,7 +2086,6 @@
 				CE72475B26998F2D00BB2C19 /* HomeViewController.swift in Sources */,
 				CE7247C52699C3FF00BB2C19 /* UITableView+.swift in Sources */,
 				F20B574126A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
-				5AD88CC827D356FA00A92850 /* UserRepository.swift in Sources */,
 				CE6751F726D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F20B573726A7F0C900391D45 /* CircleView.swift in Sources */,
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
@@ -2270,7 +2264,6 @@
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
-				5AD88CCA27D356FA00A92850 /* UserRepository.swift in Sources */,
 				CEFA5BC726B52BFF0037F71B /* Date+.swift in Sources */,
 				CE6751F926D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				CE26C45026B0313E00BE7DDC /* OnethingError.swift in Sources */,
@@ -2433,7 +2426,6 @@
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
 				CE16C25D26A8461B00D87096 /* LoginViewController.swift in Sources */,
 				CE8FEDE526B6CBAD0092DC0D /* MenuTableViewCell.swift in Sources */,
-				5AD88CC927D356FA00A92850 /* UserRepository.swift in Sources */,
 				F293C3D7269D19BF0096757C /* Circleable.swift in Sources */,
 				CE6751F826D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
 				F29B8433269A8672009D293F /* UICollectionView+.swift in Sources */,
