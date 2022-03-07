@@ -147,7 +147,7 @@ final class HomeViewController: BaseViewController {
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
                 self.habitCalendarView.reloadData()
                 
-                self.presentPopupViewIfNeeded(with: self.viewModel.habitResponseModel?.onethingHabitStatus)
+                self.presentPopupViewIfNeeded(with: self.viewModel.habitInProgressModel?.onethingHabitStatus)
             }
             .disposed(by: self.disposeBag)
         

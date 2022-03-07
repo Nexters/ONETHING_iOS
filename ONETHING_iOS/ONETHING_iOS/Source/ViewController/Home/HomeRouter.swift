@@ -153,9 +153,9 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         let viewModel = viewController.viewModel
         
         guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
-              let habitId = viewModel.habitResponseModel?.habitId,
-              let sentence = viewModel.habitResponseModel?.sentence,
-              let penaltyCount = viewModel.habitResponseModel?.penaltyCount else { return }
+              let habitId = viewModel.habitInProgressModel?.habitId,
+              let sentence = viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = viewModel.habitInProgressModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
         writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
@@ -185,7 +185,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         
         // unseen fail인 경우
         if viewModel.hasToCheckUnseen == false {
-            guard let habitID = viewModel.habitResponseModel?.habitId else { return }
+            guard let habitID = viewModel.habitInProgressModel?.habitId else { return }
             
             viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
                 viewModel.requestHabitInProgress()
@@ -224,7 +224,7 @@ extension HomeRouter: HabitEditingViewControllerDelegate {
         guard let viewController = self.viewController,
               let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
         else { return }
-        guard let habitInProgressModel = viewController.viewModel.habitResponseModel else { return }
+        guard let habitInProgressModel = viewController.viewModel.habitInProgressModel else { return }
         
         habitEditingViewController.delegate = self
         habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
@@ -243,7 +243,7 @@ extension HomeRouter: HabitEditingViewControllerDelegate {
 extension HomeRouter: SuccessPopupViewControllerDelegate {
     func routeToSuccessPopupViewController() {
         guard let viewController = self.viewController else { return }
-        guard let habitResponseModel = viewController.viewModel.habitResponseModel else { return }
+        guard let habitResponseModel = viewController.viewModel.habitInProgressModel else { return }
         
         let successPopupViewController = SuccessPopupViewController().then {
             $0.delegate = self
@@ -257,7 +257,7 @@ extension HomeRouter: SuccessPopupViewControllerDelegate {
     func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
         guard let viewController = self.viewController else { return }
         let viewModel = viewController.viewModel
-        guard let status: HabitResponseModel.HabitStatus = viewModel.habitResponseModel?.onethingHabitStatus
+        guard let status: HabitResponseModel.HabitStatus = viewModel.habitInProgressModel?.onethingHabitStatus
         else { return }
         
         switch status {

@@ -79,5 +79,4 @@ final class GiveUpWarningPopupView: NNConfirmPopupView {
             $0.centerX.equalToSuperview()
         }
     }
-    
 }

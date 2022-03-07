@@ -142,7 +142,7 @@ final class HabitEditingViewController: BaseViewController {
         self.manageButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
             guard let managingViewController = HabitManagingViewController.instantiateViewController(from: .habitEdit) else { return }
             
-            managingViewController.viewModel.habitInProgressModel = self?.viewModel?.habitInProgressModel
+            managingViewController.viewModel.update(habitInProgressModel: self?.viewModel?.habitInProgressModel)
             self?.navigationController?.pushViewController(managingViewController, animated: true)
         }).disposed(by: self.disposeBag)
         

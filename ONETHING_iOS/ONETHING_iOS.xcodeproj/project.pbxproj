@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		09FB29CCCA608B96AC2D180C /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3490651A4E340DFAFE4F108 /* Pods_ONETHING_iOS_ONETHING_iOSTests.framework */; };
+		5ABD11E627D627510034A751 /* HomeViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */; };
+		5ABD11E727D627510034A751 /* HomeViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */; };
+		5ABD11E827D627510034A751 /* HomeViewModelProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */; };
 		5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
 		5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
 		5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */; };
@@ -624,6 +627,7 @@
 		19924C59B6E101C4F369A62A /* Pods-ONETHING_iOS-ONETHING.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.release.xcconfig"; sourceTree = "<group>"; };
 		307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Ent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E4C7EAD6A387A33B5A85E5 /* Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelProtocols.swift; sourceTree = "<group>"; };
 		5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewController.swift; sourceTree = "<group>"; };
 		5AD88CC727D356FA00A92850 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiveUpWarningPopupView.swift; sourceTree = "<group>"; };
@@ -1499,6 +1503,7 @@
 			children = (
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 				5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */,
+				5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2093,6 +2098,7 @@
 				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				5ABD11E627D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				5AF85B9627D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */,
@@ -2271,6 +2277,7 @@
 				F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				5ABD11E827D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
 				5AF85B9827D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */,
@@ -2433,6 +2440,7 @@
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				5ABD11E727D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				5AF85B9727D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */,

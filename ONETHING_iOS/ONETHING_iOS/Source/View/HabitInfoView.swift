@@ -138,6 +138,6 @@ final class HabitInfoView: UIView {
         self.dayNumberLabel.text = viewModel.currentDayText
         self.titleLabel.text = viewModel.titleText
         self.descriptionLabel.text = viewModel.discriptionText
-        self.backgroundColor = viewModel.habitResponseModel?.onethingColor ?? .black_100
+        self.backgroundColor = viewModel.habitInProgressModel?.onethingColor ?? .black_100
     }
 }
