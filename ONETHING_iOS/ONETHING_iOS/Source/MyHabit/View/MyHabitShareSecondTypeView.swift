@@ -1,22 +1,17 @@
 //
-//  MyHabitShareFirstTypeView.swift
+//  MyHabitShareSecondTypeView.swift
 //  ONETHING_iOS
 //
-//  Created by Dongmin on 2022/03/06.
+//  Created by Dongmin on 2022/03/09.
 //
 
 import SnapKit
 import Then
-
 import UIKit
 
-/// Figma 1, 2번째 공유하기에 해당하는 ContentView
-/// First, Second는 BackgroundImage와 Title Text만 다름
-/// - `First` : Figma 첫번째 타입의 뷰
-/// - `Second` : Figma 두번째 타입의 뷰
-class MyHabitShareFirstTypeView: UIView {
+class MyHabitShareSecondTypeView: UIView {
     
-    var shareUIType: HabitShareType = .first {
+    var shareUIType: HabitShareType = .third {
         didSet {
             self.updateUI(asType: self.shareUIType)
         }
@@ -32,10 +27,8 @@ class MyHabitShareFirstTypeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUI(){
-        self.do {
-            $0.backgroundColor = .black_100
-        }
+    private func setupUI() {
+        self.backgroundColor = .black_100
         
         self.backgroundImageView.do {
             $0.image = self.shareUIType.backgroundImage
@@ -47,13 +40,11 @@ class MyHabitShareFirstTypeView: UIView {
             $0.font = UIFont.createFont(type: .montserrat(weight: .bold), size: 30)
         }
         
-        self.subTitleLabel.do {
-            $0.text = self.shareUIType.subTitleText
-            $0.textColor = .white
-            $0.font = self.shareUIType == .first ?
-            UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) :
-            UIFont.createFont(type: .montserrat(weight: .bold), size: 30)
-
+        self.progressDurationLabel.do {
+            // TODO: - 기관에 따라 반영 필요
+            $0.text = "21.07.21 - 21.08.30"
+            $0.textColor = .black_60
+            $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 12)
         }
         
         self.habitTitleContainerView.do {
@@ -69,13 +60,6 @@ class MyHabitShareFirstTypeView: UIView {
             $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 14)
         }
         
-        self.progressDurationLabel.do {
-            // TODO: - 기간에 따라 반영 필요
-            $0.text = "21.07.21 - 21-08-30"
-            $0.textColor = .black_60
-            $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 12)
-        }
-        
         self.nicknameLabel.do {
             // TODO: - 닉네임에 따라 반영 필요
             $0.text = "@닉네임"
@@ -85,30 +69,32 @@ class MyHabitShareFirstTypeView: UIView {
         
         self.addSubview(self.backgroundImageView)
         self.addSubview(self.titleLabel)
-        self.addSubview(self.subTitleLabel)
+        self.addSubview(self.progressDurationLabel)
         self.addSubview(self.habitTitleContainerView)
         self.habitTitleContainerView.addSubview(self.habitTitleLabel)
-        self.addSubview(self.progressDurationLabel)
         self.addSubview(self.nicknameLabel)
     }
     
     private func setupLayout() {
         self.backgroundImageView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().inset(20)
         }
         
+        self.titleLabel.setContentHuggingPriority(.required, for: .horizontal)
         self.titleLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(20)
+            make.top.leading.equalToSuperview().offset(20)
         }
         
-        self.subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(6)
-            make.leading.equalToSuperview().inset(20)
+        self.progressDurationLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(20)
+            make.centerY.equalTo(self.titleLabel.snp.centerY)
         }
         
         self.habitTitleContainerView.snp.makeConstraints { make in
-            make.top.equalTo(self.subTitleLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().inset(20)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
             make.trailing.lessThanOrEqualToSuperview().inset(20)
         }
         
@@ -117,32 +103,20 @@ class MyHabitShareFirstTypeView: UIView {
             make.leading.trailing.equalToSuperview().inset(14)
         }
         
-        self.progressDurationLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.habitTitleContainerView.snp.bottom).offset(6)
-            make.leading.equalToSuperview().offset(20)
-        }
-        
         self.nicknameLabel.snp.makeConstraints { make in
             make.leading.bottom.equalToSuperview().inset(20)
         }
     }
     
-    private func updateUI(asType type: HabitShareType) {
-        self.titleLabel.text = type.titleText
-        self.subTitleLabel.text = type.subTitleText
+    private func  updateUI(asType type: HabitShareType) {
         self.backgroundImageView.image = type.backgroundImage
-        
-        self.subTitleLabel.font = type == .first ?
-        UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) :
-        UIFont.createFont(type: .montserrat(weight: .bold), size: 30)
     }
     
     private let backgroundImageView = UIImageView(frame: .zero)
     private let titleLabel = UILabel(frame: .zero)
-    private let subTitleLabel = UILabel(frame: .zero)
+    private let progressDurationLabel = UILabel(frame: .zero)
     private let habitTitleContainerView = UIView(frame: .zero)
     private let habitTitleLabel = UILabel(frame: .zero)
-    private let progressDurationLabel = UILabel(frame: .zero)
     private let nicknameLabel = UILabel(frame: .zero)
-
+    
 }

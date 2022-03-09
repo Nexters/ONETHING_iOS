@@ -21,16 +21,36 @@ class MyHabitShareContentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateShareType(_ type: HabitShareType) {
+        switch type {
+        case .first, .second:
+            self.firstTypeContentView.shareUIType = type
+            self.firstTypeContentView.isHidden = false
+            self.secondTypeContentView.isHidden = true
+        case .third, .fourth:
+            self.secondTypeContentView.shareUIType = type
+            self.firstTypeContentView.isHidden = true
+            self.secondTypeContentView.isHidden = false
+        }
+    }
+    
     private func setupUI() {
+        self.firstTypeContentView.isHidden = true
         self.addSubview(self.firstTypeContentView)
+        self.addSubview(self.secondTypeContentView)
     }
     
     private func setupLayout() {
         self.firstTypeContentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        self.secondTypeContentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
     private let firstTypeContentView = MyHabitShareFirstTypeView(frame: .zero)
+    private let secondTypeContentView = MyHabitShareSecondTypeView(frame: .zero)
     
 }
