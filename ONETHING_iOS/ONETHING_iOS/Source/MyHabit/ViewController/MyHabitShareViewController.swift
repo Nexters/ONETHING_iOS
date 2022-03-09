@@ -30,6 +30,10 @@ final class MyHabitShareViewController: BaseViewController {
         self.observeViewModel()
     }
     
+    func setShareHabit(_ habit: MyHabitCellPresentable) {
+        self.viewModel.setShareHabit(habit)
+    }
+    
     private func setupUI() {
         self.navigationView.do {
             $0.backgroundColor = .clear
@@ -67,6 +71,14 @@ final class MyHabitShareViewController: BaseViewController {
             $0.image = UIImage(named: "select_box")
         }
         
+        self.shareButton.do {
+            $0.cornerRadius = 10
+            $0.setTitle("공유하기", for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .black_100
+            $0.titleLabel?.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 18)
+        }
+        
         self.view.addSubview(self.navigationView)
         self.view.addSubview(self.shareContentView)
         self.view.addSubview(self.buttonStackView)
@@ -75,6 +87,7 @@ final class MyHabitShareViewController: BaseViewController {
         self.buttonStackView.addArrangedSubview(self.thirdShareSelectButton)
         self.buttonStackView.addArrangedSubview(self.fourthShareSelectButton)
         self.view.addSubview(self.selectBoxImage)
+        self.view.addSubview(self.shareButton)
     }
     
     private func setupLayout() {
@@ -110,6 +123,12 @@ final class MyHabitShareViewController: BaseViewController {
         self.fourthShareSelectButton.snp.makeConstraints { make in
             make.height.equalTo(self.fourthShareSelectButton.snp.width)
         }
+        
+        self.shareButton.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview().inset(32)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(54)
+            make.height.equalTo(self.shareButton.snp.width).dividedBy(6.5)
+        }
     }
     
     private func bindUI() {
@@ -140,6 +159,13 @@ final class MyHabitShareViewController: BaseViewController {
                 owner.viewModel.occur(viewEvent: .didTapShareButton(type: .fourth))
             })
             .disposed(by: self.disposeBag)
+        
+        self.shareButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                // TODO: - 공유하기 시트 보여주는 코드 추가
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func observeViewModel() {
@@ -148,6 +174,13 @@ final class MyHabitShareViewController: BaseViewController {
             .subscribe(onNext: { owner, selectType in
                 owner.shareContentView.updateShareType(selectType)
                 owner.updateSelectBox(asShareType: selectType)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.habitObservable
+            .withUnretained(self)
+            .subscribe(onNext: { owner, habit in
+                owner.shareContentView.updateShareHabit(habit)
             })
             .disposed(by: self.disposeBag)
     }
@@ -184,6 +217,7 @@ final class MyHabitShareViewController: BaseViewController {
     private let thirdShareSelectButton = UIButton(frame: .zero)
     private let fourthShareSelectButton = UIButton(frame: .zero)
     private let selectBoxImage = UIImageView(frame: .zero)
+    private let shareButton = UIButton(frame: .zero)
 
 }
 

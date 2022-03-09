@@ -204,23 +204,13 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
     private func updateLabelText(asPresentable presentable: MyHabitCellPresentable, index: Int) {
         guard let habitStatus = presentable.onethingHabitStatus                                    else { return }
         guard let userNickname = OnethingUserManager.sharedInstance.currentUser?.account?.nickname else { return }
-        guard let startDate = presentable.startDate.convertToDate(format: "yyyy-MM-dd")            else { return }
-        guard let endDate = Calendar.current.date(byAdding: .day, value: 66 - 1, to: startDate)    else { return }
         
         let isSuccess = habitStatus == .success
         let descriptionSuccessText = isSuccess ? "성공" : "실패"
         
-        var startDateString = startDate.convertString(format: "yyyy-MM-dd")
-        var endDateString = endDate.convertString(format: "yyyy-MM-dd")
-        
-        startDateString.removeFirst()
-        startDateString.removeFirst()
-        endDateString.removeFirst()
-        endDateString.removeFirst()
-        
         self.titleLabel.text = presentable.title
         self.titleDescriptionLabel.text = "\(userNickname) 님의 \(index + 1)번째 \(descriptionSuccessText) 습관"
-        self.progressDurationLabel.text = "\(startDateString) - \(endDateString)"
+        self.progressDurationLabel.text = presentable.progressDuration
         self.successRateLabel.text = "\(presentable.successCount / 66)%"
     }
     

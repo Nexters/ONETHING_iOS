@@ -54,9 +54,6 @@ final class MyHabitViewController: BaseViewController {
         }
         
         self.pageControl.do {
-            // TODO: - 습관 개수에 따라 수정 필요
-            $0.numberOfPages = 5
-            $0.currentPage = 0
             $0.currentPageIndicatorTintColor = .red_3
             $0.pageIndicatorTintColor = .black_20
         }
@@ -158,6 +155,7 @@ extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
     
     private func presentHabitShareViewController(selectedHabit: MyHabitCellPresentable) {
         let habitShareViewController = MyHabitShareViewController()
+        habitShareViewController.setShareHabit(selectedHabit)
         habitShareViewController.modalPresentationStyle = .fullScreen
         self.present(habitShareViewController, animated: true, completion: nil)
     }

@@ -21,6 +21,11 @@ class MyHabitShareContentView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateShareHabit(_ habit: MyHabitCellPresentable) {
+        self.firstTypeContentView.updateShareHabit(habit)
+        self.secondTypeContentView.updateShareHabit(habit)
+    }
+    
     func updateShareType(_ type: HabitShareType) {
         switch type {
         case .first, .second:

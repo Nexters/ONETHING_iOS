@@ -32,6 +32,12 @@ class MyHabitShareFirstTypeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func updateShareHabit(_ habit: MyHabitCellPresentable) {
+        self.habitTitleLabel.text = habit.title
+        self.progressDurationLabel.text = habit.progressDuration
+        self.nicknameLabel.text = "@\(OnethingUserManager.sharedInstance.currentUser?.account?.nickname ?? "")"
+    }
+    
     private func setupUI(){
         self.do {
             $0.backgroundColor = .black_100
@@ -63,22 +69,16 @@ class MyHabitShareFirstTypeView: UIView {
         }
         
         self.habitTitleLabel.do {
-            // TODO: - 습관 이름에 따라 반영 필요
-            $0.text = "임시 텍스트야!!"
             $0.textColor = .black_100
             $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 14)
         }
         
         self.progressDurationLabel.do {
-            // TODO: - 기간에 따라 반영 필요
-            $0.text = "21.07.21 - 21-08-30"
             $0.textColor = .black_60
             $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 12)
         }
         
         self.nicknameLabel.do {
-            // TODO: - 닉네임에 따라 반영 필요
-            $0.text = "@닉네임"
             $0.textColor = .white
             $0.font = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 16)
         }

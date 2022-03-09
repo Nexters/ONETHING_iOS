@@ -15,6 +15,14 @@ final class MyHabitShareViewModel {
         self.selectShareTypeRelay.asObservable()
     }
     
+    var habitObservable: Observable<MyHabitCellPresentable> {
+        self.habitRelay.compactMap { $0 }
+    }
+    
+    func setShareHabit(_ habit: MyHabitCellPresentable) {
+        self.habitRelay.accept(habit)
+    }
+    
     func occur(viewEvent: ViewEvent) {
         switch viewEvent {
         case .didTapShareButton(let type):
@@ -29,6 +37,7 @@ final class MyHabitShareViewModel {
     private let disposeBag = DisposeBag()
     
     private let selectShareTypeRelay = BehaviorRelay<HabitShareType>(value: .first)
+    private let habitRelay = BehaviorRelay<MyHabitCellPresentable?>(value: nil)
     
 }
 

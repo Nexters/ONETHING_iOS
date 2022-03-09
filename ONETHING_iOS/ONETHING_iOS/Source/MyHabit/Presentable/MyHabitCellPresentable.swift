@@ -54,4 +54,19 @@ extension MyHabitCellPresentable {
         }
     }
     
+    var progressDuration: String {
+        guard let startDate = self.startDate.convertToDate(format: "yyyy-MM-dd")                else { return "" }
+        guard let endDate = Calendar.current.date(byAdding: .day, value: 66 - 1, to: startDate) else { return "" }
+        
+        var startDateString = startDate.convertString(format: "yyyy.MM.dd")
+        var endDateString = endDate.convertString(format: "yyyy.MM.dd")
+        
+        startDateString.removeFirst()
+        startDateString.removeFirst()
+        endDateString.removeFirst()
+        endDateString.removeFirst()
+        
+        return "\(startDateString) - \(endDateString)"
+    }
+    
 }
