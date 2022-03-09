@@ -52,19 +52,19 @@ final class MyHabitShareViewController: BaseViewController {
         }
         
         self.firstShareSelectButton.do {
-            $0.setImage(HabitShareType.first.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.first.buttonImage, for: .normal)
         }
         
         self.secondShareSelectButton.do {
-            $0.setImage(HabitShareType.second.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.second.buttonImage, for: .normal)
         }
         
         self.thirdShareSelectButton.do {
-            $0.setImage(HabitShareType.third.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.third.buttonImage, for: .normal)
         }
         
         self.fourthShareSelectButton.do {
-            $0.setImage(HabitShareType.fourth.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.fourth.buttonImage, for: .normal)
         }
         
         self.selectBoxImage.do {
@@ -163,7 +163,7 @@ final class MyHabitShareViewController: BaseViewController {
         self.shareButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                // TODO: - 공유하기 시트 보여주는 코드 추가
+                owner.presentShareModalView()
             })
             .disposed(by: self.disposeBag)
     }
@@ -185,7 +185,7 @@ final class MyHabitShareViewController: BaseViewController {
             .disposed(by: self.disposeBag)
     }
     
-    private func updateSelectBox(asShareType type: HabitShareType) {
+    private func updateSelectBox(asShareType type: HabitShareUIType) {
         switch type {
         case .first:
             self.selectBoxImage.snp.remakeConstraints { make in
@@ -204,6 +204,13 @@ final class MyHabitShareViewController: BaseViewController {
                 make.edges.equalTo(self.fourthShareSelectButton.snp.edges)
             }
         }
+    }
+    
+    private func presentShareModalView() {
+        let viewController = ShareModalViewController()
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.dataSource = self
+        viewController.presentWithAnimation(fromViewController: self)
     }
     
     private let disposeBag = DisposeBag()
@@ -228,6 +235,14 @@ extension MyHabitShareViewController: MyHabitShareNavigationViewDelegate {
         case .closeButton:
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    
+}
+
+extension MyHabitShareViewController: ShareModalViewControllerDataSource {
+    
+    func shareImage(ofShareViewController viewController: ShareModalViewController) -> UIImage? {
+        self.shareContentView.asImage()
     }
     
 }

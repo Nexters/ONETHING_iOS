@@ -11,7 +11,7 @@ import RxRelay
 
 final class MyHabitShareViewModel {
     
-    var selectShareTypeObservable: Observable<HabitShareType> {
+    var selectShareTypeObservable: Observable<HabitShareUIType> {
         self.selectShareTypeRelay.asObservable()
     }
     
@@ -30,13 +30,13 @@ final class MyHabitShareViewModel {
         }
     }
     
-    private func selectShareType(_ type: HabitShareType) {
+    private func selectShareType(_ type: HabitShareUIType) {
         self.selectShareTypeRelay.accept(type)
     }
     
     private let disposeBag = DisposeBag()
     
-    private let selectShareTypeRelay = BehaviorRelay<HabitShareType>(value: .first)
+    private let selectShareTypeRelay = BehaviorRelay<HabitShareUIType>(value: .first)
     private let habitRelay = BehaviorRelay<MyHabitCellPresentable?>(value: nil)
     
 }
@@ -44,7 +44,7 @@ final class MyHabitShareViewModel {
 extension MyHabitShareViewModel {
     
     enum ViewEvent {
-        case didTapShareButton(type: HabitShareType)
+        case didTapShareButton(type: HabitShareUIType)
     }
     
 }

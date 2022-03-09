@@ -26,7 +26,7 @@ class MyHabitShareContentView: UIView {
         self.secondTypeContentView.updateShareHabit(habit)
     }
     
-    func updateShareType(_ type: HabitShareType) {
+    func updateShareType(_ type: HabitShareUIType) {
         switch type {
         case .first, .second:
             self.firstTypeContentView.shareUIType = type

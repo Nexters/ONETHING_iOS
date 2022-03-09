@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum HabitShareType {
+enum HabitShareUIType {
     
     case first
     case second

@@ -77,4 +77,11 @@ extension UIView {
         })
     }
     
+    func asImage() -> UIImage? {
+        let renderer = UIGraphicsImageRenderer(bounds: self.bounds)
+        return renderer.image { renderImageContext in
+            self.layer.render(in: renderImageContext.cgContext)
+        }
+    }
+    
 }

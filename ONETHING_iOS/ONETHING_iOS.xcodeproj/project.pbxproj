@@ -346,9 +346,21 @@
 		CECE2F2A27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
 		CECE2F2B27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
 		CECE2F2C27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
-		CECE2F2E27D88E9E00D5C64A /* HabitShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareType.swift */; };
-		CECE2F2F27D88E9E00D5C64A /* HabitShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareType.swift */; };
-		CECE2F3027D88E9E00D5C64A /* HabitShareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareType.swift */; };
+		CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F3227D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3327D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3427D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3627D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3727D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3827D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3A27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3B27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3C27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
+		CECE2F3F27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
+		CECE2F4027D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
 		CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
@@ -785,7 +797,11 @@
 		CECA073927D372A4008DCD21 /* HabitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRepository.swift; sourceTree = "<group>"; };
 		CECA073D27D3752F008DCD21 /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
 		CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareSecondTypeView.swift; sourceTree = "<group>"; };
-		CECE2F2D27D88E9E00D5C64A /* HabitShareType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitShareType.swift; sourceTree = "<group>"; };
+		CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitShareUIType.swift; sourceTree = "<group>"; };
+		CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalViewController.swift; sourceTree = "<group>"; };
+		CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalView.swift; sourceTree = "<group>"; };
+		CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
+		CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSNSCategory.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
 		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
@@ -1334,7 +1350,8 @@
 				F25571A226A437DD005A1AAF /* ViewTag.swift */,
 				CE307A5426D295DE005919AE /* OnethingProfileType.swift */,
 				CEAABCD927D49825005B8381 /* HabitStatus.swift */,
-				CECE2F2D27D88E9E00D5C64A /* HabitShareType.swift */,
+				CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */,
+				CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1366,6 +1383,7 @@
 			children = (
 				CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */,
 				CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */,
+				CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1482,6 +1500,8 @@
 				CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */,
 				CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */,
 				CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */,
+				CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */,
+				CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2115,7 +2135,7 @@
 				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */,
-				CECE2F2E27D88E9E00D5C64A /* HabitShareType.swift in Sources */,
+				CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -2145,6 +2165,7 @@
 				CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
+				CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */,
@@ -2205,6 +2226,7 @@
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
 				F295FE6126D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				CECE2F3627D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
 				CECA073627D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
@@ -2215,6 +2237,7 @@
 				CE67520326D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764826D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
 				F2129BE926D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
+				CECE2F3A27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				CE2390C626D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CECE2F2A27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
@@ -2225,6 +2248,7 @@
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
 				CECA072927D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3227D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -2300,7 +2324,7 @@
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
-				CECE2F3027D88E9E00D5C64A /* HabitShareType.swift in Sources */,
+				CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -2330,6 +2354,7 @@
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				CE466A7F26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				CECE2F4027D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -2390,6 +2415,7 @@
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
+				CECE2F3827D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
 				CECA073827D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				F289D29326DF3FE50019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
@@ -2400,6 +2426,7 @@
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE67520526D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764A26D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
+				CECE2F3C27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				F2129BEB26D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
 				CE2390C826D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
 				CECE2F2C27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
@@ -2410,6 +2437,7 @@
 				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
 				CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3427D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				CEE8AB1E26BEB3320012D21D /* NSNotification+.swift in Sources */,
@@ -2469,7 +2497,7 @@
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
-				CECE2F2F27D88E9E00D5C64A /* HabitShareType.swift in Sources */,
+				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
@@ -2499,6 +2527,7 @@
 				F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
+				CECE2F3F27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE307A5626D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -2559,6 +2588,7 @@
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				CECE2F3727D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
 				CECA073727D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
@@ -2569,6 +2599,7 @@
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764926D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
+				CECE2F3B27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				F2129BEA26D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
 				CE2390C726D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
 				CECE2F2B27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
@@ -2579,6 +2610,7 @@
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
 				CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3327D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,

@@ -16,7 +16,7 @@ import UIKit
 /// - `Second` : Figma 두번째 타입의 뷰
 class MyHabitShareFirstTypeView: UIView {
     
-    var shareUIType: HabitShareType = .first {
+    var shareUIType: HabitShareUIType = .first {
         didSet {
             self.updateUI(asType: self.shareUIType)
         }
@@ -127,7 +127,7 @@ class MyHabitShareFirstTypeView: UIView {
         }
     }
     
-    private func updateUI(asType type: HabitShareType) {
+    private func updateUI(asType type: HabitShareUIType) {
         self.titleLabel.text = type.titleText
         self.subTitleLabel.text = type.subTitleText
         self.backgroundImageView.image = type.backgroundImage

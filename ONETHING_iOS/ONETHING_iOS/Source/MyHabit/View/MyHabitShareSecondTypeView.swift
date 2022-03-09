@@ -11,7 +11,7 @@ import UIKit
 
 class MyHabitShareSecondTypeView: UIView {
     
-    var shareUIType: HabitShareType = .third {
+    var shareUIType: HabitShareUIType = .third {
         didSet {
             self.updateUI(asType: self.shareUIType)
         }
@@ -108,7 +108,7 @@ class MyHabitShareSecondTypeView: UIView {
         }
     }
     
-    private func  updateUI(asType type: HabitShareType) {
+    private func  updateUI(asType type: HabitShareUIType) {
         self.backgroundImageView.image = type.backgroundImage
     }
     
