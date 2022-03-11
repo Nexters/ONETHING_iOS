@@ -10,8 +10,8 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class NotifyPopupView: UIView {
-    private let contentView = UIView()
+class NotifyPopupView: UIView {
+    let contentView = UIView()
     private let horizontalLineView = UIView()
     private let closeButton = UIButton()
     private var dimView: BackgroundDimView?
@@ -21,14 +21,18 @@ final class NotifyPopupView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.cornerRadius = 16.0
+        self.backgroundColor = .white
         self.setupContentView()
         self.setupHorizontalLineView()
+        self.setupCancelButton()
     }
     
     override func removeFromSuperview() {
-        super.removeFromSuperview()
-        
+        self.dimView?.hideCrossDissolve()
         self.dimView?.removeFromSuperview()
+        
+        super.removeFromSuperview()
     }
     
     required init?(coder: NSCoder) {
@@ -36,12 +40,7 @@ final class NotifyPopupView: UIView {
     }
     
     func show(in superview: UIView) {
-        let dimView = BackgroundDimView()
-        superview.addSubview(dimView)
-        dimView.snp.makeConstraints({
-            $0.edges.equalToSuperview()
-        })
-        self.dimView = dimView
+        self.showDimView(in: superview)
         
         superview.addSubview(self)
         self.snp.makeConstraints({
@@ -49,7 +48,17 @@ final class NotifyPopupView: UIView {
         })
     }
     
-    private func setupContentView() {
+    private func showDimView(in superview: UIView) {
+        let dimView = BackgroundDimView()
+        superview.addSubview(dimView)
+        dimView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        dimView.showCrossDissolve(completedAlpha: dimView.completedAlpha)
+        self.dimView = dimView
+    }
+    
+    func setupContentView() {
         self.addSubview(self.contentView)
         self.contentView.snp.makeConstraints({
             $0.leading.top.trailing.equalToSuperview()
@@ -57,15 +66,12 @@ final class NotifyPopupView: UIView {
         })
     }
     
-    func layout(layoutHandler: (UIView) -> Void) {
-        layoutHandler(self.contentView)
-    }
-    
     var heightOfContentView: CGFloat {
-        return 0.0
+        return 0
     }
     
     private func setupHorizontalLineView() {
+        self.horizontalLineView.backgroundColor = .black_10
         self.addSubview(self.horizontalLineView)
         self.horizontalLineView.snp.makeConstraints({
             $0.leading.trailing.equalTo(self.contentView)
@@ -79,9 +85,17 @@ final class NotifyPopupView: UIView {
             self?.removeFromSuperview()
         }).disposed(by: self.disposeBag)
         
+        self.closeButton.do {
+            $0.setTitle("닫기", for: .normal)
+            $0.setTitleColor(.black_100, for: .normal)
+            $0.titleLabel?.font = UIFont(name: FontType.pretendard(weight: .regular).fontName, size: 16.0)
+        }
+        
         self.addSubview(self.closeButton)
         self.closeButton.snp.makeConstraints({
             $0.top.equalTo(self.horizontalLineView.snp.bottom)
+            $0.height.equalTo(44.0)
+            $0.width.equalTo(214.0)
             $0.leading.trailing.bottom.equalToSuperview()
         })
     }

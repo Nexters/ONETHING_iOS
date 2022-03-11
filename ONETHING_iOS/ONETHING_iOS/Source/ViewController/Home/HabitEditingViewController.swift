@@ -167,11 +167,7 @@ final class HabitEditingViewController: BaseViewController {
         self.delayTouchView.addGestureRecognizer(tapGestureForDelayTouchView)
         tapGestureForDelayTouchView.rx.event.observeOnMain(onNext: { [weak self] _ in
             guard let self = self else { return }
-            let notifyView = NotifyPopupView().then {
-                $0.layout(layoutHandler: { contentView in
-                    
-                })
-            }
+            let notifyView = DelayNotifyPopupView()
             notifyView.show(in: self.view)
         }).disposed(by: self.disposeBag)
         
