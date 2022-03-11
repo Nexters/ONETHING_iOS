@@ -17,6 +17,9 @@
 		5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
 		5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
 		5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */; };
+		894380FE27DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
+		894380FF27DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
+		8943810027DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
 		89F3E7C227D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
 		89F3E7C327D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
 		89F3E7C427D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
@@ -615,6 +618,7 @@
 		678D446F663444FA618CD19E /* Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSUITests/Pods-ONETHING_iOS-ONETHING_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7508DEE1AF419F402BBE38AB /* Pods_ONETHING_iOS_ONETHING_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; sourceTree = "<group>"; };
+		894380FD27DB6A9900354B4C /* NotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPopupView.swift; sourceTree = "<group>"; };
 		89F3E7C127D89C290054622B /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		89F3E7C527D89E100054622B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -974,6 +978,7 @@
 				F2B571E426D44F710059F75E /* ShakeView.swift */,
 				CE2390C926D52DCB002A002E /* AuthorizationView.xib */,
 				CE2390CD26D52E37002A002E /* AuthorizationView.swift */,
+				894380FD27DB6A9900354B4C /* NotifyPopupView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2108,6 +2113,7 @@
 				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
 				F295FE6126D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
+				894380FE27DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* ProfileMenuTableViewCell.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
@@ -2280,6 +2286,7 @@
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
 				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				8943810027DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F289D29326DF3FE50019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CEC4D83B26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
@@ -2436,6 +2443,7 @@
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
+				894380FF27DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CED5AED726A4A0CB003F087C /* String+.swift in Sources */,
 				CEC4D78F26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
