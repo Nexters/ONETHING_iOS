@@ -32,6 +32,8 @@ final class HabitEditingViewController: BaseViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         self.countPickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
     }
     
