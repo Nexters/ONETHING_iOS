@@ -16,6 +16,8 @@ protocol HabitEditingViewControllerDelegate: AnyObject {
 
 final class HabitEditingViewController: BaseViewController {
     weak var delegate: HabitEditingViewControllerDelegate?
+    
+    private let delayTouchView = UIView()
     var viewModel: HabitEditViewModel?
   
     override func viewDidLoad() {
@@ -26,12 +28,15 @@ final class HabitEditingViewController: BaseViewController {
         self.setupPenaltyInfoView()
         self.setupCountPicker()
         self.setupColorSelectButtons()
+        self.setupDelayTouchView()
         self.updateViews(with: self.viewModel)
         
         self.bindingButtons()
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
         self.countPickerBottomConstraint.constant = 45 + DeviceInfo.safeAreaBottomInset
     }
     
@@ -116,6 +121,18 @@ final class HabitEditingViewController: BaseViewController {
         self.prevColorSelectButton = firstButton
     }
     
+    private func setupDelayTouchView() {
+        self.delayTouchView.backgroundColor = .clear
+        
+        self.view.addSubview(self.delayTouchView)
+        self.delayTouchView.snp.makeConstraints {
+            $0.top.equalTo(self.delayImageView)
+            $0.trailing.equalTo(self.delayImageView)
+            $0.leading.equalTo(self.delayRemainedCountLabel)
+            $0.bottom.equalTo(self.delayImageView)
+        }
+    }
+    
     private func updateViews(with viewModel: HabitEditViewModel?) {
         guard let viewModel = viewModel else { return }
         
@@ -145,18 +162,30 @@ final class HabitEditingViewController: BaseViewController {
             managingViewController.viewModel.update(habitInProgressModel: self?.viewModel?.habitInProgressModel)
             self?.navigationController?.pushViewController(managingViewController, animated: true)
         }).disposed(by: self.disposeBag)
+
+        let tapGestureForDelayTouchView = UITapGestureRecognizer()
+        self.delayTouchView.addGestureRecognizer(tapGestureForDelayTouchView)
+        tapGestureForDelayTouchView.rx.event.observeOnMain(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            let notifyView = NotifyPopupView().then {
+                $0.layout(layoutHandler: { contentView in
+                    
+                })
+            }
+            notifyView.show(in: self.view)
+        }).disposed(by: self.disposeBag)
         
         self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
             self?.viewModel?.update(penaltyCount: row + 1)
             self?.updateViews(with: self?.viewModel)
         }).disposed(by: self.disposeBag)
         
-        let tapGesture = UITapGestureRecognizer()
-        tapGesture.rx.event.observeOnMain(onNext: { [weak self] _ in
+        let tapGestureForHideCountPicker = UITapGestureRecognizer()
+        tapGestureForHideCountPicker.rx.event.observeOnMain(onNext: { [weak self] _ in
             self?.view.endEditing(true)
             self?.hideCountPicker()
         }).disposed(by: self.disposeBag)
-        self.view.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGestureForHideCountPicker)
         
         self.pickerCompleteButton.rx.tap.observeOnMain(onNext: { [weak self] in
             self?.view.endEditing(true)
@@ -200,7 +229,8 @@ final class HabitEditingViewController: BaseViewController {
     
     @IBOutlet private var delayInfoViews: [UIImageView]!
     @IBOutlet private weak var delayRemainedCountLabel: UILabel!
-    
+    @IBOutlet private weak var delayImageView: UIImageView!
+
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
