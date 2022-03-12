@@ -44,6 +44,9 @@
 		8943810227DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */; };
 		8943810327DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */; };
 		8943810427DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */; };
+		8944EECA27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
+		8944EECB27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
+		8944EECC27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		89F3E7C227D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
 		89F3E7C327D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
 		89F3E7C427D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
@@ -651,6 +654,7 @@
 		7B1F98BEF037142C5CE00504 /* Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Beta/Pods-ONETHING_iOS-ONETHING Beta.debug.xcconfig"; sourceTree = "<group>"; };
 		894380FD27DB6A9900354B4C /* NotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPopupView.swift; sourceTree = "<group>"; };
 		8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayNotifyPopupView.swift; sourceTree = "<group>"; };
+		8944EEC927DC695D0036F511 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 		89F3E7C127D89C290054622B /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		89F3E7C527D89E100054622B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1275,6 +1279,7 @@
 				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
 				F2F10FA527AA5723006334AC /* CALayer+.swift */,
 				5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */,
+				8944EEC927DC695D0036F511 /* NSAttributedString+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2057,6 +2062,7 @@
 				CEFF0A43269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE6751F326D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF326B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
+				8944EECA27DC695D0036F511 /* NSAttributedString+.swift in Sources */,
 				5AF85B9E27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
 				CEC4D82526A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				F2017A8826BBF982009277A6 /* SelectStampModel.swift in Sources */,
@@ -2238,6 +2244,7 @@
 				CEFC3A3B269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE6751F526D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				CE8FEDF526B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
+				8944EECC27DC695D0036F511 /* NSAttributedString+.swift in Sources */,
 				5AF85BA027D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
 				CE724788269992C700BB2C19 /* HomeViewController.swift in Sources */,
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
@@ -2403,6 +2410,7 @@
 				CE6751F426D0E56D00616CA8 /* FAQViewController.swift in Sources */,
 				F20B573026A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				5AF85B9F27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */,
+				8944EECB27DC695D0036F511 /* NSAttributedString+.swift in Sources */,
 				CE8FEDFD26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,

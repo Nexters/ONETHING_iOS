@@ -84,16 +84,7 @@ final class DelayNotifyPopupView: NotifyPopupView {
             string: titleText,
             attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
         )
-        let paragraphStyle = NSMutableParagraphStyle().then {
-            $0.lineSpacing = 4.0
-            $0.alignment = .center
-        }
-        attributeText.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributeText.length)
-        )
-        return attributeText
+        return attributeText.with(lineSpacing: 4.0)
     }
     
     private var secondTitleText: NSAttributedString? {
@@ -112,17 +103,7 @@ final class DelayNotifyPopupView: NotifyPopupView {
             value: UIColor.red_default,
             range: (text as NSString).range(of: "습관 실패!")
         )
-        
-        let paragraphStyle = NSMutableParagraphStyle().then {
-            $0.lineSpacing = 4.0
-            $0.alignment = .center
-        }
-        attributeText.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributeText.length)
-        )
-        return attributeText
+        return attributeText.with(lineSpacing: 4.0)
     }
     
     private var subTitleText: NSAttributedString? {
@@ -137,15 +118,6 @@ final class DelayNotifyPopupView: NotifyPopupView {
             attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
         )
         
-        let paragraphStyle = NSMutableParagraphStyle().then {
-            $0.lineSpacing = 2.0
-            $0.alignment = .center
-        }
-        attributeText.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributeText.length)
-        )
-        return attributeText
+        return attributeText.with(lineSpacing: 2.0)
     }
 }

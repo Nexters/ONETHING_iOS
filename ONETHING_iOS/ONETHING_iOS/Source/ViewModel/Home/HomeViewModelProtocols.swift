@@ -47,16 +47,7 @@ extension GiveUpWarningPopupViewPresentable {
         let titleText = "열심히 달려온\n지금의 습관을\n정말로 그만하시겠어요?"
         let attributeText = NSMutableAttributedString(string: titleText,
                                                       attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100])
-        let paragraphStyle = NSMutableParagraphStyle().then {
-            $0.lineSpacing = 4.0
-            $0.alignment = .center
-        }
-        attributeText.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributeText.length)
-        )
-        return attributeText
+        return attributeText.with(lineSpacing: 4.0)
     }
 }
 

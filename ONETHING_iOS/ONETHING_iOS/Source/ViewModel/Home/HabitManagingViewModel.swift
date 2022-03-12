@@ -70,16 +70,7 @@ final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
             range: (titleText as NSString).range(of: "기존의 기록은\n영구적으로 삭제돼요.")
         )
         
-        let paragraphStyle = NSMutableParagraphStyle().then {
-            $0.lineSpacing = 4.0
-            $0.alignment = .center
-        }
-        attributeText.addAttribute(
-            .paragraphStyle,
-            value: paragraphStyle,
-            range: NSRange(location: 0, length: attributeText.length)
-        )
-        return attributeText
+        return attributeText.with(lineSpacing: 4.0)
     }
     
     var subTitleTextOfStartAgainPopupView: NSAttributedString? {
