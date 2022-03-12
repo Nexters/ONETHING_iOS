@@ -91,35 +91,6 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         self.view.bringSubviewToFront(self.loadingIndicator)
     }
     
-    private func showGiveUpWarningView() {
-        let popupView = GiveUpWarningPopupView().then {
-            $0.update(with: self.viewModel)
-            self.observeViewModel(with: $0)
-            $0.confirmAction = { [weak self] _ in
-                self?.showFailPopupView()
-            }
-            $0.cancelAction = { popupView in
-                popupView.removeFromSuperview()
-            }
-        }
-        popupView.show(in: self.view)
-        self.view.bringSubviewToFront(self.loadingIndicator)
-    }
-    
-    func showFailPopupView() {
-        guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
-        
-        failPopupView.delegate = self
-        failPopupView.configure(with: self.viewModel)
-        failPopupView.show(in: self) {
-            failPopupView.animateShaking()
-        }
-    }
-    
-    func failPopupViewDidTapCloseButton() {
-        self.viewModel.executeGiveUp()
-    }
-    
     private var startAgainPopupView: StartAgainPopupView {
         return StartAgainPopupView().then {
             $0.update(with: self.viewModel)
@@ -131,6 +102,38 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
                 popupView.removeFromSuperview()
             }
         }
+    }
+    
+    private func showGiveUpWarningView() {
+        let popupView = GiveUpWarningPopupView().then {
+            $0.update(with: self.viewModel)
+            $0.confirmAction = { [weak self] popupView in
+                self?.showFailPopupView()
+                popupView.isHidden = true
+            }
+            $0.cancelAction = { popupView in
+                popupView.removeFromSuperview()
+            }
+        }
+        popupView.show(in: self.view)
+    }
+    
+    private func showFailPopupView() {
+        guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
+        
+        failPopupView.delegate = self
+        failPopupView.configure(with: self.viewModel)
+        self.observeViewModel(with: failPopupView)
+        failPopupView.show(in: self) { [weak self] in
+            guard let self = self else { return }
+            
+            failPopupView.animateShaking()
+            self.view.bringSubviewToFront(self.loadingIndicator)
+        }
+    }
+    
+    func failPopupViewDidTapCloseButton() {
+        self.viewModel.executeGiveUp()
     }
     
     private func layoutTableView() {
@@ -182,12 +185,10 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
             }).disposed(by: self.disposeBag)
     }
     
-    private func observeViewModel(with popupView: GiveUpWarningPopupView) {
+    private func observeViewModel(with popupView: FailPopupView) {
         self.viewModel.loadingSubject
             .subscribe(onNext: { [weak self, weak popupView] loading in
-                popupView?.buttons.forEach {
-                    $0.isUserInteractionEnabled = loading == false
-                }
+                popupView?.closeButton.isUserInteractionEnabled = loading == false
                 loading ? self?.loadingIndicator.showAndStart() : self?.loadingIndicator.hideAndStop()
             })
             .disposed(by: self.disposeBag)

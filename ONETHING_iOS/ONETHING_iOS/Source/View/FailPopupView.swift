@@ -60,5 +60,5 @@ final class FailPopupView: UIView, ShakeView {
     @IBOutlet private weak var progressCountLabel: UILabel!
     @IBOutlet private weak var reasonLabel: UILabel!
     
-    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet weak var closeButton: UIButton!
 }
