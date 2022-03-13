@@ -7,12 +7,11 @@
 
 import UIKit
 
-class ProfileMenuTableViewCell: UITableViewCell {
+class MenuTableViewCell: UITableViewCell {
 
     func configure(_ menuTitle: String) {
         self.titleLabel.text = menuTitle
     }
 
-    @IBOutlet private weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var titleLabel: UILabel!
 }

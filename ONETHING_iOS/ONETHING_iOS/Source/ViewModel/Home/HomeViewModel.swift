@@ -10,11 +10,11 @@ import UIKit
 import Moya
 import RxSwift
 
-final class HomeViewModel: NSObject {
+final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     static let defaultTotalDays = 66
     
     private let apiService: APIServiceType
-    private(set) var habitResponseModel: HabitResponseModel?
+    private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private(set) var hasToCheckUnseen = true
     let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
@@ -39,7 +39,7 @@ final class HomeViewModel: NSObject {
                 return
             }
             
-            self?.habitResponseModel = habitInProgressModel
+            self?.habitInProgressModel = habitInProgressModel
             self?.habitResponseModelSubject.onNext(habitInProgressModel)
         }).disposed(by: self.disposeBag)
     }
@@ -64,7 +64,7 @@ final class HomeViewModel: NSObject {
                     return
                 }
                 
-                self?.habitResponseModel = unseenHabitModel
+                self?.habitInProgressModel = unseenHabitModel
                 self?.habitResponseModelSubject.onNext(unseenHabitModel)
             }).disposed(by: self.disposeBag)
     }
@@ -99,7 +99,7 @@ final class HomeViewModel: NSObject {
     }
     
     func requestUnseenSuccessToBeSuccess(completion: @escaping (Bool) -> Void) {
-        guard let habitID = self.habitResponseModel?.habitId else { completion(false); return }
+        guard let habitID = self.habitInProgressModel?.habitId else { completion(false); return }
         
         let putUnseenSuccess = ContentAPI.putUnSeenSuccess(habitId: habitID)
         self.apiService.requestRx(apiTarget: putUnseenSuccess, retryHandler: nil)
@@ -115,7 +115,7 @@ final class HomeViewModel: NSObject {
     }
     
     var habitID: Int? {
-        self.habitResponseModel?.habitId
+        self.habitInProgressModel?.habitId
     }
     
     var isDelayPenatyForLatestDailyHabits: Bool {
@@ -129,20 +129,14 @@ final class HomeViewModel: NSObject {
     }
     
     var textOfStartDate: String? {
-        guard let habitInProgressModel = self.habitResponseModel else { return nil }
+        guard let habitInProgressModel = self.habitInProgressModel else { return nil }
         
         let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
         return date?.convertString(format: "yyyy.MM.dd")
     }
     
-    var currentDayText: String? {
-        guard let diffDays = self.diffDaysFromStartToCurrent else { return nil }
-        
-        return String(diffDays + 1)
-    }
-    
     var textOfEndDate: String? {
-        guard let habitInProgressModel = self.habitResponseModel,
+        guard let habitInProgressModel = self.habitInProgressModel,
               let date = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
         else { return nil}
         
@@ -156,25 +150,7 @@ final class HomeViewModel: NSObject {
     }
     
     var titleText: String? {
-        self.habitResponseModel?.title
-    }
-    
-    private var diffDaysFromStartToCurrent: Int? {
-        guard let habitInProgressModel = self.habitResponseModel,
-              let startDate = habitInProgressModel.startDate.convertToDate(format: "yyyy-MM-dd")
-        else { return nil }
-        
-        let formatter = DateComponentsFormatter().then {
-            $0.allowedUnits = [.day]
-            $0.unitsStyle = .positional
-        }
-        
-        guard let diffDaysStr = formatter
-                .string(from: startDate, to: Date())?
-                .components(separatedBy: CharacterSet.decimalDigits.inverted)
-                .joined(), let diffDays = Int(diffDaysStr) else { return nil }
-        
-        return diffDays
+        self.habitInProgressModel?.title
     }
     
     func append(currentDailyHabitModel: DailyHabitResponseModel) {
@@ -183,7 +159,7 @@ final class HomeViewModel: NSObject {
     }
     
     func update(habitInProgressModel: HabitResponseModel) {
-        self.habitResponseModel = habitInProgressModel
+        self.habitInProgressModel = habitInProgressModel
     }
     
     func update(nickname: String) {
@@ -192,7 +168,7 @@ final class HomeViewModel: NSObject {
     
     func clearModels() {
         self.dailyHabitModels.removeAll()
-        self.habitResponseModel = nil
+        self.habitInProgressModel = nil
     }
     
     func canCreateCurrentDailyHabitModel(with index: Int) -> Bool {
@@ -210,7 +186,7 @@ final class HomeViewModel: NSObject {
     }
     
     var sentenceForDelay: String? {
-        return self.habitResponseModel?.sentence
+        return self.habitInProgressModel?.sentence
     }
     
     var titleTextOfDelayPopupView: String? {
@@ -218,26 +194,10 @@ final class HomeViewModel: NSObject {
     }
     
     var remainedDelayTextOfDelayPopupView: String? {
-        let delayMaxCount = self.habitResponseModel?.delayMaxCount ?? 6
-        let delayCount = self.habitResponseModel?.delayCount ?? 0
+        let delayMaxCount = self.habitInProgressModel?.delayMaxCount ?? 6
+        let delayCount = self.habitInProgressModel?.delayCount ?? 0
         let remainedCount = delayMaxCount - delayCount
         return "남은 미루기 기회: \(remainedCount)번"
-    }
-    
-    var titleTextOfFailPopupView: String? {
-        return "아쉽지만\n습관은 여기까지!"
-    }
-    
-    var progressCountTextOfFailPopupView: String? {
-        return "진행: \(self.dailyHabitModels.count + 1)일차"
-    }
-    
-    func update(isGiveUp: Bool) {
-        self.isGiveUp = isGiveUp
-    }
-    
-    var reasonTextOfFailPopupView: String? {
-        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
     
     var isHabitSuccess: Bool {
@@ -282,5 +242,15 @@ extension HomeViewModel: UICollectionViewDataSource {
     
     func numberText(with indexPath: IndexPath) -> String {
         return "\(indexPath.item + 1)"
+    }
+}
+
+extension HomeViewModel: FailPopupViewPresentable {
+    func update(isGiveUp: Bool) {
+        self.isGiveUp = isGiveUp
+    }
+    
+    var reasonTextOfFailPopupView: String? {
+        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
 }
