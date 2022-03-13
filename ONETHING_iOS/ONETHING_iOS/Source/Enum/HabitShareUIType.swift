@@ -76,7 +76,7 @@ enum HabitShareUIType {
         case .successFirst, .successSecond, .successThird, .successFourth:
             return .black_100
         case .failureFirst:
-            return .black_80
+            return .black_60
         }
     }
     

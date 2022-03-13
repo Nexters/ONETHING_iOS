@@ -59,9 +59,16 @@ final class ShareModalViewController: BaseViewController {
         self.modalView.do {
             $0.delegate = self
         }
+        
+        self.loadingIndicatorView.do {
+            $0.style = .medium
+            $0.color = .white
+            $0.hidesWhenStopped = true
+        }
     
         self.view.addSubview(self.dimView)
         self.view.addSubview(self.modalView)
+        self.view.addSubview(self.loadingIndicatorView)
     }
     
     private func setupLayout() {
@@ -72,6 +79,10 @@ final class ShareModalViewController: BaseViewController {
         self.modalView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
+        }
+        
+        self.loadingIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
     
@@ -91,6 +102,7 @@ final class ShareModalViewController: BaseViewController {
     
     private let dimView = UIView(frame: .zero)
     private let modalView = ShareModalView(frame: .zero)
+    private let loadingIndicatorView = UIActivityIndicatorView(style: .medium)
 
 }
 
@@ -101,9 +113,9 @@ extension ShareModalViewController: ShareModalViewDelegate {
         
         switch event {
         case .tapShareInsta:
-            print("")
+            self.shareToInsta(withImage: captureImage)
         case .tapSaveImage:
-            print("")
+            self.saveImage(captureImage)
         case .tapEtc:
             self.presentActivityViewController(withImage: captureImage)
         case .tapCancel:
@@ -111,6 +123,29 @@ extension ShareModalViewController: ShareModalViewDelegate {
         }
     }
     
+    private func shareToInsta(withImage image: UIImage) {
+        guard let instagramStoryURL = URL(string: "instagram-stories://share") else { return }
+        guard let imageData = image.pngData()                                  else { return }
+        
+        if UIApplication.shared.canOpenURL(instagramStoryURL) {
+            let pasteBoardItems: [String: Any] = ["com.instagram.sharedSticker.stickerImage": imageData]
+            let pasteBoardOptions: [UIPasteboard.OptionsKey: Any] = [
+                UIPasteboard.OptionsKey.expirationDate: Date().addingTimeInterval(60 * 5)
+            ]
+            UIPasteboard.general.setItems([pasteBoardItems], options: pasteBoardOptions)
+            UIApplication.shared.open(instagramStoryURL, options: [:], completionHandler: nil)
+        }
+    }
+    
+    private func saveImage(_ image: UIImage) {
+        self.loadingIndicatorView.startAnimating()
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWith:contextInfo:)), nil)
+    }
+    
+    @objc private func image(_ image: UIImage, didFinishSavingWith error: NSError?, contextInfo context: UnsafeMutableRawPointer?) {
+        self.loadingIndicatorView.stopAnimating()
+    }
+
     private func presentActivityViewController(withImage image: UIImage) {
         let activityController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         self.present(activityController, animated: true, completion: nil)
