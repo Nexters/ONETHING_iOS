@@ -36,7 +36,7 @@ final class MyHabitShareViewModel {
     
     private let disposeBag = DisposeBag()
     
-    private let selectShareTypeRelay = BehaviorRelay<HabitShareUIType>(value: .first)
+    private let selectShareTypeRelay = BehaviorRelay<HabitShareUIType>(value: .successFirst)
     private let habitRelay = BehaviorRelay<MyHabitCellPresentable?>(value: nil)
     
 }

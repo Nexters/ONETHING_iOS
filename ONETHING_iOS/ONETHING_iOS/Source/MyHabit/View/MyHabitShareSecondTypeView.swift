@@ -11,7 +11,7 @@ import UIKit
 
 class MyHabitShareSecondTypeView: UIView {
     
-    var shareUIType: HabitShareUIType = .third {
+    var shareUIType: HabitShareUIType = .successThird {
         didSet {
             self.updateUI(asType: self.shareUIType)
         }

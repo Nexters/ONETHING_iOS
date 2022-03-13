@@ -28,11 +28,11 @@ class MyHabitShareContentView: UIView {
     
     func updateShareType(_ type: HabitShareUIType) {
         switch type {
-        case .first, .second:
+        case .successFirst, .successSecond, .failureFirst:
             self.firstTypeContentView.shareUIType = type
             self.firstTypeContentView.isHidden = false
             self.secondTypeContentView.isHidden = true
-        case .third, .fourth:
+        case .successThird, .successFourth:
             self.secondTypeContentView.shareUIType = type
             self.firstTypeContentView.isHidden = true
             self.secondTypeContentView.isHidden = false

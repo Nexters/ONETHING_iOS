@@ -9,56 +9,74 @@ import UIKit
 
 enum HabitShareUIType {
     
-    case first
-    case second
-    case third
-    case fourth
+    case successFirst
+    case successSecond
+    case successThird
+    case successFourth
+    case failureFirst
     
     var titleText: String {
         switch self {
-        case .first:
+        case .successFirst:
             return "Congratulations!"
-        case .second:
+        case .successSecond:
             return "66 days habit"
-        case .third, .fourth:
+        case .successThird, .successFourth:
             return "You did it!"
+        case .failureFirst:
+            return "Oops"
         }
     }
     
     var subTitleText: String {
         switch self {
-        case .first:
+        case .successFirst:
             return "66일 습관 성공!"
-        case .second:
+        case .successSecond:
             return "success!"
-        case .third, .fourth:
+        case .successThird, .successFourth:
             return ""
+        case .failureFirst:
+            return "66일 습관은 여기까지...."
         }
     }
     
     var backgroundImage: UIImage? {
         switch self {
-        case .first:
+        case .successFirst:
             return UIImage(named: "share_img_1")
-        case .second:
+        case .successSecond:
             return UIImage(named: "share_img_2")
-        case .third:
+        case .successThird:
             return UIImage(named: "share_img_3")
-        case .fourth:
+        case .successFourth:
             return UIImage(named: "share_img_4")
+        case .failureFirst:
+            return UIImage(named: "share_img_fail")
         }
     }
     
     var buttonImage: UIImage? {
         switch self {
-        case .first:
+        case .successFirst:
             return UIImage(named: "share_btn_1")
-        case .second:
+        case .successSecond:
             return UIImage(named: "share_btn_2")
-        case .third:
+        case .successThird:
             return UIImage(named: "share_btn_3")
-        case .fourth:
+        case .successFourth:
             return UIImage(named: "share_btn_4")
+        case .failureFirst:
+            return nil
+        }
+    }
+    
+    var backgroundColor: UIColor? {
+        switch self {
+        case .successFirst, .successSecond, .successThird, .successFourth:
+            return .black_100
+        case .failureFirst:
+            return .black_80
         }
     }
     

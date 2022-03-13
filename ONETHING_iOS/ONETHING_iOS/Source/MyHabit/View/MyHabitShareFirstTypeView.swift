@@ -16,7 +16,7 @@ import UIKit
 /// - `Second` : Figma 두번째 타입의 뷰
 class MyHabitShareFirstTypeView: UIView {
     
-    var shareUIType: HabitShareUIType = .first {
+    var shareUIType: HabitShareUIType = .successFirst {
         didSet {
             self.updateUI(asType: self.shareUIType)
         }
@@ -56,7 +56,7 @@ class MyHabitShareFirstTypeView: UIView {
         self.subTitleLabel.do {
             $0.text = self.shareUIType.subTitleText
             $0.textColor = .white
-            $0.font = self.shareUIType == .first ?
+            $0.font = self.shareUIType == .successFirst ?
             UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) :
             UIFont.createFont(type: .montserrat(weight: .bold), size: 30)
 
@@ -128,11 +128,12 @@ class MyHabitShareFirstTypeView: UIView {
     }
     
     private func updateUI(asType type: HabitShareUIType) {
+        self.backgroundColor = type.backgroundColor
         self.titleLabel.text = type.titleText
         self.subTitleLabel.text = type.subTitleText
         self.backgroundImageView.image = type.backgroundImage
         
-        self.subTitleLabel.font = type == .first ?
+        self.subTitleLabel.font = type == .successFirst ?
         UIFont.createFont(type: .pretendard(weight: .semiBold), size: 20) :
         UIFont.createFont(type: .montserrat(weight: .bold), size: 30)
     }

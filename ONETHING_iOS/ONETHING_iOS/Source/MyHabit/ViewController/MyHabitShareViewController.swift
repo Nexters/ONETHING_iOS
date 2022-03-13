@@ -52,19 +52,19 @@ final class MyHabitShareViewController: BaseViewController {
         }
         
         self.firstShareSelectButton.do {
-            $0.setImage(HabitShareUIType.first.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.successFirst.buttonImage, for: .normal)
         }
         
         self.secondShareSelectButton.do {
-            $0.setImage(HabitShareUIType.second.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.successSecond.buttonImage, for: .normal)
         }
         
         self.thirdShareSelectButton.do {
-            $0.setImage(HabitShareUIType.third.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.successThird.buttonImage, for: .normal)
         }
         
         self.fourthShareSelectButton.do {
-            $0.setImage(HabitShareUIType.fourth.buttonImage, for: .normal)
+            $0.setImage(HabitShareUIType.successFourth.buttonImage, for: .normal)
         }
         
         self.selectBoxImage.do {
@@ -135,28 +135,28 @@ final class MyHabitShareViewController: BaseViewController {
         self.firstShareSelectButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .first))
+                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .successFirst))
             })
             .disposed(by: self.disposeBag)
         
         self.secondShareSelectButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .second))
+                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .successSecond))
             })
             .disposed(by: self.disposeBag)
         
         self.thirdShareSelectButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .third))
+                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .successThird))
             })
             .disposed(by: self.disposeBag)
         
         self.fourthShareSelectButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .fourth))
+                owner.viewModel.occur(viewEvent: .didTapShareButton(type: .successFourth))
             })
             .disposed(by: self.disposeBag)
         
@@ -180,29 +180,45 @@ final class MyHabitShareViewController: BaseViewController {
         self.viewModel.habitObservable
             .withUnretained(self)
             .subscribe(onNext: { owner, habit in
-                owner.shareContentView.updateShareHabit(habit)
+                let isSuccess = habit.onethingHabitStatus == .success
+                owner.updateUI(asSuccess: isSuccess, habit: habit)
             })
             .disposed(by: self.disposeBag)
     }
     
+    private func updateUI(asSuccess success: Bool, habit: MyHabitCellPresentable) {
+        self.firstShareSelectButton.isHidden = success == false
+        self.secondShareSelectButton.isHidden = success == false
+        self.thirdShareSelectButton.isHidden = success == false
+        self.fourthShareSelectButton.isHidden = success == false
+        
+        self.shareContentView.updateShareHabit(habit)
+        if habit.onethingHabitStatus == .fail || habit.onethingHabitStatus == .pass {
+            // 현재는 1번쨰 타입만 실패하기랑 같은 UI
+            self.shareContentView.updateShareType(.failureFirst)
+        }
+    }
+    
     private func updateSelectBox(asShareType type: HabitShareUIType) {
         switch type {
-        case .first:
+        case .successFirst:
             self.selectBoxImage.snp.remakeConstraints { make in
                 make.edges.equalTo(self.firstShareSelectButton.snp.edges)
             }
-        case .second:
+        case .successSecond:
             self.selectBoxImage.snp.remakeConstraints { make in
                 make.edges.equalTo(self.secondShareSelectButton.snp.edges)
             }
-        case .third:
+        case .successThird:
             self.selectBoxImage.snp.remakeConstraints { make in
                 make.edges.equalTo(self.thirdShareSelectButton.snp.edges)
             }
-        case .fourth:
+        case .successFourth:
             self.selectBoxImage.snp.remakeConstraints { make in
                 make.edges.equalTo(self.fourthShareSelectButton.snp.edges)
             }
+        case .failureFirst:
+            break
         }
     }
     
