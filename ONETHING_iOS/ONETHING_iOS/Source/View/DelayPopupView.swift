@@ -38,15 +38,8 @@ final class DelayPopupView: UIView, ShakeView {
     private func bindButtons() {
         self.giveUpButton.rx.tap.observeOnMain(onNext: { [weak self] in
             guard let self = self else { return }
-            guard let confirmPopupView: ConfirmPopupView = UIView.createFromNib() else { return }
             
-            let titleText = self.titleTextOfConfirmPopupView
-            confirmPopupView.configure(titleText, confirmHandler: {
-                self.hide(0.1, completion: {
-                    self.delegate?.delayPopupViewDidTapGiveUpButton(self)
-                })
-            })
-            confirmPopupView.show(in: self)
+            self.delegate?.delayPopupViewDidTapGiveUpButton(self)
         }).disposed(by: self.disposeBag)
         
         self.passPenaltyButton.rx.tap.observeOnMain(onNext: { [weak self] in
@@ -81,23 +74,13 @@ final class DelayPopupView: UIView, ShakeView {
         }
     }
     
-    func hide(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
+    func removeFromSuperView(_ duration: TimeInterval = 0.2, completion: (() -> Void)? = nil) {
         self.guideLabel.removeFromSuperview()
         
         self.hideCrossDissolve(duration, completion: {
             self.removeFromSuperview()
             completion?()
         })
-    }
-    
-    private var titleTextOfConfirmPopupView: NSMutableAttributedString? {
-        guard let pretendardFont = UIFont.createFont(type: .pretendard(weight: .semiBold), size: 15)
-        else { return nil }
-        
-        let titleText = "열심히 달려온\n지금의 습관을\n정말로 그만하시겠어요?"
-        let attributeText = NSMutableAttributedString(string: titleText,
-                                                      attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100])
-        return attributeText
     }
     
     private let disposeBag = DisposeBag()

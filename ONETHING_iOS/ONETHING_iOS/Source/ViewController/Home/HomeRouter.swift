@@ -121,9 +121,20 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
         guard let viewModel = self.viewController?.viewModel else { return }
-        
-        viewModel.update(isGiveUp: true)
-        self.showFailPopupView()
+        let warningPopupView = GiveUpWarningPopupView().then {
+            $0.confirmAction = { [weak self] _ in
+                delayPopupView.removeFromSuperView(0.1, completion: {
+                    viewModel.update(isGiveUp: true)
+                    self?.showFailPopupView()
+                })
+            }
+            $0.cancelAction = { popupView in
+                popupView.backgroundDimView?.hideCrossDissolve()
+                popupView.removeFromSuperview()
+            }
+            $0.update(with: viewModel)
+        }
+        warningPopupView.show(in: delayPopupView)
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
@@ -142,9 +153,9 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         let viewModel = viewController.viewModel
         
         guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
-              let habitId = viewModel.habitResponseModel?.habitId,
-              let sentence = viewModel.habitResponseModel?.sentence,
-              let penaltyCount = viewModel.habitResponseModel?.penaltyCount else { return }
+              let habitId = viewModel.habitInProgressModel?.habitId,
+              let sentence = viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = viewModel.habitInProgressModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
         writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
@@ -174,7 +185,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         
         // unseen fail인 경우
         if viewModel.hasToCheckUnseen == false {
-            guard let habitID = viewModel.habitResponseModel?.habitId else { return }
+            guard let habitID = viewModel.habitInProgressModel?.habitId else { return }
             
             viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
                 viewModel.requestHabitInProgress()
@@ -204,7 +215,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         guard let viewController = self.viewController else { return }
         
         viewController.viewModel.requestHabitInProgress()
-        viewController.delayPopupView?.hide()
+        viewController.delayPopupView?.removeFromSuperView()
     }
 }
 
@@ -213,7 +224,7 @@ extension HomeRouter: HabitEditingViewControllerDelegate {
         guard let viewController = self.viewController,
               let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
         else { return }
-        guard let habitInProgressModel = viewController.viewModel.habitResponseModel else { return }
+        guard let habitInProgressModel = viewController.viewModel.habitInProgressModel else { return }
         
         habitEditingViewController.delegate = self
         habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
@@ -232,7 +243,7 @@ extension HomeRouter: HabitEditingViewControllerDelegate {
 extension HomeRouter: SuccessPopupViewControllerDelegate {
     func routeToSuccessPopupViewController() {
         guard let viewController = self.viewController else { return }
-        guard let habitResponseModel = viewController.viewModel.habitResponseModel else { return }
+        guard let habitResponseModel = viewController.viewModel.habitInProgressModel else { return }
         
         let successPopupViewController = SuccessPopupViewController().then {
             $0.delegate = self
@@ -246,7 +257,8 @@ extension HomeRouter: SuccessPopupViewControllerDelegate {
     func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
         guard let viewController = self.viewController else { return }
         let viewModel = viewController.viewModel
-        guard let status: HabitStatus = viewModel.habitResponseModel?.onethingHabitStatus
+
+        guard let status: HabitStatus = viewModel.habitInProgressModel?.onethingHabitStatus
         else { return }
         
         switch status {

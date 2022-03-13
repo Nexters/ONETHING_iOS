@@ -22,6 +22,7 @@ enum ContentAPI {
     case putGiveUpHabit
     case putUnSeenSuccess(habitId: Int)
     case putUnSeenFail(habitId: Int)
+    case putReStart(habitId: Int)
     case getDailyHistories(habitId: Int)
     case getDailyHabitImage(createDate: String, imageExtension: String)
     case getNotices
@@ -55,6 +56,8 @@ extension ContentAPI: TargetType {
             return "/api/habit/\(habitId)/pass-unseen-success"
         case let .putUnSeenFail(habitId: habitId):
             return "api/habit/\(habitId)/pass-unseen-fail"
+        case let .putReStart(habitId: habitId):
+            return "api/habit/\(habitId)/restart"
         case let .getDailyHistories(habitId: habitId):
             return "/api/habit/\(habitId)/daily-histories"
         case let .createDailyHabit(habitId: habitId):
@@ -76,7 +79,7 @@ extension ContentAPI: TargetType {
             return .get
         case .createHabit, .createDailyHabit:
             return .post
-        case .editHabit, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail:
+        case .editHabit, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .putReStart:
             return .put
         case .deleteHabit:
             return .delete
@@ -90,7 +93,7 @@ extension ContentAPI: TargetType {
     var task: Task {
         switch self {
             case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_),
-                 .getNotices, .getQuestions, .getUnseenStatus, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .deleteHabit:
+                .getNotices, .getQuestions, .getUnseenStatus, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .putReStart, .deleteHabit:
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,

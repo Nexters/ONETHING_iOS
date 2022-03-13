@@ -17,4 +17,8 @@ extension UINavigationController {
         self.popViewController(animated: true)
         CATransaction.commit()
     }
+    
+    func rootViewController<T: UIViewController>(type: T.Type) -> T? {
+        return self.viewControllers.first as? T
+    }
 }
