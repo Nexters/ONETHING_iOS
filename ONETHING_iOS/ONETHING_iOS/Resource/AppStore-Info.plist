@@ -33,15 +33,16 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>instagram-stories</string>
 		<string>kakaolink</string>
 		<string>kakaokompassauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>사진과 함께 습관을 기록하려면 아래 '승인'이 필요합니다. 접근을 허용하지 않으면, 앨범을 표시하거나 사진을 저장할 수 없습니다.</string>
+	<string>사진과 함께 습관을 기록하려면 아래 &apos;승인&apos;이 필요합니다. 접근을 허용하지 않으면, 앨범을 표시하거나 사진을 저장할 수 없습니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>사진과 함께 습관을 기록하려면 아래 '접근 허용'이 필요합니다. 접근을 허용하지 않으면, 앨범을 표시하거나 사진을 불러올 수 없습니다.</string>
+	<string>사진과 함께 습관을 기록하려면 아래 &apos;접근 허용&apos;이 필요합니다. 접근을 허용하지 않으면, 앨범을 표시하거나 사진을 불러올 수 없습니다.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Montserrat-Bold.ttf</string>
