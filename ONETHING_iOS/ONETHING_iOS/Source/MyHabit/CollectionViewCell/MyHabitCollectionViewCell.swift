@@ -30,6 +30,14 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.titleLabel.text = ""
+        self.titleDescriptionLabel.text = ""
+        self.progressDurationLabel.text = ""
+        self.successRateLabel.text = ""
+    }
+    
     func configure(presentable: MyHabitCellPresentable, index: Int) {
         self.presentable = presentable
         self.updateLabelText(asPresentable: presentable, index: index)
