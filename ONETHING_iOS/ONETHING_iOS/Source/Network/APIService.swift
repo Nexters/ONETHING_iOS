@@ -18,10 +18,7 @@ final class APIService: APIServiceType {
     
     static let shared = APIService()
     
-    func requestAndDecodeRx<C: Codable, T: TargetType>(
-        apiTarget: T,
-        retryHandler: (() -> Void)? = nil
-    ) -> Single<C> {
+    func requestAndDecodeRx<C: Codable, T: TargetType>(apiTarget: T, retryHandler: (() -> Void)? = nil) -> Single<C> {
         return Single<C>.create { single in
             let provider = MoyaProvider<T>(session: DefaultSession.sharedInstance)
             let request = provider.request(apiTarget) { result in

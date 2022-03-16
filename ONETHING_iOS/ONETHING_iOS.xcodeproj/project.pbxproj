@@ -58,18 +58,27 @@
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
 		CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
 		CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00AA492699FF5F002C674B /* LoginViewModel.swift */; };
-		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
-		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
-		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
-		CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
-		CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
-		CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */; };
 		CE0EE3FA27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FB27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FC27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */; };
 		CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
 		CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */; };
+		CE0EE40227C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40327C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40427C7B792003B7C0E /* NetworkDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */; };
+		CE0EE40B27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40C27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40D27CB9685003B7C0E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40A27CB9685003B7C0E /* UserRepository.swift */; };
+		CE0EE40F27CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41027CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */; };
+		CE0EE41327CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41527CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */; };
+		CE0EE41927CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
+		CE0EE41A27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
+		CE0EE41B27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */; };
 		CE16972226D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972326D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
 		CE16972426D7F5EC00AD0BE9 /* splash_screen.json in Resources */ = {isa = PBXBuildFile; fileRef = CE16972126D7F5EC00AD0BE9 /* splash_screen.json */; };
@@ -112,9 +121,6 @@
 		CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
 		CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
 		CE26C45826B0366B00BE7DDC /* DispatchQueue+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */; };
-		CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
-		CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
-		CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45A26B03A0400BE7DDC /* ServerHost.swift */; };
 		CE26C45F26B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
 		CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */; };
@@ -254,6 +260,18 @@
 		CE9F7DEB27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
 		CE9F7DEC27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
 		CE9F7DED27C26D7400F49044 /* MyHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */; };
+		CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCD927D49825005B8381 /* HabitStatus.swift */; };
+		CEAABCDF27D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
+		CEAABCE027D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
+		CEAABCE127D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */; };
+		CEAABCE327D4A947005B8381 /* MyHabitShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */; };
+		CEAABCE427D4A947005B8381 /* MyHabitShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */; };
+		CEAABCE527D4A947005B8381 /* MyHabitShareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */; };
+		CEAABCE727D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */; };
+		CEAABCE827D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */; };
+		CEAABCE927D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */; };
 		CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78826A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
 		CEC4D78926A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */; };
@@ -343,6 +361,42 @@
 		CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
+		CECA072927D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
+		CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
+		CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
+		CECA072D27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
+		CECA072E27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
+		CECA072F27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
+		CECA073127D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */; };
+		CECA073227D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */; };
+		CECA073327D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */; };
+		CECA073627D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */; };
+		CECA073727D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */; };
+		CECA073827D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */; };
+		CECA073A27D372A4008DCD21 /* HabitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073927D372A4008DCD21 /* HabitRepository.swift */; };
+		CECA073B27D372A4008DCD21 /* HabitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073927D372A4008DCD21 /* HabitRepository.swift */; };
+		CECA073C27D372A4008DCD21 /* HabitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073927D372A4008DCD21 /* HabitRepository.swift */; };
+		CECA073E27D3752F008DCD21 /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073D27D3752F008DCD21 /* ModelDecoder.swift */; };
+		CECA073F27D3752F008DCD21 /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073D27D3752F008DCD21 /* ModelDecoder.swift */; };
+		CECA074027D3752F008DCD21 /* ModelDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA073D27D3752F008DCD21 /* ModelDecoder.swift */; };
+		CECE2F2A27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
+		CECE2F2B27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
+		CECE2F2C27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */; };
+		CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */; };
+		CECE2F3227D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3327D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3427D8A61C00D5C64A /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */; };
+		CECE2F3627D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3727D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3827D8A8FB00D5C64A /* ShareModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */; };
+		CECE2F3A27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3B27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3C27D8AAAE00D5C64A /* ShareItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */; };
+		CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
+		CECE2F3F27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
+		CECE2F4027D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */; };
 		CED5AECA26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECB26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
 		CED5AECC26A48700003F087C /* PostponeTodoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED5AEC926A48700003F087C /* PostponeTodoView.xib */; };
@@ -667,10 +721,13 @@
 		CE00AA492699FF5F002C674B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE00AA4D269A0252002C674B /* ONETHING_iOS Beta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Beta.entitlements"; sourceTree = "<group>"; };
 		CE00AA4E269A0252002C674B /* ONETHING_iOS Ent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ONETHING_iOS Ent.entitlements"; sourceTree = "<group>"; };
-		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
-		CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		CE0EE3F927C7850A003B7C0E /* AppleLoginRequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginRequestBody.swift; sourceTree = "<group>"; };
 		CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginReqeustBody.swift; sourceTree = "<group>"; };
+		CE0EE40127C7B792003B7C0E /* NetworkDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDetector.swift; sourceTree = "<group>"; };
+		CE0EE40A27CB9685003B7C0E /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewModel.swift; sourceTree = "<group>"; };
+		CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitLayoutGuide.swift; sourceTree = "<group>"; };
+		CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
@@ -685,7 +742,6 @@
 		CE26C44D26B0313E00BE7DDC /* OnethingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingError.swift; sourceTree = "<group>"; };
 		CE26C45126B031A600BE7DDC /* OnethingErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingErrorModel.swift; sourceTree = "<group>"; };
 		CE26C45526B0366B00BE7DDC /* DispatchQueue+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+.swift"; sourceTree = "<group>"; };
-		CE26C45A26B03A0400BE7DDC /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		CE26C46626B04D5A00BE7DDC /* LoginResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseModel.swift; sourceTree = "<group>"; };
 		CE307A4C26D23A07005919AE /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
@@ -748,6 +804,10 @@
 		CE8FEDF726B6E7BD0092DC0D /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		CE8FEDFB26B6EB5A0092DC0D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewController.swift; sourceTree = "<group>"; };
+		CEAABCD927D49825005B8381 /* HabitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStatus.swift; sourceTree = "<group>"; };
+		CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitCellPresentable.swift; sourceTree = "<group>"; };
+		CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareContentView.swift; sourceTree = "<group>"; };
+		CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareFirstTypeView.swift; sourceTree = "<group>"; };
 		CEC4D78526A27EAA00633222 /* GoalSettingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalSettingCollectionViewCell.swift; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		CEC4D78626A27EAA00633222 /* GoalSettingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoalSettingCollectionViewCell.xib; path = ONETHING_iOS/Source/CollectionViewCell/GoalSettingCollectionViewCell.xib; sourceTree = SOURCE_ROOT; };
 		CEC4D78D26A2B11100633222 /* GoalSettingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingSecondViewController.swift; sourceTree = "<group>"; };
@@ -778,6 +838,18 @@
 		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabitModel.swift; sourceTree = "<group>"; };
 		CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorPopupView.xib; sourceTree = "<group>"; };
 		CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorPopupView.swift; sourceTree = "<group>"; };
+		CECA072827D34610008DCD21 /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
+		CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareViewController.swift; sourceTree = "<group>"; };
+		CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareViewModel.swift; sourceTree = "<group>"; };
+		CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareNavigationView.swift; sourceTree = "<group>"; };
+		CECA073927D372A4008DCD21 /* HabitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRepository.swift; sourceTree = "<group>"; };
+		CECA073D27D3752F008DCD21 /* ModelDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDecoder.swift; sourceTree = "<group>"; };
+		CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareSecondTypeView.swift; sourceTree = "<group>"; };
+		CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitShareUIType.swift; sourceTree = "<group>"; };
+		CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalViewController.swift; sourceTree = "<group>"; };
+		CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalView.swift; sourceTree = "<group>"; };
+		CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareItemView.swift; sourceTree = "<group>"; };
+		CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSNSCategory.swift; sourceTree = "<group>"; };
 		CED5AEC926A48700003F087C /* PostponeTodoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostponeTodoView.xib; sourceTree = "<group>"; };
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
 		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
@@ -953,7 +1025,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0EE3F827C784FA003B7C0E /* Model */,
-				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3F027C78380003B7C0E /* ViewModel */,
 				CE0EE3EF27C7837A003B7C0E /* ViewController */,
 			);
@@ -979,7 +1050,8 @@
 		CE0EE3F327C783EC003B7C0E /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				CE0EE3F427C783F9003B7C0E /* LoginRepository.swift */,
+				CE0EE40A27CB9685003B7C0E /* UserRepository.swift */,
+				CECA073927D372A4008DCD21 /* HabitRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -991,6 +1063,14 @@
 				CE0EE3FD27C78532003B7C0E /* KakaoLoginReqeustBody.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 		CE1F96C226AC0A1E006B56E4 /* Common */ = {
@@ -1138,6 +1218,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3EE27C78375003B7C0E /* Login */,
 				CE9F7DE627C26D4200F49044 /* MyHabit */,
 				CEC4D79726A2B1E000633222 /* Util */,
@@ -1312,6 +1393,7 @@
 				CE7247E22699D82300BB2C19 /* SocialManager.swift */,
 				CEC4D81826A4162F00633222 /* OnethingUserManager.swift */,
 				CE2390C526D52887002A002E /* MediaAuthorizationManager.swift */,
+				CECA073D27D3752F008DCD21 /* ModelDecoder.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1322,6 +1404,9 @@
 				CE7247E92699DE6D00BB2C19 /* SocialAccessType.swift */,
 				F25571A226A437DD005A1AAF /* ViewTag.swift */,
 				CE307A5426D295DE005919AE /* OnethingProfileType.swift */,
+				CEAABCD927D49825005B8381 /* HabitStatus.swift */,
+				CECE2F2D27D88E9E00D5C64A /* HabitShareUIType.swift */,
+				CECE2F3D27D8AB3F00D5C64A /* ShareSNSCategory.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -1337,7 +1422,11 @@
 		CE9F7DE627C26D4200F49044 /* MyHabit */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */,
+				CEAABCDD27D49C27005B8381 /* Presentable */,
+				CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */,
 				CE9F7DE927C26D5400F49044 /* Model */,
+				CECA073427D3668A008DCD21 /* View */,
 				CE9F7DE827C26D4D00F49044 /* ViewModel */,
 				CE9F7DE727C26D4800F49044 /* ViewController */,
 			);
@@ -1347,7 +1436,9 @@
 		CE9F7DE727C26D4800F49044 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */,
 				CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */,
+				CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1355,6 +1446,8 @@
 		CE9F7DE827C26D4D00F49044 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */,
+				CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1364,6 +1457,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEAABCDD27D49C27005B8381 /* Presentable */ = {
+			isa = PBXGroup;
+			children = (
+				CEAABCDE27D49C34005B8381 /* MyHabitCellPresentable.swift */,
+			);
+			path = Presentable;
 			sourceTree = "<group>";
 		};
 		CEB9B3A0269A312400A01590 /* CollectionViewCell */ = {
@@ -1447,6 +1548,19 @@
 			path = Montserrat;
 			sourceTree = "<group>";
 		};
+		CECA073427D3668A008DCD21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */,
+				CEAABCE227D4A947005B8381 /* MyHabitShareContentView.swift */,
+				CEAABCE627D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift */,
+				CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */,
+				CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */,
+				CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CEFF0A3D269C87B200DB8D2D /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1466,9 +1580,9 @@
 				CEFF0A47269C8E8A00DB8D2D /* StoryboardName.swift */,
 				CEC4D81C26A4168800633222 /* FontName.swift */,
 				CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */,
-				CE26C45A26B03A0400BE7DDC /* ServerHost.swift */,
 				CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */,
 				CEE8AB1B26BEB3320012D21D /* NSNotification+.swift */,
+				CECA072827D34610008DCD21 /* ServerHost.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -2043,6 +2157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41327CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
@@ -2056,7 +2171,9 @@
 				5ADD32FA2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7526D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CEC4D78E26A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
+				CEAABCE327D4A947005B8381 /* MyHabitShareContentView.swift in Sources */,
 				F200E4C126D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CE0EE40B27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CE7247C72699C5F900BB2C19 /* UICollectionView+.swift in Sources */,
 				CE26C45626B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				CEC4D83526A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
@@ -2072,11 +2189,14 @@
 				CEE8AB1C26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				8943810227DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */,
 				F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */,
+				CEAABCDF27D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
+				CE0EE40F27CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */,
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */,
+				CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -2094,6 +2214,7 @@
 				F2F10FAA27AA68B4006334AC /* HomeRouter.swift in Sources */,
 				F2A614AD26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				CE38762526CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
+				CECA072D27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */,
 				CEFA5BC526B52BFF0037F71B /* Date+.swift in Sources */,
 				F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				F271CF1926B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
@@ -2105,6 +2226,7 @@
 				CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
+				CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F23DD4D226BF5EB000DCDDE5 /* HabitImageUseCase.swift in Sources */,
@@ -2117,13 +2239,14 @@
 				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CECA073A27D372A4008DCD21 /* HabitRepository.swift in Sources */,
+				CE0EE41927CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
 				5ABD11E627D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CEC4D81926A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				5AF85B9627D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */,
 				CE8FEDF826B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
 				CE307A5126D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
-				CE26C45B26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
@@ -2136,15 +2259,17 @@
 				F2B571E526D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765026D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
+				CECA073127D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
+				CEAABCE727D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				5AF85B9A27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
-				CE0EE3F527C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
+				CECA073E27D3752F008DCD21 /* ModelDecoder.swift in Sources */,
 				F271CF0D26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F20E00E326A66172009A4AB3 /* HabitWritingViewModel.swift in Sources */,
 				CE7247E32699D82300BB2C19 /* SocialManager.swift in Sources */,
@@ -2167,6 +2292,8 @@
 				F20B572F26A7EAF700391D45 /* HabitStampView.swift in Sources */,
 				F267F9A7269A387000219B05 /* ProgressView.swift in Sources */,
 				F295FE6126D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				CECE2F3627D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
+				CECA073627D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				894380FE27DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
@@ -2177,14 +2304,18 @@
 				CE67520326D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764826D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
 				F2129BE926D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
+				CECE2F3A27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				CE2390C626D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
 				CEC4D79926A2B1ED00633222 /* DeviceInfo.swift in Sources */,
+				CECE2F2A27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
 				F20E00D526A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE3B8BB226A7073D00BD529B /* DefaultSession.swift in Sources */,
 				5ADD33032786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */,
 				F289D29126DF3CB60019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
+				CECA072927D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3227D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F20E00DF26A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -2200,6 +2331,7 @@
 				CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2224,6 +2356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41527CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
@@ -2237,7 +2370,9 @@
 				5ADD32FC2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7726D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				CE8FEDFA26B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
+				CEAABCE527D4A947005B8381 /* MyHabitShareContentView.swift in Sources */,
 				F200E4C326D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CE0EE40D27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CEC4D82726A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				CEFC3A2D269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE8FEDD826B69A580092DC0D /* HabitReponseModel.swift in Sources */,
@@ -2253,12 +2388,14 @@
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				8943810427DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */,
 				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
+				CEAABCE127D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
+				CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
-				CE26C45D26B03A0400BE7DDC /* ServerHost.swift in Sources */,
+				CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -2276,6 +2413,7 @@
 				F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CEC4D82B26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
 				CE38762726CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
+				CECA072F27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
@@ -2287,6 +2425,7 @@
 				F293C3D8269D19BF0096757C /* Circleable.swift in Sources */,
 				CE466A7F26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				F29B8434269A8673009D293F /* UICollectionView+.swift in Sources */,
+				CECE2F4027D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
@@ -2298,6 +2437,8 @@
 				F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */,
 				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CE0EE41B27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
+				CECA073C27D372A4008DCD21 /* HabitRepository.swift in Sources */,
 				5ABD11E827D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F29B842C269A865D009D293F /* UIViewController+.swift in Sources */,
@@ -2317,15 +2458,17 @@
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
 				F2B571E726D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765226D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
+				CECA073327D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
+				CEAABCE927D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				5AF85B9C27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
-				CE0EE3F727C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				CE8FEDD426B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
+				CECA074027D3752F008DCD21 /* ModelDecoder.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
 				CEFC3A17269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CE72478A269992C700BB2C19 /* SceneDelegate.swift in Sources */,
@@ -2348,6 +2491,8 @@
 				CEFF0A45269C881000DB8D2D /* GoalSettingFirstViewController.swift in Sources */,
 				CE8FEDE126B6CABB0092DC0D /* ProfileViewModel.swift in Sources */,
 				CEFC3A2F269CA74A0007AFF2 /* UIColor+.swift in Sources */,
+				CECE2F3827D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
+				CECA073827D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				F295FE6326D1008100F8589E /* DailyHabitModel.swift in Sources */,
 				8943810027DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F289D29326DF3FE50019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
@@ -2358,14 +2503,18 @@
 				CEC4D79026A2B11100633222 /* GoalSettingSecondViewController.swift in Sources */,
 				CE67520526D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764A26D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
+				CECE2F3C27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				F2129BEB26D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
 				CE2390C826D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
+				CECE2F2C27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
 				F293C3D0269D195D0096757C /* StampButton.swift in Sources */,
 				F23DD4CD26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				5ADD33052786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */,
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
+				CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3427D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				CEE8AB1E26BEB3320012D21D /* NSNotification+.swift in Sources */,
@@ -2381,6 +2530,7 @@
 				CE0EE40027C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84326A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
+				CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2389,8 +2539,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
-				CE26C45C26B03A0400BE7DDC /* ServerHost.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE307A4E26D23A07005919AE /* NoticeModel.swift in Sources */,
@@ -2403,6 +2553,8 @@
 				CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
 				F2017A8926BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F200E4C226D64F7D0084BAB9 /* HabitEditingViewController.swift in Sources */,
+				CEAABCE427D4A947005B8381 /* MyHabitShareContentView.swift in Sources */,
+				CE0EE40C27CB9685003B7C0E /* UserRepository.swift in Sources */,
 				CE26C46826B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CEFC3A2C269CA67E0007AFF2 /* UIView+.swift in Sources */,
 				CE7247EC2699DE8D00BB2C19 /* SocialManager.swift in Sources */,
@@ -2417,6 +2569,8 @@
 				F20B574626A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A3A269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				CE724796269992CC00BB2C19 /* HomeViewController.swift in Sources */,
+				CE0EE41027CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
+				CEAABCE027D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
 				8943810327DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */,
 				CEC4D83626A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				CED5AECF26A4870E003F087C /* PostponeTodoView.swift in Sources */,
@@ -2424,6 +2578,7 @@
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
+				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
@@ -2441,6 +2596,7 @@
 				F20B573426A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CEC4D79A26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
 				CE38762626CCF65E003BDCCA /* ConfirmPopupView.swift in Sources */,
+				CECA072E27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */,
 				F25571A026A432CE005A1AAF /* APIService.swift in Sources */,
 				F271CF1A26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				F2BADE0326C4E2D300FD7766 /* LargeTouchableButton.swift in Sources */,
@@ -2452,6 +2608,7 @@
 				F2BADE0726C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CE466A7E26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
 				CE8FEDF926B6E7BD0092DC0D /* AccountViewController.swift in Sources */,
+				CECE2F3F27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				CE26C46026B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
 				CE307A5626D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				CE3B8BB326A7073D00BD529B /* DefaultSession.swift in Sources */,
@@ -2463,6 +2620,8 @@
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */,
+				CE0EE41A27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
+				CECA073B27D372A4008DCD21 /* HabitRepository.swift in Sources */,
 				5ABD11E727D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
@@ -2482,15 +2641,17 @@
 				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
 				F2B571E626D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765126D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
+				CECA073227D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
+				CEAABCE827D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				5AF85B9B27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
-				CE0EE3F627C783F9003B7C0E /* LoginRepository.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
+				CECA073F27D3752F008DCD21 /* ModelDecoder.swift in Sources */,
 				CEFA5BC626B52BFF0037F71B /* Date+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CE8FEDF426B6DE400092DC0D /* OnethingUserModel.swift in Sources */,
@@ -2513,6 +2674,8 @@
 				F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				CE26C45726B0366B00BE7DDC /* DispatchQueue+.swift in Sources */,
 				F295FE6226D1008100F8589E /* DailyHabitModel.swift in Sources */,
+				CECE2F3727D8A8FB00D5C64A /* ShareModalView.swift in Sources */,
+				CECA073727D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				CEC4D83A26A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				894380FF27DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
 				F289D29226DF3FE40019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
@@ -2523,14 +2686,18 @@
 				CE26C44A26B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				CE67520426D0F3AC00616CA8 /* MakePeopleViewController.swift in Sources */,
 				CE38764926D0D08A003BDCCA /* NoticeTableViewCell.swift in Sources */,
+				CECE2F3B27D8AAAE00D5C64A /* ShareItemView.swift in Sources */,
 				F2129BEA26D786C700C6D49E /* HabitEditViewModel.swift in Sources */,
 				CE2390C726D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
+				CECE2F2B27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
 				F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				5ADD33042786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
+				CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */,
+				CECE2F3327D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
@@ -2546,6 +2713,7 @@
 				CE0EE3FF27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CEC4D84226A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
+				CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

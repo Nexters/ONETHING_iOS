@@ -257,7 +257,8 @@ extension HomeRouter: SuccessPopupViewControllerDelegate {
     func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
         guard let viewController = self.viewController else { return }
         let viewModel = viewController.viewModel
-        guard let status: HabitResponseModel.HabitStatus = viewModel.habitInProgressModel?.onethingHabitStatus
+
+        guard let status: HabitStatus = viewModel.habitInProgressModel?.onethingHabitStatus
         else { return }
         
         switch status {
