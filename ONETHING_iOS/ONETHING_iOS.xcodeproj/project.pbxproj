@@ -47,12 +47,6 @@
 		8944EECA27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECB27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECC27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
-		89F3E7C227D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
-		89F3E7C327D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
-		89F3E7C427D89C290054622B /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C127D89C290054622B /* ServerHost.swift */; };
-		89F3E7C627D89E100054622B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C527D89E100054622B /* UserRepository.swift */; };
-		89F3E7C727D89E100054622B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C527D89E100054622B /* UserRepository.swift */; };
-		89F3E7C827D89E100054622B /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F3E7C527D89E100054622B /* UserRepository.swift */; };
 		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
 		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
@@ -409,6 +403,9 @@
 		CED5AED626A4A0CB003F087C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED526A4A0CB003F087C /* String+.swift */; };
 		CED5AED726A4A0CB003F087C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED526A4A0CB003F087C /* String+.swift */; };
 		CED5AED826A4A0CB003F087C /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5AED526A4A0CB003F087C /* String+.swift */; };
+		CEE1D2C327FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1D2C227FADB1100FA27F2 /* MyHabitEmptyView.swift */; };
+		CEE1D2C427FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1D2C227FADB1100FA27F2 /* MyHabitEmptyView.swift */; };
+		CEE1D2C527FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE1D2C227FADB1100FA27F2 /* MyHabitEmptyView.swift */; };
 		CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */; };
 		CEE8AB1526BE948B0012D21D /* MainTabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */; };
 		CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */; };
@@ -712,8 +709,6 @@
 		894380FD27DB6A9900354B4C /* NotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPopupView.swift; sourceTree = "<group>"; };
 		8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayNotifyPopupView.swift; sourceTree = "<group>"; };
 		8944EEC927DC695D0036F511 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
-		89F3E7C127D89C290054622B /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
-		89F3E7C527D89E100054622B /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -854,6 +849,7 @@
 		CED5AECD26A4870E003F087C /* PostponeTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTodoView.swift; sourceTree = "<group>"; };
 		CED5AED126A49AD7003F087C /* GoalSettingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSettingFinishViewController.swift; sourceTree = "<group>"; };
 		CED5AED526A4A0CB003F087C /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CEE1D2C227FADB1100FA27F2 /* MyHabitEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitEmptyView.swift; sourceTree = "<group>"; };
 		CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewModel.swift; sourceTree = "<group>"; };
 		CEE8AB1B26BEB3320012D21D /* NSNotification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+.swift"; sourceTree = "<group>"; };
 		CEFA5BC426B52BFF0037F71B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -1557,6 +1553,7 @@
 				CECE2F2927D884E700D5C64A /* MyHabitShareSecondTypeView.swift */,
 				CECE2F3527D8A8FB00D5C64A /* ShareModalView.swift */,
 				CECE2F3927D8AAAE00D5C64A /* ShareItemView.swift */,
+				CEE1D2C227FADB1100FA27F2 /* MyHabitEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2200,6 +2197,7 @@
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
+				CEE1D2C327FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				CE16973226D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
@@ -2399,6 +2397,7 @@
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
+				CEE1D2C527FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
@@ -2582,6 +2581,7 @@
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
+				CEE1D2C427FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CE16973326D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
