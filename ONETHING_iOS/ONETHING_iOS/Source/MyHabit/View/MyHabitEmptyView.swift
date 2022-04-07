@@ -41,6 +41,8 @@ class MyHabitEmptyView: UIView {
             내 습관을 모아보세요!
             """
             $0.textColor = .black_60
+            $0.numberOfLines = 0
+            $0.textAlignment = .center
             $0.font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
         }
             
