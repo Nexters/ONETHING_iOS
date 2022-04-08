@@ -63,7 +63,7 @@ final class AccountViewController: BaseViewController {
             guard let self = self else { return }
             guard let user = user else { return }
             
-            self.emailLabel.text = user.email
+            self.updateUserInfoUI(asUser: user)
         }).disposed(by: self.disposeBag)
         
         self.viewModel.loadingSubject.observeOnMain(onNext: { [weak self] loading in
@@ -73,6 +73,11 @@ final class AccountViewController: BaseViewController {
         self.viewModel.logoutSuccessSubject.observeOnMain(onNext: { [weak self] in
             self?.mainTabbarController?.processLogout()
         }).disposed(by: self.disposeBag)
+    }
+    
+    private func updateUserInfoUI(asUser user: OnethingUserModel) {
+        self.emailLabel.text = user.email
+        self.signupMethodLabel.text = user.castingAccessType?.signupMethodText
     }
     
     private func startLoadingIndicator() {
@@ -98,5 +103,17 @@ final class AccountViewController: BaseViewController {
     @IBOutlet private weak var emailLabel: UILabel!
     @IBOutlet private weak var logoutButton: UIButton!
     @IBOutlet private weak var withDrawlButton: UIButton!
+    @IBOutlet private weak var signupMethodLabel: UILabel!
+    
+}
+
+private extension SocialAccessType {
+    
+    var signupMethodText: String {
+        switch self {
+        case .kakao: return "Kakao로 로그인"
+        case .apple: return "Apple로 로그인"
+        }
+    }
     
 }

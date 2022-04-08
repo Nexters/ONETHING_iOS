@@ -5,8 +5,9 @@
 //  Created by Dongmin on 2022/02/20.
 //
 
-import SnapKit
 import UIKit
+import Then
+import SnapKit
 import RxCocoa
 import RxSwift
 
@@ -62,6 +63,7 @@ final class MyHabitViewController: BaseViewController {
         self.view.addSubview(self.habitNumberLabel)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.pageControl)
+        self.view.addSubview(self.emptyView)
     }
     
     private func layoutUI() {
@@ -85,6 +87,11 @@ final class MyHabitViewController: BaseViewController {
             make.top.equalTo(self.collectionView.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
         }
+        
+        self.emptyView.snp.makeConstraints { make in
+            make.top.equalTo(self.titleLabel.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
     
     private func observeViewModel() {
@@ -92,12 +99,18 @@ final class MyHabitViewController: BaseViewController {
             .disposed(by: self.disposeBag)
         
         self.viewModel.habitCountObservable
-            .bind(to: self.pageControl.rx.numberOfPages)
-            .disposed(by: self.disposeBag)
-        
-        self.viewModel.habitCountObservable
-            .map { "\($0)개" }
-            .bind(to: self.habitNumberLabel.rx.text)
+            .withUnretained(self)
+            .observeOnMain(onNext: { owner, count in
+                let isEmptyHabit = count == 0
+                
+                owner.pageControl.isHidden = isEmptyHabit
+                owner.collectionView.isHidden = isEmptyHabit
+                owner.habitNumberLabel.isHidden = isEmptyHabit
+                owner.emptyView.isHidden = isEmptyHabit == false
+                
+                owner.pageControl.numberOfPages = count
+                owner.habitNumberLabel.text = "\(count)개"
+            })
             .disposed(by: self.disposeBag)
         
         self.viewModel.currentPageObservable
@@ -125,6 +138,7 @@ final class MyHabitViewController: BaseViewController {
         collectionViewLayout: MyHabitLayoutGuide.collectionViewFlowLayout
     )
     private let pageControl = UIPageControl()
+    private let emptyView = MyHabitEmptyView(frame: .zero)
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel
