@@ -219,7 +219,7 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         self.titleLabel.text = presentable.title
         self.titleDescriptionLabel.text = "\(userNickname) 님의 \(index + 1)번째 \(descriptionSuccessText) 습관"
         self.progressDurationLabel.text = presentable.progressDuration
-        self.successRateLabel.text = "\(presentable.successCount / 66)%"
+        self.successRateLabel.text = "\(presentable.successPercent)%"
     }
     
     private func updateUI(asPresentable presentable: MyHabitCellPresentable) {

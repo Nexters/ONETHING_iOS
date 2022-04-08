@@ -69,4 +69,11 @@ extension MyHabitCellPresentable {
         return "\(startDateString) - \(endDateString)"
     }
     
+    var successPercent: Int {
+        let rate = Float(self.successCount) / 66
+        let percent = rate * 100
+        let roundedPercent = round(percent)
+        return Int(roundedPercent)
+    }
+    
 }
