@@ -29,9 +29,6 @@
 		5AF85B9627D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
 		5AF85B9727D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
 		5AF85B9827D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */; };
-		5AF85B9A27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
-		5AF85B9B27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
-		5AF85B9C27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */; };
 		5AF85B9E27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
 		5AF85B9F27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
 		5AF85BA027D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
@@ -697,7 +694,6 @@
 		5ADD33022786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenSuccess.swift; sourceTree = "<group>"; };
 		5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForWriteSuccess.swift; sourceTree = "<group>"; };
 		5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewModel.swift; sourceTree = "<group>"; };
-		5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+.swift"; sourceTree = "<group>"; };
 		5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNConfirmPopupView.swift; sourceTree = "<group>"; };
 		5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAgainPopupView.swift; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1358,7 +1354,6 @@
 				CE67520626D0F45500616CA8 /* UIButton+.swift */,
 				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
 				F2F10FA527AA5723006334AC /* CALayer+.swift */,
-				5AF85B9927D1FEAD00DF7645 /* UIActivityIndicatorView+.swift */,
 				8944EEC927DC695D0036F511 /* NSAttributedString+.swift */,
 			);
 			path = Extension;
@@ -2262,7 +2257,6 @@
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
-				5AF85B9A27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
@@ -2462,7 +2456,6 @@
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
-				5AF85B9C27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
@@ -2646,7 +2639,6 @@
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
-				5AF85B9B27D1FEAD00DF7645 /* UIActivityIndicatorView+.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,

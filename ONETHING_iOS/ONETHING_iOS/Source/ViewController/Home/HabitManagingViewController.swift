@@ -47,7 +47,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         self.loadingIndicator.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
-        self.loadingIndicator.hideAndStop()
+        self.loadingIndicator.stopAnimating()
     }
     
     private func setupTableView() {
@@ -170,7 +170,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
                 popupView?.buttons.forEach {
                     $0.isUserInteractionEnabled = loading == false
                 }
-                loading ? self?.loadingIndicator.showAndStart() : self?.loadingIndicator.hideAndStop()
+                loading ? self?.loadingIndicator.startAnimating() : self?.loadingIndicator.stopAnimating()
             })
             .disposed(by: self.disposeBag)
         
@@ -189,7 +189,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         self.viewModel.loadingSubject
             .subscribe(onNext: { [weak self, weak popupView] loading in
                 popupView?.closeButton.isUserInteractionEnabled = loading == false
-                loading ? self?.loadingIndicator.showAndStart() : self?.loadingIndicator.hideAndStop()
+                loading ? self?.loadingIndicator.startAnimating() : self?.loadingIndicator.stopAnimating()
             })
             .disposed(by: self.disposeBag)
         
