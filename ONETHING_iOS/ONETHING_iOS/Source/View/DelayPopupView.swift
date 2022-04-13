@@ -50,8 +50,7 @@ final class DelayPopupView: UIView, ShakeView {
     }
     
     func configure(with viewModel: HomeViewModel) {
-        self.titleLabel.text = viewModel.titleTextOfDelayPopupView
-        
+        self.titleLabel.attributedText = viewModel.titleTextOfDelayPopupView
         self.remainedDelayCountLabel.text = viewModel.remainedDelayTextOfDelayPopupView
     }
     

@@ -47,7 +47,7 @@ extension DailyHabitResponseModel {
         DailyStatus(rawValue: self.status)
     }
     
-    var castringStamp: Stamp? {
+    var castingStamp: Stamp? {
         Stamp(rawValue: stampType ?? Stamp.defaultType)
     }
     
