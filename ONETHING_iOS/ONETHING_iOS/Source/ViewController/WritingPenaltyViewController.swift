@@ -15,7 +15,7 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController)
 }
 
-final class WritingPenaltyViewController: BaseViewController{
+final class WritingPenaltyViewController: BaseViewController {
     private var penaltyTextableViews: [PenaltyTextableView]? {
         didSet { self.setupTextFields() }
     }
@@ -146,19 +146,8 @@ final class WritingPenaltyViewController: BaseViewController{
     private func setupTextFields() {
         guard let penaltyTextableViews = self.penaltyTextableViews else { return }
         
-        penaltyTextableViews.forEach {
-            $0.textField.delegate = self
-            $0.textField.rx.text.orEmpty
-                .distinctUntilChanged()
-                .subscribe(onNext: { [weak self] _ in
-                    guard let allValid = self?.penaltyTextableViews?.reduce(false, { result, element in
-                        return element.placeholderLabel.text == element.textField.text?.trimmingLeadingAndTrailingSpaces()
-                    }) else { return }
-                    
-                    self?.completeButton.isUserInteractionEnabled = allValid ? true : false
-                    self?.completeButton.backgroundColor = allValid ? .black_100 : .black_40
-                    self?.completeLabel.textColor = allValid ? .white : .black_80
-                }).disposed(by: self.disposeBag)
+        penaltyTextableViews.compactMap { $0.textField }.forEach { penaltyTextField in
+            penaltyTextField.delegate = self
         }
     }
     
@@ -177,6 +166,18 @@ final class WritingPenaltyViewController: BaseViewController{
 extension WritingPenaltyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if isLast(textField: textField) {
+            self.enableOrDisableCompleteButtonByValidation()
+        }
+    }
+    
+    private func enableOrDisableCompleteButtonByValidation() {
+        let allValid = self.allValid
+        
+        self.completeButton.isUserInteractionEnabled = allValid ? true : false
+        self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
+        self.completeLabel.textColor = allValid ? .white : .black_80
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -200,5 +201,17 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
         
         let nextTextField = textFields[nextIndex]
         nextTextField.becomeFirstResponder()
+    }
+    
+    private var allValid: Bool {
+        guard let allValid = self.penaltyTextableViews?.reduce(false, { result, element in
+            return element.placeholderLabel.text == element.textField.text?.trimmingLeadingAndTrailingSpaces()
+        }) else { return false }
+        
+        return allValid
+    }
+    
+    private func isLast(textField: UITextField) -> Bool {
+        return textField === self.penaltyTextableViews?.last?.textField
     }
 }
