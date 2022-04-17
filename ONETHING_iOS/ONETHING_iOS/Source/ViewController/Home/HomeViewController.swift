@@ -52,6 +52,7 @@ final class HomeViewController: BaseViewController {
         self.setupHomeEmptyView()
         self.bindButtons()
         self.observeViewModel()
+        self.router?.delayPopupViewDidTapPassPenaltyButton(DelayPopupView())
         
         self.viewModel.requestHabitInProgress()
     }
