@@ -15,9 +15,9 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController)
 }
 
-final class WritingPenaltyViewController: BaseViewController {
+final class WritingPenaltyViewController: BaseViewController{
     private var penaltyTextableViews: [PenaltyTextableView]? {
-        didSet { self.updateBindingForTextFields() }
+        didSet { self.setupTextFields() }
     }
     private let scrollView = UIScrollView()
     private let innerStackView = UIStackView().then {
@@ -50,22 +50,6 @@ final class WritingPenaltyViewController: BaseViewController {
         super.viewWillDisappear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
-    }
-    
-    private func updateBindingForTextFields() {
-        self.penaltyTextableViews?.forEach {
-            $0.textField.rx.text.orEmpty
-                .distinctUntilChanged()
-                .subscribe(onNext: { [weak self] _ in
-                    guard let allValid = self?.penaltyTextableViews?.reduce(false, { result, element in
-                        return element.textField.text == element.placeholderLabel.text
-                    }) else { return }
-                    
-                    self?.completeButton.isUserInteractionEnabled = allValid ? true : false
-                    self?.completeButton.backgroundColor = allValid ? .black_100 : .black_40
-                    self?.completeLabel.textColor = allValid ? .white : .black_80
-                }).disposed(by: self.disposeBag)
-        }
     }
     
     private func setupPenaltyInfoView() {
@@ -159,6 +143,23 @@ final class WritingPenaltyViewController: BaseViewController {
         self.penaltyTextableViews = penaltyTextableViews
     }
     
+    private func setupTextFields() {
+        self.penaltyTextableViews?.forEach { penaltyTextableView in
+            penaltyTextableView.textField.delegate = self
+            penaltyTextableView.textField.rx.text.orEmpty
+                .distinctUntilChanged()
+                .subscribe(onNext: { [weak self] _ in
+                    guard let allValid = self?.penaltyTextableViews?.reduce(false, { result, element in
+                        return element.placeholderLabel.text == element.textField.text?.trimmingLeadingAndTrailingSpaces()
+                    }) else { return }
+                    
+                    self?.completeButton.isUserInteractionEnabled = allValid ? true : false
+                    self?.completeButton.backgroundColor = allValid ? .black_100 : .black_40
+                    self?.completeLabel.textColor = allValid ? .white : .black_80
+                }).disposed(by: self.disposeBag)
+        }
+    }
+    
     private let disposeBag = DisposeBag()
     
     @IBOutlet private weak var backButton: UIButton!
@@ -168,4 +169,11 @@ final class WritingPenaltyViewController: BaseViewController {
     
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var completeLabel: UILabel!
+}
+
+// MARK: - UITextField Delegate Methods
+extension WritingPenaltyViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
 }
