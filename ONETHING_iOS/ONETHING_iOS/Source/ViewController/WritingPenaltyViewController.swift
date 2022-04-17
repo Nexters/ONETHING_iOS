@@ -144,9 +144,11 @@ final class WritingPenaltyViewController: BaseViewController{
     }
     
     private func setupTextFields() {
-        self.penaltyTextableViews?.forEach { penaltyTextableView in
-            penaltyTextableView.textField.delegate = self
-            penaltyTextableView.textField.rx.text.orEmpty
+        guard let penaltyTextableViews = self.penaltyTextableViews else { return }
+        
+        penaltyTextableViews.forEach {
+            $0.textField.delegate = self
+            $0.textField.rx.text.orEmpty
                 .distinctUntilChanged()
                 .subscribe(onNext: { [weak self] _ in
                     guard let allValid = self?.penaltyTextableViews?.reduce(false, { result, element in
@@ -175,5 +177,28 @@ final class WritingPenaltyViewController: BaseViewController{
 extension WritingPenaltyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let currentTextField = textField as? DelayPenaltyTextField
+        else { return true }
+        
+        self.becomeFirstResponderForNextTextField(with: currentTextField)
+        return true
+    }
+    
+    private func becomeFirstResponderForNextTextField(with currentTextField: DelayPenaltyTextField) {
+        guard let penaltyTextableViews = self.penaltyTextableViews
+        else { return }
+        
+        let textFields = penaltyTextableViews.compactMap { $0.textField }
+        guard let indexOfCurrentTextField = textFields.firstIndex(of: currentTextField)
+        else { return }
+        
+        let nextIndex = textFields.index(after: indexOfCurrentTextField)
+        guard nextIndex != textFields.endIndex else { return }
+        
+        let nextTextField = textFields[nextIndex]
+        nextTextField.becomeFirstResponder()
     }
 }
