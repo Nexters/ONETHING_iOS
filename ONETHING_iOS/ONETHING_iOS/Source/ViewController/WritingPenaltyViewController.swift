@@ -9,6 +9,7 @@ import UIKit
 
 import RxSwift
 import RxCocoa
+import SwiftUI
 
 protocol WritingPenaltyViewControllerDelegate: AnyObject {
     func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController)
@@ -25,6 +26,7 @@ final class WritingPenaltyViewController: BaseViewController {
         $0.distribution = .fillEqually
         $0.spacing = 20
     }
+    private let warningLabel = UILabel()
     var viewModel: WritingPenaltyViewModel?
     
     weak var delegate: WritingPenaltyViewControllerDelegate?
@@ -36,6 +38,7 @@ final class WritingPenaltyViewController: BaseViewController {
         self.setupPenaltyInfoView()
         self.setupScrollView()
         self.setupInnerStackView()
+        self.setupWarningLabel()
         self.bindButtons()
         self.updateViews(with: self.viewModel)
     }
@@ -87,6 +90,21 @@ final class WritingPenaltyViewController: BaseViewController {
         
         self.scrollView.contentLayoutGuide.snp.makeConstraints {
             $0.height.equalTo(self.innerStackView)
+        }
+    }
+    
+    private func setupWarningLabel() {
+        self.warningLabel.do {
+            $0.text = "*다짐 문장을 정확히 입력해 주세요!"
+            $0.textColor = .red_default
+            $0.font = UIFont.createFont(type: FontType.pretendard(weight: .regular), size: 12.0)
+            $0.isHidden = true
+        }
+        
+        self.view.addSubview(self.warningLabel)
+        self.warningLabel.snp.makeConstraints {
+            $0.top.equalTo(self.scrollView.snp.bottom).offset(8.0)
+            $0.leading.trailing.equalTo(self.scrollView)
         }
     }
     
@@ -168,16 +186,25 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
         textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if isLast(textField: textField) {
-            self.enableOrDisableCompleteButtonByValidation()
+            self.updateViewsByValidation()
         }
     }
     
-    private func enableOrDisableCompleteButtonByValidation() {
+    private func updateViewsByValidation() {
         let allValid = self.allValid
         
+        self.enableOrDisableCompleteButton(allValid: allValid)
+        self.showOrHideWarningLabel(allValid: allValid)
+    }
+    
+    private func enableOrDisableCompleteButton(allValid: Bool) {
         self.completeButton.isUserInteractionEnabled = allValid ? true : false
         self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
         self.completeLabel.textColor = allValid ? .white : .black_80
+    }
+    
+    private func showOrHideWarningLabel(allValid: Bool) {
+        self.warningLabel.isHidden = allValid ? false : true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
