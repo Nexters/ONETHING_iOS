@@ -204,7 +204,7 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func showOrHideWarningLabel(allValid: Bool) {
-        self.warningLabel.isHidden = allValid ? false : true
+        self.warningLabel.isHidden = allValid ? true : false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -231,11 +231,19 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private var allValid: Bool {
-        guard let allValid = self.penaltyTextableViews?.reduce(false, { result, element in
-            return element.placeholderLabel.text == element.textField.text?.trimmingLeadingAndTrailingSpaces()
-        }) else { return false }
+        guard let penaltyTextableViews = self.penaltyTextableViews
+        else { return false }
         
-        return allValid
+        for textableView in penaltyTextableViews {
+            let placeholderLabelText = textableView.placeholderLabel.text
+            let currentTextFieldText = textableView.textField.text?.trimmingLeadingAndTrailingSpaces()
+            
+            if currentTextFieldText != placeholderLabelText {
+                return false
+            }
+        }
+        
+        return true
     }
     
     private func isLast(textField: UITextField) -> Bool {
