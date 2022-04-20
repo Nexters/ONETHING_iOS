@@ -133,6 +133,9 @@
 		CE307A5926D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
 		CE307A5A26D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
 		CE307A5B26D29780005919AE /* ProfileSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */; };
+		CE37709228007579006A7BC0 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37709128007579006A7BC0 /* ServerHost.swift */; };
+		CE37709328007579006A7BC0 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37709128007579006A7BC0 /* ServerHost.swift */; };
+		CE37709428007579006A7BC0 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE37709128007579006A7BC0 /* ServerHost.swift */; };
 		CE38762126CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762226CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
 		CE38762326CCF650003BDCCA /* ConfirmPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */; };
@@ -355,9 +358,6 @@
 		CEC6C37926B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37A26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
 		CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */; };
-		CECA072927D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
-		CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
-		CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072827D34610008DCD21 /* ServerHost.swift */; };
 		CECA072D27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
 		CECA072E27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
 		CECA072F27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */; };
@@ -743,6 +743,7 @@
 		CE307A5026D26A85005919AE /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		CE307A5426D295DE005919AE /* OnethingProfileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingProfileType.swift; sourceTree = "<group>"; };
 		CE307A5826D29780005919AE /* ProfileSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewModel.swift; sourceTree = "<group>"; };
+		CE37709128007579006A7BC0 /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPopupView.xib; sourceTree = "<group>"; };
 		CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopupView.swift; sourceTree = "<group>"; };
 		CE38764226D0CEC8003BDCCA /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
@@ -833,7 +834,6 @@
 		CEC6C36C26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedResponseHabitModel.swift; sourceTree = "<group>"; };
 		CEC6C37026B33239007C4ACC /* NetworkErrorPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetworkErrorPopupView.xib; sourceTree = "<group>"; };
 		CEC6C37826B33270007C4ACC /* NetworkErrorPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorPopupView.swift; sourceTree = "<group>"; };
-		CECA072827D34610008DCD21 /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		CECA072C27D364B3008DCD21 /* MyHabitShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareViewController.swift; sourceTree = "<group>"; };
 		CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareViewModel.swift; sourceTree = "<group>"; };
 		CECA073527D3669D008DCD21 /* MyHabitShareNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitShareNavigationView.swift; sourceTree = "<group>"; };
@@ -1579,7 +1579,7 @@
 				CEC4D82826A42D1A00633222 /* UserDefaultsKey.swift */,
 				CE26C45E26B03A6600BE7DDC /* BuildConfiguration.swift */,
 				CEE8AB1B26BEB3320012D21D /* NSNotification+.swift */,
-				CECA072827D34610008DCD21 /* ServerHost.swift */,
+				CE37709128007579006A7BC0 /* ServerHost.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -2200,6 +2200,7 @@
 				CEE1D2C327FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F267F9AB269A3AE400219B05 /* SettingButton.swift in Sources */,
 				F200E4B526D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
+				CE37709228007579006A7BC0 /* ServerHost.swift in Sources */,
 				CE16973226D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
 				F267F9B3269A59F900219B05 /* HomeViewModel.swift in Sources */,
 				F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
@@ -2312,7 +2313,6 @@
 				F289D29126DF3CB60019B3FA /* FakeAPIServiceForGiveUp.swift in Sources */,
 				CE8FEDD626B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEC4D79226A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
-				CECA072927D34610008DCD21 /* ServerHost.swift in Sources */,
 				CECE2F3227D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE7247EA2699DE6D00BB2C19 /* SocialAccessType.swift in Sources */,
 				F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
@@ -2400,6 +2400,7 @@
 				CEE1D2C527FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
+				CE37709428007579006A7BC0 /* ServerHost.swift in Sources */,
 				F200E4B726D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CE8FEDFE26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
@@ -2512,7 +2513,6 @@
 				F2A614AF26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F271CF1326B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
 				F29B8436269A9023009D293F /* HabitCalendarCell.swift in Sources */,
-				CECA072B27D34610008DCD21 /* ServerHost.swift in Sources */,
 				CECE2F3427D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				CE26C46926B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
@@ -2584,6 +2584,7 @@
 				CEE1D2C427FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
 				CE16973326D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
+				CE37709328007579006A7BC0 /* ServerHost.swift in Sources */,
 				F200E4B626D5CFBC0084BAB9 /* PenaltyInfoView.swift in Sources */,
 				F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */,
 				CEC4D82A26A42D1A00633222 /* UserDefaultsKey.swift in Sources */,
@@ -2696,7 +2697,6 @@
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
 				F29B8435269A9022009D293F /* HabitCalendarCell.swift in Sources */,
-				CECA072A27D34610008DCD21 /* ServerHost.swift in Sources */,
 				CECE2F3327D8A61C00D5C64A /* ShareModalViewController.swift in Sources */,
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
@@ -2873,14 +2873,14 @@
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2898,14 +2898,14 @@
 				CODE_SIGN_ENTITLEMENTS = ONETHING_iOS/ONETHING_iOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = AKW8XUH283;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/AppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3018,7 +3018,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -3041,7 +3041,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
@@ -3065,7 +3065,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.ent.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3089,7 +3089,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.ent.onething;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
