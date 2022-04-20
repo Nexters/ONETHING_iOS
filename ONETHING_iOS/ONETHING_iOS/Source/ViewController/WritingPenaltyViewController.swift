@@ -211,11 +211,45 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
         guard let currentTextField = textField as? DelayPenaltyTextField
         else { return true }
         
-        self.becomeFirstResponderForNextTextField(with: currentTextField)
+        self.handleFirstResponder(with: currentTextField)
         return true
     }
     
-    private func becomeFirstResponderForNextTextField(with currentTextField: DelayPenaltyTextField) {
+    private func handleFirstResponder(with currentTextField: DelayPenaltyTextField) {
+        guard self.isLast(textField: currentTextField) == false else {
+            self.firstInvalidTextFieldBecomeFirstResponderOrDismissKeyboard()
+            return
+        }
+        
+        self.nextFieldBecomeFirstResponder(with: currentTextField)
+        return
+    }
+    
+    private func firstInvalidTextFieldBecomeFirstResponderOrDismissKeyboard() {
+        if self.allValid {
+            self.view.endEditing(true)
+            return
+        }
+        
+        self.becomeFirstResponderForFirstInvalidTextField()
+    }
+    
+    private func becomeFirstResponderForFirstInvalidTextField() {
+        guard let penaltyTextableViews = self.penaltyTextableViews
+        else { return }
+        
+        guard let firstInvalidTextField = penaltyTextableViews.filter({ penaltyTextableView in
+            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
+            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
+            
+            return placeholderLabelText != currentTextFieldText
+        }).first?.textField
+        else { return }
+        
+        firstInvalidTextField.becomeFirstResponder()
+    }
+    
+    private func nextFieldBecomeFirstResponder(with currentTextField: DelayPenaltyTextField) {
         guard let penaltyTextableViews = self.penaltyTextableViews
         else { return }
         
