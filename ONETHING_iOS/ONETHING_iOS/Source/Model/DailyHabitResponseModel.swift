@@ -51,6 +51,10 @@ extension DailyHabitResponseModel {
         Stamp(rawValue: stampType ?? Stamp.defaultType)
     }
     
+    var isDelayPenaltyHabit: Bool {
+        return self.castingHabitStatus == .delayPenalty
+    }
+    
     static var dateFormat: String {
         "yyyy-MM-dd'T'HH:mm:ss"
     }

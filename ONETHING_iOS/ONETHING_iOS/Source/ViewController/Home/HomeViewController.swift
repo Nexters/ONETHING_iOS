@@ -179,7 +179,7 @@ final class HomeViewController: BaseViewController {
             case .unseenFail:
                 self.router?.showFailPopupView()
             case .run:
-                guard self.viewModel.isDelayPenatyForLatestDailyHabits else { return }
+                guard self.viewModel.isDelayPenaltyForLastDailyHabit else { return }
                 self.router?.showDelayPopupView()
             default:
                 break

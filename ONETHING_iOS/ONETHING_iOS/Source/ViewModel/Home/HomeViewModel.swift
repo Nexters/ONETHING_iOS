@@ -118,8 +118,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         self.habitInProgressModel?.habitId
     }
     
-    var isDelayPenatyForLatestDailyHabits: Bool {
-        self.dailyHabitModels.last?.castingHabitStatus == .delayPenalty
+    var isDelayPenaltyForLastDailyHabit: Bool {
+        self.dailyHabitModels.last?.isDelayPenaltyHabit == true
     }
     
     var discriptionText: String? {
@@ -212,21 +212,15 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     }
     
     private var delayPenaltyDaysText: String? {
-        guard let delayPenaltyLast = self.dailyHabitModels.last,
-              let lastIndex = self.dailyHabitModels.lastIndex(of: delayPenaltyLast),
-              self.isDelayPenatyForLatestDailyHabits else { return nil }
+        guard self.isDelayPenaltyForLastDailyHabit else { return nil }
         
-        var delayPenaltyDays: [String] = ["\(lastIndex + 1)"]
-        var targetAfterIndex = lastIndex
-        while true {
-            let targetIndex = self.dailyHabitModels.index(before: targetAfterIndex)
-            guard let targetHabit = self.dailyHabitModels[safe: targetIndex],
-                    targetHabit.castingHabitStatus == .delayPenalty else {
-                break
-            }
+        var delayPenaltyDays: [String] = []
+        for index in (0 ..< self.dailyHabitModels.count).reversed() {
+            guard self.dailyHabitModels[safe: index]?.isDelayPenaltyHabit == true
+            else { break }
             
-            delayPenaltyDays.insert("\(targetIndex + 1)", at: 0)
-            targetAfterIndex = targetIndex
+            // index가 3이라면 4일차, 마지막 index가 0이라면 1일차로 표현됩니다.
+            delayPenaltyDays.insert("\(index + 1)", at: 0)
         }
         
         // NOTE
@@ -248,7 +242,7 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
                 else { return "\(result), \(element)" }
             }
         default:
-            return ""
+            return nil
         }
     }
     
