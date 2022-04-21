@@ -17,9 +17,7 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
 }
 
 final class WritingPenaltyViewController: BaseViewController {
-    private var penaltyTextableViews: [PenaltyTextableView]? {
-        didSet { self.setupTextFields() }
-    }
+    private var penaltyTextableViews: [PenaltyTextableView] = []
     private let scrollView = UIScrollView()
     private let innerStackView = UIStackView().then {
         $0.axis = .vertical
@@ -129,26 +127,20 @@ final class WritingPenaltyViewController: BaseViewController {
     func updateViews(with viewModel: WritingPenaltyViewModel?) {
         guard let viewModel = viewModel else { return }
         
-        self.addPenaltyTextableViews(with: viewModel.penaltyCount, sentence: viewModel.sentence)
+        self.configurePenaltyTextableViews(with: viewModel.penaltyCount, sentence: viewModel.sentence)
         self.penaltyInfoView?.updateCount(with: viewModel)
         self.penaltyInfoView?.update(sentence: viewModel.sentence)
     }
     
-    private func addPenaltyTextableViews(with count: Int, sentence: String) {
-        let penaltyTextableViews = (0..<count).compactMap { _ -> PenaltyTextableView? in
+    private func configurePenaltyTextableViews(with count: Int, sentence: String) {
+        self.penaltyTextableViews = (0..<count).compactMap { _ -> PenaltyTextableView? in
             let view: PenaltyTextableView? = UIView.createFromNib()
             view?.placeholderLabel.text = sentence
             return view
         }
         
-        penaltyTextableViews.forEach {
-            self.innerStackView.addArrangedSubview($0)
-            $0.snp.makeConstraints {
-                $0.height.equalTo(50)
-                $0.width.equalToSuperview()
-            }
-        }
-        
+        self.configureDelayPenaltyTextFields()
+        self.addPenaltyTextableViewsToInnerStackView()
         let dummyViews = (0..<4).map { _ in return UIView() }
         dummyViews.forEach { dummyView in
             self.innerStackView.addArrangedSubview(dummyView)
@@ -157,22 +149,29 @@ final class WritingPenaltyViewController: BaseViewController {
                 $0.width.equalToSuperview()
             }
         }
-        
-        self.penaltyTextableViews = penaltyTextableViews
     }
     
-    private func setupTextFields() {
-        guard let penaltyTextableViews = self.penaltyTextableViews else { return }
-        
-        penaltyTextableViews.compactMap { $0.textField }.forEach { penaltyTextField in
-            penaltyTextField.delegate = self
+    private func configureDelayPenaltyTextFields() {
+        self.delayPenaltyTextFields.forEach { $0.delegate = self }
+    }
+    
+    private var delayPenaltyTextFields: [DelayPenaltyTextField] {
+        return self.penaltyTextableViews.compactMap({ $0.textField })
+    }
+    
+    private func addPenaltyTextableViewsToInnerStackView() {
+        self.penaltyTextableViews.forEach {
+            self.innerStackView.addArrangedSubview($0)
+            $0.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.width.equalToSuperview()
+            }
         }
     }
     
     private let disposeBag = DisposeBag()
     
     @IBOutlet private weak var backButton: UIButton!
-    
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
@@ -235,10 +234,7 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func becomeFirstResponderForFirstInvalidTextField() {
-        guard let penaltyTextableViews = self.penaltyTextableViews
-        else { return }
-        
-        guard let firstInvalidTextField = penaltyTextableViews.filter({ penaltyTextableView in
+        guard let firstInvalidTextField = self.penaltyTextableViews.filter({ penaltyTextableView in
             let placeholderLabelText = penaltyTextableView.placeholderLabel.text
             let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
             
@@ -250,25 +246,18 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func nextFieldBecomeFirstResponder(with currentTextField: DelayPenaltyTextField) {
-        guard let penaltyTextableViews = self.penaltyTextableViews
+        guard let indexOfCurrentTextField = self.delayPenaltyTextFields.firstIndex(of: currentTextField)
         else { return }
         
-        let textFields = penaltyTextableViews.compactMap { $0.textField }
-        guard let indexOfCurrentTextField = textFields.firstIndex(of: currentTextField)
-        else { return }
+        let nextIndex = self.delayPenaltyTextFields.index(after: indexOfCurrentTextField)
+        guard nextIndex != self.delayPenaltyTextFields.endIndex else { return }
         
-        let nextIndex = textFields.index(after: indexOfCurrentTextField)
-        guard nextIndex != textFields.endIndex else { return }
-        
-        let nextTextField = textFields[nextIndex]
-        nextTextField.becomeFirstResponder()
+        let nextTextField = self.delayPenaltyTextFields[safe: nextIndex]
+        nextTextField?.becomeFirstResponder()
     }
     
     private var allValid: Bool {
-        guard let penaltyTextableViews = self.penaltyTextableViews
-        else { return false }
-        
-        for textableView in penaltyTextableViews {
+        for textableView in self.penaltyTextableViews {
             let placeholderLabelText = textableView.placeholderLabel.text
             let currentTextFieldText = textableView.textField.text?.trimmingLeadingAndTrailingSpaces()
             
@@ -276,11 +265,10 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
                 return false
             }
         }
-        
         return true
     }
     
     private func isLast(textField: UITextField) -> Bool {
-        return textField === self.penaltyTextableViews?.last?.textField
+        return textField === self.delayPenaltyTextFields.last
     }
 }
