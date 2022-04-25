@@ -118,8 +118,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         self.habitInProgressModel?.habitId
     }
     
-    var isDelayPenatyForLatestDailyHabits: Bool {
-        self.dailyHabitModels.last?.castingHabitStatus == .delayPenalty
+    var isDelayPenaltyForLastDailyHabit: Bool {
+        self.dailyHabitModels.last?.isDelayPenaltyHabit == true
     }
     
     var discriptionText: String? {
@@ -189,8 +189,61 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         return self.habitInProgressModel?.sentence
     }
     
-    var titleTextOfDelayPopupView: String? {
-        return "앗!\n습관을 미뤘네요"
+    var titleTextOfDelayPopupView: NSAttributedString? {
+        guard let pretendardFont = UIFont.createFont(
+            type: .pretendard(weight: .bold),
+            size: 26.0)
+        else { return nil }
+        
+        guard let penaltyDaysText = self.delayPenaltyDaysText
+        else { return nil }
+        
+        let titleText = "앗!\n\(penaltyDaysText)\n습관을 미뤘네요"
+        let attributeText = NSMutableAttributedString(
+            string: titleText,
+            attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
+        )
+        attributeText.addAttribute(
+            .foregroundColor,
+            value: UIColor.red_default,
+            range: (titleText as NSString).range(of: penaltyDaysText)
+        )
+        return attributeText.with(lineSpacing: 8.0)
+    }
+    
+    private var delayPenaltyDaysText: String? {
+        guard self.isDelayPenaltyForLastDailyHabit else { return nil }
+        
+        var delayPenaltyDays: [String] = []
+        for index in (0 ..< self.dailyHabitModels.count).reversed() {
+            guard self.dailyHabitModels[safe: index]?.isDelayPenaltyHabit == true
+            else { break }
+            
+            // index가 3이라면 4일차, 마지막 index가 0이라면 1일차로 표현됩니다.
+            delayPenaltyDays.insert("\(index + 1)", at: 0)
+        }
+        
+        // NOTE
+        // delayPenalty인 일일습관이 1 ~ 5 개 있는 경우 => 1줄
+        // delayPenalty인 일일습관이 6 개 있는 경우 => 2줄
+        switch delayPenaltyDays.count {
+        case 1:
+            return "\(delayPenaltyDays.first!)일차"
+        case 2 ... 5:
+            return delayPenaltyDays.reduce("") { result, element -> String in
+                if delayPenaltyDays.first == element { return "\(element)" }
+                else if delayPenaltyDays.last == element { return "\(result), \(element)일차" }
+                else { return "\(result), \(element)" }
+            }
+        case 6:
+            return delayPenaltyDays.reduce("") { result, element -> String in
+                if delayPenaltyDays.first == element { return "\(element)" }
+                else if delayPenaltyDays.last == element { return "\(result),\n\(element)일차" }
+                else { return "\(result), \(element)" }
+            }
+        default:
+            return nil
+        }
     }
     
     var remainedDelayTextOfDelayPopupView: String? {
@@ -218,7 +271,7 @@ extension HomeViewModel: UICollectionViewDataSource {
         guard let dailyHabitModel = self.dailyHabitModels[safe: indexPath.row]
         else { return self.makeCellWithNumbers(with: indexPath, cell: habitCalendarCell) }
         
-        let stamp = dailyHabitModel.castringStamp ?? Stamp.beige
+        let stamp = dailyHabitModel.castingStamp ?? Stamp.beige
         habitCalendarCell.set(isWrtten: true)
         habitCalendarCell.update(stampImage: stamp.defaultImage)
         habitCalendarCell.clearNumberText()

@@ -47,8 +47,12 @@ extension DailyHabitResponseModel {
         DailyStatus(rawValue: self.status)
     }
     
-    var castringStamp: Stamp? {
+    var castingStamp: Stamp? {
         Stamp(rawValue: stampType ?? Stamp.defaultType)
+    }
+    
+    var isDelayPenaltyHabit: Bool {
+        return self.castingHabitStatus == .delayPenalty
     }
     
     static var dateFormat: String {
