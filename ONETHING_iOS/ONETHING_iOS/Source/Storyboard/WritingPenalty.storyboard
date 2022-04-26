@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -34,7 +34,7 @@
                                         <state key="normal" image="arrow_back"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="미룸벌칙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X11-gD-TIS">
-                                        <rect key="frame" x="176" y="19.5" width="62.5" height="21"/>
+                                        <rect key="frame" x="176" y="19" width="62.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Bold" family="Pretendard" pointSize="18"/>
                                         <color key="textColor" name="black_100"/>
                                         <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="벌칙 완료하고 습관 지속하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHZ-gz-IQD" userLabel="complete label">
-                                        <rect key="frame" x="95" y="12" width="224.5" height="24"/>
+                                        <rect key="frame" x="95.5" y="12" width="223" height="24"/>
                                         <fontDescription key="fontDescription" name="Pretendard-Regular" family="Pretendard" pointSize="20"/>
                                         <color key="textColor" name="black_80"/>
                                         <nil key="highlightedColor"/>
@@ -101,6 +101,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="a3w-jP-viJ" id="Ca7-xZ-Dbi"/>
+                        <outlet property="bottomView" destination="Dkb-9r-hdv" id="jcj-X1-a0P"/>
                         <outlet property="completeButton" destination="o5u-pr-lhD" id="f7d-Z5-BZf"/>
                         <outlet property="completeLabel" destination="JHZ-gz-IQD" id="IDJ-UI-vju"/>
                         <outlet property="penaltyInfoContainerView" destination="wrU-dQ-hjp" id="XzN-p0-Scz"/>

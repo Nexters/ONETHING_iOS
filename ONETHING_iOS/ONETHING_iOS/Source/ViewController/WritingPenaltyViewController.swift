@@ -33,6 +33,7 @@ final class WritingPenaltyViewController: BaseViewController {
         super.viewDidLoad()
         
         self.addKeyboardDismissTapGesture()
+        self.addSubViews()
         self.setupPenaltyInfoView()
         self.setupScrollView()
         self.setupInnerStackView()
@@ -47,10 +48,46 @@ final class WritingPenaltyViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.updateLayoutOfScrollViewIfNeeded()
+    }
+    
+    private func updateLayoutOfScrollViewIfNeeded() {
+        guard self.isInnerStackViewHeightHigherThanThreshold else { return }
+        
+        self.scrollView.snp.remakeConstraints({ make in
+            guard let penaltyInfoView = self.penaltyInfoView else { return }
+            
+            make.top.equalTo(penaltyInfoView.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(32)
+            make.bottom.equalTo(self.bottomView.snp.top).offset(-self.bottomConstantBetweenBottomView)
+        })
+        self.scrollView.backgroundColor = .systemRed
+    }
+    
+    private var isInnerStackViewHeightHigherThanThreshold: Bool {
+        let innerStackViewHeight = self.innerStackView.frame.height
+        let threshold = abs(self.scrollView.frame.minY - self.bottomView.frame.minY) - self.bottomConstantBetweenBottomView
+        return innerStackViewHeight > threshold
+    }
+    
+    private let bottomConstantBetweenBottomView: CGFloat = 43.0
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func addSubViews() {
+        guard let penaltyInfoView = self.penaltyInfoView else { return }
+        
+        self.penaltyInfoContainerView.addSubview(penaltyInfoView)
+        self.view.addSubview(self.scrollView)
+        self.scrollView.addSubview(self.innerStackView)
+        self.view.addSubview(self.warningLabel)
     }
     
     private func setupPenaltyInfoView() {
@@ -61,29 +98,18 @@ final class WritingPenaltyViewController: BaseViewController {
             $0.arrowImageView.isHidden = true
         }
         
-        self.penaltyInfoContainerView.addSubview(penaltyInfoView)
         penaltyInfoView.snp.remakeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
     private func setupScrollView() {
-        self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints {
             guard let penaltyInfoView = self.penaltyInfoView else { return }
             
             $0.top.equalTo(penaltyInfoView.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(32)
-            $0.bottom.equalTo(self.completeButton.snp.top).offset(-43)
-        }
-    }
-    
-    private func setupInnerStackView() {
-        self.scrollView.addSubview(self.innerStackView)
-        
-        self.innerStackView.snp.makeConstraints {
-            $0.leading.top.trailing.equalToSuperview()
-            $0.width.equalToSuperview()
+            $0.height.equalTo(self.innerStackView)
         }
         
         self.scrollView.contentLayoutGuide.snp.makeConstraints {
@@ -91,17 +117,23 @@ final class WritingPenaltyViewController: BaseViewController {
         }
     }
     
+    private func setupInnerStackView() {
+        self.innerStackView.snp.makeConstraints {
+            $0.leading.top.trailing.equalToSuperview()
+            $0.width.equalToSuperview()
+        }
+    }
+    
     private func setupWarningLabel() {
         self.warningLabel.do {
-            $0.text = "*다짐 문장을 정확히 입력해 주세요!"
+            $0.text = "* 다짐 문장을 정확히 입력해 주세요!"
             $0.textColor = .red_default
             $0.font = UIFont.createFont(type: FontType.pretendard(weight: .regular), size: 12.0)
             $0.isHidden = true
         }
         
-        self.view.addSubview(self.warningLabel)
         self.warningLabel.snp.makeConstraints {
-            $0.top.equalTo(self.scrollView.snp.bottom).offset(8.0)
+            $0.top.equalTo(self.scrollView.snp.bottom).offset(10.0)
             $0.leading.trailing.equalTo(self.scrollView)
         }
     }
@@ -141,14 +173,6 @@ final class WritingPenaltyViewController: BaseViewController {
         
         self.configureDelayPenaltyTextFields()
         self.addPenaltyTextableViewsToInnerStackView()
-        let dummyViews = (0..<4).map { _ in return UIView() }
-        dummyViews.forEach { dummyView in
-            self.innerStackView.addArrangedSubview(dummyView)
-            dummyView.snp.makeConstraints {
-                $0.height.equalTo(50)
-                $0.width.equalToSuperview()
-            }
-        }
     }
     
     private func configureDelayPenaltyTextFields() {
@@ -169,12 +193,25 @@ final class WritingPenaltyViewController: BaseViewController {
         }
     }
     
+    private func addDummyViewToInnerStackView(count: Int) {
+        let dummyViews = (0..<count).map { _ in return UIView() }
+        dummyViews.forEach { dummyView in
+            self.innerStackView.addArrangedSubview(dummyView)
+            dummyView.snp.makeConstraints {
+                $0.height.equalTo(50)
+                $0.width.equalToSuperview()
+            }
+        }
+    }
+    
     private let disposeBag = DisposeBag()
     
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
+    
+    @IBOutlet private weak var bottomView: UIView!
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var completeLabel: UILabel!
 }
@@ -184,7 +221,7 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if isLast(textField: textField) {
+        if self.isLast(textField: textField) {
             self.updateViewsByValidation()
         }
     }
