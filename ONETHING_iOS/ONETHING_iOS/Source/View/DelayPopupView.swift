@@ -15,7 +15,7 @@ protocol DelayPopupViewDelegate: AnyObject {
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
 }
 
-final class DelayPopupView: UIView, ShakeView {
+final class DelayPopupView: UIView {
     let guideLabel = UILabel().then {
         $0.text = "미룸벌칙을 완료해야만 서비스를 이용할 수 있어요!"
         $0.textAlignment = .center

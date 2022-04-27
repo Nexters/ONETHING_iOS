@@ -45,6 +45,7 @@ final class WritingPenaltyViewController: BaseViewController {
         self.setupScrollView()
         self.setupInnerStackView()
         self.setupWarningLabel()
+        
         self.bindButtons()
         self.updateViews(with: self.viewModel)
     }
@@ -101,8 +102,17 @@ final class WritingPenaltyViewController: BaseViewController {
     }
     
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
     }
     
     @objc
@@ -286,17 +296,56 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     private func updateViewsByValidation() {
         let allValid = self.allValid
         
-        self.enableOrDisableCompleteButton(allValid: allValid)
-        self.showOrHideWarningLabel(allValid: allValid)
+        self.enableOrDisableCompleteButton(with: allValid)
+        self.representAreInvalidTextFieldsIfNeeded(with: allValid)
+        self.showOrHideWarningLabel(with: allValid)
     }
     
-    private func enableOrDisableCompleteButton(allValid: Bool) {
+    private func enableOrDisableCompleteButton(with allValid: Bool) {
         self.completeButton.isUserInteractionEnabled = allValid ? true : false
         self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
         self.completeLabel.textColor = allValid ? .white : .black_80
     }
     
-    private func showOrHideWarningLabel(allValid: Bool) {
+    private func representAreInvalidTextFieldsIfNeeded(with allValid: Bool) {
+        if self.allValid {
+            return
+        }
+        
+        let invalidTextFields = self.penaltyTextableViews.filter({ penaltyTextableView in
+            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
+            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
+            return placeholderLabelText != currentTextFieldText
+        }).compactMap { $0.textField }
+        
+        let isOnlyOneInvalidTextField = invalidTextFields.count == 1
+        if isOnlyOneInvalidTextField {
+            self.representIsInvalidIfOnlyOne(with: invalidTextFields)
+            return
+        }
+        
+        self.representAreInvalid(textfields: invalidTextFields)
+    }
+    
+    private func representIsInvalidIfOnlyOne(with invalidTextFields: [DelayPenaltyTextField]) {
+        guard let textField = invalidTextFields.first else { return }
+        
+        textField.representIsInvalidIfIsFirst()
+    }
+    
+    private func representAreInvalid(textfields invalidTextFields: [DelayPenaltyTextField]) {
+        invalidTextFields.enumerated().forEach { index, textField in
+            let isFirst = index == 0
+            if isFirst {
+                textField.representIsInvalidIfIsFirst()
+                return
+            }
+            
+            textField.representIsInvalidIfIsNotFirst()
+        }
+    }
+    
+    private func showOrHideWarningLabel(with allValid: Bool) {
         self.warningLabel.isHidden = allValid ? true : false
     }
     

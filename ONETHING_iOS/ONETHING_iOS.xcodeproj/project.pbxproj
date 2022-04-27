@@ -635,9 +635,6 @@
 		F2B571E126D443BB0059F75E /* FailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571E026D443BB0059F75E /* FailPopupView.xib */; };
 		F2B571E226D443BB0059F75E /* FailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571E026D443BB0059F75E /* FailPopupView.xib */; };
 		F2B571E326D443BB0059F75E /* FailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B571E026D443BB0059F75E /* FailPopupView.xib */; };
-		F2B571E526D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
-		F2B571E626D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
-		F2B571E726D44F710059F75E /* ShakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E426D44F710059F75E /* ShakeView.swift */; };
 		F2B571EA26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
 		F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
 		F2B571EC26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */; };
@@ -920,7 +917,6 @@
 		F2B571D826D4242E0059F75E /* DashLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLine.swift; sourceTree = "<group>"; };
 		F2B571DC26D443A40059F75E /* FailPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailPopupView.swift; sourceTree = "<group>"; };
 		F2B571E026D443BB0059F75E /* FailPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FailPopupView.xib; sourceTree = "<group>"; };
-		F2B571E426D44F710059F75E /* ShakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeView.swift; sourceTree = "<group>"; };
 		F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPenaltyViewController.swift; sourceTree = "<group>"; };
 		F2B571ED26D4C6EF0059F75E /* WritingPenalty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WritingPenalty.storyboard; sourceTree = "<group>"; };
 		F2BADE0126C4E2D300FD7766 /* LargeTouchableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTouchableButton.swift; sourceTree = "<group>"; };
@@ -1087,7 +1083,6 @@
 				CE38762026CCF650003BDCCA /* ConfirmPopupView.xib */,
 				CE38762426CCF65E003BDCCA /* ConfirmPopupView.swift */,
 				F2B571D826D4242E0059F75E /* DashLine.swift */,
-				F2B571E426D44F710059F75E /* ShakeView.swift */,
 				CE2390C926D52DCB002A002E /* AuthorizationView.xib */,
 				CE2390CD26D52E37002A002E /* AuthorizationView.swift */,
 				5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */,
@@ -2249,7 +2244,6 @@
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
 				F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				F25AE3662718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
-				F2B571E526D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765026D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CEFC3A15269C8F800007AFF2 /* GoalSettingFirstViewModel.swift in Sources */,
 				CECA073127D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
@@ -2449,7 +2443,6 @@
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F25AE3682718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
-				F2B571E726D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765226D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CECA073327D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
 				CEAABCE927D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
@@ -2632,7 +2625,6 @@
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				F25AE3672718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
-				F2B571E626D44F710059F75E /* ShakeView.swift in Sources */,
 				CE38765126D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CECA073227D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
 				CEAABCE827D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
