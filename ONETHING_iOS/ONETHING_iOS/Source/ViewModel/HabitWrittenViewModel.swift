@@ -42,7 +42,7 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
     }
     
     var currentStampImage: UIImage? {
-        self.dailyHabitModel.responseModel.castringStamp?.defaultImage
+        self.dailyHabitModel.responseModel.castingStamp?.defaultImage
     }
     
     var dayText: String {

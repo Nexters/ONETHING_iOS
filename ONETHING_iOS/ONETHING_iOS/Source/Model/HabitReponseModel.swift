@@ -32,5 +32,4 @@ extension HabitResponseModel: MyHabitCellPresentable {
         guard let onethingColor = OnethingColor(rawValue: color) else { return .green_1 }
         return onethingColor.color
     }
-    
 }

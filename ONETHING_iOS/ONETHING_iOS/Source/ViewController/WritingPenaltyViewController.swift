@@ -9,7 +9,6 @@ import UIKit
 
 import RxSwift
 import RxCocoa
-import SwiftUI
 
 protocol WritingPenaltyViewControllerDelegate: AnyObject {
     func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController)
