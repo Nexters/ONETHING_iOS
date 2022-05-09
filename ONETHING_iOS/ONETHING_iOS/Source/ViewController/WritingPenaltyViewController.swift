@@ -18,17 +18,13 @@ protocol WritingPenaltyViewControllerDelegate: AnyObject {
 
 final class WritingPenaltyViewController: BaseViewController {
     private var penaltyTextableViews: [PenaltyTextableView] = []
-    private let scrollView = UIScrollView()
+    private let scrollView = WritingPenaltyScrollView()
+    private let bottomConstantOfScrollView: CGFloat = 43.0
     private let innerStackView = UIStackView().then {
         $0.axis = .vertical
         $0.distribution = .fillEqually
         $0.spacing = 20
     }
-    private var heightConstraintOfScrollViewAtFirst: NSLayoutConstraint?
-    private var bottomConstraintOfScrollViewIfLarge: NSLayoutConstraint?
-    
-    private var keyboardFrame: CGRect?
-    private var heightConstraintOfScrollViewWhenKeyboardShow: NSLayoutConstraint?
     
     private let warningLabel = UILabel()
     var viewModel: WritingPenaltyViewModel?
@@ -81,31 +77,13 @@ final class WritingPenaltyViewController: BaseViewController {
         self.updateLayoutOfScrollView()
     }
     
-    private func activeHeightConstraintOfScrollViewForSmall() {
-        self.heightConstraintOfScrollViewAtFirst?.isActive = true
-        self.bottomConstraintOfScrollViewIfLarge?.isActive = false
-        self.heightConstraintOfScrollViewWhenKeyboardShow?.isActive = false
-    }
-    
-    private func activeBottomConstraintOfScrollViewForBig() {
-        self.bottomConstraintOfScrollViewIfLarge?.isActive = true
-        self.heightConstraintOfScrollViewAtFirst?.isActive = false
-        self.heightConstraintOfScrollViewWhenKeyboardShow?.isActive = false
-    }
-    
-    private func activeHeightConstraintOfScrollViewWhenKeyboardShow() {
-        self.heightConstraintOfScrollViewWhenKeyboardShow?.isActive = true
-        self.heightConstraintOfScrollViewAtFirst?.isActive = false
-        self.bottomConstraintOfScrollViewIfLarge?.isActive = false
-    }
-    
     private func updateLayoutOfScrollView() {
         if self.isInnerStackViewHeightHigherThanThreshold {
-            self.activeBottomConstraintOfScrollViewForBig()
+            self.scrollView.activeBottomConstraintOfScrollViewForBig()
             return
         }
         
-        self.activeHeightConstraintOfScrollViewForSmall()
+        self.scrollView.activeHeightConstraintOfScrollViewForSmall()
     }
     
     private var isInnerStackViewHeightHigherThanThreshold: Bool {
@@ -144,43 +122,17 @@ final class WritingPenaltyViewController: BaseViewController {
             object: nil)
     }
     
-    @objc
-    private func keyboardWillShow(_ notification: Notification) {
-        var keyboardFrame: CGRect
-        if let frame = self.keyboardFrame {
-            keyboardFrame = frame
-        } else {
-            guard let userInfo = notification.userInfo else { return }
-            guard let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-            keyboardFrame = frame
-        }
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        else { return }
         
-        self.updateScrollViewWhenKeyboardShowIfNeeded(with: keyboardFrame)
-    }
-    
-    private func updateScrollViewWhenKeyboardShowIfNeeded(with keyboardFrame: CGRect) {
-        guard self.isScrollViewHeightHigherThanKeyboardThreshold(with: keyboardFrame) else { return }
-        
-        self.keyboardFrame = keyboardFrame
-        
-        let heightConstant = abs(self.scrollView.frame.minY - keyboardFrame.minY) - 10.0
-        self.heightConstraintOfScrollViewWhenKeyboardShow = self.scrollView.heightAnchor.constraint(equalToConstant: heightConstant)
-        self.activeHeightConstraintOfScrollViewWhenKeyboardShow()
-    }
-    
-    private func isScrollViewHeightHigherThanKeyboardThreshold(with keyboardFrame: CGRect) -> Bool {
-        let scrollViewViewHeight = self.scrollView.frame.height
-        let keyBoardThreshold = abs(self.scrollView.frame.minY - keyboardFrame.minY)
-        return scrollViewViewHeight > keyBoardThreshold
+        self.scrollView.keyboardFrame = keyboardFrame
+        self.scrollView.updateScrollViewWhenKeyboardShowIfNeeded()
     }
     
     @objc
     private func keyboardWillHide(_ notification: Notification) {
-        self.updateLayoutScrollViewWhenKeyboardHide()
-    }
-    
-    private func updateLayoutScrollViewWhenKeyboardHide() {
-        self.heightConstraintOfScrollViewWhenKeyboardShow?.isActive = false
         self.updateLayoutOfScrollView()
     }
     
@@ -213,16 +165,16 @@ final class WritingPenaltyViewController: BaseViewController {
             $0.top.equalTo(penaltyInfoView.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
-        self.heightConstraintOfScrollViewAtFirst = self.scrollView.heightAnchor.constraint(equalTo: self.innerStackView.heightAnchor)
-        self.bottomConstraintOfScrollViewIfLarge = self.scrollView.bottomAnchor.constraint(equalTo: self.bottomView.topAnchor,
-                                                                                           constant: -self.bottomConstantOfScrollView)
-        self.activeHeightConstraintOfScrollViewForSmall()
+        self.scrollView.heightConstraintOfScrollViewAtFirst = self.scrollView.heightAnchor.constraint(equalTo: self.innerStackView.heightAnchor)
+        self.scrollView.bottomConstraintOfScrollViewIfLarge = self.scrollView.bottomAnchor.constraint(
+            equalTo: self.bottomView.topAnchor,
+            constant: -self.bottomConstantOfScrollView
+        )
+        self.scrollView.activeHeightConstraintOfScrollViewForSmall()
         self.scrollView.contentLayoutGuide.snp.makeConstraints {
             $0.height.equalTo(self.innerStackView)
         }
     }
-    
-    private let bottomConstantOfScrollView: CGFloat = 43.0
     
     private func setupInnerStackView() {
         self.innerStackView.snp.makeConstraints {
