@@ -39,15 +39,34 @@ final class WritingPenaltyViewController: BaseViewController {
         super.viewDidLoad()
         
         self.addKeyboardDismissTapGesture()
-        self.addObservers()
+        self.addObserverForViewModel()
+        self.addObserversForKeyboard()
+        
         self.addSubViews()
         self.setupPenaltyInfoView()
         self.setupScrollView()
         self.setupInnerStackView()
         self.setupWarningLabel()
-        
         self.bindButtons()
         self.updateViews(with: self.viewModel)
+    }
+    
+    private func bindButtons() {
+        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            
+            self.delegate?.writingPenaltyViewControllerDidTapBackButton(self)
+            self.navigationController?.popViewController(animated: true)
+        }).disposed(by: self.disposeBag)
+        
+        self.completeButton.rx.tap.observeOnMain(onNext: { [weak self] in
+            guard let self = self else { return }
+            
+            self.viewModel?.putDelayPenaltyForCompleted(completion: { _ in
+                self.delegate?.writingPenaltyViewControllerDidTapCompleteButton(self)
+                self.navigationController?.popViewController(animated: true)
+            })
+        }).disposed(by: self.disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +120,17 @@ final class WritingPenaltyViewController: BaseViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    private func addObservers() {
+    private func addObserverForViewModel() {
+        NotificationCenter.default.addObserver(
+            forName: WritingPenaltyViewModel.Notification.userInputTextDidChange,
+            object: nil,
+            queue: nil
+        ) { [weak self] notifiaction in
+            self?.updateDelayPenaltyTextField(notifiaction)
+        }
+    }
+    
+    private func addObserversForKeyboard() {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillShow(_:)),
@@ -216,25 +245,7 @@ final class WritingPenaltyViewController: BaseViewController {
         }
     }
     
-    private func bindButtons() {
-        self.backButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            guard let self = self else { return }
-            
-            self.delegate?.writingPenaltyViewControllerDidTapBackButton(self)
-            self.navigationController?.popViewController(animated: true)
-        }).disposed(by: self.disposeBag)
-        
-        self.completeButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            guard let self = self else { return }
-            
-            self.viewModel?.putDelayPenaltyForCompleted(completion: { _ in
-                self.delegate?.writingPenaltyViewControllerDidTapCompleteButton(self)
-                self.navigationController?.popViewController(animated: true)
-            })
-        }).disposed(by: self.disposeBag)
-    }
-    
-    func updateViews(with viewModel: WritingPenaltyViewModel?) {
+    private func updateViews(with viewModel: WritingPenaltyViewModel?) {
         guard let viewModel = viewModel else { return }
         
         self.configurePenaltyTextableViews(with: viewModel.penaltyCount, sentence: viewModel.sentence)
@@ -261,6 +272,17 @@ final class WritingPenaltyViewController: BaseViewController {
         return self.penaltyTextableViews.compactMap({ $0.textField })
     }
     
+    private func updateDelayPenaltyTextField(_ notification: Notification) {
+        guard let targetIndex = notification.userInfo?["targetIndex"] as? Int,
+              let updatedText = notification.userInfo?["updatedText"] as? String?
+        else { return }
+        
+        guard self.delayPenaltyTextFields[safe: targetIndex] != nil
+        else { return }
+        
+        self.delayPenaltyTextFields[targetIndex].text = updatedText
+    }
+    
     private func addPenaltyTextableViewsToInnerStackView() {
         self.penaltyTextableViews.forEach {
             self.innerStackView.addArrangedSubview($0)
@@ -277,7 +299,6 @@ final class WritingPenaltyViewController: BaseViewController {
     @IBOutlet private weak var penaltyInfoContainerView: UIView!
     private let penaltyInfoView: PenaltyInfoView? = UIView.createFromNib()
     
-    
     @IBOutlet private weak var bottomView: UIView!
     @IBOutlet private weak var completeButton: UIButton!
     @IBOutlet private weak var completeLabel: UILabel!
@@ -286,7 +307,11 @@ final class WritingPenaltyViewController: BaseViewController {
 // MARK: - UITextField Delegate Methods
 extension WritingPenaltyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.trimWhitSpacesAndNewLines()
+        guard let delayPenaltyTextField = textField as? DelayPenaltyTextField,
+              let currentIndex = self.delayPenaltyTextFields.firstIndex(of: delayPenaltyTextField)
+        else { return }
+        
+        self.viewModel?.updateUserInputText(at: currentIndex, textField.text)
         self.updateViewsByValidationIfIsLast(textField)
     }
     
@@ -310,7 +335,8 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func firstInvalidTextFieldBecomeFirstResponderOrDismissKeyboard() {
-        if self.allValid {
+        guard let allValid = self.viewModel?.allValid else { return }
+        if allValid {
             self.view.endEditing(true)
             return
         }
@@ -319,12 +345,9 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func becomeFirstResponderForFirstInvalidTextField() {
-        guard let firstInvalidTextField = self.penaltyTextableViews.filter({ penaltyTextableView in
-            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
-            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
-            
-            return placeholderLabelText != currentTextFieldText
-        }).first?.textField
+        guard let firstInvalidTextField = self.penaltyTextableViews.enumerated().filter({ (index, penaltyTextableView) in
+            return self.viewModel?.isValid(at: index) == false
+        }).compactMap({ $1 }).compactMap({ $0.textField }).first
         else { return }
         
         firstInvalidTextField.becomeFirstResponder()
@@ -341,18 +364,6 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
         nextTextField?.becomeFirstResponder()
     }
     
-    private var allValid: Bool {
-        for textableView in self.penaltyTextableViews {
-            let placeholderLabelText = textableView.placeholderLabel.text
-            let currentTextFieldText = textableView.textField.text?.trimmingLeadingAndTrailingSpaces()
-            
-            if currentTextFieldText != placeholderLabelText {
-                return false
-            }
-        }
-        return true
-    }
-    
     private func isLast(textField: UITextField) -> Bool {
         return textField === self.delayPenaltyTextFields.last
     }
@@ -364,7 +375,8 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func updateViewsByValidation() {
-        let allValid = self.allValid
+        guard let allValid = self.viewModel?.allValid else { return }
+        
         self.enableOrDisableCompleteButton(with: allValid)
         self.representAreInvalidTextFieldsIfNeeded(with: allValid)
         self.showOrHideWarningLabel(with: allValid)
@@ -377,13 +389,9 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     }
     
     private func representAreInvalidTextFieldsIfNeeded(with allValid: Bool) {
-        guard self.allValid == false else { return }
-        
-        let invalidTextFields = self.penaltyTextableViews.filter({ penaltyTextableView in
-            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
-            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
-            return placeholderLabelText != currentTextFieldText
-        }).compactMap { $0.textField }
+        let invalidTextFields = self.penaltyTextableViews.enumerated().filter({ (index, penaltyTextableView) in
+            return self.viewModel?.isValid(at: index) == false
+        }).compactMap{ $1 }.compactMap { $0.textField }
         
         let isOnlyOneInvalidTextField = invalidTextFields.count == 1
         if isOnlyOneInvalidTextField {

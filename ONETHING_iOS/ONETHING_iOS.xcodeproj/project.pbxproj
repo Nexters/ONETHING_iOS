@@ -47,9 +47,6 @@
 		89C1E23228292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
 		89C1E23328292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
 		89C1E23428292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
-		89C1E23628292D46002785CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23528292D46002785CB /* UITextField+.swift */; };
-		89C1E23728292D46002785CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23528292D46002785CB /* UITextField+.swift */; };
-		89C1E23828292D46002785CB /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23528292D46002785CB /* UITextField+.swift */; };
 		A541C4FB403FFE79172B7C74 /* Pods_ONETHING_iOS_ONETHING_Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */; };
 		AC870E7473BFB045129C51FB /* Pods_ONETHING_iOS_ONETHING.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */; };
 		BE56ED01A7A4A0400026D2BD /* Pods_ONETHING_iOS_ONETHING_Ent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 307643AC78278B000A58E03D /* Pods_ONETHING_iOS_ONETHING_Ent.framework */; };
@@ -706,7 +703,6 @@
 		8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayNotifyPopupView.swift; sourceTree = "<group>"; };
 		8944EEC927DC695D0036F511 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
 		89C1E23128292A96002785CB /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
-		89C1E23528292D46002785CB /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD411B6E901816A3A185AB96 /* Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1354,7 +1350,6 @@
 				F25AE3712718630D009A59C6 /* UINavigationController+.swift */,
 				F2F10FA527AA5723006334AC /* CALayer+.swift */,
 				8944EEC927DC695D0036F511 /* NSAttributedString+.swift */,
-				89C1E23528292D46002785CB /* UITextField+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2324,7 +2319,6 @@
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
-				89C1E23628292D46002785CB /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2523,7 +2517,6 @@
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
-				89C1E23828292D46002785CB /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2706,7 +2699,6 @@
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */,
 				5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
-				89C1E23728292D46002785CB /* UITextField+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
