@@ -286,67 +286,8 @@ final class WritingPenaltyViewController: BaseViewController {
 // MARK: - UITextField Delegate Methods
 extension WritingPenaltyViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textField.text = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        if self.isLast(textField: textField) {
-            self.updateViewsByValidation()
-        }
-    }
-    
-    private func updateViewsByValidation() {
-        let allValid = self.allValid
-        
-        self.enableOrDisableCompleteButton(with: allValid)
-        self.representAreInvalidTextFieldsIfNeeded(with: allValid)
-        self.showOrHideWarningLabel(with: allValid)
-    }
-    
-    private func enableOrDisableCompleteButton(with allValid: Bool) {
-        self.completeButton.isUserInteractionEnabled = allValid ? true : false
-        self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
-        self.completeLabel.textColor = allValid ? .white : .black_80
-    }
-    
-    private func representAreInvalidTextFieldsIfNeeded(with allValid: Bool) {
-        if self.allValid {
-            return
-        }
-        
-        let invalidTextFields = self.penaltyTextableViews.filter({ penaltyTextableView in
-            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
-            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
-            return placeholderLabelText != currentTextFieldText
-        }).compactMap { $0.textField }
-        
-        let isOnlyOneInvalidTextField = invalidTextFields.count == 1
-        if isOnlyOneInvalidTextField {
-            self.representIsInvalidIfOnlyOne(with: invalidTextFields)
-            return
-        }
-        
-        self.representAreInvalid(textfields: invalidTextFields)
-    }
-    
-    private func representIsInvalidIfOnlyOne(with invalidTextFields: [DelayPenaltyTextField]) {
-        guard let textField = invalidTextFields.first else { return }
-        
-        textField.representIsInvalidIfIsFirst()
-    }
-    
-    private func representAreInvalid(textfields invalidTextFields: [DelayPenaltyTextField]) {
-        invalidTextFields.enumerated().forEach { index, textField in
-            let isFirst = index == 0
-            if isFirst {
-                textField.representIsInvalidIfIsFirst()
-                return
-            }
-            
-            textField.representIsInvalidIfIsNotFirst()
-        }
-    }
-    
-    private func showOrHideWarningLabel(with allValid: Bool) {
-        self.warningLabel.isHidden = allValid ? true : false
+        textField.trimWhitSpacesAndNewLines()
+        self.updateViewsByValidationIfIsLast(textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -354,6 +295,7 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
         else { return true }
         
         self.handleFirstResponder(with: currentTextField)
+        self.updateViewsByValidationIfIsLast(textField)
         return true
     }
     
@@ -413,5 +355,64 @@ extension WritingPenaltyViewController: UITextFieldDelegate {
     
     private func isLast(textField: UITextField) -> Bool {
         return textField === self.delayPenaltyTextFields.last
+    }
+    
+    private func updateViewsByValidationIfIsLast(_ textField: UITextField) {
+        guard self.isLast(textField: textField) else { return }
+        
+        self.updateViewsByValidation()
+    }
+    
+    private func updateViewsByValidation() {
+        let allValid = self.allValid
+        self.enableOrDisableCompleteButton(with: allValid)
+        self.representAreInvalidTextFieldsIfNeeded(with: allValid)
+        self.showOrHideWarningLabel(with: allValid)
+    }
+    
+    private func enableOrDisableCompleteButton(with allValid: Bool) {
+        self.completeButton.isUserInteractionEnabled = allValid ? true : false
+        self.completeButton.backgroundColor = allValid ? .black_100 : .black_40
+        self.completeLabel.textColor = allValid ? .white : .black_80
+    }
+    
+    private func representAreInvalidTextFieldsIfNeeded(with allValid: Bool) {
+        guard self.allValid == false else { return }
+        
+        let invalidTextFields = self.penaltyTextableViews.filter({ penaltyTextableView in
+            let placeholderLabelText = penaltyTextableView.placeholderLabel.text
+            let currentTextFieldText = penaltyTextableView.textField.text?.trimmingLeadingAndTrailingSpaces()
+            return placeholderLabelText != currentTextFieldText
+        }).compactMap { $0.textField }
+        
+        let isOnlyOneInvalidTextField = invalidTextFields.count == 1
+        if isOnlyOneInvalidTextField {
+            self.representIsInvalidIfOnlyOne(with: invalidTextFields)
+            return
+        }
+        
+        self.representAreInvalid(textfields: invalidTextFields)
+    }
+    
+    private func representIsInvalidIfOnlyOne(with invalidTextFields: [DelayPenaltyTextField]) {
+        guard let textField = invalidTextFields.first else { return }
+        
+        textField.representIsInvalidIfIsFirst()
+    }
+    
+    private func representAreInvalid(textfields invalidTextFields: [DelayPenaltyTextField]) {
+        invalidTextFields.enumerated().forEach { index, textField in
+            let isFirst = index == 0
+            if isFirst {
+                textField.representIsInvalidIfIsFirst()
+                return
+            }
+            
+            textField.representIsInvalidIfIsNotFirst()
+        }
+    }
+    
+    private func showOrHideWarningLabel(with allValid: Bool) {
+        self.warningLabel.isHidden = allValid ? true : false
     }
 }

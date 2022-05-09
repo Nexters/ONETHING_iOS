@@ -41,4 +41,6 @@ final class WritingPenaltyViewModel: PenaltyInfoViewModable {
     var penaltyWriteCountText: String {
         return "\(self.penaltyCount)번"
     }
+    
+    
 }
