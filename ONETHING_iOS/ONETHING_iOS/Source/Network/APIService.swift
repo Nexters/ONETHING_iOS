@@ -25,7 +25,7 @@ final class APIService: APIServiceType {
                 switch result {
                 case .success(let response):
                     if let onethingError = response.onethingError {
-//                        OnethingErrorHandler.sharedInstance.handleError(onethingError)
+                        OnethingErrorHandler.sharedInstance.handleError(onethingError)
                         single(.failure(onethingError))
                         return
                     }
@@ -76,7 +76,7 @@ final class APIService: APIServiceType {
                 request.cancel()
             }
         }
-//        .retry(when: self.retryWhenHandler)
+        .retry(when: self.retryWhenHandler)
     }
     
     private func handleNetworkDisconnectIfNeeded(withHandler handler: (() -> Void)? = nil) {

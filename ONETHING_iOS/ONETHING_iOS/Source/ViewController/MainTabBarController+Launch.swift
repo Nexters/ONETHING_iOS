@@ -12,9 +12,9 @@ extension MainTabBarController {
     
     func decideStartController() {
         if OnethingUserManager.sharedInstance.hasAccessToken == false {
-//            guard let loginViewController = LoginViewController.instantiateViewController(from: .intro) else { return }
-//            guard let navigationController = UIViewController.navigationController(loginViewController) else { return }
-//            self.present(navigationController, animated: false)
+            guard let loginViewController = LoginViewController.instantiateViewController(from: .intro) else { return }
+            guard let navigationController = UIViewController.navigationController(loginViewController) else { return }
+            self.present(navigationController, animated: false)
             return
         }
         

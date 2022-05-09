@@ -16,7 +16,6 @@ protocol HomeRoutingLogic {
     func showWriteLimitPopupView(with indexPath: IndexPath)
     func showDelayPopupView()
     func showFailPopupView()
-    func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView)
 }
 
 final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitioningDelegate, HabitWrittenViewControllerDelegate, HabitWritingViewControllerDelegate {
@@ -153,16 +152,16 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         guard let viewController = self.viewController else { return }
         let viewModel = viewController.viewModel
         
-        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty) else { return }
-//              let habitId = viewModel.habitInProgressModel?.habitId,
-//              let sentence = viewModel.habitInProgressModel?.sentence,
-//              let penaltyCount = viewModel.habitInProgressModel?.penaltyCount else { return }
+        guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
+              let habitId = viewModel.habitInProgressModel?.habitId,
+              let sentence = viewModel.habitInProgressModel?.sentence,
+              let penaltyCount = viewModel.habitInProgressModel?.penaltyCount else { return }
         
         writingPenaltyViewController.delegate = self
         writingPenaltyViewController.viewModel = WritingPenaltyViewModel(
-            habitID: 0,
-            sentence: "ㅎㅎㅎ",
-            penaltyCount: 5
+            habitID: habitId,
+            sentence: sentence,
+            penaltyCount: penaltyCount
         )
         viewController.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
