@@ -518,9 +518,6 @@
 		F25055EC26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
 		F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */; };
-		F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
-		F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
-		F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */; };
 		F255719A26A4294B005A1AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72475626998F2D00BB2C19 /* AppDelegate.swift */; };
 		F255719B26A42BB4005A1AAF /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
 		F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A614B826A4254B0061A17A /* ContentAPI.swift */; };
@@ -555,9 +552,6 @@
 		F267F9B4269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B5269A59F900219B05 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B2269A59F900219B05 /* HomeViewModel.swift */; };
 		F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */; };
-		F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
-		F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
-		F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */; };
 		F271CF0D26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
 		F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
 		F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */; };
@@ -585,9 +579,6 @@
 		F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
 		F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
 		F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3BD269D011B0096757C /* ProfileViewController.swift */; };
-		F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
-		F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
-		F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C1269D0AED0096757C /* HistoryViewController.swift */; };
 		F293C3C6269D12940096757C /* HabitWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C5269D12940096757C /* HabitWritingViewController.swift */; };
 		F293C3C7269D12940096757C /* HabitWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C5269D12940096757C /* HabitWritingViewController.swift */; };
 		F293C3C8269D12940096757C /* HabitWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3C5269D12940096757C /* HabitWritingViewController.swift */; };
@@ -884,7 +875,6 @@
 		F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitViewModelable.swift; sourceTree = "<group>"; };
 		F23DD4D126BF5EB000DCDDE5 /* HabitImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitImageUseCase.swift; sourceTree = "<group>"; };
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
-		F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
@@ -896,7 +886,6 @@
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		F267F9B2269A59F900219B05 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F267F9B6269A5AB900219B05 /* HabitCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarCell.swift; sourceTree = "<group>"; };
-		F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		F271CF0C26B978A200C63CC0 /* DailyHabitsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitsResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1026B9792300C63CC0 /* DailyHabitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyHabitResponseModel.swift; sourceTree = "<group>"; };
 		F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewModel.swift; sourceTree = "<group>"; };
@@ -906,7 +895,6 @@
 		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		F293C3C1269D0AED0096757C /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		F293C3C5269D12940096757C /* HabitWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewController.swift; sourceTree = "<group>"; };
 		F293C3CD269D195D0096757C /* StampButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampButton.swift; sourceTree = "<group>"; };
 		F293C3D5269D19BF0096757C /* Circleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circleable.swift; sourceTree = "<group>"; };
@@ -1283,7 +1271,6 @@
 				F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */,
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
 				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
-				F25055EF26B2B8EB00B53197 /* HistoryEmptyView.swift */,
 				F2B571D426D3E14F0059F75E /* DelayPopupView.swift */,
 				F2B571D026D3E0D60059F75E /* DelayPopupView.xib */,
 				F2B571DC26D443A40059F75E /* FailPopupView.swift */,
@@ -1311,7 +1298,6 @@
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
 				CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */,
-				F293C3C1269D0AED0096757C /* HistoryViewController.swift */,
 				F2B571E926D4C6B50059F75E /* WritingPenaltyViewController.swift */,
 			);
 			path = ViewController;
@@ -1367,7 +1353,6 @@
 				CE3B8BC226A7283800BD529B /* Intro */,
 				CEC4D79626A2B16300633222 /* GoalSetting */,
 				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
-				F271CF0826B9729C00C63CC0 /* HistoryViewModel.swift */,
 				F271CF1826B98B4A00C63CC0 /* HabitWrittenViewModel.swift */,
 				F23DD4CA26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift */,
 				CEE8AB1326BE948B0012D21D /* MainTabbarViewModel.swift */,
@@ -1416,7 +1401,6 @@
 				CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */,
 				CEAABCDD27D49C27005B8381 /* Presentable */,
 				CE0EE41727CBA7A0003B7C0E /* CollectionViewCell */,
-				CE9F7DE927C26D5400F49044 /* Model */,
 				CECA073427D3668A008DCD21 /* View */,
 				CE9F7DE827C26D4D00F49044 /* ViewModel */,
 				CE9F7DE727C26D4800F49044 /* ViewController */,
@@ -1441,13 +1425,6 @@
 				CECA073027D364F4008DCD21 /* MyHabitShareViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		CE9F7DE927C26D5400F49044 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		CEAABCDD27D49C27005B8381 /* Presentable */ = {
@@ -2244,7 +2221,6 @@
 				F27E217726BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
 				CE26C46726B04D5A00BE7DDC /* LoginResponseModel.swift in Sources */,
 				CE1F96C926AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
-				F271CF0926B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
@@ -2289,7 +2265,6 @@
 				CECA073627D3669D008DCD21 /* MyHabitShareNavigationView.swift in Sources */,
 				CE7247C32699C14800BB2C19 /* UIView+.swift in Sources */,
 				894380FE27DB6A9900354B4C /* NotifyPopupView.swift in Sources */,
-				F293C3C2269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				CE8FEDE426B6CBAD0092DC0D /* MenuTableViewCell.swift in Sources */,
 				CEC4D83926A476A800633222 /* GoalSettingThirdViewModel.swift in Sources */,
 				F21CCD2726D6874E0067FDD1 /* ColorSelectButton.swift in Sources */,
@@ -2319,7 +2294,6 @@
 				F293C3BE269D011B0096757C /* ProfileViewController.swift in Sources */,
 				F267F9B7269A5AB900219B05 /* HabitCalendarCell.swift in Sources */,
 				F200E4C926D673570084BAB9 /* PreparePopupView.swift in Sources */,
-				F25055F026B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				CE0EE3FE27C78532003B7C0E /* KakaoLoginReqeustBody.swift in Sources */,
 				CE72475926998F2D00BB2C19 /* SceneDelegate.swift in Sources */,
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
@@ -2410,7 +2384,6 @@
 				CECA072F27D364B3008DCD21 /* MyHabitShareViewController.swift in Sources */,
 				F267F9AD269A3AE400219B05 /* SettingButton.swift in Sources */,
 				CEC4D79B26A2B1ED00633222 /* DeviceInfo.swift in Sources */,
-				F271CF0B26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CE2390D026D52E37002A002E /* AuthorizationView.swift in Sources */,
 				F2F588B226B0F95200F5430D /* LockView.swift in Sources */,
 				CE1F96C626AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
@@ -2423,7 +2396,6 @@
 				CEC6C37B26B33270007C4ACC /* NetworkErrorPopupView.swift in Sources */,
 				CE307A5726D295DE005919AE /* OnethingProfileType.swift in Sources */,
 				F20E00E126A6528D009A4AB3 /* HabitTextView.swift in Sources */,
-				F293C3C4269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				F29B8432269A866E009D293F /* UITableView+.swift in Sources */,
 				CEFA5BC726B52BFF0037F71B /* Date+.swift in Sources */,
 				CE6751F926D0E63D00616CA8 /* FAQViewModel.swift in Sources */,
@@ -2442,7 +2414,6 @@
 				CE307A5326D26A85005919AE /* ProfileSettingViewController.swift in Sources */,
 				CE1F96CB26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				F20E00DD26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
-				F25055F226B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				F271CF0F26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
 				F267F9A9269A387000219B05 /* ProgressView.swift in Sources */,
 				CE26C46126B03A6600BE7DDC /* BuildConfiguration.swift in Sources */,
@@ -2539,7 +2510,6 @@
 				CE00AA51269A02CB002C674B /* LoginViewModel.swift in Sources */,
 				CEE8AB1D26BEB3320012D21D /* NSNotification+.swift in Sources */,
 				CE7247EE2699DE9100BB2C19 /* SocialAccessType.swift in Sources */,
-				F271CF0A26B9729C00C63CC0 /* HistoryViewModel.swift in Sources */,
 				CEC4D82626A42CF200633222 /* UserDefaultWrapper.swift in Sources */,
 				5ADD32FB2786DFC4007CE0C0 /* SuccessBoxedView.swift in Sources */,
 				CE466A7626D3772C00CE441B /* OnethingAccountModel.swift in Sources */,
@@ -2618,7 +2588,6 @@
 				CECA073B27D372A4008DCD21 /* HabitRepository.swift in Sources */,
 				5ABD11E727D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764426D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
-				F293C3C3269D0AED0096757C /* HistoryViewController.swift in Sources */,
 				5AF85B9727D1E33B00DF7645 /* HabitManagingViewModel.swift in Sources */,
 				F29B8431269A866E009D293F /* UITableView+.swift in Sources */,
 				F2F588B126B0F95200F5430D /* LockView.swift in Sources */,
@@ -2643,7 +2612,6 @@
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
-				F25055F126B2B8EB00B53197 /* HistoryEmptyView.swift in Sources */,
 				CECA073F27D3752F008DCD21 /* ModelDecoder.swift in Sources */,
 				CEFA5BC626B52BFF0037F71B /* Date+.swift in Sources */,
 				F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */,
