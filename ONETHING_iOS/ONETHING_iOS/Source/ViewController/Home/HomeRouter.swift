@@ -26,19 +26,19 @@ final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDe
     private let disposeBag = DisposeBag()
     
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.viewModel = HabitWrittenViewModel(dailyHabitModel: dailyHabitModel)
         }
         
-        viewController.do {
+        homeViewController.do {
             $0.showDimView()
             let tapGestureForDimView = self.makeTapGestureRecognizerOfDimView(for: habitWrittenViewController)
             $0.addDimTapGestureRecognizer(tapGestureForDimView)
         }
         
-        habitWrittenViewController.didMove(toViewController: viewController)
+        habitWrittenViewController.didMove(toViewController: homeViewController)
     }
     
     private func makeTapGestureRecognizerOfDimView(for habitWrittenViewController: HabitWrittenViewController) -> UITapGestureRecognizer {
@@ -52,22 +52,22 @@ final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDe
     }
     
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
 
         let habitWritingViewController = HabitWritingViewController().then {
             $0.delegate = self
             $0.viewModel = writingViewModel
         }
         
-        viewController.navigationController?.isNavigationBarHidden = false
-        viewController.navigationController?.navigationBar.isHidden = true
-        viewController.navigationController?.pushViewController(habitWritingViewController, animated: true)
+        homeViewController.navigationController?.isNavigationBarHidden = false
+        homeViewController.navigationController?.navigationBar.isHidden = true
+        homeViewController.navigationController?.pushViewController(habitWritingViewController, animated: true)
     }
     
     func update(currentDailyHabitModel: DailyHabitResponseModel) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         
-        let viewModel = viewController.viewModel
+        let viewModel = homeViewController.viewModel
         viewModel.append(currentDailyHabitModel: currentDailyHabitModel)
         
         // 66일째 일일 습관 완료 후, 습관이 성공했을 때
@@ -79,7 +79,7 @@ final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDe
 
 extension HomeRouter {
     func routeToGoalSettingFirstViewController() {
-        guard let viewController = self.viewController,
+        guard let homeViewController = self.viewController,
               let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting)
         else { return }
         
@@ -88,19 +88,19 @@ extension HomeRouter {
             $0.isNavigationBarHidden = true
         }
         
-        viewController.present(navigationController, animated: true) {
-            viewController.revealMainViewAndHideEmptyView()
+        homeViewController.present(navigationController, animated: true) {
+            homeViewController.revealMainViewAndHideEmptyView()
         }
     }
 }
 
 extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPenaltyViewControllerDelegate {
     func showWriteLimitPopupView(with indexPath: IndexPath) {
-        guard let viewController = self.viewController,
-              let tabbarController = viewController.tabBarController,
+        guard let homeViewController = self.viewController,
+              let tabbarController = homeViewController.tabBarController,
               let writeLimitPopupView: CustomPopupView = UIView.createFromNib() else { return }
         
-        let viewModel = viewController.viewModel
+        let viewModel = homeViewController.viewModel
         writeLimitPopupView.configure(attributedText: viewModel.limitMessage(with: indexPath),
                                       numberText: viewModel.numberText(with: indexPath),
                                       image: HabitCalendarCell.placeholderImage)
@@ -108,15 +108,15 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     }
     
     func showDelayPopupView() {
-        guard let viewController = self.viewController,
+        guard let homeViewController = self.viewController,
               let delayPopupView: DelayPopupView = UIView.createFromNib(),
-              let tabbarController = viewController.tabBarController
+              let tabbarController = homeViewController.tabBarController
         else { return }
         
-        viewController.showDimView()
+        homeViewController.showDimView()
         delayPopupView.do { popupView in
             popupView.delegate = self
-            popupView.configure(with: viewController.viewModel)
+            popupView.configure(with: homeViewController.viewModel)
             popupView.show(in: tabbarController, completion: {
                 popupView.animateShaking()
             })
@@ -126,6 +126,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
         guard let viewModel = self.viewController?.viewModel else { return }
+        
         let warningPopupView = GiveUpWarningPopupView().then {
             $0.confirmAction = { [weak self] _ in
                 delayPopupView.removeFromSuperView(0.1, completion: {
@@ -143,19 +144,18 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     }
     
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         
-        viewController.hideDimView()
-        viewController.delayPopupView = delayPopupView
-        viewController.delayPopupView?.isHidden = true
-        viewController.delayPopupView?.guideLabel.isHidden = true
-        
+        homeViewController.hideDimView()
+        homeViewController.delayPopupView = delayPopupView
+        homeViewController.delayPopupView?.isHidden = true
+        homeViewController.delayPopupView?.guideLabel.isHidden = true
         self.pushWritingPenaltyViewController()
     }
     
     private func pushWritingPenaltyViewController() {
-        guard let viewController = self.viewController else { return }
-        let viewModel = viewController.viewModel
+        guard let homeViewController = self.viewController else { return }
+        let viewModel = homeViewController.viewModel
         
         guard let writingPenaltyViewController = WritingPenaltyViewController.instantiateViewController(from: .writingPenalty),
               let habitId = viewModel.habitInProgressModel?.habitId,
@@ -168,15 +168,15 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
             sentence: sentence,
             penaltyCount: penaltyCount
         )
-        viewController.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
+        homeViewController.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
     
     func showFailPopupView() {
-        guard let viewController = self.viewController,
+        guard let homeViewController = self.viewController,
         let failPopupView: FailPopupView = UIView.createFromNib(),
-        let tabbarController = viewController.tabBarController else { return }
+        let tabbarController = homeViewController.tabBarController else { return }
         
-        let viewModel = viewController.viewModel
+        let viewModel = homeViewController.viewModel
         failPopupView.delegate = self
         failPopupView.configure(with: viewModel)
         failPopupView.show(in: tabbarController) {
@@ -185,8 +185,8 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     }
     
     func failPopupViewDidTapCloseButton() {
-        guard let viewController = self.viewController else { return }
-        let viewModel = viewController.viewModel
+        guard let homeViewController = self.viewController else { return }
+        let viewModel = homeViewController.viewModel
         
         // unseen fail인 경우
         if viewModel.hasToCheckUnseen == false {
@@ -195,7 +195,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
             viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
                 viewModel.requestHabitInProgress()
                 viewModel.update(isGiveUp: false)
-                viewController.hideDimView()
+                homeViewController.hideDimView()
             }
             return
         }
@@ -204,51 +204,51 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         viewModel.requestGiveup(completion: { _ in
             viewModel.requestHabitInProgress()
             viewModel.update(isGiveUp: false)
-            viewController.hideDimView()
+            homeViewController.hideDimView()
         })
     }
     
     func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         
-        viewController.showDimView()
-        viewController.delayPopupView?.isHidden = false
-        viewController.delayPopupView?.guideLabel.isHidden = false
+        homeViewController.showDimView()
+        homeViewController.delayPopupView?.isHidden = false
+        homeViewController.delayPopupView?.guideLabel.isHidden = false
     }
     
     func writingPenaltyViewControllerDidTapCompleteButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         
-        viewController.viewModel.requestHabitInProgress()
-        viewController.delayPopupView?.removeFromSuperView()
+        homeViewController.viewModel.requestHabitInProgress()
+        homeViewController.delayPopupView?.removeFromSuperView()
     }
 }
 
 extension HomeRouter: HabitEditingViewControllerDelegate {
     func routeToHabitEditingViewController() {
-        guard let viewController = self.viewController,
+        guard let homeViewController = self.viewController,
               let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
         else { return }
-        guard let habitInProgressModel = viewController.viewModel.habitInProgressModel else { return }
+        guard let habitInProgressModel = homeViewController.viewModel.habitInProgressModel else { return }
         
         habitEditingViewController.delegate = self
         habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
-        viewController.navigationController?.pushViewController(habitEditingViewController, animated: true)
+        homeViewController.navigationController?.pushViewController(habitEditingViewController, animated: true)
     }
     
     func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController) {
-        guard let viewController = self.viewController else { return }
+        guard let homeViewController = self.viewController else { return }
         guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
         
-        viewController.viewModel.update(habitInProgressModel: habitInProgressModel)
-        viewController.habitInfoView.update(with: viewController.viewModel)
+        homeViewController.viewModel.update(habitInProgressModel: habitInProgressModel)
+        homeViewController.habitInfoView.update(with: homeViewController.viewModel)
     }
 }
 
 extension HomeRouter: SuccessPopupViewControllerDelegate {
     func routeToSuccessPopupViewController() {
-        guard let viewController = self.viewController else { return }
-        guard let habitResponseModel = viewController.viewModel.habitInProgressModel else { return }
+        guard let homeViewController = self.viewController else { return }
+        guard let habitResponseModel = homeViewController.viewModel.habitInProgressModel else { return }
         
         let successPopupViewController = SuccessPopupViewController().then {
             $0.delegate = self
@@ -256,12 +256,12 @@ extension HomeRouter: SuccessPopupViewControllerDelegate {
             $0.viewModel = SuccessPopupViewModel(habitResponseModel: habitResponseModel)
         }
         
-        viewController.present(successPopupViewController, animated: true)
+        homeViewController.present(successPopupViewController, animated: true)
     }
     
     func successPopupViewControllerDidTapButton(_ viewController: SuccessPopupViewController) {
-        guard let viewController = self.viewController else { return }
-        let viewModel = viewController.viewModel
+        guard let homeViewController = self.viewController else { return }
+        let viewModel = homeViewController.viewModel
 
         guard let status: HabitStatus = viewModel.habitInProgressModel?.onethingHabitStatus
         else { return }
