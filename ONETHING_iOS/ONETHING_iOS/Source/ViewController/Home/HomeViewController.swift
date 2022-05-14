@@ -80,6 +80,14 @@ final class HomeViewController: BaseViewController {
         self.backgroundDimView.hideCrossDissolve()
     }
     
+    func addDimTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.backgroundDimView.addTapGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func removeDimRecognizer() {
+        self.backgroundDimView.removeTapGestureRecognizer()
+    }
+    
     private func addObserver() {
         let center = NotificationCenter.default
         center.addObserver(
@@ -117,7 +125,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupBackgroundDimColorView() {
-        self.tabBarController?.view.addSubview(self.backgroundDimView)
+        self.view.addSubview(self.backgroundDimView)
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }

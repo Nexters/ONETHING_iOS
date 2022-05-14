@@ -8,6 +8,7 @@
 import UIKit
 
 import Then
+import RxSwift
 
 protocol HomeRoutingLogic {
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel)
@@ -20,37 +21,34 @@ protocol HomeRoutingLogic {
     func showFailPopupView()
 }
 
-final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitioningDelegate, HabitWrittenViewControllerDelegate, HabitWritingViewControllerDelegate {
+final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDelegate {
     weak var viewController: HomeViewController?
+    private let disposeBag = DisposeBag()
     
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
         guard let viewController = self.viewController else { return }
         
-        viewController.showDimView()
         let habitWrittenViewController = HabitWrittenViewController().then {
-            $0.modalPresentationStyle = .custom
-            $0.transitioningDelegate = self
             $0.viewModel = HabitWrittenViewModel(dailyHabitModel: dailyHabitModel)
-            $0.delegate = self
         }
-        viewController.present(habitWrittenViewController, animated: true)
-    }
-
-    func presentationController(
-        forPresented presented: UIViewController,
-        presenting: UIViewController?,
-        source: UIViewController
-    ) -> UIPresentationController? {
-        return HeightRatioPresentationController(
-            heightRatio: 0.6,
-            presentedViewController: presented,
-            presenting: presenting
-        )
+        
+        viewController.do {
+            $0.showDimView()
+            let tapGestureForDimView = self.makeTapGestureRecognizerOfDimView(for: habitWrittenViewController)
+            $0.addDimTapGestureRecognizer(tapGestureForDimView)
+        }
+        
+        habitWrittenViewController.didMove(toViewController: viewController)
     }
     
-    func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
-        guard let viewController = self.viewController else { return }
-        viewController.hideDimView()
+    private func makeTapGestureRecognizerOfDimView(for habitWrittenViewController: HabitWrittenViewController) -> UITapGestureRecognizer {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.rx.event
+            .subscribe(onNext: { owner in
+                habitWrittenViewController.removeFromParentVC()
+            })
+            .disposed(by: self.disposeBag)
+        return tapGestureRecognizer
     }
     
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel) {

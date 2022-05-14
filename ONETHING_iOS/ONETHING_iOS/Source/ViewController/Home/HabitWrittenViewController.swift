@@ -10,10 +10,6 @@ import UIKit
 import Then
 import RxSwift
 
-protocol HabitWrittenViewControllerDelegate: AnyObject {
-    func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController)
-}
-
 final class HabitWrittenViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -33,7 +29,6 @@ final class HabitWrittenViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     
     var viewModel: HabitWrittenViewModel?
-    weak var delegate: HabitWrittenViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +46,10 @@ final class HabitWrittenViewController: BaseViewController {
             .bind { [weak self] in self?.dailyHabitView.update(photoImage:$0) }
             .disposed(by: self.disposeBag)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+    
         self.height = UIScreen.main.bounds.height - self.view.frame.minY
         self.originMinY = self.view.frame.minY
         self.originCenter = self.view.center
@@ -65,6 +60,46 @@ final class HabitWrittenViewController: BaseViewController {
         self.panGestureManager?.panGestureAction = { [weak self] panGesture in
             self?.handlePanGestureByState(panGesture)
         }
+    }
+    
+    func didMove(toViewController viewController: UIViewController) {
+        viewController.tabBarController?.tabBar.isHidden = true
+        viewController.addChild(self)
+        viewController.view.addSubview(self.view)
+        
+        self.view.snp.makeConstraints({
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(DeviceInfo.screenHeight * 0.6)
+            $0.bottom.equalToSuperview()
+        })
+        
+        self.view.transform = CGAffineTransform(translationX: 0, y: DeviceInfo.screenHeight)
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
+            self.view.transform = .identity
+        })
+        
+        self.didMove(toParent: viewController)
+    }
+    
+    @objc func removeFromParentVC() {
+        self.parent?.tabBarController?.tabBar.isHidden = false
+        
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.0,
+            options: .curveEaseIn,
+            animations: {
+                self.view.transform = CGAffineTransform(translationX: 0, y: DeviceInfo.screenHeight)
+                (self.parent as? HomeViewController)?.hideDimView()
+            },
+            completion: { _ in
+                self.upperStampButton.isHidden = true
+                (self.parent as? HomeViewController)?.removeDimRecognizer()
+                self.willMove(toParent: nil)
+                self.removeFromParent()
+                self.view.removeFromSuperview()
+            }
+        )
     }
     
     private func handlePanGestureByState(_ panGesture: UIPanGestureRecognizer) {
@@ -91,7 +126,7 @@ final class HabitWrittenViewController: BaseViewController {
     
     private func routeToHomeOrReturnOriginCenter() {
         guard let height = self.height, let originMinY = self.originMinY else {
-            self.dismissViewController()
+            self.removeFromParentVC()
             return
         }
         
@@ -99,7 +134,7 @@ final class HabitWrittenViewController: BaseViewController {
         if self.view.frame.minY < thresholdY {
             self.returnToOriginCenter()
         } else {
-            self.dismissViewController()
+            self.removeFromParentVC()
         }
     }
     
@@ -166,12 +201,6 @@ final class HabitWrittenViewController: BaseViewController {
         self.dailyHabitView.setEditingEnable(false)
     }
     
-    @objc private func dismissViewController() {
-        self.delegate?.habitWrittenViewControllerWillDismiss(self)
-        self.upperStampButton.isHidden = true
-        self.dismiss(animated: true)
-    }
-    
     private func updateViewsWithViewModel() {
         guard let viewModel = self.viewModel else { return }
         
@@ -186,6 +215,6 @@ final class HabitWrittenViewController: BaseViewController {
 
 extension HabitWrittenViewController: DailyHabitViewCloseButtonDelegate {
     func dailyHabitViewDidTapCloseButton(_ dailyHabitView: DailyHabitView) {
-        self.dismissViewController()
+        self.removeFromParentVC()
     }
 }

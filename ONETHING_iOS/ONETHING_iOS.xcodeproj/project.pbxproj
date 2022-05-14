@@ -478,9 +478,6 @@
 		F20B574526A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
 		F20B574626A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
 		F20B574726A8246600391D45 /* Stamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574426A8246600391D45 /* Stamp.swift */; };
-		F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
-		F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
-		F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */; };
 		F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
 		F20B574E26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
 		F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20B574C26A8298000391D45 /* BackgroundDimView.swift */; };
@@ -861,7 +858,6 @@
 		F20B573626A7F0C900391D45 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenViewController.swift; sourceTree = "<group>"; };
 		F20B574426A8246600391D45 /* Stamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stamp.swift; sourceTree = "<group>"; };
-		F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightRatioPresentationController.swift; sourceTree = "<group>"; };
 		F20B574C26A8298000391D45 /* BackgroundDimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDimView.swift; sourceTree = "<group>"; };
 		F20E00CF26A59787009A4AB3 /* NetworkInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInfomation.swift; sourceTree = "<group>"; };
 		F20E00D426A59870009A4AB3 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
@@ -1474,7 +1470,6 @@
 				CEC4D79826A2B1ED00633222 /* DeviceInfo.swift */,
 				CEC4D82426A42CF200633222 /* UserDefaultWrapper.swift */,
 				F20B574426A8246600391D45 /* Stamp.swift */,
-				F20B574826A8255A00391D45 /* HeightRatioPresentationController.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -2130,7 +2125,6 @@
 				5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
-				F20B574926A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CE307A4D26D23A07005919AE /* NoticeModel.swift in Sources */,
 				CE7247BF2699BF0D00BB2C19 /* UIViewController+.swift in Sources */,
 				CE7247C12699BFE300BB2C19 /* UIColor+.swift in Sources */,
@@ -2353,7 +2347,6 @@
 				F2BADE0426C4E2D400FD7766 /* LargeTouchableButton.swift in Sources */,
 				CEC4D83726A4735100633222 /* GoalSettingThirdViewController.swift in Sources */,
 				8943810427DB749A00354B4C /* DelayNotifyPopupView.swift in Sources */,
-				F20B574B26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				CEAABCE127D49C34005B8381 /* MyHabitCellPresentable.swift in Sources */,
 				CE0EE41127CB9BDE003B7C0E /* MyHabitViewModel.swift in Sources */,
 				CED5AED026A4870E003F087C /* PostponeTodoView.swift in Sources */,
@@ -2652,7 +2645,6 @@
 				CE2390C726D52887002A002E /* MediaAuthorizationManager.swift in Sources */,
 				CECE2F2B27D884E700D5C64A /* MyHabitShareSecondTypeView.swift in Sources */,
 				F271CF0E26B978A200C63CC0 /* DailyHabitsResponseModel.swift in Sources */,
-				F20B574A26A8255A00391D45 /* HeightRatioPresentationController.swift in Sources */,
 				5ADD33042786E526007CE0C0 /* FakeAPIServiceForUnseenSuccess.swift in Sources */,
 				F293C3CF269D195D0096757C /* StampButton.swift in Sources */,
 				F2A614AE26A3FA470061A17A /* CompleteButton.swift in Sources */,
