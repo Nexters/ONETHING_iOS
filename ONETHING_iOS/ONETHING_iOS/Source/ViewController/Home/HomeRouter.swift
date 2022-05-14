@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Then
+
 protocol HomeRoutingLogic {
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel)
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel)
@@ -23,9 +25,8 @@ final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitionin
     
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
         guard let viewController = self.viewController else { return }
-
-        viewController.backgroundDimView.showCrossDissolve(completedAlpha: viewController.backgroundDimView.completedAlpha)
         
+        viewController.showDimView()
         let habitWrittenViewController = HabitWrittenViewController().then {
             $0.modalPresentationStyle = .custom
             $0.transitioningDelegate = self
@@ -35,7 +36,11 @@ final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitionin
         viewController.present(habitWrittenViewController, animated: true)
     }
 
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    func presentationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController?,
+        source: UIViewController
+    ) -> UIPresentationController? {
         return HeightRatioPresentationController(
             heightRatio: 0.6,
             presentedViewController: presented,
@@ -45,8 +50,7 @@ final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitionin
     
     func habitWrittenViewControllerWillDismiss(_ habitWrittenViewController: HabitWrittenViewController) {
         guard let viewController = self.viewController else { return }
-        
-        viewController.backgroundDimView.hideCrossDissolve()
+        viewController.hideDimView()
     }
     
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel) {
@@ -77,8 +81,9 @@ final class HomeRouter: NSObject, HomeRoutingLogic, UIViewControllerTransitionin
 
 extension HomeRouter {
     func routeToGoalSettingFirstViewController() {
-        guard let viewController = self.viewController else { return }
-        guard let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting) else { return }
+        guard let viewController = self.viewController,
+              let goalSettingFirstViewController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting)
+        else { return }
         
         let navigationController = UINavigationController(rootViewController: goalSettingFirstViewController).then {
             $0.modalPresentationStyle = .fullScreen
@@ -107,16 +112,18 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     func showDelayPopupView() {
         guard let viewController = self.viewController,
               let delayPopupView: DelayPopupView = UIView.createFromNib(),
-              let tabbarController = viewController.tabBarController else { return }
+              let tabbarController = viewController.tabBarController
+        else { return }
         
-        viewController.backgroundDimView.showCrossDissolve(completedAlpha: viewController.backgroundDimView.completedAlpha)
+        viewController.showDimView()
+        delayPopupView.do { popupView in
+            popupView.delegate = self
+            popupView.configure(with: viewController.viewModel)
+            popupView.show(in: tabbarController, completion: {
+                popupView.animateShaking()
+            })
+        }
         
-        let viewModel = viewController.viewModel
-        delayPopupView.delegate = self
-        delayPopupView.configure(with: viewModel)
-        delayPopupView.show(in: tabbarController, completion: {
-            delayPopupView.animateShaking()
-        })
     }
     
     func delayPopupViewDidTapGiveUpButton(_ delayPopupView: DelayPopupView) {
@@ -140,7 +147,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
     func delayPopupViewDidTapPassPenaltyButton(_ delayPopupView: DelayPopupView) {
         guard let viewController = self.viewController else { return }
         
-        viewController.backgroundDimView.isHidden = true
+        viewController.hideDimView()
         viewController.delayPopupView = delayPopupView
         viewController.delayPopupView?.isHidden = true
         viewController.delayPopupView?.guideLabel.isHidden = true
@@ -190,7 +197,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
             viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
                 viewModel.requestHabitInProgress()
                 viewModel.update(isGiveUp: false)
-                viewController.backgroundDimView.hideCrossDissolve()
+                viewController.hideDimView()
             }
             return
         }
@@ -199,14 +206,14 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         viewModel.requestGiveup(completion: { _ in
             viewModel.requestHabitInProgress()
             viewModel.update(isGiveUp: false)
-            viewController.backgroundDimView.hideCrossDissolve()
+            viewController.hideDimView()
         })
     }
     
     func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController) {
         guard let viewController = self.viewController else { return }
         
-        viewController.backgroundDimView.isHidden = false
+        viewController.showDimView()
         viewController.delayPopupView?.isHidden = false
         viewController.delayPopupView?.guideLabel.isHidden = false
     }

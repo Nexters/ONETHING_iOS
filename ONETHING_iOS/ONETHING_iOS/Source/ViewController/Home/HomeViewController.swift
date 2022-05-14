@@ -17,7 +17,7 @@ final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
-    let backgroundDimView = BackgroundDimView()
+    private let backgroundDimView = BackgroundDimView()
     private let habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
@@ -70,6 +70,14 @@ final class HomeViewController: BaseViewController {
     
     override func clearContents() {
         self.viewModel.clearModels()
+    }
+    
+    func showDimView() {
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+    }
+    
+    func hideDimView() {
+        self.backgroundDimView.hideCrossDissolve()
     }
     
     private func addObserver() {
