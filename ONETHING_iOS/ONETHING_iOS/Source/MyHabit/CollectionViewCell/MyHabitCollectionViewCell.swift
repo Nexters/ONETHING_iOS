@@ -80,6 +80,7 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
             $0.image = UIImage(named: "arrow_back")?.withRenderingMode(.alwaysTemplate)
             $0.tintColor = .white
             $0.transform = CGAffineTransform(rotationAngle: .pi)
+            $0.isHidden = true
         }
         
         self.firstVerticalBorderView.do {
