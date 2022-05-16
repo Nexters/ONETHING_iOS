@@ -8,6 +8,8 @@
 import UIKit
 
 final class BackgroundDimView: UIView {
+    private var tapGesture: UITapGestureRecognizer?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
@@ -21,6 +23,20 @@ final class BackgroundDimView: UIView {
         self.backgroundColor = .black
         self.alpha = 0
         self.isHidden = true
+    }
+    
+    func addTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.tapGesture = tapGestureRecognizer
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func removeTapGestureRecognizer() {
+        guard let tapGesture = self.tapGesture else {
+            return
+        }
+
+        self.removeGestureRecognizer(tapGesture)
+        self.tapGesture = nil
     }
     
     var completedAlpha: CGFloat {

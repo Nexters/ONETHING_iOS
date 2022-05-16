@@ -21,6 +21,7 @@ final class ShareModalViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupUI()
         self.setupLayout()
     }

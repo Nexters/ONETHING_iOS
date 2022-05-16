@@ -17,7 +17,7 @@ final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
-    let backgroundDimView = BackgroundDimView()
+    private let backgroundDimView = BackgroundDimView()
     private let habitCalendarView = HabitCalendarView(
         frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
@@ -72,6 +72,22 @@ final class HomeViewController: BaseViewController {
         self.viewModel.clearModels()
     }
     
+    func showDimView() {
+        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
+    }
+    
+    func hideDimView() {
+        self.backgroundDimView.hideCrossDissolve()
+    }
+    
+    func addDimTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        self.backgroundDimView.addTapGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func removeDimRecognizer() {
+        self.backgroundDimView.removeTapGestureRecognizer()
+    }
+    
     private func addObserver() {
         let center = NotificationCenter.default
         center.addObserver(
@@ -109,7 +125,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupBackgroundDimColorView() {
-        self.tabBarController?.view.addSubview(self.backgroundDimView)
+        self.view.addSubview(self.backgroundDimView)
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
