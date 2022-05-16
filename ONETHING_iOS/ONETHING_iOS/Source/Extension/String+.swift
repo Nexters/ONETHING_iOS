@@ -32,4 +32,8 @@ extension String {
         return attributeString
     }
     
+    func trimmingLeadingAndTrailingSpaces(using characterSet: CharacterSet = .whitespacesAndNewlines) -> String {
+        return trimmingCharacters(in: characterSet)
+    }
+    
 }

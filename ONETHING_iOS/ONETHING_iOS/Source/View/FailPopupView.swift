@@ -14,7 +14,7 @@ protocol FailPopupViewDelegate: AnyObject {
     func failPopupViewDidTapCloseButton()
 }
 
-final class FailPopupView: UIView, ShakeView {
+final class FailPopupView: UIView {
     weak var delegate: FailPopupViewDelegate?
     
     override func awakeFromNib() {

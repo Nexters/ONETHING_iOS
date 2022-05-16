@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="텍스트 입력" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uY8-z6-tvC" userLabel="TextField" customClass="DelayPenaltyTextField" customModule="ONETHING" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="7.5" width="114.5" height="21"/>
+                    <rect key="frame" x="0.0" y="7.5" width="311" height="21"/>
                     <color key="tintColor" name="red_3"/>
                     <color key="textColor" name="black_100"/>
                     <fontDescription key="fontDescription" name="Pretendard-SemiBold" family="Pretendard" pointSize="16"/>
@@ -51,7 +51,7 @@
                 <constraint firstItem="eaG-Td-B4D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Ryg-tA-dEB"/>
                 <constraint firstItem="vg7-eH-xMk" firstAttribute="leading" secondItem="uY8-z6-tvC" secondAttribute="leading" id="bOf-nQ-JvC"/>
                 <constraint firstItem="uY8-z6-tvC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dGn-yH-9SK"/>
-                <constraint firstItem="vg7-eH-xMk" firstAttribute="trailing" secondItem="uY8-z6-tvC" secondAttribute="trailing" id="eFk-oH-hKW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uY8-z6-tvC" secondAttribute="trailing" id="hfC-Ip-Lrx"/>
                 <constraint firstItem="uY8-z6-tvC" firstAttribute="bottom" secondItem="eaG-Td-B4D" secondAttribute="top" constant="-20" id="oiV-TM-3Hm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
