@@ -44,9 +44,6 @@
 		8944EECA27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECB27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECC27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
-		89C1E23228292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
-		89C1E23328292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
-		89C1E23428292A96002785CB /* ServerHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E23128292A96002785CB /* ServerHost.swift */; };
 		89C1E23A282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23B282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23C282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
@@ -696,7 +693,6 @@
 		894380FD27DB6A9900354B4C /* NotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPopupView.swift; sourceTree = "<group>"; };
 		8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayNotifyPopupView.swift; sourceTree = "<group>"; };
 		8944EEC927DC695D0036F511 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
-		89C1E23128292A96002785CB /* ServerHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHost.swift; sourceTree = "<group>"; };
 		89C1E239282945D7002785CB /* WritingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingScrollView.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -2230,7 +2226,6 @@
 				CECA073127D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
 				CEAABCE727D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
-				89C1E23228292A96002785CB /* ServerHost.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
@@ -2424,7 +2419,6 @@
 				CECA073327D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
 				CEAABCE927D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
-				89C1E23428292A96002785CB /* ServerHost.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
@@ -2606,7 +2600,6 @@
 				CECA073227D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
 				CEAABCE827D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
-				89C1E23328292A96002785CB /* ServerHost.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
