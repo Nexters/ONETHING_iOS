@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,6 +12,9 @@
     <customFonts key="customFonts">
         <array key="Montserrat-Light.ttf">
             <string>Montserrat-Light</string>
+        </array>
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
         </array>
         <array key="Pretendard-Bold.otf">
             <string>Pretendard-Bold</string>
@@ -338,11 +341,52 @@
             </objects>
             <point key="canvasLocation" x="775" y="102"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="FE6-Od-m9O">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="gd9-H9-THJ" customClass="SplashViewController" customModule="ONETHING" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IR7-Mu-QMR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Rp-3xj" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="0.0" y="341" width="375" height="140"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="140" id="Ixz-E4-bch"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2021.뇽뇽. All rights reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-B1-12X">
+                                <rect key="frame" x="92.000000000000014" y="730.66666666666663" width="191.33333333333337" height="12.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                                <color key="textColor" name="black_60"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ea6-UL-gWF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ea6-UL-gWF" firstAttribute="trailing" secondItem="qza-Rp-3xj" secondAttribute="trailing" id="9OE-H7-LPu"/>
+                            <constraint firstItem="ea6-UL-gWF" firstAttribute="bottom" secondItem="Ot1-B1-12X" secondAttribute="bottom" constant="35" id="KMZ-Ux-JBB"/>
+                            <constraint firstItem="qza-Rp-3xj" firstAttribute="leading" secondItem="ea6-UL-gWF" secondAttribute="leading" id="QW4-Lo-iNt"/>
+                            <constraint firstItem="qza-Rp-3xj" firstAttribute="centerY" secondItem="ea6-UL-gWF" secondAttribute="centerY" id="ZC4-qe-Tmi"/>
+                            <constraint firstItem="Ot1-B1-12X" firstAttribute="centerX" secondItem="ea6-UL-gWF" secondAttribute="centerX" id="ctA-Ty-f12"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="qza-Rp-3xj" id="jQr-7b-s6u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Baz-7p-alc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1662" y="102"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="d2v-5t-NtD">
             <size key="intrinsicContentSize" width="187" height="15"/>
         </designable>
+        <designable name="qza-Rp-3xj"/>
     </designables>
     <resources>
         <image name="apple_logo" width="24" height="24"/>
@@ -359,6 +403,9 @@
         </namedColor>
         <namedColor name="black_5">
             <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="black_60">
+            <color red="0.53299999237060547" green="0.53299999237060547" blue="0.53299999237060547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red_3">
             <color red="1" green="0.40000000596046448" blue="0.31400001049041748" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
