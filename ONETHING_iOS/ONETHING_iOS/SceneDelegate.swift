@@ -8,6 +8,7 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    private let mainTabBarController = MainTabBarController()
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,6 +19,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         self.window?.rootViewController = self.splashViewController
         self.window?.makeKeyAndVisible()
+        
+        self.mainTabBarController.prefetchHomeData()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
