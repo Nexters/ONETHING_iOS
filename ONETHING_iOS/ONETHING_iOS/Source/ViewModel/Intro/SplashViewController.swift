@@ -8,8 +8,13 @@
 import Lottie
 import UIKit
 
-class SplashViewController: UIViewController {
+protocol SplashViewControllerDelegate: AnyObject {
+    func splashViewController(_ viewController: SplashViewController, didOccur event: SplashViewController.Event)
+}
 
+final class SplashViewController: UIViewController {
+    weak var delegate: SplashViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAnimation()
@@ -20,10 +25,15 @@ class SplashViewController: UIViewController {
         self.animationView.loopMode    = .playOnce
         self.animationView.contentMode = .scaleAspectFit
         self.animationView.play { _ in
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.splashViewController(self, didOccur: .splashAnimationDidFinish)
         }
     }
     
     @IBOutlet private weak var animationView: AnimationView!
-    
+}
+
+extension SplashViewController {
+    enum Event {
+        case splashAnimationDidFinish
+    }
 }
