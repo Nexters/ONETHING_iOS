@@ -9,11 +9,19 @@ import Lottie
 import UIKit
 
 final class MainTabBarController: UITabBarController {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        self.setupViewControllers()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabBar()
-        self.setupViewControllers()
         self.setupUserInformIfNeeded()
         
         DispatchQueue.main.async {
@@ -95,6 +103,13 @@ final class MainTabBarController: UITabBarController {
         self.viewControllers = Child.allCases.map {
             $0.createController()
         }
+    }
+    
+    func prefetchHomeData() {
+        guard let homeViewController = (self.children.first as? UINavigationController)?.visibleViewController as? HomeViewController
+        else { return }
+        
+        homeViewController.viewModel.requestHabitInProgress()
     }
     
     private func setupUserInformIfNeeded() {
