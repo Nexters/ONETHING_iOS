@@ -51,6 +51,7 @@ final class HomeViewController: BaseViewController {
         self.setupBackgroundDimColorView()
         self.setupHomeEmptyView()
         self.bindButtons()
+        
         self.observeViewModel()
         self.viewModel.usePrefetchDataOrRequestHabitInProgress()
     }

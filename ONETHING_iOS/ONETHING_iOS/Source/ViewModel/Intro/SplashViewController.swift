@@ -12,23 +12,33 @@ protocol SplashViewControllerDelegate: AnyObject {
     func splashViewController(_ viewController: SplashViewController, didOccur event: SplashViewController.Event)
 }
 
-final class SplashViewController: UIViewController {
+final class SplashViewController: BaseViewController {
     weak var delegate: SplashViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupAnimation()
+        
+        self.setupAnimationView()
+        self.playAnimation()
     }
     
-    private func setupAnimation() {
+    private func setupAnimationView() {
         self.animationView.animation   = Animation.named("splash_screen")
         self.animationView.loopMode    = .playOnce
         self.animationView.contentMode = .scaleAspectFit
-        self.animationView.play { _ in
+    }
+    
+    private func playAnimation() {
+        self.animationView.play(completion: self.handleWhenAnimationFinished)
+    }
+    
+    private func handleWhenAnimationFinished(_ result: Bool) {
+        self.backgroundView.hideCrossDissolve {
             self.delegate?.splashViewController(self, didOccur: .splashAnimationDidFinish)
         }
     }
     
+    @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var animationView: AnimationView!
 }
 

@@ -349,32 +349,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Rp-3xj" customClass="AnimationView" customModule="Lottie">
-                                <rect key="frame" x="0.0" y="341" width="375" height="140"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9h-TV-Uq3">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2021.뇽뇽. All rights reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-B1-12X">
+                                        <rect key="frame" x="92.000000000000014" y="686.66666666666663" width="191.33333333333337" height="12.333333333333371"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" name="black_60"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qza-Rp-3xj" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="297" width="375" height="140"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="Ixz-E4-bch"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="Ixz-E4-bch"/>
+                                    <constraint firstItem="qza-Rp-3xj" firstAttribute="centerY" secondItem="C9h-TV-Uq3" secondAttribute="centerY" id="Ecf-dQ-H9f"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ot1-B1-12X" secondAttribute="bottom" constant="35" id="IYo-90-fHv"/>
+                                    <constraint firstItem="qza-Rp-3xj" firstAttribute="leading" secondItem="C9h-TV-Uq3" secondAttribute="leading" id="Nmo-Jd-FpT"/>
+                                    <constraint firstAttribute="trailing" secondItem="qza-Rp-3xj" secondAttribute="trailing" id="SbG-7f-liR"/>
+                                    <constraint firstItem="Ot1-B1-12X" firstAttribute="centerX" secondItem="C9h-TV-Uq3" secondAttribute="centerX" id="iEE-Gq-Yyu"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright 2021.뇽뇽. All rights reserved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot1-B1-12X">
-                                <rect key="frame" x="92.000000000000014" y="730.66666666666663" width="191.33333333333337" height="12.333333333333371"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="10"/>
-                                <color key="textColor" name="black_60"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ea6-UL-gWF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ea6-UL-gWF" firstAttribute="trailing" secondItem="qza-Rp-3xj" secondAttribute="trailing" id="9OE-H7-LPu"/>
-                            <constraint firstItem="ea6-UL-gWF" firstAttribute="bottom" secondItem="Ot1-B1-12X" secondAttribute="bottom" constant="35" id="KMZ-Ux-JBB"/>
-                            <constraint firstItem="qza-Rp-3xj" firstAttribute="leading" secondItem="ea6-UL-gWF" secondAttribute="leading" id="QW4-Lo-iNt"/>
-                            <constraint firstItem="qza-Rp-3xj" firstAttribute="centerY" secondItem="ea6-UL-gWF" secondAttribute="centerY" id="ZC4-qe-Tmi"/>
-                            <constraint firstItem="Ot1-B1-12X" firstAttribute="centerX" secondItem="ea6-UL-gWF" secondAttribute="centerX" id="ctA-Ty-f12"/>
+                            <constraint firstItem="ea6-UL-gWF" firstAttribute="bottom" secondItem="C9h-TV-Uq3" secondAttribute="bottom" id="0Vg-oO-ImD"/>
+                            <constraint firstItem="ea6-UL-gWF" firstAttribute="trailing" secondItem="C9h-TV-Uq3" secondAttribute="trailing" id="eD4-XZ-3T2"/>
+                            <constraint firstItem="C9h-TV-Uq3" firstAttribute="leading" secondItem="ea6-UL-gWF" secondAttribute="leading" id="go2-MM-zlK"/>
+                            <constraint firstItem="C9h-TV-Uq3" firstAttribute="top" secondItem="ea6-UL-gWF" secondAttribute="top" id="rtN-8l-f15"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="animationView" destination="qza-Rp-3xj" id="jQr-7b-s6u"/>
+                        <outlet property="backgroundView" destination="C9h-TV-Uq3" id="cAi-eH-sUm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Baz-7p-alc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
