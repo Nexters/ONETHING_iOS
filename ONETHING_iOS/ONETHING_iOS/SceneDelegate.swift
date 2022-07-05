@@ -9,6 +9,7 @@ import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let mainTabBarController = MainTabBarController()
+    
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -20,7 +21,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.rootViewController = self.splashViewController
         self.window?.makeKeyAndVisible()
         
-        self.mainTabBarController.prefetchHomeData()
+        self.mainTabBarController.do {
+            $0.setupViewControllers()
+            $0.prefetchHomeData()
+        }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -45,7 +49,7 @@ extension SceneDelegate: SplashViewControllerDelegate {
     }
     
     private func changeRootToMainTabBarController() {
-        self.window?.rootViewController = MainTabBarController()
+        self.window?.rootViewController = self.mainTabBarController
         self.window?.makeKeyAndVisible()
     }
 }

@@ -9,16 +9,6 @@ import Lottie
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        self.setupViewControllers()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTabBar()
@@ -99,7 +89,7 @@ final class MainTabBarController: UITabBarController {
         self.tabBar.scrollEdgeAppearance = appearance
     }
     
-    private func setupViewControllers() {
+    func setupViewControllers() {
         self.viewControllers = Child.allCases.map {
             $0.createController()
         }
