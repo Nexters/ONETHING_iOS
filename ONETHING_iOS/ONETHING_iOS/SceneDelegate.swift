@@ -18,13 +18,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             $0.overrideUserInterfaceStyle = .light
         }
 
-        self.window?.rootViewController = self.splashViewController
+        self.window?.rootViewController = self.makeSplashViewController()
         self.window?.makeKeyAndVisible()
-        
-        self.mainTabBarController.do {
-            $0.setupViewControllers()
-            $0.prefetchHomeData()
-        }
+        self.mainTabBarController.setupChildsAndPrefetchHomeData()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -32,7 +28,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SocialManager.sharedInstance.handleSocialURLScheme(url)
     }
     
-    private var splashViewController: SplashViewController? {
+    private func makeSplashViewController() -> SplashViewController? {
         guard let splashViewController = SplashViewController.instantiateViewController(from: .intro)
         else { return nil }
         
@@ -43,9 +39,8 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: SplashViewControllerDelegate {
     func splashViewController(_ viewController: SplashViewController, didOccur event: SplashViewController.Event) {
-        if event == .splashAnimationDidFinish {
-            self.changeRootToMainTabBarController()
-        }
+        guard event == .splashAnimationDidFinish else { return }
+        self.changeRootToMainTabBarController()
     }
     
     private func changeRootToMainTabBarController() {

@@ -29,10 +29,10 @@ final class SplashViewController: BaseViewController {
     }
     
     private func playAnimation() {
-        self.animationView.play(completion: self.handleWhenAnimationFinished)
+        self.animationView.play(completion: self.completionBlockWhenAnimationFinished)
     }
     
-    private func handleWhenAnimationFinished(_ result: Bool) {
+    private func completionBlockWhenAnimationFinished(_ result: Bool) {
         self.backgroundView.hideCrossDissolve {
             self.delegate?.splashViewController(self, didOccur: .splashAnimationDidFinish)
         }

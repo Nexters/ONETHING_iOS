@@ -43,6 +43,18 @@ final class MainTabBarController: UITabBarController {
         }
     }
     
+    func setupChildsAndPrefetchHomeData() {
+        self.setupViewControllers()
+        self.prefetchHomeData()
+    }
+    
+    func prefetchHomeData() {
+        guard let homeViewController = (self.children.first as? UINavigationController)?.visibleViewController as? HomeViewController
+        else { return }
+        
+        homeViewController.viewModel.requestHabitInProgress()
+    }
+    
     private func moveToRoot() {
         guard let viewControllers = self.viewControllers else { return }
         viewControllers.forEach { viewController in
@@ -89,17 +101,10 @@ final class MainTabBarController: UITabBarController {
         self.tabBar.scrollEdgeAppearance = appearance
     }
     
-    func setupViewControllers() {
+    private func setupViewControllers() {
         self.viewControllers = Child.allCases.map {
             $0.createController()
         }
-    }
-    
-    func prefetchHomeData() {
-        guard let homeViewController = (self.children.first as? UINavigationController)?.visibleViewController as? HomeViewController
-        else { return }
-        
-        homeViewController.viewModel.requestHabitInProgress()
     }
     
     private func setupUserInformIfNeeded() {
