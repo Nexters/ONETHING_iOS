@@ -10,6 +10,7 @@ import Foundation
 import RxRelay
 
 final class MyHabitViewModel {
+    let loadingSubject = BehaviorSubject<Bool>(value: false)
     
     var habitListObservable: Observable<[HabitResponseModel]> {
         self.habitListRelay.asObservable()
@@ -37,7 +38,11 @@ final class MyHabitViewModel {
     }
     
     private func fetchHabitHistory() {
+        self.loadingSubject.onNext(true)
         self.habitRepository.fetchAllHabit()
+            .do(onDispose:  { [weak self] in
+                self?.loadingSubject.onNext(false)
+            })
             .map { habitList in
                 habitList.filter { $0.onethingHabitStatus?.canShowHistoryPage == true }
             }
@@ -52,7 +57,7 @@ final class MyHabitViewModel {
     private let disposeBag = DisposeBag()
     private let habitRepository: HabitRepository
     
-    private let habitListRelay = BehaviorRelay<[HabitResponseModel]>(value: [])
+    private let habitListRelay = PublishRelay<[HabitResponseModel]>()
     private let currentPageRelay = BehaviorRelay<Int>(value: 0)
 
 }
