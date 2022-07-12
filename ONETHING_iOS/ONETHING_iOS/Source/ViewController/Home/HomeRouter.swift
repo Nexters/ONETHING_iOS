@@ -227,18 +227,24 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
 extension HomeRouter: HabitEditingViewControllerDelegate {
     func routeToHabitEditingViewController() {
         guard let homeViewController = self.viewController,
-              let habitEditingViewController = HabitEditingViewController.instantiateViewController(from: .habitEdit)
-        else { return }
-        guard let habitInProgressModel = homeViewController.viewModel.habitInProgressModel else { return }
+              let habitInProgressModel = homeViewController.viewModel.habitInProgressModel else { return }
+
+        let storyboard = UIStoryboard(name: Storyboard.habitEdit.rawValue, bundle: nil)
+        let identifier = String(describing: HabitEditingViewController.self)
+        let habitEditingViewController = storyboard.instantiateViewController(
+            identifier: identifier,
+            creator: { coder -> HabitEditingViewController? in
+                let viewController = HabitEditingViewController(coder: coder, viewModel: HabitEditViewModel(habitInProgressModel: habitInProgressModel))
+                viewController?.delegate = self
+                return viewController
+            })
         
-        habitEditingViewController.delegate = self
-        habitEditingViewController.viewModel = HabitEditViewModel(habitInProgressModel: habitInProgressModel)
         homeViewController.navigationController?.pushViewController(habitEditingViewController, animated: true)
     }
     
     func habitEditingViewControllerDidTapCompleteButton(_ habitEditingViewController: HabitEditingViewController) {
         guard let homeViewController = self.viewController else { return }
-        guard let habitInProgressModel = habitEditingViewController.viewModel?.habitInProgressModel else { return }
+        let habitInProgressModel = habitEditingViewController.viewModel.habitInProgressModel
         
         homeViewController.viewModel.update(habitInProgressModel: habitInProgressModel)
         homeViewController.habitInfoView.update(with: homeViewController.viewModel)

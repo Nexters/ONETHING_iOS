@@ -102,6 +102,9 @@ final class GoalSettingThirdViewController: BaseViewController {
         self.countPicker.dataSource = self
         self.countPicker.delegate = self
         
+        let defaultSelectIndex = self.viewModel.postponeTodoCountRelay.value - 1
+        self.countPicker.selectRow(defaultSelectIndex, inComponent: 0, animated: false)
+        
         self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
             self?.viewModel.updatePostponeCount(row + 1)
         }).disposed(by: self.disposeBag)
