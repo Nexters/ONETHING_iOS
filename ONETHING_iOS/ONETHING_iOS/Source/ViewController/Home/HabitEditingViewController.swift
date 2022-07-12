@@ -18,8 +18,17 @@ final class HabitEditingViewController: BaseViewController {
     weak var delegate: HabitEditingViewControllerDelegate?
     
     private let delayTouchView = UIView()
-    var viewModel: HabitEditViewModel?
-  
+    let viewModel: HabitEditViewModel
+    
+    init?(coder: NSCoder, viewModel: HabitEditViewModel) {
+        self.viewModel = viewModel
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -110,12 +119,14 @@ final class HabitEditingViewController: BaseViewController {
         self.countPicker.setValue(UIColor.white, forKey: "backgroundColor")
         self.countPicker.dataSource = self
         self.countPicker.delegate = self
-
+        
+        let defaultSelectIndex = self.viewModel.habitInProgressModel.penaltyCount - 1
+        self.countPicker.selectRow(defaultSelectIndex, inComponent: 0, animated: false)
     }
     
     private var prevColorSelectButton: ColorSelectButton?
     private func setupColorSelectButtons() {
-        let currentColorIndex: Int = self.viewModel?.currentColorIndex ?? 0
+        let currentColorIndex: Int = self.viewModel.currentColorIndex
         let firstButton = self.colorSelectButtons.first(where: { $0.tag == currentColorIndex })
         firstButton?.checkView.isHidden = false
         self.prevColorSelectButton = firstButton
@@ -159,7 +170,7 @@ final class HabitEditingViewController: BaseViewController {
         self.manageButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
             guard let managingViewController = HabitManagingViewController.instantiateViewController(from: .habitEdit) else { return }
             
-            managingViewController.viewModel.update(habitInProgressModel: self?.viewModel?.habitInProgressModel)
+            managingViewController.viewModel.update(habitInProgressModel: self?.viewModel.habitInProgressModel)
             self?.navigationController?.pushViewController(managingViewController, animated: true)
         }).disposed(by: self.disposeBag)
 
@@ -172,7 +183,7 @@ final class HabitEditingViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
         
         self.countPicker.rx.itemSelected.observeOnMain(onNext: { [weak self] row, _ in
-            self?.viewModel?.update(penaltyCount: row + 1)
+            self?.viewModel.update(penaltyCount: row + 1)
             self?.updateViews(with: self?.viewModel)
         }).disposed(by: self.disposeBag)
         
@@ -195,7 +206,7 @@ final class HabitEditingViewController: BaseViewController {
                 button.checkView.isHidden = false
                 self.prevColorSelectButton?.checkView.isHidden = true
                 self.prevColorSelectButton = button
-                self.viewModel?.updateColor(with: button.tag)
+                self.viewModel.updateColor(with: button.tag)
             }).disposed(by: self.disposeBag)
         }
         
@@ -203,7 +214,7 @@ final class HabitEditingViewController: BaseViewController {
             guard let self = self else { return }
             
             self.completeButton.isUserInteractionEnabled = false
-            self.viewModel?.putEditHabit(completionHandler: { [weak self] _ in
+            self.viewModel.putEditHabit(completionHandler: { [weak self] _ in
                 guard let self = self else { return }
                 
                 self.delegate?.habitEditingViewControllerDidTapCompleteButton(self)
