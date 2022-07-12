@@ -49,6 +49,7 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         self.addObserver()
+        self.navigationController?.setupEnableSwipeBackMotion()
         self.setupUI()
         self.setupLayout()
         

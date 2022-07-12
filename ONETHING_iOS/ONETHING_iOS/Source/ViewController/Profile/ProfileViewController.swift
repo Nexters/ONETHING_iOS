@@ -42,8 +42,7 @@ final class ProfileViewController: BaseViewController {
     }
     
     private func setupNavigationProperties() {
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        self.navigationController?.setupEnableSwipeBackMotion()
     }
     
     private func setupTableView() {

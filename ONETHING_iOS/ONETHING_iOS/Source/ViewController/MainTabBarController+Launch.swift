@@ -18,7 +18,6 @@ extension MainTabBarController {
         
         OnethingUserManager.sharedInstance.requestAccount { accountModel in
             guard accountModel.doneHabitSetting == false else { return }
-            
             self.presentGoalSettingVCOrProfileSettingVC(with: accountModel)
         }
     }
@@ -31,7 +30,10 @@ extension MainTabBarController {
     
     private func presentGoalSettingVCOrProfileSettingVC(with accountModel: OnethingAccountModel) {
         let goalSettingController = GoalSettingFirstViewController.instantiateViewController(from: .goalSetting)
-        guard let navigationController = UIViewController.navigationController(goalSettingController) else { return }
+        guard let navigationController = UIViewController.navigationController(goalSettingController)?.then({ navigationController in
+            navigationController.setupEnableSwipeBackMotion()
+        }) else { return }
+        
         self.present(navigationController, animated: false) {
             guard accountModel.account?.nickname == nil else { return }
             
