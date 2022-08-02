@@ -67,7 +67,7 @@ final class HabitWritingViewController: BaseViewController {
         self.keyboardDismissableView.addSubview(self.backBtnTitleView)
         self.backBtnTitleView.snp.makeConstraints {
             let safeArea = self.view.safeAreaLayoutGuide
-            $0.top.equalTo(safeArea).offset(40)
+            $0.top.equalTo(safeArea).offset(20)
             $0.leading.equalToSuperview().offset(32)
             $0.height.equalTo(self.backBtnTitleView.backButtonDiameter)
         }
