@@ -58,4 +58,9 @@ extension UIViewController {
         animation(keyboardFrame, keyboardDuration)
     }
     
+    func showPreparePopupView() {
+        guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
+        
+        preparePopupView.show(in: self)
+    }
 }

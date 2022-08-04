@@ -68,13 +68,7 @@ final class HabitEditingViewController: BaseViewController {
     }
     
     @objc private func timeSetViewDidTap() {
-        self.showPreparePopupView()
-    }
-    
-    private func showPreparePopupView() {
-        guard let preparePopupView: PreparePopupView = UIView.createFromNib() else { return }
-        guard let tabbarController = self.tabBarController                    else { return }
-        preparePopupView.show(in: tabbarController)
+        self.tabBarController?.showPreparePopupView()
     }
     
     private func setupDelayInfoViews() {

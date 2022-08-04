@@ -12,6 +12,7 @@ import SnapKit
 import UIKit
 
 protocol MyHabitCollectionViewCellDelegate: AnyObject {
+    func myhabitCollectionViewCellDidTap(_ cell: MyHabitCollectionViewCell)
     func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: MyHabitCellPresentable)
 }
 
@@ -208,6 +209,19 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
                 owner.delegate?.myhabitCollectionViewCell(owner, didTapShare: presentable)
             })
             .disposed(by: self.disposeBag)
+        
+        self.contentView.addGestureRecognizer(self.makeTapGestureRecoginizerForShowPreparePopupView())
+    }
+    
+    private func makeTapGestureRecoginizerForShowPreparePopupView() -> UITapGestureRecognizer {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.rx.event
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.delegate?.myhabitCollectionViewCellDidTap(owner)
+            })
+            .disposed(by: self.disposeBag)
+        return tapGestureRecognizer
     }
     
     private func updateLabelText(asPresentable presentable: MyHabitCellPresentable, index: Int) {
