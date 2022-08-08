@@ -24,7 +24,7 @@ final class HomeViewController: BaseViewController {
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
-    private let loadingIndicatorView = UIActivityIndicatorView(style: .large)
+    private let loadingIndicator = NNLoadingIndicator()
     weak var delayPopupView: DelayPopupView?
     
     let viewModel = HomeViewModel()
@@ -117,15 +117,11 @@ final class HomeViewController: BaseViewController {
             $0.delegate = self
         }
         
-        self.loadingIndicatorView.do {
-            $0.color = .red_default
-        }
-        
         self.view.addSubview(self.habitInfoView)
         self.view.addSubview(self.habitCalendarView)
         self.view.addSubview(self.backgroundDimView)
         self.view.addSubview(self.homeEmptyView)
-        self.view.addSubview(self.loadingIndicatorView)
+        self.view.addSubview(self.loadingIndicator)
         
         self.updateContentViewHiddenStatus(true)
     }
@@ -152,7 +148,7 @@ final class HomeViewController: BaseViewController {
             $0.centerX.centerY.equalToSuperview()
         }
         
-        self.loadingIndicatorView.snp.makeConstraints { make in
+        self.loadingIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
@@ -209,7 +205,7 @@ final class HomeViewController: BaseViewController {
             .distinctUntilChanged()
             .withUnretained(self)
             .subscribe(onNext: { owner, loading in
-                loading == true ? owner.loadingIndicatorView.startAnimating() : owner.loadingIndicatorView.stopAnimating()
+                loading == true ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
             })
             .disposed(by: self.disposeBag)
     }

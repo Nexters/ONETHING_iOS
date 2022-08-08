@@ -19,6 +19,7 @@ final class ProfileViewController: BaseViewController {
         self.addObserver()
         self.setupNavigationProperties()
         self.setupTableView()
+        self.setupLoadingIndicator()
         self.bindButtons()
         self.observeViewModel()
         
@@ -83,6 +84,13 @@ final class ProfileViewController: BaseViewController {
         }).disposed(by: self.disposeBag)
     }
     
+    private func setupLoadingIndicator() {
+        self.view.addSubview(self.loadingIndicator)
+        self.loadingIndicator.snp.makeConstraints({
+            $0.center.equalToSuperview()
+        })
+    }
+    
     private func bindButtons() {
         self.profileEditButton.rx.tap.observeOnMain(onNext: { [weak self] in
             let viewController = ProfileEditViewController.instantiateViewController(from: .profile)
@@ -105,6 +113,13 @@ final class ProfileViewController: BaseViewController {
             .observeOnMain(onNext: { [weak self] successCount, delayCount in
                 self?.successCountLabel.text = "\(successCount)"
                 self?.delayCountLabel.text = "\(delayCount)"
+            }).disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingRelay
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .observeOnMain(onNext: { owner, loading in
+                loading ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
             }).disposed(by: self.disposeBag)
     }
     
@@ -148,6 +163,8 @@ final class ProfileViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     private let viewModel = ProfileViewModel()
+    
+    private let loadingIndicator = NNLoadingIndicator()
     
     @IBOutlet private weak var profileImageView: UIImageView!
     @IBOutlet private weak var profileEditButton: UIButton!

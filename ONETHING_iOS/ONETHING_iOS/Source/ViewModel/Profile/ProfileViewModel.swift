@@ -15,16 +15,21 @@ final class ProfileViewModel {
     let userRelay = BehaviorRelay<OnethingUserModel?>(value: nil)
     let successCountRelay = BehaviorRelay<Int>(value: 0)
     let delayCountRelay = BehaviorRelay<Int>(value: 0)
+    let loadingRelay = BehaviorRelay<Bool>(value: false)
     
     init(apiService: APIService = .shared) {
         self.apiService = apiService
     }
     
     func requestUserInform() {
+        self.loadingRelay.accept(true)
+        
         let accountAPI = UserAPI.account
         self.apiService.requestAndDecodeRx(apiTarget: accountAPI, retryHandler: { [weak self] in
             self?.requestUserInform()
         }).subscribe(onSuccess: { [weak self] (accountModel: OnethingAccountModel) in
+            self?.loadingRelay.accept(false)
+            
             guard let self = self else { return }
             guard let account = accountModel.account else { return }
             self.userRelay.accept(account)
@@ -32,11 +37,15 @@ final class ProfileViewModel {
     }
     
     func requestHabits() {
+        self.loadingRelay.accept(true)
+        
         let habitAPI = ContentAPI.getHabits
         self.apiService.requestAndDecodeRx(apiTarget: habitAPI, retryHandler: { [weak self] in
             self?.requestUserInform()
             self?.requestHabits()
         }).subscribe(onSuccess: { [weak self] (habitReseponseModel: [HabitResponseModel]) in
+            self?.loadingRelay.accept(false)
+            
             var totalSuccessCount: Int = 0
             var totalDelayCount: Int = 0
             
