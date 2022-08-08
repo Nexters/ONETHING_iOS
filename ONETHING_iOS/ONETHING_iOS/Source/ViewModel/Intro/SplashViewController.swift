@@ -19,20 +19,30 @@ final class SplashViewController: BaseViewController {
         super.viewDidLoad()
         
         self.setupAnimationView()
-        self.playAnimation()
+        self.waitAndDismiss()
     }
     
     private func setupAnimationView() {
-        self.animationView.animation   = Animation.named("splash_screen")
-        self.animationView.loopMode    = .playOnce
-        self.animationView.contentMode = .scaleAspectFit
+        self.animationView.do {
+            $0.animation   = Animation.named("splash_screen")
+            $0.loopMode    = .playOnce
+            $0.contentMode = .scaleAspectFit
+        }
     }
     
     private func playAnimation() {
-        self.animationView.play(completion: self.completionBlockWhenAnimationFinished)
+        self.animationView.play(completion: { _ in
+            self.dismissViewController()
+        })
     }
     
-    private func completionBlockWhenAnimationFinished(_ result: Bool) {
+    private func waitAndDismiss(delayTime: TimeInterval = 0.7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime, execute: { [weak self] in
+            self?.dismissViewController()
+        })
+    }
+    
+    private func dismissViewController() {
         self.backgroundView.hideCrossDissolve {
             self.delegate?.splashViewController(self, didOccur: .splashAnimationDidFinish)
         }
