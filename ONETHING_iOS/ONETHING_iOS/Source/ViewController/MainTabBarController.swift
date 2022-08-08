@@ -9,9 +9,12 @@ import Lottie
 import UIKit
 
 final class MainTabBarController: UITabBarController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupTabBar()
+        self.setupViewControllers()
         self.setupUserInformIfNeeded()
         
         DispatchQueue.main.async {
@@ -41,18 +44,6 @@ final class MainTabBarController: UITabBarController {
             guard baseController.isViewLoaded == true                                  else { return }
             baseController.reloadContentsIfRequired()
         }
-    }
-    
-    func setupChildsAndPrefetchHomeData() {
-        self.setupViewControllers()
-        self.prefetchHomeData()
-    }
-    
-    func prefetchHomeData() {
-        guard let homeViewController = (self.children.first as? UINavigationController)?.visibleViewController as? HomeViewController
-        else { return }
-        
-        homeViewController.viewModel.requestHabitInProgress()
     }
     
     private func moveToRoot() {

@@ -32,15 +32,6 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         self.apiService = apiService
     }
     
-    func usePrefetchDataOrRequestHabitInProgress() {
-        if self.habitInProgressModel != nil {
-            self.habitResponseModelSubject.onNext(self.habitInProgressModel)
-            return
-        }
-        
-        self.requestHabitInProgress()
-    }
-    
     func requestHabitInProgress() {
         self.loadingSubject.onNext(true)
         

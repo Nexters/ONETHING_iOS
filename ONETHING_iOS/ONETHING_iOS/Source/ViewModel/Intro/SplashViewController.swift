@@ -36,7 +36,7 @@ final class SplashViewController: BaseViewController {
         })
     }
     
-    private func waitAndDismiss(delayTime: TimeInterval = 0.7) {
+    private func waitAndDismiss(delayTime: TimeInterval = 0.5) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delayTime, execute: { [weak self] in
             self?.dismissViewController()
         })

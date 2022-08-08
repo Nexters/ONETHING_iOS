@@ -54,8 +54,8 @@ final class HomeViewController: BaseViewController {
         
         self.bindButtons()
         self.bindViewModel()
-        
-        self.viewModel.usePrefetchDataOrRequestHabitInProgress()
+    
+        self.viewModel.requestHabitInProgress()
     }
     
     override func viewDidAppear(_ animated: Bool) {
