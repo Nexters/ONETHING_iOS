@@ -24,6 +24,7 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     private let disposeBag = DisposeBag()
     private(set) var isGiveUp = false
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
+    let loadingSubject = BehaviorSubject<Bool>(value: false)
     
     init(apiService: APIServiceType = APIService.shared) {
         self.apiService = apiService
@@ -39,6 +40,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     }
     
     func requestHabitInProgress() {
+        self.loadingSubject.onNext(true)
+        
         self.apiService.requestAndDecodeRx(
             apiTarget: ContentAPI.getHabitInProgress,
             retryHandler: { self.requestHabitInProgress() }
@@ -56,6 +59,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     func requestDailyHabits(habitId: Int) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
@@ -66,6 +71,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus, retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.hasToCheckUnseen = false
                 
                 guard let unseenHabitModel = wrappingResponseModel.data else {
@@ -82,6 +89,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId),
                                            retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
@@ -90,6 +99,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (habitResponseModel: HabitResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.hasToCheckUnseen = false
                 
                 completion(habitResponseModel)
@@ -100,7 +111,9 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         let putUnseenFail = ContentAPI.putUnSeenFail(habitId: habitId)
         
         self.apiService.requestRx(apiTarget: putUnseenFail, retryHandler: nil)
-            .subscribe(onSuccess: { response in
+            .subscribe(onSuccess: { [weak self] response in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 let isSuccess = response.statusCode == 200
                 completion(isSuccess)
             })
@@ -112,7 +125,9 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         
         let putUnseenSuccess = ContentAPI.putUnSeenSuccess(habitId: habitID)
         self.apiService.requestRx(apiTarget: putUnseenSuccess, retryHandler: nil)
-            .subscribe(onSuccess: { response in
+            .subscribe(onSuccess: { [weak self] response in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 let isSuccess = response.statusCode == 200
                 completion(isSuccess)
             })

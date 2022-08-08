@@ -22,6 +22,7 @@ final class HomeViewController: BaseViewController {
         frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
     )
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
+    private let loadingIndicatorView = UIActivityIndicatorView(style: .large)
     weak var delayPopupView: DelayPopupView?
     
     let viewModel = HomeViewModel()
@@ -50,8 +51,10 @@ final class HomeViewController: BaseViewController {
         self.setupHabitCalendarView()
         self.setupBackgroundDimColorView()
         self.setupHomeEmptyView()
-        self.bindButtons()
+        self.setupLoadingIndicatorView()
+        self.updateContentViewHiddenStatus(true)
         
+        self.bindButtons()
         self.observeViewModel()
         self.viewModel.usePrefetchDataOrRequestHabitInProgress()
     }
@@ -139,6 +142,16 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    private func setupLoadingIndicatorView() {
+        self.view.addSubview(self.loadingIndicatorView)
+        self.loadingIndicatorView.do {
+            $0.color = .red_default
+        }
+        self.loadingIndicatorView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
     private func observeViewModel() {
         // MARK: - related to In Progress Habit
         self.viewModel
@@ -173,6 +186,14 @@ final class HomeViewController: BaseViewController {
                 guard let self = self else { return }
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
                 self.habitCalendarView.reloadItems(at: [indexPath])
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingSubject
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, loading in
+                loading == true ? owner.loadingIndicatorView.startAnimating() : owner.loadingIndicatorView.stopAnimating()
             })
             .disposed(by: self.disposeBag)
     }
