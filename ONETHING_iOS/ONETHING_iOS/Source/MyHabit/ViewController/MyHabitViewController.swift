@@ -175,10 +175,12 @@ extension MyHabitViewController: UICollectionViewDelegate {
         targetContentOffset.pointee = CGPoint(x: estimatedOffsetX, y: 0)
         self.viewModel.occur(viewEvent: .scroll(page: castingIntPage))
     }
-    
 }
 
 extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
+    func myhabitCollectionViewCellDidTap(_ cell: MyHabitCollectionViewCell) {
+        self.tabBarController?.showPreparePopupView()
+    }
     
     func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: MyHabitCellPresentable) {
         self.presentHabitShareViewController(selectedHabit: habit)
