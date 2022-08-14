@@ -17,11 +17,14 @@ final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
-    private let backgroundDimView = BackgroundDimView()
     private let habitCalendarView = HabitCalendarView(
-        frame: .zero, totalCellNumbers: HomeViewModel.defaultTotalDays, columnNumbers: 5
+        frame: .zero,
+        totalCellNumbers: HomeViewModel.defaultTotalDays,
+        columnNumbers: 5
     )
+    private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
+    private let loadingIndicator = NNLoadingIndicator()
     weak var delayPopupView: DelayPopupView?
     
     let viewModel = HomeViewModel()
@@ -46,13 +49,12 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         self.addObserver()
-        self.setupHabitInfoView()
-        self.setupHabitCalendarView()
-        self.setupBackgroundDimColorView()
-        self.setupHomeEmptyView()
-        self.bindButtons()
-        self.observeViewModel()
+        self.setupUI()
+        self.setupLayout()
         
+        self.bindButtons()
+        self.bindViewModel()
+    
         self.viewModel.requestHabitInProgress()
     }
     
@@ -72,6 +74,8 @@ final class HomeViewController: BaseViewController {
         self.viewModel.clearModels()
     }
     
+    // MARK: - Internal Methods
+    
     func showDimView() {
         self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
     }
@@ -88,6 +92,8 @@ final class HomeViewController: BaseViewController {
         self.backgroundDimView.removeTapGestureRecognizer()
     }
     
+    // MARK: - Private Methods
+    
     private func addObserver() {
         let center = NotificationCenter.default
         center.addObserver(
@@ -98,49 +104,68 @@ final class HomeViewController: BaseViewController {
         )
     }
     
-    private func setupHabitInfoView() {
-        self.view.addSubview(self.habitInfoView)
+    private func setupUI() {
+        self.habitCalendarView.do {
+            $0.backgroundColor = .clear
+            $0.dataSource = self.viewModel
+            $0.registerCell(cellType: HabitCalendarCell.self)
+            $0.registerCell(cellType: UICollectionViewCell.self)
+            $0.delegate = self
+        }
         
+        self.homeEmptyView.do {
+            $0.delegate = self
+        }
+        
+        self.view.addSubview(self.habitInfoView)
+        self.view.addSubview(self.habitCalendarView)
+        self.view.addSubview(self.backgroundDimView)
+        self.view.addSubview(self.homeEmptyView)
+        self.view.addSubview(self.loadingIndicator)
+        
+        self.updateContentViewHiddenStatus(true)
+    }
+    
+    private func setupLayout() {
         self.habitInfoView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
             $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2)
         }
-    }
-    
-    private func setupHabitCalendarView() {
-        self.habitCalendarView.backgroundColor = .clear
-        self.habitCalendarView.dataSource = self.viewModel
-        self.habitCalendarView.registerCell(cellType: HabitCalendarCell.self)
-        self.habitCalendarView.registerCell(cellType: UICollectionViewCell.self)
-        self.habitCalendarView.delegate = self
         
-        self.view.addSubview(self.habitCalendarView)
         self.habitCalendarView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.habitInfoView.snp.bottom)
             $0.bottom.equalToSuperview()
         }
-    }
-    
-    private func setupBackgroundDimColorView() {
-        self.view.addSubview(self.backgroundDimView)
+        
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
-    }
-    
-    private func setupHomeEmptyView() {
-        self.homeEmptyView.delegate = self
-        self.view.addSubview(self.homeEmptyView)
+        
         self.homeEmptyView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
+        
+        self.loadingIndicator.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
     }
     
-    private func observeViewModel() {
-        // MARK: - related to In Progress Habit
+    private func bindButtons() {
+        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
+            self?.router?.routeToHabitEditingViewController()
+        }).disposed(by: self.disposeBag)
+        
+        self.habitCalendarView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.habitCalendarCellDidSelect(with: indexPath)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func bindViewModel() {
+        // MARK: - Related to In Progress Habit
         self.viewModel
             .habitResponseModelSubject
             .bind { [weak self] habitInProgressModel in
@@ -175,6 +200,14 @@ final class HomeViewController: BaseViewController {
                 self.habitCalendarView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
+        
+        self.viewModel.loadingSubject
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, loading in
+                loading == true ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func handleIfIsUnSeenEvent() {
@@ -200,17 +233,6 @@ final class HomeViewController: BaseViewController {
             default:
                 break
         }
-    }
-    
-    private func bindButtons() {
-        self.habitInfoView.settingButton.rx.tap.observeOnMain(onNext: { [weak self] _ in
-            self?.router?.routeToHabitEditingViewController()
-        }).disposed(by: self.disposeBag)
-        
-        self.habitCalendarView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                self?.habitCalendarCellDidSelect(with: indexPath)
-            }).disposed(by: disposeBag)
     }
     
     private func habitCalendarCellDidSelect(with indexPath: IndexPath) {
@@ -275,9 +297,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     private func presentHabitWritingViewController(with indexPath: IndexPath) {
-        let writingViewModel = HabitWritingViewModel(habitId: self.viewModel.habitID ?? 1,
-                                                     dailyHabitOrder: indexPath.row + 1,
-                                                     session: Alamofire.AF)
+        let writingViewModel = HabitWritingViewModel(
+            habitId: self.viewModel.habitID ?? 1,
+            dailyHabitOrder: indexPath.row + 1,
+            session: Alamofire.AF
+        )
         self.router?.routeToHabitWritingViewController(with: writingViewModel)
     }
     

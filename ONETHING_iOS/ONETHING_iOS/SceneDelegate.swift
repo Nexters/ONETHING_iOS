@@ -8,7 +8,6 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,7 +16,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             $0.overrideUserInterfaceStyle = .light
         }
 
-        self.window?.rootViewController = MainTabBarController()
+        self.window?.rootViewController = self.makeSplashViewController()
         self.window?.makeKeyAndVisible()
     }
     
@@ -26,5 +25,24 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         SocialManager.sharedInstance.handleSocialURLScheme(url)
     }
     
+    private func makeSplashViewController() -> SplashViewController? {
+        guard let splashViewController = SplashViewController.instantiateViewController(from: .intro)
+        else { return nil }
+        
+        splashViewController.delegate = self
+        return splashViewController
+    }
 }
 
+extension SceneDelegate: SplashViewControllerDelegate {
+    func splashViewController(_ viewController: SplashViewController, didOccur event: SplashViewController.Event) {
+        guard event == .splashAnimationDidFinish else { return }
+        
+        self.changeRootToMainTabBarController()
+    }
+    
+    private func changeRootToMainTabBarController() {
+        self.window?.rootViewController = MainTabBarController()
+        self.window?.makeKeyAndVisible()
+    }
+}

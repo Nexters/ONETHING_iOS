@@ -44,6 +44,9 @@
 		8944EECA27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECB27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
 		8944EECC27DC695D0036F511 /* NSAttributedString+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944EEC927DC695D0036F511 /* NSAttributedString+.swift */; };
+		896008F228A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
+		896008F328A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
+		896008F428A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
 		89C1E23A282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23B282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23C282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
@@ -693,6 +696,7 @@
 		894380FD27DB6A9900354B4C /* NotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyPopupView.swift; sourceTree = "<group>"; };
 		8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayNotifyPopupView.swift; sourceTree = "<group>"; };
 		8944EEC927DC695D0036F511 /* NSAttributedString+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+.swift"; sourceTree = "<group>"; };
+		896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLoadingIndicator.swift; sourceTree = "<group>"; };
 		89C1E239282945D7002785CB /* WritingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingScrollView.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC1D998A5A571190CD6E8A46 /* Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING_iOSTests/Pods-ONETHING_iOS-ONETHING_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1076,6 +1080,7 @@
 				5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */,
 				5AD88CCB27D40B7800A92850 /* GiveUpWarningPopupView.swift */,
 				894380FD27DB6A9900354B4C /* NotifyPopupView.swift */,
+				896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2160,6 +2165,7 @@
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
 				F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
+				896008F228A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				CE8FEDEF26B6D90F0092DC0D /* CustomPopupView.swift in Sources */,
 				CEC4D78726A27EAA00633222 /* GoalSettingCollectionViewCell.swift in Sources */,
 				CE26C45226B031A600BE7DDC /* OnethingErrorModel.swift in Sources */,
@@ -2355,6 +2361,7 @@
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
+				896008F428A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
@@ -2534,6 +2541,7 @@
 				F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
+				896008F328A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
 				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
@@ -2964,7 +2972,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2987,7 +2995,7 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = AKW8XUH283;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

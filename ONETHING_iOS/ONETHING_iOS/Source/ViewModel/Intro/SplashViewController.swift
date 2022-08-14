@@ -8,22 +8,52 @@
 import Lottie
 import UIKit
 
-class SplashViewController: UIViewController {
+protocol SplashViewControllerDelegate: AnyObject {
+    func splashViewController(_ viewController: SplashViewController, didOccur event: SplashViewController.Event)
+}
 
+final class SplashViewController: BaseViewController {
+    weak var delegate: SplashViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupAnimation()
+        
+        self.setupAnimationView()
+        self.waitAndDismiss()
     }
     
-    private func setupAnimation() {
-        self.animationView.animation   = Animation.named("splash_screen")
-        self.animationView.loopMode    = .playOnce
-        self.animationView.contentMode = .scaleAspectFit
-        self.animationView.play { _ in
-            self.dismiss(animated: true, completion: nil)
+    private func setupAnimationView() {
+        self.animationView.do {
+            $0.animation   = Animation.named("splash_screen")
+            $0.loopMode    = .playOnce
+            $0.contentMode = .scaleAspectFit
         }
     }
     
-    @IBOutlet private weak var animationView: AnimationView!
+    private func playAnimation() {
+        self.animationView.play(completion: { _ in
+            self.dismissViewController()
+        })
+    }
     
+    private func waitAndDismiss(delayTime: TimeInterval = 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delayTime, execute: { [weak self] in
+            self?.dismissViewController()
+        })
+    }
+    
+    private func dismissViewController() {
+        self.backgroundView.hideCrossDissolve {
+            self.delegate?.splashViewController(self, didOccur: .splashAnimationDidFinish)
+        }
+    }
+    
+    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var animationView: AnimationView!
+}
+
+extension SplashViewController {
+    enum Event {
+        case splashAnimationDidFinish
+    }
 }

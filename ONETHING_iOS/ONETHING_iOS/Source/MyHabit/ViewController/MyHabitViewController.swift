@@ -63,16 +63,12 @@ final class MyHabitViewController: BaseViewController {
             $0.isHidden = true
         }
         
-        self.loadingIndicatorView.do {
-            $0.color = .red_default
-        }
-        
         self.view.addSubview(self.titleLabel)
         self.view.addSubview(self.habitNumberLabel)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.pageControl)
         self.view.addSubview(self.emptyView)
-        self.view.addSubview(self.loadingIndicatorView)
+        self.view.addSubview(self.loadingIndicator)
     }
     
     private func layoutUI() {
@@ -102,7 +98,7 @@ final class MyHabitViewController: BaseViewController {
             make.leading.trailing.bottom.equalToSuperview()
         }
         
-        self.loadingIndicatorView.snp.makeConstraints { make in
+        self.loadingIndicator.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
     }
@@ -146,7 +142,7 @@ final class MyHabitViewController: BaseViewController {
         self.viewModel.loadingSubject
             .withUnretained(self)
             .subscribe(onNext: { owner, loading in
-                loading == true ? owner.loadingIndicatorView.startAnimating() : owner.loadingIndicatorView.stopAnimating()
+                loading == true ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
             })
             .disposed(by: self.disposeBag)
     }
@@ -159,7 +155,7 @@ final class MyHabitViewController: BaseViewController {
     )
     private let pageControl = UIPageControl()
     private let emptyView = MyHabitEmptyView(frame: .zero)
-    private let loadingIndicatorView = UIActivityIndicatorView(style: .large)
+    private let loadingIndicator = NNLoadingIndicator()
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel

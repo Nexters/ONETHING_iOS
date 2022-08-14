@@ -17,19 +17,24 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
     private(set) var hasToCheckUnseen = true
-    let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
-    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     
     private var nickname: String?
     private let disposeBag = DisposeBag()
     private(set) var isGiveUp = false
+    
+    // MARK: - Subjects
+    let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
+    let dailyHabitsSubject = PublishSubject<[DailyHabitResponseModel]>()
     let currentIndexPathOfDailyHabitSubject = PublishSubject<IndexPath>()
+    let loadingSubject = BehaviorSubject<Bool>(value: false)
     
     init(apiService: APIServiceType = APIService.shared) {
         self.apiService = apiService
     }
     
     func requestHabitInProgress() {
+        self.loadingSubject.onNext(true)
+        
         self.apiService.requestAndDecodeRx(
             apiTarget: ContentAPI.getHabitInProgress,
             retryHandler: { self.requestHabitInProgress() }
@@ -47,6 +52,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     func requestDailyHabits(habitId: Int) {
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId), retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
@@ -57,6 +64,8 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         
         self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getUnseenStatus, retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (wrappingResponseModel: WrappingHabitResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.hasToCheckUnseen = false
                 
                 guard let unseenHabitModel = wrappingResponseModel.data else {
@@ -70,17 +79,25 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     }
     
     func requestUnseenDailyHabits(habitId: Int) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.getDailyHistories(habitId: habitId),
-                                           retryHandler: nil)
+        self.apiService
+            .requestAndDecodeRx(
+                apiTarget: ContentAPI.getDailyHistories(habitId: habitId),
+                retryHandler: nil
+            )
             .subscribe(onSuccess: { [weak self] (dailyHabitsResponseModel: DailyHabitsResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.dailyHabitModels = dailyHabitsResponseModel.histories
                 self?.dailyHabitsSubject.onNext(dailyHabitsResponseModel.histories)
             }).disposed(by: self.disposeBag)
     }
     
     func requestGiveup(completion: @escaping (HabitResponseModel) -> Void) {
-        self.apiService.requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
+        self.apiService
+            .requestAndDecodeRx(apiTarget: ContentAPI.putGiveUpHabit, retryHandler: nil)
             .subscribe(onSuccess: { [weak self] (habitResponseModel: HabitResponseModel) in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 self?.hasToCheckUnseen = false
                 
                 completion(habitResponseModel)
@@ -90,8 +107,11 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     func requestUnseenFailToBeFail(habitId: Int, completion: @escaping (Bool) -> Void) {
         let putUnseenFail = ContentAPI.putUnSeenFail(habitId: habitId)
         
-        self.apiService.requestRx(apiTarget: putUnseenFail, retryHandler: nil)
-            .subscribe(onSuccess: { response in
+        self.apiService
+            .requestRx(apiTarget: putUnseenFail, retryHandler: nil)
+            .subscribe(onSuccess: { [weak self] response in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 let isSuccess = response.statusCode == 200
                 completion(isSuccess)
             })
@@ -102,8 +122,11 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
         guard let habitID = self.habitInProgressModel?.habitId else { completion(false); return }
         
         let putUnseenSuccess = ContentAPI.putUnSeenSuccess(habitId: habitID)
-        self.apiService.requestRx(apiTarget: putUnseenSuccess, retryHandler: nil)
-            .subscribe(onSuccess: { response in
+        self.apiService
+            .requestRx(apiTarget: putUnseenSuccess, retryHandler: nil)
+            .subscribe(onSuccess: { [weak self] response in
+                defer { self?.loadingSubject.onNext(false) }
+                
                 let isSuccess = response.statusCode == 200
                 completion(isSuccess)
             })

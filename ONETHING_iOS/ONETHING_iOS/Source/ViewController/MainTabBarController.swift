@@ -9,9 +9,10 @@ import Lottie
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.setupTabBar()
         self.setupViewControllers()
         self.setupUserInformIfNeeded()
