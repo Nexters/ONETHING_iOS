@@ -8,6 +8,11 @@
 import UIKit
 
 extension UINavigationController {
+    func setupEnableSwipeBackMotion() {
+        self.interactivePopGestureRecognizer?.delegate = nil
+        self.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     func popViewController(animated: Bool, completion: @escaping () -> Void) {
         CATransaction.begin()
         CATransaction.setCompletionBlock {
