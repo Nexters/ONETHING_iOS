@@ -18,6 +18,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'Then'
   pod 'Carte'
   pod 'lottie-ios'
+  pod 'FirebaseMessaging'
 
   target 'ONETHING' do
   end
