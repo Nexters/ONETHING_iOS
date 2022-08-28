@@ -5,12 +5,15 @@
 //  Created by Dongmin on 2021/07/10.
 //
 
+import FirebaseCore
+import FirebaseMessaging
 import UIKit
 
 @main
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         NetworkDetector.shared.startMonitor()
         SocialManager.sharedInstance.setup()
         return true
