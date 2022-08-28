@@ -712,7 +712,8 @@
 		CE0EE40E27CB9BDE003B7C0E /* MyHabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitViewModel.swift; sourceTree = "<group>"; };
 		CE0EE41227CBA1F2003B7C0E /* MyHabitLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitLayoutGuide.swift; sourceTree = "<group>"; };
 		CE0EE41827CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitCollectionViewCell.swift; sourceTree = "<group>"; };
-		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splash_screen.json; sourceTree = "<group>"; };
+		CE157A4928BB5DBB00285FA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CE16972126D7F5EC00AD0BE9 /* splash_screen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_screen.json; path = Lottie/splash_screen.json; sourceTree = "<group>"; };
 		CE16973126D80B2600AD0BE9 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE16973526D80F2A00AD0BE9 /* MainTabBarController+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBarController+Launch.swift"; sourceTree = "<group>"; };
 		CE16C25B26A8461A00D87096 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ONETHING_iOS/Source/Login/ViewController/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -745,7 +746,7 @@
 		CE466A7426D3772C00CE441B /* OnethingAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnethingAccountModel.swift; sourceTree = "<group>"; };
 		CE466A7826D3822200CE441B /* ProfileEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		CE466A7C26D3941100CE441B /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
-		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goalFinish.json; sourceTree = "<group>"; };
+		CE6751EE26D0E31B00616CA8 /* goalFinish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = goalFinish.json; path = Lottie/goalFinish.json; sourceTree = "<group>"; };
 		CE6751F226D0E56D00616CA8 /* FAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		CE6751F626D0E63D00616CA8 /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
 		CE6751FA26D0E86B00616CA8 /* FAQTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewCell.swift; sourceTree = "<group>"; };
@@ -881,7 +882,7 @@
 		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
 		F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewController.swift; sourceTree = "<group>"; };
 		F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewModel.swift; sourceTree = "<group>"; };
-		F25AE36D27183BC9009A59C6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
+		F25AE36D27183BC9009A59C6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = success.json; path = Lottie/success.json; sourceTree = "<group>"; };
 		F25AE3712718630D009A59C6 /* UINavigationController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+.swift"; sourceTree = "<group>"; };
 		F267F9A6269A387000219B05 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		F267F9AA269A3AE400219B05 /* SettingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
@@ -1228,6 +1229,7 @@
 				CE72476426998F3000BB2C19 /* AppStore-Info.plist */,
 				CE7247A22699938500BB2C19 /* Beta-Info.plist */,
 				CE7247A42699939100BB2C19 /* Ent-Info.plist */,
+				CE157A4928BB5DBB00285FA4 /* GoogleService-Info.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
