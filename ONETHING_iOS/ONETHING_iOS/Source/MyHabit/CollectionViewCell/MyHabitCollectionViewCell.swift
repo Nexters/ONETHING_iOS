@@ -210,10 +210,10 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
             })
             .disposed(by: self.disposeBag)
         
-        self.contentView.addGestureRecognizer(self.makeTapGestureRecoginizerForShowPreparePopupView())
+        self.contentView.addGestureRecognizer(self.makeTapGestureRecoginizer())
     }
     
-    private func makeTapGestureRecoginizerForShowPreparePopupView() -> UITapGestureRecognizer {
+    private func makeTapGestureRecoginizer() -> UITapGestureRecognizer {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.rx.event
             .withUnretained(self)
@@ -244,7 +244,7 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         self.secondVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
     }
     
-    private var presentable: MyHabitCellPresentable?
+    private(set) var presentable: MyHabitCellPresentable?
     
     private let disposeBag = DisposeBag()
     
