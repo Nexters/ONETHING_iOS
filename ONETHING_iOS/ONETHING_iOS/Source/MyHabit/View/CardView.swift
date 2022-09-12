@@ -16,6 +16,8 @@ final class CardView: UIView {
         self.habitInfoViewModel = habitInfoViewModel
         super.init(frame: targetView.convert(targetView.frame, to: nil))
         
+        self.cornerRadius = targetView.cornerRadius
+        self.backgroundColor = .white
         self.configureImageView(with: targetView)
         self.configureMyHabitInfoView(with: habitInfoViewModel)
     }
@@ -35,7 +37,7 @@ final class CardView: UIView {
             x: 0,
             y: 0,
             width: DeviceInfo.screenWidth,
-            height: DeviceInfo.screenWidth * 0.6
+            height: DeviceInfo.screenHeight
         )
     }
     
