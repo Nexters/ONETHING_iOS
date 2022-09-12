@@ -191,7 +191,11 @@ extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
             $0.transitioningDelegate = self.transitionManager
         }
         
-        self.transitionManager.configureCardView(with: cell.contentView, presentable: cell.presentable)
+        self.transitionManager.targetView = cell.contentView
+        self.transitionManager.cardView = CardView(
+            with: cell.contentView,
+            habitInfoViewModel: HabitInfoViewModel(presentable: cell.presentable)
+        )
         self.present(habitHistoryViewController, animated: true)
     }
     

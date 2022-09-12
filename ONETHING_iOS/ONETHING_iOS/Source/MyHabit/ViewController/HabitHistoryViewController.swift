@@ -36,6 +36,10 @@ final class HabitHistoryViewController: UIViewController {
     }
     
     private func setupUI() {
+        self.myHabitInfoView.do {
+            $0.delegate = self
+        }
+        
         self.view.addSubview(self.myHabitInfoView)
     }
     
@@ -43,5 +47,14 @@ final class HabitHistoryViewController: UIViewController {
         self.myHabitInfoView.snp.makeConstraints({ make in
             make.top.leading.trailing.equalToSuperview()
         })
+    }
+}
+
+extension HabitHistoryViewController: MyHabitInfoViewDelegate {
+    func myHabitShareNavigationView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent) {
+        switch event {
+        case .backButton:
+            self.dismiss(animated: true)
+        }
     }
 }

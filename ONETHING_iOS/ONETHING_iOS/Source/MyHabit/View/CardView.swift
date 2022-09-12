@@ -8,13 +8,15 @@
 import UIKit
 
 final class CardView: UIView {
+    private(set) var originalFrame: CGRect
     private var imageView: UIImageView?
     private let habitInfoViewModel: HabitInfoViewModel
     private let myHabitInfoView = MyHabitInfoView()
     
     init(with targetView: UIView, habitInfoViewModel: HabitInfoViewModel) {
         self.habitInfoViewModel = habitInfoViewModel
-        super.init(frame: targetView.convert(targetView.frame, to: nil))
+        self.originalFrame = targetView.convert(targetView.frame, to: nil)
+        super.init(frame: self.originalFrame)
         
         self.cornerRadius = targetView.cornerRadius
         self.backgroundColor = .white
@@ -30,6 +32,12 @@ final class CardView: UIView {
         self.myHabitInfoView.showCrossDissolve()
         self.imageView?.isHidden = true
         self.updateFrameToInfoViewVersion()
+    }
+    
+    func convertToOriginal() {
+        self.myHabitInfoView.isHidden = true
+        self.imageView?.isHidden = false
+        self.frame = self.originalFrame
     }
     
     private func updateFrameToInfoViewVersion() {

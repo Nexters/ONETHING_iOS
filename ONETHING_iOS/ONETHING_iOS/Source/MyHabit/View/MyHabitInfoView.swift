@@ -7,23 +7,48 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
+protocol MyHabitInfoViewDelegate: AnyObject {
+    func myHabitShareNavigationView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent)
+}
+
+extension MyHabitInfoView {
+    enum ViewEvent {
+        case backButton
+    }
+}
+
 final class MyHabitInfoView: UIView {
+    weak var delegate: MyHabitInfoViewDelegate?
+    
     private let backButton = UIButton()
     private let trashButton = UIButton()
     private let shareButton = UIButton()
     private let titleLabel = UILabel()
     private let resultLabel = UILabel()
     private let resultDesciptionLabel = UILabel()
+    
+    private let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.setupUI()
         self.setupLayout()
+        self.bindUI()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func update(with habitInfoViewModel: HabitInfoViewModel) {
+        self.titleLabel.text = habitInfoViewModel.titleText
+        self.resultLabel.textColor = habitInfoViewModel.resultLabelColor
+        self.resultLabel.text = habitInfoViewModel.resultText
+        self.resultDesciptionLabel.text = habitInfoViewModel.resultDesciptionText
     }
     
     private func setupUI() {
@@ -106,10 +131,12 @@ final class MyHabitInfoView: UIView {
         })
     }
     
-    func update(with habitInfoViewModel: HabitInfoViewModel) {
-        self.titleLabel.text = habitInfoViewModel.titleText
-        self.resultLabel.textColor = habitInfoViewModel.resultLabelColor
-        self.resultLabel.text = habitInfoViewModel.resultText
-        self.resultDesciptionLabel.text = habitInfoViewModel.resultDesciptionText
+    private func bindUI() {
+        self.backButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                self.delegate?.myHabitShareNavigationView(owner, didOccur: .backButton)
+            })
+            .disposed(by: self.disposeBag)
     }
 }
