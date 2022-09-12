@@ -59,8 +59,8 @@ final class HomeViewController: BaseViewController {
         self.viewModel.requestHabitInProgress()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         self.tabBarController?.tabBar.isHidden = false
     }
