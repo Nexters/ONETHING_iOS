@@ -7,7 +7,7 @@ inhibit_all_warnings!
 abstract_target 'ONETHING_iOS' do
   use_frameworks!
 
-  pod 'KakaoSDKUser', '~> 2.5.4'
+  pod 'KakaoSDKUser', '~> 2.11.1'
   pod 'SnapKit', '~> 5.0.0'
   pod 'RxSwift', '~> 6.5.0'
   pod 'RxCocoa', '~> 6.5.0'
