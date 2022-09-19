@@ -2,17 +2,17 @@ PODS:
   - ActiveLabel (1.1.0)
   - Alamofire (5.4.4)
   - Carte (2.2.1)
-  - KakaoSDKAuth (2.5.6):
-    - KakaoSDKCommon (= 2.5.6)
-  - KakaoSDKCommon (2.5.6):
-    - KakaoSDKCommon/Common (= 2.5.6)
-    - KakaoSDKCommon/Network (= 2.5.6)
-  - KakaoSDKCommon/Common (2.5.6)
-  - KakaoSDKCommon/Network (2.5.6):
+  - KakaoSDKAuth (2.11.1):
+    - KakaoSDKCommon (= 2.11.1)
+  - KakaoSDKCommon (2.11.1):
+    - KakaoSDKCommon/Common (= 2.11.1)
+    - KakaoSDKCommon/Network (= 2.11.1)
+  - KakaoSDKCommon/Common (2.11.1)
+  - KakaoSDKCommon/Network (2.11.1):
     - Alamofire (~> 5.1)
-    - KakaoSDKCommon/Common (= 2.5.6)
-  - KakaoSDKUser (2.5.6):
-    - KakaoSDKAuth (= 2.5.6)
+    - KakaoSDKCommon/Common (= 2.11.1)
+  - KakaoSDKUser (2.11.1):
+    - KakaoSDKAuth (= 2.11.1)
   - Kingfisher (7.2.0)
   - lottie-ios (3.3.0)
   - Moya (14.0.0):
@@ -32,7 +32,7 @@ DEPENDENCIES:
   - ActiveLabel
   - Alamofire (~> 5.4.3)
   - Carte
-  - KakaoSDKUser (~> 2.5.4)
+  - KakaoSDKUser (~> 2.11.1)
   - Kingfisher (~> 7.0)
   - lottie-ios
   - Moya (~> 14.0)
@@ -62,9 +62,9 @@ SPEC CHECKSUMS:
   ActiveLabel: 5e3f4de79a1952d4604b845a0610d4776e4b82b3
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
   Carte: 6bcff4eaa894ff5b979d646de833fec96e04a38c
-  KakaoSDKAuth: 1e1fa737e78eed3f301ab5c164526781a37a42f9
-  KakaoSDKCommon: cdf340a8f671eef75f4ca012003cb350af3c4b6d
-  KakaoSDKUser: f488aa4699b3fd3a836ab5c7e25e2cb4cea190c1
+  KakaoSDKAuth: bb2dfa7be30daa8403c9cfc8001aa6fde7a5b779
+  KakaoSDKCommon: 555e1bb46595b842ded01cf7888cc17bbae4e113
+  KakaoSDKUser: 08c0a4f40bebdebdf948a9e3d0e44ed5c2754f99
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
@@ -74,6 +74,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 55cceca745cb820a39702a05f73555909515c941
+PODFILE CHECKSUM: 142d81dc70daf9d75a3ee4c727cc653aa5657b96
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3
