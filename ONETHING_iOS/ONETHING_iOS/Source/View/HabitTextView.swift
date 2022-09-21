@@ -29,6 +29,11 @@ final class HabitTextView: UITextView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        self.addSubview(self.placeholderLabel)
+        self.addSubview(self.firstBottomLine)
+        self.addSubview(self.secondBottomLine)
+        self.addSubview(self.textCountLabel)
+        
         self.layoutPlaceholderLabel()
         self.layoutBottomLines()
         self.layoutTextCountLabel()
@@ -49,14 +54,11 @@ final class HabitTextView: UITextView {
             $0.textColor = UIColor.init(hexString: "D7D7D7")
             $0.isHidden = false
         }
-        self.addSubview(self.placeholderLabel)
     }
     
     private func setupBottomLines() {
         self.firstBottomLine.backgroundColor = .black_10
         self.secondBottomLine.backgroundColor = .black_10
-        self.addSubview(self.firstBottomLine)
-        self.addSubview(self.secondBottomLine)
     }
     
     private func setupTextCountLabel() {
@@ -66,7 +68,6 @@ final class HabitTextView: UITextView {
             $0.textAlignment = .center
             $0.text = countText
         }
-        self.addSubview(self.textCountLabel)
     }
     
     private var countText: String {

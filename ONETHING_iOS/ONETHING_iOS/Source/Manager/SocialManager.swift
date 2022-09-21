@@ -20,7 +20,7 @@ final class SocialManager: NSObject {
     static let sharedInstance = SocialManager()
     
     func setup() {
-        KakaoSDKCommon.initSDK(appKey: SocialAccessType.kakao.appKey)
+        KakaoSDK.initSDK(appKey: SocialAccessType.kakao.appKey)
     }
     
     func handleSocialURLScheme(_ url: URL) {
