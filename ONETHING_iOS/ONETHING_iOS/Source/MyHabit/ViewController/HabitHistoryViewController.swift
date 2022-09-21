@@ -51,7 +51,7 @@ final class HabitHistoryViewController: UIViewController {
 }
 
 extension HabitHistoryViewController: MyHabitInfoViewDelegate {
-    func myHabitShareNavigationView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent) {
+    func myHabitInfoView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent) {
         switch event {
         case .backButton:
             self.dismiss(animated: true)

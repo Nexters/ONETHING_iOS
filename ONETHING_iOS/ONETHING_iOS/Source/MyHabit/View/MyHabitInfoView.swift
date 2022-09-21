@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol MyHabitInfoViewDelegate: AnyObject {
-    func myHabitShareNavigationView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent)
+    func myHabitInfoView(_ view: MyHabitInfoView, didOccur event: MyHabitInfoView.ViewEvent)
 }
 
 extension MyHabitInfoView {
@@ -135,7 +135,7 @@ final class MyHabitInfoView: UIView {
         self.backButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                self.delegate?.myHabitShareNavigationView(owner, didOccur: .backButton)
+                self.delegate?.myHabitInfoView(owner, didOccur: .backButton)
             })
             .disposed(by: self.disposeBag)
     }
