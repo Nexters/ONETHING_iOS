@@ -18,6 +18,7 @@ extension MyHabitInfoView {
     enum ViewEvent {
         case backButton
         case share
+        case delete
     }
 }
 
@@ -25,7 +26,7 @@ final class MyHabitInfoView: UIView {
     weak var delegate: MyHabitInfoViewDelegate?
     
     private let backButton = UIButton()
-    private let trashButton = UIButton()
+    private let deleteButton = UIButton()
     private let shareButton = UIButton()
     private let titleLabel = UILabel()
     private let resultLabel = UILabel()
@@ -60,7 +61,7 @@ final class MyHabitInfoView: UIView {
             $0.setImage(UIImage(named: "arrow_back")?.withRenderingMode(.alwaysTemplate), for: .normal)
         }
         
-        self.trashButton.do {
+        self.deleteButton.do {
             $0.tintColor = .white
             $0.setImage(UIImage(named: "trash")?.withRenderingMode(.alwaysTemplate), for: .normal)
         }
@@ -86,7 +87,7 @@ final class MyHabitInfoView: UIView {
         }
         
         self.addSubview(self.backButton)
-        self.addSubview(self.trashButton)
+        self.addSubview(self.deleteButton)
         self.addSubview(self.shareButton)
         self.addSubview(self.titleLabel)
         self.addSubview(self.resultLabel)
@@ -102,7 +103,7 @@ final class MyHabitInfoView: UIView {
             make.top.equalTo(topConstant)
         })
         
-        self.trashButton.snp.makeConstraints({ make in
+        self.deleteButton.snp.makeConstraints({ make in
             make.width.height.equalTo(24)
             make.trailing.equalTo(self.shareButton.snp.leading).offset(-14)
             
@@ -144,6 +145,13 @@ final class MyHabitInfoView: UIView {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 self.delegate?.myHabitInfoView(owner, didOccur: .share)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.deleteButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                self.delegate?.myHabitInfoView(owner, didOccur: .delete)
             })
             .disposed(by: self.disposeBag)
     }
