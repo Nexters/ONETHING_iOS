@@ -55,6 +55,19 @@ extension HabitHistoryViewController: MyHabitInfoViewDelegate {
         switch event {
         case .backButton:
             self.dismiss(animated: true)
+        case .share:
+            self.presentHabitShareViewController(selectedHabit: self.viewModel.presentable)
         }
     }
+    
+    private func presentHabitShareViewController(selectedHabit: MyHabitCellPresentable?) {
+        guard let selectedHabit = selectedHabit else { return }
+        
+        let habitShareViewController = MyHabitShareViewController()
+        habitShareViewController.setShareHabit(selectedHabit)
+        habitShareViewController.modalPresentationStyle = .fullScreen
+        self.present(habitShareViewController, animated: true, completion: nil)
+    }
+
 }
+

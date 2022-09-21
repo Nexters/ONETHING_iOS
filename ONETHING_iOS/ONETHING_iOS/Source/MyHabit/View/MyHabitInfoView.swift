@@ -17,6 +17,7 @@ protocol MyHabitInfoViewDelegate: AnyObject {
 extension MyHabitInfoView {
     enum ViewEvent {
         case backButton
+        case share
     }
 }
 
@@ -136,6 +137,13 @@ final class MyHabitInfoView: UIView {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 self.delegate?.myHabitInfoView(owner, didOccur: .backButton)
+            })
+            .disposed(by: self.disposeBag)
+        
+        self.shareButton.rx.tap
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                self.delegate?.myHabitInfoView(owner, didOccur: .share)
             })
             .disposed(by: self.disposeBag)
     }
