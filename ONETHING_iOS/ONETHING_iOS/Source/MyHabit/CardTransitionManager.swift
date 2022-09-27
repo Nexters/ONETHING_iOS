@@ -13,7 +13,6 @@ final class CardTransitionManager: NSObject {
         case dismissal
     }
     
-    weak var targetView: UIView?
     var cardView: CardView?
     private var widthOfTargetView: CGFloat?
     private var heightOfTargetView: CGFloat?
@@ -21,6 +20,9 @@ final class CardTransitionManager: NSObject {
     private var transition: CardTransitionType = .presentation
     private var transitionDuration: Double = 1.0
     private var shrinkDuration: Double = 0.2
+    
+    weak var targetView: UIView?
+    weak var presentingViewController: UIViewController?
     
     private func makeShrinkAnimator(for cardView: CardView) -> UIViewPropertyAnimator {
         return UIViewPropertyAnimator(duration: self.shrinkDuration, curve: .easeOut) {
@@ -104,9 +106,17 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
                 self.targetView?.isHidden = false
                 self.targetView = nil
                 self.cardView = nil
+                
+                self.presentingViewController = transitionContext.viewController(forKey: .to)
+                self.presentingViewController?.beginAppearanceTransition(true, animated: true)
                 transitionContext.completeTransition(true)
             })
         }
+    }
+    
+    func animationEnded(_ transitionCompleted: Bool) {
+        self.presentingViewController?.endAppearanceTransition()
+        self.presentingViewController = nil
     }
 }
 
