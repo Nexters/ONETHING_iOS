@@ -156,6 +156,7 @@ final class MyHabitViewController: BaseViewController {
     private let pageControl = UIPageControl()
     private let emptyView = MyHabitEmptyView(frame: .zero)
     private let loadingIndicator = NNLoadingIndicator()
+    private let transitionManager = CardTransitionManager()
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel
@@ -179,7 +180,23 @@ extension MyHabitViewController: UICollectionViewDelegate {
 
 extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
     func myhabitCollectionViewCellDidTap(_ cell: MyHabitCollectionViewCell) {
-        self.tabBarController?.showPreparePopupView()
+        self.presentHabitHistoryViewController(with: cell)
+    }
+    
+    private func presentHabitHistoryViewController(with cell: MyHabitCollectionViewCell) {
+        let habitHistoryViewController = HabitHistoryViewController(
+            viewModel: HabitHistoryViewModel(presentable: cell.presentable)
+        ).then {
+            $0.modalPresentationStyle = .overCurrentContext
+            $0.transitioningDelegate = self.transitionManager
+        }
+        
+        self.transitionManager.targetView = cell.contentView
+        self.transitionManager.cardView = CardView(
+            with: cell.contentView,
+            habitInfoViewModel: HabitInfoViewModel(presentable: cell.presentable)
+        )
+        self.present(habitHistoryViewController, animated: true)
     }
     
     func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: MyHabitCellPresentable) {
