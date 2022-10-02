@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HabitCalendarView: UICollectionView {
+final class HabitCollectionView: UICollectionView {
     let totalCellNumbers: Int
     let numberOfColumns: Int
     

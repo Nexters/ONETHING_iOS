@@ -17,7 +17,7 @@ final class HomeViewController: BaseViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
     let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
-    private let habitCalendarView = HabitCalendarView(
+    private let habitCollectionView = HabitCollectionView(
         frame: .zero,
         totalCellNumbers: HomeViewModel.defaultTotalDays,
         columnNumbers: 5
@@ -106,7 +106,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupUI() {
-        self.habitCalendarView.do {
+        self.habitCollectionView.do {
             $0.backgroundColor = .clear
             $0.dataSource = self.viewModel
             $0.registerCell(cellType: HabitCalendarCell.self)
@@ -119,7 +119,7 @@ final class HomeViewController: BaseViewController {
         }
         
         self.view.addSubview(self.habitInfoView)
-        self.view.addSubview(self.habitCalendarView)
+        self.view.addSubview(self.habitCollectionView)
         self.view.addSubview(self.backgroundDimView)
         self.view.addSubview(self.homeEmptyView)
         self.view.addSubview(self.loadingIndicator)
@@ -135,7 +135,7 @@ final class HomeViewController: BaseViewController {
             $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2)
         }
         
-        self.habitCalendarView.snp.makeConstraints {
+        self.habitCollectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.habitInfoView.snp.bottom)
             $0.bottom.equalToSuperview()
@@ -159,7 +159,7 @@ final class HomeViewController: BaseViewController {
             self?.router?.routeToHabitEditingViewController()
         }).disposed(by: self.disposeBag)
         
-        self.habitCalendarView.rx.itemSelected
+        self.habitCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.habitCalendarCellDidSelect(with: indexPath)
             }).disposed(by: disposeBag)
@@ -187,7 +187,7 @@ final class HomeViewController: BaseViewController {
             .bind { [weak self] _ in
                 guard let self = self else { return }
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
-                self.habitCalendarView.reloadData()
+                self.habitCollectionView.reloadData()
                 
                 self.presentPopupViewIfNeeded(with: self.viewModel.habitInProgressModel?.onethingHabitStatus)
             }
@@ -198,7 +198,7 @@ final class HomeViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
-                self.habitCalendarView.reloadItems(at: [indexPath])
+                self.habitCollectionView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
         
@@ -274,7 +274,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func updateContentViewHiddenStatus(_ isHidden: Bool) {
-        let views = [self.habitInfoView, self.habitCalendarView]
+        let views = [self.habitInfoView, self.habitCollectionView]
         views.forEach { $0.isHidden = isHidden }
     }
     
@@ -293,7 +293,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let cellDiameter = self.habitCalendarView.cellDiameter(superViewWidth: self.view.frame.width)
+        let cellDiameter = self.habitCollectionView.cellDiameter(superViewWidth: self.view.frame.width)
         return CGSize(width: cellDiameter, height: cellDiameter)
     }
     
@@ -311,7 +311,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
-        guard let habitCalendarView = collectionView as? HabitCalendarView else { return .zero }
+        guard let habitCalendarView = collectionView as? HabitCollectionView else { return .zero }
         return UIEdgeInsets(
             top: habitCalendarView.topConstant,
             left: habitCalendarView.leadingConstant,

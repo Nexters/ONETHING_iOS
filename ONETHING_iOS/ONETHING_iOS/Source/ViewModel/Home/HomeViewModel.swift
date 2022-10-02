@@ -283,7 +283,7 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
 
 extension HomeViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let habitCalendarView = collectionView as? HabitCalendarView else { return Self.defaultTotalDays }
+        guard let habitCalendarView = collectionView as? HabitCollectionView else { return Self.defaultTotalDays }
         return habitCalendarView.totalCellNumbers
     }
     

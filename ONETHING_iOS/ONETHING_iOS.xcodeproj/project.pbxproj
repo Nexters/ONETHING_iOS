@@ -591,9 +591,9 @@
 		F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
 		F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
 		F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
-		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
-		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
-		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
+		F293C3B6269C23430096757C /* HabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCollectionView.swift */; };
+		F293C3B7269C23430096757C /* HabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCollectionView.swift */; };
+		F293C3B8269C23430096757C /* HabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCollectionView.swift */; };
 		F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
 		F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
 		F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
@@ -917,7 +917,7 @@
 		F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDataSource+.swift"; sourceTree = "<group>"; };
 		F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForGiveUp.swift; sourceTree = "<group>"; };
 		F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenFail.swift; sourceTree = "<group>"; };
-		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
+		F293C3B5269C23430096757C /* HabitCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F293C3C5269D12940096757C /* HabitWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewController.swift; sourceTree = "<group>"; };
@@ -1277,7 +1277,7 @@
 				CE1F96C726AC0AAC006B56E4 /* Common */,
 				F267F9A6269A387000219B05 /* ProgressView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
-				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
+				F293C3B5269C23430096757C /* HabitCollectionView.swift */,
 				F293C3CD269D195D0096757C /* StampButton.swift */,
 				F293C3D5269D19BF0096757C /* Circleable.swift */,
 				F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */,
@@ -2230,7 +2230,7 @@
 				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
 				CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
-				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3B6269C23430096757C /* HabitCollectionView.swift in Sources */,
 				CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
@@ -2402,7 +2402,7 @@
 				896008F428A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3B8269C23430096757C /* HabitCollectionView.swift in Sources */,
 				CEE1D2C527FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
@@ -2587,7 +2587,7 @@
 				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				896008F328A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
-				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
+				F293C3B7269C23430096757C /* HabitCollectionView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CEE1D2C427FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -3020,14 +3020,14 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onethingss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3043,14 +3043,14 @@
 				CODE_SIGN_ENTITLEMENTS = "ONETHING_iOS/ONETHING_iOS Beta.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = NXRYTWY76F;
 				INFOPLIST_FILE = "ONETHING_iOS/Resource/Beta-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onething;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nexters.beta.onethingss;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_VERSION = 5.0;
