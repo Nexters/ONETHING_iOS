@@ -15,6 +15,9 @@ protocol HabitHistoryViewControllerDelegate: AnyObject {
 
 final class HabitHistoryViewController: UIViewController {
     private let myHabitInfoView = MyHabitInfoView()
+    private let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: HabitHistoryLayoutGuide.collectionViewFlowLayout)
     private var loadingIndicator = UIActivityIndicatorView(style: .medium)
     
     
@@ -25,6 +28,7 @@ final class HabitHistoryViewController: UIViewController {
     var viewsAreHidden: Bool = false {
         didSet {
             self.myHabitInfoView.isHidden = self.viewsAreHidden
+            self.collectionView.isHidden = self.viewsAreHidden
             self.view.backgroundColor = self.viewsAreHidden ? .clear : .white
         }
     }
@@ -44,6 +48,9 @@ final class HabitHistoryViewController: UIViewController {
         self.setupUI()
         self.setupLayout()
         self.myHabitInfoView.update(with: self.viewModel.habitInfoViewModel)
+        
+        self.observeViewModel()
+        self.viewModel.fetchDailyHabits()
     }
     
     private func setupUI() {
@@ -54,9 +61,16 @@ final class HabitHistoryViewController: UIViewController {
         self.myHabitInfoView.do {
             $0.delegate = self
         }
+        
+        self.collectionView.do {
+            $0.backgroundColor = .clear
+            $0.registerCell(cellType: HabitCalendarCell.self)
+            $0.registerCell(cellType: UICollectionViewCell.self)
+        }
      
         self.view.addSubview(self.loadingIndicator)
         self.view.addSubview(self.myHabitInfoView)
+        self.view.addSubview(self.collectionView)
     }
     
     private func setupLayout() {
@@ -67,6 +81,29 @@ final class HabitHistoryViewController: UIViewController {
         self.myHabitInfoView.snp.makeConstraints({ make in
             make.top.leading.trailing.equalToSuperview()
         })
+        
+        self.collectionView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.myHabitInfoView.snp.bottom)
+            $0.bottom.equalToSuperview()
+        }
+    }
+    
+    private func observeViewModel() {
+        self.viewModel.dailyHabitsObservable
+            .bind(to: self.collectionView.rx.items) { collectionView, index, dailyHabitModel in
+                let indexPath = IndexPath(row: index, section: 0)
+                let cellType = HabitCalendarCell.self
+                let cell = collectionView.dequeueReusableCell(cell: cellType, forIndexPath: indexPath)
+                
+                guard let habitCalendarCell = cell else { return UICollectionViewCell() }
+                
+                let stamp = dailyHabitModel.castingStamp ?? .beige
+                habitCalendarCell.update(stampImage: stamp.defaultImage)
+                
+                return habitCalendarCell
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 

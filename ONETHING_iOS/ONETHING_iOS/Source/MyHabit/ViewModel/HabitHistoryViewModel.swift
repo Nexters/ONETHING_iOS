@@ -8,10 +8,17 @@
 import UIKit
 
 import RxSwift
+import RxRelay
 
 final class HabitHistoryViewModel {
     let loadingSubject = PublishSubject<Bool>()
     let completeSubject = PublishSubject<Void>()
+    
+    var dailyHabitsObservable: Observable<[DailyHabitResponseModel]> {
+        self.dailyHabitsRelay.asObservable()
+    }
+    
+    private let dailyHabitsRelay = PublishRelay<[DailyHabitResponseModel]>()
     
     private let apiService: APIService
     private(set) var presentable: MyHabitCellPresentable?
@@ -22,6 +29,20 @@ final class HabitHistoryViewModel {
         self.apiService = apiService
         self.presentable = presentable
         self.habitInfoViewModel = HabitInfoViewModel(presentable: presentable)
+    }
+    
+    func fetchDailyHabits() {
+        guard let habitID = self.presentable?.habitId else { return }
+        
+        let apiTarget = ContentAPI.getDailyHistories(habitId: habitID)
+        self.apiService.requestRx(apiTarget: apiTarget, retryHandler: nil)
+            .asObservable()
+            .compactMap { response -> DailyHabitsResponseModel? in
+                ModelDecoder.decodeData(fromData: response.data, toType: DailyHabitsResponseModel.self)
+            }
+            .map { $0.histories }
+            .bind(to: self.dailyHabitsRelay)
+            .disposed(by: self.disposeBag)
     }
     
     func deleteHabit() {
