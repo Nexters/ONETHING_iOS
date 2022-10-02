@@ -17,6 +17,7 @@ final class HabitHistoryViewController: UIViewController {
     private let myHabitInfoView = MyHabitInfoView()
     private var loadingIndicator = UIActivityIndicatorView(style: .medium)
     
+    
     let viewModel: HabitHistoryViewModel
     private let disposeBag = DisposeBag()
     weak var delegate: HabitHistoryViewControllerDelegate?

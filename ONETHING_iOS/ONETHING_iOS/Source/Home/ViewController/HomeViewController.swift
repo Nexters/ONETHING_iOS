@@ -16,11 +16,10 @@ final class HomeViewController: BaseViewController {
     private var barStyle: UIStatusBarStyle = .lightContent
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
-    let habitInfoView = HabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
-    private let habitCollectionView = HabitCollectionView(
+    let habitInfoView = HomeHabitInfoView(frame: .zero, descriptionLabelTopConstant: 83)
+    private let collectionView = UICollectionView(
         frame: .zero,
-        totalCellNumbers: HomeViewModel.defaultTotalDays,
-        columnNumbers: 5
+        collectionViewLayout: HomeVCLayoutGuide.collectionViewFlowLayout
     )
     private let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
@@ -106,12 +105,11 @@ final class HomeViewController: BaseViewController {
     }
     
     private func setupUI() {
-        self.habitCollectionView.do {
+        self.collectionView.do {
             $0.backgroundColor = .clear
             $0.dataSource = self.viewModel
             $0.registerCell(cellType: HabitCalendarCell.self)
             $0.registerCell(cellType: UICollectionViewCell.self)
-            $0.delegate = self
         }
         
         self.homeEmptyView.do {
@@ -119,7 +117,7 @@ final class HomeViewController: BaseViewController {
         }
         
         self.view.addSubview(self.habitInfoView)
-        self.view.addSubview(self.habitCollectionView)
+        self.view.addSubview(self.collectionView)
         self.view.addSubview(self.backgroundDimView)
         self.view.addSubview(self.homeEmptyView)
         self.view.addSubview(self.loadingIndicator)
@@ -135,7 +133,7 @@ final class HomeViewController: BaseViewController {
             $0.height.equalTo(self.habitInfoView.snp.width).dividedBy(2)
         }
         
-        self.habitCollectionView.snp.makeConstraints {
+        self.collectionView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.habitInfoView.snp.bottom)
             $0.bottom.equalToSuperview()
@@ -159,7 +157,7 @@ final class HomeViewController: BaseViewController {
             self?.router?.routeToHabitEditingViewController()
         }).disposed(by: self.disposeBag)
         
-        self.habitCollectionView.rx.itemSelected
+        self.collectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.habitCalendarCellDidSelect(with: indexPath)
             }).disposed(by: disposeBag)
@@ -187,7 +185,7 @@ final class HomeViewController: BaseViewController {
             .bind { [weak self] _ in
                 guard let self = self else { return }
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
-                self.habitCollectionView.reloadData()
+                self.collectionView.reloadData()
                 
                 self.presentPopupViewIfNeeded(with: self.viewModel.habitInProgressModel?.onethingHabitStatus)
             }
@@ -198,7 +196,7 @@ final class HomeViewController: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 self.habitInfoView.progressView.update(ratio: self.viewModel.progressRatio)
-                self.habitCollectionView.reloadItems(at: [indexPath])
+                self.collectionView.reloadItems(at: [indexPath])
             })
             .disposed(by: self.disposeBag)
         
@@ -255,6 +253,15 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    private func presentHabitWritingViewController(with indexPath: IndexPath) {
+        let writingViewModel = HabitWritingViewModel(
+            habitId: self.viewModel.habitID ?? 1,
+            dailyHabitOrder: indexPath.row + 1,
+            session: Alamofire.AF
+        )
+        self.router?.routeToHabitWritingViewController(with: writingViewModel)
+    }
+    
     private func revealEmptyViewAndHideMainView() {
         self.barStyle = .darkContent
         self.setNeedsStatusBarAppearanceUpdate()
@@ -274,7 +281,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func updateContentViewHiddenStatus(_ isHidden: Bool) {
-        let views = [self.habitInfoView, self.habitCollectionView]
+        let views = [self.habitInfoView, self.collectionView]
         views.forEach { $0.isHidden = isHidden }
     }
     
@@ -284,48 +291,6 @@ final class HomeViewController: BaseViewController {
         
         self.viewModel.update(nickname: nickname)
         self.habitInfoView.update(with: self.viewModel)
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let cellDiameter = self.habitCollectionView.cellDiameter(superViewWidth: self.view.frame.width)
-        return CGSize(width: cellDiameter, height: cellDiameter)
-    }
-    
-    private func presentHabitWritingViewController(with indexPath: IndexPath) {
-        let writingViewModel = HabitWritingViewModel(
-            habitId: self.viewModel.habitID ?? 1,
-            dailyHabitOrder: indexPath.row + 1,
-            session: Alamofire.AF
-        )
-        self.router?.routeToHabitWritingViewController(with: writingViewModel)
-    }
-    
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        insetForSectionAt section: Int
-    ) -> UIEdgeInsets {
-        guard let habitCalendarView = collectionView as? HabitCollectionView else { return .zero }
-        return UIEdgeInsets(
-            top: habitCalendarView.topConstant,
-            left: habitCalendarView.leadingConstant,
-            bottom: habitCalendarView.bottomConstant,
-            right: habitCalendarView.trailingConstant
-        )
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
     }
 }
 
