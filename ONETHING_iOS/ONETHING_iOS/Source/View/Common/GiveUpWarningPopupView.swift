@@ -16,67 +16,62 @@ final class GiveUpWarningPopupView: NNConfirmPopupView {
         $0.textAlignment = .center
     }
     
-    override func setupContentView() {
-        super.setupContentView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        self.setupDayNumberLabel()
-        self.setupDayLabel()
+        self.heightOfContentView = 184.0
     }
     
-    override var heightOfContentView: CGFloat {
-        return 184.0
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
-    func update(with viewModel: GiveUpWarningPopupViewPresentable) {
-        self.dayNumberLabel.text = viewModel.currentDayText
-        self.subTitleLabel.attributedText = viewModel.subTitleTextOfGiveupWarningPopupView
-    }
-    
-    private func setupDayLabel() {
-        self.addSubview(self.dayView)
-        self.dayView.snp.makeConstraints {
-            $0.top.equalTo(self.contentView).offset(30.0)
-            $0.centerX.equalTo(self.contentView)
-        }
-        
-        self.setupDayTextLabel()
-        self.setupSubTitleLabel()
-    }
-    
-    private func setupDayNumberLabel() {
+    override func setupUI() {
+        super.setupUI()
         self.dayNumberLabel.do {
             $0.font = UIFont(name: FontType.montserrat(weight: .regular).fontName, size: 36.0)
             $0.textColor = .red_default
         }
-        
-        self.dayView.addSubview(self.dayNumberLabel)
-        self.dayNumberLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.bottom.equalToSuperview()
-            $0.leading.equalToSuperview()
-        }
-    }
-        
-    private func setupDayTextLabel() {
         self.dayTextLabel.do {
             $0.text = "일차"
             $0.font = UIFont(name: FontType.pretendard(weight: .regular).fontName, size: 12.0)
             $0.textColor = .red_default
         }
         
+        self.addSubview(self.dayView)
+        self.dayView.addSubview(self.dayNumberLabel)
         self.dayView.addSubview(self.dayTextLabel)
+        self.addSubview(self.subTitleLabel)
+    }
+    
+    override func layoutUI() {
+        super.layoutUI()
+        
+        self.dayView.snp.makeConstraints {
+            $0.top.equalTo(self.contentView).offset(30.0)
+            $0.centerX.equalTo(self.contentView)
+        }
+        
+        self.dayNumberLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.leading.equalToSuperview()
+        }
+        
         self.dayTextLabel.snp.makeConstraints {
             $0.leading.equalTo(self.dayNumberLabel.snp.trailing).offset(5.0)
             $0.trailing.equalToSuperview()
             $0.lastBaseline.equalTo(self.dayNumberLabel)
         }
-    }
-    
-    private func setupSubTitleLabel() {
-        self.addSubview(self.subTitleLabel)
+        
         self.subTitleLabel.snp.makeConstraints {
             $0.bottom.equalTo(self.contentView).offset(-20)
             $0.centerX.equalToSuperview()
         }
+    }
+    
+    func update(with viewModel: GiveUpWarningPopupViewPresentable) {
+        self.dayNumberLabel.text = viewModel.currentDayText
+        self.subTitleLabel.attributedText = viewModel.subTitleTextOfGiveupWarningPopupView
     }
 }

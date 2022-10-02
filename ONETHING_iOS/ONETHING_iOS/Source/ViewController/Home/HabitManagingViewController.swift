@@ -91,8 +91,9 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         self.view.bringSubviewToFront(self.loadingIndicator)
     }
     
-    private var startAgainPopupView: StartAgainPopupView {
-        return StartAgainPopupView().then {
+    private var startAgainPopupView: TitleSubTitleConfirmPopupView {
+        return TitleSubTitleConfirmPopupView().then {
+            $0.heightOfContentView = 184.0
             $0.update(with: self.viewModel)
             self.observeViewModel(with: $0)
             $0.confirmAction = { [weak self] _ in
@@ -164,7 +165,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
             }).disposed(by: self.disposeBag)
     }
     
-    private func observeViewModel(with popupView: StartAgainPopupView) {
+    private func observeViewModel(with popupView: TitleSubTitleConfirmPopupView) {
         self.viewModel.loadingSubject
             .subscribe(onNext: { [weak self, weak popupView] loading in
                 popupView?.buttons.forEach {

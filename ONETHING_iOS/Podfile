@@ -15,6 +15,7 @@ abstract_target 'ONETHING_iOS' do
   pod 'Alamofire', '~> 5.4.3' 
   pod 'Kingfisher', '~> 7.0'
   pod 'ActiveLabel'
+  pod 'Toaster'
   pod 'Then'
   pod 'Carte'
   pod 'lottie-ios'

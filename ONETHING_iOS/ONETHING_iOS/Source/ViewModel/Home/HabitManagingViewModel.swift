@@ -29,7 +29,8 @@ final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
         let restartAPI: ContentAPI = ContentAPI.putReStart(habitId: habitID)
         self.apiService.requestRx(apiTarget: restartAPI, retryHandler: { [weak self] in
             self?.executeReStart()
-        }).subscribe(onSuccess: { response in
+        }).subscribe(onSuccess: { [weak self] response in
+            guard let self = self else { return }
             self.loadingSubject.onNext(false)
             
             guard response.statusCode == 200 else { return }
@@ -51,40 +52,6 @@ final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
     
     func update(habitInProgressModel: HabitResponseModel?) {
         self.habitInProgressModel = habitInProgressModel
-    }
-    
-    var titleTextOfStartAgainPopupView: NSAttributedString? {
-        guard let pretendardFont = UIFont.createFont(
-            type: .pretendard(weight: .semiBold),
-            size: 16)
-        else { return nil }
-        
-        let titleText = "지금의 습관을\n1일부터 다시 시작하면\n기존의 기록은\n영구적으로 삭제돼요."
-        let attributeText = NSMutableAttributedString(
-            string: titleText,
-            attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
-        )
-        attributeText.addAttribute(
-            .foregroundColor,
-            value: UIColor.red_default,
-            range: (titleText as NSString).range(of: "기존의 기록은\n영구적으로 삭제돼요.")
-        )
-        
-        return attributeText.with(lineSpacing: 4.0)
-    }
-    
-    var subTitleTextOfStartAgainPopupView: NSAttributedString? {
-        guard let pretendardFont = UIFont.createFont(
-            type: .pretendard(weight: .semiBold),
-            size: 16)
-        else { return nil }
-        
-        let titleText = "그래도 다시 시작할까요?"
-        let attributeText = NSMutableAttributedString(
-            string: titleText,
-            attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
-        )
-        return attributeText
     }
     
     enum Menu: CaseIterable {
@@ -114,5 +81,41 @@ final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
 extension HabitManagingViewModel: FailPopupViewPresentable {
     var reasonTextOfFailPopupView: String? {
         return "사유: 습관 그만하기"
+    }
+}
+
+extension HabitManagingViewModel: TitleSubTitleConfirmViewModel {
+    var titleText: NSAttributedString? {
+        guard let pretendardFont = UIFont.createFont(
+            type: .pretendard(weight: .semiBold),
+            size: 16)
+        else { return nil }
+        
+        let titleText = "지금의 습관을\n1일부터 다시 시작하면\n기존의 기록은\n영구적으로 삭제돼요."
+        let attributeText = NSMutableAttributedString(
+            string: titleText,
+            attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
+        )
+        attributeText.addAttribute(
+            .foregroundColor,
+            value: UIColor.red_default,
+            range: (titleText as NSString).range(of: "기존의 기록은\n영구적으로 삭제돼요.")
+        )
+        
+        return attributeText.with(lineSpacing: 4.0)
+    }
+    
+    var subTitleText: NSAttributedString? {
+        guard let pretendardFont = UIFont.createFont(
+            type: .pretendard(weight: .semiBold),
+            size: 16)
+        else { return nil }
+        
+        let titleText = "그래도 다시 시작할까요?"
+        let attributeText = NSMutableAttributedString(
+            string: titleText,
+            attributes: [.font: pretendardFont, .foregroundColor: UIColor.black_100]
+        )
+        return attributeText
     }
 }

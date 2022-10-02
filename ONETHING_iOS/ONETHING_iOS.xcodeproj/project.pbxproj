@@ -32,9 +32,9 @@
 		5AF85B9E27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
 		5AF85B9F27D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
 		5AF85BA027D2061400DF7645 /* NNConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */; };
-		5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
-		5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
-		5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */; };
+		5AF85BA227D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift */; };
+		5AF85BA327D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift */; };
+		5AF85BA427D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF85BA127D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift */; };
 		894380FE27DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
 		894380FF27DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
 		8943810027DB6A9900354B4C /* NotifyPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894380FD27DB6A9900354B4C /* NotifyPopupView.swift */; };
@@ -704,7 +704,7 @@
 		5ADD33102786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForWriteSuccess.swift; sourceTree = "<group>"; };
 		5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitManagingViewModel.swift; sourceTree = "<group>"; };
 		5AF85B9D27D2061400DF7645 /* NNConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNConfirmPopupView.swift; sourceTree = "<group>"; };
-		5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAgainPopupView.swift; sourceTree = "<group>"; };
+		5AF85BA127D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubTitleConfirmPopupView.swift; sourceTree = "<group>"; };
 		5FEA331C4947A5864B7FF8BA /* Pods-ONETHING_iOS-ONETHING.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING/Pods-ONETHING_iOS-ONETHING.debug.xcconfig"; sourceTree = "<group>"; };
 		61B8669F4FAAFF0F591B05CF /* Pods_ONETHING_iOS_ONETHING_Beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING_Beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AADB33EE0B42B5E5DFDCA1 /* Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; path = "Target Support Files/Pods-ONETHING_iOS-ONETHING Ent/Pods-ONETHING_iOS-ONETHING Ent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1304,7 +1304,7 @@
 				F200E4B826D5D4620084BAB9 /* PenaltyTextableView.xib */,
 				F200E4BC26D5D5470084BAB9 /* PenaltyTextableView.swift */,
 				F21CCD2626D6874E0067FDD1 /* ColorSelectButton.swift */,
-				5AF85BA127D20AB400DF7645 /* StartAgainPopupView.swift */,
+				5AF85BA127D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift */,
 				8943810127DB749A00354B4C /* DelayNotifyPopupView.swift */,
 				89C1E239282945D7002785CB /* WritingScrollView.swift */,
 			);
@@ -2267,7 +2267,7 @@
 				CEAABCE727D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F20B574526A8246600391D45 /* Stamp.swift in Sources */,
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
-				5AF85BA227D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85BA227D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
@@ -2467,7 +2467,7 @@
 				CEAABCE927D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				CEC6C36F26B32AC7007C4ACC /* RecommendedResponseHabitModel.swift in Sources */,
 				CEE8AB1626BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
-				5AF85BA427D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85BA427D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */,
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
@@ -2655,7 +2655,7 @@
 				CEAABCE827D4AA7E005B8381 /* MyHabitShareFirstTypeView.swift in Sources */,
 				F2A614AA26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
-				5AF85BA327D20AB400DF7645 /* StartAgainPopupView.swift in Sources */,
+				5AF85BA327D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,

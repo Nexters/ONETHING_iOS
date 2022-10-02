@@ -6,10 +6,13 @@
 //
 
 import UIKit
+
 import Then
+import Toaster
 import SnapKit
 import RxCocoa
 import RxSwift
+
 
 final class MyHabitViewController: BaseViewController {
     
@@ -187,7 +190,8 @@ extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
         let habitHistoryViewController = HabitHistoryViewController(
             viewModel: HabitHistoryViewModel(presentable: cell.presentable)
         ).then {
-            $0.modalPresentationStyle = .overCurrentContext
+            $0.delegate = self
+            $0.modalPresentationStyle = .overFullScreen
             $0.transitioningDelegate = self.transitionManager
         }
         
@@ -210,4 +214,18 @@ extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
         self.present(habitShareViewController, animated: true, completion: nil)
     }
 
+}
+
+extension MyHabitViewController: HabitHistoryViewControllerDelegate {
+    func habitHistoryViewControllerDidDeleteHabit(_ habitHistoryViewController: HabitHistoryViewController, deletedHabitID: Int) {
+        self.viewModel.fetchHabitHistory()
+        
+        guard let deletedHabitTitle = habitHistoryViewController.viewModel.presentable?.title,
+              let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
+        else { return }
+        
+        ToastView.appearance().font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
+        ToastView.appearance().bottomOffsetPortrait = tabBarHeight + DeviceInfo.safeAreaBottomInset
+        Toast(text: "\(deletedHabitTitle) 습관이 삭제되었습니다.", duration: Delay.short).show()
+    }
 }

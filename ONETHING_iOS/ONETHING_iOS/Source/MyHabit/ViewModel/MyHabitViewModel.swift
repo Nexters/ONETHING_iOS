@@ -37,7 +37,7 @@ final class MyHabitViewModel {
         }
     }
     
-    private func fetchHabitHistory() {
+    func fetchHabitHistory() {
         self.loadingSubject.onNext(true)
         self.habitRepository.fetchAllHabit()
             .do(onDispose:  { [weak self] in
