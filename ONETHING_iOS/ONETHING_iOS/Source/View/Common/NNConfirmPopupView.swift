@@ -126,7 +126,7 @@ class NNConfirmPopupView: UIView {
         backgroundDimView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        backgroundDimView.showCrossDissolve(completedAlpha: backgroundDimView.completedAlpha)
+        backgroundDimView.showCrossDissolve(completedAlpha: BackgroundDimView.completedAlpha)
         self.backgroundDimView = backgroundDimView
     }
     

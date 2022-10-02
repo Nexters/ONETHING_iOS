@@ -11,14 +11,11 @@ import RxSwift
 import RxRelay
 
 final class HabitHistoryViewModel {
+    static let defaultTotalDays = 66
+    
     let loadingSubject = PublishSubject<Bool>()
     let completeSubject = PublishSubject<Void>()
-    
-    var dailyHabitsObservable: Observable<[DailyHabitResponseModel]> {
-        self.dailyHabitsRelay.asObservable()
-    }
-    
-    private let dailyHabitsRelay = PublishRelay<[DailyHabitResponseModel]>()
+    let dailyHabitsRelay = BehaviorRelay<[DailyHabitResponseModel]>(value: [])
     
     private let apiService: APIService
     private(set) var presentable: MyHabitCellPresentable?
@@ -31,12 +28,21 @@ final class HabitHistoryViewModel {
         self.habitInfoViewModel = HabitInfoViewModel(presentable: presentable)
     }
     
+    func dailyHabitResponseModel(at index: Int) -> DailyHabitResponseModel? {
+        let dailyHabits = self.dailyHabitsRelay.value
+        return dailyHabits[safe: index]
+    }
+    
     func fetchDailyHabits() {
         guard let habitID = self.presentable?.habitId else { return }
         
+        self.loadingSubject.onNext(true)
         let apiTarget = ContentAPI.getDailyHistories(habitId: habitID)
         self.apiService.requestRx(apiTarget: apiTarget, retryHandler: nil)
             .asObservable()
+            .do(onDispose: { [weak self] in
+                self?.loadingSubject.onNext(false)
+            })
             .compactMap { response -> DailyHabitsResponseModel? in
                 ModelDecoder.decodeData(fromData: response.data, toType: DailyHabitsResponseModel.self)
             }
@@ -46,9 +52,9 @@ final class HabitHistoryViewModel {
     }
     
     func deleteHabit() {
-        self.loadingSubject.onNext(true)
-        
         guard let habitID = self.presentable?.habitId else { return }
+        
+        self.loadingSubject.onNext(true)
         let deleteAPI: ContentAPI = ContentAPI.deleteHabit(habitId: habitID)
         self.apiService.requestRx(apiTarget: deleteAPI, retryHandler: { [weak self] in
             self?.deleteHabit()

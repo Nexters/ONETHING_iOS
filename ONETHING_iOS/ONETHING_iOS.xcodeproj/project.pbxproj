@@ -68,6 +68,9 @@
 		89A2338128E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
 		89A2338228E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
 		89A2338328E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
+		89A2338528E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
+		89A2338628E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
+		89A2338728E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
 		89C1E23A282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23B282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23C282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
@@ -725,6 +728,7 @@
 		896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLoadingIndicator.swift; sourceTree = "<group>"; };
 		89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLayoutGuide.swift; sourceTree = "<group>"; };
 		89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistoryLayoutGuide.swift; sourceTree = "<group>"; };
+		89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenVCParentable.swift; sourceTree = "<group>"; };
 		89C1E239282945D7002785CB /* WritingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingScrollView.swift; sourceTree = "<group>"; };
 		89C58A1D28CF3D3200613DD6 /* HabitHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistoryViewModel.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1037,6 +1041,7 @@
 				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
 				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
 				5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */,
+				89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2356,6 +2361,7 @@
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BC28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338528E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2559,6 +2565,7 @@
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BE28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338728E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2746,6 +2753,7 @@
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BD28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338628E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

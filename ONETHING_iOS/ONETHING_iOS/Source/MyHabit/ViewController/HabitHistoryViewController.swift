@@ -8,12 +8,14 @@
 import UIKit
 
 import RxSwift
+import RxCocoa
 
 protocol HabitHistoryViewControllerDelegate: AnyObject {
     func habitHistoryViewControllerDidDeleteHabit(_ habitHistoryViewController: HabitHistoryViewController, deletedHabitID: Int)
 }
 
-final class HabitHistoryViewController: UIViewController {
+final class HabitHistoryViewController: UIViewController, HabitWrittentVCParentable {
+    let backgroundDimView = BackgroundDimView()
     private let myHabitInfoView = MyHabitInfoView()
     private let collectionView = UICollectionView(
         frame: .zero,
@@ -28,8 +30,8 @@ final class HabitHistoryViewController: UIViewController {
     var viewsAreHidden: Bool = false {
         didSet {
             self.myHabitInfoView.isHidden = self.viewsAreHidden
-            self.collectionView.isHidden = self.viewsAreHidden
             self.view.backgroundColor = self.viewsAreHidden ? .clear : .white
+            self.viewsAreHidden == true ? self.collectionView.isHidden = true : self.collectionView.showCrossDissolve()
         }
     }
     
@@ -48,12 +50,14 @@ final class HabitHistoryViewController: UIViewController {
         self.setupUI()
         self.setupLayout()
         self.myHabitInfoView.update(with: self.viewModel.habitInfoViewModel)
+        self.bindUI()
         
         self.observeViewModel()
         self.viewModel.fetchDailyHabits()
     }
     
     private func setupUI() {
+        self.view.backgroundColor = .white
         self.loadingIndicator.do {
             $0.stopAnimating()
         }
@@ -63,6 +67,7 @@ final class HabitHistoryViewController: UIViewController {
         }
         
         self.collectionView.do {
+            $0.dataSource = self
             $0.backgroundColor = .clear
             $0.registerCell(cellType: HabitCalendarCell.self)
             $0.registerCell(cellType: UICollectionViewCell.self)
@@ -71,6 +76,7 @@ final class HabitHistoryViewController: UIViewController {
         self.view.addSubview(self.loadingIndicator)
         self.view.addSubview(self.myHabitInfoView)
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.backgroundDimView)
     }
     
     private func setupLayout() {
@@ -87,23 +93,79 @@ final class HabitHistoryViewController: UIViewController {
             $0.top.equalTo(self.myHabitInfoView.snp.bottom)
             $0.bottom.equalToSuperview()
         }
+        
+        self.backgroundDimView.snp.makeConstraints {
+            $0.leading.top.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+    private func bindUI() {
+        self.collectionView.rx.itemSelected
+            .withUnretained(self)
+            .subscribe(onNext: { owner, indexPath in
+                guard let responseModel = owner.viewModel.dailyHabitsRelay.value[safe: indexPath.item],
+                      let sentenceForDelay = owner.viewModel.presentable?.sentenceForDelay
+                else {
+                    return
+                }
+                
+                let dailyHabitModel = DailyHabitModel(
+                    order: indexPath.item + 1,
+                    sentenceForDelay: sentenceForDelay,
+                    responseModel: responseModel
+                )
+                owner.routeToHabitWrittenViewController(with: dailyHabitModel)
+            }).disposed(by: self.disposeBag)
     }
     
     private func observeViewModel() {
-        self.viewModel.dailyHabitsObservable
-            .bind(to: self.collectionView.rx.items) { collectionView, index, dailyHabitModel in
-                let indexPath = IndexPath(row: index, section: 0)
-                let cellType = HabitCalendarCell.self
-                let cell = collectionView.dequeueReusableCell(cell: cellType, forIndexPath: indexPath)
-                
-                guard let habitCalendarCell = cell else { return UICollectionViewCell() }
-                
-                let stamp = dailyHabitModel.castingStamp ?? .beige
-                habitCalendarCell.update(stampImage: stamp.defaultImage)
-                
-                return habitCalendarCell
-            }
+        self.viewModel
+            .dailyHabitsRelay
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                owner.collectionView.reloadData()
+            })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
+        let habitWrittenViewController = HabitWrittenViewController().then {
+            $0.viewModel = HabitWrittenViewModel(dailyHabitModel: dailyHabitModel)
+        }
+        
+        let tapGestureForDimView = self.makeTapGestureRecognizerOfDimView(for: habitWrittenViewController)
+        self.backgroundDimView.addTapGestureRecognizer(tapGestureForDimView)
+        self.backgroundDimView.showCrossDissolve(completedAlpha: BackgroundDimView.completedAlpha)
+        habitWrittenViewController.didMove(toViewController: self)
+    }
+    
+    private func makeTapGestureRecognizerOfDimView(for habitWrittenViewController: HabitWrittenViewController) -> UITapGestureRecognizer {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.rx.event
+            .subscribe(onNext: { owner in
+                habitWrittenViewController.removeFromParentVC()
+            })
+            .disposed(by: self.disposeBag)
+        return tapGestureRecognizer
+    }
+}
+
+extension HabitHistoryViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return HabitHistoryViewModel.defaultTotalDays
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let habitCalendarCell = collectionView.dequeueReusableCell(cell: HabitCalendarCell.self, forIndexPath: indexPath)
+        else { return self.defaultCell(collectionView: collectionView, indexPath: indexPath) }
+        
+        if let dailyHabitResponseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
+            habitCalendarCell.setup(with: dailyHabitResponseModel)
+        } else {
+            habitCalendarCell.setup(numberText: "\(indexPath.item + 1)")
+        }
+        
+        return habitCalendarCell
     }
 }
 
@@ -169,4 +231,3 @@ extension HabitHistoryViewController: MyHabitInfoViewDelegate {
             }).disposed(by: self.disposeBag)
     }
 }
-

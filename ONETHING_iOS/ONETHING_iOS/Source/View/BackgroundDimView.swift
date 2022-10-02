@@ -39,7 +39,7 @@ final class BackgroundDimView: UIView {
         self.tapGesture = nil
     }
     
-    var completedAlpha: CGFloat {
+    static var completedAlpha: CGFloat {
         return 0.6
     }
 }

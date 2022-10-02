@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import Alamofire
 
-final class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController, HabitWrittentVCParentable {
     private var barStyle: UIStatusBarStyle = .lightContent
     override var preferredStatusBarStyle: UIStatusBarStyle { return self.barStyle }
     
@@ -21,7 +21,7 @@ final class HomeViewController: BaseViewController {
         frame: .zero,
         collectionViewLayout: HomeVCLayoutGuide.collectionViewFlowLayout
     )
-    private let backgroundDimView = BackgroundDimView()
+    let backgroundDimView = BackgroundDimView()
     private let homeEmptyView = HomeEmptyView().then { $0.isHidden = true }
     private let loadingIndicator = NNLoadingIndicator()
     weak var delayPopupView: DelayPopupView?
@@ -72,24 +72,6 @@ final class HomeViewController: BaseViewController {
     
     override func clearContents() {
         self.viewModel.clearModels()
-    }
-    
-    // MARK: - Internal Methods
-    
-    func showDimView() {
-        self.backgroundDimView.showCrossDissolve(completedAlpha: self.backgroundDimView.completedAlpha)
-    }
-    
-    func hideDimView() {
-        self.backgroundDimView.hideCrossDissolve()
-    }
-    
-    func addDimTapGestureRecognizer(_ tapGestureRecognizer: UITapGestureRecognizer) {
-        self.backgroundDimView.addTapGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    func removeDimRecognizer() {
-        self.backgroundDimView.removeTapGestureRecognizer()
     }
     
     // MARK: - Private Methods
@@ -178,7 +160,7 @@ final class HomeViewController: BaseViewController {
                 self.viewModel.requestDailyHabits(habitId: habitInProgressModel.habitId)
                 self.habitInfoView.update(with: self.viewModel)
             }
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
         
         self.viewModel
             .dailyHabitsSubject
