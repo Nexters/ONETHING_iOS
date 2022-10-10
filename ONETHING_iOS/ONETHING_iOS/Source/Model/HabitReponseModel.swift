@@ -22,7 +22,10 @@ struct HabitResponseModel: Codable {
 }
 
 extension HabitResponseModel: MyHabitCellPresentable {
-
+    var sentenceForDelay: String {
+        return self.sentence
+    }
+    
     var onethingHabitStatus: HabitStatus? {
         guard let status = HabitStatus(rawValue: self.habitStatus) else { return nil }
         return status

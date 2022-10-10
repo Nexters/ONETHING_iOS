@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HabitInfoView: UIView {
+final class HomeHabitInfoView: UIView {
     let progressView = ProgressView()
     let settingButton = SettingButton()
     private let descriptionLabel = UILabel()

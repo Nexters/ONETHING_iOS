@@ -283,37 +283,29 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
 
 extension HomeViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let habitCalendarView = collectionView as? HabitCalendarView else { return Self.defaultTotalDays }
-        return habitCalendarView.totalCellNumbers
+        return Self.defaultTotalDays
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let habitCalendarCell = collectionView.dequeueReusableCell(cell: HabitCalendarCell.self, forIndexPath: indexPath)
         else { return self.defaultCell(collectionView: collectionView, indexPath: indexPath) }
         
-        guard let dailyHabitModel = self.dailyHabitModels[safe: indexPath.row]
-        else { return self.makeCellWithNumbers(with: indexPath, cell: habitCalendarCell) }
-        
-        let stamp = dailyHabitModel.castingStamp ?? Stamp.beige
-        habitCalendarCell.set(isWrtten: true)
-        habitCalendarCell.update(stampImage: stamp.defaultImage)
-        habitCalendarCell.clearNumberText()
+        if let dailyHabitResponseModel = self.dailyHabitModels[safe: indexPath.row] {
+            habitCalendarCell.setup(with: dailyHabitResponseModel)
+        } else {
+            self.setupCellWithNumbers(habitCalendarCell, with: indexPath)
+        }
         
         return habitCalendarCell
     }
     
-    private func makeCellWithNumbers(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) -> HabitCalendarCell {
-        self.makeCellHighlightedIfToday(with: indexPath, cell: habitCalendarCell)
+    private func setupCellWithNumbers(_ habitCalendarCell: HabitCalendarCell, with indexPath: IndexPath) {
+        let isToday = self.canCreateCurrentDailyHabitModel(with: indexPath.row)
+        if isToday {
+            habitCalendarCell.setupIsToday()
+        }
         
         habitCalendarCell.setup(numberText: self.numberText(with: indexPath))
-        return habitCalendarCell
-    }
-    
-    private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
-        guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
-        
-        habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
-        habitCalendarCell.update(textColor: UIColor.red_3)
     }
     
     func numberText(with indexPath: IndexPath) -> String {

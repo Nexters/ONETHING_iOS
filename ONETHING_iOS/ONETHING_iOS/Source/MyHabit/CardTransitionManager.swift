@@ -89,7 +89,7 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
             self.moveAndConvertToCardView(cardView: cardView, containerView: containerView, completion: {
                 self.targetView?.isHidden = false
                 habitHistoryViewController.viewsAreHidden = false
-                cardView.layoutIfNeeded()
+                cardView.isHidden = true
                 transitionContext.completeTransition(true)
             })
         case .dismissal:
@@ -99,6 +99,7 @@ extension CardTransitionManager: UIViewControllerAnimatedTransitioning {
                     as? HabitHistoryViewController
             else { return }
             
+            cardView.isHidden = false
             habitHistoryViewController.viewsAreHidden = true
             cardView.frame = CGRect(x: 0, y: 0, width: DeviceInfo.screenWidth, height: cardView.originalFrame.height)
             self.targetView?.isHidden = true

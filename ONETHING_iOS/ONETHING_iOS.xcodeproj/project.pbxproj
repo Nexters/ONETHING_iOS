@@ -62,6 +62,15 @@
 		896008F228A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
 		896008F328A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
 		896008F428A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */; };
+		89A2337928E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
+		89A2337A28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
+		89A2337B28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
+		89A2338128E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
+		89A2338228E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
+		89A2338328E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */; };
+		89A2338528E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
+		89A2338628E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
+		89A2338728E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */; };
 		89C1E23A282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23B282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
 		89C1E23C282945D7002785CB /* WritingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1E239282945D7002785CB /* WritingScrollView.swift */; };
@@ -548,9 +557,9 @@
 		F25571A326A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
 		F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A226A437DD005A1AAF /* ViewTag.swift */; };
-		F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
-		F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
-		F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HabitInfoView.swift */; };
+		F25571A726A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HomeHabitInfoView.swift */; };
+		F25571A826A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HomeHabitInfoView.swift */; };
+		F25571A926A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25571A626A43A55005A1AAF /* HomeHabitInfoView.swift */; };
 		F25AE3662718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
 		F25AE3672718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
 		F25AE3682718359F009A59C6 /* SuccessPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */; };
@@ -591,9 +600,6 @@
 		F289D29526DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
 		F289D29626DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
 		F289D29726DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */; };
-		F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
-		F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
-		F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B5269C23430096757C /* HabitCalendarView.swift */; };
 		F293C3BA269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
 		F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
 		F293C3BC269CFE640096757C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293C3B9269CFE640096757C /* MainTabBarController.swift */; };
@@ -720,6 +726,9 @@
 		8950B4BF28CF19750063CD73 /* HabitInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoViewModel.swift; sourceTree = "<group>"; };
 		8950B4C328CF1F4E0063CD73 /* MyHabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitInfoView.swift; sourceTree = "<group>"; };
 		896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLoadingIndicator.swift; sourceTree = "<group>"; };
+		89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLayoutGuide.swift; sourceTree = "<group>"; };
+		89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistoryLayoutGuide.swift; sourceTree = "<group>"; };
+		89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenVCParentable.swift; sourceTree = "<group>"; };
 		89C1E239282945D7002785CB /* WritingScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingScrollView.swift; sourceTree = "<group>"; };
 		89C58A1D28CF3D3200613DD6 /* HabitHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistoryViewModel.swift; sourceTree = "<group>"; };
 		8C0C6A2FFB89BA4ACC17B862 /* Pods_ONETHING_iOS_ONETHING.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ONETHING_iOS_ONETHING.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -902,7 +911,7 @@
 		F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyView.swift; sourceTree = "<group>"; };
 		F255719E26A432CE005A1AAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		F25571A226A437DD005A1AAF /* ViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTag.swift; sourceTree = "<group>"; };
-		F25571A626A43A55005A1AAF /* HabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoView.swift; sourceTree = "<group>"; };
+		F25571A626A43A55005A1AAF /* HomeHabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHabitInfoView.swift; sourceTree = "<group>"; };
 		F25AE3652718359F009A59C6 /* SuccessPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewController.swift; sourceTree = "<group>"; };
 		F25AE369271835C1009A59C6 /* SuccessPopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopupViewModel.swift; sourceTree = "<group>"; };
 		F25AE36D27183BC9009A59C6 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
@@ -917,7 +926,6 @@
 		F27E217626BBA1B200020EE3 /* UICollectionViewDataSource+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewDataSource+.swift"; sourceTree = "<group>"; };
 		F289D29026DF3CB50019B3FA /* FakeAPIServiceForGiveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForGiveUp.swift; sourceTree = "<group>"; };
 		F289D29426DF72220019B3FA /* FakeAPIServiceForUnseenFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAPIServiceForUnseenFail.swift; sourceTree = "<group>"; };
-		F293C3B5269C23430096757C /* HabitCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCalendarView.swift; sourceTree = "<group>"; };
 		F293C3B9269CFE640096757C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F293C3BD269D011B0096757C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		F293C3C5269D12940096757C /* HabitWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWritingViewController.swift; sourceTree = "<group>"; };
@@ -1011,6 +1019,40 @@
 				5ADD32F92786DFC4007CE0C0 /* SuccessBoxedView.swift */,
 			);
 			path = SuccessPopup;
+			sourceTree = "<group>";
+		};
+		89A2337428E985D100F70558 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */,
+				F2F10FA927AA68B4006334AC /* HomeRouter.swift */,
+				89A2337728E9863A00F70558 /* View */,
+				89A2337528E9860900F70558 /* ViewController */,
+				F27E217526BB958D00020EE3 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		89A2337528E9860900F70558 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
+				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
+				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
+				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
+				5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */,
+				89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		89A2337728E9863A00F70558 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F25571A626A43A55005A1AAF /* HomeHabitInfoView.swift */,
+				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A846A92C809349534BFDCA3D /* Frameworks */ = {
@@ -1222,6 +1264,7 @@
 		CE7247A62699947500BB2C19 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				89A2337428E985D100F70558 /* Home */,
 				CE0EE3F327C783EC003B7C0E /* Repository */,
 				CE0EE3EE27C78375003B7C0E /* Login */,
 				CE9F7DE627C26D4200F49044 /* MyHabit */,
@@ -1277,14 +1320,12 @@
 				CE1F96C726AC0AAC006B56E4 /* Common */,
 				F267F9A6269A387000219B05 /* ProgressView.swift */,
 				F267F9AA269A3AE400219B05 /* SettingButton.swift */,
-				F293C3B5269C23430096757C /* HabitCalendarView.swift */,
 				F293C3CD269D195D0096757C /* StampButton.swift */,
 				F293C3D5269D19BF0096757C /* Circleable.swift */,
 				F2A614A826A3F0F90061A17A /* BackBtnTitleView.swift */,
 				F2A614AC26A3FA470061A17A /* CompleteButton.swift */,
 				F20E00DA26A64C25009A4AB3 /* DailyHabitView.swift */,
 				F20E00DE26A6528D009A4AB3 /* HabitTextView.swift */,
-				F25571A626A43A55005A1AAF /* HabitInfoView.swift */,
 				CEC4D83C26A479BE00633222 /* AlarmSettingView.xib */,
 				CEC4D84026A479CD00633222 /* AlarmSettingView.swift */,
 				CED5AEC926A48700003F087C /* PostponeTodoView.xib */,
@@ -1294,7 +1335,6 @@
 				F20B574C26A8298000391D45 /* BackgroundDimView.swift */,
 				F2F588A226B0042400F5430D /* PanGestureRecognizerManager.swift */,
 				F2F588AF26B0F95200F5430D /* LockView.swift */,
-				F25055EB26B2ABC300B53197 /* HomeEmptyView.swift */,
 				F2B571D426D3E14F0059F75E /* DelayPopupView.swift */,
 				F2B571D026D3E0D60059F75E /* DelayPopupView.xib */,
 				F2B571DC26D443A40059F75E /* FailPopupView.swift */,
@@ -1318,7 +1358,6 @@
 				CE38762826CD0A07003BDCCA /* Profile */,
 				CE8FEDF626B6E7930092DC0D /* Intro */,
 				CE1F96C226AC0A1E006B56E4 /* Common */,
-				F20B573E26A81A1C00391D45 /* Home */,
 				CEC4D79526A2B15800633222 /* GoalSetting */,
 				CE7247DD2699D7C800BB2C19 /* BaseViewController.swift */,
 				F293C3B9269CFE640096757C /* MainTabBarController.swift */,
@@ -1374,7 +1413,6 @@
 			isa = PBXGroup;
 			children = (
 				CE38764E26D0D399003BDCCA /* Profile */,
-				F27E217526BB958D00020EE3 /* Home */,
 				CE3B8BC226A7283800BD529B /* Intro */,
 				CEC4D79626A2B16300633222 /* GoalSetting */,
 				F20E00E226A66171009A4AB3 /* HabitWritingViewModel.swift */,
@@ -1441,6 +1479,7 @@
 				CE9F7DEA27C26D7400F49044 /* MyHabitViewController.swift */,
 				CECE2F3127D8A61C00D5C64A /* ShareModalViewController.swift */,
 				8950B4B728CF03AA0063CD73 /* HabitHistoryViewController.swift */,
+				89A2338028E98F5A00F70558 /* HabitHistoryLayoutGuide.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1586,19 +1625,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		F20B573E26A81A1C00391D45 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				CE72475A26998F2D00BB2C19 /* HomeViewController.swift */,
-				F293C3C5269D12940096757C /* HabitWritingViewController.swift */,
-				F20B574026A81A4F00391D45 /* HabitWrittenViewController.swift */,
-				F200E4C026D64F7D0084BAB9 /* HabitEditingViewController.swift */,
-				F2F10FA927AA68B4006334AC /* HomeRouter.swift */,
-				5AC9FC8A27CF5C1400C674E4 /* HabitManagingViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		F20E00D326A5978C009A4AB3 /* Api */ = {
 			isa = PBXGroup;
 			children = (
@@ -1629,14 +1655,14 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
-		F27E217526BB958D00020EE3 /* Home */ = {
+		F27E217526BB958D00020EE3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				F267F9B2269A59F900219B05 /* HomeViewModel.swift */,
 				5AF85B9527D1E33B00DF7645 /* HabitManagingViewModel.swift */,
 				5ABD11E527D627510034A751 /* HomeViewModelProtocols.swift */,
 			);
-			path = Home;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F289D28F26DF3C800019B3FA /* Mocks */ = {
@@ -2227,10 +2253,9 @@
 				F2BADE0626C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CE1F96C426AC0A31006B56E4 /* CommonWebViewController.swift in Sources */,
 				CE16C25C26A8461B00D87096 /* LoginViewController.swift in Sources */,
-				F25571A726A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				F25571A726A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */,
 				CE16973626D80F2A00AD0BE9 /* MainTabBarController+Launch.swift in Sources */,
 				CE466A7D26D3941100CE441B /* ProfileEditViewModel.swift in Sources */,
-				F293C3B6269C23430096757C /* HabitCalendarView.swift in Sources */,
 				CECE2F3E27D8AB3F00D5C64A /* ShareSNSCategory.swift in Sources */,
 				F20E00D026A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CE307A5526D295DE005919AE /* OnethingProfileType.swift in Sources */,
@@ -2243,6 +2268,7 @@
 				CEFC3A39269CC1180007AFF2 /* UILabel+.swift in Sources */,
 				89C1E23A282945D7002785CB /* WritingScrollView.swift in Sources */,
 				CE6751FC26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
+				89A2338128E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */,
 				CE38764326D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
 				F25AE3722718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CECA073A27D372A4008DCD21 /* HabitRepository.swift in Sources */,
@@ -2269,6 +2295,7 @@
 				CEFC3A25269CA2E20007AFF2 /* Array+.swift in Sources */,
 				5AF85BA227D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */,
 				CE26C44926B0310A00BE7DDC /* OnethingErorrHandler.swift in Sources */,
+				89A2337928E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */,
 				F293C3CE269D195D0096757C /* StampButton.swift in Sources */,
 				CE00AA4A2699FF5F002C674B /* LoginViewModel.swift in Sources */,
 				CE8FEDD226B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
@@ -2334,6 +2361,7 @@
 				F20B574D26A8298000391D45 /* BackgroundDimView.swift in Sources */,
 				CEAABCDA27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BC28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338528E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8B27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2402,7 +2430,6 @@
 				896008F428A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F2BADE0826C5659400FD7766 /* WrappingHabitResponseModel.swift in Sources */,
 				CEC4D81B26A4162F00633222 /* OnethingUserManager.swift in Sources */,
-				F293C3B8269C23430096757C /* HabitCalendarView.swift in Sources */,
 				CEE1D2C527FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3C0269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CE16973426D80B2600AD0BE9 /* SplashViewController.swift in Sources */,
@@ -2445,6 +2472,7 @@
 				CE6751FE26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
 				F25AE3742718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CE0EE41B27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
+				89A2338328E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */,
 				CECA073C27D372A4008DCD21 /* HabitRepository.swift in Sources */,
 				5ABD11E827D627510034A751 /* HomeViewModelProtocols.swift in Sources */,
 				CE38764526D0CEC8003BDCCA /* NoticeViewController.swift in Sources */,
@@ -2471,6 +2499,7 @@
 				CEFF0A4A269C8E8A00DB8D2D /* StoryboardName.swift in Sources */,
 				F255719C26A42BB4005A1AAF /* ContentAPI.swift in Sources */,
 				F20B574326A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
+				89A2337B28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */,
 				CE8FEDD426B67F730092DC0D /* GoalSettingFinishViewModel.swift in Sources */,
 				CECA074027D3752F008DCD21 /* ModelDecoder.swift in Sources */,
 				CEFC3A27269CA2E20007AFF2 /* Array+.swift in Sources */,
@@ -2483,7 +2512,7 @@
 				CEFC3A2B269CA4620007AFF2 /* ObservableType+.swift in Sources */,
 				F20B573926A7F0C900391D45 /* CircleView.swift in Sources */,
 				CE8FEDE626B6CBAD0092DC0D /* MenuTableViewCell.swift in Sources */,
-				F25571A926A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				F25571A926A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */,
 				5AD88CCE27D40B7800A92850 /* GiveUpWarningPopupView.swift in Sources */,
 				F2017A8A26BBF982009277A6 /* SelectStampModel.swift in Sources */,
 				F2F10FA827AA5723006334AC /* CALayer+.swift in Sources */,
@@ -2536,6 +2565,7 @@
 				F25055EE26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				CEAABCDC27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BE28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338728E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8D27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2587,7 +2617,6 @@
 				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
 				896008F328A1540200D9B4E1 /* NNLoadingIndicator.swift in Sources */,
 				F20B574226A81A4F00391D45 /* HabitWrittenViewController.swift in Sources */,
-				F293C3B7269C23430096757C /* HabitCalendarView.swift in Sources */,
 				F293C3BF269D011B0096757C /* ProfileViewController.swift in Sources */,
 				CEE1D2C427FADB1100FA27F2 /* MyHabitEmptyView.swift in Sources */,
 				F293C3BB269CFE640096757C /* MainTabBarController.swift in Sources */,
@@ -2631,6 +2660,7 @@
 				F20E00E026A6528D009A4AB3 /* HabitTextView.swift in Sources */,
 				89C1E23B282945D7002785CB /* WritingScrollView.swift in Sources */,
 				CE6751FD26D0E86B00616CA8 /* FAQTableViewCell.swift in Sources */,
+				89A2338228E98F5A00F70558 /* HabitHistoryLayoutGuide.swift in Sources */,
 				F25AE3732718630D009A59C6 /* UINavigationController+.swift in Sources */,
 				CE0EE41A27CBA7B8003B7C0E /* MyHabitCollectionViewCell.swift in Sources */,
 				CECA073B27D372A4008DCD21 /* HabitRepository.swift in Sources */,
@@ -2657,6 +2687,7 @@
 				CE1F96CA26AC0ACB006B56E4 /* OnethingWebView.swift in Sources */,
 				5AF85BA327D20AB400DF7645 /* TitleSubTitleConfirmPopupView.swift in Sources */,
 				F25571A426A437DD005A1AAF /* ViewTag.swift in Sources */,
+				89A2337A28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */,
 				F23DD4CC26BEB3A600DCDDE5 /* DailyHabitViewModelable.swift in Sources */,
 				F20E00D126A59787009A4AB3 /* NetworkInfomation.swift in Sources */,
 				CECA073F27D3752F008DCD21 /* ModelDecoder.swift in Sources */,
@@ -2708,7 +2739,7 @@
 				F25055ED26B2ABC300B53197 /* HomeEmptyView.swift in Sources */,
 				F2B571EB26D4C6B50059F75E /* WritingPenaltyViewController.swift in Sources */,
 				F271CF1226B9792300C63CC0 /* DailyHabitResponseModel.swift in Sources */,
-				F25571A826A43A55005A1AAF /* HabitInfoView.swift in Sources */,
+				F25571A826A43A55005A1AAF /* HomeHabitInfoView.swift in Sources */,
 				CE26C44F26B0313E00BE7DDC /* OnethingError.swift in Sources */,
 				CE0EE3FB27C7850A003B7C0E /* AppleLoginRequestBody.swift in Sources */,
 				CEC4D81E26A4168800633222 /* FontName.swift in Sources */,
@@ -2722,6 +2753,7 @@
 				CE8FEDD726B69A580092DC0D /* HabitReponseModel.swift in Sources */,
 				CEAABCDB27D49825005B8381 /* HabitStatus.swift in Sources */,
 				8950B4BD28CF06740063CD73 /* CardView.swift in Sources */,
+				89A2338628E9A42A00F70558 /* HabitWrittenVCParentable.swift in Sources */,
 				5AC9FC8C27CF5C1400C674E4 /* HabitManagingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

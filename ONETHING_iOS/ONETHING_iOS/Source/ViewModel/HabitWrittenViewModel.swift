@@ -41,8 +41,8 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
         }
     }
     
-    var currentStampImage: UIImage? {
-        self.dailyHabitModel.responseModel.castingStamp?.defaultImage
+    var currentStampImage: UIImage {
+        self.dailyHabitModel.responseModel.castingStamp.defaultImage
     }
     
     var dayText: String {

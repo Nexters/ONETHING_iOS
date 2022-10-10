@@ -13,6 +13,7 @@ protocol MyHabitCellPresentable {
     var title: String { get }
     var startDate: String { get }
     var successCount: Int { get }
+    var sentenceForDelay: String { get }
 }
 
 extension MyHabitCellPresentable {
