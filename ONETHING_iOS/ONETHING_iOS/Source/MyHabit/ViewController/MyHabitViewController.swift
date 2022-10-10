@@ -33,6 +33,12 @@ final class MyHabitViewController: BaseViewController {
         self.viewModel.occur(viewEvent: .viewDidLoad)
     }
     
+    override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+        
+        self.viewModel.fetchHabitHistory()
+    }
+    
     private func setupUI() {
         self.titleLabel.do {
             $0.text = "내 습관"
