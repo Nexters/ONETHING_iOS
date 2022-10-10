@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol FailPopupViewDelegate: AnyObject {
-    func failPopupViewDidTapCloseButton()
+    func failPopupViewDidTapClose(_ failPopupView: FailPopupView)
 }
 
 final class FailPopupView: UIView {
@@ -25,8 +25,10 @@ final class FailPopupView: UIView {
     
     private func bindButtons() {
         self.closeButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            self?.delegate?.failPopupViewDidTapCloseButton()
-            self?.hide()
+            guard let self = self else { return }
+            
+            self.delegate?.failPopupViewDidTapClose(self)
+            self.hide()
         }).disposed(by: self.disposeBag)
     }
     

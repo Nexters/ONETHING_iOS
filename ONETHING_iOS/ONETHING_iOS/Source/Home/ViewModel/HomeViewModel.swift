@@ -16,6 +16,7 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     private let apiService: APIServiceType
     private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
+    /// unseen 인지 확인해야 하는 프로퍼티
     private(set) var hasToCheckUnseen = true
     
     private var nickname: String?

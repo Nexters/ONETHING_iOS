@@ -11,7 +11,13 @@ import RxCocoa
 import RxSwift
 import Then
 
-final class HabitManagingViewController: BaseViewController, FailPopupViewDelegate {
+extension HabitManagingViewController: FailPopupViewDelegate {
+    func failPopupViewDidTapClose(_ failPopupView: FailPopupView) {
+        self.viewModel.executeGiveUp()
+    }
+}
+
+final class HabitManagingViewController: BaseViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     private let tableView = UITableView()
@@ -131,10 +137,6 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
             failPopupView.animateShaking()
             self.view.bringSubviewToFront(self.loadingIndicator)
         }
-    }
-    
-    func failPopupViewDidTapCloseButton() {
-        self.viewModel.executeGiveUp()
     }
     
     private func layoutTableView() {
