@@ -202,6 +202,7 @@ final class HabitManagingViewController: BaseViewController {
                         .rootViewController(type: HomeViewController.self)
                 else { return }
                 
+                homeViewController.mainTabBarController?.broadCastRequiredReload()
                 homeViewController.viewModel.requestHabitInProgress()
                 self?.navigationController?.popToRootViewController(animated: true)
             }).disposed(by: self.disposeBag)

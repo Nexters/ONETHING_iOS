@@ -74,6 +74,10 @@ final class HomeViewController: BaseViewController, HabitWrittentVCParentable {
         self.viewModel.clearModels()
     }
     
+    var mainTabBarController: MainTabBarController? {
+        return self.navigationController?.tabBarController as? MainTabBarController
+    }
+    
     // MARK: - Private Methods
     
     private func addObserver() {

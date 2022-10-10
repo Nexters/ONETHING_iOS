@@ -111,6 +111,7 @@ extension HomeRouter: FailPopupViewDelegate {
         
         let viewModel = homeViewController.viewModel
         viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
+            homeViewController.mainTabBarController?.broadCastRequiredReload()
             viewModel.requestHabitInProgress()
             homeViewController.hideDimView()
         }
@@ -122,6 +123,7 @@ extension HomeRouter: FailPopupViewDelegate {
         let viewModel = homeViewController.viewModel
         
         viewModel.requestGiveup(completion: { _ in
+            homeViewController.mainTabBarController?.broadCastRequiredReload()
             viewModel.requestHabitInProgress()
             homeViewController.hideDimView()
         })
