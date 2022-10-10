@@ -129,7 +129,7 @@ final class HabitManagingViewController: BaseViewController {
         guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
         
         failPopupView.delegate = self
-        failPopupView.configure(with: self.viewModel)
+        failPopupView.configure(with: self.viewModel, reason: .giveup)
         self.observeViewModel(with: failPopupView)
         failPopupView.show(in: self) { [weak self] in
             guard let self = self else { return }

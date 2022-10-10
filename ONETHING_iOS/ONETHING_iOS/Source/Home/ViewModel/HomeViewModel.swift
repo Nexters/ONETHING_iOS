@@ -10,7 +10,7 @@ import UIKit
 import Moya
 import RxSwift
 
-final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
+final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable, FailPopupViewPresentable {
     static let defaultTotalDays = 66
     
     private let apiService: APIServiceType
@@ -21,7 +21,6 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
     
     private var nickname: String?
     private let disposeBag = DisposeBag()
-    private(set) var isGiveUp = false
     
     // MARK: - Subjects
     let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
@@ -311,15 +310,5 @@ extension HomeViewModel: UICollectionViewDataSource {
     
     func numberText(with indexPath: IndexPath) -> String {
         return "\(indexPath.item + 1)"
-    }
-}
-
-extension HomeViewModel: FailPopupViewPresentable {
-    func update(isGiveUp: Bool) {
-        self.isGiveUp = isGiveUp
-    }
-    
-    var reasonTextOfFailPopupView: String? {
-        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
 }

@@ -11,6 +11,7 @@ import Then
 import RxSwift
 
 protocol HomeRoutingLogic {
+    
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel)
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel)
     func routeToGoalSettingFirstViewController()
@@ -18,7 +19,7 @@ protocol HomeRoutingLogic {
     func routeToHabitEditingViewController()
     func showWriteLimitPopupView(with indexPath: IndexPath)
     func showDelayPopupView()
-    func showFailPopupView()
+    func showFailPopupView(reason: FailPopupView.FailReason)
 }
 
 final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDelegate {
@@ -111,7 +112,6 @@ extension HomeRouter: FailPopupViewDelegate {
         let viewModel = homeViewController.viewModel
         viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
             viewModel.requestHabitInProgress()
-            viewModel.update(isGiveUp: false)
             homeViewController.hideDimView()
         }
     }
@@ -123,7 +123,6 @@ extension HomeRouter: FailPopupViewDelegate {
         
         viewModel.requestGiveup(completion: { _ in
             viewModel.requestHabitInProgress()
-            viewModel.update(isGiveUp: false)
             homeViewController.hideDimView()
         })
     }
@@ -165,8 +164,7 @@ extension HomeRouter: DelayPopupViewDelegate, WritingPenaltyViewControllerDelega
         let warningPopupView = GiveUpWarningPopupView().then {
             $0.confirmAction = { [weak self] _ in
                 delayPopupView.removeFromSuperView(0.1, completion: {
-                    viewModel.update(isGiveUp: true)
-                    self?.showFailPopupView()
+                    self?.showFailPopupView(reason: .giveup)
                 })
             }
             $0.cancelAction = { popupView in
@@ -206,14 +204,14 @@ extension HomeRouter: DelayPopupViewDelegate, WritingPenaltyViewControllerDelega
         homeViewController.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
     
-    func showFailPopupView() {
+    func showFailPopupView(reason: FailPopupView.FailReason) {
         guard let homeViewController = self.viewController,
         let failPopupView: FailPopupView = UIView.createFromNib(),
         let tabbarController = homeViewController.tabBarController else { return }
         
         let viewModel = homeViewController.viewModel
         failPopupView.delegate = self
-        failPopupView.configure(with: viewModel)
+        failPopupView.configure(with: viewModel, reason: reason)
         failPopupView.show(in: tabbarController) {
             failPopupView.animateShaking()
         }

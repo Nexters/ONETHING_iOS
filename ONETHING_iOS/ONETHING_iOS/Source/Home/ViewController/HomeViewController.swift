@@ -207,7 +207,7 @@ final class HomeViewController: BaseViewController, HabitWrittentVCParentable {
             case .unseenSuccess:
                 self.router?.routeToSuccessPopupViewController()
             case .unseenFail:
-                self.router?.showFailPopupView()
+            self.router?.showFailPopupView(reason: .unseen)
             case .run:
                 guard self.viewModel.isDelayPenaltyForLastDailyHabit else { return }
                 self.router?.showDelayPopupView()

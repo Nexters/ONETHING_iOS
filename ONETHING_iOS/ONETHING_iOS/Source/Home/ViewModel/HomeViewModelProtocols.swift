@@ -54,7 +54,6 @@ extension GiveUpWarningPopupViewPresentable {
 protocol FailPopupViewPresentable: GiveUpWarningPopupViewPresentable {
     var titleTextOfFailPopupView: String? { get }
     var progressCountTextOfFailPopupView: String? { get }
-    var reasonTextOfFailPopupView: String? { get }
 }
 
 extension FailPopupViewPresentable {
