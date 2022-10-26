@@ -14,6 +14,7 @@ final class HabitStampView: UICollectionView {
     convenience init() {
         self.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         self.clipsToBounds = false
+        self.backgroundColor = .white
     }
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
