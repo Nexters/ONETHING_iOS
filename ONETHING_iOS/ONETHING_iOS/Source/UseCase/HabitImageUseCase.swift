@@ -22,7 +22,7 @@ final class HabitImageUseCase {
         self.apiService = apiService
     }
     
-    func requestHabitImage(createDate: String, imageExtension: String, completionHandler: @escaping (UIImage) -> Void) {
+    func requestHabitImage(habitHistoryID: Int, createDate: String, completionHandler: @escaping (UIImage) -> Void) {
         // check first if image is in momoey cache
         let photoImage = self.imageCache.retrieveImageInMemoryCache(forKey: createDate)
         
@@ -31,20 +31,17 @@ final class HabitImageUseCase {
             return
         }
         
-        self.fetchAndStoreImageOnMemory(
-            createDate: createDate,
-            imageExtension: imageExtension
-        ) { (photoImage: UIImage) in
-            
+        self.fetchAndStoreImageOnMemory(habitHistoryID: habitHistoryID, createDate: createDate) { (photoImage: UIImage) in
             completionHandler(photoImage)
         }
     }
     
-    private func fetchAndStoreImageOnMemory(createDate: String, imageExtension: String, completionHandler: @escaping (UIImage) -> Void) {
-        let api = ContentAPI.getDailyHabitImage(
-            createDate: createDate,
-            imageExtension:  imageExtension
-        )
+    private func fetchAndStoreImageOnMemory(
+        habitHistoryID: Int,
+        createDate: String,
+        completionHandler: @escaping (UIImage) -> Void
+    ) {
+        let api = ContentAPI.getDailyHabitImage(habitHistoryID: habitHistoryID)
         
         self.apiService.requestRx(apiTarget: api, retryHandler: nil)
             .asObservable()
