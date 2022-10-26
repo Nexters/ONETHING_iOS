@@ -54,7 +54,7 @@ class NotifyPopupView: UIView {
         dimView.snp.makeConstraints({
             $0.edges.equalToSuperview()
         })
-        dimView.showCrossDissolve(completedAlpha: dimView.completedAlpha)
+        dimView.showCrossDissolve(completedAlpha: BackgroundDimView.completedAlpha)
         self.dimView = dimView
     }
     

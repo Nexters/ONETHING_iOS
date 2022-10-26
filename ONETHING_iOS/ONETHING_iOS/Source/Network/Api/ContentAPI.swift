@@ -24,7 +24,7 @@ enum ContentAPI {
     case putUnSeenFail(habitId: Int)
     case putReStart(habitId: Int)
     case getDailyHistories(habitId: Int)
-    case getDailyHabitImage(createDate: String, imageExtension: String)
+    case getDailyHabitImage(habitHistoryID: Int)
     case getNotices
     case getQuestions
 }
@@ -62,8 +62,8 @@ extension ContentAPI: TargetType {
             return "/api/habit/\(habitId)/daily-histories"
         case let .createDailyHabit(habitId: habitId):
             return "api/habit/\(habitId)/history"
-        case .getDailyHabitImage:
-            return "/api/habit/history/image"
+        case let .getDailyHabitImage(habitHistoryID: habitHistoryID):
+            return "/api/habit/history/\(habitHistoryID)/image"
         case .getNotices:
             return "/api/info/notices"
         case .getQuestions:
@@ -93,7 +93,7 @@ extension ContentAPI: TargetType {
     var task: Task {
         switch self {
             case .getRecommendedHabit, .getHabitInProgress, .getHabits, .getDailyHistories(_),
-                .getNotices, .getQuestions, .getUnseenStatus, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .putReStart, .deleteHabit:
+                .getNotices, .getQuestions, .getUnseenStatus, .putPassDelayPenalty, .putGiveUpHabit, .putUnSeenSuccess, .putUnSeenFail, .putReStart, .deleteHabit, .getDailyHabitImage(_):
             return .requestPlain
         case .createHabit(let title, let sentence, let pushTime, let penaltyCount):
             let parameters: [String: Any] = ["title": title, "sentence": sentence,
@@ -112,9 +112,6 @@ extension ContentAPI: TargetType {
                 provider: .data(image.jpegData(compressionQuality: 0.1)!),
                 name: "image")
             return .uploadMultipart([dateData, statusData, contentData, stampData, imageData])
-        case .getDailyHabitImage(let createDate, let imageExtension):
-            let parameters: [String: Any] = ["createDate": createDate, "imageExtension": imageExtension]
-            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }
     

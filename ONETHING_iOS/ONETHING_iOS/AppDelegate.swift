@@ -39,4 +39,7 @@ extension UIApplication {
         return UIApplication.shared.windows.first(where: { $0.isKeyWindow })
     }
     
+    var hasTopNotch: Bool {
+        return self.keyWindow?.safeAreaInsets.top ?? 0 > 20
+    }
 }

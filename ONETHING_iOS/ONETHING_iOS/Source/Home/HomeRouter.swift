@@ -11,6 +11,7 @@ import Then
 import RxSwift
 
 protocol HomeRoutingLogic {
+    
     func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel)
     func routeToHabitWritingViewController(with writingViewModel: HabitWritingViewModel)
     func routeToGoalSettingFirstViewController()
@@ -18,7 +19,7 @@ protocol HomeRoutingLogic {
     func routeToHabitEditingViewController()
     func showWriteLimitPopupView(with indexPath: IndexPath)
     func showDelayPopupView()
-    func showFailPopupView()
+    func showFailPopupView(reason: FailPopupView.FailReason)
 }
 
 final class HomeRouter: NSObject, HomeRoutingLogic, HabitWritingViewControllerDelegate {
@@ -94,7 +95,42 @@ extension HomeRouter {
     }
 }
 
-extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPenaltyViewControllerDelegate {
+extension HomeRouter: FailPopupViewDelegate {
+    func failPopupViewDidTapClose(_ failPopupview: FailPopupView) {
+        guard let homeViewController = self.viewController else { return }
+        
+        let viewModel = homeViewController.viewModel
+        viewModel.hasToCheckUnseen == false ? self.handleIsUnSeenFail() : self.handleIsGiveUp()
+    }
+    
+    /// unseen fail인 경우
+    private func handleIsUnSeenFail() {
+        guard let homeViewController = self.viewController,
+              let habitID = homeViewController.viewModel.habitInProgressModel?.habitId
+        else { return }
+        
+        let viewModel = homeViewController.viewModel
+        viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
+            homeViewController.mainTabBarController?.broadCastRequiredReload()
+            viewModel.requestHabitInProgress()
+            homeViewController.hideDimView()
+        }
+    }
+    
+    /// 이전에 습관 그만하기 버튼을 눌렀던 경우
+    private func handleIsGiveUp() {
+        guard let homeViewController = self.viewController else { return }
+        let viewModel = homeViewController.viewModel
+        
+        viewModel.requestGiveup(completion: { _ in
+            homeViewController.mainTabBarController?.broadCastRequiredReload()
+            viewModel.requestHabitInProgress()
+            homeViewController.hideDimView()
+        })
+    }
+}
+
+extension HomeRouter: DelayPopupViewDelegate, WritingPenaltyViewControllerDelegate {
     func showWriteLimitPopupView(with indexPath: IndexPath) {
         guard let homeViewController = self.viewController,
               let tabbarController = homeViewController.tabBarController,
@@ -130,8 +166,7 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         let warningPopupView = GiveUpWarningPopupView().then {
             $0.confirmAction = { [weak self] _ in
                 delayPopupView.removeFromSuperView(0.1, completion: {
-                    viewModel.update(isGiveUp: true)
-                    self?.showFailPopupView()
+                    self?.showFailPopupView(reason: .giveup)
                 })
             }
             $0.cancelAction = { popupView in
@@ -171,41 +206,17 @@ extension HomeRouter: DelayPopupViewDelegate, FailPopupViewDelegate, WritingPena
         homeViewController.navigationController?.pushViewController(writingPenaltyViewController, animated: true)
     }
     
-    func showFailPopupView() {
+    func showFailPopupView(reason: FailPopupView.FailReason) {
         guard let homeViewController = self.viewController,
         let failPopupView: FailPopupView = UIView.createFromNib(),
         let tabbarController = homeViewController.tabBarController else { return }
         
         let viewModel = homeViewController.viewModel
         failPopupView.delegate = self
-        failPopupView.configure(with: viewModel)
+        failPopupView.configure(with: viewModel, reason: reason)
         failPopupView.show(in: tabbarController) {
             failPopupView.animateShaking()
         }
-    }
-    
-    func failPopupViewDidTapCloseButton() {
-        guard let homeViewController = self.viewController else { return }
-        let viewModel = homeViewController.viewModel
-        
-        // unseen fail인 경우
-        if viewModel.hasToCheckUnseen == false {
-            guard let habitID = viewModel.habitInProgressModel?.habitId else { return }
-            
-            viewModel.requestUnseenFailToBeFail(habitId: habitID) { _ in
-                viewModel.requestHabitInProgress()
-                viewModel.update(isGiveUp: false)
-                homeViewController.hideDimView()
-            }
-            return
-        }
-        
-        // 이전에 습관 그만하기 버튼을 눌렀던 경우
-        viewModel.requestGiveup(completion: { _ in
-            viewModel.requestHabitInProgress()
-            viewModel.update(isGiveUp: false)
-            homeViewController.hideDimView()
-        })
     }
     
     func writingPenaltyViewControllerDidTapBackButton(_ writingPenaltyViewController: WritingPenaltyViewController) {

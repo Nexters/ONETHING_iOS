@@ -6,10 +6,13 @@
 //
 
 import UIKit
+
 import Then
+import Toaster
 import SnapKit
 import RxCocoa
 import RxSwift
+
 
 final class MyHabitViewController: BaseViewController {
     
@@ -28,6 +31,12 @@ final class MyHabitViewController: BaseViewController {
         self.layoutUI()
         self.observeViewModel()
         self.viewModel.occur(viewEvent: .viewDidLoad)
+    }
+    
+    override func reloadContentsIfRequired() {
+        super.reloadContentsIfRequired()
+        
+        self.viewModel.fetchHabitHistory()
     }
     
     private func setupUI() {
@@ -156,6 +165,7 @@ final class MyHabitViewController: BaseViewController {
     private let pageControl = UIPageControl()
     private let emptyView = MyHabitEmptyView(frame: .zero)
     private let loadingIndicator = NNLoadingIndicator()
+    private let transitionManager = CardTransitionManager()
     
     private let disposeBag = DisposeBag()
     private let viewModel: MyHabitViewModel
@@ -179,7 +189,24 @@ extension MyHabitViewController: UICollectionViewDelegate {
 
 extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
     func myhabitCollectionViewCellDidTap(_ cell: MyHabitCollectionViewCell) {
-        self.tabBarController?.showPreparePopupView()
+        self.presentHabitHistoryViewController(with: cell)
+    }
+    
+    private func presentHabitHistoryViewController(with cell: MyHabitCollectionViewCell) {
+        let habitHistoryViewController = HabitHistoryViewController(
+            viewModel: HabitHistoryViewModel(presentable: cell.presentable)
+        ).then {
+            $0.delegate = self
+            $0.modalPresentationStyle = .overFullScreen
+            $0.transitioningDelegate = self.transitionManager
+        }
+        
+        self.transitionManager.targetView = cell.contentView
+        self.transitionManager.cardView = CardView(
+            with: cell.contentView,
+            habitInfoViewModel: HabitInfoViewModel(presentable: cell.presentable)
+        )
+        self.present(habitHistoryViewController, animated: true)
     }
     
     func myhabitCollectionViewCell(_ cell: MyHabitCollectionViewCell, didTapShare habit: MyHabitCellPresentable) {
@@ -193,4 +220,18 @@ extension MyHabitViewController: MyHabitCollectionViewCellDelegate {
         self.present(habitShareViewController, animated: true, completion: nil)
     }
 
+}
+
+extension MyHabitViewController: HabitHistoryViewControllerDelegate {
+    func habitHistoryViewControllerDidDeleteHabit(_ habitHistoryViewController: HabitHistoryViewController, deletedHabitID: Int) {
+        self.viewModel.fetchHabitHistory()
+        
+        guard let deletedHabitTitle = habitHistoryViewController.viewModel.presentable?.title,
+              let tabBarHeight = self.tabBarController?.tabBar.frame.size.height
+        else { return }
+        
+        ToastView.appearance().font = UIFont.createFont(type: .pretendard(weight: .regular), size: 16)
+        ToastView.appearance().bottomOffsetPortrait = tabBarHeight + DeviceInfo.safeAreaBottomInset
+        Toast(text: "\(deletedHabitTitle) 습관이 삭제되었습니다.", duration: Delay.short).show()
+    }
 }

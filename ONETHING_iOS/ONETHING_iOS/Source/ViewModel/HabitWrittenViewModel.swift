@@ -29,20 +29,22 @@ final class HabitWrittenViewModel: DailyHabitViewModelable {
                     .convertToDate(format: DailyHabitResponseModel.dateFormat)?
                     .convertString(format: "yyyy-MM-dd") else { return Disposables.create() }
             
-            guard let imageExtension = self.dailyHabitModel.responseModel.imageExtension else { return Disposables.create() }
+            guard self.dailyHabitModel.responseModel.imageExtension != nil
+            else { return Disposables.create() }
             
             self.imageUseCase.requestHabitImage(
-                createDate: createDate,
-                imageExtension: imageExtension) { (photoImage: UIImage) in
-                    emitter.onNext(photoImage)
-                }
+                habitHistoryID: self.dailyHabitModel.responseModel.habitHistoryId,
+                createDate: createDate
+            ) { (photoImage: UIImage) in
+                emitter.onNext(photoImage)
+            }
             
             return Disposables.create()
         }
     }
     
-    var currentStampImage: UIImage? {
-        self.dailyHabitModel.responseModel.castingStamp?.defaultImage
+    var currentStampImage: UIImage {
+        self.dailyHabitModel.responseModel.castingStamp.defaultImage
     }
     
     var dayText: String {

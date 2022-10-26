@@ -47,8 +47,9 @@ extension DailyHabitResponseModel {
         DailyStatus(rawValue: self.status)
     }
     
-    var castingStamp: Stamp? {
-        Stamp(rawValue: stampType ?? Stamp.defaultType)
+    var castingStamp: Stamp {
+        let stamp = Stamp(rawValue: stampType ?? Stamp.defaultType)
+        return stamp ?? .beige
     }
     
     var isDelayPenaltyHabit: Bool {

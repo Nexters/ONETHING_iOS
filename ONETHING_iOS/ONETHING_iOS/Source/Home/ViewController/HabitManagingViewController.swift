@@ -11,7 +11,13 @@ import RxCocoa
 import RxSwift
 import Then
 
-final class HabitManagingViewController: BaseViewController, FailPopupViewDelegate {
+extension HabitManagingViewController: FailPopupViewDelegate {
+    func failPopupViewDidTapClose(_ failPopupView: FailPopupView) {
+        self.viewModel.executeGiveUp()
+    }
+}
+
+final class HabitManagingViewController: BaseViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     private let tableView = UITableView()
@@ -91,8 +97,9 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         self.view.bringSubviewToFront(self.loadingIndicator)
     }
     
-    private var startAgainPopupView: StartAgainPopupView {
-        return StartAgainPopupView().then {
+    private var startAgainPopupView: TitleSubTitleConfirmPopupView {
+        return TitleSubTitleConfirmPopupView().then {
+            $0.heightOfContentView = 184.0
             $0.update(with: self.viewModel)
             self.observeViewModel(with: $0)
             $0.confirmAction = { [weak self] _ in
@@ -122,7 +129,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
         guard let failPopupView: FailPopupView = UIView.createFromNib() else { return }
         
         failPopupView.delegate = self
-        failPopupView.configure(with: self.viewModel)
+        failPopupView.configure(with: self.viewModel, reason: .giveup)
         self.observeViewModel(with: failPopupView)
         failPopupView.show(in: self) { [weak self] in
             guard let self = self else { return }
@@ -130,10 +137,6 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
             failPopupView.animateShaking()
             self.view.bringSubviewToFront(self.loadingIndicator)
         }
-    }
-    
-    func failPopupViewDidTapCloseButton() {
-        self.viewModel.executeGiveUp()
     }
     
     private func layoutTableView() {
@@ -164,7 +167,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
             }).disposed(by: self.disposeBag)
     }
     
-    private func observeViewModel(with popupView: StartAgainPopupView) {
+    private func observeViewModel(with popupView: TitleSubTitleConfirmPopupView) {
         self.viewModel.loadingSubject
             .subscribe(onNext: { [weak self, weak popupView] loading in
                 popupView?.buttons.forEach {
@@ -199,6 +202,7 @@ final class HabitManagingViewController: BaseViewController, FailPopupViewDelega
                         .rootViewController(type: HomeViewController.self)
                 else { return }
                 
+                homeViewController.mainTabBarController?.broadCastRequiredReload()
                 homeViewController.viewModel.requestHabitInProgress()
                 self?.navigationController?.popToRootViewController(animated: true)
             }).disposed(by: self.disposeBag)

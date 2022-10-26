@@ -56,19 +56,30 @@ final class HabitCalendarCell: UICollectionViewCell {
         self.numberLabel.text = numberText
     }
     
-    func clearNumberText() {
+    func setup(with model: DailyHabitResponseModel) {
+        self.set(isWrtten: true)
+        self.update(stampImage: model.castingStamp.defaultImage)
+        self.clearNumberText()
+    }
+    
+    func setupIsToday() {
+        self.update(stampImage: UIImage(named: "stamp_today"))
+        self.update(textColor: UIColor.red_3)
+    }
+    
+    private func clearNumberText() {
         self.numberLabel.text = ""
     }
     
-    func set(isWrtten written: Bool) {
+    private func set(isWrtten written: Bool) {
         self.isWritten = written
     }
     
-    func update(stampImage: UIImage?) {
+    private func update(stampImage: UIImage?) {
         self.mainImageView.image = stampImage
     }
     
-    func update(textColor: UIColor) {
+    private func update(textColor: UIColor) {
         self.numberLabel.textColor = textColor
     }
     

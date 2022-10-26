@@ -11,10 +11,15 @@ import RxSwift
 import RxCocoa
 
 protocol FailPopupViewDelegate: AnyObject {
-    func failPopupViewDidTapCloseButton()
+    func failPopupViewDidTapClose(_ failPopupView: FailPopupView)
 }
 
 final class FailPopupView: UIView {
+    enum FailReason {
+        case unseen
+        case giveup
+    }
+    
     weak var delegate: FailPopupViewDelegate?
     
     override func awakeFromNib() {
@@ -25,15 +30,23 @@ final class FailPopupView: UIView {
     
     private func bindButtons() {
         self.closeButton.rx.tap.observeOnMain(onNext: { [weak self] in
-            self?.delegate?.failPopupViewDidTapCloseButton()
-            self?.hide()
+            guard let self = self else { return }
+            
+            self.delegate?.failPopupViewDidTapClose(self)
+            self.hide()
         }).disposed(by: self.disposeBag)
     }
     
-    func configure(with viewModel: FailPopupViewPresentable) {
+    func configure(with viewModel: FailPopupViewPresentable, reason: FailReason) {
         self.titleLabel.text = viewModel.titleTextOfFailPopupView
         self.progressCountLabel.text = viewModel.progressCountTextOfFailPopupView
-        self.reasonLabel.text = viewModel.reasonTextOfFailPopupView
+        
+        switch reason {
+        case .unseen:
+            self.reasonLabel.text = "사유: 습관 미루기 7회 이상"
+        case .giveup:
+            self.reasonLabel.text = "사유: 습관 그만하기"
+        }
     }
         
     func show(in targetController: UIViewController, completion: (() -> Void)? = nil) {

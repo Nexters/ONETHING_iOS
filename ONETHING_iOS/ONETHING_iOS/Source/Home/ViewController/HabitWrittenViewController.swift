@@ -90,11 +90,11 @@ final class HabitWrittenViewController: BaseViewController {
             options: .curveEaseIn,
             animations: {
                 self.view.transform = CGAffineTransform(translationX: 0, y: DeviceInfo.screenHeight)
-                (self.parent as? HomeViewController)?.hideDimView()
+                (self.parent as? HabitWrittentVCParentable)?.hideDimView()
             },
             completion: { _ in
                 self.upperStampButton.isHidden = true
-                (self.parent as? HomeViewController)?.removeDimRecognizer()
+                (self.parent as? HabitWrittentVCParentable)?.removeDimRecognizer()
                 self.willMove(toParent: nil)
                 self.removeFromParent()
                 self.view.removeFromSuperview()

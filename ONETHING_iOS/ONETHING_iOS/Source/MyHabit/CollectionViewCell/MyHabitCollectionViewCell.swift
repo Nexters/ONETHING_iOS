@@ -81,7 +81,6 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
             $0.image = UIImage(named: "arrow_back")?.withRenderingMode(.alwaysTemplate)
             $0.tintColor = .white
             $0.transform = CGAffineTransform(rotationAngle: .pi)
-            $0.isHidden = true
         }
         
         self.firstVerticalBorderView.do {
@@ -210,10 +209,10 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
             })
             .disposed(by: self.disposeBag)
         
-        self.contentView.addGestureRecognizer(self.makeTapGestureRecoginizerForShowPreparePopupView())
+        self.contentView.addGestureRecognizer(self.makeTapGestureRecoginizer())
     }
     
-    private func makeTapGestureRecoginizerForShowPreparePopupView() -> UITapGestureRecognizer {
+    private func makeTapGestureRecoginizer() -> UITapGestureRecognizer {
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.rx.event
             .withUnretained(self)
@@ -244,7 +243,7 @@ class MyHabitCollectionViewCell: UICollectionViewCell {
         self.secondVerticalBorderView.backgroundColor = presentable.cellBorderViewColor
     }
     
-    private var presentable: MyHabitCellPresentable?
+    private(set) var presentable: MyHabitCellPresentable?
     
     private let disposeBag = DisposeBag()
     

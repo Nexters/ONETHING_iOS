@@ -10,17 +10,17 @@ import UIKit
 import Moya
 import RxSwift
 
-final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
+final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable, FailPopupViewPresentable {
     static let defaultTotalDays = 66
     
     private let apiService: APIServiceType
     private(set) var habitInProgressModel: HabitResponseModel?
     private var dailyHabitModels = [DailyHabitResponseModel]()
+    /// unseen 인지 확인해야 하는 프로퍼티
     private(set) var hasToCheckUnseen = true
     
     private var nickname: String?
     private let disposeBag = DisposeBag()
-    private(set) var isGiveUp = false
     
     // MARK: - Subjects
     let habitResponseModelSubject = PublishSubject<HabitResponseModel?>()
@@ -283,50 +283,32 @@ final class HomeViewModel: NSObject, GiveUpWarningPopupViewPresentable {
 
 extension HomeViewModel: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let habitCalendarView = collectionView as? HabitCalendarView else { return Self.defaultTotalDays }
-        return habitCalendarView.totalCellNumbers
+        return Self.defaultTotalDays
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let habitCalendarCell = collectionView.dequeueReusableCell(cell: HabitCalendarCell.self, forIndexPath: indexPath)
         else { return self.defaultCell(collectionView: collectionView, indexPath: indexPath) }
         
-        guard let dailyHabitModel = self.dailyHabitModels[safe: indexPath.row]
-        else { return self.makeCellWithNumbers(with: indexPath, cell: habitCalendarCell) }
-        
-        let stamp = dailyHabitModel.castingStamp ?? Stamp.beige
-        habitCalendarCell.set(isWrtten: true)
-        habitCalendarCell.update(stampImage: stamp.defaultImage)
-        habitCalendarCell.clearNumberText()
+        if let dailyHabitResponseModel = self.dailyHabitModels[safe: indexPath.row] {
+            habitCalendarCell.setup(with: dailyHabitResponseModel)
+        } else {
+            self.setupCellWithNumbers(habitCalendarCell, with: indexPath)
+        }
         
         return habitCalendarCell
     }
     
-    private func makeCellWithNumbers(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) -> HabitCalendarCell {
-        self.makeCellHighlightedIfToday(with: indexPath, cell: habitCalendarCell)
+    private func setupCellWithNumbers(_ habitCalendarCell: HabitCalendarCell, with indexPath: IndexPath) {
+        let isToday = self.canCreateCurrentDailyHabitModel(with: indexPath.row)
+        if isToday {
+            habitCalendarCell.setupIsToday()
+        }
         
         habitCalendarCell.setup(numberText: self.numberText(with: indexPath))
-        return habitCalendarCell
-    }
-    
-    private func makeCellHighlightedIfToday(with indexPath: IndexPath, cell habitCalendarCell: HabitCalendarCell) {
-        guard self.canCreateCurrentDailyHabitModel(with: indexPath.row) else { return }
-        
-        habitCalendarCell.update(stampImage: UIImage(named: "stamp_today"))
-        habitCalendarCell.update(textColor: UIColor.red_3)
     }
     
     func numberText(with indexPath: IndexPath) -> String {
         return "\(indexPath.item + 1)"
-    }
-}
-
-extension HomeViewModel: FailPopupViewPresentable {
-    func update(isGiveUp: Bool) {
-        self.isGiveUp = isGiveUp
-    }
-    
-    var reasonTextOfFailPopupView: String? {
-        self.isGiveUp ? "사유: 습관 그만하기" : "사유: 습관 미루기 7회 이상"
     }
 }
