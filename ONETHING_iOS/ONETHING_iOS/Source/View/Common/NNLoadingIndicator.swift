@@ -9,7 +9,6 @@ import UIKit
 
 final class NNLoadingIndicator: UIActivityIndicatorView {
     private let defaultColor: UIColor = .red_default
-    private let defaultDelayTime: TimeInterval = 0.5
     private var delayTimer: Timer?
     
     
@@ -32,18 +31,7 @@ final class NNLoadingIndicator: UIActivityIndicatorView {
         self.color = self.defaultColor
     }
     
-    override func startAnimating() {
-        self.startAnimating(after: self.defaultDelayTime)
-    }
-    
-    override func stopAnimating() {
-        super.stopAnimating()
-        
-        self.delayTimer?.invalidate()
-        self.delayTimer = nil
-    }
-    
-    private func startAnimating(after delayTime: TimeInterval) {
+    func startAfterTime(_ delayTime: TimeInterval = 0.5) {
         self.delayTimer = Timer.scheduledTimer(withTimeInterval: delayTime, repeats: false, block: { [weak self] _ in
             guard let self = self else { return }
             self.startAnimating()
@@ -51,5 +39,11 @@ final class NNLoadingIndicator: UIActivityIndicatorView {
             self.delayTimer?.invalidate()
             self.delayTimer = nil
         })
+    }
+    
+    func stop() {
+        self.stopAnimating()
+        self.delayTimer?.invalidate()
+        self.delayTimer = nil
     }
 }

@@ -151,7 +151,7 @@ final class MyHabitViewController: BaseViewController {
         self.viewModel.loadingSubject
             .withUnretained(self)
             .subscribe(onNext: { owner, loading in
-                loading == true ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
+                loading == true ? owner.loadingIndicator.startAfterTime() : owner.loadingIndicator.stop()
             })
             .disposed(by: self.disposeBag)
     }
