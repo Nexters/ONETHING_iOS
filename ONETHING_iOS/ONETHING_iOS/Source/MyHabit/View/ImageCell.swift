@@ -16,7 +16,7 @@ final class ImageCell: UICollectionViewCell {
         self.imageView.contentMode = .scaleAspectFill
         self.clipsToBounds = true
         
-        self.addSubview(self.imageView)
+        self.contentView.addSubview(self.imageView)
         self.imageView.snp.makeConstraints({ make in
             make.edges.equalToSuperview()
         })

@@ -74,6 +74,17 @@ final class HabitHistoryViewModel {
         
         return dailyHabitsThatHasImage
     }
+    
+    var dailyHabitsThatHasDocuments: [DailyHabitResponseModel] {
+        let dailyHabitsThatHasDocuments = self.dailyHabitsRelay.value.filter { dailyHabitResponseModel in
+            let hasContent = dailyHabitResponseModel.hasDocument
+            if hasContent { return true }
+            else if dailyHabitResponseModel.isDelayStamp { return true }
+            else { return false }
+        }
+        
+        return dailyHabitsThatHasDocuments
+    }
 }
 
 extension HabitHistoryViewModel: TitleSubTitleConfirmViewModel {

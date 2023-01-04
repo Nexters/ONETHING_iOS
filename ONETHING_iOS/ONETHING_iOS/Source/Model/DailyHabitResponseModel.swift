@@ -5,7 +5,7 @@
 //  Created by sdean on 2021/08/03.
 //
 
-import Foundation
+import UIKit
 
 struct DailyHabitResponseModel: Codable, Equatable {
     var habitHistoryId: Int
@@ -33,10 +33,60 @@ struct DailyHabitResponseModel: Codable, Equatable {
         self.stampType = stampType
         self.content = content
         self.imageExtension = imageExtension
+            
     }
     
     var hasImageData: Bool {
         return self.imageExtension != nil
+    }
+    
+    var hasDocument: Bool {
+        return self.content != nil
+    }
+    
+    var statusText: String? {
+        guard let status = self.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return "성공"
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return "미룸"
+        }
+    }
+    
+    var statusColor: UIColor? {
+        guard let status = self.castingHabitStatus
+        else { return nil }
+        
+        switch status {
+            case .success:
+                return .red_default
+            case .delayPenalty:
+                fallthrough
+            case .delay:
+                return .mint_2
+        }
+    }
+    
+    var dateText: String? {
+        self.createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "yyyy-MM-dd")
+    }
+    
+    var timeText: String? {
+        self.createDateTime
+            .convertToDate(format: DailyHabitResponseModel.dateFormat)?
+            .convertString(format: "h:mm a", amSymbol: "AM", pmSymbol: "PM")
+    }
+    
+    var isDelayStamp: Bool {
+        let status = self.castingHabitStatus
+        return status == .delay || status == .delayPenalty
     }
 }
 

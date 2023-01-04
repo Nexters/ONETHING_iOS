@@ -65,9 +65,6 @@
 		89451F4D2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F4C2965F22100D45063 /* HabitImagesLayoutGuide.swift */; };
 		89451F4E2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F4C2965F22100D45063 /* HabitImagesLayoutGuide.swift */; };
 		89451F4F2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F4C2965F22100D45063 /* HabitImagesLayoutGuide.swift */; };
-		89451F512965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F502965F23600D45063 /* HabitDocumentsLayoutGuide.swift */; };
-		89451F522965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F502965F23600D45063 /* HabitDocumentsLayoutGuide.swift */; };
-		89451F532965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89451F502965F23600D45063 /* HabitDocumentsLayoutGuide.swift */; };
 		8950B4B428C882310063CD73 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950B4B328C882310063CD73 /* CardTransitionManager.swift */; };
 		8950B4B528C882310063CD73 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950B4B328C882310063CD73 /* CardTransitionManager.swift */; };
 		8950B4B628C882310063CD73 /* CardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8950B4B328C882310063CD73 /* CardTransitionManager.swift */; };
@@ -89,6 +86,9 @@
 		898766C62966040E00276BDF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C52966040E00276BDF /* ImageCell.swift */; };
 		898766C72966040E00276BDF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C52966040E00276BDF /* ImageCell.swift */; };
 		898766C82966040E00276BDF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C52966040E00276BDF /* ImageCell.swift */; };
+		898766CA2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
+		898766CB2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
+		898766CC2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
 		89A2337928E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
 		89A2337A28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
 		89A2337B28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
@@ -754,7 +754,6 @@
 		89451F432965E2EE00D45063 /* HabitDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDocumentsViewController.swift; sourceTree = "<group>"; };
 		89451F482965E80500D45063 /* HabitHistorySubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistorySubViewController.swift; sourceTree = "<group>"; };
 		89451F4C2965F22100D45063 /* HabitImagesLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitImagesLayoutGuide.swift; sourceTree = "<group>"; };
-		89451F502965F23600D45063 /* HabitDocumentsLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDocumentsLayoutGuide.swift; sourceTree = "<group>"; };
 		8950B4B328C882310063CD73 /* CardTransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransitionManager.swift; sourceTree = "<group>"; };
 		8950B4B728CF03AA0063CD73 /* HabitHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHistoryViewController.swift; sourceTree = "<group>"; };
 		8950B4BB28CF06740063CD73 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -762,6 +761,7 @@
 		8950B4C328CF1F4E0063CD73 /* MyHabitInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitInfoView.swift; sourceTree = "<group>"; };
 		896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLoadingIndicator.swift; sourceTree = "<group>"; };
 		898766C52966040E00276BDF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		898766C92966116500276BDF /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
 		89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLayoutGuide.swift; sourceTree = "<group>"; };
 		89A2338028E98F5A00F70558 /* HabitStampsLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampsLayoutGuide.swift; sourceTree = "<group>"; };
 		89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenVCParentable.swift; sourceTree = "<group>"; };
@@ -1074,7 +1074,6 @@
 			children = (
 				89A2338028E98F5A00F70558 /* HabitStampsLayoutGuide.swift */,
 				89451F4C2965F22100D45063 /* HabitImagesLayoutGuide.swift */,
-				89451F502965F23600D45063 /* HabitDocumentsLayoutGuide.swift */,
 			);
 			path = LayoutGuides;
 			sourceTree = "<group>";
@@ -1656,6 +1655,7 @@
 				89451F332965BC7900D45063 /* HabitTabBar.swift */,
 				89451F372965C9D100D45063 /* HabitTabButton.swift */,
 				898766C52966040E00276BDF /* ImageCell.swift */,
+				898766C92966116500276BDF /* DocumentCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2246,6 +2246,7 @@
 				CE0EE41327CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				89451F402965E2A100D45063 /* HabitImagesViewController.swift in Sources */,
 				5ADD33112786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
+				898766CA2966116500276BDF /* DocumentCell.swift in Sources */,
 				CE8FEDFC26B6EB5A0092DC0D /* AccountViewModel.swift in Sources */,
 				8950B4B828CF03AB0063CD73 /* HabitHistoryViewController.swift in Sources */,
 				CE7247DE2699D7C800BB2C19 /* BaseViewController.swift in Sources */,
@@ -2353,7 +2354,6 @@
 				CE3B8BC426A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CEC4D84126A479CD00633222 /* AlarmSettingView.swift in Sources */,
 				CE72475726998F2D00BB2C19 /* AppDelegate.swift in Sources */,
-				89451F512965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */,
 				F20E00DB26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				F25AE3662718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				CE38765026D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
@@ -2459,6 +2459,7 @@
 				CE0EE41527CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				89451F422965E2A100D45063 /* HabitImagesViewController.swift in Sources */,
 				5ADD33132786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
+				898766CC2966116500276BDF /* DocumentCell.swift in Sources */,
 				F2017A8626BBE79E009277A6 /* GoalSettingSecondViewModel.swift in Sources */,
 				8950B4BA28CF03AB0063CD73 /* HabitHistoryViewController.swift in Sources */,
 				CE3B8BC626A72B6B00BD529B /* UIFont+.swift in Sources */,
@@ -2566,7 +2567,6 @@
 				F2A614AB26A3F0F90061A17A /* BackBtnTitleView.swift in Sources */,
 				F25571A526A437DD005A1AAF /* ViewTag.swift in Sources */,
 				F25AE3682718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
-				89451F532965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */,
 				F20E00D726A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE38765226D0D3AB003BDCCA /* NoticeViewModel.swift in Sources */,
 				CECA073327D364F4008DCD21 /* MyHabitShareViewModel.swift in Sources */,
@@ -2656,6 +2656,7 @@
 				CE0EE41427CBA1F2003B7C0E /* MyHabitLayoutGuide.swift in Sources */,
 				89451F412965E2A100D45063 /* HabitImagesViewController.swift in Sources */,
 				5ADD33122786EF55007CE0C0 /* FakeAPIServiceForWriteSuccess.swift in Sources */,
+				898766CB2966116500276BDF /* DocumentCell.swift in Sources */,
 				F20B573826A7F0C900391D45 /* CircleView.swift in Sources */,
 				8950B4B928CF03AB0063CD73 /* HabitHistoryViewController.swift in Sources */,
 				F27E217826BBA1B200020EE3 /* UICollectionViewDataSource+.swift in Sources */,
@@ -2763,7 +2764,6 @@
 				F20E00D626A59870009A4AB3 /* UserAPI.swift in Sources */,
 				CE7247E02699D7DF00BB2C19 /* BaseViewController.swift in Sources */,
 				CEC4D79326A2B14200633222 /* GoalSettingSecondViewModel.swift in Sources */,
-				89451F522965F23600D45063 /* HabitDocumentsLayoutGuide.swift in Sources */,
 				F20E00DC26A64C25009A4AB3 /* DailyHabitView.swift in Sources */,
 				F25AE3672718359F009A59C6 /* SuccessPopupViewController.swift in Sources */,
 				F267F9A8269A387000219B05 /* ProgressView.swift in Sources */,
