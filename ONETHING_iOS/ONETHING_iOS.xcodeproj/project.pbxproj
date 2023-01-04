@@ -89,6 +89,9 @@
 		898766CA2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
 		898766CB2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
 		898766CC2966116500276BDF /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766C92966116500276BDF /* DocumentCell.swift */; };
+		898766CE2966224600276BDF /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766CD2966224600276BDF /* HistoryEmptyView.swift */; };
+		898766CF2966224600276BDF /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766CD2966224600276BDF /* HistoryEmptyView.swift */; };
+		898766D02966224600276BDF /* HistoryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898766CD2966224600276BDF /* HistoryEmptyView.swift */; };
 		89A2337928E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
 		89A2337A28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
 		89A2337B28E9868B00F70558 /* HomeVCLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */; };
@@ -762,6 +765,7 @@
 		896008F128A1540200D9B4E1 /* NNLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NNLoadingIndicator.swift; sourceTree = "<group>"; };
 		898766C52966040E00276BDF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		898766C92966116500276BDF /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
+		898766CD2966224600276BDF /* HistoryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryEmptyView.swift; sourceTree = "<group>"; };
 		89A2337828E9868B00F70558 /* HomeVCLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVCLayoutGuide.swift; sourceTree = "<group>"; };
 		89A2338028E98F5A00F70558 /* HabitStampsLayoutGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitStampsLayoutGuide.swift; sourceTree = "<group>"; };
 		89A2338428E9A42A00F70558 /* HabitWrittenVCParentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitWrittenVCParentable.swift; sourceTree = "<group>"; };
@@ -1656,6 +1660,7 @@
 				89451F372965C9D100D45063 /* HabitTabButton.swift */,
 				898766C52966040E00276BDF /* ImageCell.swift */,
 				898766C92966116500276BDF /* DocumentCell.swift */,
+				898766CD2966224600276BDF /* HistoryEmptyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2285,6 +2290,7 @@
 				F20B573326A7ED3400391D45 /* HabitStampCell.swift in Sources */,
 				CE466A7926D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEE8AB1426BE948B0012D21D /* MainTabbarViewModel.swift in Sources */,
+				898766CE2966224600276BDF /* HistoryEmptyView.swift in Sources */,
 				89451F4D2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */,
 				F2B571D526D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CECE2F2E27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
@@ -2498,6 +2504,7 @@
 				F271CF1B26B98B4A00C63CC0 /* HabitWrittenViewModel.swift in Sources */,
 				CE466A7B26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				F20B574F26A8298000391D45 /* BackgroundDimView.swift in Sources */,
+				898766D02966224600276BDF /* HistoryEmptyView.swift in Sources */,
 				89451F4F2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */,
 				F2B571D726D3E14F0059F75E /* DelayPopupView.swift in Sources */,
 				CECE2F3027D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,
@@ -2695,6 +2702,7 @@
 				CE466A7A26D3822200CE441B /* ProfileEditViewController.swift in Sources */,
 				CEC4D81A26A4162F00633222 /* OnethingUserManager.swift in Sources */,
 				F2B571D626D3E14F0059F75E /* DelayPopupView.swift in Sources */,
+				898766CF2966224600276BDF /* HistoryEmptyView.swift in Sources */,
 				89451F4E2965F22100D45063 /* HabitImagesLayoutGuide.swift in Sources */,
 				CE3B8BC526A72B6B00BD529B /* UIFont+.swift in Sources */,
 				CECE2F2F27D88E9E00D5C64A /* HabitShareUIType.swift in Sources */,

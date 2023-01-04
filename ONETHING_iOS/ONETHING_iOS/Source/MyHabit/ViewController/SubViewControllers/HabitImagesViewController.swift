@@ -16,6 +16,7 @@ final class HabitImagesViewController: UIViewController, HabitHistorySubViewCont
         frame: .zero,
         collectionViewLayout: HabitImagesLayoutGuide.collectionViewFlowLayout
     )
+    private let emptyView = HistoryEmptyView(guideImage: UIImage(named: "noimage_img")!, guideText: "등록한 인증샷이 없어요")
     
     let viewModel: HabitHistoryViewModel
     private let disposeBag = DisposeBag()
@@ -35,6 +36,21 @@ final class HabitImagesViewController: UIViewController, HabitHistorySubViewCont
         self.setupUI()
         self.setupLayout()
         self.bindUI()
+        
+        self.viewModel.dailyHabitsRelay
+            .withUnretained(self)
+            .subscribe(onNext: { owner, _ in
+                let isEmpty = owner.viewModel.dailyHabitsThatHasImage.count == 0
+                if isEmpty {
+                    self.collectionView.isHidden = true
+                    self.emptyView.isHidden = false
+                    return
+                }
+                
+                self.collectionView.isHidden = false
+                self.emptyView.isHidden = true
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func setupUI() {
@@ -46,11 +62,17 @@ final class HabitImagesViewController: UIViewController, HabitHistorySubViewCont
         }
         
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.emptyView)
     }
     
     private func setupLayout() {
         self.collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        self.emptyView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(150)
+            $0.centerX.equalToSuperview()
         }
     }
     
