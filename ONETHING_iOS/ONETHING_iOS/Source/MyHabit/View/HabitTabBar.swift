@@ -15,7 +15,7 @@ protocol HabitTabBarDelegate: AnyObject {
 }
 
 final class HabitTabBar: UIView {
-    private var currentIndex: Int = 0 {
+    private(set) var currentIndex: Int = 0 {
         didSet {
             self.updateTabButtons()
         }

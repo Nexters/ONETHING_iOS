@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct HabitHistoryLayoutGuide {
+struct HabitStampsLayoutGuide {
     static var collectionViewFlowLayout: UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = self.collectionViewItemSize
