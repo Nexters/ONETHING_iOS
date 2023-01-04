@@ -17,6 +17,7 @@ protocol HabitHistoryViewControllerDelegate: AnyObject {
 final class HabitHistoryViewController: UIViewController, HabitWrittentVCParentable {
     let backgroundDimView = BackgroundDimView()
     private let myHabitInfoView = MyHabitInfoView()
+    private let habitTabBar = HabitTabBar()
     private let collectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: HabitHistoryLayoutGuide.collectionViewFlowLayout)
@@ -32,6 +33,7 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             self.myHabitInfoView.isHidden = self.viewsAreHidden
             self.view.backgroundColor = self.viewsAreHidden ? .clear : .white
             self.viewsAreHidden == true ? self.collectionView.isHidden = true : self.collectionView.showCrossDissolve()
+            self.viewsAreHidden == true ? self.habitTabBar.isHidden = true : self.habitTabBar.showCrossDissolve()
         }
     }
     
@@ -72,10 +74,15 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             $0.registerCell(cellType: HabitCalendarCell.self)
             $0.registerCell(cellType: UICollectionViewCell.self)
         }
+        
+        self.habitTabBar.do {
+            $0.delegate = self
+        }
      
         self.view.addSubview(self.loadingIndicator)
         self.view.addSubview(self.myHabitInfoView)
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.habitTabBar)
         self.view.addSubview(self.backgroundDimView)
     }
     
@@ -92,6 +99,11 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.myHabitInfoView.snp.bottom)
             $0.bottom.equalToSuperview()
+        }
+        
+        self.habitTabBar.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.myHabitInfoView.snp.bottom)
         }
         
         self.backgroundDimView.snp.makeConstraints {
@@ -147,6 +159,12 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             })
             .disposed(by: self.disposeBag)
         return tapGestureRecognizer
+    }
+}
+
+extension HabitHistoryViewController: HabitTabBarDelegate {
+    func foo() {
+        #warning("구현하자")
     }
 }
 
