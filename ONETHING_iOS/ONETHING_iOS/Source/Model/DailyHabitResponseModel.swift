@@ -34,6 +34,10 @@ struct DailyHabitResponseModel: Codable, Equatable {
         self.content = content
         self.imageExtension = imageExtension
     }
+    
+    var hasImageData: Bool {
+        return self.imageExtension != nil
+    }
 }
 
 extension DailyHabitResponseModel {

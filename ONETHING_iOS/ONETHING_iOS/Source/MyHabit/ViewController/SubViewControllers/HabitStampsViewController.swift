@@ -16,9 +16,10 @@ protocol HabitHistorySubViewControllerDelegate: AnyObject {
 final class HabitStampsViewController: UIViewController, HabitHistorySubViewController {
     weak var delegate: HabitHistorySubViewControllerDelegate?
     
-    private let collectionView = UICollectionView(
+    let collectionView = UICollectionView(
         frame: .zero,
-        collectionViewLayout: HabitStampsLayoutGuide.collectionViewFlowLayout)
+        collectionViewLayout: HabitStampsLayoutGuide.collectionViewFlowLayout
+    )
     
     let viewModel: HabitHistoryViewModel
     private let disposeBag = DisposeBag()

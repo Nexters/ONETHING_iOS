@@ -9,5 +9,6 @@ import UIKit
 
 protocol HabitHistorySubViewController: UIViewController {
     var viewModel: HabitHistoryViewModel { get }
+    var collectionView: UICollectionView { get }
     var delegate: HabitHistorySubViewControllerDelegate? { get set }
 }

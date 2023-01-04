@@ -9,13 +9,16 @@ import UIKit
 
 final class HabitDocumentsViewController: UIViewController, HabitHistorySubViewController {
     weak var delegate: HabitHistorySubViewControllerDelegate?
+    
+    let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: HabitDocumentsLayoutGuide.collectionViewFlowLayout
+    )
     let viewModel: HabitHistoryViewModel
     
     init(viewModel: HabitHistoryViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        
-        self.view.backgroundColor = .systemRed
     }
     
     required init?(coder: NSCoder) {

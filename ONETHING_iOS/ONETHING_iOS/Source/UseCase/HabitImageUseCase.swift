@@ -16,7 +16,9 @@ final class HabitImageUseCase {
     private let apiService: APIServiceType
     private let disposeBag = DisposeBag()
     
-    init(imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default,
+    static let shared = HabitImageUseCase()
+    
+    private init(imageCache: Kingfisher.ImageCache = Kingfisher.ImageCache.default,
          apiService: APIServiceType = APIService.shared) {
         self.imageCache = imageCache
         self.apiService = apiService
