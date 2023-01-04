@@ -165,7 +165,66 @@ extension HabitHistoryViewController: UICollectionViewDataSource {
             habitCalendarCell.setup(numberText: "\(indexPath.item + 1)")
         }
         
+        if self.isLastCellAndSucceedStamp(indexPath: indexPath) {
+            self.addSuccessSpeechView(to: habitCalendarCell)
+        }
+        
         return habitCalendarCell
+    }
+}
+
+//MARK: - Related Last Cell
+extension HabitHistoryViewController {
+    private func addSuccessSpeechView(to habitCalendarCell: HabitCalendarCell) {
+        let sucessSpeechView: UIImageView = {
+            let view = UIImageView()
+            view.image = UIImage(named: "success_speech_bubble")
+            view.contentMode = .scaleAspectFit
+            return view
+        }()
+        
+        habitCalendarCell.addSubview(sucessSpeechView)
+        sucessSpeechView.snp.makeConstraints({ make in
+            make.leading.equalTo(habitCalendarCell.snp.trailing).offset(20)
+            make.centerY.equalToSuperview()
+        })
+    }
+    
+    private func isLastCellAndSucceedStamp(indexPath: IndexPath) -> Bool {
+        guard self.isLastCell(with: indexPath) else {
+            return false
+        }
+        
+        guard self.isSuccessHabitStatus else {
+            return false
+        }
+            
+        guard self.isSucceedStampForLast else {
+            return false
+        }
+            
+        return true
+    }
+    
+    private func isLastCell(with indexPath: IndexPath) -> Bool {
+        let lastIndex = HabitHistoryViewModel.defaultTotalDays - 1
+        return indexPath.row == lastIndex
+    }
+    
+    private var isSuccessHabitStatus: Bool {
+        guard let habitStatus = self.viewModel.habitInfoViewModel.presentable?.onethingHabitStatus
+        else { return false }
+        
+        return habitStatus == .success
+    }
+    
+    private var isSucceedStampForLast: Bool {
+        let lastIndex = HabitHistoryViewModel.defaultTotalDays - 1
+        guard let dailyHabitModelOfLast = self.viewModel.dailyHabitResponseModel(at: lastIndex)
+        else { return false }
+        
+        let stampOfLast = dailyHabitModelOfLast.castingStamp
+        return stampOfLast != .delay
     }
 }
 
