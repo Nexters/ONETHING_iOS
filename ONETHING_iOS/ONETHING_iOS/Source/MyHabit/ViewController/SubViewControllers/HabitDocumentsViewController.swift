@@ -14,6 +14,8 @@ final class HabitDocumentsViewController: UIViewController, HabitHistorySubViewC
     init(viewModel: HabitHistoryViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        
+        self.view.backgroundColor = .systemRed
     }
     
     required init?(coder: NSCoder) {

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol HabitTabBarDelegate: AnyObject {
-    func foo()
+    func habitTabBarDidTap(_ habitTabBar: HabitTabBar, selectedIndex: Int)
 }
 
 final class HabitTabBar: UIView {
@@ -40,7 +40,7 @@ final class HabitTabBar: UIView {
             .withUnretained(self)
             .subscribe(onNext: { owner, index in
                 owner.currentIndex = index
-                owner.delegate?.foo()
+                owner.delegate?.habitTabBarDidTap(owner, selectedIndex: index)
             })
             .disposed(by: self.disposeBag)
         
@@ -59,6 +59,10 @@ final class HabitTabBar: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    func updateCurrentIndex(_ index: Int) {
+        self.currentIndex = index
     }
     
     private func setupStackView() {

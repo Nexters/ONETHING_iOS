@@ -183,14 +183,33 @@ extension HabitHistoryViewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
-        return nil
+        guard let index = self.subViewControllers.map({ subViewController -> UIViewController in
+            return subViewController
+        }).firstIndex(of: viewController)
+        else { return nil }
+
+        let previousIndex = index - 1
+        if previousIndex < 0 {
+            return nil
+        } else {
+            return self.subViewControllers[safe: previousIndex]
+        }
     }
     
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
-        return nil
+        guard let index = self.subViewControllers.map({ subViewController -> UIViewController in
+            return subViewController
+        }).firstIndex(of: viewController) else { return nil }
+        
+        let nextIndex = index + 1
+        if nextIndex == self.subViewControllers.count {
+            return nil
+        } else {
+            return self.subViewControllers[safe: nextIndex]
+        }
     }
 }
 
@@ -201,13 +220,14 @@ extension HabitHistoryViewController: UIPageViewControllerDelegate {
         previousViewControllers: [UIViewController],
         transitionCompleted completed: Bool
     ) {
-    
+        guard let currentIndexOfPage = self.currentIndexOfPage else { return }
+        self.habitTabBar.updateCurrentIndex(currentIndexOfPage)
     }
 }
 
 extension HabitHistoryViewController: HabitTabBarDelegate {
-    func foo() {
-        #warning("구현하자")
+    func habitTabBarDidTap(_ habitTabBar: HabitTabBar, selectedIndex: Int) {
+        self.changePage(to: selectedIndex)
     }
 }
 

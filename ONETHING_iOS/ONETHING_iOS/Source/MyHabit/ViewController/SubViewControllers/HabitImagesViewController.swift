@@ -14,6 +14,8 @@ final class HabitImagesViewController: UIViewController, HabitHistorySubViewCont
     init(viewModel: HabitHistoryViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        
+        self.view.backgroundColor = .systemBlue
     }
     
     required init?(coder: NSCoder) {
