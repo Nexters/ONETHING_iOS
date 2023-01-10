@@ -118,7 +118,7 @@ final class ProfileViewController: BaseViewController {
             .distinctUntilChanged()
             .withUnretained(self)
             .observeOnMain(onNext: { owner, loading in
-                loading ? owner.loadingIndicator.startAnimating() : owner.loadingIndicator.stopAnimating()
+                loading ? owner.loadingIndicator.startAfterTime() : owner.loadingIndicator.stop()
             }).disposed(by: self.disposeBag)
     }
     
