@@ -17,9 +17,33 @@ protocol HabitHistoryViewControllerDelegate: AnyObject {
 final class HabitHistoryViewController: UIViewController, HabitWrittentVCParentable {
     let backgroundDimView = BackgroundDimView()
     private let myHabitInfoView = MyHabitInfoView()
-    private let collectionView = UICollectionView(
-        frame: .zero,
-        collectionViewLayout: HabitHistoryLayoutGuide.collectionViewFlowLayout)
+    private let habitTabBar = HabitTabBar()
+    private let containerView = UIView()
+    private lazy var pageViewController: UIPageViewController = {
+        let pageVC = UIPageViewController(
+            transitionStyle: .scroll,
+            navigationOrientation: .horizontal
+        )
+        pageVC.view.frame = self.containerView.bounds
+        pageVC.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        pageVC.didMove(toParent: self)
+        pageVC.dataSource = self
+        pageVC.delegate = self
+        return pageVC
+    }()
+    private lazy var subViewControllers: [HabitHistorySubViewController] = {
+        let subViewControllers: [HabitHistorySubViewController] = [
+            HabitStampsViewController(viewModel: self.viewModel),
+            HabitImagesViewController(viewModel: self.viewModel),
+            HabitDocumentsViewController(viewModel: self.viewModel)
+        ]
+        
+        subViewControllers.forEach {
+            $0.delegate = self
+        }
+        
+        return subViewControllers
+    }()
     private var loadingIndicator = UIActivityIndicatorView(style: .medium)
     
     
@@ -31,7 +55,8 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
         didSet {
             self.myHabitInfoView.isHidden = self.viewsAreHidden
             self.view.backgroundColor = self.viewsAreHidden ? .clear : .white
-            self.viewsAreHidden == true ? self.collectionView.isHidden = true : self.collectionView.showCrossDissolve()
+            self.viewsAreHidden == true ? self.habitTabBar.isHidden = true : self.habitTabBar.showCrossDissolve()
+            self.viewsAreHidden == true ? self.containerView.isHidden = true : self.containerView.showCrossDissolve()
         }
     }
     
@@ -50,10 +75,9 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
         self.setupUI()
         self.setupLayout()
         self.myHabitInfoView.update(with: self.viewModel.habitInfoViewModel)
-        self.bindUI()
         
-        self.observeViewModel()
         self.viewModel.fetchDailyHabits()
+        self.changePage(to: 0)
     }
     
     private func setupUI() {
@@ -66,16 +90,15 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             $0.delegate = self
         }
         
-        self.collectionView.do {
-            $0.dataSource = self
-            $0.backgroundColor = .clear
-            $0.registerCell(cellType: HabitCalendarCell.self)
-            $0.registerCell(cellType: UICollectionViewCell.self)
+        self.habitTabBar.do {
+            $0.delegate = self
         }
      
         self.view.addSubview(self.loadingIndicator)
         self.view.addSubview(self.myHabitInfoView)
-        self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.containerView)
+        self.containerView.addSubview(self.pageViewController.view)
+        self.view.addSubview(self.habitTabBar)
         self.view.addSubview(self.backgroundDimView)
     }
     
@@ -88,44 +111,20 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
             make.top.leading.trailing.equalToSuperview()
         })
         
-        self.collectionView.snp.makeConstraints {
+        self.habitTabBar.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.top.equalTo(self.myHabitInfoView.snp.bottom)
+        }
+        
+        self.containerView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.habitTabBar.snp.bottom)
             $0.bottom.equalToSuperview()
         }
         
         self.backgroundDimView.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
-    }
-    
-    private func bindUI() {
-        self.collectionView.rx.itemSelected
-            .withUnretained(self)
-            .subscribe(onNext: { owner, indexPath in
-                guard let responseModel = owner.viewModel.dailyHabitsRelay.value[safe: indexPath.item],
-                      let sentenceForDelay = owner.viewModel.presentable?.sentenceForDelay
-                else {
-                    return
-                }
-                
-                let dailyHabitModel = DailyHabitModel(
-                    order: indexPath.item + 1,
-                    sentenceForDelay: sentenceForDelay,
-                    responseModel: responseModel
-                )
-                owner.routeToHabitWrittenViewController(with: dailyHabitModel)
-            }).disposed(by: self.disposeBag)
-    }
-    
-    private func observeViewModel() {
-        self.viewModel
-            .dailyHabitsRelay
-            .withUnretained(self)
-            .subscribe(onNext: { owner, _ in
-                owner.collectionView.reloadData()
-            })
-            .disposed(by: self.disposeBag)
     }
     
     private func routeToHabitWrittenViewController(with dailyHabitModel: DailyHabitModel) {
@@ -150,22 +149,85 @@ final class HabitHistoryViewController: UIViewController, HabitWrittentVCParenta
     }
 }
 
-extension HabitHistoryViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return HabitHistoryViewModel.defaultTotalDays
+extension HabitHistoryViewController: HabitHistorySubViewControllerDelegate {
+    func didTapDailyHabit(_ viewController: HabitHistorySubViewController, dailyHabitModel: DailyHabitModel) {
+        self.routeToHabitWrittenViewController(with: dailyHabitModel)
+    }
+}
+
+extension HabitHistoryViewController: UIPageViewControllerDataSource {
+    private func changePage(to nextIndexOfPage: Int, completion: ((Bool) -> Void)? = nil) {
+        guard let destinationSubViewController = self.subViewControllers[safe: nextIndexOfPage]
+        else { return }
+        
+        let currentIndexOfPage = self.currentIndexOfPage ?? 0
+        DispatchQueue.main.async {
+            self.pageViewController.setViewControllers(
+                [destinationSubViewController],
+                direction: (currentIndexOfPage < nextIndexOfPage) ? .forward : .reverse,
+                animated: true,
+                completion: completion
+            )
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let habitCalendarCell = collectionView.dequeueReusableCell(cell: HabitCalendarCell.self, forIndexPath: indexPath)
-        else { return self.defaultCell(collectionView: collectionView, indexPath: indexPath) }
+    private var currentIndexOfPage: Int? {
+        guard let currentVC = self.pageViewController.viewControllers?.first else { return nil }
         
-        if let dailyHabitResponseModel = self.viewModel.dailyHabitResponseModel(at: indexPath.row) {
-            habitCalendarCell.setup(with: dailyHabitResponseModel)
+        return self.subViewControllers.map({ subViewController -> UIViewController in
+            return subViewController
+        }).firstIndex(of: currentVC)
+    }
+    
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerBefore viewController: UIViewController
+    ) -> UIViewController? {
+        guard let index = self.subViewControllers.map({ subViewController -> UIViewController in
+            return subViewController
+        }).firstIndex(of: viewController)
+        else { return nil }
+
+        let previousIndex = index - 1
+        if previousIndex < 0 {
+            return nil
         } else {
-            habitCalendarCell.setup(numberText: "\(indexPath.item + 1)")
+            return self.subViewControllers[safe: previousIndex]
         }
+    }
+    
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        viewControllerAfter viewController: UIViewController
+    ) -> UIViewController? {
+        guard let index = self.subViewControllers.map({ subViewController -> UIViewController in
+            return subViewController
+        }).firstIndex(of: viewController) else { return nil }
         
-        return habitCalendarCell
+        let nextIndex = index + 1
+        if nextIndex == self.subViewControllers.count {
+            return nil
+        } else {
+            return self.subViewControllers[safe: nextIndex]
+        }
+    }
+}
+
+extension HabitHistoryViewController: UIPageViewControllerDelegate {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        guard let currentIndexOfPage = self.currentIndexOfPage else { return }
+        self.habitTabBar.updateCurrentIndex(currentIndexOfPage)
+    }
+}
+
+extension HabitHistoryViewController: HabitTabBarDelegate {
+    func habitTabBarDidTap(_ habitTabBar: HabitTabBar, selectedIndex: Int) {
+        self.changePage(to: selectedIndex)
     }
 }
 

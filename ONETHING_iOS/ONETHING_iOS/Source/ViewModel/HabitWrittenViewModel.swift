@@ -13,7 +13,7 @@ import Kingfisher
 
 final class HabitWrittenViewModel: DailyHabitViewModelable {
     private let dailyHabitModel: DailyHabitModel
-    private let imageUseCase = HabitImageUseCase()
+    private let imageUseCase = HabitImageUseCase.shared
     private let imageCache: Kingfisher.ImageCache
     
     init(dailyHabitModel: DailyHabitModel,

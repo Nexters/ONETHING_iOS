@@ -1,13 +1,13 @@
 //
-//  HabitHistoryLayoutGuide.swift
+//  HabitImagesLayoutGuide.swift
 //  ONETHING_iOS
 //
-//  Created by 김도형 on 02/10/2022.
+//  Created by 김도형 on 05/01/2023.
 //
 
 import UIKit
 
-struct HabitHistoryLayoutGuide {
+struct HabitImagesLayoutGuide {
     static var collectionViewFlowLayout: UICollectionViewFlowLayout {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.itemSize = self.collectionViewItemSize
@@ -19,13 +19,13 @@ struct HabitHistoryLayoutGuide {
     }
     
     static var numberOfColumns: Int {
-        return 5
+        return 3
     }
     
     private static var cellDiameter: CGFloat {
         let leftConstant = self.collectionViewSectionInset.left
         let rightConstant = self.collectionViewSectionInset.right
-        let innerConstant: CGFloat = 20.0
+        let innerConstant: CGFloat = Self.collectionViewMinimumInteritemSpacing
         let totalInnerConstant = CGFloat(Self.numberOfColumns - 1) * innerConstant
         let totalWidthOfHabitsForRow: CGFloat = DeviceInfo.screenWidth - leftConstant - rightConstant - totalInnerConstant
         
@@ -38,14 +38,15 @@ struct HabitHistoryLayoutGuide {
     }
     
     static var collectionViewSectionInset: UIEdgeInsets {
-        return UIEdgeInsets(top: 30, left: 32, bottom: 30, right: 32)
+        return .zero
     }
     
     static var collectionViewMinimumLineSpacing: CGFloat {
-        return 20
+        return 2
     }
     
     static var collectionViewMinimumInteritemSpacing: CGFloat {
-        return 20
+        return 2.67
     }
 }
+

@@ -66,6 +66,25 @@ final class HabitHistoryViewModel {
             self.completeSubject.onNext(Void())
         }).disposed(by: self.disposeBag)
     }
+    
+    var dailyHabitsThatHasImage: [DailyHabitResponseModel] {
+        let dailyHabitsThatHasImage = self.dailyHabitsRelay.value.filter { dailyHabitResponseModel in
+            return dailyHabitResponseModel.hasImageData
+        }
+        
+        return dailyHabitsThatHasImage
+    }
+    
+    var dailyHabitsThatHasDocuments: [DailyHabitResponseModel] {
+        let dailyHabitsThatHasDocuments = self.dailyHabitsRelay.value.filter { dailyHabitResponseModel in
+            let hasContent = dailyHabitResponseModel.hasDocument
+            if hasContent { return true }
+            else if dailyHabitResponseModel.isDelayStamp { return true }
+            else { return false }
+        }
+        
+        return dailyHabitsThatHasDocuments
+    }
 }
 
 extension HabitHistoryViewModel: TitleSubTitleConfirmViewModel {
