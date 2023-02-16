@@ -146,7 +146,7 @@ final class HomeViewController: BaseViewController, HabitWrittentVCParentable {
         self.collectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 self?.habitCalendarCellDidSelect(with: indexPath)
-            }).disposed(by: disposeBag)
+            }).disposed(by: self.disposeBag)
     }
     
     private func bindViewModel() {

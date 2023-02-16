@@ -136,7 +136,7 @@ final class HabitWritingViewController: BaseViewController {
     private func bindingButtons() {
         self.backBtnTitleView.backButton.rx.tap.observeOnMain { [weak self] in
             self?.navigationController?.popViewController(animated: true)
-        }.disposed(by: disposeBag)
+        }.disposed(by: self.disposeBag)
         
         self.completeButton.rx.tap.observeOnMain { [weak self] in
             guard let self = self else { return }

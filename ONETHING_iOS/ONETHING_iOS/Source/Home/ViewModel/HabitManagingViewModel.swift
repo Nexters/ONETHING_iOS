@@ -10,7 +10,7 @@ import UIKit
 import RxRelay
 import RxSwift
 
-final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
+final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable, FailPopupViewPresentable {
     let menuRelay = BehaviorRelay(value: HabitManagingViewModel.Menu.allCases)
     private(set) var habitInProgressModel: HabitResponseModel?
     let loadingSubject = PublishSubject<Bool>()
@@ -75,12 +75,6 @@ final class HabitManagingViewModel: GiveUpWarningPopupViewPresentable {
                 return "습관 그만하기"
             }
         }
-    }
-}
-
-extension HabitManagingViewModel: FailPopupViewPresentable {
-    var reasonTextOfFailPopupView: String? {
-        return "사유: 습관 그만하기"
     }
 }
 

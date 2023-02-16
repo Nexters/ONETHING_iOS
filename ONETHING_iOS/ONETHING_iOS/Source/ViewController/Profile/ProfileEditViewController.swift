@@ -24,7 +24,9 @@ final class ProfileEditViewController: UIViewController {
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
         
-        self.saveButton.rx.tap.subscribe(onNext: {
+        self.saveButton.rx.tap.subscribe(onNext: { [weak self] in
+            guard let self = self else { return }
+            
             if self.nicknameTextField.text?.count == 0 {
                 guard let customPopupView: CustomPopupView = UIView.createFromNib() else { return }
                 customPopupView.configure(title: "닉네임을 적어주세요.", image: #imageLiteral(resourceName: "prepare_rabbit"))

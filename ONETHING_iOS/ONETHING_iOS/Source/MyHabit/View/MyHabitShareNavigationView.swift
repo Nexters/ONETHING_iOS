@@ -63,7 +63,7 @@ class MyHabitShareNavigationView: UIView {
         self.closeButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                self.delegate?.myHabitShareNavigationView(owner, didOccur: .closeButton)
+                owner.delegate?.myHabitShareNavigationView(owner, didOccur: .closeButton)
             })
             .disposed(by: self.disposeBag)
     }

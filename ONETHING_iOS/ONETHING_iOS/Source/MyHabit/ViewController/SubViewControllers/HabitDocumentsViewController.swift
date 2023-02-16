@@ -40,13 +40,13 @@ final class HabitDocumentsViewController: UIViewController, HabitHistorySubViewC
             .subscribe(onNext: { owner, _ in
                 let isEmpty = owner.viewModel.dailyHabitsThatHasDocuments.count == 0
                 if isEmpty {
-                    self.collectionView.isHidden = true
-                    self.emptyView.isHidden = false
+                    owner.collectionView.isHidden = true
+                    owner.emptyView.isHidden = false
                     return
                 }
                 
-                self.collectionView.isHidden = false
-                self.emptyView.isHidden = true
+                owner.collectionView.isHidden = false
+                owner.emptyView.isHidden = true
             })
             .disposed(by: self.disposeBag)
     }

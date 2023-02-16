@@ -137,21 +137,21 @@ final class MyHabitInfoView: UIView {
         self.backButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                self.delegate?.myHabitInfoView(owner, didOccur: .backButton)
+                owner.delegate?.myHabitInfoView(owner, didOccur: .backButton)
             })
             .disposed(by: self.disposeBag)
         
         self.shareButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                self.delegate?.myHabitInfoView(owner, didOccur: .share)
+                owner.delegate?.myHabitInfoView(owner, didOccur: .share)
             })
             .disposed(by: self.disposeBag)
         
         self.deleteButton.rx.tap
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                self.delegate?.myHabitInfoView(owner, didOccur: .delete)
+                owner.delegate?.myHabitInfoView(owner, didOccur: .delete)
             })
             .disposed(by: self.disposeBag)
     }
